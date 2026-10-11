@@ -1274,6 +1274,7 @@ function toSvg(s){
                     const kaOn = r.ka_enabled === '1';
                     const kaStatus = kaOn ? '已开启 · ' + (r.ka_days || 3) + '天' : '未开启';
                     const kaLast = r.last_ka_result ? ((r.last_ka_result === 'success' ? '✅ ' : '❌ ') + (r.last_ka_detail || '')) : '暂无记录';
+                    const kaNext = r.last_ka_run ? new Date(r.last_ka_run).getTime() + Math.max(0.1, parseFloat(r.ka_days) || 3) * 86400000 : 0;
 
                     //  接收后端传来的：单节点独立宽带与请求统计数据
                     const todayBw = r.todayBandwidth || '0 B';
@@ -1350,6 +1351,10 @@ function toSvg(s){
                                 <div class="info-row">
                                     <span class="info-label">自动保活:</span>
                                     <span style="color:\${kaOn ? '#34c759' : 'var(--text-sec)'}; font-weight:600;">\${kaStatus}</span>
+                                </div>
+                                <div class="info-row">
+                                    <span class="info-label">下次保活:</span>
+                                    <span class="ka-cd" data-ka-next="\${kaNext}" style="color:var(--text-sec);">待首次执行</span>
                                 </div>
                                 <div class="info-row">
                                     <span class="info-label">上次保活:</span>
@@ -1525,6 +1530,59 @@ function toSvg(s){
             load();
         }
         function closeKaModal() { document.getElementById('kaModal').style.display = 'none'; }
+
+        /* 保活结果通知 toast */
+        function kaToast(msg, ok) {
+            let box = document.getElementById('kaToastBox');
+            if (!box) {
+                box = document.createElement('div');
+                box.id = 'kaToastBox';
+                box.style.cssText = 'position:fixed;top:14px;right:14px;z-index:99999;display:flex;flex-direction:column;gap:8px;';
+                document.body.appendChild(box);
+            }
+            const el = document.createElement('div');
+            el.style.cssText = 'background:' + (ok ? '#34c759' : '#ff3b30') + ';color:#fff;padding:10px 14px;border-radius:10px;font-size:13px;box-shadow:0 4px 16px rgba(0,0,0,.2);max-width:300px;word-break:break-all;';
+            el.textContent = msg;
+            box.appendChild(el);
+            setTimeout(() => { el.style.transition = 'opacity .3s'; el.style.opacity = '0'; setTimeout(() => el.remove(), 320); }, 2800);
+        }
+
+        /* 保活倒计时 */
+        function kaFmtRemain(ms) {
+            if (ms <= 0) return '已到期，等待执行';
+            const d = Math.floor(ms / 86400000), h = Math.floor(ms % 86400000 / 3600000), m = Math.floor(ms % 3600000 / 60000), s = Math.floor(ms % 60000 / 1000);
+            if (d > 0) return d + '天' + h + '小时';
+            if (h > 0) return h + '小时' + m + '分';
+            if (m > 0) return m + '分' + s + '秒';
+            return s + '秒';
+        }
+        function updateKaCountdown() {
+            document.querySelectorAll('.ka-cd[data-ka-next]').forEach(el => {
+                const next = parseInt(el.getAttribute('data-ka-next'), 10);
+                if (!next) { el.textContent = '待首次执行'; return; }
+                const remain = next - Date.now();
+                el.textContent = remain <= 0 ? '已到期，等待执行' : kaFmtRemain(remain);
+            });
+        }
+        setInterval(updateKaCountdown, 1000);
+
+        /* 保活结果通知轮询 */
+        let kaNoticeInited = false, lastKaNoticeT = 0;
+        async function pollKaNotices() {
+            try {
+                const res = await fetch('/api/keepalive/notices');
+                const d = await res.json();
+                const list = (d.notices || []);
+                if (!kaNoticeInited) { lastKaNoticeT = list.reduce((m, n) => Math.max(m, n.time || 0), 0); kaNoticeInited = true; return; }
+                for (const n of list) {
+                    if (n.time && n.time > lastKaNoticeT) {
+                        lastKaNoticeT = Math.max(lastKaNoticeT, n.time);
+                        kaToast((n.result === '成功' ? '✅' : '❌') + ' 保活' + (n.result === '成功' ? '成功' : '失败') + ' /' + n.prefix + '：' + (n.detail || ''), n.result === '成功');
+                    }
+                }
+            } catch (e) {}
+        }
+        setInterval(pollKaNotices, 15000);
 
         function rexImport(prefix) {
             const r = (window.globalRoutesData || []).find(x => x.prefix === prefix) || {};
@@ -2888,6 +2946,18 @@ async function runKeepAlive(env, route) {
   return { ok: failed < steps.length / 2, msg: '保活完成（' + steps.length + ' 步，' + failed + ' 步异常）', steps };
 }
 /** 定时检查：找出最先到期的开启保活节点执行（每 tick 只跑一个，避免并发打爆上游与超时） */
+async function pushKaNotice(env, prefix, ok, detail) {
+  try {
+    if (!env || !env.DB) return;
+    const row = await env.DB.prepare("SELECT value FROM app_config WHERE key = 'ka_notices'").first();
+    let list = [];
+    try { if (row && row.value) list = JSON.parse(row.value); } catch (e) {}
+    list.unshift({ time: Date.now(), prefix: String(prefix || ''), result: ok ? '成功' : '失败', detail: String(detail || '').slice(0, 180) });
+    if (list.length > 30) list.length = 30;
+    await env.DB.prepare('INSERT OR REPLACE INTO app_config (key, value) VALUES (?, ?)').bind('ka_notices', JSON.stringify(list)).run();
+  } catch (e) {}
+}
+
 async function checkKeepAliveSchedule(env) {
   try {
     const { results: routes } = await env.DB.prepare(`SELECT * FROM routes WHERE ka_enabled = '1'`).all();
@@ -2907,6 +2977,7 @@ async function checkKeepAliveSchedule(env) {
     const result = await runKeepAlive(env, route);
     await env.DB.prepare('UPDATE routes SET last_ka_run = ?, last_ka_result = ?, last_ka_detail = ? WHERE prefix = ?')
       .bind(new Date().toISOString(), result.ok ? 'success' : 'fail', result.msg || '', route.prefix).run();
+    await pushKaNotice(env, route.prefix, result.ok, result.msg);
   } catch (e) {}
 }
 
@@ -3678,6 +3749,16 @@ if (ROLE !== 'admin') return new Response('Forbidden', { status: 403 });
             } catch (e) { return Response.json({ running: false }); }
         }
 
+        if (url.pathname === '/api/keepalive/notices' && request.method === 'GET') {
+            if (ROLE !== 'admin') return new Response('Forbidden', { status: 403 });
+            let list = [];
+            try {
+                const row = await env.DB.prepare("SELECT value FROM app_config WHERE key = 'ka_notices'").first();
+                if (row && row.value) list = JSON.parse(row.value);
+            } catch (e) {}
+            return Response.json({ notices: (list || []).slice(0, 20) });
+        }
+
         if (url.pathname === '/api/keepalive/run' && request.method === 'POST') {
             if (ROLE !== 'admin') return new Response('Forbidden', { status: 403 });
             if (!env.DB) return Response.json({ success: false, error: '未绑定 D1 数据库' });
@@ -3692,6 +3773,7 @@ if (ROLE !== 'admin') return new Response('Forbidden', { status: 403 });
                 const result = await runKeepAlive(env, route);
                 await env.DB.prepare('UPDATE routes SET last_ka_run = ?, last_ka_result = ?, last_ka_detail = ? WHERE prefix = ?')
                     .bind(new Date().toISOString(), result.ok ? 'success' : 'fail', result.msg || '', prefix).run();
+                await pushKaNotice(env, prefix, result.ok, result.msg);
                 await env.DB.prepare('INSERT OR REPLACE INTO app_config (key, value) VALUES (?, ?)')
                     .bind('ka_live', JSON.stringify({ running: false, prefix: prefix, current: '', steps: result.steps || [], msg: result.msg || '', progress: 100, mediaTitle: '', updatedAt: Date.now() })).run();
                 return Response.json(result);

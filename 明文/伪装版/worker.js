@@ -1,7 +1,7 @@
-// VERSION: 3.2.2
+// VERSION: 3.2.5
 //  面板核心配置区 (放在最顶端方便修改)
-const CURRENT_VERSION = "3.2.2"; 
-const GITHUB_RAW_URL = "https://raw.githubusercontent.com/MakkaPakka518/ProxyHub_Emby/refs/heads/FAKE/worker.js";
+const CURRENT_VERSION = "3.2.5"; 
+const GITHUB_RAW_URL = "https://raw.githubusercontent.com/MakkaPakka518/EmbyProxy-CF-FAKE/refs/heads/main/worker.js";
 
 // ==========================================
 // 1. 网页界面
@@ -640,6 +640,7 @@ function toSvg(s){
                             <button type="button" class="btn-submit" style="padding: 6px 12px; font-size: 12px; border-radius: 6px; background: #32ade6; box-shadow: none;" onclick="applyFakeTemplate('senplayer')">SenPlayer</button>
                             <button type="button" class="btn-submit" style="padding: 6px 12px; font-size: 12px; border-radius: 6px; background: #5856d6; box-shadow: none;" onclick="applyFakeTemplate('eplayerx')">EplayerX</button>
                             <button type="button" class="btn-submit" style="padding: 6px 12px; font-size: 12px; border-radius: 6px; background: #af52de; box-shadow: none;" onclick="applyFakeTemplate('forward')">Forward</button>
+                            <button type="button" class="btn-submit" style="padding: 6px 12px; font-size: 12px; border-radius: 6px; background: #00c7be; box-shadow: none;" onclick="applyFakeTemplate('rex')">Rex</button>
                             <button type="button" class="btn-submit" style="padding: 6px 12px; font-size: 12px; border-radius: 6px; background: #34c759; box-shadow: none;" onclick="applyFakeTemplate('hills')">Hills</button>
                             <button type="button" class="btn-submit" style="padding: 6px 12px; font-size: 12px; border-radius: 6px; background: #ff9500; box-shadow: none;" onclick="applyFakeTemplate('yamby')">Yamby</button>
                             <div style="flex-grow: 1;"></div>
@@ -650,6 +651,10 @@ function toSvg(s){
                         <input type="text" id="customVersion" placeholder="Version (如: 1.3.15)" style="flex: 1; min-width: 150px; padding: 12px 16px; border: 1px solid var(--border); border-radius: 8px; background:var(--card);">
                         <input type="text" id="customDevice" placeholder="Device (如: iPhone)" style="flex: 1; min-width: 150px; padding: 12px 16px; border: 1px solid var(--border); border-radius: 8px; background:var(--card);">
                         <input type="text" id="customUa" placeholder="User-Agent (伪装 UA)" style="flex: 1; min-width: 250px; padding: 12px 16px; border: 1px solid var(--border); border-radius: 8px; background:var(--card);">
+                        <div style="width: 100%; display: flex; gap: 8px; align-items: center;">
+                            <input type="text" id="customDeviceId" placeholder="Device ID（设备唯一标识，留空自动生成）" style="flex: 1; min-width: 250px; padding: 12px 16px; border: 1px solid var(--border); border-radius: 8px; background:var(--card);">
+                            <button type="button" class="btn-submit" style="padding: 8px 14px; font-size: 12px; border-radius: 6px; background: #8e8e93; box-shadow: none;" onclick="document.getElementById('customDeviceId').value = genUuid()">随机生成</button>
+                        </div>
                     </div>
 
                     <div id="kaConfigDiv" style="display: flex; flex-direction: column; gap: 10px; background: rgba(52,199,89,0.05); padding: 16px; border-radius: 10px; border: 1px solid rgba(52,199,89,0.2);">
@@ -1111,6 +1116,14 @@ function toSvg(s){
         }
         if (localStorage.getItem('emby_proxy_dark') === '1') { document.body.classList.add('dark'); document.getElementById('themeToggle').innerHTML = I.sun; }
 
+        function genUuid() {
+            if (typeof crypto !== 'undefined' && typeof crypto.randomUUID === 'function') return crypto.randomUUID();
+            const b = crypto.getRandomValues(new Uint8Array(16));
+            b[6] = (b[6] & 0x0f) | 0x40; b[8] = (b[8] & 0x3f) | 0x80;
+            const h = Array.from(b).map(x => x.toString(16).padStart(2, '0')).join('');
+            return h.slice(0,8) + '-' + h.slice(8,12) + '-' + h.slice(12,16) + '-' + h.slice(16,20) + '-' + h.slice(20);
+        }
+
         function showToast(msg) {
             const t = document.getElementById('toast');
             t.textContent = msg; t.classList.add('show');
@@ -1407,9 +1420,10 @@ function toSvg(s){
 
         function applyFakeTemplate(type) {
             const templates = {
-                'senplayer': { client: 'SenPlayer', version: '6.0.0', device: 'iPhone', ua: 'SenPlayer/6.0.0' },
-                'eplayerx': { client: 'EplayerX', version: '10.0.7', device: 'iPhone 17 Pro Max', ua: 'EplayerX/39' },
-                'forward': { client: 'Forward', version: '1.3.15', device: 'iPhone', ua: 'Forward-Standard/1.3.15' },
+                'senplayer': { client: 'SenPlayer', version: '6.2.2', device: 'iPhone', ua: 'SenPlayer/6.2.2' },
+                'eplayerx': { client: 'EplayerX', version: '10.0.22', device: 'iPhone', ua: 'EplayerX/10.0.22' },
+                'forward': { client: 'Forward', version: '1.3.18', device: 'iPhone', ua: 'Forward-Standard/1.3.18' },
+                'rex': { client: 'Rex', version: '1.0.1', device: 'iPhone17,2', ua: 'Rex/1.0.1' },
                 'hills': { client: 'Hills', version: '1.6.0', device: 'PD2505', ua: 'Hills/1.6.0 (android; 16)' },
                 'yamby': { client: 'Yamby', version: '2.0.0.5', device: 'vivo-V2505A', ua: 'Yamby/2.0.0.5(Android)' },
                 'clear': { client: '', version: '', device: '', ua: '' }
@@ -1420,6 +1434,7 @@ function toSvg(s){
                 document.getElementById('customVersion').value = tpl.version;
                 document.getElementById('customDevice').value = tpl.device;
                 document.getElementById('customUa').value = tpl.ua;
+                if (type !== 'clear' && !document.getElementById('customDeviceId').value) document.getElementById('customDeviceId').value = genUuid();
                 showToast('✅ 已应用 ' + (type === 'clear' ? '清空' : tpl.client) + ' 预设');
             }
         }
@@ -1438,6 +1453,7 @@ function toSvg(s){
             document.getElementById('customClient').value = customParams.client || '';
             document.getElementById('customVersion').value = customParams.version || '';
             document.getElementById('customDevice').value = customParams.device || '';
+            document.getElementById('customDeviceId').value = customParams.deviceId || '';
             document.getElementById('customUa').value = customParams.ua || '';
             toggleCustomParams();
             document.getElementById('kaEnabled').checked = (kaEnabled === '1');
@@ -1753,6 +1769,7 @@ function toSvg(s){
             const customVersion = document.getElementById('customVersion').value.trim();
             const customDevice = document.getElementById('customDevice').value.trim();
             const customUa = document.getElementById('customUa').value.trim();
+            const customDeviceId = document.getElementById('customDeviceId').value.trim();
             const kaEnabled = document.getElementById('kaEnabled').checked ? '1' : '0';
             const kaDays = document.getElementById('kaDays').value.trim() || '3';
             const kaToken = document.getElementById('kaToken').value.trim();
@@ -1772,7 +1789,7 @@ function toSvg(s){
             try {
                 const res = await fetch('/api/routes', { 
                     method: 'POST', 
-                    body: JSON.stringify({oldPrefix, prefix, target, mode, remark, icon, cache_img, customClient, customVersion, customDevice, customUa, kaEnabled, kaDays, kaToken, nodeUser, nodePass})
+                    body: JSON.stringify({oldPrefix, prefix, target, mode, remark, icon, cache_img, customClient, customVersion, customDevice, customDeviceId, customUa, kaEnabled, kaDays, kaToken, nodeUser, nodePass})
                 });
                 const data = await res.json();
                 if(!data.success) throw new Error(data.error || '部署失败');
@@ -3101,6 +3118,20 @@ async function sendTgStats(env, chatId) {
     }
 }
 
+/** 引号字符串转义：防头注入（引号/反斜杠转义、\r\n 丢弃） */
+function escQuote(v) {
+  return String(v).replace(/\\/g, '\\\\').replace(/"/g, '\\"').replace(/[\r\n]+/g, '');
+}
+
+/** 生成随机 UUID v4（Device ID 用，crypto.randomUUID 兜底自实现） */
+function genUuid() {
+  if (typeof crypto !== 'undefined' && typeof crypto.randomUUID === 'function') return crypto.randomUUID();
+  const b = crypto.getRandomValues(new Uint8Array(16));
+  b[6] = (b[6] & 0x0f) | 0x40; b[8] = (b[8] & 0x3f) | 0x80;
+  const h = Array.from(b).map(x => x.toString(16).padStart(2, '0')).join('');
+  return h.slice(0,8) + '-' + h.slice(8,12) + '-' + h.slice(12,16) + '-' + h.slice(16,20) + '-' + h.slice(20);
+}
+
 export default {
     async scheduled(event, env, ctx) {
         // 自动保活：检查所有开启保活的节点，按各自间隔到期执行（每 tick 只跑最先到期的一个）
@@ -3898,6 +3929,7 @@ if (request.method !== 'GET' && ROLE !== 'admin') return new Response('Forbidden
                     client: data.customClient || '',
                     version: data.customVersion || '',
                     device: data.customDevice || '',
+                    deviceId: data.customDeviceId || genUuid(),
                     ua: data.customUa || ''
                 });
 
@@ -4451,23 +4483,29 @@ if (request.method !== 'GET' && ROLE !== 'admin') return new Response('Forbidden
                 }
 
                 if (isFakeMode) {
-                    // 深度伪装引擎：执行请求头与授权头部伪装
-                    if (customParamsObj.ua) newHeaders.set("User-Agent", customParamsObj.ua);
+                    // 深度伪装引擎：执行请求头与授权头部伪装（字段缺失用内置 SenPlayer 模板兜底，开启伪装就不泄露任何真实身份）
+                    const fClient = customParamsObj.client || 'SenPlayer';
+                    const fVersion = customParamsObj.version || '6.0.0';
+                    const fDevice = customParamsObj.device || 'iPhone';
+                    const fDeviceId = customParamsObj.deviceId || 'emby-keepalive';
+                    const fUa = customParamsObj.ua || 'SenPlayer/6.0.0';
+                    newHeaders.set("User-Agent", fUa);
                     
                     ['X-Emby-Authorization', 'Authorization'].forEach(headerName => {
                         let authHeader = newHeaders.get(headerName);
                         if (authHeader) {
-                            if (customParamsObj.client) authHeader = authHeader.replace(/(Client\s*=\s*)(?:"[^"]*"|'[^']*'|[^,\s]+)/ig, `$1"${customParamsObj.client}"`);
-                            if (customParamsObj.version) authHeader = authHeader.replace(/(Version\s*=\s*)(?:"[^"]*"|'[^']*'|[^,\s]+)/ig, `$1"${customParamsObj.version}"`);
-                            if (customParamsObj.device) authHeader = authHeader.replace(/(Device\s*=\s*)(?:"[^"]*"|'[^']*'|[^,\s]+)/ig, `$1"${customParamsObj.device}"`);
+                            if (fClient) authHeader = authHeader.replace(/(Client\s*=\s*)(?:"[^"]*"|'[^']*'|[^,\s]+)/ig, `$1"${escQuote(fClient)}"`);
+                            if (fVersion) authHeader = authHeader.replace(/(Version\s*=\s*)(?:"[^"]*"|'[^']*'|[^,\s]+)/ig, `$1"${escQuote(fVersion)}"`);
+                            if (fDevice) authHeader = authHeader.replace(/(Device\s*=\s*)(?:"[^"]*"|'[^']*'|[^,\s]+)/ig, `$1"${escQuote(fDevice)}"`);
+                            if (fDeviceId) authHeader = authHeader.replace(/(DeviceId\s*=\s*)(?:"[^"]*"|'[^']*'|[^,\s]+)/ig, `$1"${escQuote(fDeviceId)}"`);
                             newHeaders.set(headerName, authHeader);
                         }
                     });
 
-                    const paramsToReplace = { 'x-emby-client': customParamsObj.client, 'x-emby-client-version': customParamsObj.version, 'x-emby-device-name': customParamsObj.device };
-                    for (let key of newHeaders.keys()) {
-                        const lowerKey = key.toLowerCase();
-                        if (paramsToReplace[lowerKey] && newHeaders.get(key)) newHeaders.set(key, paramsToReplace[lowerKey]);
+                    // 无条件补全 4 个标准 Emby 身份头（客户端没发也新建，防上游识别缺头/真实身份）
+                    const paramsToReplace = { 'x-emby-client': fClient, 'x-emby-client-version': fVersion, 'x-emby-device-name': fDevice, 'x-emby-device-id': fDeviceId };
+                    for (const key of Object.keys(paramsToReplace)) {
+                        if (paramsToReplace[key]) newHeaders.set(key, paramsToReplace[key]);
                     }
                     const currentParams = Array.from(targetUrl.searchParams.keys());
                     currentParams.forEach(key => {

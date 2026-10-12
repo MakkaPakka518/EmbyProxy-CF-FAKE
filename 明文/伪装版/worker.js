@@ -1606,7 +1606,7 @@ function toSvg(s){
                 for (const n of list) {
                     if (n.time && n.time > lastKaNoticeT) {
                         lastKaNoticeT = Math.max(lastKaNoticeT, n.time);
-                        kaToast((n.result === '成功' ? '✅' : '❌') + ' 保活' + (n.result === '成功' ? '成功' : '失败') + ' /' + n.prefix + '：' + (n.detail || ''), n.result === '成功');
+                        kaToast((n.result === '成功' ? '✅' : '❌') + ' 保活' + (n.result === '成功' ? '成功' : '失败') + ' ' + (n.remark || ('/' + n.prefix)) + '：' + (n.detail || ''), n.result === '成功');
                     }
                 }
             } catch (e) {}
@@ -2977,15 +2977,36 @@ async function runKeepAlive(env, route) {
   return { ok: failed < steps.length / 2, msg: '保活完成（' + steps.length + ' 步，' + failed + ' 步异常）', steps };
 }
 /** 定时检查：找出最先到期的开启保活节点执行（每 tick 只跑一个，避免并发打爆上游与超时） */
-async function pushKaNotice(env, prefix, ok, detail) {
+async function pushKaNotice(env, prefix, ok, detail, remark) {
   try {
     if (!env || !env.DB) return;
     const row = await env.DB.prepare("SELECT value FROM app_config WHERE key = 'ka_notices'").first();
     let list = [];
     try { if (row && row.value) list = JSON.parse(row.value); } catch (e) {}
-    list.unshift({ time: Date.now(), prefix: String(prefix || ''), result: ok ? '成功' : '失败', detail: String(detail || '').slice(0, 180) });
+    list.unshift({ time: Date.now(), prefix: String(prefix || ''), remark: String(remark || ''), result: ok ? '成功' : '失败', detail: String(detail || '').slice(0, 180) });
     if (list.length > 30) list.length = 30;
     await env.DB.prepare('INSERT OR REPLACE INTO app_config (key, value) VALUES (?, ?)').bind('ka_notices', JSON.stringify(list)).run();
+  } catch (e) {}
+  // 保活结果通知：Bark（iOS）+ Telegram（配置了环境变量时推送，节点显示备注）
+  const nodeName = remark || ('/' + prefix);
+  const kaText = (ok ? '✅' : '❌') + ' 节点 ' + nodeName + ' 保活' + (ok ? '成功' : '失败') + (detail ? '：' + detail : '');
+  try {
+    if (env.BARK_KEY) {
+      await fetch('https://api.day.app/' + String(env.BARK_KEY).trim(), {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ title: 'Emby 反代面板', body: kaText, level: env.BARK_LEVEL || 'active' })
+      });
+    }
+  } catch (e) {}
+  try {
+    if (env.TG_BOT_TOKEN && env.TG_CHAT_ID) {
+      await fetch('https://api.telegram.org/bot' + env.TG_BOT_TOKEN + '/sendMessage', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ chat_id: String(env.TG_CHAT_ID), text: kaText })
+      });
+    }
   } catch (e) {}
 }
 
@@ -3008,7 +3029,7 @@ async function checkKeepAliveSchedule(env) {
     const result = await runKeepAlive(env, route);
     await env.DB.prepare('UPDATE routes SET last_ka_run = ?, last_ka_result = ?, last_ka_detail = ? WHERE prefix = ?')
       .bind(new Date().toISOString(), result.ok ? 'success' : 'fail', result.msg || '', route.prefix).run();
-    await pushKaNotice(env, route.prefix, result.ok, result.msg);
+    await pushKaNotice(env, route.prefix, result.ok, result.msg, route.remark);
   } catch (e) {}
 }
 
@@ -3818,7 +3839,7 @@ if (ROLE !== 'admin') return new Response('Forbidden', { status: 403 });
                 const result = await runKeepAlive(env, route);
                 await env.DB.prepare('UPDATE routes SET last_ka_run = ?, last_ka_result = ?, last_ka_detail = ? WHERE prefix = ?')
                     .bind(new Date().toISOString(), result.ok ? 'success' : 'fail', result.msg || '', prefix).run();
-                await pushKaNotice(env, prefix, result.ok, result.msg);
+                await pushKaNotice(env, prefix, result.ok, result.msg, route.remark);
                 await env.DB.prepare('INSERT OR REPLACE INTO app_config (key, value) VALUES (?, ?)')
                     .bind('ka_live', JSON.stringify({ running: false, prefix: prefix, current: '', steps: result.steps || [], msg: result.msg || '', progress: 100, mediaTitle: '', updatedAt: Date.now() })).run();
                 return Response.json(result);

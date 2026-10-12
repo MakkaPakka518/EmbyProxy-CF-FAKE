@@ -1,6 +1,6 @@
-// VERSION: 3.2.5
+// VERSION: 3.3.0
 //  面板核心配置区 (放在最顶端方便修改)
-const CURRENT_VERSION = "3.2.5"; 
+const CURRENT_VERSION = "3.3.0"; 
 const GITHUB_RAW_URL = "https://raw.githubusercontent.com/MakkaPakka518/EmbyProxy-CF-FAKE/refs/heads/main/worker.js";
 
 // ==========================================
@@ -672,6 +672,7 @@ function toSvg(s){
                         </div>
                         <div style="font-size:12px; color:var(--text-sec);">在 CF 面板给 Worker 配 Cron 触发器（如每天 */5 * * * *），自动保活才会按间隔执行；不配 Cron 也可点节点卡片「保活」手动触发。</div>
                     </div>
+                    <input type="number" id="watchLimit" placeholder="观看下限（天，如 7 / 14 / 21；0 = 不限制。超过下限未观看会在卡片红色报警）" step="0.1" min="0" style="padding: 10px 14px; border: 1px solid var(--border); border-radius: 8px; background: var(--card); width: 100%;">
 
                     <div style="display: flex; gap: 12px; flex-wrap: wrap; align-items: center;">
                         <div style="position: relative; flex: 2; display: flex;">
@@ -1273,6 +1274,17 @@ function toSvg(s){
                     const mainTarget = targets[0] || '';
                     
                     const remarkName = r.remark || '未命名媒体库';
+                    // 未观看天数（基于改良后的真实观看 last_play；last_play 为 UTC+8 墙上时间字符串）
+                    let watchDaysText = '暂无播放记录', watchOverdue = false;
+                    if (r.last_play) {
+                        try {
+                            const lpUtc = Date.parse(r.last_play.replace(' ', 'T') + 'Z') - 8 * 3600000;
+                            const diffDays = Math.floor((Date.now() - lpUtc) / 86400000);
+                            watchDaysText = diffDays <= 0 ? '今天观看过' : (diffDays + ' 天前观看');
+                            const wl = parseFloat(r.watch_limit);
+                            if (wl > 0 && diffDays > wl) { watchOverdue = true; watchDaysText += ' · 已超 ' + (diffDays - wl) + ' 天'; }
+                        } catch (e) {}
+                    }
                     const lastPlay = r.last_play ? r.last_play : '暂无播放记录';
                     
                     const iconHtml = r.icon ? \`<img src="\${r.icon}" style="width:28px;height:28px;border-radius:6px;object-fit:cover;">\` : '${I.film}';
@@ -1355,7 +1367,7 @@ function toSvg(s){
                                 </div>
                                 <div class="info-row">
                                     <span class="info-label">最后活跃:</span>
-                                    <span style="color:var(--text-sec);">\${lastPlay}</span>
+                                    <span style="color:\${watchOverdue ? '#ff3b30' : 'var(--text-sec)'}; font-weight:\${watchOverdue ? '700' : 'normal'};">\${watchOverdue ? I.warn + ' ' : ''}\${watchDaysText}</span>
                                 </div>
                                 <div class="info-row">
                                     <span class="info-label">伪装设备:</span>
@@ -1378,7 +1390,7 @@ function toSvg(s){
                             <div class="card-footer admin-only">
                                 <button class="btn-edit" onclick="kaRun('\${r.prefix}')" title="立即执行一次完整保活">保活</button>
                                 <button class="btn-edit" onclick="rexImport('\${r.prefix}')" title="生成 Rex 一键导入链接">Rex导入</button>
-                                <button class="btn-edit" onclick="editNode('\${r.prefix}', '\${r.target}', '\${r.mode}', '\${r.remark || ''}', '\${r.icon || ''}', '\${r.cache_img}', '\${r.custom_params ? encodeURIComponent(r.custom_params) : ''}', '\${r.ka_enabled || '0'}', '\${r.ka_days || '3'}', '\${r.ka_token || ''}', '\${r.node_user || ''}', '\${r.node_pass || ''}')">编辑配置</button>
+                                <button class="btn-edit" onclick="editNode('\${r.prefix}', '\${r.target}', '\${r.mode}', '\${r.remark || ''}', '\${r.icon || ''}', '\${r.cache_img}', '\${r.custom_params ? encodeURIComponent(r.custom_params) : ''}', '\${r.ka_enabled || '0'}', '\${r.ka_days || '3'}', '\${r.ka_token || ''}', '\${r.node_user || ''}', '\${r.node_pass || ''}', '\${r.watch_limit || '0'}')">编辑配置</button>
                                 <button class="btn-del" onclick="del('\${r.prefix}')">删除</button>
                             </div>
                         </div>
@@ -1439,7 +1451,7 @@ function toSvg(s){
             }
         }
 
-        function editNode(prefix, targetStr, mode, remark, icon, cacheImg, customParamsStr, kaEnabled, kaDays, kaToken, nodeUser, nodePass) {
+        function editNode(prefix, targetStr, mode, remark, icon, cacheImg, customParamsStr, kaEnabled, kaDays, kaToken, nodeUser, nodePass, watchLimit) {
             document.getElementById('oldPrefix').value = prefix;
             document.getElementById('remark').value = remark;
             document.getElementById('prefix').value = prefix;
@@ -1461,6 +1473,7 @@ function toSvg(s){
             document.getElementById('kaToken').value = kaToken || '';
             document.getElementById('nodeUser').value = nodeUser || '';
             document.getElementById('nodePass').value = nodePass || '';
+            document.getElementById('watchLimit').value = watchLimit || '0';
             
             if (icon) {
                 const foundItem = globalIcons.find(i => i.url === icon);
@@ -1775,6 +1788,7 @@ function toSvg(s){
             const kaToken = document.getElementById('kaToken').value.trim();
             const nodeUser = document.getElementById('nodeUser').value.trim();
             const nodePass = document.getElementById('nodePass').value.trim();
+            const watchLimit = document.getElementById('watchLimit').value.trim() || '0';
 
             const inputs = document.querySelectorAll('.target-input');
             let targetsArray = [];
@@ -1789,7 +1803,7 @@ function toSvg(s){
             try {
                 const res = await fetch('/api/routes', { 
                     method: 'POST', 
-                    body: JSON.stringify({oldPrefix, prefix, target, mode, remark, icon, cache_img, customClient, customVersion, customDevice, customDeviceId, customUa, kaEnabled, kaDays, kaToken, nodeUser, nodePass})
+                    body: JSON.stringify({oldPrefix, prefix, target, mode, remark, icon, cache_img, customClient, customVersion, customDevice, customDeviceId, customUa, kaEnabled, kaDays, kaToken, nodeUser, nodePass, watchLimit})
                 });
                 const data = await res.json();
                 if(!data.success) throw new Error(data.error || '部署失败');
@@ -3760,8 +3774,8 @@ if (ROLE !== 'admin') return new Response('Forbidden', { status: 403 });
                 const routes = await request.json();
                 for (const r of routes) {
                     if (r.prefix && r.target) {
-                        await env.DB.prepare('INSERT OR REPLACE INTO routes (prefix, target, mode, remark, last_play, icon, custom_params, cache_img, sort_order) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)')
-                            .bind(r.prefix, r.target, r.mode || 'off', r.remark || '', r.last_play || '', r.icon || '', r.custom_params || '', r.cache_img || 'on', r.sort_order || 0).run();
+                        await env.DB.prepare('INSERT OR REPLACE INTO routes (prefix, target, mode, remark, last_play, icon, custom_params, cache_img, sort_order, watch_limit) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)')
+                            .bind(r.prefix, r.target, r.mode || 'off', r.remark || '', r.last_play || '', r.icon || '', r.custom_params || '', r.cache_img || 'on', r.sort_order || 0, r.watch_limit || '0').run();
                     }
                 }
                 return Response.json({ success: true });
@@ -3836,6 +3850,7 @@ if (ROLE !== 'admin') return new Response('Forbidden', { status: 403 });
             try { await env.DB.exec(`ALTER TABLE routes ADD COLUMN last_ka_run TEXT DEFAULT ''`); } catch(e) {}
             try { await env.DB.exec(`ALTER TABLE routes ADD COLUMN last_ka_result TEXT DEFAULT ''`); } catch(e) {}
             try { await env.DB.exec(`ALTER TABLE routes ADD COLUMN last_ka_detail TEXT DEFAULT ''`); } catch(e) {}
+            try { await env.DB.exec(`ALTER TABLE routes ADD COLUMN watch_limit TEXT DEFAULT '0'`); } catch(e) {}
 if (request.method !== 'GET' && ROLE !== 'admin') return new Response('Forbidden', { status: 403 });
             
             // 数据防爆清理策略：自动清理过去 7 天的精细日志
@@ -3933,8 +3948,8 @@ if (request.method !== 'GET' && ROLE !== 'admin') return new Response('Forbidden
                     ua: data.customUa || ''
                 });
 
-                await env.DB.prepare('INSERT OR REPLACE INTO routes (prefix, target, mode, remark, icon, custom_params, cache_img, sort_order, ka_enabled, ka_days, ka_token, node_user, node_pass) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)')
-                    .bind(data.prefix, data.target, data.mode || 'off', data.remark || '', data.icon || '', custom_params, data.cache_img || 'on', currentSortOrder, data.kaEnabled || '0', data.kaDays || '3', data.kaToken || '', data.nodeUser || '', data.nodePass || '').run();
+                await env.DB.prepare('INSERT OR REPLACE INTO routes (prefix, target, mode, remark, icon, custom_params, cache_img, sort_order, ka_enabled, ka_days, ka_token, node_user, node_pass, watch_limit) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)')
+                    .bind(data.prefix, data.target, data.mode || 'off', data.remark || '', data.icon || '', custom_params, data.cache_img || 'on', currentSortOrder, data.kaEnabled || '0', data.kaDays || '3', data.kaToken || '', data.nodeUser || '', data.nodePass || '', data.watchLimit || '0').run();
                 return Response.json({ success: true });
             }
             
@@ -4377,27 +4392,50 @@ if (request.method !== 'GET' && ROLE !== 'admin') return new Response('Forbidden
         if (targetUrls.length === 0) return new Response("404: Target empty", { status: 404 });
 
         // ==========================================
-        // 2.7 防爆型精准日志拦截 (修复统计虚高：仅拦截点火请求)
+        // 2.7 真实观看判定（EmbyBOSS 思路改良：不数 PlaybackInfo，改判播放会话心跳链）
+        //   PlaybackInfo（详情页/预加载/点开就会触发）不再计入观看，消除虚高；
+        //   仅「播放开始」与「非暂停的播放进度心跳」才算真实在播 → 更新最近观看时间；
+        //   同一播放会话只计一次有效播放次数（会话级去重，防心跳风暴刷次数）。
         // ==========================================
-        const isNewPlaySession = /\/PlaybackInfo/i.test(url.pathname); 
+        const isPlayStart = url.pathname.endsWith('/Sessions/Playing');
+        const isPlayProgress = url.pathname.indexOf('/Sessions/Playing/Progress') !== -1;
 
-        if (isNewPlaySession && matchedPrefix && env.DB && ctx && ctx.waitUntil) {
-            try {
-                const todayStr = new Date(Date.now() + 8 * 3600000).toISOString().split('T')[0];
-                const nowTime = new Date(Date.now() + 8 * 3600000).toISOString().replace('T', ' ').split('.')[0]; 
-                
-                let stmts = [
-                    env.DB.prepare(`INSERT INTO request_stats (prefix, date, count) VALUES (?, ?, 1) ON CONFLICT(prefix, date) DO UPDATE SET count = count + 1`).bind(matchedPrefix, todayStr),
-                    env.DB.prepare(`UPDATE routes SET last_play = ? WHERE prefix = ?`).bind(nowTime, matchedPrefix)
-                ];
+        if ((isPlayStart || isPlayProgress) && matchedPrefix && env.DB && ctx && ctx.waitUntil) {
+            ctx.waitUntil((async () => {
+                try {
+                    let paused = false, sessionId = '';
+                    try {
+                        const txt = await request.clone().text();
+                        const j = JSON.parse(txt);
+                        paused = !!j.IsPaused;
+                        sessionId = String(j.PlaySessionId || '');
+                    } catch (e) {}
+                    // 暂停心跳不算观看（用户正暂停）；继续播放心跳才算
+                    if (paused) return;
+                    const todayStr = new Date(Date.now() + 8 * 3600000).toISOString().split('T')[0];
+                    const nowTime = new Date(Date.now() + 8 * 3600000).toISOString().replace('T', ' ').split('.')[0];
 
-                const clientIp = request.headers.get("cf-connecting-ip") || request.headers.get("x-real-ip") || "Unknown";
-                const clientCountry = request.headers.get("cf-ipcountry") || "Unknown";
-                const clientUa = request.headers.get("User-Agent") || "Unknown";
-                stmts.push(env.DB.prepare(`INSERT INTO visitor_logs (prefix, ip, country, ua) VALUES (?, ?, ?, ?)`).bind(matchedPrefix, clientIp, clientCountry, clientUa));
+                    const stmts = [ env.DB.prepare(`UPDATE routes SET last_play = ? WHERE prefix = ?`).bind(nowTime, matchedPrefix) ];
 
-                ctx.waitUntil(env.DB.batch(stmts));
-            } catch(e) {}
+                    if (sessionId) {
+                        const key = 'watch_sessions';
+                        const row = await env.DB.prepare("SELECT value FROM app_config WHERE key = ?").bind(key).first();
+                        let seen = [];
+                        try { if (row && row.value) seen = JSON.parse(row.value); } catch (e) {}
+                        if (!seen.includes(sessionId)) {
+                            seen.unshift(sessionId);
+                            if (seen.length > 500) seen.length = 500;
+                            stmts.push(env.DB.prepare(`INSERT INTO request_stats (prefix, date, count) VALUES (?, ?, 1) ON CONFLICT(prefix, date) DO UPDATE SET count = count + 1`).bind(matchedPrefix, todayStr));
+                            const clientIp = request.headers.get("cf-connecting-ip") || request.headers.get("x-real-ip") || "Unknown";
+                            const clientCountry = request.headers.get("cf-ipcountry") || "Unknown";
+                            const clientUa = request.headers.get("User-Agent") || "Unknown";
+                            stmts.push(env.DB.prepare(`INSERT INTO visitor_logs (prefix, ip, country, ua) VALUES (?, ?, ?, ?)`).bind(matchedPrefix, clientIp, clientCountry, clientUa));
+                            stmts.push(env.DB.prepare('INSERT OR REPLACE INTO app_config (key, value) VALUES (?, ?)').bind(key, JSON.stringify(seen)));
+                        }
+                    }
+                    await env.DB.batch(stmts);
+                } catch (e) {}
+            })());
         }
 
         // ==========================================

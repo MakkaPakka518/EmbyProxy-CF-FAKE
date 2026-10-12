@@ -655,6 +655,7 @@ function toSvg(s){
                             <input type="checkbox" id="nodeCache" class="ip-checkbox" checked>
                             开启海报及静态资源缓存
                         </label>
+                        <input type="number" id="watchLimit" placeholder="观看下限（天，如 7 / 14 / 21；0 = 不限制。超过下限未观看会在卡片红色报警）" step="0.1" min="0" style="padding: 12px 16px; border: 1px solid var(--border); border-radius: 10px; background:var(--card); width: 100%;">
                         <button type="submit" id="submitBtn" class="btn-submit" style="flex: 1; padding: 14px 20px;">保存部署</button>
                     </div>
 
@@ -1190,6 +1191,17 @@ function toSvg(s){
                     const mainTarget = targets[0] || '';
                     
                     const remarkName = r.remark || '未命名媒体库';
+                    // 未观看天数（基于改良后的真实观看 last_play；last_play 为 UTC+8 墙上时间字符串）
+                    let watchDaysText = '暂无播放记录', watchOverdue = false;
+                    if (r.last_play) {
+                        try {
+                            const lpUtc = Date.parse(r.last_play.replace(' ', 'T') + 'Z') - 8 * 3600000;
+                            const diffDays = Math.floor((Date.now() - lpUtc) / 86400000);
+                            watchDaysText = diffDays <= 0 ? '今天观看过' : (diffDays + ' 天前观看');
+                            const wl = parseFloat(r.watch_limit);
+                            if (wl > 0 && diffDays > wl) { watchOverdue = true; watchDaysText += ' · 已超 ' + (diffDays - wl) + ' 天'; }
+                        } catch (e) {}
+                    }
                     const lastPlay = r.last_play ? r.last_play : '暂无播放记录';
                     
                     const iconHtml = r.icon ? \`<img src="\${r.icon}" style="width:28px;height:28px;border-radius:6px;object-fit:cover;">\` : '${I.film}';
@@ -1263,12 +1275,12 @@ function toSvg(s){
                                 </div>
                                 <div class="info-row">
                                     <span class="info-label">最后活跃:</span>
-                                    <span style="color:var(--text-sec);">\${lastPlay}</span>
+                                    <span style="color:\${watchOverdue ? '#ff3b30' : 'var(--text-sec)'}; font-weight:\${watchOverdue ? '700' : 'normal'};">\${watchOverdue ? I.warn + ' ' : ''}\${watchDaysText}</span>
                                 </div>
                             </div>
 
                             <div class="card-footer admin-only">
-                                <button class="btn-edit" onclick="editNode('\${r.prefix}', '\${r.target}', '\${r.mode}', '\${r.remark || ''}', '\${r.icon || ''}', '\${r.cache_img}')">编辑配置</button>
+                                <button class="btn-edit" onclick="editNode('\${r.prefix}', '\${r.target}', '\${r.mode}', '\${r.remark || ''}', '\${r.icon || ''}', '\${r.cache_img}', '\${r.watch_limit || '0'}')">编辑配置</button>
                                 <button class="btn-del" onclick="del('\${r.prefix}')">删除</button>
                             </div>
                         </div>
@@ -1303,12 +1315,13 @@ function toSvg(s){
             }
         }
 
-        function editNode(prefix, targetStr, mode, remark, icon, cacheImg) {
+        function editNode(prefix, targetStr, mode, remark, icon, cacheImg, watchLimit) {
             document.getElementById('oldPrefix').value = prefix;
             document.getElementById('remark').value = remark;
             document.getElementById('prefix').value = prefix;
             document.getElementById('mode').value = mode || 'off';
             document.getElementById('nodeCache').checked = (cacheImg !== 'off');
+            document.getElementById('watchLimit').value = watchLimit || '0';
             
             if (icon) {
                 const foundItem = globalIcons.find(i => i.url === icon);
@@ -1477,6 +1490,7 @@ function toSvg(s){
             const mode = document.getElementById('mode').value;
             const icon = document.getElementById('iconUrl').value;
             const cache_img = document.getElementById('nodeCache').checked ? 'on' : 'off';
+            const watchLimit = document.getElementById('watchLimit').value.trim() || '0';
 
             const inputs = document.querySelectorAll('.target-input');
             let targetsArray = [];
@@ -1491,7 +1505,7 @@ function toSvg(s){
             try {
                 const res = await fetch('/api/routes', { 
                     method: 'POST', 
-                    body: JSON.stringify({oldPrefix, prefix, target, mode, remark, icon, cache_img})
+                    body: JSON.stringify({oldPrefix, prefix, target, mode, remark, icon, cache_img, watchLimit})
                 });
                 const data = await res.json();
                 if(!data.success) throw new Error(data.error || '部署失败');
@@ -3143,8 +3157,8 @@ if (ROLE !== 'admin') return new Response('Forbidden', { status: 403 });
                 const routes = await request.json();
                 for (const r of routes) {
                     if (r.prefix && r.target) {
-                        await env.DB.prepare('INSERT OR REPLACE INTO routes (prefix, target, mode, remark, last_play, icon, cache_img, sort_order) VALUES (?, ?, ?, ?, ?, ?, ?, ?)')
-                            .bind(r.prefix, r.target, r.mode || 'off', r.remark || '', r.last_play || '', r.icon || '', r.cache_img || 'on', r.sort_order || 0).run();
+                        await env.DB.prepare('INSERT OR REPLACE INTO routes (prefix, target, mode, remark, last_play, icon, cache_img, sort_order, watch_limit) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)')
+                            .bind(r.prefix, r.target, r.mode || 'off', r.remark || '', r.last_play || '', r.icon || '', r.cache_img || 'on', r.sort_order || 0, r.watch_limit || '0').run();
                     }
                 }
                 return Response.json({ success: true });
@@ -3164,7 +3178,8 @@ if (ROLE !== 'admin') return new Response('Forbidden', { status: 403 });
             try { await env.DB.exec(`ALTER TABLE routes ADD COLUMN last_play TEXT DEFAULT ''`); } catch(e) {}
             try { await env.DB.exec(`ALTER TABLE routes ADD COLUMN icon TEXT DEFAULT ''`); } catch(e) {}
             try { await env.DB.exec(`ALTER TABLE routes ADD COLUMN cache_img TEXT DEFAULT 'on'`); } catch(e) {} 
-            try { await env.DB.exec(`ALTER TABLE routes ADD COLUMN sort_order INTEGER DEFAULT 0`); } catch(e) {} 
+            try { await env.DB.exec(`ALTER TABLE routes ADD COLUMN sort_order INTEGER DEFAULT 0`); } catch(e) {}
+            try { await env.DB.exec(`ALTER TABLE routes ADD COLUMN watch_limit TEXT DEFAULT '0'`); } catch(e) {} 
 if (request.method !== 'GET' && ROLE !== 'admin') return new Response('Forbidden', { status: 403 });
             
             // 数据防爆清理策略：自动清理过去 7 天的精细日志
@@ -3254,8 +3269,8 @@ if (request.method !== 'GET' && ROLE !== 'admin') return new Response('Forbidden
                     if(oldRow) currentSortOrder = oldRow.sort_order;
                 }
                 
-                await env.DB.prepare('INSERT OR REPLACE INTO routes (prefix, target, mode, remark, icon, cache_img, sort_order) VALUES (?, ?, ?, ?, ?, ?, ?)')
-                    .bind(data.prefix, data.target, data.mode || 'off', data.remark || '', data.icon || '', data.cache_img || 'on', currentSortOrder).run();
+                await env.DB.prepare('INSERT OR REPLACE INTO routes (prefix, target, mode, remark, icon, cache_img, sort_order, watch_limit) VALUES (?, ?, ?, ?, ?, ?, ?, ?)')
+                    .bind(data.prefix, data.target, data.mode || 'off', data.remark || '', data.icon || '', data.cache_img || 'on', currentSortOrder, data.watchLimit || '0').run();
                 return Response.json({ success: true });
             }
             
@@ -3693,27 +3708,50 @@ if (request.method !== 'GET' && ROLE !== 'admin') return new Response('Forbidden
         if (targetUrls.length === 0) return new Response("404: Target empty", { status: 404 });
 
         // ==========================================
-        // 2.7 防爆型精准日志拦截 (修复统计虚高：仅拦截点火请求)
+        // 2.7 真实观看判定（EmbyBOSS 思路改良：不数 PlaybackInfo，改判播放会话心跳链）
+        //   PlaybackInfo（详情页/预加载/点开就会触发）不再计入观看，消除虚高；
+        //   仅「播放开始」与「非暂停的播放进度心跳」才算真实在播 → 更新最近观看时间；
+        //   同一播放会话只计一次有效播放次数（会话级去重，防心跳风暴刷次数）。
         // ==========================================
-        const isNewPlaySession = /\/PlaybackInfo/i.test(url.pathname); 
+        const isPlayStart = url.pathname.endsWith('/Sessions/Playing');
+        const isPlayProgress = url.pathname.indexOf('/Sessions/Playing/Progress') !== -1;
 
-        if (isNewPlaySession && matchedPrefix && env.DB && ctx && ctx.waitUntil) {
-            try {
-                const todayStr = new Date(Date.now() + 8 * 3600000).toISOString().split('T')[0];
-                const nowTime = new Date(Date.now() + 8 * 3600000).toISOString().replace('T', ' ').split('.')[0]; 
-                
-                let stmts = [
-                    env.DB.prepare(`INSERT INTO request_stats (prefix, date, count) VALUES (?, ?, 1) ON CONFLICT(prefix, date) DO UPDATE SET count = count + 1`).bind(matchedPrefix, todayStr),
-                    env.DB.prepare(`UPDATE routes SET last_play = ? WHERE prefix = ?`).bind(nowTime, matchedPrefix)
-                ];
+        if ((isPlayStart || isPlayProgress) && matchedPrefix && env.DB && ctx && ctx.waitUntil) {
+            ctx.waitUntil((async () => {
+                try {
+                    let paused = false, sessionId = '';
+                    try {
+                        const txt = await request.clone().text();
+                        const j = JSON.parse(txt);
+                        paused = !!j.IsPaused;
+                        sessionId = String(j.PlaySessionId || '');
+                    } catch (e) {}
+                    // 暂停心跳不算观看（用户正暂停）；继续播放心跳才算
+                    if (paused) return;
+                    const todayStr = new Date(Date.now() + 8 * 3600000).toISOString().split('T')[0];
+                    const nowTime = new Date(Date.now() + 8 * 3600000).toISOString().replace('T', ' ').split('.')[0];
 
-                const clientIp = request.headers.get("cf-connecting-ip") || request.headers.get("x-real-ip") || "Unknown";
-                const clientCountry = request.headers.get("cf-ipcountry") || "Unknown";
-                const clientUa = request.headers.get("User-Agent") || "Unknown";
-                stmts.push(env.DB.prepare(`INSERT INTO visitor_logs (prefix, ip, country, ua) VALUES (?, ?, ?, ?)`).bind(matchedPrefix, clientIp, clientCountry, clientUa));
+                    const stmts = [ env.DB.prepare(`UPDATE routes SET last_play = ? WHERE prefix = ?`).bind(nowTime, matchedPrefix) ];
 
-                ctx.waitUntil(env.DB.batch(stmts));
-            } catch(e) {}
+                    if (sessionId) {
+                        const key = 'watch_sessions';
+                        const row = await env.DB.prepare("SELECT value FROM app_config WHERE key = ?").bind(key).first();
+                        let seen = [];
+                        try { if (row && row.value) seen = JSON.parse(row.value); } catch (e) {}
+                        if (!seen.includes(sessionId)) {
+                            seen.unshift(sessionId);
+                            if (seen.length > 500) seen.length = 500;
+                            stmts.push(env.DB.prepare(`INSERT INTO request_stats (prefix, date, count) VALUES (?, ?, 1) ON CONFLICT(prefix, date) DO UPDATE SET count = count + 1`).bind(matchedPrefix, todayStr));
+                            const clientIp = request.headers.get("cf-connecting-ip") || request.headers.get("x-real-ip") || "Unknown";
+                            const clientCountry = request.headers.get("cf-ipcountry") || "Unknown";
+                            const clientUa = request.headers.get("User-Agent") || "Unknown";
+                            stmts.push(env.DB.prepare(`INSERT INTO visitor_logs (prefix, ip, country, ua) VALUES (?, ?, ?, ?)`).bind(matchedPrefix, clientIp, clientCountry, clientUa));
+                            stmts.push(env.DB.prepare('INSERT OR REPLACE INTO app_config (key, value) VALUES (?, ?)').bind(key, JSON.stringify(seen)));
+                        }
+                    }
+                    await env.DB.batch(stmts);
+                } catch (e) {}
+            })());
         }
 
         // ==========================================

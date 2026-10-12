@@ -672,7 +672,9 @@ function toSvg(s){
                         </div>
                         <div style="font-size:12px; color:var(--text-sec);">在 CF 面板给 Worker 配 Cron 触发器（如每天 */5 * * * *），自动保活才会按间隔执行；不配 Cron 也可点节点卡片「保活」手动触发。</div>
                     </div>
-                    <input type="number" id="watchLimit" placeholder="观看下限（天，如 7 / 14 / 21；0 = 不限制。超过下限未观看会在卡片红色报警）" step="0.1" min="0" style="padding: 10px 14px; border: 1px solid var(--border); border-radius: 8px; background: var(--card); width: 100%;">
+                    <label style="display:block; font-size:14px; font-weight:600; color:var(--text); margin:14px 0 4px;">观看下限（保号天数）</label>
+                        <div style="font-size:12px; color:var(--text-sec); margin-bottom:8px;">超过此天数未观看，节点卡片红色报警并推送提醒；0 = 不限制（可填小数，如 14.5）</div>
+                        <input type="number" id="watchLimit" placeholder="如 7 / 14 / 21 / 14.5" step="0.1" min="0" style="padding: 10px 14px; border: 1px solid var(--border); border-radius: 8px; background: var(--card); width: 100%;">
 
                     <div style="display: flex; gap: 12px; flex-wrap: wrap; align-items: center;">
                         <div style="position: relative; flex: 2; display: flex;">

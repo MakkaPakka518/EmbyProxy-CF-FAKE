@@ -96,7 +96,7 @@ Worker → **Settings** → **Domains & Routes** → **Add**，在worker域界�
 
 ## 安卓 App（保活提醒）
 
-面板配套安卓原生 App（`release/EmbyProxyApp_cf-fake_v1.0.0.apk`），**CF 伪装版专用**：
+面板配套安卓原生 App（`release/EmbyProxyApp_cf-fake_v1.0.1.apk`），**CF 伪装版专用**：
 
 - 独立原生深色 UI（非网页壳），输入面板地址 + 管理员密钥（`ADMIN_TOKEN`）即可连接
 - 节点卡片展示**保活开关 / 间隔天数 / 下次执行倒计时**，一键手动保活
@@ -191,6 +191,8 @@ Worker → **Settings** → **Domains & Routes** → **Add**，在worker域界�
 
 > ⚠️ 保活会模拟真实播放环境：使用节点配置的伪装客户端全套 UA/头（未配置则内置 SenPlayer），拉流固定 40MB，进度随机 30s–90s 上报，全程带 `PlaySessionId` 真实会话。若节点取到不可播放条目（如剧集）会自动过滤，只对电影/剧集单集执行。
 
+
+> 💡 **保活提醒 App v1.0.1**：设置页已升级为真实通知配置表单——直接填写 Bark Key/级别、TG Token/Chat ID 并保存（走 `/api/config`），支持「测试 Bark / 测试 TG」按钮即时验证；无需再依赖环境变量。
 ### 更新面板代码
 
 底部导航 → **控制面板** → **手动覆盖/更新**：粘贴最新代码全文或上传 `worker.js` 文件 → 覆盖更新。

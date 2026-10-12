@@ -92,6 +92,20 @@ Worker → **Settings** → **Domains & Routes** → **Add**，在worker域界�
 1. 访问 `https://你的worker名.你的子域.workers.dev`（或自定义域名）
 2. 输入 `ADMIN_TOKEN` 设的密码登录
 3. 点顶部 logo → **账户设置**：可改网页密码、添加订阅者密码（分享给朋友）
+---
+
+## 安卓 App（保活提醒）
+
+面板配套安卓原生 App（`release/EmbyProxyApp_cf-fake_v1.0.0.apk`），**CF 伪装版专用**：
+
+- 独立原生深色 UI（非网页壳），输入面板地址 + 管理员密钥（`ADMIN_TOKEN`）即可连接
+- 节点卡片展示**保活开关 / 间隔天数 / 下次执行倒计时**，一键手动保活
+- 保活执行结果自动弹安卓系统通知（✅/❌ + 节点备注名 + 详情）
+- 支持在 App 内直接编辑节点的**保活开关 / 间隔天数 / 观看下限**
+- 内置 SSH 终端入口（VPS 部署场景）
+- 默认地址留空，不内置任何面板地址
+
+> CF 普通版（保号倒计时）App 见 [ProxyHub_Emby](https://github.com/MakkaPakka518/ProxyHub_Emby) 仓库 release。
 
 ---
 

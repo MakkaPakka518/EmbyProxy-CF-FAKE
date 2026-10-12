@@ -151,6 +151,19 @@ Worker → **Settings** → **Domains & Routes** → **Add**，在worker域界�
 - 节点卡片「最后活跃」显示距上次真实观看的天数（如 `3 天前观看`）；没记录显示「暂无播放记录」
 - 节点编辑弹窗 → **观看下限（天）**（如 `7 / 14 / 21`，`0` = 不限制）：设置后超过该天数未观看，卡片自动红色报警（⚠️ 已超 X 天）
 
+### 消息通知（Bark · iOS 系统通知 + Telegram）
+
+保活成功 / 失败会自动推送通知（节点显示你填的**备注名字**）。通过 Cloudflare **环境变量（Settings → Variables）** 配置：
+
+| 环境变量 | 说明 |
+| --- | --- |
+| `BARK_KEY` | Bark 设备 Key（iOS 推送）。App Store 装 **Bark**（认准 Finb 出品）→ 打开 App 首页 `https://api.day.app/xxxxxxxx` 末尾 4 位字母数字就是 Key。留空不推送 |
+| `BARK_LEVEL` | 可选，推送级别：`active`（默认）/ `timeSensitive` / `critical` / `passive` |
+| `TG_BOT_TOKEN` | Telegram Bot Token：找 [@BotFather](https://t.me/BotFather) 创建机器人获取（`123456:ABC...`）。留空不推送 |
+| `TG_CHAT_ID` | 管理员 Chat ID：给机器人发消息后找 [@userinfobot](https://t.me/userinfobot) 发 `/start` 获取数字 |
+
+配置后保存并**重新部署** Worker 即生效；面板内点击节点「保活」手动测试，成功/失败会立即推送验证。
+
 ### 节点自动保活（防源站休眠）
 
 1. 节点编辑弹窗 → 打开 **自动保活** 开关，设置**保活间隔天数**（支持小数，如 `14` 表示 14 天拉一次）

@@ -1165,6 +1165,23 @@ function toSvg(s){
             input.click();
         }
 
+        /* 保号提醒轮询：每 20 秒检查新提醒并弹 toast */
+        let watchNoticeT = 0;
+        async function pollWatchNotices() {
+            try {
+                const res = await fetch('/api/watch-notices');
+                const data = await res.json();
+                if (!data.success || !Array.isArray(data.notices)) return;
+                for (const n of data.notices) {
+                    if (n.time > watchNoticeT) {
+                        watchNoticeT = n.time;
+                        showToast(n.text);
+                    }
+                }
+            } catch (e) {}
+        }
+        setInterval(pollWatchNotices, 20000);
+
         async function load() {
             try {
                 const res = await fetch('/api/routes');
@@ -1799,6 +1816,7 @@ function toSvg(s){
         loadIcons().then(() => {
             load();
             loadDNS();
+            pollWatchNotices();
         });
 
         // ==========================================
@@ -2409,6 +2427,53 @@ async function getCFTraffic(env, type) {
 }
 
 // 用于生成 TG 播报消息的核心工具函数 (单面板 + 流量之王统计版)
+/** 保号提醒：节点设置观看下限 watch_limit（如 21 天），提前 3 天预警 + 逾期报警；每天每节点一条，推送 Bark（BARK_KEY）与 Telegram（TG_BOT_TOKEN/TG_CHAT_ID） */
+async function checkWatchReminder(env) {
+  try {
+    if (!env || !env.DB) return;
+    const { results: routes } = await env.DB.prepare("SELECT prefix, remark, watch_limit, last_play FROM routes").all();
+    if (!routes || routes.length === 0) return;
+    const now = Date.now();
+    const today = new Date(now + 8 * 3600000).toISOString().slice(0, 10);
+    const row = await env.DB.prepare("SELECT value FROM app_config WHERE key = 'watch_noticed'").first();
+    let noticed = {};
+    try { if (row && row.value) noticed = JSON.parse(row.value); } catch (e) {}
+    let nList = [];
+    const nrow = await env.DB.prepare("SELECT value FROM app_config WHERE key = 'watch_notices'").first();
+    try { if (nrow && nrow.value) nList = JSON.parse(nrow.value); } catch (e) {}
+    for (const r of routes) {
+      const wl = parseFloat(r.watch_limit);
+      if (!(wl > 0) || !r.last_play) continue;
+      let lpUtc;
+      try { lpUtc = Date.parse(String(r.last_play).replace(' ', 'T') + 'Z') - 8 * 3600000; } catch (e) { continue; }
+      if (isNaN(lpUtc)) continue;
+      const diffDays = Math.floor((now - lpUtc) / 86400000);
+      const name = r.remark || ('/' + r.prefix);
+      let txt = '';
+      if (diffDays >= wl) {
+        txt = '⚠️ 节点 ' + name + ' 已 ' + diffDays + ' 天未观看，超过设定的 ' + wl + ' 天观看下限，请注意保号！';
+      } else if (diffDays >= wl - 3) {
+        const left = Math.max(0, wl - diffDays);
+        txt = '⚠️ 节点 ' + name + ' 已 ' + diffDays + ' 天未观看，还有 ' + left + ' 天将达到设定的 ' + wl + ' 天观看下限，请注意保号！';
+      } else {
+        continue;
+      }
+      if (noticed[r.prefix] === today) continue;
+      noticed[r.prefix] = today;
+      nList.unshift({ time: Date.now(), prefix: String(r.prefix || ''), remark: String(r.remark || ''), text: txt });
+      if (nList.length > 20) nList.length = 20;
+      await env.DB.prepare('INSERT OR REPLACE INTO app_config (key, value) VALUES (?, ?)').bind('watch_notices', JSON.stringify(nList)).run();
+      if (env.BARK_KEY) {
+        try { await fetch('https://api.day.app/' + String(env.BARK_KEY).trim(), { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ title: 'Emby 反代面板', body: txt, level: env.BARK_LEVEL || 'active' }) }); } catch (e) {}
+      }
+      if (env.TG_BOT_TOKEN && env.TG_CHAT_ID) {
+        try { await fetch('https://api.telegram.org/bot' + env.TG_BOT_TOKEN + '/sendMessage', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ chat_id: String(env.TG_CHAT_ID), text: txt }) }); } catch (e) {}
+      }
+    }
+    await env.DB.prepare('INSERT OR REPLACE INTO app_config (key, value) VALUES (?, ?)').bind('watch_noticed', JSON.stringify(noticed)).run();
+  } catch (e) {}
+}
+
 async function sendTgStats(env, chatId) {
     try {
         const totalQuery = await env.DB.prepare(`SELECT COUNT(*) as count FROM visitor_logs WHERE date(timestamp, '+8 hours') = date('now', '+8 hours')`).first();
@@ -2534,6 +2599,9 @@ export default {
     async scheduled(event, env, ctx) {
         if (env.TG_BOT_TOKEN && env.TG_CHAT_ID && env.DB) {
             ctx.waitUntil(sendTgStats(env, env.TG_CHAT_ID));
+        }
+        if (env.DB) {
+            ctx.waitUntil(checkWatchReminder(env));
         }
     },
 
@@ -2891,6 +2959,18 @@ export default {
         // ==========================================
         // 2.3 数据大屏统计接口 (Analytics)
         // ==========================================
+        if (url.pathname === '/api/watch-notices' && request.method === 'GET') {
+            if (!env.DB) return Response.json({ success: false, error: '未绑定 D1 数据库' });
+            try {
+                const row = await env.DB.prepare("SELECT value FROM app_config WHERE key = 'watch_notices'").first();
+                let list = [];
+                try { if (row && row.value) list = JSON.parse(row.value); } catch (e) {}
+                return Response.json({ success: true, notices: list });
+            } catch (e) {
+                return Response.json({ success: false, error: String((e && e.message) || e) });
+            }
+        }
+
         if (url.pathname === '/api/analytics' && request.method === 'GET') {
             if (!env.DB) return Response.json({ success: false, error: '未绑定 D1 数据库' });
             try {

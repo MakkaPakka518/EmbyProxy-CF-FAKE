@@ -1735,7 +1735,7 @@ function toSvg(s){
         }
         let PT = { enabled: false, key: '' };
         function entryUrl(prefix) {
-            return 'https://' + currentHost + '/' + (PT.enabled ? PT.key + '/' : '') + prefix;
+            return 'https://' + window.location.host + '/' + (PT.enabled ? PT.key + '/' : '') + prefix;
         }
         async function loadPtState() {
             try {

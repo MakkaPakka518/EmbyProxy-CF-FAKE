@@ -1184,6 +1184,9 @@ function toSvg(s){
 
         async function load() {
             try {
+                await loadPtState();
+            } catch (e) {}
+            try {
                 const res = await fetch('/api/routes');
                 if (!res.ok) throw new Error('请求失败，请检查环境配置');
                 const data = await res.json();

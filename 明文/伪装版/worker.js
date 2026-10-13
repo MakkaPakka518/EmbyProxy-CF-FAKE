@@ -1758,6 +1758,7 @@ function toSvg(s){
                 showToast('反代 Token 已' + (enabled ? '开启，链接前缀 /' + key + '/' : '关闭'));
                 await loadPtState();
                 renderRoutes();
+                closeAccountModal();
             } else alert('保存失败：' + (data.error || ''));
         }
         function fmtHitTs(ts) {

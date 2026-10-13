@@ -1,6 +1,6 @@
-// VERSION: 3.3.10
+// VERSION: 3.3.11
 //  面板核心配置区 (放在最顶端方便修改)
-const CURRENT_VERSION = "3.3.10"; 
+const CURRENT_VERSION = "3.3.11"; 
 const GITHUB_RAW_URL = "https://raw.githubusercontent.com/MakkaPakka518/ProxyHub_Emby/refs/heads/main/worker.js";
 
 // ==========================================
@@ -3711,6 +3711,7 @@ if (request.method !== 'GET' && ROLE !== 'admin') return new Response('Forbidden
             return remainingPath;
         }
 
+        let route = null;
         if (decodedPath.startsWith('/http://') || decodedPath.startsWith('/https://')) {
             targetUrls = [decodedPath.substring(1)]; remainingPath = '';
         } else {
@@ -3721,7 +3722,7 @@ if (request.method !== 'GET' && ROLE !== 'admin') return new Response('Forbidden
                 if (!env.DB) return new Response(`404: Node not found (DB not bound)`, { status: 404 });
                 try { await env.DB.exec(`ALTER TABLE routes ADD COLUMN custom_ip TEXT DEFAULT ''`); } catch(e) {}
                 const stmt = env.DB.prepare(`SELECT target, mode, cache_img, custom_ip FROM routes WHERE prefix = ?`);
-                const route = await stmt.bind(prefix).first();
+                route = await stmt.bind(prefix).first();
                 if (!route) return new Response(`404: Node not found`, { status: 404 });
 
                 currentMode = route.mode || 'off'; enableCache = (route.cache_img !== 'off');

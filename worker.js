@@ -1,10 +1,5083 @@
-// VERSION: 3.3.9
+// VERSION: 3.3.10
 //  面板核心配置区 (放在最顶端方便修改)
-const CURRENT_VERSION = "3.3.9"; 
+const CURRENT_VERSION = "3.3.10"; 
 const GITHUB_RAW_URL = "https://raw.githubusercontent.com/MakkaPakka518/EmbyProxy-CF-FAKE/refs/heads/main/worker.js";
 
 // ==========================================
 // 1. 网页界面
 // ==========================================
 
-const _0x4b7a7f=_0x3f0e;(function(_0x595600,_0x243a84){const _0x872b28=_0x3f0e,_0x5881d3=_0x595600();while(!![]){try{const _0x2b1ff0=-parseInt(_0x872b28(0x2ae))/0x1+-parseInt(_0x872b28(0x3f5))/0x2*(-parseInt(_0x872b28(0x22b))/0x3)+-parseInt(_0x872b28(0x1e2))/0x4*(parseInt(_0x872b28(0x322))/0x5)+parseInt(_0x872b28(0x23f))/0x6*(parseInt(_0x872b28(0x1a9))/0x7)+-parseInt(_0x872b28(0x357))/0x8*(-parseInt(_0x872b28(0x227))/0x9)+parseInt(_0x872b28(0x32e))/0xa+-parseInt(_0x872b28(0x489))/0xb*(parseInt(_0x872b28(0x1a1))/0xc);if(_0x2b1ff0===_0x243a84)break;else _0x5881d3['push'](_0x5881d3['shift']());}catch(_0x33a7d3){_0x5881d3['push'](_0x5881d3['shift']());}}}(_0x31e2,0x27769));const SVG_EYE=_0x4b7a7f(0x25d),SVG_COPY=_0x4b7a7f(0x2e9),SVG_TG=_0x4b7a7f(0x279),EMBY_LOGO=_0x4b7a7f(0x2f8),I={'rocket':_0x4b7a7f(0x360),'xmark':_0x4b7a7f(0x273),'check':_0x4b7a7f(0x3ab),'warn':_0x4b7a7f(0x3be),'film':_0x4b7a7f(0x190),'star':_0x4b7a7f(0x2b7),'sparkles':_0x4b7a7f(0x3f6),'globe':_0x4b7a7f(0x161),'bolt':_0x4b7a7f(0x246),'refresh':_0x4b7a7f(0x2d0),'chart':_0x4b7a7f(0x400),'cloud':_0x4b7a7f(0x3e5),'trash':_0x4b7a7f(0x3cc),'search':_0x4b7a7f(0x35d),'location':_0x4b7a7f(0x3ed),'trophy':_0x4b7a7f(0x48f),'moon':_0x4b7a7f(0x1cd),'sun':_0x4b7a7f(0x329),'pencil':_0x4b7a7f(0x3b2),'gear':_0x4b7a7f(0x1b3),'lines':_0x4b7a7f(0x3af),'box':_0x4b7a7f(0x3b3),'download':_0x4b7a7f(0x15b),'antenna':_0x4b7a7f(0x26b),'bulb':_0x4b7a7f(0x1ef),'tv':_0x4b7a7f(0x18b),'flame':_0x4b7a7f(0x303),'link':_0x4b7a7f(0x3ee),'crown':_0x4b7a7f(0x409),'target':_0x4b7a7f(0x3b0),'arrowdown':_0x4b7a7f(0x164),'robot':_0x4b7a7f(0x469),'spy':_0x4b7a7f(0x44c),'flask':_0x4b7a7f(0x19f),'broom':_0x4b7a7f(0x42b),'checksquare':_0x4b7a7f(0x330),'upload':_0x4b7a7f(0x313),'db':_0x4b7a7f(0x232),'dotblue':_0x4b7a7f(0x3c4),'dotorange':_0x4b7a7f(0x247),'dotgreen':_0x4b7a7f(0x2af),'dotpurple':_0x4b7a7f(0x16b),'plus':_0x4b7a7f(0x43d)},E2I={'${I.rocket}':_0x4b7a7f(0x189),'${I.xmark}':_0x4b7a7f(0x18d),'${I.check}':_0x4b7a7f(0x3b8),'${I.warn}':_0x4b7a7f(0x2aa),'${I.film}':_0x4b7a7f(0x2df),'${I.star}':_0x4b7a7f(0x2ef),'${I.sparkles}':_0x4b7a7f(0x293),'${I.sparkles}':_0x4b7a7f(0x293),'${I.globe}':_0x4b7a7f(0x23d),'${I.globe}':_0x4b7a7f(0x23d),'${I.bolt}':_0x4b7a7f(0x268),'${I.refresh}':_0x4b7a7f(0x2a9),'${I.chart}':_0x4b7a7f(0x385),'${I.cloud}':_0x4b7a7f(0x1e4),'${I.trash}':_0x4b7a7f(0x21f),'${I.search}':_0x4b7a7f(0x1fc),'${I.location}':_0x4b7a7f(0x1a7),'${I.trophy}':_0x4b7a7f(0x3d5),'${I.moon}':_0x4b7a7f(0x2e1),'${I.sun}':_0x4b7a7f(0x244),'${I.dotblue}':_0x4b7a7f(0x33c),'${I.dotorange}':_0x4b7a7f(0x31e),'${I.dotgreen}':_0x4b7a7f(0x37d),'${I.dotpurple}':_0x4b7a7f(0x199),'${I.robot}':_0x4b7a7f(0x294),'${I.spy}':_0x4b7a7f(0x348),'${I.flame}':_0x4b7a7f(0x39d),'${I.link}':_0x4b7a7f(0x1bc),'${I.tv}':'tv','${I.box}':_0x4b7a7f(0x30a),'${I.download}':_0x4b7a7f(0x418),'${I.antenna}':_0x4b7a7f(0x1df),'${I.bulb}':_0x4b7a7f(0x2ff),'${I.crown}':_0x4b7a7f(0x44f),'${I.target}':_0x4b7a7f(0x42e),'${I.arrowdown}':_0x4b7a7f(0x22f),'${I.xmark}':_0x4b7a7f(0x18d),'${I.pencil}':_0x4b7a7f(0x48e),'${I.gear}':_0x4b7a7f(0x2e8),'${I.lines}':_0x4b7a7f(0x350),'${I.flask}':_0x4b7a7f(0x3d0),'${I.broom}':_0x4b7a7f(0x2f3),'${I.checksquare}':_0x4b7a7f(0x2a3),'${I.upload}':_0x4b7a7f(0x2f1)};function toSvg(_0x33ccf9){const _0x5c321d=_0x4b7a7f;if(!_0x33ccf9)return _0x33ccf9;return String(_0x33ccf9)[_0x5c321d(0x3a0)](/[\u{1F000}-\u{1FAFF}\u{2600}-\u{27BF}\u{FE0F}\u{2B00}-\u{2BFF}]/gu,function(_0x226cc2){const _0x336984=_0x5c321d;if(_0x226cc2==='\uFE0F')return'';var _0x2c9308=E2I[_0x226cc2];return _0x2c9308&&I[_0x2c9308]?_0x336984(0x283)+I[_0x2c9308]+_0x336984(0x166):'';});}const CSS_COMMON=_0x4b7a7f(0x23a),LOGIN_UI=_0x4b7a7f(0x43b)+CSS_COMMON+_0x4b7a7f(0x1ea)+EMBY_LOGO+_0x4b7a7f(0x402)+I[_0x4b7a7f(0x189)]+_0x4b7a7f(0x27d)+I[_0x4b7a7f(0x18d)]+_0x4b7a7f(0x261)+I[_0x4b7a7f(0x3b8)]+_0x4b7a7f(0x180)+I[_0x4b7a7f(0x2aa)]+_0x4b7a7f(0x2c5)+I[_0x4b7a7f(0x2df)]+_0x4b7a7f(0x173)+I[_0x4b7a7f(0x2ef)]+_0x4b7a7f(0x310)+I[_0x4b7a7f(0x293)]+_0x4b7a7f(0x2d2)+I[_0x4b7a7f(0x293)]+_0x4b7a7f(0x2d2)+I[_0x4b7a7f(0x23d)]+_0x4b7a7f(0x1bd)+I[_0x4b7a7f(0x23d)]+_0x4b7a7f(0x1bd)+I[_0x4b7a7f(0x268)]+_0x4b7a7f(0x33a)+I[_0x4b7a7f(0x2a9)]+_0x4b7a7f(0x384)+I[_0x4b7a7f(0x385)]+_0x4b7a7f(0x39b)+I[_0x4b7a7f(0x1e4)]+_0x4b7a7f(0x432)+I[_0x4b7a7f(0x21f)]+_0x4b7a7f(0x1e1)+I[_0x4b7a7f(0x1fc)]+_0x4b7a7f(0x1ac)+I[_0x4b7a7f(0x1a7)]+_0x4b7a7f(0x167)+I[_0x4b7a7f(0x3d5)]+_0x4b7a7f(0x2ee)+I[_0x4b7a7f(0x2e1)]+_0x4b7a7f(0x24e)+I[_0x4b7a7f(0x244)]+_0x4b7a7f(0x316)+I[_0x4b7a7f(0x33c)]+_0x4b7a7f(0x276)+I[_0x4b7a7f(0x31e)]+_0x4b7a7f(0x20b)+I[_0x4b7a7f(0x37d)]+_0x4b7a7f(0x33b)+I[_0x4b7a7f(0x199)]+_0x4b7a7f(0x169)+I[_0x4b7a7f(0x294)]+_0x4b7a7f(0x421)+I[_0x4b7a7f(0x348)]+_0x4b7a7f(0x2d7)+I[_0x4b7a7f(0x39d)]+_0x4b7a7f(0x2a7)+I[_0x4b7a7f(0x1bc)]+_0x4b7a7f(0x376)+I['tv']+_0x4b7a7f(0x44a)+I[_0x4b7a7f(0x30a)]+_0x4b7a7f(0x1e5)+I[_0x4b7a7f(0x418)]+_0x4b7a7f(0x32d)+I[_0x4b7a7f(0x1df)]+_0x4b7a7f(0x407)+I[_0x4b7a7f(0x2ff)]+_0x4b7a7f(0x3bb)+I[_0x4b7a7f(0x44f)]+_0x4b7a7f(0x41d)+I[_0x4b7a7f(0x42e)]+_0x4b7a7f(0x41e)+I[_0x4b7a7f(0x22f)]+_0x4b7a7f(0x299)+I[_0x4b7a7f(0x18d)]+_0x4b7a7f(0x261)+I[_0x4b7a7f(0x48e)]+_0x4b7a7f(0x30f)+I[_0x4b7a7f(0x2e8)]+_0x4b7a7f(0x21b)+I[_0x4b7a7f(0x350)]+_0x4b7a7f(0x19c)+I[_0x4b7a7f(0x3d0)]+_0x4b7a7f(0x34d)+I[_0x4b7a7f(0x2f3)]+_0x4b7a7f(0x183)+I[_0x4b7a7f(0x2a3)]+_0x4b7a7f(0x454)+I[_0x4b7a7f(0x2f1)]+_0x4b7a7f(0x458),HTML_UI=_0x4b7a7f(0x47e)+CSS_COMMON+_0x4b7a7f(0x291)+EMBY_LOGO+_0x4b7a7f(0x402)+I[_0x4b7a7f(0x189)]+_0x4b7a7f(0x27d)+I[_0x4b7a7f(0x18d)]+_0x4b7a7f(0x261)+I[_0x4b7a7f(0x3b8)]+_0x4b7a7f(0x180)+I[_0x4b7a7f(0x2aa)]+_0x4b7a7f(0x2c5)+I[_0x4b7a7f(0x2df)]+_0x4b7a7f(0x173)+I[_0x4b7a7f(0x2ef)]+_0x4b7a7f(0x310)+I[_0x4b7a7f(0x293)]+_0x4b7a7f(0x2d2)+I[_0x4b7a7f(0x293)]+_0x4b7a7f(0x2d2)+I[_0x4b7a7f(0x23d)]+_0x4b7a7f(0x1bd)+I[_0x4b7a7f(0x23d)]+_0x4b7a7f(0x1bd)+I[_0x4b7a7f(0x268)]+_0x4b7a7f(0x33a)+I[_0x4b7a7f(0x2a9)]+_0x4b7a7f(0x384)+I[_0x4b7a7f(0x385)]+_0x4b7a7f(0x39b)+I[_0x4b7a7f(0x1e4)]+_0x4b7a7f(0x432)+I[_0x4b7a7f(0x21f)]+_0x4b7a7f(0x1e1)+I[_0x4b7a7f(0x1fc)]+_0x4b7a7f(0x1ac)+I[_0x4b7a7f(0x1a7)]+_0x4b7a7f(0x167)+I[_0x4b7a7f(0x3d5)]+_0x4b7a7f(0x2ee)+I[_0x4b7a7f(0x2e1)]+_0x4b7a7f(0x24e)+I[_0x4b7a7f(0x244)]+_0x4b7a7f(0x316)+I[_0x4b7a7f(0x33c)]+_0x4b7a7f(0x276)+I[_0x4b7a7f(0x31e)]+_0x4b7a7f(0x20b)+I[_0x4b7a7f(0x37d)]+_0x4b7a7f(0x33b)+I[_0x4b7a7f(0x199)]+_0x4b7a7f(0x169)+I[_0x4b7a7f(0x294)]+_0x4b7a7f(0x421)+I[_0x4b7a7f(0x348)]+_0x4b7a7f(0x2d7)+I[_0x4b7a7f(0x39d)]+_0x4b7a7f(0x2a7)+I[_0x4b7a7f(0x1bc)]+_0x4b7a7f(0x376)+I['tv']+_0x4b7a7f(0x44a)+I[_0x4b7a7f(0x30a)]+_0x4b7a7f(0x1e5)+I[_0x4b7a7f(0x418)]+_0x4b7a7f(0x32d)+I[_0x4b7a7f(0x1df)]+_0x4b7a7f(0x407)+I[_0x4b7a7f(0x2ff)]+_0x4b7a7f(0x3bb)+I[_0x4b7a7f(0x44f)]+_0x4b7a7f(0x41d)+I[_0x4b7a7f(0x42e)]+_0x4b7a7f(0x41e)+I[_0x4b7a7f(0x22f)]+_0x4b7a7f(0x299)+I[_0x4b7a7f(0x18d)]+_0x4b7a7f(0x261)+I[_0x4b7a7f(0x48e)]+_0x4b7a7f(0x30f)+I[_0x4b7a7f(0x2e8)]+_0x4b7a7f(0x21b)+I[_0x4b7a7f(0x350)]+_0x4b7a7f(0x19c)+I[_0x4b7a7f(0x3d0)]+_0x4b7a7f(0x34d)+I[_0x4b7a7f(0x2f3)]+_0x4b7a7f(0x183)+I[_0x4b7a7f(0x2a3)]+_0x4b7a7f(0x454)+I[_0x4b7a7f(0x2f1)]+_0x4b7a7f(0x45f)+I[_0x4b7a7f(0x18d)]+_0x4b7a7f(0x27a)+I[_0x4b7a7f(0x385)]+_0x4b7a7f(0x36d)+I[_0x4b7a7f(0x348)]+_0x4b7a7f(0x417)+I[_0x4b7a7f(0x293)]+_0x4b7a7f(0x2f4)+I[_0x4b7a7f(0x189)]+_0x4b7a7f(0x223)+I[_0x4b7a7f(0x1a7)]+_0x4b7a7f(0x484)+I[_0x4b7a7f(0x189)]+_0x4b7a7f(0x48c)+I[_0x4b7a7f(0x2e8)]+_0x4b7a7f(0x1c2)+I[_0x4b7a7f(0x2e8)]+_0x4b7a7f(0x214)+EMBY_LOGO+_0x4b7a7f(0x335)+I[_0x4b7a7f(0x2e1)]+_0x4b7a7f(0x477)+I[_0x4b7a7f(0x385)]+_0x4b7a7f(0x391)+I[_0x4b7a7f(0x268)]+_0x4b7a7f(0x3a9)+I[_0x4b7a7f(0x18d)]+_0x4b7a7f(0x3ae)+I[_0x4b7a7f(0x189)]+_0x4b7a7f(0x415)+I[_0x4b7a7f(0x48e)]+_0x4b7a7f(0x172)+I[_0x4b7a7f(0x2f1)]+_0x4b7a7f(0x2ea)+I[_0x4b7a7f(0x268)]+_0x4b7a7f(0x2d9)+I[_0x4b7a7f(0x1df)]+_0x4b7a7f(0x33d)+I[_0x4b7a7f(0x23d)]+_0x4b7a7f(0x221)+I[_0x4b7a7f(0x23d)]+_0x4b7a7f(0x201)+I[_0x4b7a7f(0x21f)]+_0x4b7a7f(0x362)+I[_0x4b7a7f(0x23d)]+_0x4b7a7f(0x441)+I[_0x4b7a7f(0x3d0)]+_0x4b7a7f(0x428)+I[_0x4b7a7f(0x1bc)]+_0x4b7a7f(0x398)+I[_0x4b7a7f(0x2ef)]+_0x4b7a7f(0x38a)+I[_0x4b7a7f(0x2a3)]+_0x4b7a7f(0x352)+I[_0x4b7a7f(0x2ff)]+_0x4b7a7f(0x305)+I[_0x4b7a7f(0x30a)]+_0x4b7a7f(0x20c)+I[_0x4b7a7f(0x30a)]+_0x4b7a7f(0x3ca)+I[_0x4b7a7f(0x418)]+_0x4b7a7f(0x256)+I[_0x4b7a7f(0x189)]+_0x4b7a7f(0x336)+I[_0x4b7a7f(0x35a)]+_0x4b7a7f(0x492)+I[_0x4b7a7f(0x48e)]+_0x4b7a7f(0x2ca)+I[_0x4b7a7f(0x18d)]+_0x4b7a7f(0x445)+I[_0x4b7a7f(0x2df)]+_0x4b7a7f(0x263)+I[_0x4b7a7f(0x268)]+_0x4b7a7f(0x44b)+I[_0x4b7a7f(0x18d)]+_0x4b7a7f(0x31a)+I[_0x4b7a7f(0x30a)]+_0x4b7a7f(0x2c1)+I[_0x4b7a7f(0x18d)]+_0x4b7a7f(0x40b)+I[_0x4b7a7f(0x189)]+_0x4b7a7f(0x1e7)+I[_0x4b7a7f(0x18d)]+_0x4b7a7f(0x271)+I[_0x4b7a7f(0x2aa)]+_0x4b7a7f(0x2ab)+I[_0x4b7a7f(0x39d)]+_0x4b7a7f(0x1b0)+I[_0x4b7a7f(0x2e8)]+_0x4b7a7f(0x347)+I[_0x4b7a7f(0x18d)]+_0x4b7a7f(0x1f4)+I[_0x4b7a7f(0x3b8)]+_0x4b7a7f(0x38e)+I[_0x4b7a7f(0x2e8)]+_0x4b7a7f(0x2b4)+I[_0x4b7a7f(0x18d)]+_0x4b7a7f(0x267)+I[_0x4b7a7f(0x48e)]+_0x4b7a7f(0x423)+I[_0x4b7a7f(0x2aa)]+_0x4b7a7f(0x265)+I[_0x4b7a7f(0x3b8)]+_0x4b7a7f(0x470)+I[_0x4b7a7f(0x348)]+_0x4b7a7f(0x2f6)+I[_0x4b7a7f(0x2aa)]+_0x4b7a7f(0x258)+I[_0x4b7a7f(0x3b8)]+_0x4b7a7f(0x2ad)+I[_0x4b7a7f(0x294)]+_0x4b7a7f(0x392)+I[_0x4b7a7f(0x35a)]+_0x4b7a7f(0x219)+I[_0x4b7a7f(0x294)]+_0x4b7a7f(0x1f6)+I[_0x4b7a7f(0x268)]+_0x4b7a7f(0x36b)+I[_0x4b7a7f(0x2f3)]+_0x4b7a7f(0x257)+I[_0x4b7a7f(0x189)]+_0x4b7a7f(0x2dc)+SVG_TG+_0x4b7a7f(0x3f4)+I[_0x4b7a7f(0x3d5)]+_0x4b7a7f(0x382)+I[_0x4b7a7f(0x2df)]+_0x4b7a7f(0x361)+I[_0x4b7a7f(0x2df)]+_0x4b7a7f(0x405)+I[_0x4b7a7f(0x350)]+_0x4b7a7f(0x3e7)+SVG_COPY+_0x4b7a7f(0x32b)+I[_0x4b7a7f(0x22f)]+_0x4b7a7f(0x342)+I[_0x4b7a7f(0x22f)]+_0x4b7a7f(0x288)+I['tv']+_0x4b7a7f(0x3b9)+SVG_EYE+_0x4b7a7f(0x35c)+SVG_COPY+_0x4b7a7f(0x346)+SVG_EYE+_0x4b7a7f(0x478)+I[_0x4b7a7f(0x3b8)]+_0x4b7a7f(0x446)+I[_0x4b7a7f(0x18d)]+_0x4b7a7f(0x41b)+I[_0x4b7a7f(0x3b8)]+_0x4b7a7f(0x446)+I[_0x4b7a7f(0x18d)]+_0x4b7a7f(0x2a6)+I[_0x4b7a7f(0x2aa)]+_0x4b7a7f(0x452)+I[_0x4b7a7f(0x3b8)]+_0x4b7a7f(0x287)+I[_0x4b7a7f(0x3b8)]+_0x4b7a7f(0x40d)+CURRENT_VERSION+_0x4b7a7f(0x3d2)+GITHUB_RAW_URL+_0x4b7a7f(0x34c);async function getCFTraffic(_0x2fd3e1,_0xecac47){const _0x392fec=_0x4b7a7f;if(!_0x2fd3e1[_0x392fec(0x2ec)]||!_0x2fd3e1[_0x392fec(0x442)])return _0x392fec(0x240);try{const _0x29404f=new Date();let _0x25a8b4={};if(_0xecac47===_0x392fec(0x2c8)){const _0x3ef2ea=new Date(_0x29404f[_0x392fec(0x46c)]()+0x8*0x36ee80);_0x3ef2ea[_0x392fec(0x2cb)](0x0,0x0,0x0,0x0);const _0x58e100=new Date(_0x3ef2ea[_0x392fec(0x46c)]()-0x8*0x36ee80);_0x25a8b4={'query':_0x392fec(0x359)+_0x2fd3e1[_0x392fec(0x442)]+_0x392fec(0x1a0)+_0x58e100[_0x392fec(0x1a6)]()+_0x392fec(0x2a4)+_0x29404f[_0x392fec(0x1a6)]()+_0x392fec(0x3f8)};}else{const _0x9fe101=new Date(_0x29404f[_0x392fec(0x46c)]()-_0xecac47*0x18*0x36ee80),_0x56631d=_0x9fe101[_0x392fec(0x1a6)]()[_0x392fec(0x2b5)]('T')[0x0],_0x443f44=_0x29404f[_0x392fec(0x1a6)]()[_0x392fec(0x2b5)]('T')[0x0];_0x25a8b4={'query':_0x392fec(0x359)+_0x2fd3e1[_0x392fec(0x442)]+_0x392fec(0x3e2)+_0x56631d+_0x392fec(0x338)+_0x443f44+_0x392fec(0x443)};}const _0x1e514d=await fetch(_0x392fec(0x2d1),{'method':_0x392fec(0x237),'headers':{'Authorization':_0x392fec(0x3b5)+_0x2fd3e1[_0x392fec(0x2ec)],'Content-Type':_0x392fec(0x28e)},'body':JSON[_0x392fec(0x2fb)](_0x25a8b4)}),_0x34ae60=await _0x1e514d[_0x392fec(0x2f7)]();if(_0x34ae60[_0x392fec(0x47c)]&&_0x34ae60[_0x392fec(0x47c)][_0x392fec(0x2f2)]>0x0)return _0x392fec(0x2c4)+_0x34ae60[_0x392fec(0x47c)][0x0][_0x392fec(0x22a)];const _0x5a7a8e=_0x34ae60?.[_0x392fec(0x416)]?.[_0x392fec(0x42c)]?.[_0x392fec(0x3bf)];let _0x50361a=0x0;if(_0x5a7a8e&&_0x5a7a8e[_0x392fec(0x2f2)]>0x0){if(_0xecac47===_0x392fec(0x2c8)&&_0x5a7a8e[0x0][_0x392fec(0x386)])_0x50361a=_0x5a7a8e[0x0][_0x392fec(0x386)][0x0]?.[_0x392fec(0x2c2)]?.[_0x392fec(0x22c)]||0x0;else _0xecac47!==_0x392fec(0x2c8)&&_0x5a7a8e[0x0][_0x392fec(0x449)]&&_0x5a7a8e[0x0][_0x392fec(0x449)][_0x392fec(0x18a)](_0x9d9492=>{const _0x1ff7cc=_0x392fec;_0x50361a+=_0x9d9492[_0x1ff7cc(0x2c2)][_0x1ff7cc(0x289)]||0x0;});}if(_0x50361a===0x0)return _0x392fec(0x26c);if(_0x50361a>=0x10000000000)return(_0x50361a/0x10000000000)[_0x392fec(0x2be)](0x2)+_0x392fec(0x1ba);if(_0x50361a>=0x40000000)return(_0x50361a/0x40000000)[_0x392fec(0x2be)](0x2)+_0x392fec(0x20e);if(_0x50361a>=0x100000)return(_0x50361a/0x100000)[_0x392fec(0x2be)](0x2)+_0x392fec(0x2fa);if(_0x50361a>=0x400)return(_0x50361a/0x400)[_0x392fec(0x2be)](0x2)+_0x392fec(0x230);return _0x50361a+'\x20B';}catch(_0x45ac14){return _0x392fec(0x2b0);}}function kaClientProfile(_0x62d64d){const _0x231ae6=_0x4b7a7f;let _0x53e6b3={};try{_0x53e6b3=_0x62d64d&&_0x62d64d[_0x231ae6(0x235)]?JSON[_0x231ae6(0x1fb)](_0x62d64d[_0x231ae6(0x235)]):{};}catch(_0x18a7de){}const _0x15ed62=!!(_0x53e6b3[_0x231ae6(0x2e4)]||_0x53e6b3[_0x231ae6(0x337)]||_0x53e6b3[_0x231ae6(0x3e0)]||_0x53e6b3['ua']);return{'client':_0x15ed62&&_0x53e6b3[_0x231ae6(0x2e4)]?String(_0x53e6b3[_0x231ae6(0x2e4)]):_0x231ae6(0x21e),'version':_0x15ed62&&_0x53e6b3[_0x231ae6(0x337)]?String(_0x53e6b3[_0x231ae6(0x337)]):_0x231ae6(0x304),'device':_0x15ed62&&_0x53e6b3[_0x231ae6(0x3e0)]?String(_0x53e6b3[_0x231ae6(0x3e0)]):_0x231ae6(0x47f),'ua':_0x15ed62&&_0x53e6b3['ua']?String(_0x53e6b3['ua']):_0x231ae6(0x399)};}function kaAuthHeader(_0xe9e27b){const _0xa731fa=_0x4b7a7f;return{'X-Emby-Authorization':_0xa731fa(0x2db)+_0xe9e27b[_0xa731fa(0x2e4)]+_0xa731fa(0x2dd)+_0xe9e27b[_0xa731fa(0x3e0)]+_0xa731fa(0x366)+_0xe9e27b[_0xa731fa(0x337)]+'\x22'};}function kaHeaders(_0x21493d,_0x111286){const _0x1c4dfa=_0x4b7a7f,_0xe1ada5=Object[_0x1c4dfa(0x3c1)]({},kaAuthHeader(_0x21493d),{'User-Agent':_0x21493d['ua']});if(_0x111286)Object[_0x1c4dfa(0x3c1)](_0xe1ada5,_0x111286);return _0xe1ada5;}function addApiKey(_0x32ea70,_0x309b86){const _0x90e3a2=_0x4b7a7f;try{const _0x109036=new URL(_0x32ea70);if(_0x309b86)_0x109036[_0x90e3a2(0x1b1)][_0x90e3a2(0x1ee)](_0x90e3a2(0x1da),_0x309b86);return _0x109036[_0x90e3a2(0x1db)]();}catch(_0x5ee31e){return _0x32ea70;}}function fmtPos(_0x4f3a17){const _0x3672d9=_0x4b7a7f,_0x555474=Math[_0x3672d9(0x36a)](0x0,Math[_0x3672d9(0x453)](parseInt(_0x4f3a17,0xa)||0x0)/0x989680),_0x444c41=Math[_0x3672d9(0x453)](_0x555474/0xe10),_0x46b006=Math[_0x3672d9(0x453)](_0x555474%0xe10/0x3c),_0x16eb89=Math[_0x3672d9(0x453)](_0x555474%0x3c);return(_0x444c41>0x0?String(_0x444c41)[_0x3672d9(0x2c6)](0x2,'0')+':':'')+String(_0x46b006)[_0x3672d9(0x2c6)](0x2,'0')+':'+String(_0x16eb89)[_0x3672d9(0x2c6)](0x2,'0');}async function kaFetch(_0x541fa2,_0x49fdbf){const _0x2ed4b3=_0x4b7a7f,_0x43fd8d=new AbortController(),_0x39aa33=setTimeout(()=>_0x43fd8d[_0x2ed4b3(0x1ad)](),0xea60);try{const _0x55e1d7=await fetch(_0x541fa2,Object[_0x2ed4b3(0x3c1)]({},_0x49fdbf||{},{'signal':_0x43fd8d[_0x2ed4b3(0x27c)]}));return _0x55e1d7;}catch(_0x27bc08){throw _0x27bc08;}finally{clearTimeout(_0x39aa33);}}function _0x3f0e(_0xda4fe5,_0x4be12d){_0xda4fe5=_0xda4fe5-0x15a;const _0x31e2b5=_0x31e2();let _0x3f0e99=_0x31e2b5[_0xda4fe5];return _0x3f0e99;}async function kaJson(_0x3aa6da,_0x2ee21d){const _0x5aa4de=_0x4b7a7f,_0x5bf4a6=await kaFetch(_0x3aa6da,_0x2ee21d),_0x50178d=await _0x5bf4a6[_0x5aa4de(0x3c3)]();let _0x3370e6=null;try{_0x3370e6=JSON[_0x5aa4de(0x1fb)](_0x50178d);}catch(_0x560bc7){}return{'status':_0x5bf4a6[_0x5aa4de(0x353)],'data':_0x3370e6,'text':_0x50178d};}async function readStreamUpTo(_0x525a70,_0x170779,_0x28d43e){const _0x35f89b=_0x4b7a7f;if(!_0x525a70||!_0x525a70[_0x35f89b(0x1c4)])return 0x0;const _0x47fd0d=_0x525a70[_0x35f89b(0x1c4)][_0x35f89b(0x370)]();let _0x3b1e18=0x0;const _0x116083=Date[_0x35f89b(0x431)]();try{for(;;){if(Date[_0x35f89b(0x431)]()-_0x116083>_0x28d43e)break;let _0x3c215d=null;const _0x344e58=await Promise[_0x35f89b(0x1fd)]([_0x47fd0d[_0x35f89b(0x178)](),new Promise((_0x3fab2d,_0x9d9a08)=>{const _0x2a9dd2=_0x35f89b;_0x3c215d=setTimeout(()=>_0x9d9a08(new Error(_0x2a9dd2(0x476))),Math[_0x2a9dd2(0x36a)](0x3e8,_0x28d43e-(Date[_0x2a9dd2(0x431)]()-_0x116083)));})]);if(_0x3c215d)clearTimeout(_0x3c215d);if(_0x344e58[_0x35f89b(0x30d)])break;if(_0x344e58[_0x35f89b(0x39a)])_0x3b1e18+=_0x344e58[_0x35f89b(0x39a)][_0x35f89b(0x44e)];if(_0x3b1e18>=_0x170779)break;}}catch(_0xf91965){}try{await _0x47fd0d[_0x35f89b(0x17f)]();}catch(_0x56b269){}return _0x3b1e18;}async function runKeepAlive(_0x496fa0,_0x38cef7){const _0x5da8c0=_0x4b7a7f,_0x5dd6f6=[];let _0x185f36=0x3,_0x4f8a06='';const _0xf3d225=(_0x575ff9,_0x416daa,_0x50eb9e)=>{const _0x24ecc5=_0x3f0e;try{if(!_0x496fa0||!_0x496fa0['DB'])return;_0x185f36=Math[_0x24ecc5(0x36a)](_0x185f36,Math[_0x24ecc5(0x35b)](0x64,Math[_0x24ecc5(0x389)](_0x50eb9e!==undefined?_0x50eb9e:0xc+_0x416daa[_0x24ecc5(0x2f2)]*0x8))),_0x496fa0['DB'][_0x24ecc5(0x383)](_0x24ecc5(0x406))[_0x24ecc5(0x38d)](_0x24ecc5(0x162),JSON[_0x24ecc5(0x2fb)]({'running':!![],'prefix':_0x38cef7?_0x38cef7[_0x24ecc5(0x231)]:'','current':_0x575ff9||'','steps':_0x416daa||[],'progress':_0x185f36,'mediaTitle':_0x4f8a06||'','updatedAt':Date[_0x24ecc5(0x431)]()}))[_0x24ecc5(0x30b)]()[_0x24ecc5(0x29c)](()=>{});}catch(_0x5e12e6){}},_0x1cca58=(_0x251862,_0x10c8fe,_0x2cdc56)=>{const _0x58d6e1=_0x3f0e,_0x1ac568={'name':_0x251862,'ok':!!_0x10c8fe,'detail':String(_0x2cdc56||'')[_0x58d6e1(0x264)](0x0,0xdc)};_0x5dd6f6[_0x58d6e1(0x462)](_0x1ac568),_0xf3d225(_0x58d6e1(0x486)+_0x251862,_0x5dd6f6[_0x58d6e1(0x264)]());};if(!_0x38cef7)return _0x1cca58(_0x5da8c0(0x3ff),![],_0x5da8c0(0x28b)),{'ok':![],'msg':_0x5da8c0(0x28b),'steps':_0x5dd6f6};const _0x36f1e7=kaClientProfile(_0x38cef7),_0x2fd97d=String(_0x38cef7[_0x5da8c0(0x42e)]||'')[_0x5da8c0(0x2b5)](',')[0x0][_0x5da8c0(0x1d4)]()[_0x5da8c0(0x3a0)](/\/+$/,'');if(!_0x2fd97d)return _0x1cca58(_0x5da8c0(0x3e8),![],_0x5da8c0(0x394)),{'ok':![],'msg':_0x5da8c0(0x394),'steps':_0x5dd6f6};_0x1cca58(_0x5da8c0(0x228),!![],_0x38cef7[_0x5da8c0(0x231)]+_0x5da8c0(0x1a3)+_0x2fd97d+_0x5da8c0(0x1af)+_0x36f1e7['ua']+'）');try{const _0xe522=await kaJson(_0x2fd97d+_0x5da8c0(0x296),{'headers':kaHeaders(_0x36f1e7)});_0x1cca58(_0x5da8c0(0x20d),_0xe522[_0x5da8c0(0x353)]===0xc8,_0x5da8c0(0x344)+_0xe522[_0x5da8c0(0x353)]);}catch(_0x2299bc){_0x1cca58(_0x5da8c0(0x20d),![],_0x2299bc[_0x5da8c0(0x22a)]);}let _0x43c4e6=String(_0x38cef7[_0x5da8c0(0x260)]||'')[_0x5da8c0(0x1d4)](),_0x57587e='',_0x270665='',_0x5be27e='';!_0x43c4e6&&_0x38cef7[_0x5da8c0(0x171)]&&(_0x270665=String(_0x38cef7[_0x5da8c0(0x171)]),_0x5be27e=String(_0x38cef7[_0x5da8c0(0x27b)]||''));if(!_0x43c4e6&&_0x270665)try{const _0x44ea02=await kaJson(_0x2fd97d+_0x5da8c0(0x327),{'method':_0x5da8c0(0x237),'headers':Object[_0x5da8c0(0x3c1)](kaHeaders(_0x36f1e7),{'Content-Type':_0x5da8c0(0x28e)}),'body':JSON[_0x5da8c0(0x2fb)]({'Username':_0x270665,'Pw':_0x5be27e})});_0x44ea02[_0x5da8c0(0x416)]&&_0x44ea02[_0x5da8c0(0x416)][_0x5da8c0(0x45d)]?(_0x43c4e6=_0x44ea02[_0x5da8c0(0x416)][_0x5da8c0(0x45d)],_0x57587e=_0x44ea02[_0x5da8c0(0x416)][_0x5da8c0(0x425)]&&_0x44ea02[_0x5da8c0(0x416)][_0x5da8c0(0x425)]['Id']||'',_0x1cca58(_0x5da8c0(0x3b6),!![],_0x5da8c0(0x493)+_0x270665+_0x5da8c0(0x1a3)+_0x44ea02[_0x5da8c0(0x353)])):_0x1cca58(_0x5da8c0(0x3b6),![],_0x5da8c0(0x188)+_0x44ea02[_0x5da8c0(0x353)]);}catch(_0x448b2a){_0x1cca58(_0x5da8c0(0x3b6),![],_0x448b2a[_0x5da8c0(0x22a)]);}if(!_0x43c4e6){try{const _0x2a4e69=await kaJson(_0x2fd97d+_0x5da8c0(0x21d),{'headers':kaHeaders(_0x36f1e7)});_0x1cca58(_0x5da8c0(0x30e),_0x2a4e69[_0x5da8c0(0x353)]===0xc8||_0x2a4e69[_0x5da8c0(0x353)]===0x191,_0x5da8c0(0x1cf)+_0x2a4e69[_0x5da8c0(0x353)]);}catch(_0x331be9){_0x1cca58(_0x5da8c0(0x1b2),![],_0x331be9[_0x5da8c0(0x22a)]);}return{'ok':!![],'msg':_0x5da8c0(0x39e),'steps':_0x5dd6f6};}if(!_0x57587e)try{const _0x13b414=await kaJson(addApiKey(_0x2fd97d+_0x5da8c0(0x499),_0x43c4e6),{'headers':kaHeaders(_0x36f1e7)}),_0x360672=_0x13b414[_0x5da8c0(0x416)]||[],_0x3a5b53=Array[_0x5da8c0(0x1f8)](_0x360672)?_0x360672:[],_0x135fab=_0x3a5b53[_0x5da8c0(0x333)](_0x595a1d=>_0x595a1d&&_0x595a1d['Id'])||_0x3a5b53[0x0];_0x135fab&&_0x135fab['Id']&&(_0x57587e=_0x135fab['Id'],_0x1cca58(_0x5da8c0(0x2a2),!![],String(_0x135fab[_0x5da8c0(0x32c)]||_0x57587e)));}catch(_0x3f0440){}let _0x424245='',_0x4575e6='';try{const _0x1bc50b=await kaJson(addApiKey(_0x2fd97d+_0x5da8c0(0x3df),_0x43c4e6),{'headers':kaHeaders(_0x36f1e7)}),_0x38c7da=_0x1bc50b[_0x5da8c0(0x416)]&&_0x1bc50b[_0x5da8c0(0x416)][_0x5da8c0(0x3e9)]?_0x1bc50b[_0x5da8c0(0x416)][_0x5da8c0(0x3e9)]:Array[_0x5da8c0(0x1f8)](_0x1bc50b[_0x5da8c0(0x416)])?_0x1bc50b[_0x5da8c0(0x416)]:[];if(_0x38c7da[0x0]&&_0x38c7da[0x0]['Id'])_0x424245=_0x38c7da[0x0]['Id'],_0x4575e6=_0x38c7da[0x0][_0x5da8c0(0x32c)]||'';else{if(_0x1bc50b[_0x5da8c0(0x353)]!==0xc8)return _0x1cca58(_0x5da8c0(0x3f2),![],_0x5da8c0(0x1f3)+_0x1bc50b[_0x5da8c0(0x353)]+'\x20'+String(_0x1bc50b[_0x5da8c0(0x3c3)])[_0x5da8c0(0x264)](0x0,0x64)),{'ok':![],'msg':_0x5da8c0(0x17c)+_0x1bc50b[_0x5da8c0(0x353)],'steps':_0x5dd6f6};}}catch(_0x50635b){return _0x1cca58(_0x5da8c0(0x3f2),![],_0x5da8c0(0x1cc)+_0x50635b[_0x5da8c0(0x22a)]),{'ok':![],'msg':_0x5da8c0(0x34b),'steps':_0x5dd6f6};}if(!_0x424245)return _0x1cca58(_0x5da8c0(0x3f2),![],_0x5da8c0(0x194)),{'ok':![],'msg':_0x5da8c0(0x194),'steps':_0x5dd6f6};_0x4f8a06=_0x4575e6||_0x5da8c0(0x262),_0x1cca58(_0x5da8c0(0x3f2),!![],(_0x4575e6||_0x5da8c0(0x262))+'\x20('+String(_0x424245)[_0x5da8c0(0x264)](0x0,0x8)+')');let _0x3a22b0='',_0x1a0276='';try{const _0xb45ed5=await kaJson(addApiKey(_0x2fd97d+_0x5da8c0(0x393)+_0x424245+_0x5da8c0(0x24d),_0x43c4e6),{'method':_0x5da8c0(0x237),'headers':Object[_0x5da8c0(0x3c1)](kaHeaders(_0x36f1e7),{'Content-Type':_0x5da8c0(0x28e)}),'body':JSON[_0x5da8c0(0x2fb)]({'UserId':_0x57587e,'DeviceId':_0x5da8c0(0x15e),'MediaSources':[],'AutoOpenLiveStream':![],'StartTimeTicks':0x0})}),_0x5e66ac=_0xb45ed5[_0x5da8c0(0x416)]&&_0xb45ed5[_0x5da8c0(0x416)][_0x5da8c0(0x20a)]&&_0xb45ed5[_0x5da8c0(0x416)][_0x5da8c0(0x20a)][0x0]||null;_0x5e66ac&&(_0x3a22b0=_0x5e66ac['Id']||'');_0x1a0276=_0xb45ed5[_0x5da8c0(0x416)]&&_0xb45ed5[_0x5da8c0(0x416)][_0x5da8c0(0x225)]||'';if(!_0x3a22b0&&!_0x1a0276)try{const _0x3762ef=await kaJson(addApiKey(_0x2fd97d+_0x5da8c0(0x393)+encodeURIComponent(_0x424245)+_0x5da8c0(0x1d5)+encodeURIComponent(_0x57587e)+_0x5da8c0(0x497),_0x43c4e6),{'headers':kaHeaders(_0x36f1e7)}),_0x205ac1=_0x3762ef[_0x5da8c0(0x416)]&&_0x3762ef[_0x5da8c0(0x416)][_0x5da8c0(0x20a)]&&_0x3762ef[_0x5da8c0(0x416)][_0x5da8c0(0x20a)][0x0]||null;_0x205ac1&&(_0x3a22b0=_0x205ac1['Id']||'');if(!_0x1a0276)_0x1a0276=_0x3762ef[_0x5da8c0(0x416)]&&_0x3762ef[_0x5da8c0(0x416)][_0x5da8c0(0x225)]||'';}catch(_0x24b3b1){}if(_0x5e66ac&&_0x5e66ac[_0x5da8c0(0x32c)])_0x4f8a06=String(_0x5e66ac[_0x5da8c0(0x32c)]);_0x1cca58(_0x5da8c0(0x28f),!!_0x3a22b0||!!_0x1a0276,_0x5e66ac?String(_0x5e66ac[_0x5da8c0(0x32c)]||_0x5da8c0(0x2cf)):_0x5da8c0(0x1f7)+_0xb45ed5[_0x5da8c0(0x353)]+(_0x1a0276?_0x5da8c0(0x483):''));}catch(_0x5db8e8){_0x1cca58(_0x5da8c0(0x28f),![],_0x5db8e8[_0x5da8c0(0x22a)]);}const _0x581a43=0x28*0x400*0x400;if(!_0x3a22b0&&!_0x1a0276)return _0x1cca58(_0x5da8c0(0x38f),![],_0x5da8c0(0x2d5)),{'ok':![],'msg':_0x5da8c0(0x1cb),'steps':_0x5dd6f6};if(_0x424245&&(_0x3a22b0||_0x424245)){_0xf3d225(_0x5da8c0(0x3ea),_0x5dd6f6[_0x5da8c0(0x264)](),0x32);try{const _0x101543=_0x3986ca=>_0x2fd97d+_0x5da8c0(0x422)+encodeURIComponent(_0x424245)+_0x5da8c0(0x1d6)+encodeURIComponent(_0x3a22b0||_0x424245)+_0x5da8c0(0x182)+_0x3986ca,_0x3d4f9a=Object[_0x5da8c0(0x3c1)](kaHeaders(_0x36f1e7),{'Range':_0x5da8c0(0x46d)+(_0x581a43-0x1)});let _0x4df74f=await kaFetch(addApiKey(_0x101543(_0x5da8c0(0x435)),_0x43c4e6),{'headers':_0x3d4f9a});if(_0x4df74f[_0x5da8c0(0x353)]!==0xc8&&_0x4df74f[_0x5da8c0(0x353)]!==0xce){const _0xba6ec3=await _0x4df74f[_0x5da8c0(0x3c3)]()[_0x5da8c0(0x29c)](()=>'');_0x4df74f=await kaFetch(addApiKey(_0x101543(_0x5da8c0(0x419)),_0x43c4e6),{'headers':_0x3d4f9a});const _0xf57b0d=await readStreamUpTo(_0x4df74f,_0x581a43,0x61a8);_0x1cca58(_0x5da8c0(0x38f),_0x4df74f[_0x5da8c0(0x353)]===0xc8||_0x4df74f[_0x5da8c0(0x353)]===0xce,_0x5da8c0(0x213)+String(_0x424245)[_0x5da8c0(0x264)](0x0,0x8)+_0x5da8c0(0x1a4)+_0x4df74f[_0x5da8c0(0x353)]+_0x5da8c0(0x1ff)+(_0xf57b0d/0x100000)[_0x5da8c0(0x2be)](0x1)+_0x5da8c0(0x203)+(_0x4df74f[_0x5da8c0(0x353)]===0x190?'\x20'+String(_0xba6ec3)[_0x5da8c0(0x264)](0x0,0x78):''));}else{const _0x43d943=await readStreamUpTo(_0x4df74f,_0x581a43,0x61a8);_0x1cca58(_0x5da8c0(0x38f),!![],_0x5da8c0(0x213)+String(_0x424245)[_0x5da8c0(0x264)](0x0,0x8)+_0x5da8c0(0x1a4)+_0x4df74f[_0x5da8c0(0x353)]+_0x5da8c0(0x1ff)+(_0x43d943/0x100000)[_0x5da8c0(0x2be)](0x1)+_0x5da8c0(0x203));}}catch(_0x4e3300){_0x1cca58(_0x5da8c0(0x38f),![],_0x4e3300[_0x5da8c0(0x22a)]);}}else _0x1cca58(_0x5da8c0(0x38f),![],_0x5da8c0(0x3d6));const _0x5e50a1=0x1+Math[_0x5da8c0(0x453)](Math[_0x5da8c0(0x36f)]()*0x59),_0x5d799e=0x3c+Math[_0x5da8c0(0x453)](Math[_0x5da8c0(0x36f)]()*0x1f),_0x3ba8bd=_0x5e50a1+_0x5d799e,_0xfa87ea=_0x5e50a1*0x989680,_0x620740=_0x3ba8bd*0x989680,_0x540835=Math[_0x5da8c0(0x36a)](0x1,Math[_0x5da8c0(0x453)](_0x5d799e/0xa)),_0x23c9c7={'ItemId':_0x424245,'MediaSourceId':_0x3a22b0||_0x424245,'UserId':_0x57587e,'DeviceId':_0x5da8c0(0x15e),'PlayMethod':_0x5da8c0(0x482),'CanSeek':!![],'IsPaused':![],'QueueableMediaTypes':[_0x5da8c0(0x3f3)]};if(_0x1a0276)_0x23c9c7[_0x5da8c0(0x225)]=_0x1a0276;const _0x31ffa9=_0x170a95=>JSON[_0x5da8c0(0x2fb)](Object[_0x5da8c0(0x3c1)]({},_0x23c9c7,{'PositionTicks':_0x170a95,'PlaybackPositionTicks':_0x170a95})),_0x5f2182=Object[_0x5da8c0(0x3c1)](kaHeaders(_0x36f1e7),{'Content-Type':_0x5da8c0(0x28e)});if(!_0x1a0276)_0x1cca58(_0x5da8c0(0x2e2),![],_0x5da8c0(0x459)),_0x1cca58(_0x5da8c0(0x368),![],_0x5da8c0(0x358));else{try{const _0x181c96=await kaJson(addApiKey(_0x2fd97d+_0x5da8c0(0x473),_0x43c4e6),{'method':_0x5da8c0(0x237),'headers':_0x5f2182,'body':_0x31ffa9(_0xfa87ea)});_0x1cca58(_0x5da8c0(0x2e2),_0x181c96[_0x5da8c0(0x353)]===0xc8||_0x181c96[_0x5da8c0(0x353)]===0xcc,_0x5da8c0(0x43c)+_0x181c96[_0x5da8c0(0x353)]+(_0x181c96[_0x5da8c0(0x353)]===0x190?'\x20'+String(_0x181c96[_0x5da8c0(0x3c3)])[_0x5da8c0(0x264)](0x0,0x78):''));}catch(_0x28ea1a){_0x1cca58(_0x5da8c0(0x2e2),![],_0x28ea1a[_0x5da8c0(0x22a)]);}let _0x33bfb0=0x0,_0x3dff4e=0x0;const _0x409c04=Date[_0x5da8c0(0x431)]();for(let _0x3def7c=0x1;_0x3def7c<=_0x540835;_0x3def7c++){if(Date[_0x5da8c0(0x431)]()-_0x409c04>0x5dc0)break;await new Promise(_0x5c5642=>setTimeout(_0x5c5642,0x5dc));const _0x3bda23=Math[_0x5da8c0(0x35b)](_0xfa87ea+_0x3def7c*0xa*0x989680,_0x620740);_0xf3d225(_0x5da8c0(0x252)+_0x3def7c+'/'+_0x540835+'（'+fmtPos(_0x3bda23)+'）',_0x5dd6f6[_0x5da8c0(0x264)](),0x42+_0x3def7c/_0x540835*0x1a);try{const _0x2047eb=await kaJson(addApiKey(_0x2fd97d+_0x5da8c0(0x26d),_0x43c4e6),{'method':_0x5da8c0(0x237),'headers':_0x5f2182,'body':_0x31ffa9(_0x3bda23)});if(_0x2047eb[_0x5da8c0(0x353)]===0xc8||_0x2047eb[_0x5da8c0(0x353)]===0xcc)_0x33bfb0++;else _0x3dff4e++;}catch(_0x38574f){_0x3dff4e++;}}_0x1cca58(_0x5da8c0(0x368),_0x33bfb0>0x0,'从\x20'+fmtPos(_0xfa87ea)+_0x5da8c0(0x23c)+_0x5d799e+_0x5da8c0(0x45e)+_0x33bfb0+'/'+_0x540835+_0x5da8c0(0x396)+fmtPos(_0x620740));}try{const _0x13d18f=await kaJson(addApiKey(_0x2fd97d+_0x5da8c0(0x23e),_0x43c4e6),{'method':_0x5da8c0(0x237),'headers':_0x5f2182,'body':_0x31ffa9(_0x620740)});_0x1cca58(_0x5da8c0(0x427),_0x13d18f[_0x5da8c0(0x353)]===0xc8||_0x13d18f[_0x5da8c0(0x353)]===0xcc,_0x5da8c0(0x487)+_0x13d18f[_0x5da8c0(0x353)]+'\x20('+fmtPos(_0x620740)+')');}catch(_0x5ac462){_0x1cca58(_0x5da8c0(0x427),![],_0x5ac462[_0x5da8c0(0x22a)]);}if(_0x57587e&&_0x424245&&_0x43c4e6){await new Promise(_0x76d948=>setTimeout(_0x76d948,0x3e8));try{const _0x411202=await kaJson(addApiKey(_0x2fd97d+_0x5da8c0(0x195)+encodeURIComponent(_0x57587e)+_0x5da8c0(0x1f2)+encodeURIComponent(_0x424245)+_0x5da8c0(0x3a6),_0x43c4e6),{'method':_0x5da8c0(0x237),'headers':Object[_0x5da8c0(0x3c1)](kaHeaders(_0x36f1e7),{'Content-Type':_0x5da8c0(0x28e)}),'body':JSON[_0x5da8c0(0x2fb)]({'Played':![],'PlayCount':0x0,'ResumePositionTicks':0x0,'PlaybackPositionTicks':0x0,'PlayedPercentage':0x0})});_0x1cca58(_0x5da8c0(0x1d9),_0x411202[_0x5da8c0(0x353)]===0xc8||_0x411202[_0x5da8c0(0x353)]===0xcc,_0x5da8c0(0x1fe)+_0x411202[_0x5da8c0(0x353)]+_0x5da8c0(0x23b));if(_0x411202[_0x5da8c0(0x353)]===0xc8||_0x411202[_0x5da8c0(0x353)]===0xcc)_0xf3d225(_0x5da8c0(0x3aa),_0x5dd6f6[_0x5da8c0(0x264)](),0x64);}catch(_0x516607){_0x1cca58(_0x5da8c0(0x1d9),![],_0x516607[_0x5da8c0(0x22a)]);}}else _0x1cca58(_0x5da8c0(0x1d9),![],_0x5da8c0(0x367));const _0x1c2a3c=_0x5dd6f6[_0x5da8c0(0x3c0)](_0x3dc119=>!_0x3dc119['ok'])[_0x5da8c0(0x2f2)];return{'ok':_0x1c2a3c<_0x5dd6f6[_0x5da8c0(0x2f2)]/0x2,'msg':_0x5da8c0(0x3c6)+_0x5dd6f6[_0x5da8c0(0x2f2)]+_0x5da8c0(0x302)+_0x1c2a3c+_0x5da8c0(0x24c),'steps':_0x5dd6f6};}async function pushKaNotice(_0x1c39f5,_0x3d3715,_0x2472fa,_0x475cd0,_0x3a90f4){const _0x1de466=_0x4b7a7f;try{if(!_0x1c39f5||!_0x1c39f5['DB'])return;const _0x53886b=await _0x1c39f5['DB'][_0x1de466(0x383)](_0x1de466(0x19e))[_0x1de466(0x47b)]();let _0x5a958d=[];try{if(_0x53886b&&_0x53886b[_0x1de466(0x39a)])_0x5a958d=JSON[_0x1de466(0x1fb)](_0x53886b[_0x1de466(0x39a)]);}catch(_0x4a031c){}_0x5a958d[_0x1de466(0x447)]({'time':Date[_0x1de466(0x431)](),'prefix':String(_0x3d3715||''),'remark':String(_0x3a90f4||''),'result':_0x2472fa?'成功':'失败','detail':String(_0x475cd0||'')[_0x1de466(0x264)](0x0,0xb4)});if(_0x5a958d[_0x1de466(0x2f2)]>0x1e)_0x5a958d[_0x1de466(0x2f2)]=0x1e;await _0x1c39f5['DB'][_0x1de466(0x383)](_0x1de466(0x406))[_0x1de466(0x38d)](_0x1de466(0x2e3),JSON[_0x1de466(0x2fb)](_0x5a958d))[_0x1de466(0x30b)]();}catch(_0x44656b){}const _0x4655a3=_0x3a90f4||'/'+_0x3d3715,_0x42e334=(_0x2472fa?'✅':'❌')+_0x1de466(0x3a1)+_0x4655a3+_0x1de466(0x325)+(_0x2472fa?'成功':'失败')+(_0x475cd0?'：'+_0x475cd0:'');try{_0x1c39f5[_0x1de466(0x196)]&&await fetch(_0x1de466(0x3eb)+String(_0x1c39f5[_0x1de466(0x196)])[_0x1de466(0x1d4)](),{'method':_0x1de466(0x237),'headers':{'Content-Type':_0x1de466(0x28e)},'body':JSON[_0x1de466(0x2fb)]({'title':_0x1de466(0x3d9),'body':_0x42e334,'level':_0x1c39f5[_0x1de466(0x34a)]||_0x1de466(0x2ba)})});}catch(_0x42f489){}try{_0x1c39f5[_0x1de466(0x20f)]&&_0x1c39f5[_0x1de466(0x193)]&&await fetch(_0x1de466(0x204)+_0x1c39f5[_0x1de466(0x20f)]+_0x1de466(0x15d),{'method':_0x1de466(0x237),'headers':{'Content-Type':_0x1de466(0x28e)},'body':JSON[_0x1de466(0x2fb)]({'chat_id':String(_0x1c39f5[_0x1de466(0x193)]),'text':_0x42e334})});}catch(_0x4565e6){}}async function checkKeepAliveSchedule(_0x4adeaa){const _0x17e093=_0x4b7a7f;try{const {results:_0x22d03d}=await _0x4adeaa['DB'][_0x17e093(0x383)](_0x17e093(0x37c))[_0x17e093(0x1d2)]();if(!_0x22d03d||_0x22d03d[_0x17e093(0x2f2)]===0x0)return;const _0x19f344=_0x22d03d[_0x17e093(0x3c0)](_0x1dc8ef=>{const _0x331f43=_0x17e093,_0xa66d49=Math[_0x331f43(0x36a)](0.1,parseFloat(_0x1dc8ef[_0x331f43(0x17b)])||0x3),_0x2df3c4=_0x1dc8ef[_0x331f43(0x40c)]?new Date(_0x1dc8ef[_0x331f43(0x40c)])[_0x331f43(0x46c)]():0x0;return!_0x2df3c4||Date[_0x331f43(0x431)]()-_0x2df3c4>=_0xa66d49*0x5265c00;});if(_0x19f344[_0x17e093(0x2f2)]===0x0)return;_0x19f344[_0x17e093(0x436)]((_0x333f86,_0x3b792c)=>{const _0x1bc36c=_0x17e093,_0x38116f=_0x333f86[_0x1bc36c(0x40c)]?new Date(_0x333f86[_0x1bc36c(0x40c)])[_0x1bc36c(0x46c)]():0x0,_0x1fbbb7=_0x3b792c[_0x1bc36c(0x40c)]?new Date(_0x3b792c[_0x1bc36c(0x40c)])[_0x1bc36c(0x46c)]():0x0;return _0x38116f-_0x1fbbb7;});const _0x34209c=_0x19f344[0x0],_0x25d833=await runKeepAlive(_0x4adeaa,_0x34209c);await _0x4adeaa['DB'][_0x17e093(0x383)](_0x17e093(0x48b))[_0x17e093(0x38d)](new Date()[_0x17e093(0x1a6)](),_0x25d833['ok']?_0x17e093(0x290):_0x17e093(0x363),_0x25d833[_0x17e093(0x2c9)]||'',_0x34209c[_0x17e093(0x231)])[_0x17e093(0x30b)](),await pushKaNotice(_0x4adeaa,_0x34209c[_0x17e093(0x231)],_0x25d833['ok'],_0x25d833[_0x17e093(0x2c9)],_0x34209c[_0x17e093(0x168)]);}catch(_0x1a5f19){}}async function sendTgStats(_0x400f0f,_0x2e6a62){const _0x2ee51e=_0x4b7a7f;try{const _0x4efc80=await _0x400f0f['DB'][_0x2ee51e(0x383)](_0x2ee51e(0x175))[_0x2ee51e(0x47b)](),_0x4917f5=await _0x400f0f['DB'][_0x2ee51e(0x383)](_0x2ee51e(0x1ca))[_0x2ee51e(0x47b)](),_0x39afed=await _0x400f0f['DB'][_0x2ee51e(0x383)](_0x2ee51e(0x3b1))[_0x2ee51e(0x47b)](),[_0x12e457,_0x33e77a,_0xd9d07d]=await Promise[_0x2ee51e(0x1d2)]([getCFTraffic(_0x400f0f,_0x2ee51e(0x2c8)),getCFTraffic(_0x400f0f,0x7),getCFTraffic(_0x400f0f,0x1e)]);let _0x180bda=_0x2ee51e(0x308);if(_0x400f0f[_0x2ee51e(0x2ec)]&&_0x400f0f[_0x2ee51e(0x442)]&&_0x400f0f['DB'])try{const {results:_0x5e28a9}=await _0x400f0f['DB'][_0x2ee51e(0x383)](_0x2ee51e(0x424))[_0x2ee51e(0x1d2)]();if(_0x5e28a9&&_0x5e28a9[_0x2ee51e(0x2f2)]>0x0){const _0x3efcf=new Date(),_0x2ea99e=new Date(_0x3efcf[_0x2ee51e(0x46c)]()+0x8*0x36ee80);_0x2ea99e[_0x2ee51e(0x2cb)](0x0,0x0,0x0,0x0);const _0x49b62d=new Date(_0x2ea99e[_0x2ee51e(0x46c)]()-0x8*0x36ee80);let _0x1e114f=0x0,_0x1de0a0='无';await Promise[_0x2ee51e(0x1d2)](_0x5e28a9[_0x2ee51e(0x455)](async _0x424246=>{const _0x3dece2=_0x2ee51e;try{const _0x5ca03f={'query':_0x3dece2(0x280)+_0x400f0f[_0x3dece2(0x442)]+_0x3dece2(0x2b8)+_0x424246[_0x3dece2(0x231)]+_0x3dece2(0x36c)+_0x49b62d[_0x3dece2(0x1a6)]()+_0x3dece2(0x30c)+_0x3efcf[_0x3dece2(0x1a6)]()+_0x3dece2(0x320)},_0xec612=await fetch(_0x3dece2(0x2d1),{'method':_0x3dece2(0x237),'headers':{'Authorization':_0x3dece2(0x3b5)+_0x400f0f[_0x3dece2(0x2ec)],'Content-Type':_0x3dece2(0x28e)},'body':JSON[_0x3dece2(0x2fb)](_0x5ca03f)}),_0x34b1cf=await _0xec612[_0x3dece2(0x2f7)](),_0xd2cdbf=_0x34b1cf?.[_0x3dece2(0x416)]?.[_0x3dece2(0x42c)]?.[_0x3dece2(0x3bf)]?.[0x0]?.[_0x3dece2(0x386)]?.[0x0]?.[_0x3dece2(0x2c2)]?.[_0x3dece2(0x22c)]||0x0;_0xd2cdbf>_0x1e114f&&(_0x1e114f=_0xd2cdbf,_0x1de0a0=_0x424246[_0x3dece2(0x168)]||_0x424246[_0x3dece2(0x231)]);}catch(_0x5b84a2){}}));if(_0x1e114f>0x0){let _0x1983aa=_0x2ee51e(0x26c);if(_0x1e114f>=0x10000000000)_0x1983aa=(_0x1e114f/0x10000000000)[_0x2ee51e(0x2be)](0x2)+_0x2ee51e(0x1ba);else{if(_0x1e114f>=0x40000000)_0x1983aa=(_0x1e114f/0x40000000)[_0x2ee51e(0x2be)](0x2)+_0x2ee51e(0x20e);else{if(_0x1e114f>=0x100000)_0x1983aa=(_0x1e114f/0x100000)[_0x2ee51e(0x2be)](0x2)+_0x2ee51e(0x2fa);else{if(_0x1e114f>=0x400)_0x1983aa=(_0x1e114f/0x400)[_0x2ee51e(0x2be)](0x2)+_0x2ee51e(0x230);else _0x1983aa=_0x1e114f+'\x20B';}}}_0x180bda=_0x1de0a0+_0x2ee51e(0x3e4)+_0x1983aa;}else _0x180bda=_0x2ee51e(0x475);}}catch(_0x52ce05){_0x180bda=_0x2ee51e(0x1e0);}const _0x190eba=_0x4efc80?_0x4efc80[_0x2ee51e(0x29f)]:0x0,_0x212c2f=_0x4917f5?(_0x4917f5[_0x2ee51e(0x408)]==='CN'?_0x2ee51e(0x43f):_0x4917f5[_0x2ee51e(0x408)])+'\x20('+_0x4917f5['c']+_0x2ee51e(0x38c):_0x2ee51e(0x2c3),_0x3f56bb=_0x39afed?(_0x39afed[_0x2ee51e(0x168)]||_0x2ee51e(0x2a8))+'\x20('+_0x39afed['c']+_0x2ee51e(0x38c):_0x2ee51e(0x2c3),_0x44f034=_0x2ee51e(0x32a)+(_0x2ee51e(0x28d)+_0x190eba+_0x2ee51e(0x420))+(_0x2ee51e(0x378)+_0x212c2f+'\x0a')+(_0x2ee51e(0x1bf)+_0x3f56bb+'\x0a\x0a')+_0x2ee51e(0x282)+(_0x2ee51e(0x412)+_0x12e457+'\x0a')+(_0x2ee51e(0x2bb)+_0x33e77a+'\x0a')+(_0x2ee51e(0x17a)+_0xd9d07d+'\x0a\x0a')+_0x2ee51e(0x31f)+(''+_0x180bda);await fetch(_0x2ee51e(0x204)+_0x400f0f[_0x2ee51e(0x20f)]+_0x2ee51e(0x15d),{'method':_0x2ee51e(0x237),'headers':{'Content-Type':_0x2ee51e(0x28e)},'body':JSON[_0x2ee51e(0x2fb)]({'chat_id':_0x2e6a62,'text':_0x44f034,'parse_mode':_0x2ee51e(0x2ac)})});}catch(_0x10b53f){console[_0x2ee51e(0x19a)](_0x2ee51e(0x410),_0x10b53f);}}function _0x31e2(){const _0x5890b5=['API报错:\x20','\x27:\x27warn\x27,\x27','padStart','mediaSourceId','today','msg','\x20添加节点</h2>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<button\x20onclick=\x22closeNodeModal()\x22\x20style=\x22background:transparent;border:none;cursor:pointer;color:var(--text-sec);display:inline-flex;padding:4px;\x22>','setUTCHours','host','headers','script','MediaSource','<svg\x20viewBox=\x220\x200\x2024\x2024\x22\x20fill=\x22none\x22\x20stroke=\x22currentColor\x22\x20stroke-width=\x221.8\x22\x20stroke-linecap=\x22round\x22\x20stroke-linejoin=\x22round\x22><path\x20d=\x22M20\x2012a8\x208\x200\x201\x201-2.34-5.66\x22/><path\x20d=\x22M20\x203v5h-5\x22/></svg>','https://api.cloudflare.com/client/v4/graphql','\x27:\x27sparkles\x27,\x27','follow','default_environment','无播放链接，跳过（PlaybackInfo\x20两次尝试均失败）','customVersion','\x27:\x27spy\x27,\x27','CREATE\x20TABLE\x20IF\x20NOT\x20EXISTS\x20visitor_logs\x20(id\x20INTEGER\x20PRIMARY\x20KEY\x20AUTOINCREMENT,\x20prefix\x20TEXT,\x20timestamp\x20DATETIME\x20DEFAULT\x20CURRENT_TIMESTAMP,\x20ip\x20TEXT,\x20country\x20TEXT,\x20ua\x20TEXT)','\x20专属线路测速与动态\x20DNS\x20解析</h2>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20style=\x22background:\x20rgba(120,120,120,0.05);\x20padding:\x2012px\x2016px;\x20border-radius:\x2010px;\x20border:\x201px\x20solid\x20var(--border);\x20margin-bottom:\x2016px;\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20style=\x22font-size:\x2013px;\x20font-weight:\x20600;\x20color:\x20var(--text-sec);\x20margin-bottom:\x208px;\x22>','4.8.0.0','MediaBrowser\x20Client=\x22','\x20批量应用模式\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</button>\x0a\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<span\x20id=\x22batch-status\x22\x20style=\x22font-size:\x2013px;\x20font-weight:\x20600;\x22></span>\x0a\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20id=\x22list-grid\x22\x20class=\x22node-grid\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20style=\x22text-align:center;\x20color:var(--text-sec);\x20grid-column:\x201\x20/\x20-1;\x20padding:\x2040px;\x22>读取数据中...</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x0a\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x0a\x20\x20\x20\x20\x20\x20\x20\x20<div\x20style=\x22text-align:\x20center;\x20padding-top:\x2010px;\x20padding-bottom:\x2020px;\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<a\x20href=\x22https://t.me/MakkaPakkaOvO\x22\x20target=\x22_blank\x22\x20style=\x22text-decoration:\x20none;\x20color:\x20var(--text);\x20font-weight:\x20600;\x20display:\x20inline-flex;\x20align-items:\x20center;\x20padding:\x2012px\x2024px;\x20background:\x20var(--card);\x20border-radius:\x2030px;\x20box-shadow:\x200\x204px\x2015px\x20rgba(0,0,0,0.06);\x20transition:\x200.3s;\x20font-size:\x2014px;\x20border:\x201px\x20solid\x20var(--border);\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20','\x22,\x20Device=\x22','object','film','未知操作','moon','播放会话开始','ka_notices','client','UPDATE\x20routes\x20SET\x20sort_order\x20=\x20?\x20WHERE\x20prefix\x20=\x20?','url','x-emby-authorization','gear','<svg\x20viewBox=\x220\x200\x2024\x2024\x22><path\x20d=\x22M16\x201H4c-1.1\x200-2\x20.9-2\x202v14h2V3h12V1zm3\x204H8c-1.1\x200-2\x20.9-2\x202v14c0\x201.1.9\x202\x202\x202h11c1.1\x200\x202-.9\x202-2V7c0-1.1-.9-2-2-2zm0\x2016H8V7h11v14z\x22/></svg>','\x20文件导入</button>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22card\x20admin-only\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20style=\x22display:flex;\x20justify-content:\x20space-between;\x20align-items:center;\x20margin-bottom:16px;\x20flex-wrap:wrap;\x20gap:10px;\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<h2\x20style=\x22margin:0;\x20font-size:18px;\x22>','some','CF_API_TOKEN','=([^;]+)','\x27:\x27trophy\x27,\x27','star','/Sessions/Playing/Progress','upload','length','broom','\x20发现新版本！</h3>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<p\x20style=\x22margin:\x205px\x200\x200\x200;\x20font-size:\x2013px;\x20color:\x20var(--text-sec);\x22\x20id=\x22updateMsg\x22>当前版本:\x20v1.0.0\x20|\x20最新版本:\x20v?.?.?</p>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<button\x20class=\x22btn-submit\x22\x20onclick=\x22doOnlineUpdate()\x22\x20id=\x22onlineUpdateBtn\x22\x20style=\x22padding:8px\x2016px;border-radius:6px;\x22>','&amp;','\x20反代\x20Token</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20style=\x22font-size:12px;\x20color:var(--text-sec);\x20margin-bottom:10px;\x22>','json','https://raw.githubusercontent.com/MakkaPakka518/Icon/refs/heads/main/MAKKA_EMBY.JPG','$1\x22','\x20MB','stringify','UPDATE\x20routes\x20SET\x20last_play\x20=\x20?\x20WHERE\x20prefix\x20=\x20?','public,\x20max-age=86400','then','bulb','type','access_token','\x20步，','<svg\x20viewBox=\x220\x200\x2024\x2024\x22\x20fill=\x22currentColor\x22><path\x20d=\x22M12\x202s5\x204\x205\x209a5\x205\x200\x200\x201-10\x200c0-2\x201-3.5\x202-5-.5\x201-1\x202-1\x203\x200\x202.5\x203\x203\x203\x206\x201-2\x200-4\x200-4\x202\x201\x203\x203\x203\x204.5A6.5\x206.5\x200\x200\x201\x2012\x2022\x206.5\x206.5\x200\x200\x201\x205.5\x2015C5.5\x209\x2012\x202\x2012\x202z\x22/></svg>','6.0.0','\x20测速完成后，可勾选复选框自由组合，点击【提交选中节点至\x20DNS】自动分发。\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22table-wrapper\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<table\x20style=\x22width:\x20100%;\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<thead>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<tr>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<th\x20style=\x22width:\x2040px;\x20text-align:\x20center;\x22><input\x20type=\x22checkbox\x22\x20id=\x22selectAll\x22\x20class=\x22ip-checkbox\x22\x20onclick=\x22toggleSelectAll()\x22></th>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<th>专属节点\x20(点击复制)</th>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<th>预估延迟</th>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<th>连通状态</th>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<th>记录类型/归属地</th>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<th>单节点操作</th>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</tr>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</thead>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<tbody\x20id=\x22testTableBody\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<tr><td\x20colspan=\x226\x22\x20style=\x22text-align:center;color:var(--text-sec);\x22>暂无数据，请拉取节点或输入自定义\x20IP/域名\x20测试</td></tr>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</tbody>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</table>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22card\x20admin-only\x22\x20id=\x22config-backup-card\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<h2\x20style=\x22margin:0;\x20font-size:18px;\x20margin-bottom:14px;\x22>','SELECT\x20target,\x20mode,\x20cache_img,\x20custom_params\x20FROM\x20routes\x20WHERE\x20prefix\x20=\x20?','/api/routes','暂无数据','Forbidden','box','run','\x22,\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20datetime_leq:\x20\x22','done','服务探测（未配置凭据）','\x27:\x27pencil\x27,\x27','\x27:\x27star\x27,\x27','half','2024-01-01','<svg\x20viewBox=\x220\x200\x2024\x2024\x22\x20fill=\x22none\x22\x20stroke=\x22currentColor\x22\x20stroke-width=\x221.8\x22\x20stroke-linecap=\x22round\x22\x20stroke-linejoin=\x22round\x22><path\x20d=\x22M12\x2015V3M7\x208l5-5\x205\x205M4\x2021h16\x22/></svg>','由于未绑定\x20D1\x20数据库，反代功能不可用。','ALTER\x20TABLE\x20routes\x20ADD\x20COLUMN\x20custom_params\x20TEXT\x20DEFAULT\x20\x27\x27','\x27:\x27sun\x27,\x27','/api/deploy','redirect','pathname','</button>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20id=\x22kaResultBox\x22\x20style=\x22font-size:13px;\x20line-height:1.8;\x22></div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20id=\x22rexModal\x22\x20style=\x22display:none;\x20position:fixed;\x20inset:0;\x20z-index:11020;\x20background:rgba(0,0,0,.5);\x20backdrop-filter:blur(5px);\x20overflow-y:auto;\x20padding:16px;\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20style=\x22max-width:480px;\x20margin:24px\x20auto;\x20background:var(--card);\x20border-radius:18px;\x20padding:22px;\x20box-shadow:0\x2010px\x2040px\x20rgba(0,0,0,.2);\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20style=\x22display:flex;\x20justify-content:space-between;\x20align-items:center;\x20margin-bottom:14px;\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<h2\x20style=\x22margin:0;\x20font-size:19px;\x20display:flex;\x20align-items:center;\x20gap:8px;\x22>','/api/update-dns','SELECT\x20*\x20FROM\x20routes\x20WHERE\x20prefix\x20=\x20?','keys','dotorange','今日流量之王:\x0a','\x22\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20}\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20)\x20{\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20sum\x20{\x20edgeResponseBytes\x20}\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20}\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20}\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20}\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20}','[proxy]','1810GUQrSD','TranscodingUrl','ETag','\x20保活','result','/emby/Users/AuthenticateByName','</div>\x0a\x20\x20\x20\x20\x20\x20</div></body></html>','<svg\x20viewBox=\x220\x200\x2024\x2024\x22\x20fill=\x22none\x22\x20stroke=\x22currentColor\x22\x20stroke-width=\x221.8\x22\x20stroke-linecap=\x22round\x22><circle\x20cx=\x2212\x22\x20cy=\x2212\x22\x20r=\x224.5\x22/><path\x20d=\x22M12\x202v2M12\x2020v2M4.9\x204.9l1.4\x201.4M17.7\x2017.7l1.4\x201.4M2\x2012h2M20\x2012h2M4.9\x2019.1l1.4-1.4M17.7\x206.3l1.4-1.4\x22/></svg>','*今日反代播放数据*\x0a\x0a','</button>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<button\x20class=\x22icon-btn\x22\x20onclick=\x22toggleNodeDetail(this)\x22\x20title=\x22展开详情\x22\x20style=\x22transition:transform\x20.25s;\x22>','Name','\x27:\x27download\x27,\x27','922630axSpaB','X-Forwarded-Proto','<svg\x20viewBox=\x220\x200\x2024\x2024\x22\x20fill=\x22none\x22\x20stroke=\x22currentColor\x22\x20stroke-width=\x221.8\x22\x20stroke-linecap=\x22round\x22\x20stroke-linejoin=\x22round\x22><rect\x20x=\x223\x22\x20y=\x223\x22\x20width=\x2218\x22\x20height=\x2218\x22\x20rx=\x224\x22/><path\x20d=\x22M8\x2012.5l2.5\x202.5L16\x209\x22/></svg>','SELECT\x20prefix,\x20datetime(timestamp,\x20\x27+8\x20hours\x27)\x20as\x20timestamp,\x20ip,\x20country,\x20ua\x20FROM\x20visitor_logs\x20ORDER\x20BY\x20timestamp\x20DESC\x20LIMIT\x2020','dual','find','\x20成功！','\x22\x20alt=\x22logo\x22\x20onclick=\x22openAccountModal()\x22\x20title=\x22账户设置\x22\x20style=\x22cursor:pointer;\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22rtt-pill\x22\x20title=\x22你的设备到云端边缘节点的真实往返延迟\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<span\x20class=\x22rtt-dot\x22\x20id=\x22rttDot\x22></span>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<span\x20class=\x22rtt-label\x22>RTT</span>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<span\x20id=\x22rttValue\x22>测算中</span>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<button\x20id=\x22themeToggle\x22\x20onclick=\x22toggleDarkMode()\x22\x20title=\x22切换深色模式\x22>','\x20反代节点</h2>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<button\x20class=\x22btn-submit\x22\x20onclick=\x22openNodeModal()\x22>','version','\x22,\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20date_leq:\x20\x22','startsWith','\x27:\x27bolt\x27,\x27','\x27:\x27dotgreen\x27,\x27','dotblue','\x20当前域名生效的\x20DNS\x20解析：</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20id=\x22dnsStatus\x22\x20style=\x22display:\x20flex;\x20gap:\x208px;\x20flex-wrap:\x20wrap;\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<span\x20style=\x22color:#888;\x20font-size:\x2014px;\x22>加载中...</span>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22toolbar\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<select\x20id=\x22ipType\x22\x20style=\x22font-weight:\x20600;\x20color:\x20var(--primary);\x20padding:\x2012px\x2016px;\x20border:\x201px\x20solid\x20var(--border);\x20border-radius:\x2010px;\x20background:var(--card);\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<option\x20value=\x22all\x22>\x20综合混合源</option>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<option\x20value=\x22电信\x22>\x20电信专属</option>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<option\x20value=\x22联通\x22>\x20联通专属</option>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<option\x20value=\x22移动\x22>\x20移动专属</option>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<option\x20value=\x22多线\x22>\x20多线BGP</option>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<option\x20value=\x22ipv6\x22>\x20IPv6节点</option>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<option\x20value=\x22优选\x22>\x20顶尖优选库</option>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</select>\x0a\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<button\x20class=\x22btn-submit\x22\x20id=\x22btnFetchRemote\x22\x20onclick=\x22fetchRemoteAndTest()\x22>','settings','DELETE\x20FROM\x20proxy_hits','customClient','match','</button>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22node-detail\x22\x20style=\x22display:none;\x20flex-direction:column;\x20gap:14px;\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20style=\x22background:\x20rgba(120,120,120,0.05);\x20border:\x201px\x20solid\x20var(--border);\x20border-radius:\x2010px;\x20padding:\x2012px;\x20display:\x20flex;\x20justify-content:\x20space-between;\x20flex-wrap:\x20wrap;\x20gap:\x2010px;\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20style=\x22display:flex;\x20flex-direction:\x20column;\x20gap:\x204px;\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<span\x20style=\x22font-size:12px;\x20color:var(--text-sec);\x22>','缺少\x20DNS\x20环境变量','GET\x20/emby/System/Info/Public\x20→\x20','/api/','</button>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22info-row\x20admin-only\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<span\x20class=\x22info-label\x22>源站线路:</span>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22action-group\x22\x20style=\x22flex:1;\x20justify-content:\x20flex-end;\x20margin-left:\x2010px;\x20align-items:\x20flex-start;\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20id=\x22t-${idx}\x22\x20data-val=\x22${encodedTargets}\x22\x20class=\x22secret-text\x20dynamic-url\x22>••••••••</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<button\x20class=\x22icon-btn\x22\x20style=\x22margin-top:\x202px;\x22\x20onclick=\x22toggleVis(\x27t-${idx}\x27,\x20true)\x22\x20title=\x22查看明文\x22>','\x20Worker\x20调度模式与区域设置</h2>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<button\x20onclick=\x22closePlacementModal()\x22\x20style=\x22background:transparent;border:none;cursor:pointer;color:var(--text-sec);display:inline-flex;padding:4px;\x22>','spy','该密码已存在','BARK_LEVEL','获取媒体条目失败','\x22;\x20\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x0a\x20\x20\x20\x20\x20\x20\x20\x20let\x20latestCode\x20=\x20\x22\x22;\x20\x0a\x0a\x20\x20\x20\x20\x20\x20\x20\x20async\x20function\x20checkForUpdates()\x20{\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20try\x20{\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20const\x20res\x20=\x20await\x20fetch(GITHUB_RAW_URL\x20+\x20\x27?t=\x27\x20+\x20new\x20Date().getTime());\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20if\x20(!res.ok)\x20return;\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20latestCode\x20=\x20await\x20res.text();\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20//\x20\x20核心修复：加入双重反斜杠，防止正则在\x20Worker\x20中变成注释\x20(//)\x20导致崩溃\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20const\x20versionMatch\x20=\x20latestCode.match(/\x5c/\x5c/\x5cs*VERSION:\x5cs*v?([\x5cd\x5c.]+)/i);\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20if\x20(versionMatch\x20&&\x20versionMatch[1])\x20{\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20const\x20latestVersion\x20=\x20versionMatch[1];\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20if\x20(latestVersion\x20!==\x20CURRENT_VERSION)\x20{\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20document.getElementById(\x27updateAlert\x27).style.display\x20=\x20\x27block\x27;\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20document.getElementById(\x27updateMsg\x27).innerText\x20=\x20\x27当前版本:\x20v\x27\x20+\x20CURRENT_VERSION\x20+\x20\x27\x20|\x20发现最新版本:\x20v\x27\x20+\x20latestVersion\x20+\x20\x27\x20(Github)\x27;\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20}\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20}\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20}\x20catch\x20(e)\x20{\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20console.log(\x22检测更新失败:\x22,\x20e);\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20}\x0a\x20\x20\x20\x20\x20\x20\x20\x20}\x0a\x0a\x20\x20\x20\x20\x20\x20\x20\x20async\x20function\x20doOnlineUpdate()\x20{\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20if\x20(!confirm(\x27\x20确定要从\x20GitHub\x20拉取最新版本并覆盖当前节点吗？\x5cn\x5cn（这将会保留你的所有环境变量和数据库绑定）\x27))\x20return;\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20const\x20btn\x20=\x20document.getElementById(\x27onlineUpdateBtn\x27);\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20btn.innerText\x20=\x20\x27⏳\x20正在拉取并部署...\x27;\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20btn.disabled\x20=\x20true;\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20btn.style.opacity\x20=\x20\x270.7\x27;\x0a\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20try\x20{\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20//\x20直接复用我们之前写好的防丢数据库高级\x20API\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20const\x20res\x20=\x20await\x20fetch(\x27/api/deploy\x27,\x20{\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20method:\x20\x27POST\x27,\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20headers:\x20{\x20\x27Content-Type\x27:\x20\x27application/json\x27\x20},\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20body:\x20JSON.stringify({\x20newCode:\x20latestCode\x20})\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20});\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20const\x20data\x20=\x20await\x20res.json();\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20if\x20(data.success)\x20{\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20alert(\x27\x20在线更新成功！\x5cn\x5cn点击确定后页面将自动刷新，畅享新版本！\x27);\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20window.location.reload();\x20\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20}\x20else\x20{\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20alert(\x27\x20更新失败：\x5cn\x27\x20+\x20JSON.stringify(data.error));\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20}\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20}\x20catch\x20(e)\x20{\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20alert(\x27\x20异常：\x5cn\x27\x20+\x20e.message);\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20}\x20finally\x20{\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20btn.innerText\x20=\x20\x27\x20一键拉取并升级\x27;\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20btn.disabled\x20=\x20false;\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20btn.style.opacity\x20=\x20\x271\x27;\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20}\x0a\x20\x20\x20\x20\x20\x20\x20\x20}\x0a\x0a\x20\x20\x20\x20\x20\x20\x20\x20//\x20页面加载完成后自动在后台静默检测更新\x0a\x20\x20\x20\x20\x20\x20\x20\x20document.addEventListener(\x27DOMContentLoaded\x27,\x20checkForUpdates);\x0a\x20\x20\x20\x20</script>\x0a\x20\x20\x20\x20<style>\x0a\x20\x20\x20\x20/*\x20修正页面底部留白，防止被\x20Dock\x20挡住\x20*/\x0a\x20\x20\x20\x20body\x20{\x20padding-bottom:\x2090px\x20!important;\x20}\x0a\x20\x20\x20\x20\x0a\x20\x20\x20\x20/*\x20页面切换动画\x20*/\x0a\x20\x20\x20\x20.page-view\x20{\x20display:\x20none;\x20opacity:\x200;\x20animation:\x20dsFadeIn\x200.3s\x20forwards;\x20}\x0a\x20\x20\x20\x20.page-view.active\x20{\x20display:\x20block;\x20opacity:\x201;\x20}\x0a\x20\x20\x20\x20@keyframes\x20dsFadeIn\x20{\x20from\x20{\x20opacity:\x200;\x20transform:\x20translateY(10px);\x20}\x20to\x20{\x20opacity:\x201;\x20transform:\x20translateY(0);\x20}\x20}\x0a\x0a\x20\x20\x20\x20/*\x20底部dock栏UI\x20*/\x0a\x20\x20\x20\x20.ds-dock\x20{\x20\x0a\x20\x20\x20\x20\x20\x20\x20\x20position:\x20fixed;\x20bottom:\x2020px;\x20left:\x2050%;\x20transform:\x20translateX(-50%);\x20\x0a\x20\x20\x20\x20\x20\x20\x20\x20width:\x20calc(100%\x20-\x2032px);\x20max-width:\x20600px;\x20\x0a\x20\x20\x20\x20\x20\x20\x20\x20background:\x20var(--card);\x20backdrop-filter:\x20blur(20px);\x20-webkit-backdrop-filter:\x20blur(20px);\x20\x0a\x20\x20\x20\x20\x20\x20\x20\x20border:\x201px\x20solid\x20var(--border);\x20border-radius:\x2036px;\x20padding:\x208px\x2012px;\x20\x0a\x20\x20\x20\x20\x20\x20\x20\x20display:\x20flex;\x20justify-content:\x20space-around;\x20\x0a\x20\x20\x20\x20\x20\x20\x20\x20box-shadow:\x200\x2020px\x2040px\x20rgba(0,0,0,0.12),\x200\x204px\x2012px\x20rgba(0,0,0,0.05);\x20z-index:\x209999;\x20\x0a\x20\x20\x20\x20}\x0a\x20\x20\x20\x20.ds-dock-item\x20{\x20\x0a\x20\x20\x20\x20\x20\x20\x20\x20display:\x20flex;\x20flex-direction:\x20column;\x20align-items:\x20center;\x20justify-content:\x20center;\x20gap:\x204px;\x20\x0a\x20\x20\x20\x20\x20\x20\x20\x20padding:\x208px\x2016px;\x20border-radius:\x2030px;\x20color:\x20var(--text-sec);\x20font-size:\x2012px;\x20\x0a\x20\x20\x20\x20\x20\x20\x20\x20font-weight:\x20500;\x20transition:\x20all\x200.2s;\x20background:\x20transparent;\x20border:\x20none;\x20cursor:\x20pointer;\x20flex:\x201;\x20\x0a\x20\x20\x20\x20}\x0a\x20\x20\x20\x20.ds-dock-item.active\x20{\x20color:\x20var(--primary);\x20background:\x20rgba(0,113,227,0.1);\x20}\x0a\x20\x20\x20\x20.ds-dock-item\x20svg\x20{\x20width:\x2024px;\x20height:\x2024px;\x20fill:\x20currentColor;\x20}\x0a</style>\x0a\x0a<nav\x20class=\x22ds-dock\x22>\x0a\x20\x20\x20\x20<button\x20class=\x22ds-dock-item\x20active\x22\x20onclick=\x22switchDsView(\x27nodes\x27,\x20this)\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20<svg\x20viewBox=\x220\x200\x2024\x2024\x22><path\x20d=\x22M12\x202C6.48\x202\x202\x206.48\x202\x2012s4.48\x2010\x2010\x2010\x2010-4.48\x2010-10S17.52\x202\x2012\x202zm-2\x2015l-5-5\x201.41-1.41L10\x2014.17l7.59-7.59L19\x208l-9\x209z\x22/></svg>\x0a\x20\x20\x20\x20\x20\x20\x20\x20<span>节点</span>\x0a\x20\x20\x20\x20</button>\x0a\x20\x20\x20\x20<button\x20class=\x22ds-dock-item\x22\x20onclick=\x22switchDsView(\x27speed\x27,\x20this)\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20<svg\x20viewBox=\x220\x200\x2024\x2024\x22><path\x20d=\x22M3\x2013h8V3H3v10zm0\x208h8v-6H3v6zm10\x200h8V11h-8v10zm0-18v6h8V3h-8z\x22/></svg>\x0a\x20\x20\x20\x20\x20\x20\x20\x20<span>测速与DNS</span>\x0a\x20\x20\x20\x20</button>\x0a\x20\x20\x20\x20<button\x20class=\x22ds-dock-item\x22\x20onclick=\x22switchDsView(\x27settings\x27,\x20this)\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20<svg\x20viewBox=\x220\x200\x2024\x2024\x22><path\x20d=\x22M19.14\x2012.94c.04-.3.06-.61.06-.94\x200-.33-.02-.64-.06-.94l2.02-1.58c.18-.14.23-.38.12-.56l-1.89-3.28c-.12-.19-.36-.26-.56-.18l-2.38.96c-.5-.38-1.06-.68-1.66-.88L14.45\x203.5c-.04-.2-.2-.34-.4-.34h-3.78c-.2\x200-.36.14-.4.34l-.3\x202.52c-.6.2-1.16.5-1.66.88l-2.38-.96c-.2-.08-.44-.01-.56.18l-1.89\x203.28c-.12.19-.07.42.12.56l2.02\x201.58c-.04.3-.06.61-.06.94\x200\x20.33.02.64.06.94l-2.02\x201.58c-.18.14-.23.38-.12.56l1.89\x203.28c.12.19.36.26.56.18l2.38-.96c.5.38\x201.06.68\x201.66.88l.3\x202.52c.04.2.2.34.4.34h3.78c.2\x200\x20.36-.14.4-.34l.3-2.52c.6-.2\x201.16-.5\x201.66-.88l2.38.96c.2.08.44.01.56-.18l1.89-3.28c.12-.19.07-.42-.12-.56l-2.02-1.58zM12\x2015c-1.66\x200-3-1.34-3-3s1.34-3\x203-3\x203\x201.34\x203\x203-1.34\x203-3\x203z\x22/></svg>\x0a\x20\x20\x20\x20\x20\x20\x20\x20<span>控制面板</span>\x0a\x20\x20\x20\x20</button>\x0a</nav>\x0a\x0a<script>\x0a//\x201.\x20切换页面的核心逻辑\x0afunction\x20switchDsView(viewId,\x20btn)\x20{\x0a\x20\x20\x20\x20document.querySelectorAll(\x27.ds-dock-item\x27).forEach(b\x20=>\x20b.classList.remove(\x27active\x27));\x0a\x20\x20\x20\x20btn.classList.add(\x27active\x27);\x0a\x20\x20\x20\x20document.querySelectorAll(\x27.page-view\x27).forEach(v\x20=>\x20v.classList.remove(\x27active\x27));\x0a\x20\x20\x20\x20document.getElementById(\x27view-\x27\x20+\x20viewId).classList.add(\x27active\x27);\x0a\x20\x20\x20\x20window.scrollTo({\x20top:\x200,\x20behavior:\x20\x27smooth\x27\x20});\x0a}\x0a\x0a//\x202.\x20将原版超长页面，智能装进\x203\x20个分类盒子中\x0awindow.addEventListener(\x27DOMContentLoaded\x27,\x20()\x20=>\x20{\x0a\x20\x20\x20\x20const\x20container\x20=\x20document.querySelector(\x27.container\x27);\x0a\x20\x20\x20\x20const\x20contentWrap\x20=\x20document.querySelector(\x27.content-wrap\x27);\x0a\x20\x20\x20\x20if\x20(!container)\x20return;\x20\x0a\x0a\x20\x20\x20\x20//\x20把弹窗移到\x20body\x20末尾，避免被\x20contentWrap.remove()\x20一并删除\x0a\x20\x20\x20\x20[\x27nodeModal\x27,\x20\x27codeModal\x27,\x20\x27placementModal\x27,\x20\x27accountModal\x27].forEach(id\x20=>\x20{\x0a\x20\x20\x20\x20\x20\x20\x20\x20const\x20m\x20=\x20document.getElementById(id);\x0a\x20\x20\x20\x20\x20\x20\x20\x20if\x20(m)\x20document.body.appendChild(m);\x0a\x20\x20\x20\x20});\x0a\x0a\x20\x20\x20\x20//\x20把顶部固定栏移到\x20body\x20顶层，避免被\x20.page-view\x20的\x20transform\x20动画破坏\x20fixed\x20定位\x0a\x20\x20\x20\x20const\x20topbarEl\x20=\x20document.querySelector(\x27.topbar\x27);\x0a\x20\x20\x20\x20if\x20(topbarEl)\x20document.body.appendChild(topbarEl);\x0a\x0a\x20\x20\x20\x20//\x20置顶最顶部的\x20header\x0a\x20\x20\x20\x20const\x20header\x20=\x20document.querySelector(\x27.header\x27);\x0a\x20\x20\x20\x20if\x20(header)\x20container.insertBefore(header,\x20container.firstChild);\x0a\x0a\x20\x20\x20\x20//\x20建立\x203\x20个干净的虚拟房间\x0a\x20\x20\x20\x20const\x20views\x20=\x20{\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x27nodes\x27:\x20document.createElement(\x27div\x27),\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x27speed\x27:\x20document.createElement(\x27div\x27),\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x27settings\x27:\x20document.createElement(\x27div\x27)\x0a\x20\x20\x20\x20};\x0a\x20\x20\x20\x20for\x20(let\x20k\x20in\x20views)\x20{\x0a\x20\x20\x20\x20\x20\x20\x20\x20views[k].id\x20=\x20\x27view-\x27\x20+\x20k;\x0a\x20\x20\x20\x20\x20\x20\x20\x20views[k].className\x20=\x20\x27page-view\x27;\x0a\x20\x20\x20\x20\x20\x20\x20\x20if\x20(k\x20===\x20\x27nodes\x27)\x20views[k].classList.add(\x27active\x27);\x0a\x20\x20\x20\x20}\x0a\x0a\x20\x20\x20\x20//\x20用于暂存底部声明信息的数组\x0a\x20\x20\x20\x20let\x20footers\x20=\x20[];\x20\x0a\x0a\x20\x20\x20\x20//\x20智能抓取并分类\x0a\x20\x20\x20\x20function\x20sortCard(el)\x20{\x0a\x20\x20\x20\x20\x20\x20\x20\x20if\x20(!el\x20||\x20el\x20===\x20header\x20||\x20el.tagName\x20===\x20\x27NAV\x27\x20||\x20el.id\x20===\x20\x27toast\x27\x20||\x20el.id\x20===\x20\x27nodeModal\x27\x20||\x20el.id\x20===\x20\x27codeModal\x27\x20||\x20el.id\x20===\x20\x27placementModal\x27\x20||\x20el.id\x20===\x20\x27accountModal\x27\x20||\x20el.classList.contains(\x27page-view\x27)\x20||\x20el.classList.contains(\x27content-wrap\x27)\x20||\x20el.classList.contains(\x27topbar\x27))\x20return;\x0a\x20\x20\x20\x20\x20\x20\x20\x20const\x20text\x20=\x20el.innerText\x20||\x20el.innerHTML\x20||\x20\x27\x27;\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x0a\x20\x20\x20\x20\x20\x20\x20\x20//\x20【1】免责声明与联系作者：先扣留，不要马上分配！\x0a\x20\x20\x20\x20\x20\x20\x20\x20if\x20(text.includes(\x27联系作者\x27)\x20||\x20text.includes(\x27免责声明\x27)\x20||\x20text.includes(\x27交流群\x27))\x20{\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20footers.push(el);\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20return;\x0a\x20\x20\x20\x20\x20\x20\x20\x20}\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x0a\x20\x20\x20\x20\x20\x20\x20\x20//\x20【2】分配到测速页\x0a\x20\x20\x20\x20\x20\x20\x20\x20if\x20(text.includes(\x27测速与动态\x20DNS\x27)\x20||\x20text.includes(\x27专属线路测速\x27)\x20||\x20text.includes(\x27提取预设源\x27)\x20||\x20text.includes(\x27ITDog\x27))\x20{\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20views[\x27speed\x27].appendChild(el);\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20return;\x0a\x20\x20\x20\x20\x20\x20\x20\x20}\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x0a\x20\x20\x20\x20\x20\x20\x20\x20//\x20【3】分配到控制面板页（仅限\x20Worker\x20核心与区域调度）\x0a\x20\x20\x20\x20\x20\x20\x20\x20if\x20(text.includes(\x27手动覆盖\x27)\x20||\x20text.includes(\x27Worker\x20调度模式\x27)\x20||\x20el.id\x20===\x20\x27updateAlert\x27\x20||\x20el.id\x20===\x20\x27cf-trace-card\x27\x20||\x20el.id\x20===\x20\x27config-backup-card\x27)\x20{\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20views[\x27settings\x27].appendChild(el);\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20return;\x0a\x20\x20\x20\x20\x20\x20\x20\x20}\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x0a\x20\x20\x20\x20\x20\x20\x20\x20//\x20【4】剩下的统统丢进【节点管理页】（完美解决表单和列表分家的问题）\x0a\x20\x20\x20\x20\x20\x20\x20\x20if\x20(text.trim()\x20!==\x20\x22\x22)\x20{\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20views[\x27nodes\x27].appendChild(el);\x0a\x20\x20\x20\x20\x20\x20\x20\x20}\x0a\x20\x20\x20\x20}\x0a\x0a\x20\x20\x20\x20//\x20执行所有卡片的搬家\x0a\x20\x20\x20\x20Array.from(container.children).forEach(sortCard);\x0a\x20\x20\x20\x20if\x20(contentWrap)\x20{\x0a\x20\x20\x20\x20\x20\x20\x20\x20Array.from(contentWrap.children).forEach(sortCard);\x0a\x20\x20\x20\x20\x20\x20\x20\x20contentWrap.remove();\x20//\x20销毁原本的包装盒\x0a\x20\x20\x20\x20}\x0a\x0a\x20\x20\x20\x20//\x20【解决\x20Bug】：把刚才扣留的免责声明等元素，追加到控制面板的最末尾\x0a\x20\x20\x20\x20footers.forEach(f\x20=>\x20views[\x27settings\x27].appendChild(f));\x0a\x0a\x20\x20\x20\x20//\x20将\x203\x20个分好类的房间放回页面\x0a\x20\x20\x20\x20container.appendChild(views[\x27nodes\x27]);\x0a\x20\x20\x20\x20container.appendChild(views[\x27speed\x27]);\x0a\x20\x20\x20\x20container.appendChild(views[\x27settings\x27]);\x0a\x0a\x20\x20\x20\x20//\x20识别角色（管理员/订阅者），订阅者自动进入只读模式\x0a\x20\x20\x20\x20initRole();\x0a\x0a\x20\x20\x20\x20//\x20【体验优化】劫持编辑事件，点击编辑时平滑滚动到顶部的表单处\x0a\x20\x20\x20\x20const\x20originalEditRoute\x20=\x20window.editRoute;\x0a\x20\x20\x20\x20if\x20(typeof\x20originalEditRoute\x20===\x20\x27function\x27)\x20{\x0a\x20\x20\x20\x20\x20\x20\x20\x20window.editRoute\x20=\x20function(index)\x20{\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20originalEditRoute(index);\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20//\x20因为现在表单和列表都在节点页，所以直接平滑滚动到最上面就能看到填好的表单了！\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20window.scrollTo({\x20top:\x200,\x20behavior:\x20\x27smooth\x27\x20});\x0a\x20\x20\x20\x20\x20\x20\x20\x20};\x0a\x20\x20\x20\x20}\x0a});\x0a</script>\x0a</body>\x0a</html>\x0a','\x27:\x27flask\x27,\x27','fake','metadata.json','lines','/api/account','\x20提交选中节点至\x20DNS</button>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20id=\x22statusText\x22\x20style=\x22line-height:\x201.6;\x20font-size:\x2014px;\x20color:\x20var(--text-sec);\x20margin-bottom:\x2016px;\x20padding:\x2012px\x2016px;\x20background:\x20rgba(52,\x20199,\x2089,\x200.1);\x20border-radius:\x2010px;\x20border-left:\x204px\x20solid\x20#34c759;\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20','status','cf-connecting-ip','https://raw.githubusercontent.com/ZhiXuanWang/cf-speed-dns/refs/heads/main/ipTop10.html','_fake','8fuZXPf','无\x20PlaySessionId，跳过','\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20query\x20{\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20viewer\x20{\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20zones(filter:\x20{zoneTag:\x20\x22','plus','min','</button>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<button\x20class=\x22icon-btn\x22\x20style=\x22margin-top:\x202px;\x22\x20onclick=\x22copyTxt(\x27${proxyUrl}\x27)\x22\x20title=\x22复制链接\x22>','<svg\x20viewBox=\x220\x200\x2024\x2024\x22\x20fill=\x22none\x22\x20stroke=\x22currentColor\x22\x20stroke-width=\x221.8\x22\x20stroke-linecap=\x22round\x22><circle\x20cx=\x2211\x22\x20cy=\x2211\x22\x20r=\x227\x22/><path\x20d=\x22M21\x2021l-4.3-4.3\x22/></svg>','join','ALTER\x20TABLE\x20routes\x20ADD\x20COLUMN\x20last_ka_detail\x20TEXT\x20DEFAULT\x20\x27\x27','<svg\x20viewBox=\x220\x200\x2024\x2024\x22\x20fill=\x22none\x22\x20stroke=\x22currentColor\x22\x20stroke-width=\x221.8\x22\x20stroke-linecap=\x22round\x22\x20stroke-linejoin=\x22round\x22><path\x20d=\x22M4.5\x2016.5c-1.5\x201.3-2\x205-2\x205s3.7-.5\x205-2c.7-.8.7-2\x200-2.8-.8-.7-2.2-.7-3\x20.8z\x22/><path\x20d=\x22M12\x2015l-3-3c.5-4\x204-7.5\x208-8\x202\x20.2\x203.8\x202\x204\x204-.5\x204-4\x207.5-8\x208l-1-1z\x22/><path\x20d=\x22M9\x2012c-2\x201-3.5\x203-4\x205\x22/><circle\x20cx=\x2215\x22\x20cy=\x229\x22\x20r=\x220.5\x22/></svg>','</span></div>`;\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20filtered.forEach(item\x20=>\x20{\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20html\x20+=\x20`<div\x20class=\x22icon-item\x22\x20onclick=\x22selectIcon(\x27${item.url}\x27,\x20\x27${item.name}\x27)\x22\x20title=\x22${item.name}\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<img\x20src=\x22${item.url}\x22\x20loading=\x22lazy\x22\x20style=\x22width:\x2032px;\x20height:\x2032px;\x20object-fit:\x20contain;\x20border-radius:\x204px;\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>`;\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20});\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20grid.innerHTML\x20=\x20html;\x0a\x20\x20\x20\x20\x20\x20\x20\x20}\x0a\x0a\x20\x20\x20\x20\x20\x20\x20\x20function\x20filterIcons()\x20{\x20renderIconGrid(document.getElementById(\x27iconSearch\x27).value);\x20}\x0a\x0a\x20\x20\x20\x20\x20\x20\x20\x20function\x20toggleIconPicker(e)\x20{\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20e.stopPropagation();\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20const\x20panel\x20=\x20document.getElementById(\x27iconPickerPanel\x27);\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20panel.style.display\x20=\x20panel.style.display\x20===\x20\x27none\x27\x20?\x20\x27flex\x27\x20:\x20\x27none\x27;\x0a\x20\x20\x20\x20\x20\x20\x20\x20}\x0a\x0a\x20\x20\x20\x20\x20\x20\x20\x20function\x20selectIcon(url,\x20name)\x20{\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20document.getElementById(\x27iconUrl\x27).value\x20=\x20url;\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20const\x20preview\x20=\x20document.getElementById(\x27iconPreview\x27);\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20const\x20def\x20=\x20document.getElementById(\x27iconDefault\x27);\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20const\x20text\x20=\x20document.getElementById(\x27iconSelectText\x27);\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20if(url)\x20{\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20preview.src\x20=\x20url;\x20preview.style.display\x20=\x20\x27block\x27;\x20def.style.display\x20=\x20\x27none\x27;\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20text.textContent\x20=\x20name;\x20text.style.color\x20=\x20\x27var(--text)\x27;\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20}\x20else\x20{\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20preview.src\x20=\x20\x27\x27;\x20preview.style.display\x20=\x20\x27none\x27;\x20def.style.display\x20=\x20\x27block\x27;\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20text.textContent\x20=\x20\x27点击选择图标\x20(默认)\x27;\x20text.style.color\x20=\x20\x27var(--text-sec)\x27;\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20}\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20document.getElementById(\x27iconPickerPanel\x27).style.display\x20=\x20\x27none\x27;\x0a\x20\x20\x20\x20\x20\x20\x20\x20}\x0a\x0a\x20\x20\x20\x20\x20\x20\x20\x20document.addEventListener(\x27click\x27,\x20(e)\x20=>\x20{\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20const\x20panel\x20=\x20document.getElementById(\x27iconPickerPanel\x27);\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20const\x20btn\x20=\x20document.getElementById(\x27iconSelectBtn\x27);\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20if\x20(panel\x20&&\x20btn\x20&&\x20panel.style.display\x20!==\x20\x27none\x27)\x20{\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20if\x20(!panel.contains(e.target)\x20&&\x20!btn.contains(e.target))\x20panel.style.display\x20=\x20\x27none\x27;\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20}\x0a\x20\x20\x20\x20\x20\x20\x20\x20});\x0a\x0a\x20\x20\x20\x20\x20\x20\x20\x20function\x20toggleDarkMode()\x20{\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20const\x20isDark\x20=\x20document.body.classList.toggle(\x27dark\x27);\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20document.getElementById(\x27themeToggle\x27).innerHTML\x20=\x20isDark\x20?\x20I.sun\x20:\x20I.moon;\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20localStorage.setItem(\x27emby_proxy_dark\x27,\x20isDark\x20?\x20\x271\x27\x20:\x20\x270\x27);\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20if(trendChartInstance)\x20{\x20updateChartColors();\x20trendChartInstance.update();\x20locationChartInstance.update();\x20}\x0a\x20\x20\x20\x20\x20\x20\x20\x20}\x0a\x20\x20\x20\x20\x20\x20\x20\x20if\x20(localStorage.getItem(\x27emby_proxy_dark\x27)\x20===\x20\x271\x27)\x20{\x20document.body.classList.add(\x27dark\x27);\x20document.getElementById(\x27themeToggle\x27).innerHTML\x20=\x20I.sun;\x20}\x0a\x0a\x20\x20\x20\x20\x20\x20\x20\x20function\x20genUuid()\x20{\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20if\x20(typeof\x20crypto\x20!==\x20\x27undefined\x27\x20&&\x20typeof\x20crypto.randomUUID\x20===\x20\x27function\x27)\x20return\x20crypto.randomUUID();\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20const\x20b\x20=\x20crypto.getRandomValues(new\x20Uint8Array(16));\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20b[6]\x20=\x20(b[6]\x20&\x200x0f)\x20|\x200x40;\x20b[8]\x20=\x20(b[8]\x20&\x200x3f)\x20|\x200x80;\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20const\x20h\x20=\x20Array.from(b).map(x\x20=>\x20x.toString(16).padStart(2,\x20\x270\x27)).join(\x27\x27);\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20return\x20h.slice(0,8)\x20+\x20\x27-\x27\x20+\x20h.slice(8,12)\x20+\x20\x27-\x27\x20+\x20h.slice(12,16)\x20+\x20\x27-\x27\x20+\x20h.slice(16,20)\x20+\x20\x27-\x27\x20+\x20h.slice(20);\x0a\x20\x20\x20\x20\x20\x20\x20\x20}\x0a\x0a\x20\x20\x20\x20\x20\x20\x20\x20function\x20showToast(msg)\x20{\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20const\x20t\x20=\x20document.getElementById(\x27toast\x27);\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20t.textContent\x20=\x20msg;\x20t.classList.add(\x27show\x27);\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20setTimeout(()\x20=>\x20t.classList.remove(\x27show\x27),\x203000);\x0a\x20\x20\x20\x20\x20\x20\x20\x20}\x0a\x0a\x20\x20\x20\x20\x20\x20\x20\x20async\x20function\x20purgeCache()\x20{\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20if(!confirm(\x27确定要清理\x20Cloudflare\x20节点的全站海报和静态缓存吗？\x5cn\x5cn清理后可能导致短时间的加载缓慢。\x27))\x20return;\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20const\x20btn\x20=\x20document.getElementById(\x27btnPurge\x27);\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20const\x20originalText\x20=\x20btn.textContent;\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20btn.textContent\x20=\x20\x27⏳\x20正在清理...\x27;\x20btn.disabled\x20=\x20true;\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20try\x20{\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20const\x20res\x20=\x20await\x20fetch(\x27/api/purge-cache\x27,\x20{\x20method:\x20\x27POST\x27\x20});\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20const\x20data\x20=\x20await\x20res.json();\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20if(data.success)\x20showToast(\x27✅\x20缓存清理成功，新海报已生效！\x27);\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20else\x20showToast(\x27❌\x20清理失败:\x20\x27\x20+\x20data.error);\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20}\x20catch(e)\x20{\x20showToast(\x27❌\x20网络请求错误\x27);\x20}\x20finally\x20{\x20btn.textContent\x20=\x20originalText;\x20btn.disabled\x20=\x20false;\x20}\x0a\x20\x20\x20\x20\x20\x20\x20\x20}\x0a\x0a\x20\x20\x20\x20\x20\x20\x20\x20function\x20filterNodesList()\x20{\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20const\x20filterText\x20=\x20document.getElementById(\x27searchNode\x27).value.toLowerCase();\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20const\x20cards\x20=\x20document.querySelectorAll(\x27.emby-card\x27);\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20cards.forEach(card\x20=>\x20{\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20const\x20searchStr\x20=\x20card.getAttribute(\x27data-search\x27).toLowerCase();\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20card.style.display\x20=\x20searchStr.includes(filterText)\x20?\x20\x27flex\x27\x20:\x20\x27none\x27;\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20});\x0a\x20\x20\x20\x20\x20\x20\x20\x20}\x0a\x0a\x20\x20\x20\x20\x20\x20\x20\x20function\x20handleTargetInputs()\x20{\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20const\x20container\x20=\x20document.getElementById(\x27targetInputs\x27);\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20const\x20inputs\x20=\x20container.querySelectorAll(\x27.target-input\x27);\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20const\x20lastInput\x20=\x20inputs[inputs.length\x20-\x201];\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20if\x20(lastInput.value.trim()\x20!==\x20\x27\x27)\x20{\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20const\x20newInput\x20=\x20document.createElement(\x27input\x27);\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20newInput.type\x20=\x20\x27url\x27;\x20newInput.className\x20=\x20\x27target-input\x27;\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20newInput.style\x20=\x20\x27padding:\x2012px\x2016px;\x20border:\x201px\x20solid\x20var(--border);\x20border-radius:\x208px;\x20background:var(--card);\x20width:\x20100%;\x27;\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20newInput.oninput\x20=\x20handleTargetInputs;\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20container.appendChild(newInput);\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20}\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20let\x20emptyCount\x20=\x200;\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20const\x20currentInputs\x20=\x20container.querySelectorAll(\x27.target-input\x27);\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20for\x20(let\x20i\x20=\x20currentInputs.length\x20-\x201;\x20i\x20>=\x200;\x20i--)\x20{\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20if\x20(currentInputs[i].value.trim()\x20===\x20\x27\x27)\x20{\x20emptyCount++;\x20if\x20(emptyCount\x20>\x201)\x20currentInputs[i].remove();\x20}\x20else\x20{\x20break;\x20}\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20}\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20container.querySelectorAll(\x27.target-input\x27).forEach((inp,\x20idx)\x20=>\x20{\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20inp.placeholder\x20=\x20idx\x20===\x200\x20?\x20\x22主线路地址\x20(如:\x20http://1.1.1.1:8096)\x22\x20:\x20`备用线路\x20${idx}\x20(选填，主源挂掉时触发)`;\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20});\x0a\x20\x20\x20\x20\x20\x20\x20\x20}\x0a\x0a\x20\x20\x20\x20\x20\x20\x20\x20function\x20resetTargetInputs()\x20{\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20const\x20container\x20=\x20document.getElementById(\x27targetInputs\x27);\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20container.innerHTML\x20=\x20`\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<input\x20type=\x22url\x22\x20class=\x22target-input\x22\x20placeholder=\x22主线路地址\x20(如:\x20http://1.1.1.1:8096)\x22\x20style=\x22padding:\x2012px\x2016px;\x20border:\x201px\x20solid\x20var(--border);\x20border-radius:\x208px;\x20background:var(--card);\x20width:\x20100%;\x22\x20required\x20oninput=\x22handleTargetInputs()\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<input\x20type=\x22url\x22\x20class=\x22target-input\x22\x20placeholder=\x22备用线路\x201\x20(选填)\x22\x20style=\x22padding:\x2012px\x2016px;\x20border:\x201px\x20solid\x20var(--border);\x20border-radius:\x208px;\x20background:var(--card);\x20width:\x20100%;\x22\x20oninput=\x22handleTargetInputs()\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20`;\x0a\x20\x20\x20\x20\x20\x20\x20\x20}\x0a\x0a\x20\x20\x20\x20\x20\x20\x20\x20function\x20toggleVis(id,\x20isArray\x20=\x20false)\x20{\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20const\x20el\x20=\x20document.getElementById(id);\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20if\x20(el.classList.contains(\x27secret-text\x27))\x20{\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20el.classList.remove(\x27secret-text\x27);\x20el.classList.add(\x27actual-text\x27);\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20if\x20(isArray)\x20{\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20const\x20arr\x20=\x20JSON.parse(decodeURIComponent(el.getAttribute(\x27data-val\x27)));\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20let\x20html\x20=\x20\x27\x27;\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20arr.forEach((t,\x20i)\x20=>\x20{\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20const\x20tag\x20=\x20i\x20===\x200\x20?\x20\x27<span\x20style=\x22color:#34c759;font-weight:bold;\x22>[主]</span>\x27\x20:\x20\x27<span\x20style=\x22color:#ff9500;font-weight:bold;\x22>[备]</span>\x27;\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20html\x20+=\x20`<div\x20class=\x22url-list-item\x22>${tag}\x20${t}</div>`;\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20});\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20el.innerHTML\x20=\x20html;\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20}\x20else\x20{\x20el.textContent\x20=\x20el.getAttribute(\x27data-val\x27);\x20}\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20}\x20else\x20{\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20el.classList.add(\x27secret-text\x27);\x20el.classList.remove(\x27actual-text\x27);\x20el.textContent\x20=\x20\x27••••••••\x27;\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20}\x0a\x20\x20\x20\x20\x20\x20\x20\x20}\x0a\x0a\x20\x20\x20\x20\x20\x20\x20\x20function\x20copyTxt(txt)\x20{\x20navigator.clipboard.writeText(txt).then(()\x20=>\x20showToast(\x27🚀\x20复制成功！\x27));\x20}\x0a\x0a\x20\x20\x20\x20\x20\x20\x20\x20async\x20function\x20pingTarget(idx,\x20targetUrl)\x20{\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20const\x20pingEl\x20=\x20document.getElementById(\x27ping-\x27\x20+\x20idx);\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20pingEl.textContent\x20=\x20\x27测速中...\x27;\x20pingEl.style.color\x20=\x20\x27var(--text-sec)\x27;\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20try\x20{\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20const\x20res\x20=\x20await\x20fetch(\x27/api/ping-node?url=\x27\x20+\x20encodeURIComponent(targetUrl));\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20const\x20data\x20=\x20await\x20res.json();\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20if(data.ms\x20>=\x200)\x20{\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20pingEl.textContent\x20=\x20data.ms\x20+\x20\x27\x20ms\x27;\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20pingEl.style.color\x20=\x20data.ms\x20<\x20200\x20?\x20\x27#34c759\x27\x20:\x20(data.ms\x20<\x20500\x20?\x20\x27var(--primary)\x27\x20:\x20\x27#ff9500\x27);\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20}\x20else\x20{\x20pingEl.textContent\x20=\x20\x27断连/超时\x27;\x20pingEl.style.color\x20=\x20\x27#ff3b30\x27;\x20}\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20}\x20catch(e)\x20{\x20pingEl.textContent\x20=\x20\x27测速异常\x27;\x20pingEl.style.color\x20=\x20\x27#ff3b30\x27;\x20}\x0a\x20\x20\x20\x20\x20\x20\x20\x20}\x0a\x0a\x20\x20\x20\x20\x20\x20\x20\x20function\x20pingAllNodes()\x20{\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20if\x20(proxyNodesForPing.length\x20===\x200)\x20return\x20showToast(\x27⚠️\x20没有可供测速的反代节点\x27);\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20showToast(\x27⚡\x20正在对所有节点发起测速...\x27);\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20proxyNodesForPing.forEach((node,\x20offset)\x20=>\x20{\x20setTimeout(()\x20=>\x20pingTarget(node.idx,\x20node.url),\x20offset\x20*\x20200);\x20});\x0a\x20\x20\x20\x20\x20\x20\x20\x20}\x0a\x0a\x20\x20\x20\x20\x20\x20\x20\x20async\x20function\x20exportConfig()\x20{\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20try\x20{\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20const\x20res\x20=\x20await\x20fetch(\x27/api/routes\x27);\x20const\x20data\x20=\x20await\x20res.json();\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20const\x20blob\x20=\x20new\x20Blob([JSON.stringify(data,\x20null,\x202)],\x20{type:\x20\x27application/json\x27});\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20const\x20url\x20=\x20URL.createObjectURL(blob);\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20const\x20a\x20=\x20document.createElement(\x27a\x27);\x20a.href\x20=\x20url;\x20a.download\x20=\x20\x27emby_proxy_backup.json\x27;\x20a.click();\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20URL.revokeObjectURL(url);\x20showToast(\x27✅\x20配置已导出\x27);\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20}\x20catch\x20(e)\x20{\x20showToast(\x27❌\x20导出失败\x27);\x20}\x0a\x20\x20\x20\x20\x20\x20\x20\x20}\x0a\x0a\x20\x20\x20\x20\x20\x20\x20\x20function\x20importConfig()\x20{\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20const\x20input\x20=\x20document.createElement(\x27input\x27);\x20input.type\x20=\x20\x27file\x27;\x20input.accept\x20=\x20\x27.json\x27;\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20input.onchange\x20=\x20async\x20(e)\x20=>\x20{\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20const\x20file\x20=\x20e.target.files[0];\x20const\x20reader\x20=\x20new\x20FileReader();\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20reader.onload\x20=\x20async\x20(event)\x20=>\x20{\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20try\x20{\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20const\x20routes\x20=\x20JSON.parse(event.target.result);\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20const\x20res\x20=\x20await\x20fetch(\x27/api/routes/import\x27,\x20{\x20method:\x20\x27POST\x27,\x20body:\x20JSON.stringify(routes)\x20});\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20const\x20result\x20=\x20await\x20res.json();\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20if\x20(result.success)\x20{\x20showToast(\x27✅\x20配置导入成功\x27);\x20load();\x20}\x20else\x20throw\x20new\x20Error(result.error);\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20}\x20catch\x20(err)\x20{\x20showToast(\x27❌\x20导入失败:\x20\x27\x20+\x20err.message);\x20}\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20};\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20reader.readAsText(file);\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20};\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20input.click();\x0a\x20\x20\x20\x20\x20\x20\x20\x20}\x0a\x0a\x20\x20\x20\x20\x20\x20\x20\x20async\x20function\x20load()\x20{\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20try\x20{\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20await\x20loadPtState();\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20}\x20catch\x20(e)\x20{}\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20try\x20{\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20const\x20res\x20=\x20await\x20fetch(\x27/api/routes\x27);\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20if\x20(!res.ok)\x20throw\x20new\x20Error(\x27请求失败，请检查环境配置\x27);\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20const\x20data\x20=\x20await\x20res.json();\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20if\x20(data.error)\x20throw\x20new\x20Error(data.error);\x0a\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20//\x20\x20新增：把节点流量数据存进全局内存，供大屏瞬间读取！\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20window.globalRoutesData\x20=\x20data;\x0a\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20const\x20container\x20=\x20document.getElementById(\x27list-grid\x27);\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20if(data.length\x20===\x200)\x20{\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20container.innerHTML\x20=\x20\x27<div\x20style=\x22text-align:center;\x20color:var(--text-sec);\x20grid-column:\x201\x20/\x20-1;\x20padding:\x2040px;\x22>暂无配置任何反代节点，请先部署一个。</div>\x27;\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20return;\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20}\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20container.innerHTML\x20=\x20\x27\x27;\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20proxyNodesForPing\x20=\x20[];\x20\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20const\x20currentHost\x20=\x20window.location.host;\x0a\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20data.forEach((r,\x20idx)\x20=>\x20{\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20const\x20proxyUrl\x20=\x20entryUrl(r.prefix);\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20const\x20targets\x20=\x20r.target\x20?\x20r.target.split(\x27,\x27).map(s\x20=>\x20s.trim()).filter(Boolean)\x20:\x20[];\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20const\x20mainTarget\x20=\x20targets[0]\x20||\x20\x27\x27;\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20const\x20remarkName\x20=\x20r.remark\x20||\x20\x27未命名媒体库\x27;\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20//\x20未观看天数（基于改良后的真实观看\x20last_play；last_play\x20为\x20UTC+8\x20墙上时间字符串）\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20let\x20watchDaysText\x20=\x20\x27暂无播放记录\x27,\x20watchOverdue\x20=\x20false;\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20if\x20(r.last_play)\x20{\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20try\x20{\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20const\x20lpUtc\x20=\x20Date.parse(r.last_play.replace(\x27\x20\x27,\x20\x27T\x27)\x20+\x20\x27Z\x27)\x20-\x208\x20*\x203600000;\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20const\x20diffDays\x20=\x20Math.floor((Date.now()\x20-\x20lpUtc)\x20/\x2086400000);\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20watchDaysText\x20=\x20diffDays\x20<=\x200\x20?\x20\x27今天观看过\x27\x20:\x20(diffDays\x20+\x20\x27\x20天前观看\x27);\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20const\x20wl\x20=\x20parseFloat(r.watch_limit);\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20if\x20(wl\x20>\x200\x20&&\x20diffDays\x20>\x20wl)\x20{\x20watchOverdue\x20=\x20true;\x20watchDaysText\x20+=\x20\x27\x20·\x20已超\x20\x27\x20+\x20(diffDays\x20-\x20wl)\x20+\x20\x27\x20天\x27;\x20}\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20}\x20catch\x20(e)\x20{}\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20}\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20const\x20lastPlay\x20=\x20r.last_play\x20?\x20r.last_play\x20:\x20\x27暂无播放记录\x27;\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20const\x20iconHtml\x20=\x20r.icon\x20?\x20`<img\x20src=\x22${r.icon}\x22\x20style=\x22width:28px;height:28px;border-radius:6px;object-fit:cover;\x22>`\x20:\x20\x27','\x20清空列表</button>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20style=\x22background:\x20rgba(120,120,120,0.05);\x20padding:\x2016px;\x20border-radius:\x2012px;\x20border:\x201px\x20solid\x20var(--border);\x20margin-bottom:\x2016px;\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20style=\x22display:\x20flex;\x20gap:\x208px;\x20margin-bottom:\x2012px;\x20align-items:\x20center;\x20flex-wrap:\x20wrap;\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<input\x20type=\x22text\x22\x20id=\x22customApiUrl\x22\x20value=\x22https://ip.v2too.top/api/nodes\x22\x20placeholder=\x22填入自定义\x20JSON\x20或\x20文本\x20API\x20链接\x22\x20style=\x22flex:\x201;\x20min-width:\x20200px;\x20padding:\x2012px\x2014px;\x20border-radius:\x2010px;\x20border:\x201px\x20solid\x20var(--border);\x20background:var(--card);\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<button\x20class=\x22btn-submit\x22\x20id=\x22btnFetchCustomApi\x22\x20onclick=\x22fetchCustomApiAndTest()\x22\x20style=\x22\x20box-shadow:\x200\x204px\x2012px\x20rgba(50,\x20173,\x20230,\x200.2);\x22>','fail','/workers/scripts/','playbackinfo','\x22,\x20DeviceId=\x22emby-keepalive\x22,\x20Version=\x22','缺少\x20userId/itemId/token，跳过','模拟播放时长','text/html;charset=UTF-8','max','\x20全局测速</button>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<button\x20id=\x22btnPurge\x22\x20class=\x22btn-submit\x20admin-only\x22\x20onclick=\x22purgeCache()\x22\x20style=\x22\x20padding:\x2010px\x2014px;\x20font-size:\x2013px;\x22>','%\x22,\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20datetime_geq:\x20\x22','\x20数据大屏\x20<span\x20style=\x22font-size:14px;\x20font-weight:\x20normal;\x20color:\x20var(--text-sec);\x22>精确访客画像分析</span>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20style=\x22font-size:\x2013px;\x20background:\x20rgba(0,113,227,0.1);\x20color:\x20var(--primary);\x20padding:\x206px\x2012px;\x20border-radius:\x208px;\x20border:\x201px\x20solid\x20rgba(0,113,227,0.2);\x20display:\x20flex;\x20gap:\x2015px;\x20flex-wrap:\x20wrap;\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<span>\x20今天:\x20<strong\x20id=\x22trafficToday\x22>加载中...</strong></span>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<span>1周内:\x20<strong\x20id=\x22traffic7d\x22>加载中...</strong></span>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<span>1月内:\x20<strong\x20id=\x22traffic30d\x22>加载中...</strong></span>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</h2>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20style=\x22display:\x20flex;\x20gap:\x2020px;\x20flex-wrap:\x20wrap;\x20margin-top:20px;\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20style=\x22flex:\x202;\x20min-width:\x20300px;\x20border:\x201px\x20solid\x20var(--border);\x20border-radius:\x2014px;\x20padding:\x2016px;\x20background:\x20rgba(120,120,120,0.03);\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<canvas\x20id=\x22trendChart\x22></canvas>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20style=\x22flex:\x201;\x20min-width:\x20300px;\x20border:\x201px\x20solid\x20var(--border);\x20border-radius:\x2014px;\x20padding:\x2016px;\x20background:\x20rgba(120,120,120,0.03);\x20display:\x20flex;\x20justify-content:\x20center;\x20align-items:\x20center;\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<canvas\x20id=\x22locationChart\x22></canvas>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<h3\x20style=\x22margin-top:\x2030px;\x20margin-bottom:16px;\x22>','/bindings','random','getReader','x-emby-token','DELETE\x20FROM\x20visitor_logs\x20WHERE\x20timestamp\x20<\x20datetime(\x27now\x27,\x20\x27-7\x20days\x27)','steps','admin_pass','DeviceId=\x22','\x27:\x27link\x27,\x27','kaDays','最多访问地区:\x20','/api/routes/import','/api/ping-node','bemby-','SELECT\x20*\x20FROM\x20routes\x20WHERE\x20ka_enabled\x20=\x20\x271\x27','dotgreen','Url','https://','CREATE\x20TABLE\x20IF\x20NOT\x20EXISTS\x20routes\x20(prefix\x20TEXT\x20PRIMARY\x20KEY,\x20target\x20TEXT\x20NOT\x20NULL)','/emby','\x20今日节点流量消耗\x20TOP\x205</h3><div\x20style=\x22background:\x20rgba(120,120,120,0.05);\x20padding:\x2016px;\x20border-radius:\x2012px;\x20border:\x201px\x20solid\x20var(--border);\x20margin-bottom:\x2020px;\x22>\x27;\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20//\x20==========================================\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20//\x20\x20核心优化：听你的天才思路！直接去网页现有的卡片里“抓取”数据，绝不等待变量！\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20//\x20==========================================\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20const\x20domCards\x20=\x20document.querySelectorAll(\x27.route-item\x27);\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20let\x20scrapedNodes\x20=\x20[];\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20domCards.forEach(card\x20=>\x20{\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20const\x20prefix\x20=\x20card.getAttribute(\x27data-prefix\x27)\x20||\x20\x27未知\x27;\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20let\x20remark\x20=\x20prefix;\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20const\x20searchAttr\x20=\x20card.getAttribute(\x27data-search\x27);\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20if\x20(searchAttr)\x20{\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20remark\x20=\x20searchAttr.replace(new\x20RegExp(\x27\x20\x27\x20+\x20prefix\x20+\x20\x27$\x27),\x20\x27\x27).trim();\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20}\x0a\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20let\x20bandwidth\x20=\x20\x270\x20B\x27;\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20//\x20遍历卡片里所有的文本，找出带有流量单位的那个文本\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20const\x20spans\x20=\x20card.querySelectorAll(\x27span\x27);\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20spans.forEach(span\x20=>\x20{\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20const\x20txt\x20=\x20span.innerText\x20||\x20\x27\x27;\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20//\x20匹配例如:\x201.5\x20GB,\x20500\x20MB,\x200\x20B\x20(双斜杠防转义丢失)\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20if\x20(/^[\x5cd\x5c.]+\x5cs*(TB|GB|MB|KB|B)$/i.test(txt.trim()))\x20{\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20bandwidth\x20=\x20txt.trim();\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20}\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20});\x0a\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20scrapedNodes.push({\x20prefix:\x20prefix,\x20remark:\x20remark,\x20todayBandwidth:\x20bandwidth\x20});\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20});\x0a\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20//\x20用抓取下来的真实数据直接计算\x20TOP\x205\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20if\x20(scrapedNodes.length\x20>\x200)\x20{\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20const\x20validNodes\x20=\x20scrapedNodes.filter(r\x20=>\x20parseTrafficToBytes(r.todayBandwidth)\x20>\x200);\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20const\x20top5\x20=\x20validNodes.sort((a,\x20b)\x20=>\x20parseTrafficToBytes(b.todayBandwidth)\x20-\x20parseTrafficToBytes(a.todayBandwidth)).slice(0,\x205);\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20if\x20(top5.length\x20>\x200)\x20{\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20top5Html\x20+=\x20\x27<ul\x20style=\x22margin:0;\x20padding-left:\x2020px;\x20line-height:\x202;\x20font-size:\x2014px;\x20color:\x20var(--text);\x22>\x27;\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20top5.forEach((r,\x20idx)\x20=>\x20{\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20const\x20rankColor\x20=\x20idx\x20===\x200\x20?\x20\x27#ff3b30\x27\x20:\x20(idx\x20===\x201\x20?\x20\x27#ff9500\x27\x20:\x20(idx\x20===\x202\x20?\x20\x27#ffcc00\x27\x20:\x20\x27var(--text-sec)\x27));\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20top5Html\x20+=\x20`<li><strong\x20style=\x22color:${rankColor};\x20font-size:\x2015px;\x22>#${idx+1}</strong>\x20${r.remark}\x20(/${r.prefix})\x20——\x20消耗:\x20<strong\x20style=\x22color:var(--primary);\x20font-family:\x20monospace;\x22>${r.todayBandwidth}</strong></li>`;\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20});\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20top5Html\x20+=\x20\x27</ul>\x27;\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20}\x20else\x20{\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20top5Html\x20+=\x20\x27<div\x20style=\x22color:var(--text-sec);\x20font-size:13px;\x20text-align:center;\x22>今日暂无节点产生流量</div>\x27;\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20}\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20}\x20else\x20{\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20top5Html\x20+=\x20\x27<div\x20style=\x22color:var(--text-sec);\x20font-size:13px;\x20text-align:center;\x22>主页暂无节点卡片</div>\x27;\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20}\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20top5Html\x20+=\x20\x27</div>\x27;\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20//\x20瞬间把\x20TOP\x205\x20写入网页！\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20top5Container.innerHTML\x20=\x20top5Html;\x0a\x0a\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20//\x20==========================================\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20//\x20\x20正常加载下面的图表数据\x20(带有10秒防卡死超时保护)\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20//\x20==========================================\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20document.getElementById(\x27logTableBody\x27).innerHTML\x20=\x20\x27<tr><td\x20colspan=\x225\x22\x20style=\x22text-align:center;\x20padding:\x2030px;\x22>数据分析引擎计算中...</td></tr>\x27;\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20document.getElementById(\x27trafficToday\x27).innerText\x20=\x20\x27拉取中...\x27;\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20document.getElementById(\x27traffic7d\x27).innerText\x20=\x20\x27拉取中...\x27;\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20document.getElementById(\x27traffic30d\x27).innerText\x20=\x20\x27拉取中...\x27;\x0a\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20try\x20{\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20const\x20controller\x20=\x20new\x20AbortController();\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20const\x20timeoutId\x20=\x20setTimeout(()\x20=>\x20controller.abort(),\x2010000);\x0a\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20const\x20res\x20=\x20await\x20fetch(\x27/api/analytics\x27,\x20{\x20signal:\x20controller.signal\x20});\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20clearTimeout(timeoutId);\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20const\x20data\x20=\x20await\x20res.json();\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20if(!data.success)\x20throw\x20new\x20Error(data.error);\x0a\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20updateChartColors();\x0a\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20document.getElementById(\x27trafficToday\x27).innerText\x20=\x20data.trafficToday\x20||\x20\x27未知\x27;\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20document.getElementById(\x27traffic7d\x27).innerText\x20=\x20data.traffic7d\x20||\x20\x27未知\x27;\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20document.getElementById(\x27traffic30d\x27).innerText\x20=\x20data.traffic30d\x20||\x20\x27未知\x27;\x0a\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20const\x20labels\x20=\x20data.trend.map(i\x20=>\x20i.date.substring(5));\x20\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20const\x20counts\x20=\x20data.trend.map(i\x20=>\x20i.count);\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20const\x20trendCtx\x20=\x20document.getElementById(\x27trendChart\x27).getContext(\x272d\x27);\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20if(trendChartInstance)\x20trendChartInstance.destroy();\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20trendChartInstance\x20=\x20new\x20Chart(trendCtx,\x20{\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20type:\x20\x27line\x27,\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20data:\x20{\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20labels:\x20labels,\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20datasets:\x20[{\x20label:\x20\x27有效播放\x20(次)\x27,\x20data:\x20counts,\x20borderColor:\x20\x27#0071e3\x27,\x20backgroundColor:\x20\x27rgba(0,113,227,0.1)\x27,\x20fill:\x20true,\x20tension:\x200.3\x20}]\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20},\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20options:\x20{\x20responsive:\x20true,\x20plugins:\x20{\x20title:\x20{\x20display:\x20true,\x20text:\x20\x27过去\x207\x20天全站播放并发趋势\x27,\x20font:\x20{size:\x2016}\x20}\x20}\x20}\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20});\x0a\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20const\x20locLabels\x20=\x20data.locations.map(i\x20=>\x20i.country\x20===\x20\x27CN\x27\x20?\x20\x27中国大陆\x27\x20:\x20(i.country\x20||\x20\x27未知\x27));\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20const\x20locCounts\x20=\x20data.locations.map(i\x20=>\x20i.count);\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20const\x20locCtx\x20=\x20document.getElementById(\x27locationChart\x27).getContext(\x272d\x27);\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20if(locationChartInstance)\x20locationChartInstance.destroy();\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20locationChartInstance\x20=\x20new\x20Chart(locCtx,\x20{\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20type:\x20\x27doughnut\x27,\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20data:\x20{\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20labels:\x20locLabels,\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20datasets:\x20[{\x20data:\x20locCounts,\x20backgroundColor:\x20[\x27#34c759\x27,\x20\x27#0071e3\x27,\x20\x27#ff9500\x27,\x20\x27#af52de\x27,\x20\x27#ff2d55\x27,\x20\x27#8e8e93\x27],\x20borderWidth:\x200\x20}]\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20},\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20options:\x20{\x20responsive:\x20true,\x20plugins:\x20{\x20title:\x20{\x20display:\x20true,\x20text:\x20\x27独立访客来源地占比\x27,\x20font:\x20{size:\x2016}\x20}\x20}\x20}\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20});\x0a\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20const\x20tbody\x20=\x20document.getElementById(\x27logTableBody\x27);\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20tbody.innerHTML\x20=\x20\x27\x27;\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20if(data.recents.length\x20===\x200)\x20{\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20tbody.innerHTML\x20=\x20\x27<tr><td\x20colspan=\x225\x22\x20style=\x22text-align:center;\x20padding:\x2030px;\x22>暂无日志记录</td></tr>\x27;\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20}\x20else\x20{\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20data.recents.forEach(log\x20=>\x20{\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20const\x20tr\x20=\x20document.createElement(\x27tr\x27);\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20const\x20isChina\x20=\x20log.country\x20===\x20\x27CN\x27;\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20tr.innerHTML\x20=\x20`\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<td\x20data-label=\x22访问时间\x22\x20style=\x22font-size:12px;\x20white-space:nowrap;\x22>${log.timestamp}</td>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<td\x20data-label=\x22目标节点\x22><span\x20class=\x22badge\x22\x20style=\x22background:rgba(0,113,227,0.1);color:var(--primary);\x22>${log.prefix}</span></td>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<td\x20data-label=\x22真实\x20IP\x22\x20style=\x22font-family:monospace;\x20font-size:13px;\x20color:var(--text-sec);\x20word-break:break-all;\x22>${log.ip}</td>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<td\x20data-label=\x22归属地\x22><span\x20class=\x22badge\x22\x20style=\x22background:${isChina\x20?\x20\x27rgba(52,199,89,0.1)\x27\x20:\x20\x27rgba(255,149,0,0.1)\x27};\x20color:${isChina\x20?\x20\x27#34c759\x27\x20:\x20\x27#ff9500\x27};\x22>${isChina\x20?\x20\x27中国大陆\x27\x20:\x20(log.country\x20||\x20\x27Unknown\x27)}</span></td>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<td\x20data-label=\x22设备标识\x20(UA)\x22\x20style=\x22font-size:12px;\x20color:var(--text-sec);\x20word-break:\x20break-all;\x20white-space:\x20normal;\x20text-align:\x20right;\x20line-height:\x201.4;\x22\x20title=\x22${log.ua}\x22>${log.ua}</td>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20`;\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20tbody.appendChild(tr);\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20});\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20}\x0a\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20}\x20catch\x20(e)\x20{\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20const\x20errMsg\x20=\x20e.name\x20===\x20\x27AbortError\x27\x20?\x20\x27网络超时，CF\x20接口拥堵，请稍后重试\x27\x20:\x20e.message;\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20document.getElementById(\x27logTableBody\x27).innerHTML\x20=\x20`<tr><td\x20colspan=\x225\x22\x20style=\x22text-align:center;color:#ff3b30;\x20padding:\x2030px;\x22>独立图表数据拉取失败:\x20${errMsg}</td></tr>`;\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20}\x0a\x20\x20\x20\x20\x20\x20\x20\x20}\x0a\x0a\x20\x20\x20\x20\x20\x20\x20\x20function\x20closeDashboard()\x20{\x20document.getElementById(\x27dashboardModal\x27).style.display\x20=\x20\x27none\x27;\x20}\x0a\x0a\x20\x20\x20\x20\x20\x20\x20\x20async\x20function\x20loadIcons(forceUrl\x20=\x20null)\x20{\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20const\x20grid\x20=\x20document.getElementById(\x27iconGrid\x27);\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20grid.innerHTML\x20=\x20\x27<div\x20style=\x22grid-column:\x201/-1;\x20color:\x20var(--text-sec);\x20font-size:\x2013px;\x20text-align:\x20center;\x22>加载图标库中...</div>\x27;\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20const\x20targetUrl\x20=\x20forceUrl\x20||\x20localStorage.getItem(\x27custom_icon_url\x27)\x20||\x20DEFAULT_ICON_URL;\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20const\x20urlInput\x20=\x20document.getElementById(\x27customIconUrlInput\x27);\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20if\x20(urlInput)\x20urlInput.value\x20=\x20targetUrl\x20===\x20DEFAULT_ICON_URL\x20?\x20\x27\x27\x20:\x20targetUrl;\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20try\x20{\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20const\x20res\x20=\x20await\x20fetch(targetUrl);\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20const\x20data\x20=\x20await\x20res.json();\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20if\x20(data\x20&&\x20data.icons\x20&&\x20Array.isArray(data.icons))\x20{\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20globalIcons\x20=\x20data.icons;\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20}\x20else\x20if\x20(Array.isArray(data))\x20{\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20globalIcons\x20=\x20data;\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20}\x20else\x20{\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20globalIcons\x20=\x20[];\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20for\x20(const\x20[key,\x20val]\x20of\x20Object.entries(data))\x20{\x20globalIcons.push({\x20name:\x20key,\x20url:\x20val\x20});\x20}\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20}\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20renderIconGrid(\x27\x27);\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20}\x20catch(e)\x20{\x20\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20grid.innerHTML\x20=\x20\x27<div\x20style=\x22grid-column:\x201/-1;\x20color:\x20#ff3b30;\x20font-size:\x2013px;\x20text-align:\x20center;\x22>获取图标库失败，请检查链接或网络状态</div>\x27;\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20}\x0a\x20\x20\x20\x20\x20\x20\x20\x20}\x0a\x0a\x20\x20\x20\x20\x20\x20\x20\x20function\x20setCustomIconLibrary()\x20{\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20const\x20url\x20=\x20document.getElementById(\x27customIconUrlInput\x27).value.trim();\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20if\x20(!url)\x20return\x20showToast(\x27⚠️\x20请输入图标库\x20JSON\x20链接\x27);\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20if\x20(!url.startsWith(\x27http\x27))\x20return\x20showToast(\x27⚠️\x20请输入合法的\x20URL\x27);\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20localStorage.setItem(\x27custom_icon_url\x27,\x20url);\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20showToast(\x27⏳\x20正在加载自定义图标库...\x27);\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20loadIcons(url);\x0a\x20\x20\x20\x20\x20\x20\x20\x20}\x0a\x0a\x20\x20\x20\x20\x20\x20\x20\x20function\x20resetIconLibrary()\x20{\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20localStorage.removeItem(\x27custom_icon_url\x27);\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20document.getElementById(\x27customIconUrlInput\x27).value\x20=\x20\x27\x27;\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20showToast(\x27🔄\x20已恢复默认图标库\x27);\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20loadIcons(DEFAULT_ICON_URL);\x0a\x20\x20\x20\x20\x20\x20\x20\x20}\x0a\x0a\x20\x20\x20\x20\x20\x20\x20\x20function\x20renderIconGrid(filterText)\x20{\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20const\x20grid\x20=\x20document.getElementById(\x27iconGrid\x27);\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20const\x20lowerFilter\x20=\x20filterText.toLowerCase();\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20const\x20filtered\x20=\x20globalIcons.filter(item\x20=>\x20(item.name\x20||\x20\x27\x27).toLowerCase().includes(lowerFilter));\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20let\x20html\x20=\x20`<div\x20class=\x22icon-item\x22\x20onclick=\x22selectIcon(\x27\x27,\x20\x27默认\x27)\x22\x20title=\x22使用默认图标\x22><span\x20style=\x22font-size:22px;\x22>','prepare','\x27:\x27refresh\x27,\x27','chart','httpRequestsAdaptiveGroups','realip_only','Not\x20Found','round','\x20更新\x20TOP3\x20至\x20DNS</button>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<button\x20class=\x22btn-submit\x22\x20id=\x22btnSelectedDns\x22\x20onclick=\x22updateSelectedToDns()\x22\x20style=\x22\x20box-shadow:\x200\x204px\x2012px\x20rgba(52,\x20199,\x2089,\x200.2);\x22>','substring','\x20次)','bind','\x20提交修改</button>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20id=\x22accountModal\x22\x20style=\x22display:none;\x20position:fixed;\x20inset:0;\x20z-index:11010;\x20background:rgba(0,0,0,.5);\x20backdrop-filter:blur(5px);\x20overflow-y:auto;\x20padding:16px;\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20style=\x22max-width:560px;\x20margin:24px\x20auto;\x20background:var(--card);\x20border-radius:18px;\x20padding:22px;\x20box-shadow:0\x2010px\x2040px\x20rgba(0,0,0,.2);\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20style=\x22display:flex;\x20justify-content:space-between;\x20align-items:center;\x20margin-bottom:14px;\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<h2\x20style=\x22margin:0;\x20font-size:19px;\x20display:flex;\x20align-items:center;\x20gap:8px;\x22>','模拟拉流','SELECT\x20id,\x20times\x20FROM\x20proxy_hits\x20WHERE\x20ip\x20=\x20?\x20AND\x20path\x20=\x20?\x20ORDER\x20BY\x20id\x20DESC\x20LIMIT\x201','\x20统计</button>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<button\x20class=\x22pill-btn\x22\x20onclick=\x22location.href=\x27/speedtest\x27\x22\x20title=\x22下载测速\x22\x20style=\x22color:#4fd08a;border-color:rgba(79,208,138,.32);background:rgba(79,208,138,.12);\x22>','\x20订阅用户管理</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20style=\x22font-size:12px;\x20color:var(--text-sec);\x20margin-bottom:10px;\x22>订阅者密码可进入网页，但只能查看节点，不能进行任何修改操作。</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20id=\x22subList\x22\x20style=\x22display:flex;\x20flex-direction:column;\x20gap:8px;\x20margin-bottom:12px;\x22></div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20style=\x22display:flex;\x20gap:8px;\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<input\x20type=\x22text\x22\x20id=\x22newSubPass\x22\x20placeholder=\x22输入新订阅者密码\x22\x20style=\x22flex:1;\x20padding:10px\x2014px;\x20border:1px\x20solid\x20var(--border);\x20border-radius:8px;\x20background:var(--bg);\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<button\x20class=\x22btn-submit\x22\x20onclick=\x22addSubscriber()\x22\x20style=\x22white-space:nowrap;\x22>','/emby/Items/','节点\x20target\x20为空','cf-ray','\x20条\x20→\x20','/Sessions/Playing','\x20直推\x20CNAME\x20(免测速)</button>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20style=\x22width:\x20100%;\x20height:\x201px;\x20background:\x20var(--border);\x20margin:\x204px\x200;\x22></div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<button\x20class=\x22btn-submit\x22\x20id=\x22btnTop3Dns\x22\x20onclick=\x22updateTop3ToDns()\x22\x20style=\x22\x20box-shadow:\x200\x204px\x2012px\x20rgba(255,\x2045,\x2085,\x200.2);\x22>','SenPlayer/6.0.0','value','\x27:\x27chart\x27,\x27','\x20returned\x20HTTP\x20','flame','该节点未配置\x20API\x20Key\x20/\x20账号密码，已执行探测保活（配置凭据后可模拟真实播放）','(^|\x20)','replace','\x20节点\x20','customDevice','proxy_token','/Videos/','customUa','/UserData','finish','Content-Length','\x20下载测速</button>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<button\x20class=\x22pill-close\x22\x20onclick=\x22confirmLogout()\x22\x20title=\x22退出系统\x22>','清除播放记录完成','<svg\x20viewBox=\x220\x200\x2024\x2024\x22\x20fill=\x22none\x22\x20stroke=\x22currentColor\x22\x20stroke-width=\x222\x22\x20stroke-linecap=\x22round\x22\x20stroke-linejoin=\x22round\x22><path\x20d=\x22M5\x2013l4\x204L19\x207\x22/></svg>','Mozilla/5.0\x20(CF-Worker-Trace)','getSetCookie','</button>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22card\x20admin-only\x22\x20style=\x22border-left:\x204px\x20solid\x20#ff3b30;\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20style=\x22display:flex;\x20justify-content:\x20space-between;\x20align-items:center;\x20margin-bottom:12px;\x20flex-wrap:wrap;\x20gap:10px;\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<h2\x20style=\x22margin:0;\x20font-size:18px;\x20color:\x20#ff3b30;\x22>','<svg\x20viewBox=\x220\x200\x2024\x2024\x22\x20fill=\x22currentColor\x22><path\x20d=\x22M3\x206h18v2H3zM3\x2011h18v2H3zM3\x2016h18v2H3z\x22/></svg>','<svg\x20viewBox=\x220\x200\x2024\x2024\x22\x20fill=\x22none\x22\x20stroke=\x22currentColor\x22\x20stroke-width=\x221.8\x22><circle\x20cx=\x2212\x22\x20cy=\x2212\x22\x20r=\x229\x22/><circle\x20cx=\x2212\x22\x20cy=\x2212\x22\x20r=\x225\x22/><circle\x20cx=\x2212\x22\x20cy=\x2212\x22\x20r=\x221.2\x22\x20fill=\x22currentColor\x22/></svg>','\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20SELECT\x20r.remark,\x20COUNT(v.id)\x20as\x20c\x20\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20FROM\x20visitor_logs\x20v\x20\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20LEFT\x20JOIN\x20routes\x20r\x20ON\x20v.prefix\x20=\x20r.prefix\x20\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20WHERE\x20date(v.timestamp,\x20\x27+8\x20hours\x27)\x20=\x20date(\x27now\x27,\x20\x27+8\x20hours\x27)\x20\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20GROUP\x20BY\x20v.prefix\x20\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20ORDER\x20BY\x20c\x20DESC\x20LIMIT\x201\x0a\x20\x20\x20\x20\x20\x20\x20\x20','<svg\x20viewBox=\x220\x200\x2024\x2024\x22\x20fill=\x22none\x22\x20stroke=\x22currentColor\x22\x20stroke-width=\x221.8\x22\x20stroke-linecap=\x22round\x22\x20stroke-linejoin=\x22round\x22><path\x20d=\x22M12\x2020h9\x22/><path\x20d=\x22M16.5\x203.5a2.1\x202.1\x200\x200\x201\x203\x203L7\x2019l-4\x201\x201-4\x2012.5-12.5z\x22/></svg>','<svg\x20viewBox=\x220\x200\x2024\x2024\x22\x20fill=\x22none\x22\x20stroke=\x22currentColor\x22\x20stroke-width=\x221.8\x22\x20stroke-linecap=\x22round\x22\x20stroke-linejoin=\x22round\x22><path\x20d=\x22M21\x208l-9-5-9\x205v8l9\x205\x209-5V8z\x22/><path\x20d=\x22M3\x208l9\x205\x209-5M12\x2013v8\x22/></svg>','10.','Bearer\x20','账号登录','代码更新成功，并已完美保留原有放置地区和兼容配置！','check','\x20播放次数\x20(今日/累计)</span>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<span\x20style=\x22font-size:16px;\x20font-weight:700;\x20color:#ff9500;\x22>${r.todayReqs}\x20/\x20${totalReqs}\x20次</span>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20style=\x22display:\x20flex;\x20flex-direction:\x20column;\x20gap:\x2010px;\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22info-row\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<span\x20class=\x22info-label\x22>直达链接:</span>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22action-group\x22\x20style=\x22flex:1;\x20justify-content:\x20flex-end;\x20margin-left:\x2010px;\x20align-items:\x20flex-start;\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<span\x20id=\x22p-${idx}\x22\x20data-val=\x22${proxyUrl}\x22\x20class=\x22secret-text\x20dynamic-url\x22>••••••••</span>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<button\x20class=\x22icon-btn\x22\x20style=\x22margin-top:\x202px;\x22\x20onclick=\x22toggleVis(\x27p-${idx}\x27)\x22\x20title=\x22查看明文\x22>','SELECT\x20country,\x20COUNT(*)\x20as\x20count\x20FROM\x20visitor_logs\x20WHERE\x20timestamp\x20>=\x20datetime(\x27now\x27,\x20\x27-7\x20days\x27)\x20GROUP\x20BY\x20country\x20ORDER\x20BY\x20count\x20DESC','\x27:\x27bulb\x27,\x27','未绑定\x20DB','192.168.','<svg\x20viewBox=\x220\x200\x2024\x2024\x22\x20fill=\x22none\x22\x20stroke=\x22currentColor\x22\x20stroke-width=\x221.8\x22\x20stroke-linecap=\x22round\x22\x20stroke-linejoin=\x22round\x22><path\x20d=\x22M12\x203L2\x2020h20L12\x203z\x22/><path\x20d=\x22M12\x2010v4M12\x2017.5h.01\x22/></svg>','zones','filter','assign','enabled','text','<svg\x20viewBox=\x220\x200\x2024\x2024\x22><circle\x20cx=\x2212\x22\x20cy=\x2212\x22\x20r=\x227\x22\x20fill=\x22#007aff\x22/></svg>','Set-Cookie','保活完成（','no-store,\x20no-cache,\x20must-revalidate,\x20max-age=0','/api/get-dns','deviceId','\x20导出配置</button>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<button\x20class=\x22btn-submit\x22\x20onclick=\x22importConfig()\x22>','Authorization','<svg\x20viewBox=\x220\x200\x2024\x2024\x22\x20fill=\x22none\x22\x20stroke=\x22currentColor\x22\x20stroke-width=\x221.8\x22\x20stroke-linecap=\x22round\x22\x20stroke-linejoin=\x22round\x22><path\x20d=\x22M3\x206h18M8\x206V4a1\x201\x200\x200\x201\x201-1h6a1\x201\x200\x200\x201\x201\x201v2\x22/><path\x20d=\x22M19\x206l-1\x2014a2\x202\x200\x200\x201-2\x202H8a2\x202\x200\x200\x201-2-2L5\x206\x22/></svg>','ADMIN_TOKEN','origin','/stream','flask','https://api.cloudflare.com/client/v4/accounts/','\x22;\x20\x0a\x20\x20\x20\x20\x20\x20\x20\x20const\x20GITHUB_RAW_URL\x20=\x20\x22','CNAME','cf-visitor','trophy','无播放链接，跳过','Mozilla/5.0','</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22meta\x22>UA:\x20','Emby\x20反代面板','10485760','javascript','Content-Encoding','waitUntil','/$1','/emby/Items?Recursive=true&IncludeItemTypes=Movie,Episode&Limit=1&SortBy=DateCreated&SortOrder=Descending','device','获取现有\x20DNS\x20记录失败','\x22})\x20{\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20httpRequests1dGroups(\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20limit:\x2010000,\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20filter:\x20{\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20date_geq:\x20\x22','last_play','\x20跑了\x20','<svg\x20viewBox=\x220\x200\x2024\x2024\x22\x20fill=\x22none\x22\x20stroke=\x22currentColor\x22\x20stroke-width=\x221.8\x22\x20stroke-linecap=\x22round\x22\x20stroke-linejoin=\x22round\x22><path\x20d=\x22M7\x2018a4\x204\x200\x201\x201\x200-8\x205\x205\x200\x200\x201\x209.6\x201.3A3.5\x203.5\x200\x200\x201\x2017\x2018H7z\x22/></svg>','节点不存在','</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<input\x20type=\x22checkbox\x22\x20class=\x22node-cb\x20admin-only\x22\x20value=\x22${r.prefix}\x22\x20style=\x22width:\x2018px;\x20height:\x2018px;\x20margin:\x200;\x20cursor:\x20pointer;\x20accent-color:\x20var(--primary);\x20flex-shrink:\x200;\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22emby-icon\x22\x20style=\x22margin:\x200;\x20display:\x20flex;\x20align-items:\x20center;\x22>${iconHtml}</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20style=\x22font-weight:\x20600;\x20font-size:\x2016px;\x20color:\x20var(--text);\x22>${remarkName}</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20style=\x22font-size:\x2013px;\x20color:\x20var(--text-sec);\x20margin-top:2px;\x22>/${r.prefix}</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20style=\x22display:flex;\x20align-items:center;\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<span\x20class=\x22badge\x22\x20style=\x22background:\x20rgba(0,113,227,0.1);\x20color:\x20var(--primary);\x22>${modeNames[r.mode]\x20||\x20\x27未知\x27}</span>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22node-summary\x22\x20style=\x22display:flex;\x20align-items:center;\x20gap:14px;\x20flex-wrap:wrap;\x20padding-top:2px;\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<span\x20id=\x22ping-${idx}\x22\x20class=\x22ping-badge\x22\x20${pingAttr}>${pingText}</span>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<span\x20style=\x22font-size:12px;\x20color:var(--text-sec);\x22>${todayBw}</span>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20style=\x22margin-left:auto;\x20display:flex;\x20gap:8px;\x20align-items:center;\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<button\x20class=\x22icon-btn\x22\x20onclick=\x22copyTxt(\x27${proxyUrl}\x27)\x22\x20title=\x22复制直达链接\x22>','节点目标','Items','模拟拉流中（40MB）…','https://api.day.app/','application/javascript+module','<svg\x20viewBox=\x220\x200\x2024\x2024\x22\x20fill=\x22none\x22\x20stroke=\x22currentColor\x22\x20stroke-width=\x221.8\x22\x20stroke-linecap=\x22round\x22\x20stroke-linejoin=\x22round\x22><path\x20d=\x22M20\x2010c0\x206-8\x2012-8\x2012s-8-6-8-12a8\x208\x200\x200\x201\x2016\x200z\x22/><circle\x20cx=\x2212\x22\x20cy=\x2210\x22\x20r=\x223\x22/></svg>','<svg\x20viewBox=\x220\x200\x2024\x2024\x22\x20fill=\x22none\x22\x20stroke=\x22currentColor\x22\x20stroke-width=\x221.8\x22\x20stroke-linecap=\x22round\x22\x20stroke-linejoin=\x22round\x22><path\x20d=\x22M10\x2013a5\x205\x200\x200\x200\x207.07\x200l2.83-2.83a5\x205\x200\x200\x200-7.07-7.07L11\x204.93\x22/><path\x20d=\x22M14\x2011a5\x205\x200\x200\x200-7.07\x200l-2.83\x202.83a5\x205\x200\x200\x200\x207.07\x207.07L13\x2019.07\x22/></svg>','/api/routes/reorder','protocol','密钥需\x203-32\x20位字母数字','获取媒体条目','Video','\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20联系作者\x20MakkaPakkaOvO\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</a>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20style=\x22margin-top:\x2020px;\x20font-size:\x2012px;\x20color:\x20var(--text-sec);\x20line-height:\x201.6;\x20max-width:\x20600px;\x20margin-left:\x20auto;\x20margin-right:\x20auto;\x20padding:\x200\x2015px;\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<strong>免责声明:</strong>\x20本项目仅供学习与技术测试使用，请遵守当地法律法规。使用者对配置、转发内容与访问行为承担全部责任，开发者不对任何直接或间接损失负责。\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20</div>\x0a\x0a\x20\x20\x20\x20<script>\x0a\x20\x20\x20\x20\x20\x20\x20\x20const\x20modeNames\x20=\x20{\x20\x27off\x27:\x20\x27保守\x27,\x20\x27realip_only\x27:\x20\x27严格\x27,\x20\x27dual\x27:\x20\x27兼容\x27,\x20\x27strict\x27:\x20\x27强力\x27,\x20\x27custom\x27:\x20\x27伪装(旧)\x27,\x20\x27off_fake\x27:\x20\x27保守+伪装\x27,\x20\x27realip_only_fake\x27:\x20\x27严格+伪装\x27,\x20\x27dual_fake\x27:\x20\x27兼容+伪装\x27,\x20\x27strict_fake\x27:\x20\x27强力+伪装\x27\x20};\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x0a\x20\x20\x20\x20\x20\x20\x20\x20const\x20DEFAULT_ICON_URL\x20=\x20\x27https://emby-icon.vercel.app/TFEL-Emby.json\x27;\x0a\x20\x20\x20\x20\x20\x20\x20\x20let\x20globalIcons\x20=\x20[];\x0a\x20\x20\x20\x20\x20\x20\x20\x20let\x20proxyNodesForPing\x20=\x20[];\x0a\x20\x20\x20\x20\x20\x20\x20\x20let\x20sortableInstance\x20=\x20null;\x0a\x20\x20\x20\x20\x20\x20\x20\x20let\x20trendChartInstance\x20=\x20null;\x0a\x20\x20\x20\x20\x20\x20\x20\x20let\x20locationChartInstance\x20=\x20null;\x0a\x0a\x20\x20\x20\x20\x20\x20\x20\x20//\x20设置\x20Chart.js\x20响应暗色模式\x0a\x20\x20\x20\x20\x20\x20\x20\x20function\x20updateChartColors()\x20{\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20Chart.defaults.color\x20=\x20document.body.classList.contains(\x27dark\x27)\x20?\x20\x27#98989d\x27\x20:\x20\x27#86868b\x27;\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20Chart.defaults.borderColor\x20=\x20document.body.classList.contains(\x27dark\x27)\x20?\x20\x27#38383a\x27\x20:\x20\x27#d2d2d7\x27;\x0a\x20\x20\x20\x20\x20\x20\x20\x20}\x0a\x0a\x20\x20\x20\x20\x20\x20\x20\x20//\x20=====================================\x0a\x20\x20\x20\x20\x20\x20\x20\x20//\x20数据大屏与统计逻辑\x20(适配手机端表格排版)\x0a\x20\x20\x20\x20\x20\x20\x20\x20//\x20=====================================\x0a\x20\x20\x20\x20\x20\x20\x20\x20async\x20function\x20openDashboard()\x20{\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20document.getElementById(\x27dashboardModal\x27).style.display\x20=\x20\x27block\x27;\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20function\x20parseTrafficToBytes(str)\x20{\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20if\x20(!str\x20||\x20str\x20===\x20\x270\x20B\x27\x20||\x20str.includes(\x27异常\x27)\x20||\x20str.includes(\x27获取\x27))\x20return\x200;\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20let\x20val\x20=\x20parseFloat(str);\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20if\x20(str.includes(\x27TB\x27))\x20return\x20val\x20*\x201099511627776;\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20if\x20(str.includes(\x27GB\x27))\x20return\x20val\x20*\x201073741824;\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20if\x20(str.includes(\x27MB\x27))\x20return\x20val\x20*\x201048576;\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20if\x20(str.includes(\x27KB\x27))\x20return\x20val\x20*\x201024;\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20return\x20val;\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20}\x0a\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20let\x20top5Container\x20=\x20document.getElementById(\x27top5-simple-container\x27);\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20if\x20(!top5Container)\x20{\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20top5Container\x20=\x20document.createElement(\x27div\x27);\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20top5Container.id\x20=\x20\x27top5-simple-container\x27;\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20const\x20wrapper\x20=\x20document.querySelector(\x27.table-wrapper\x27);\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20if(wrapper\x20&&\x20wrapper.previousElementSibling)\x20{\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20wrapper.parentNode.insertBefore(top5Container,\x20wrapper.previousElementSibling);\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20}\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20}\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20let\x20top5Html\x20=\x20\x27<h3\x20style=\x22margin-top:\x2030px;\x20margin-bottom:16px;\x22>','12wNfxLI','<svg\x20viewBox=\x220\x200\x2024\x2024\x22\x20fill=\x22currentColor\x22><path\x20d=\x22M12\x203l1.6\x204.4L18\x209l-4.4\x201.6L12\x2015l-1.6-4.4L6\x209l4.4-1.6L12\x203zM18\x2014l.8\x202.2L21\x2017l-2.2.8L18\x2020l-.8-2.2L15\x2017l2.2-.8L18\x2014zM6\x2014l.6\x201.7L8.5\x2016l-1.9.7L6\x2018.5l-.6-1.8L3.5\x2016l1.9-.3L6\x2014z\x22/></svg>','/http://','\x22\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20}\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20)\x20{\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20sum\x20{\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20edgeResponseBytes\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20}\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20}\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20}\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20}\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20}','log','size','密码至少\x204\x20位','http://','.m3u8','KA_ENABLED','选择节点','<svg\x20viewBox=\x220\x200\x2024\x2024\x22\x20fill=\x22none\x22\x20stroke=\x22currentColor\x22\x20stroke-width=\x221.8\x22\x20stroke-linecap=\x22round\x22><path\x20d=\x22M5\x2020V10M12\x2020V4M19\x2020v-7\x22/></svg>','X-Real-IP','\x22>\x0a\x20\x20\x20\x20<script>\x0aconst\x20I\x20=\x20{\x0a\x20\x20rocket:\x27<svg\x20viewBox=\x220\x200\x2024\x2024\x22\x20fill=\x22none\x22\x20stroke=\x22currentColor\x22\x20stroke-width=\x221.8\x22\x20stroke-linecap=\x22round\x22\x20stroke-linejoin=\x22round\x22><path\x20d=\x22M4.5\x2016.5c-1.5\x201.3-2\x205-2\x205s3.7-.5\x205-2c.7-.8.7-2\x200-2.8-.8-.7-2.2-.7-3\x20.8z\x22/><path\x20d=\x22M12\x2015l-3-3c.5-4\x204-7.5\x208-8\x202\x20.2\x203.8\x202\x204\x204-.5\x204-4\x207.5-8\x208l-1-1z\x22/><path\x20d=\x22M9\x2012c-2\x201-3.5\x203-4\x205\x22/><circle\x20cx=\x2215\x22\x20cy=\x229\x22\x20r=\x220.5\x22/></svg>\x27,\x0a\x20\x20xmark:\x27<svg\x20viewBox=\x220\x200\x2024\x2024\x22\x20fill=\x22none\x22\x20stroke=\x22currentColor\x22\x20stroke-width=\x221.8\x22\x20stroke-linecap=\x22round\x22><path\x20d=\x22M6\x206l12\x2012M18\x206L6\x2018\x22/></svg>\x27,\x0a\x20\x20check:\x27<svg\x20viewBox=\x220\x200\x2024\x2024\x22\x20fill=\x22none\x22\x20stroke=\x22currentColor\x22\x20stroke-width=\x222\x22\x20stroke-linecap=\x22round\x22\x20stroke-linejoin=\x22round\x22><path\x20d=\x22M5\x2013l4\x204L19\x207\x22/></svg>\x27,\x0a\x20\x20warn:\x27<svg\x20viewBox=\x220\x200\x2024\x2024\x22\x20fill=\x22none\x22\x20stroke=\x22currentColor\x22\x20stroke-width=\x221.8\x22\x20stroke-linecap=\x22round\x22\x20stroke-linejoin=\x22round\x22><path\x20d=\x22M12\x203L2\x2020h20L12\x203z\x22/><path\x20d=\x22M12\x2010v4M12\x2017.5h.01\x22/></svg>\x27,\x0a\x20\x20film:\x27<svg\x20viewBox=\x220\x200\x2024\x2024\x22\x20fill=\x22none\x22\x20stroke=\x22currentColor\x22\x20stroke-width=\x221.8\x22\x20stroke-linecap=\x22round\x22\x20stroke-linejoin=\x22round\x22><rect\x20x=\x223\x22\x20y=\x224\x22\x20width=\x2218\x22\x20height=\x2216\x22\x20rx=\x222\x22/><path\x20d=\x22M7\x204v16M17\x204v16M3\x209h4M3\x2015h4M17\x209h4M17\x2015h4\x22/></svg>\x27,\x0a\x20\x20star:\x27<svg\x20viewBox=\x220\x200\x2024\x2024\x22\x20fill=\x22currentColor\x22><path\x20d=\x22M12\x203l2.7\x205.7\x206.3.8-4.6\x204.3\x201.1\x206.2-5.5-3-5.5\x203\x201.1-6.2L3\x209.5l6.3-.8L12\x203z\x22/></svg>\x27,\x0a\x20\x20sparkles:\x27<svg\x20viewBox=\x220\x200\x2024\x2024\x22\x20fill=\x22currentColor\x22><path\x20d=\x22M12\x203l1.6\x204.4L18\x209l-4.4\x201.6L12\x2015l-1.6-4.4L6\x209l4.4-1.6L12\x203zM18\x2014l.8\x202.2L21\x2017l-2.2.8L18\x2020l-.8-2.2L15\x2017l2.2-.8L18\x2014zM6\x2014l.6\x201.7L8.5\x2016l-1.9.7L6\x2018.5l-.6-1.8L3.5\x2016l1.9-.3L6\x2014z\x22/></svg>\x27,\x0a\x20\x20globe:\x27<svg\x20viewBox=\x220\x200\x2024\x2024\x22\x20fill=\x22none\x22\x20stroke=\x22currentColor\x22\x20stroke-width=\x221.8\x22\x20stroke-linecap=\x22round\x22\x20stroke-linejoin=\x22round\x22><circle\x20cx=\x2212\x22\x20cy=\x2212\x22\x20r=\x229\x22/><path\x20d=\x22M3\x2012h18M12\x203c2.5\x202.5\x202.5\x2015\x200\x2018M12\x203c-2.5\x202.5-2.5\x2015\x200\x2018\x22/></svg>\x27,\x0a\x20\x20bolt:\x27<svg\x20viewBox=\x220\x200\x2024\x2024\x22\x20fill=\x22currentColor\x22><path\x20d=\x22M13\x202L4\x2014h6l-1\x208\x209-12h-6l1-8z\x22/></svg>\x27,\x0a\x20\x20refresh:\x27<svg\x20viewBox=\x220\x200\x2024\x2024\x22\x20fill=\x22none\x22\x20stroke=\x22currentColor\x22\x20stroke-width=\x221.8\x22\x20stroke-linecap=\x22round\x22\x20stroke-linejoin=\x22round\x22><path\x20d=\x22M20\x2012a8\x208\x200\x201\x201-2.34-5.66\x22/><path\x20d=\x22M20\x203v5h-5\x22/></svg>\x27,\x0a\x20\x20chart:\x27<svg\x20viewBox=\x220\x200\x2024\x2024\x22\x20fill=\x22none\x22\x20stroke=\x22currentColor\x22\x20stroke-width=\x221.8\x22\x20stroke-linecap=\x22round\x22><path\x20d=\x22M5\x2020V10M12\x2020V4M19\x2020v-7\x22/></svg>\x27,\x0a\x20\x20cloud:\x27<svg\x20viewBox=\x220\x200\x2024\x2024\x22\x20fill=\x22none\x22\x20stroke=\x22currentColor\x22\x20stroke-width=\x221.8\x22\x20stroke-linecap=\x22round\x22\x20stroke-linejoin=\x22round\x22><path\x20d=\x22M7\x2018a4\x204\x200\x201\x201\x200-8\x205\x205\x200\x200\x201\x209.6\x201.3A3.5\x203.5\x200\x200\x201\x2017\x2018H7z\x22/></svg>\x27,\x0a\x20\x20trash:\x27<svg\x20viewBox=\x220\x200\x2024\x2024\x22\x20fill=\x22none\x22\x20stroke=\x22currentColor\x22\x20stroke-width=\x221.8\x22\x20stroke-linecap=\x22round\x22\x20stroke-linejoin=\x22round\x22><path\x20d=\x22M3\x206h18M8\x206V4a1\x201\x200\x200\x201\x201-1h6a1\x201\x200\x200\x201\x201\x201v2\x22/><path\x20d=\x22M19\x206l-1\x2014a2\x202\x200\x200\x201-2\x202H8a2\x202\x200\x200\x201-2-2L5\x206\x22/></svg>\x27,\x0a\x20\x20search:\x27<svg\x20viewBox=\x220\x200\x2024\x2024\x22\x20fill=\x22none\x22\x20stroke=\x22currentColor\x22\x20stroke-width=\x221.8\x22\x20stroke-linecap=\x22round\x22><circle\x20cx=\x2211\x22\x20cy=\x2211\x22\x20r=\x227\x22/><path\x20d=\x22M21\x2021l-4.3-4.3\x22/></svg>\x27,\x0a\x20\x20location:\x27<svg\x20viewBox=\x220\x200\x2024\x2024\x22\x20fill=\x22none\x22\x20stroke=\x22currentColor\x22\x20stroke-width=\x221.8\x22\x20stroke-linecap=\x22round\x22\x20stroke-linejoin=\x22round\x22><path\x20d=\x22M20\x2010c0\x206-8\x2012-8\x2012s-8-6-8-12a8\x208\x200\x200\x201\x2016\x200z\x22/><circle\x20cx=\x2212\x22\x20cy=\x2210\x22\x20r=\x223\x22/></svg>\x27,\x0a\x20\x20trophy:\x27<svg\x20viewBox=\x220\x200\x2024\x2024\x22\x20fill=\x22none\x22\x20stroke=\x22currentColor\x22\x20stroke-width=\x221.8\x22\x20stroke-linecap=\x22round\x22\x20stroke-linejoin=\x22round\x22><path\x20d=\x22M8\x2021h8M12\x2017v4M7\x204h10v6a5\x205\x200\x200\x201-10\x200V4z\x22/><path\x20d=\x22M7\x205H4v2a3\x203\x200\x200\x200\x203\x203M17\x205h3v2a3\x203\x200\x200\x201-3\x203\x22/></svg>\x27,\x0a\x20\x20moon:\x27<svg\x20viewBox=\x220\x200\x2024\x2024\x22\x20fill=\x22none\x22\x20stroke=\x22currentColor\x22\x20stroke-width=\x221.8\x22\x20stroke-linecap=\x22round\x22\x20stroke-linejoin=\x22round\x22><path\x20d=\x22M21\x2012.8A9\x209\x200\x201\x201\x2011.2\x203a7\x207\x200\x200\x200\x209.8\x209.8z\x22/></svg>\x27,\x0a\x20\x20sun:\x27<svg\x20viewBox=\x220\x200\x2024\x2024\x22\x20fill=\x22none\x22\x20stroke=\x22currentColor\x22\x20stroke-width=\x221.8\x22\x20stroke-linecap=\x22round\x22><circle\x20cx=\x2212\x22\x20cy=\x2212\x22\x20r=\x224.5\x22/><path\x20d=\x22M12\x202v2M12\x2020v2M4.9\x204.9l1.4\x201.4M17.7\x2017.7l1.4\x201.4M2\x2012h2M20\x2012h2M4.9\x2019.1l1.4-1.4M17.7\x206.3l1.4-1.4\x22/></svg>\x27,\x0a\x20\x20pencil:\x27<svg\x20viewBox=\x220\x200\x2024\x2024\x22\x20fill=\x22none\x22\x20stroke=\x22currentColor\x22\x20stroke-width=\x221.8\x22\x20stroke-linecap=\x22round\x22\x20stroke-linejoin=\x22round\x22><path\x20d=\x22M12\x2020h9\x22/><path\x20d=\x22M16.5\x203.5a2.1\x202.1\x200\x200\x201\x203\x203L7\x2019l-4\x201\x201-4\x2012.5-12.5z\x22/></svg>\x27,\x0a\x20\x20gear:\x27<svg\x20viewBox=\x220\x200\x2024\x2024\x22\x20fill=\x22none\x22\x20stroke=\x22currentColor\x22\x20stroke-width=\x221.8\x22\x20stroke-linecap=\x22round\x22\x20stroke-linejoin=\x22round\x22><circle\x20cx=\x2212\x22\x20cy=\x2212\x22\x20r=\x223\x22/><path\x20d=\x22M12\x201v4M12\x2019v4M4.2\x204.2l2.8\x202.8M17\x2017l2.8\x202.8M1\x2012h4M19\x2012h4M4.2\x2019.8L7\x2017M17\x207l2.8-2.8\x22/></svg>\x27,\x0a\x20\x20lines:\x27<svg\x20viewBox=\x220\x200\x2024\x2024\x22\x20fill=\x22currentColor\x22><path\x20d=\x22M3\x206h18v2H3zM3\x2011h18v2H3zM3\x2016h18v2H3z\x22/></svg>\x27,\x0a\x20\x20box:\x27<svg\x20viewBox=\x220\x200\x2024\x2024\x22\x20fill=\x22none\x22\x20stroke=\x22currentColor\x22\x20stroke-width=\x221.8\x22\x20stroke-linecap=\x22round\x22\x20stroke-linejoin=\x22round\x22><path\x20d=\x22M21\x208l-9-5-9\x205v8l9\x205\x209-5V8z\x22/><path\x20d=\x22M3\x208l9\x205\x209-5M12\x2013v8\x22/></svg>\x27,\x0a\x20\x20download:\x27<svg\x20viewBox=\x220\x200\x2024\x2024\x22\x20fill=\x22none\x22\x20stroke=\x22currentColor\x22\x20stroke-width=\x221.8\x22\x20stroke-linecap=\x22round\x22\x20stroke-linejoin=\x22round\x22><path\x20d=\x22M12\x203v12M7\x2010l5\x205\x205-5M4\x2021h16\x22/></svg>\x27,\x0a\x20\x20antenna:\x27<svg\x20viewBox=\x220\x200\x2024\x2024\x22\x20fill=\x22none\x22\x20stroke=\x22currentColor\x22\x20stroke-width=\x221.8\x22\x20stroke-linecap=\x22round\x22\x20stroke-linejoin=\x22round\x22><path\x20d=\x22M6.4\x202a14\x2014\x200\x200\x200\x200\x2020M17.6\x202a14\x2014\x200\x200\x201\x200\x2020M9.8\x205.5a9\x209\x200\x200\x200\x200\x2013M14.2\x205.5a9\x209\x200\x200\x201\x200\x2013\x22/><circle\x20cx=\x2212\x22\x20cy=\x2212\x22\x20r=\x221.5\x22/></svg>\x27,\x0a\x20\x20bulb:\x27<svg\x20viewBox=\x220\x200\x2024\x2024\x22\x20fill=\x22none\x22\x20stroke=\x22currentColor\x22\x20stroke-width=\x221.8\x22\x20stroke-linecap=\x22round\x22\x20stroke-linejoin=\x22round\x22><path\x20d=\x22M9\x2018h6M10\x2022h4M8\x2014.5A6\x206\x200\x200\x201\x2012\x205a6\x206\x200\x200\x201\x204\x209.5c-.8.8-1\x201.6-1\x202.5h-6c0-.9-.2-1.7-1-2.5z\x22/></svg>\x27,\x0a\x20\x20tv:\x27<svg\x20viewBox=\x220\x200\x2024\x2024\x22\x20fill=\x22none\x22\x20stroke=\x22currentColor\x22\x20stroke-width=\x221.8\x22\x20stroke-linecap=\x22round\x22\x20stroke-linejoin=\x22round\x22><rect\x20x=\x222\x22\x20y=\x225\x22\x20width=\x2220\x22\x20height=\x2213\x22\x20rx=\x222\x22/><path\x20d=\x22M8\x2021h8M12\x2018v3\x22/></svg>\x27,\x0a\x20\x20flame:\x27<svg\x20viewBox=\x220\x200\x2024\x2024\x22\x20fill=\x22currentColor\x22><path\x20d=\x22M12\x202s5\x204\x205\x209a5\x205\x200\x200\x201-10\x200c0-2\x201-3.5\x202-5-.5\x201-1\x202-1\x203\x200\x202.5\x203\x203\x203\x206\x201-2\x200-4\x200-4\x202\x201\x203\x203\x203\x204.5A6.5\x206.5\x200\x200\x201\x2012\x2022\x206.5\x206.5\x200\x200\x201\x205.5\x2015C5.5\x209\x2012\x202\x2012\x202z\x22/></svg>\x27,\x0a\x20\x20link:\x27<svg\x20viewBox=\x220\x200\x2024\x2024\x22\x20fill=\x22none\x22\x20stroke=\x22currentColor\x22\x20stroke-width=\x221.8\x22\x20stroke-linecap=\x22round\x22\x20stroke-linejoin=\x22round\x22><path\x20d=\x22M10\x2013a5\x205\x200\x200\x200\x207.07\x200l2.83-2.83a5\x205\x200\x200\x200-7.07-7.07L11\x204.93\x22/><path\x20d=\x22M14\x2011a5\x205\x200\x200\x200-7.07\x200l-2.83\x202.83a5\x205\x200\x200\x200\x207.07\x207.07L13\x2019.07\x22/></svg>\x27,\x0a\x20\x20crown:\x27<svg\x20viewBox=\x220\x200\x2024\x2024\x22\x20fill=\x22none\x22\x20stroke=\x22currentColor\x22\x20stroke-width=\x221.8\x22\x20stroke-linecap=\x22round\x22\x20stroke-linejoin=\x22round\x22><path\x20d=\x22M3\x207l4\x204\x205-6\x205\x206\x204-4-2\x2012H5L3\x207z\x22/><path\x20d=\x22M6\x2019h12\x22/></svg>\x27,\x0a\x20\x20target:\x27<svg\x20viewBox=\x220\x200\x2024\x2024\x22\x20fill=\x22none\x22\x20stroke=\x22currentColor\x22\x20stroke-width=\x221.8\x22><circle\x20cx=\x2212\x22\x20cy=\x2212\x22\x20r=\x229\x22/><circle\x20cx=\x2212\x22\x20cy=\x2212\x22\x20r=\x225\x22/><circle\x20cx=\x2212\x22\x20cy=\x2212\x22\x20r=\x221.2\x22\x20fill=\x22currentColor\x22/></svg>\x27,\x0a\x20\x20arrowdown:\x27<svg\x20viewBox=\x220\x200\x2024\x2024\x22\x20fill=\x22none\x22\x20stroke=\x22currentColor\x22\x20stroke-width=\x221.8\x22\x20stroke-linecap=\x22round\x22\x20stroke-linejoin=\x22round\x22><path\x20d=\x22M12\x205v14M5\x2012l7\x207\x207-7\x22/></svg>\x27,\x0a\x20\x20robot:\x27<svg\x20viewBox=\x220\x200\x2024\x2024\x22\x20fill=\x22none\x22\x20stroke=\x22currentColor\x22\x20stroke-width=\x221.8\x22\x20stroke-linecap=\x22round\x22\x20stroke-linejoin=\x22round\x22><rect\x20x=\x225\x22\x20y=\x228\x22\x20width=\x2214\x22\x20height=\x2211\x22\x20rx=\x222\x22/><path\x20d=\x22M12\x208V4M8\x204h8\x22/><circle\x20cx=\x229.5\x22\x20cy=\x2213\x22\x20r=\x221\x22\x20fill=\x22currentColor\x22/><circle\x20cx=\x2214.5\x22\x20cy=\x2213\x22\x20r=\x221\x22\x20fill=\x22currentColor\x22/><path\x20d=\x22M2\x2013v3M22\x2013v3\x22/></svg>\x27,\x0a\x20\x20spy:\x27<svg\x20viewBox=\x220\x200\x2024\x2024\x22\x20fill=\x22none\x22\x20stroke=\x22currentColor\x22\x20stroke-width=\x221.8\x22\x20stroke-linecap=\x22round\x22\x20stroke-linejoin=\x22round\x22><circle\x20cx=\x2212\x22\x20cy=\x2211\x22\x20r=\x227\x22/><circle\x20cx=\x229\x22\x20cy=\x2210\x22\x20r=\x221\x22\x20fill=\x22currentColor\x22/><circle\x20cx=\x2215\x22\x20cy=\x2210\x22\x20r=\x221\x22\x20fill=\x22currentColor\x22/><path\x20d=\x22M9.5\x2014c1\x20.8\x204\x20.8\x205\x200\x22/></svg>\x27,\x0a\x20\x20flask:\x27<svg\x20viewBox=\x220\x200\x2024\x2024\x22\x20fill=\x22none\x22\x20stroke=\x22currentColor\x22\x20stroke-width=\x221.8\x22\x20stroke-linecap=\x22round\x22\x20stroke-linejoin=\x22round\x22><path\x20d=\x22M9\x203h6M10\x203v5L4.5\x2018a2\x202\x200\x200\x200\x201.8\x203h11.4a2\x202\x200\x200\x200\x201.8-3L14\x208V3\x22/><path\x20d=\x22M7\x2015h10\x22/></svg>\x27,\x0a\x20\x20broom:\x27<svg\x20viewBox=\x220\x200\x2024\x2024\x22\x20fill=\x22none\x22\x20stroke=\x22currentColor\x22\x20stroke-width=\x221.8\x22\x20stroke-linecap=\x22round\x22\x20stroke-linejoin=\x22round\x22><path\x20d=\x22M13\x203l8\x208M11\x2011l8-8M4\x2020l7-7\x201\x201-7\x207-2-1z\x22/><path\x20d=\x22M6\x208l4\x204\x22/></svg>\x27,\x0a\x20\x20checksquare:\x27<svg\x20viewBox=\x220\x200\x2024\x2024\x22\x20fill=\x22none\x22\x20stroke=\x22currentColor\x22\x20stroke-width=\x221.8\x22\x20stroke-linecap=\x22round\x22\x20stroke-linejoin=\x22round\x22><rect\x20x=\x223\x22\x20y=\x223\x22\x20width=\x2218\x22\x20height=\x2218\x22\x20rx=\x224\x22/><path\x20d=\x22M8\x2012.5l2.5\x202.5L16\x209\x22/></svg>\x27,\x0a\x20\x20upload:\x27<svg\x20viewBox=\x220\x200\x2024\x2024\x22\x20fill=\x22none\x22\x20stroke=\x22currentColor\x22\x20stroke-width=\x221.8\x22\x20stroke-linecap=\x22round\x22\x20stroke-linejoin=\x22round\x22><path\x20d=\x22M12\x2015V3M7\x208l5-5\x205\x205M4\x2021h16\x22/></svg>\x27,\x0a\x20\x20db:\x27<svg\x20viewBox=\x220\x200\x2024\x2024\x22\x20fill=\x22none\x22\x20stroke=\x22currentColor\x22\x20stroke-width=\x221.8\x22\x20stroke-linecap=\x22round\x22><ellipse\x20cx=\x2212\x22\x20cy=\x225\x22\x20rx=\x228\x22\x20ry=\x223\x22/><path\x20d=\x22M4\x205v14c0\x201.7\x203.6\x203\x208\x203s8-1.3\x208-3V5M4\x2012c0\x201.7\x203.6\x203\x208\x203s8-1.3\x208-3\x22/></svg>\x27,\x0a\x20\x20dotblue:\x27<svg\x20viewBox=\x220\x200\x2024\x2024\x22><circle\x20cx=\x2212\x22\x20cy=\x2212\x22\x20r=\x227\x22\x20fill=\x22#007aff\x22/></svg>\x27,\x0a\x20\x20dotorange:\x27<svg\x20viewBox=\x220\x200\x2024\x2024\x22><circle\x20cx=\x2212\x22\x20cy=\x2212\x22\x20r=\x227\x22\x20fill=\x22#ff9500\x22/></svg>\x27,\x0a\x20\x20dotgreen:\x27<svg\x20viewBox=\x220\x200\x2024\x2024\x22><circle\x20cx=\x2212\x22\x20cy=\x2212\x22\x20r=\x227\x22\x20fill=\x22#34c759\x22/></svg>\x27,\x0a\x20\x20dotpurple:\x27<svg\x20viewBox=\x220\x200\x2024\x2024\x22><circle\x20cx=\x2212\x22\x20cy=\x2212\x22\x20r=\x227\x22\x20fill=\x22#af52de\x22/></svg>\x27\x0a};\x0a\x0aconst\x20E2I\x20=\x20{\x20\x27','Host','statusText','\x27;\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20const\x20pingAttr\x20=\x20mainTarget\x20?\x20\x27onclick=\x22pingTarget(\x27\x20+\x20idx\x20+\x20\x27,\x20\x5c\x27\x27\x20+\x20mainTarget\x20+\x20\x27\x5c\x27)\x22\x20title=\x22点击重新测速\x22\x27\x20:\x20\x27title=\x22订阅模式不可测速\x22\x27;\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20const\x20pingText\x20=\x20mainTarget\x20?\x20\x27测速中...\x27\x20:\x20\x27—\x27;\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20const\x20encodedTargets\x20=\x20encodeURIComponent(JSON.stringify(targets));\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20//\x20\x20伪装设备与保活状态解析（VPS\x20版同款）\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20let\x20fakeClient\x20=\x20\x27\x27;\x20let\x20dlTrickOn\x20=\x20false;\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20try\x20{\x20const\x20fp\x20=\x20r.custom_params\x20?\x20JSON.parse(r.custom_params)\x20:\x20{};\x20fakeClient\x20=\x20fp.client\x20||\x20\x27\x27;\x20dlTrickOn\x20=\x20!!fp.dlTrick;\x20}\x20catch(e){}\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20const\x20fakeOn\x20=\x20(r.mode\x20||\x20\x27\x27).includes(\x27fake\x27);\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20const\x20kaOn\x20=\x20r.ka_enabled\x20===\x20\x271\x27;\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20const\x20kaStatus\x20=\x20kaOn\x20?\x20\x27已开启\x20·\x20\x27\x20+\x20(r.ka_days\x20||\x203)\x20+\x20\x27天\x27\x20:\x20\x27未开启\x27;\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20const\x20kaLast\x20=\x20r.last_ka_result\x20?\x20((r.last_ka_result\x20===\x20\x27success\x27\x20?\x20\x27✅\x20\x27\x20:\x20\x27❌\x20\x27)\x20+\x20(r.last_ka_detail\x20||\x20\x27\x27))\x20:\x20\x27暂无记录\x27;\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20const\x20kaNext\x20=\x20r.last_ka_run\x20?\x20new\x20Date(r.last_ka_run).getTime()\x20+\x20Math.max(0.1,\x20parseFloat(r.ka_days)\x20||\x203)\x20*\x2086400000\x20:\x200;\x0a\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20//\x20\x20接收后端传来的：单节点独立宽带与请求统计数据\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20const\x20todayBw\x20=\x20r.todayBandwidth\x20||\x20\x270\x20B\x27;\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20const\x20totalReqs\x20=\x20r.totalReqs\x20||\x20r.todayReqs\x20||\x200;\x0a\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20proxyNodesForPing.push({\x20idx:\x20idx,\x20url:\x20mainTarget\x20});\x0a\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20container.innerHTML\x20+=\x20`\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22emby-card\x20route-item\x22\x20data-prefix=\x22${r.prefix}\x22\x20data-search=\x22${remarkName}\x20${r.prefix}\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22card-header\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22card-title-group\x22\x20style=\x22display:\x20flex;\x20align-items:\x20center;\x20gap:\x2010px;\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22drag-handle\x20admin-only\x22\x20title=\x22长按拖拽排序\x22\x20style=\x22margin:\x200;\x20display:\x20flex;\x20align-items:\x20center;\x22>','INSERT\x20OR\x20REPLACE\x20INTO\x20app_config\x20(key,\x20value)\x20VALUES\x20(?,\x20?)','\x27:\x27antenna\x27,\x27','country','<svg\x20viewBox=\x220\x200\x2024\x2024\x22\x20fill=\x22none\x22\x20stroke=\x22currentColor\x22\x20stroke-width=\x221.8\x22\x20stroke-linecap=\x22round\x22\x20stroke-linejoin=\x22round\x22><path\x20d=\x22M3\x207l4\x204\x205-6\x205\x206\x204-4-2\x2012H5L3\x207z\x22/><path\x20d=\x22M6\x2019h12\x22/></svg>','/api/get-remote-ips','</button>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20style=\x22font-size:13px;\x20color:var(--text-sec);\x20margin-bottom:12px;\x20line-height:1.6;\x22>在\x20Rex\x20播放器里用「链接导入」粘贴链接，或直接点「打开导入」唤起\x20Rex。凭据默认取节点保活账号，可修改。</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20style=\x22display:flex;\x20flex-direction:column;\x20gap:10px;\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<input\x20type=\x22text\x22\x20id=\x22rexPrefix\x22\x20placeholder=\x22节点前缀\x22\x20oninput=\x22renderRexLink()\x22\x20style=\x22padding:10px\x2014px;\x20border:1px\x20solid\x20var(--border);\x20border-radius:8px;\x20background:var(--bg);\x20font-size:14px;\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20style=\x22display:flex;\x20gap:10px;\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<input\x20type=\x22text\x22\x20id=\x22rexUser\x22\x20placeholder=\x22账号\x22\x20oninput=\x22renderRexLink()\x22\x20style=\x22flex:1;\x20padding:10px\x2014px;\x20border:1px\x20solid\x20var(--border);\x20border-radius:8px;\x20background:var(--bg);\x20font-size:14px;\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<input\x20type=\x22text\x22\x20id=\x22rexPass\x22\x20placeholder=\x22密码\x22\x20oninput=\x22renderRexLink()\x22\x20style=\x22flex:1;\x20padding:10px\x2014px;\x20border:1px\x20solid\x20var(--border);\x20border-radius:8px;\x20background:var(--bg);\x20font-size:14px;\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<input\x20type=\x22text\x22\x20id=\x22rexLink\x22\x20readonly\x20style=\x22padding:10px\x2014px;\x20border:1px\x20solid\x20var(--border);\x20border-radius:8px;\x20background:var(--bg);\x20font-size:11px;\x20word-break:break-all;\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20style=\x22display:flex;\x20gap:10px;\x20justify-content:flex-end;\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<button\x20type=\x22button\x22\x20class=\x22btn-ghost\x22\x20onclick=\x22copyRexLink()\x22>复制链接</button>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<button\x20type=\x22button\x22\x20class=\x22btn-submit\x22\x20onclick=\x22openRexLink()\x22>打开导入</button>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20id=\x22codeModal\x22\x20style=\x22display:none;\x20position:fixed;\x20inset:0;\x20z-index:11010;\x20background:rgba(0,0,0,.5);\x20backdrop-filter:blur(5px);\x20overflow-y:auto;\x20padding:16px;\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20style=\x22max-width:560px;\x20margin:24px\x20auto;\x20background:var(--card);\x20border-radius:18px;\x20padding:22px;\x20box-shadow:0\x2010px\x2040px\x20rgba(0,0,0,.2);\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20style=\x22display:flex;\x20justify-content:space-between;\x20align-items:center;\x20margin-bottom:14px;\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<h2\x20id=\x22codeModalTitle\x22\x20style=\x22margin:0;\x20font-size:19px;\x20display:flex;\x20align-items:center;\x20gap:8px;\x22>','last_ka_run','\x20测速完毕！`;\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20}\x20catch\x20(err)\x20{\x20showToast(\x27❌\x20拉取或测速失败\x27);\x20}\x20\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20finally\x20{\x20btn.disabled\x20=\x20false;\x20btn.textContent\x20=\x20\x27\x20提取预设源并测速\x27;\x20}\x0a\x20\x20\x20\x20\x20\x20\x20\x20}\x0a\x20\x20\x20\x20\x20\x20\x20\x20function\x20clearTest()\x20{\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20document.getElementById(\x27testTableBody\x27).innerHTML\x20=\x20\x27<tr><td\x20colspan=\x226\x22\x20style=\x22text-align:center;color:var(--text-sec);\x22>暂无数据，请拉取节点或输入自定义\x20IP/域名\x20测试</td></tr>\x27;\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20document.getElementById(\x27statusText\x27).textContent\x20=\x20\x27列表已清空。\x27;\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20document.getElementById(\x27selectAll\x27).checked\x20=\x20false;\x0a\x20\x20\x20\x20\x20\x20\x20\x20}\x0a\x20\x20\x20\x20\x20\x20\x20\x20function\x20markTimeout(latTd,\x20spdTd,\x20tr)\x20{\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20latTd.textContent\x20=\x20\x27超时抛弃\x27;\x20latTd.setAttribute(\x27data-ms\x27,\x209999);\x20latTd.style.color\x20=\x20\x27#ff3b30\x27;\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20spdTd.textContent\x20=\x20\x27\x20超时\x20(>2000ms)\x27;\x20spdTd.style.color\x20=\x20\x27#ff3b30\x27;\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20const\x20cb\x20=\x20tr.querySelector(\x27.row-checkbox\x27);\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20if(cb)\x20{\x20cb.disabled\x20=\x20true;\x20cb.title\x20=\x20\x27不可用的节点无法被勾选\x27;\x20}\x0a\x20\x20\x20\x20\x20\x20\x20\x20}\x0a\x20\x20\x20\x20\x20\x20\x20\x20async\x20function\x20doLocalPing(ip,\x20tr,\x20sourceLabel)\x20{\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20const\x20latTd\x20=\x20tr.querySelector(\x27.latency\x27);\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20const\x20spdTd\x20=\x20tr.querySelector(\x27.speed\x27);\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20const\x20locTd\x20=\x20tr.querySelector(\x27.loc\x27);\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20const\x20queryIp\x20=\x20ip.replace(/[\x5c[\x5c]]/g,\x20\x27\x27);\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20const\x20isIPv6\x20=\x20ip.includes(\x27:\x27);\x20\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20const\x20isDomain\x20=\x20/[a-zA-Z]/.test(queryIp)\x20&&\x20!isIPv6;\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20if\x20(isDomain)\x20{\x20locTd.innerHTML\x20=\x20`<span\x20class=\x22badge\x22\x20style=\x22background:rgba(175,82,222,0.1);color:#af52de;margin-right:4px;\x22>CNAME</span>\x20${sourceLabel}\x20|\x20优选域名`;\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20}\x20else\x20{\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20const\x20recordLabel\x20=\x20isIPv6\x20?\x20\x27<span\x20class=\x22badge\x22\x20style=\x22background:rgba(50,173,230,0.1);color:#32ade6;margin-right:4px;\x22>AAAA</span>\x27\x20:\x20\x27<span\x20class=\x22badge\x22\x20style=\x22background:rgba(0,113,227,0.1);color:#0071e3;margin-right:4px;\x22>A记录</span>\x27;\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20fetch(`https://api.ip.sb/geoip/${queryIp}`).then(res\x20=>\x20res.json()).then(data\x20=>\x20locTd.innerHTML\x20=\x20`${recordLabel}\x20${sourceLabel}\x20|\x20${data.country\x20||\x20\x27未知\x27}`).catch(()\x20=>\x20locTd.innerHTML\x20=\x20`${recordLabel}\x20${sourceLabel}\x20|\x20解析失败`);\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20}\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20const\x20start\x20=\x20performance.now();\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20const\x20controller\x20=\x20new\x20AbortController();\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20const\x20timeoutId\x20=\x20setTimeout(()\x20=>\x20controller.abort(),\x202000);\x20\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20const\x20processResult\x20=\x20()\x20=>\x20{\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20const\x20rawLatency\x20=\x20Math.round(performance.now()\x20-\x20start);\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20if\x20(rawLatency\x20>\x202000)\x20return\x20markTimeout(latTd,\x20spdTd,\x20tr);\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20let\x20displayLatency\x20=\x20rawLatency;\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20if\x20(!isIPv6\x20&&\x20!isDomain)\x20{\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20if\x20(rawLatency\x20>=\x20500)\x20{\x20displayLatency\x20=\x20rawLatency\x20-\x20400;\x20}\x20\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20else\x20{\x20const\x20base\x20=\x2040\x20+\x20(rawLatency\x20/\x20500)\x20*\x2060;\x20displayLatency\x20=\x20Math.floor(base)\x20+\x20Math.floor(Math.random()\x20*\x2010);\x20}\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20}\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20updateRowState(latTd,\x20spdTd,\x20displayLatency);\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20};\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20try\x20{\x20await\x20fetch(`https://${ip}/cdn-cgi/trace`,\x20{\x20mode:\x20\x27no-cors\x27,\x20signal:\x20controller.signal\x20});\x20clearTimeout(timeoutId);\x20processResult();\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20}\x20catch\x20(err)\x20{\x20clearTimeout(timeoutId);\x20if\x20(err.name\x20===\x20\x27AbortError\x27)\x20markTimeout(latTd,\x20spdTd,\x20tr);\x20else\x20processResult();\x20}\x0a\x20\x20\x20\x20\x20\x20\x20\x20}\x0a\x20\x20\x20\x20\x20\x20\x20\x20function\x20updateRowState(latTd,\x20spdTd,\x20latency)\x20{\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20latTd.textContent\x20=\x20latency\x20+\x20\x27\x20ms\x27;\x20latTd.setAttribute(\x27data-ms\x27,\x20latency);\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20if\x20(latency\x20<\x20300)\x20{\x20latTd.style.color\x20=\x20\x27#34c759\x27;\x20spdTd.textContent\x20=\x20\x27\x20极佳\x27;\x20spdTd.style.color\x20=\x20\x27#34c759\x27;\x20}\x20\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20else\x20if\x20(latency\x20<=\x20500)\x20{\x20latTd.style.color\x20=\x20\x27var(--primary)\x27;\x20spdTd.textContent\x20=\x20\x27\x20正常\x27;\x20spdTd.style.color\x20=\x20\x27var(--primary)\x27;\x20}\x20\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20else\x20{\x20latTd.style.color\x20=\x20\x27#ff9500\x27;\x20spdTd.textContent\x20=\x20\x27\x20较高\x27;\x20spdTd.style.color\x20=\x20\x27#ff9500\x27;\x20}\x0a\x20\x20\x20\x20\x20\x20\x20\x20}\x0a\x20\x20\x20\x20\x20\x20\x20\x20function\x20sortTableByLatency(tbody)\x20{\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20const\x20rows\x20=\x20Array.from(tbody.querySelectorAll(\x27.test-row\x27));\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20rows.sort((a,\x20b)\x20=>\x20{\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20const\x20msA\x20=\x20parseInt(a.querySelector(\x27.latency\x27).getAttribute(\x27data-ms\x27)\x20||\x209999);\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20const\x20msB\x20=\x20parseInt(b.querySelector(\x27.latency\x27).getAttribute(\x27data-ms\x27)\x20||\x209999);\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20return\x20msA\x20-\x20msB;\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20});\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20rows.forEach(row\x20=>\x20tbody.appendChild(row));\x0a\x20\x20\x20\x20\x20\x20\x20\x20}\x0a\x20\x20\x20\x20\x20\x20\x20\x20async\x20function\x20sendDnsRequest(ips,\x20btnElement)\x20{\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20const\x20originalText\x20=\x20btnElement.textContent;\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20btnElement.textContent\x20=\x20\x27\x20更新\x20DNS\x20中...\x27;\x20btnElement.disabled\x20=\x20true;\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20try\x20{\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20const\x20res\x20=\x20await\x20fetch(\x27/api/update-dns\x27,\x20{\x20method:\x20\x27POST\x27,\x20headers:\x20{\x20\x27Content-Type\x27:\x20\x27application/json\x27\x20},\x20body:\x20JSON.stringify({\x20ips\x20})\x20});\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20const\x20data\x20=\x20await\x20res.json();\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20if(data.success)\x20{\x20showToast(data.message);\x20btnElement.textContent\x20=\x20\x27✅\x20更新成功\x27;\x20loadDNS();\x20}\x20\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20else\x20{\x20showToast(\x27❌\x20错误:\x20\x27\x20+\x20(data.error\x20||\x20\x27\x27));\x20btnElement.textContent\x20=\x20originalText;\x20}\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20}\x20catch(e)\x20{\x20showToast(\x27❌\x20网络异常，请重试\x27);\x20btnElement.textContent\x20=\x20originalText;\x20}\x20\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20finally\x20{\x20setTimeout(()\x20=>\x20{\x20if(btnElement.textContent\x20===\x20\x27\x20更新成功\x27)\x20btnElement.textContent\x20=\x20originalText;\x20btnElement.disabled\x20=\x20false;\x20},\x203000);\x20}\x0a\x20\x20\x20\x20\x20\x20\x20\x20}\x0a\x20\x20\x20\x20\x20\x20\x20\x20function\x20updateSingleDns(ip,\x20btnElement)\x20{\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20if(!confirm(`确定要将域名解析到：\x5cn${ip}\x20\x5cn警告：这会覆盖域名下的所有解析记录！`))\x20return;\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20sendDnsRequest([ip],\x20btnElement);\x0a\x20\x20\x20\x20\x20\x20\x20\x20}\x0a\x20\x20\x20\x20\x20\x20\x20\x20function\x20updateSelectedToDns()\x20{\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20const\x20btn\x20=\x20document.getElementById(\x27btnSelectedDns\x27);\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20const\x20ips\x20=\x20getSelectedIps();\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20if\x20(ips.length\x20===\x200)\x20return\x20showToast(\x27⚠️\x20请先勾选您想使用的节点\x27);\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20if(!confirm(`将应用勾选的\x20${ips.length}\x20个节点：\x5cn${ips.join(\x27\x5cn\x27)}\x5cn确定更新\x20DNS\x20记录吗？`))\x20return;\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20sendDnsRequest(ips,\x20btn);\x0a\x20\x20\x20\x20\x20\x20\x20\x20}\x0a\x20\x20\x20\x20\x20\x20\x20\x20function\x20updateTop3ToDns()\x20{\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20const\x20btn\x20=\x20document.getElementById(\x27btnTop3Dns\x27);\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20const\x20rows\x20=\x20document.querySelectorAll(\x27#testTableBody\x20.test-row\x27);\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20let\x20topIps\x20=\x20[];\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20for(let\x20i\x20=\x200;\x20i\x20<\x20rows.length;\x20i++)\x20{\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20const\x20ms\x20=\x20parseInt(rows[i].querySelector(\x27.latency\x27).getAttribute(\x27data-ms\x27));\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20if(ms\x20<\x202000)\x20topIps.push(rows[i].querySelector(\x27.ip-text\x27).textContent);\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20if(topIps.length\x20===\x203)\x20break;\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20}\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20if(topIps.length\x20===\x200)\x20return\x20showToast(\x27⚠️\x20没找到可用节点，请先测速\x27);\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20if(!confirm(`将为您分发当前最快的\x20${topIps.length}\x20个节点：\x5cn${topIps.join(\x27\x5cn\x27)}\x5cn确定更新\x20DNS\x20记录吗？`))\x20return;\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20sendDnsRequest(topIps,\x20btn);\x0a\x20\x20\x20\x20\x20\x20\x20\x20}\x0a\x20\x20\x20\x20\x20\x20\x20\x20async\x20function\x20loadDNS()\x20{\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20try\x20{\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20const\x20res\x20=\x20await\x20fetch(\x27/api/get-dns\x27);\x20const\x20data\x20=\x20await\x20res.json();\x20const\x20container\x20=\x20document.getElementById(\x27dnsStatus\x27);\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20if\x20(data.success\x20&&\x20data.result)\x20{\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20const\x20records\x20=\x20data.result.filter(r\x20=>\x20r.type\x20===\x20\x27A\x27\x20||\x20r.type\x20===\x20\x27AAAA\x27\x20||\x20r.type\x20===\x20\x27CNAME\x27);\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20if\x20(records.length\x20===\x200)\x20container.innerHTML\x20=\x20\x27<span\x20class=\x22badge\x22\x20style=\x22background:rgba(255,149,0,0.1);color:#ff9500;\x22>暂无解析记录</span>\x27;\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20else\x20container.innerHTML\x20=\x20records.map(r\x20=>\x20`<span\x20class=\x22badge\x22\x20style=\x22background:rgba(0,113,227,0.1);color:var(--primary);border:1px\x20solid\x20rgba(0,113,227,0.2);\x22>${r.type}\x20|\x20${r.content}</span>`).join(\x27\x27);\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20}\x20else\x20container.innerHTML\x20=\x20`<span\x20class=\x22badge\x22\x20style=\x22background:rgba(255,59,48,0.1);color:#ff3b30;\x22>${data.error\x20||\x20\x27获取失败\x27}</span>`;\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20}\x20catch\x20(e)\x20{\x20document.getElementById(\x27dnsStatus\x27).innerHTML\x20=\x20\x27<span\x20class=\x22badge\x22\x20style=\x22background:rgba(255,59,48,0.1);color:#ff3b30;\x22>网络异常</span>\x27;\x20}\x0a\x20\x20\x20\x20\x20\x20\x20\x20}\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x0a\x20\x20\x20\x20\x20\x20\x20\x20function\x20logout()\x20{\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20document.cookie\x20=\x20\x22admin_token=;\x20expires=Thu,\x2001\x20Jan\x201970\x2000:00:00\x20UTC;\x20path=/;\x22;\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20window.location.reload();\x0a\x20\x20\x20\x20\x20\x20\x20\x20}\x0a\x20\x20\x20\x20\x20\x20\x20\x20function\x20confirmLogout()\x20{\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20if\x20(window.confirm(\x27确定要退出系统吗？\x27))\x20{\x20logout();\x20}\x0a\x20\x20\x20\x20\x20\x20\x20\x20}\x0a\x0a\x20\x20\x20\x20\x20\x20\x20\x20//\x20初始化加载\x0a\x20\x20\x20\x20\x20\x20\x20\x20loadIcons().then(()\x20=>\x20{\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20load();\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20loadDNS();\x0a\x20\x20\x20\x20\x20\x20\x20\x20});\x0a\x0a\x20\x20\x20\x20\x20\x20\x20\x20//\x20==========================================\x0a\x20\x20\x20\x20\x20\x20\x20\x20//\x20\x20新增：RTT\x20实时监测引擎\x20(每隔\x203\x20秒探测一次)\x0a\x20\x20\x20\x20\x20\x20\x20\x20//\x20==========================================\x0a\x20\x20\x20\x20\x20\x20\x20\x20async\x20function\x20measureRTT()\x20{\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20const\x20start\x20=\x20performance.now();\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20try\x20{\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20//\x20加上时间戳强制绕过浏览器本地缓存\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20await\x20fetch(\x27/__client_rtt__?t=\x27\x20+\x20Date.now(),\x20{\x20mode:\x20\x27no-cors\x27,\x20cache:\x20\x27no-store\x27\x20});\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20const\x20rtt\x20=\x20Math.round(performance.now()\x20-\x20start);\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20const\x20rttEl\x20=\x20document.getElementById(\x27rttValue\x27);\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20const\x20dotEl\x20=\x20document.getElementById(\x27rttDot\x27);\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20rttEl.textContent\x20=\x20rtt\x20+\x20\x27\x20ms\x27;\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20//\x20根据延迟改变呼吸灯颜色\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20if\x20(rtt\x20<\x2080)\x20{\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20dotEl.style.background\x20=\x20\x27#34c759\x27;\x20dotEl.style.boxShadow\x20=\x20\x270\x200\x208px\x20#34c759\x27;\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20rttEl.style.color\x20=\x20\x27#34c759\x27;\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20}\x20else\x20if\x20(rtt\x20<\x20200)\x20{\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20dotEl.style.background\x20=\x20\x27#ff9500\x27;\x20dotEl.style.boxShadow\x20=\x20\x270\x200\x208px\x20#ff9500\x27;\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20rttEl.style.color\x20=\x20\x27#ff9500\x27;\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20}\x20else\x20{\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20dotEl.style.background\x20=\x20\x27#ff3b30\x27;\x20dotEl.style.boxShadow\x20=\x20\x270\x200\x208px\x20#ff3b30\x27;\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20rttEl.style.color\x20=\x20\x27#ff3b30\x27;\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20}\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20}\x20catch\x20(e)\x20{\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20document.getElementById(\x27rttValue\x27).textContent\x20=\x20\x27断连\x27;\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20document.getElementById(\x27rttDot\x27).style.background\x20=\x20\x27#ff3b30\x27;\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20}\x0a\x20\x20\x20\x20\x20\x20\x20\x20}\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x0a\x20\x20\x20\x20\x20\x20\x20\x20//\x20先立即执行一次，然后每\x203\x20秒循环探测\x0a\x20\x20\x20\x20\x20\x20\x20\x20measureRTT();\x0a\x20\x20\x20\x20\x20\x20\x20\x20setInterval(measureRTT,\x203000);\x0a\x0a\x20\x20\x20\x20//\x20\x20新增：前端探针自动检测脚本\x0a\x20\x20\x20\x20\x20\x20\x20\x20async\x20function\x20fetchCfTrace()\x20{\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20try\x20{\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20const\x20res\x20=\x20await\x20fetch(\x27/api/trace\x27);\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20const\x20data\x20=\x20await\x20res.json();\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20if\x20(data.success)\x20{\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20//\x20拼接访客入口信息：国家\x20城市\x20(机房代码)\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20let\x20entryText\x20=\x20data.entryCountry;\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20if\x20(data.entryCity\x20&&\x20data.entryCity\x20!==\x20\x27未知\x27)\x20entryText\x20+=\x20\x27\x20\x27\x20+\x20data.entryCity;\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20entryText\x20+=\x20\x27\x20(\x27\x20+\x20data.entryColo\x20+\x20\x27)\x27;\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20document.getElementById(\x27trace-entry\x27).innerText\x20=\x20entryText;\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20//\x20落地机房处理\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20const\x20egressText\x20=\x20data.egressColo;\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20const\x20egressElem\x20=\x20document.getElementById(\x27trace-egress\x27);\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20egressElem.innerText\x20=\x20egressText;\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20//\x20核心逻辑：如果入口和落地机房不一致，显示高亮提示（智能调度触发）\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20if\x20(data.entryColo\x20!==\x20egressText\x20&&\x20egressText\x20!==\x20\x27探测中...\x27\x20&&\x20egressText\x20!==\x20\x27获取失败\x27)\x20{\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20egressElem.style.color\x20=\x20\x27#ff9500\x27;\x20//\x20变成橘黄色警示\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20egressElem.innerText\x20+=\x20\x27\x20(智能放置/回源)\x27;\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20}\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20}\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20}\x20catch(e)\x20{\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20document.getElementById(\x27trace-entry\x27).innerText\x20=\x20\x27获取超时\x27;\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20document.getElementById(\x27trace-egress\x27).innerText\x20=\x20\x27获取超时\x27;\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20}\x0a\x20\x20\x20\x20\x20\x20\x20\x20}\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x0a\x20\x20\x20\x20\x20\x20\x20\x20//\x20当网页加载完成时，延迟0.5秒执行探针扫描（避免卡顿主页渲染）\x0a\x20\x20\x20\x20\x20\x20\x20\x20window.addEventListener(\x27DOMContentLoaded\x27,\x20()\x20=>\x20{\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20setTimeout(fetchCfTrace,\x20500);\x0a\x20\x20\x20\x20\x20\x20\x20\x20});\x0a\x20\x20\x20\x20//\x20\x20新增：全云厂商节点数据库\x20(包含\x20Cloudflare\x20支持的所有主要区域)\x0a\x20\x20\x20\x20\x20\x20\x20\x20var\x20cfRegions\x20=\x20{\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20aws:\x20[\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20{\x20label:\x20\x22\x20中国香港\x22,\x20value:\x20\x22aws:ap-east-1\x22\x20},\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20{\x20label:\x20\x22\x20日本\x20(东京)\x22,\x20value:\x20\x22aws:ap-northeast-1\x22\x20},\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20{\x20label:\x20\x22\x20日本\x20(大阪)\x22,\x20value:\x20\x22aws:ap-northeast-3\x22\x20},\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20{\x20label:\x20\x22\x20新加坡\x22,\x20value:\x20\x22aws:ap-southeast-1\x22\x20},\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20{\x20label:\x20\x22\x20韩国\x20(首尔)\x22,\x20value:\x20\x22aws:ap-northeast-2\x22\x20},\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20{\x20label:\x20\x22\x20美国西部\x20(加州)\x22,\x20value:\x20\x22aws:us-west-1\x22\x20},\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20{\x20label:\x20\x22\x20美国西部\x20(俄勒冈)\x22,\x20value:\x20\x22aws:us-west-2\x22\x20},\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20{\x20label:\x20\x22\x20美国东部\x20(弗吉尼亚)\x22,\x20value:\x20\x22aws:us-east-1\x22\x20},\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20{\x20label:\x20\x22\x20澳大利亚\x20(悉尼)\x22,\x20value:\x20\x22aws:ap-southeast-2\x22\x20},\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20{\x20label:\x20\x22\x20印度\x20(孟买)\x22,\x20value:\x20\x22aws:ap-south-1\x22\x20},\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20{\x20label:\x20\x22\x20英国\x20(伦敦)\x22,\x20value:\x20\x22aws:eu-west-2\x22\x20},\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20{\x20label:\x20\x22\x20德国\x20(法兰克福)\x22,\x20value:\x20\x22aws:eu-central-1\x22\x20}\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20],\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20gcp:\x20[\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20{\x20label:\x20\x22\x20中国台湾\x20(彰化)\x22,\x20value:\x20\x22gcp:asia-east1\x22\x20},\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20{\x20label:\x20\x22\x20中国香港\x22,\x20value:\x20\x22gcp:asia-east2\x22\x20},\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20{\x20label:\x20\x22\x20日本\x20(东京)\x22,\x20value:\x20\x22gcp:asia-northeast1\x22\x20},\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20{\x20label:\x20\x22\x20日本\x20(大阪)\x22,\x20value:\x20\x22gcp:asia-northeast2\x22\x20},\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20{\x20label:\x20\x22\x20韩国\x20(首尔)\x22,\x20value:\x20\x22gcp:asia-northeast3\x22\x20},\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20{\x20label:\x20\x22\x20新加坡\x22,\x20value:\x20\x22gcp:asia-southeast1\x22\x20},\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20{\x20label:\x20\x22\x20美国西部\x20(洛杉矶)\x22,\x20value:\x20\x22gcp:us-west2\x22\x20},\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20{\x20label:\x20\x22\x20美国西部\x20(俄勒冈)\x22,\x20value:\x20\x22gcp:us-west1\x22\x20},\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20{\x20label:\x20\x22\x20美国东部\x20(弗吉尼亚)\x22,\x20value:\x20\x22gcp:us-east4\x22\x20},\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20{\x20label:\x20\x22\x20澳大利亚\x20(悉尼)\x22,\x20value:\x20\x22gcp:australia-southeast1\x22\x20},\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20{\x20label:\x20\x22\x20英国\x20(伦敦)\x22,\x20value:\x20\x22gcp:europe-west2\x22\x20},\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20{\x20label:\x20\x22\x20德国\x20(法兰克福)\x22,\x20value:\x20\x22gcp:europe-west3\x22\x20}\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20],\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20azure:\x20[\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20{\x20label:\x20\x22\x20中国香港\x20(East\x20Asia)\x22,\x20value:\x20\x22azure:eastasia\x22\x20},\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20{\x20label:\x20\x22\x20新加坡\x20(Southeast\x20Asia)\x22,\x20value:\x20\x22azure:southeastasia\x22\x20},\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20{\x20label:\x20\x22\x20日本东部\x20(东京)\x22,\x20value:\x20\x22azure:japaneast\x22\x20},\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20{\x20label:\x20\x22\x20日本西部\x20(大阪)\x22,\x20value:\x20\x22azure:japanwest\x22\x20},\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20{\x20label:\x20\x22\x20韩国中部\x20(首尔)\x22,\x20value:\x20\x22azure:koreacentral\x22\x20},\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20{\x20label:\x20\x22\x20美国西部\x20(West\x20US)\x22,\x20value:\x20\x22azure:westus\x22\x20},\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20{\x20label:\x20\x22\x20美国东部\x20(East\x20US)\x22,\x20value:\x20\x22azure:eastus\x22\x20},\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20{\x20label:\x20\x22\x20英国南部\x20(伦敦)\x22,\x20value:\x20\x22azure:uksouth\x22\x20},\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20{\x20label:\x20\x22\x20西欧\x20(荷兰)\x22,\x20value:\x20\x22azure:westeurope\x22\x20}\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20]\x0a\x20\x20\x20\x20\x20\x20\x20\x20};\x0a\x0a\x20\x20\x20\x20\x20\x20\x20\x20//\x20\x20新增：联动菜单处理逻辑\x0a\x20\x20\x20\x20\x20\x20\x20\x20function\x20handleModeChange()\x20{\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20var\x20mode\x20=\x20document.getElementById(\x27cf-mode-select\x27).value;\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20var\x20regionSelect\x20=\x20document.getElementById(\x27cf-region-select\x27);\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20var\x20customInput\x20=\x20document.getElementById(\x27cf-custom-input\x27);\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20regionSelect.style.display\x20=\x20\x27none\x27;\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20customInput.style.display\x20=\x20\x27none\x27;\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20if\x20(mode\x20===\x20\x27aws\x27\x20||\x20mode\x20===\x20\x27gcp\x27\x20||\x20mode\x20===\x20\x27azure\x27)\x20{\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20regionSelect.style.display\x20=\x20\x27block\x27;\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20regionSelect.innerHTML\x20=\x20\x27\x27;\x20\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20var\x20regions\x20=\x20cfRegions[mode];\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20regions.forEach(function(r)\x20{\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20var\x20opt\x20=\x20document.createElement(\x27option\x27);\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20opt.value\x20=\x20r.value;\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20opt.innerText\x20=\x20r.label;\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20regionSelect.appendChild(opt);\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20});\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20}\x20else\x20if\x20(mode\x20===\x20\x27custom\x27)\x20{\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20customInput.style.display\x20=\x20\x27block\x27;\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20}\x0a\x20\x20\x20\x20\x20\x20\x20\x20}\x0a\x0a\x20\x20\x20\x20\x20\x20\x20\x20//\x20\x20新增：调用部署修改接口\x0a\x20\x20\x20\x20\x20\x20\x20\x20async\x20function\x20updatePlacement()\x20{\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20var\x20statusElem\x20=\x20document.getElementById(\x27place-status\x27);\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20var\x20modeVal\x20=\x20document.getElementById(\x27cf-mode-select\x27).value;\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20var\x20placementPayload\x20=\x20{};\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20if\x20(modeVal\x20===\x20\x27aws\x27\x20||\x20modeVal\x20===\x20\x27gcp\x27\x20||\x20modeVal\x20===\x20\x27azure\x27)\x20{\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20var\x20regionVal\x20=\x20document.getElementById(\x27cf-region-select\x27).value;\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20placementPayload\x20=\x20{\x20region:\x20regionVal\x20};\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20}\x20else\x20if\x20(modeVal\x20===\x20\x27custom\x27)\x20{\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20var\x20customVal\x20=\x20document.getElementById(\x27cf-custom-input\x27).value;\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20if\x20(!customVal\x20||\x20customVal.trim()\x20===\x20\x27\x27)\x20{\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20statusElem.innerText\x20=\x20\x22\x20请填写自定义区域代码（如\x20gcp:asia-east2）\x22;\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20statusElem.style.color\x20=\x20\x22#ff3b30\x22;\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20return;\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20}\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20placementPayload\x20=\x20{\x20region:\x20customVal.trim()\x20};\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20}\x20else\x20{\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20placementPayload\x20=\x20JSON.parse(modeVal);\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20}\x0a\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20statusElem.innerText\x20=\x20\x22⏳\x20正在提交请求，请稍候...\x22;\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20statusElem.style.color\x20=\x20\x22#ff9500\x22;\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20try\x20{\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20var\x20res\x20=\x20await\x20fetch(\x27/api/placement\x27,\x20{\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20method:\x20\x27POST\x27,\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20headers:\x20{\x20\x27Content-Type\x27:\x20\x27application/json\x27\x20},\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20body:\x20JSON.stringify({\x20placement:\x20placementPayload\x20})\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20});\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20if\x20(!res.ok)\x20{\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20statusElem.innerText\x20=\x20\x27\x20请求被拒绝(\x27\x20+\x20res.status\x20+\x20\x27)，请重新登录后重试\x27;\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20statusElem.style.color\x20=\x20\x22#ff3b30\x22;\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20return;\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20}\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20var\x20data\x20=\x20await\x20res.json();\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20if\x20(data.success)\x20{\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20statusElem.innerText\x20=\x20\x22\x20\x22\x20+\x20data.msg;\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20statusElem.style.color\x20=\x20\x22#34c759\x22;\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20}\x20else\x20{\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20statusElem.innerText\x20=\x20\x22\x20\x22\x20+\x20data.msg;\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20statusElem.style.color\x20=\x20\x22#ff3b30\x22;\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20}\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20}\x20catch(e)\x20{\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20statusElem.innerText\x20=\x20\x22\x20网络错误:\x20\x22\x20+\x20e.message;\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20statusElem.style.color\x20=\x20\x22#ff3b30\x22;\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20}\x0a\x20\x20\x20\x20\x20\x20\x20\x20}\x0a\x20\x20\x20\x20//\x20\x20魔法功能：自动继承现有的模式选项\x20(增强稳定版)\x0a\x20\x20\x20\x20\x20\x20\x20\x20setTimeout(()\x20=>\x20{\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20const\x20sourceSelect\x20=\x20document.getElementById(\x27mode\x27);\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20const\x20batchSelect\x20=\x20document.getElementById(\x27batch-mode-select\x27);\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20if\x20(sourceSelect\x20&&\x20batchSelect)\x20{\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20batchSelect.innerHTML\x20=\x20sourceSelect.innerHTML;\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20}\x0a\x20\x20\x20\x20\x20\x20\x20\x20},\x20100);\x20\x0a\x0a\x20\x20\x20\x20\x20\x20\x20\x20//\x20\x20全选\x20/\x20取消全选逻辑\x0a\x20\x20\x20\x20\x20\x20\x20\x20function\x20toggleSelectAll(checkbox)\x20{\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20const\x20checkboxes\x20=\x20document.querySelectorAll(\x27.node-cb\x27);\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20checkboxes.forEach(cb\x20=>\x20cb.checked\x20=\x20checkbox.checked);\x0a\x20\x20\x20\x20\x20\x20\x20\x20}\x0a\x0a\x20\x20\x20\x20\x20\x20\x20\x20//\x20\x20并发批量修改模式逻辑\x20(终极多线程逐个击破版)\x0a\x20\x20\x20\x20\x20\x20\x20\x20async\x20function\x20batchUpdateModes()\x20{\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20const\x20statusElem\x20=\x20document.getElementById(\x27batch-status\x27);\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20const\x20newMode\x20=\x20document.getElementById(\x27batch-mode-select\x27).value;\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20const\x20selectedPrefixes\x20=\x20Array.from(document.querySelectorAll(\x27.node-cb:checked\x27)).map(cb\x20=>\x20cb.value);\x0a\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20if\x20(selectedPrefixes.length\x20===\x200)\x20{\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20statusElem.innerText\x20=\x20\x22\x20请先打勾需要修改的节点！\x22;\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20statusElem.style.color\x20=\x20\x22#ff9500\x22;\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20return;\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20}\x0a\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20if\x20(!confirm(\x22确定要将勾选的\x20\x22\x20+\x20selectedPrefixes.length\x20+\x20\x22\x20个节点切换为该模式吗？\x22))\x20return;\x0a\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20statusElem.innerText\x20=\x20\x22⏳\x20正在多线程并发修改节点...\x22;\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20statusElem.style.color\x20=\x20\x22var(--primary)\x22;\x0a\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20try\x20{\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20//\x201.\x20先获取当前所有的节点详细数据\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20const\x20getRes\x20=\x20await\x20fetch(\x27/api/routes\x27);\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20const\x20allRoutes\x20=\x20await\x20getRes.json();\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20//\x202.\x20筛选出你要修改的那些节点\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20const\x20nodesToUpdate\x20=\x20allRoutes.filter(r\x20=>\x20selectedPrefixes.includes(r.prefix));\x0a\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20//\x203.\x20核心魔法：Promise.all\x20并发！瞬间发出多个独立的保存请求\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20await\x20Promise.all(nodesToUpdate.map(async\x20(r)\x20=>\x20{\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20const\x20payload\x20=\x20Object.assign({},\x20r);\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20payload.oldPrefix\x20=\x20r.prefix;\x20\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20payload.mode\x20=\x20newMode;\x20\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20const\x20postRes\x20=\x20await\x20fetch(\x27/api/routes\x27,\x20{\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20method:\x20\x27POST\x27,\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20headers:\x20{\x20\x27Content-Type\x27:\x20\x27application/json\x27\x20},\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20body:\x20JSON.stringify(payload)\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20});\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20if\x20(!postRes.ok)\x20{\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20throw\x20new\x20Error(\x22节点\x20\x22\x20+\x20r.prefix\x20+\x20\x22\x20保存失败\x22);\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20}\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20}));\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20statusElem.innerText\x20=\x20\x22\x20批量修改成功！\x22;\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20statusElem.style.color\x20=\x20\x22#34c759\x22;\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20setTimeout(()\x20=>\x20location.reload(),\x201000);\x20\x0a\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20}\x20catch\x20(e)\x20{\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20statusElem.innerText\x20=\x20\x22\x20失败:\x20\x22\x20+\x20e.message;\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20statusElem.style.color\x20=\x20\x22#ff3b30\x22;\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20}\x0a\x20\x20\x20\x20\x20\x20\x20\x20}\x0a\x20\x20\x20\x20async\x20function\x20deployWorker()\x20{\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20const\x20codeArea\x20=\x20document.getElementById(\x27codeArea\x27);\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20const\x20fileInput\x20=\x20document.getElementById(\x27fileInput\x27);\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20let\x20codeContent\x20=\x20codeArea.value;\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20if\x20(fileInput.files.length\x20>\x200)\x20{\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20const\x20file\x20=\x20fileInput.files[0];\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20codeContent\x20=\x20await\x20file.text();\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20}\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20if\x20(!codeContent.trim())\x20{\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20alert(\x27\x20失败：请先粘贴代码，或者选择一个\x20.js\x20文件！\x27);\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20return;\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20}\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20if\x20(!confirm(\x27\x20危险操作确认\x20\x5cn\x5cn你即将强行覆盖当前\x20Worker\x20的代码。\x5cn如果新代码有错误，此面板将会瘫痪，只能去网页后台抢修！\x5cn\x5cn确定代码\x20100%\x20正确并覆盖吗？\x27))\x20return;\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20const\x20btn\x20=\x20document.getElementById(\x27deployBtn\x27);\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20const\x20originalText\x20=\x20btn.innerText;\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20btn.innerText\x20=\x20\x27⏳\x20正在与\x20Cloudflare\x20通信并部署...\x27;\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20btn.disabled\x20=\x20true;\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20btn.style.opacity\x20=\x20\x270.7\x27;\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20try\x20{\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20const\x20res\x20=\x20await\x20fetch(\x27/api/deploy\x27,\x20{\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20method:\x20\x27POST\x27,\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20headers:\x20{\x20\x27Content-Type\x27:\x20\x27application/json\x27\x20},\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20body:\x20JSON.stringify({\x20newCode:\x20codeContent\x20})\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20});\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20const\x20data\x20=\x20await\x20res.json();\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20if\x20(data.success)\x20{\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20alert(\x27\x20成功！\x27\x20+\x20data.msg\x20+\x20\x27\x5cn\x5cn点击确定后页面将自动刷新。\x27);\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20window.location.reload();\x20\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20}\x20else\x20{\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20alert(\x27\x20部署失败：\x5cn\x27\x20+\x20JSON.stringify(data.error));\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20}\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20}\x20catch\x20(e)\x20{\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20alert(\x27\x20异常：\x5cn\x27\x20+\x20e.message);\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20}\x20finally\x20{\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20btn.innerText\x20=\x20originalText;\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20btn.disabled\x20=\x20false;\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20btn.style.opacity\x20=\x20\x271\x27;\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20}\x0a\x20\x20\x20\x20\x20\x20\x20\x20}\x0a\x20\x20\x20\x20\x20\x20\x20\x20//\x20==========================================\x0a\x20\x20\x20\x20\x20\x20\x20\x20//\x20\x20在线更新模块\x0a\x20\x20\x20\x20\x20\x20\x20\x20//\x20==========================================\x0a\x20\x20\x20\x20\x20\x20\x20\x20//\x20这里的变量会自动从代码最顶端的配置区读取注入\x0a\x20\x20\x20\x20\x20\x20\x20\x20const\x20CURRENT_VERSION\x20=\x20\x22','/dns_records?name=','Origin','TG\x20Send\x20Error:','CREATE\x20TABLE\x20IF\x20NOT\x20EXISTS\x20app_config\x20(key\x20TEXT\x20PRIMARY\x20KEY,\x20value\x20TEXT)','当天内:\x20','404:\x20Node\x20not\x20found','/emby/Users/Me','\x20手动覆盖/更新</h2>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20style=\x22display:flex;\x20gap:10px;\x20flex-wrap:wrap;\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<button\x20class=\x22btn-submit\x22\x20onclick=\x22openCodeModal(\x27paste\x27)\x22\x20style=\x22flex:1;\x20min-width:120px;\x22>','data','\x20最新独立播放记录\x20<span\x20style=\x22font-size:12px;\x20color:var(--text-sec);\x22>(仅拦截\x20PlaybackInfo\x20真实播放)</span></h3>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22table-wrapper\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<table\x20style=\x22width:\x20100%;\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<thead><tr><th>访问时间</th><th>目标节点</th><th>真实\x20IP\x20地址</th><th>归属地</th><th>客户端/设备标识\x20(User-Agent)</th></tr></thead>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<tbody\x20id=\x22logTableBody\x22><tr><td\x20colspan=\x225\x22\x20style=\x22text-align:center;\x20padding:\x2030px;\x22>加载数据中...</td></tr></tbody>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</table>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20</div>\x0a\x0a\x20\x20\x20\x20<div\x20class=\x22container\x22>\x0a\x20\x20\x20\x20<div\x20id=\x22updateAlert\x22\x20class=\x22card\x22\x20style=\x22display:\x20none;\x20border-left:\x204px\x20solid\x20#34c759;\x20background-color:\x20rgba(52,\x20199,\x2089,\x200.05);\x20margin-top:\x2020px;\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20style=\x22display:flex;\x20justify-content:\x20space-between;\x20align-items:center;\x20flex-wrap:wrap;\x20gap:10px;\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<h3\x20style=\x22margin:0;\x20color:\x20#34c759;\x20font-size:\x2016px;\x22>','download','true','/api/proxytoken','\x20已关闭\x27}</span>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22info-row\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<span\x20class=\x22info-label\x22>下载伪装:</span>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<span\x20style=\x22color:${dlTrickOn\x20?\x20\x27#34c759\x27\x20:\x20\x27var(--text-sec)\x27};\x20font-weight:600;\x22>${dlTrickOn\x20?\x20\x27','/dns_records','\x27:\x27crown\x27,\x27','\x27:\x27target\x27,\x27','GET,\x20POST,\x20PUT,\x20DELETE,\x20OPTIONS','\x20次\x0a','\x27:\x27robot\x27,\x27','/emby/Videos/','\x20修改登录密码</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20style=\x22font-size:12px;\x20color:var(--text-sec);\x20margin-bottom:10px;\x22>','SELECT\x20prefix,\x20remark\x20FROM\x20routes','User','X-Emby-Token','播放会话停止','\x20测试粘贴的节点</button>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<button\x20class=\x22btn-submit\x22\x20id=\x22btnDirectCname\x22\x20onclick=\x22directSubmitCname()\x22\x20style=\x22\x20box-shadow:\x200\x204px\x2012px\x20rgba(175,\x2082,\x20222,\x200.2);\x22>','\x22$1\x22:true','CREATE\x20TABLE\x20IF\x20NOT\x20EXISTS\x20request_stats\x20(prefix\x20TEXT,\x20date\x20TEXT,\x20count\x20INTEGER\x20DEFAULT\x200,\x20PRIMARY\x20KEY(prefix,\x20date))','<svg\x20viewBox=\x220\x200\x2024\x2024\x22\x20fill=\x22none\x22\x20stroke=\x22currentColor\x22\x20stroke-width=\x221.8\x22\x20stroke-linecap=\x22round\x22\x20stroke-linejoin=\x22round\x22><path\x20d=\x22M13\x203l8\x208M11\x2011l8-8M4\x2020l7-7\x201\x201-7\x207-2-1z\x22/><path\x20d=\x22M6\x208l4\x204\x22/></svg>','viewer','DELETE\x20FROM\x20routes\x20WHERE\x20prefix\x20=\x20?','target','部署区域修改成功！','/api/trace','now','\x27:\x27cloud\x27,\x27','X-Forwarded-Host','ALTER\x20TABLE\x20routes\x20ADD\x20COLUMN\x20last_ka_run\x20TEXT\x20DEFAULT\x20\x27\x27','false','sort','http:','encode','探测中...','<!DOCTYPE\x20html><html\x20lang=\x22zh\x22><head><meta\x20charset=\x22utf-8\x22><meta\x20name=\x22viewport\x22\x20content=\x22width=device-width,initial-scale=1\x22><title>Oops</title><style>\x0a\x20\x20\x20\x20\x20\x20\x20\x20body{margin:0;min-height:100vh;display:flex;align-items:center;justify-content:center;background:radial-gradient(ellipse\x20at\x20top,#0f0c29,#302b63,#24243e);font-family:-apple-system,BlinkMacSystemFont,\x22Segoe\x20UI\x22,\x22PingFang\x20SC\x22,sans-serif;color:#fff}\x0a\x20\x20\x20\x20\x20\x20\x20\x20.box{text-align:center;padding:48px;border:1px\x20solid\x20rgba(255,255,255,.15);border-radius:20px;background:rgba(255,255,255,.05);backdrop-filter:blur(8px);max-width:90vw}\x0a\x20\x20\x20\x20\x20\x20\x20\x20h1{font-size:34px;margin:0\x200\x2012px;letter-spacing:2px}\x0a\x20\x20\x20\x20\x20\x20\x20\x20.sub{font-size:14px;color:#a8b2d1;margin-bottom:24px}\x0a\x20\x20\x20\x20\x20\x20\x20\x20.ip{font-size:18px;font-weight:700;color:#ffd700;word-break:break-all}\x0a\x20\x20\x20\x20\x20\x20\x20\x20.meta{font-size:12px;color:#7f8bb3;margin-top:16px;word-break:break-all}\x0a\x20\x20\x20\x20\x20\x20</style></head><body><div\x20class=\x22box\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20<h1>宝贝抓到你了\x20👋</h1>\x0a\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22sub\x22>你的来访信息已被记录</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22ip\x22>','\x0a<!DOCTYPE\x20html>\x0a<html\x20lang=\x22zh-CN\x22>\x0a<head>\x0a\x20\x20\x20\x20<meta\x20charset=\x22UTF-8\x22>\x0a\x20\x20\x20\x20<meta\x20name=\x22viewport\x22\x20content=\x22width=device-width,\x20initial-scale=1.0,\x20maximum-scale=1.0,\x20user-scalable=no,\x20viewport-fit=cover\x22>\x0a\x20\x20\x20\x20<title>系统授权</title>\x0a\x20\x20\x20\x20<style>\x0a\x20\x20\x20\x20\x20\x20\x20\x20','Sessions/Playing\x20→\x20','<svg\x20viewBox=\x220\x200\x2024\x2024\x22\x20fill=\x22none\x22\x20stroke=\x22currentColor\x22\x20stroke-width=\x221.8\x22\x20stroke-linecap=\x22round\x22><path\x20d=\x22M12\x205v14M5\x2012h14\x22/></svg>','toLowerCase','\x20中国大陆','ALTER\x20TABLE\x20routes\x20ADD\x20COLUMN\x20last_ka_result\x20TEXT\x20DEFAULT\x20\x27\x27','\x20拉取\x20API\x20并测速</button>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<textarea\x20id=\x22customIps\x22\x20rows=\x222\x22\x20placeholder=\x22在此粘贴自定义\x20IPv4、IPv6\x20或\x20优选域名\x20(支持混杂文本，自动提取)\x22\x20style=\x22width:\x20100%;\x20padding:\x2014px;\x20border-radius:\x2010px;\x20border:\x201px\x20solid\x20var(--border);\x20margin-bottom:\x2012px;\x20font-family:\x20monospace;\x20resize:\x20vertical;\x20background:var(--card);\x22></textarea>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20style=\x22display:\x20flex;\x20gap:\x2010px;\x20flex-wrap:\x20wrap;\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<button\x20class=\x22btn-submit\x22\x20id=\x22btnTestCustom\x22\x20onclick=\x22testCustomIPs()\x22\x20style=\x22\x20box-shadow:\x200\x204px\x2012px\x20rgba(88,\x2086,\x20214,\x200.2);\x22>','CF_ZONE_ID','\x22\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20}\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20)\x20{\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20sum\x20{\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20bytes\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20}\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20}\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20}\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20}\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20}','/api/get-custom-api-ips','</button>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<form\x20id=\x22addForm\x22\x20style=\x22display:\x20flex;\x20flex-direction:\x20column;\x20gap:\x2016px;\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20style=\x22display:\x20flex;\x20gap:\x2012px;\x20flex-wrap:\x20wrap;\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<input\x20type=\x22hidden\x22\x20id=\x22oldPrefix\x22\x20value=\x22\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<input\x20type=\x22text\x22\x20id=\x22remark\x22\x20placeholder=\x22节点备注\x20(如:\x20Misaka服)\x22\x20style=\x22padding:\x2012px\x2016px;\x20border:\x201px\x20solid\x20var(--border);\x20border-radius:\x2010px;\x20background:var(--card);\x20flex:\x201;\x22\x20required>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<input\x20type=\x22text\x22\x20id=\x22prefix\x22\x20placeholder=\x22短路径后缀\x20(如:\x20misaka)\x22\x20style=\x22padding:\x2012px\x2016px;\x20border:\x201px\x20solid\x20var(--border);\x20border-radius:\x2010px;\x20background:var(--card);\x20flex:\x201;\x22\x20required>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<select\x20id=\x22mode\x22\x20style=\x22padding:\x2012px\x2016px;\x20border:\x201px\x20solid\x20var(--border);\x20border-radius:\x2010px;\x20background:var(--card);\x20flex:\x201;\x22\x20onchange=\x22toggleCustomParams()\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<option\x20value=\x22off\x22>保守\x20(抹除IP)</option>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<option\x20value=\x22realip_only\x22>严格\x20(透传IP)</option>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<option\x20value=\x22dual\x22>兼容\x20(双重透传)</option>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<option\x20value=\x22strict\x22>强力\x20(防403)</option>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<option\x20value=\x22off_fake\x22>保守\x20+\x20伪装\x20(隐藏IP)</option>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<option\x20value=\x22realip_only_fake\x22>严格\x20+\x20伪装\x20(透传单IP)</option>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<option\x20value=\x22dual_fake\x22>兼容\x20+\x20伪装\x20(透传双IP)</option>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<option\x20value=\x22strict_fake\x22>强力\x20+\x20伪装\x20(防403)</option>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</select>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20id=\x22customParamsDiv\x22\x20style=\x22display:\x20none;\x20gap:\x2012px;\x20flex-wrap:\x20wrap;\x20background:\x20rgba(120,120,120,0.05);\x20padding:\x2016px;\x20border-radius:\x2010px;\x20border:\x201px\x20solid\x20var(--border);\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20style=\x22width:\x20100%;\x20display:\x20flex;\x20gap:\x208px;\x20flex-wrap:\x20wrap;\x20margin-bottom:\x204px;\x20align-items:\x20center;\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<span\x20style=\x22font-size:\x2013px;\x20font-weight:\x20600;\x20color:\x20var(--text-sec);\x22>快速填入预设模板：</span>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<button\x20type=\x22button\x22\x20class=\x22btn-submit\x22\x20style=\x22padding:\x206px\x2012px;\x20font-size:\x2012px;\x20border-radius:\x206px;\x20background:\x20#32ade6;\x20box-shadow:\x20none;\x22\x20onclick=\x22applyFakeTemplate(\x27senplayer\x27)\x22>SenPlayer</button>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<button\x20type=\x22button\x22\x20class=\x22btn-submit\x22\x20style=\x22padding:\x206px\x2012px;\x20font-size:\x2012px;\x20border-radius:\x206px;\x20background:\x20#5856d6;\x20box-shadow:\x20none;\x22\x20onclick=\x22applyFakeTemplate(\x27eplayerx\x27)\x22>EplayerX</button>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<button\x20type=\x22button\x22\x20class=\x22btn-submit\x22\x20style=\x22padding:\x206px\x2012px;\x20font-size:\x2012px;\x20border-radius:\x206px;\x20background:\x20#af52de;\x20box-shadow:\x20none;\x22\x20onclick=\x22applyFakeTemplate(\x27forward\x27)\x22>Forward</button>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<button\x20type=\x22button\x22\x20class=\x22btn-submit\x22\x20style=\x22padding:\x206px\x2012px;\x20font-size:\x2012px;\x20border-radius:\x206px;\x20background:\x20#00c7be;\x20box-shadow:\x20none;\x22\x20onclick=\x22applyFakeTemplate(\x27rex\x27)\x22>Rex</button>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<button\x20type=\x22button\x22\x20class=\x22btn-submit\x22\x20style=\x22padding:\x206px\x2012px;\x20font-size:\x2012px;\x20border-radius:\x206px;\x20background:\x20#34c759;\x20box-shadow:\x20none;\x22\x20onclick=\x22applyFakeTemplate(\x27hills\x27)\x22>Hills</button>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<button\x20type=\x22button\x22\x20class=\x22btn-submit\x22\x20style=\x22padding:\x206px\x2012px;\x20font-size:\x2012px;\x20border-radius:\x206px;\x20background:\x20#ff9500;\x20box-shadow:\x20none;\x22\x20onclick=\x22applyFakeTemplate(\x27yamby\x27)\x22>Yamby</button>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20style=\x22flex-grow:\x201;\x22></div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<button\x20type=\x22button\x22\x20class=\x22btn-submit\x22\x20style=\x22padding:\x206px\x2012px;\x20font-size:\x2012px;\x20border-radius:\x206px;\x20background:\x20#8e8e93;\x20box-shadow:\x20none;\x22\x20onclick=\x22applyFakeTemplate(\x27clear\x27)\x22>清空</button>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20style=\x22width:\x20100%;\x20font-size:\x2012px;\x20color:\x20var(--text-sec);\x20margin-bottom:\x204px;\x22>深度替换\x20Header\x20及\x20URL\x20参数，防止双重设备记录暴露真实身份。</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<input\x20type=\x22text\x22\x20id=\x22customClient\x22\x20placeholder=\x22Client\x20(如:\x20Forward)\x22\x20style=\x22flex:\x201;\x20min-width:\x20150px;\x20padding:\x2012px\x2016px;\x20border:\x201px\x20solid\x20var(--border);\x20border-radius:\x208px;\x20background:var(--card);\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<input\x20type=\x22text\x22\x20id=\x22customVersion\x22\x20placeholder=\x22Version\x20(如:\x201.3.15)\x22\x20style=\x22flex:\x201;\x20min-width:\x20150px;\x20padding:\x2012px\x2016px;\x20border:\x201px\x20solid\x20var(--border);\x20border-radius:\x208px;\x20background:var(--card);\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<input\x20type=\x22text\x22\x20id=\x22customDevice\x22\x20placeholder=\x22Device\x20(如:\x20iPhone)\x22\x20style=\x22flex:\x201;\x20min-width:\x20150px;\x20padding:\x2012px\x2016px;\x20border:\x201px\x20solid\x20var(--border);\x20border-radius:\x208px;\x20background:var(--card);\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<input\x20type=\x22text\x22\x20id=\x22customUa\x22\x20placeholder=\x22User-Agent\x20(伪装\x20UA)\x22\x20style=\x22flex:\x201;\x20min-width:\x20250px;\x20padding:\x2012px\x2016px;\x20border:\x201px\x20solid\x20var(--border);\x20border-radius:\x208px;\x20background:var(--card);\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20style=\x22width:\x20100%;\x20display:\x20flex;\x20gap:\x208px;\x20align-items:\x20center;\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<input\x20type=\x22text\x22\x20id=\x22customDeviceId\x22\x20placeholder=\x22Device\x20ID（设备唯一标识，留空自动生成）\x22\x20style=\x22flex:\x201;\x20min-width:\x20250px;\x20padding:\x2012px\x2016px;\x20border:\x201px\x20solid\x20var(--border);\x20border-radius:\x208px;\x20background:var(--card);\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<button\x20type=\x22button\x22\x20class=\x22btn-submit\x22\x20style=\x22padding:\x208px\x2014px;\x20font-size:\x2012px;\x20border-radius:\x206px;\x20background:\x20#8e8e93;\x20box-shadow:\x20none;\x22\x20onclick=\x22document.getElementById(\x27customDeviceId\x27).value\x20=\x20genUuid()\x22>随机生成</button>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20id=\x22kaConfigDiv\x22\x20style=\x22display:\x20flex;\x20flex-direction:\x20column;\x20gap:\x2010px;\x20background:\x20rgba(52,199,89,0.05);\x20padding:\x2016px;\x20border-radius:\x2010px;\x20border:\x201px\x20solid\x20rgba(52,199,89,0.2);\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20style=\x22width:\x20100%;\x20display:\x20flex;\x20align-items:\x20center;\x20gap:\x2010px;\x20flex-wrap:\x20wrap;\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<label\x20style=\x22display:flex;\x20align-items:center;\x20gap:8px;\x20font-size:14px;\x20font-weight:600;\x20cursor:pointer;\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<input\x20type=\x22checkbox\x22\x20id=\x22kaEnabled\x22\x20class=\x22ip-checkbox\x22>\x20开启自动保活\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</label>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<span\x20style=\x22font-size:12px;\x20color:var(--text-sec);\x22>防止上游线路/账号被回收，到期间隔自动模拟播放一次</span>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<input\x20type=\x22number\x22\x20id=\x22kaDays\x22\x20placeholder=\x22保活间隔（天，可填小数如\x200.5\x20/\x203\x20/\x2014）\x22\x20step=\x220.1\x22\x20min=\x220.1\x22\x20style=\x22padding:\x2010px\x2014px;\x20border:\x201px\x20solid\x20var(--border);\x20border-radius:\x208px;\x20background:\x20var(--card);\x20width:\x20100%;\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<input\x20type=\x22text\x22\x20id=\x22kaToken\x22\x20placeholder=\x22上游\x20API\x20Key（选填，填了优先用它保活）\x22\x20style=\x22padding:\x2010px\x2014px;\x20border:\x201px\x20solid\x20var(--border);\x20border-radius:\x208px;\x20background:\x20var(--card);\x20width:\x20100%;\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20style=\x22display:\x20flex;\x20gap:\x2010px;\x20flex-wrap:\x20wrap;\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<input\x20type=\x22text\x22\x20id=\x22nodeUser\x22\x20placeholder=\x22节点账号（保活\x20/\x20Rex导入用）\x22\x20style=\x22flex:1;\x20min-width:\x20160px;\x20padding:\x2010px\x2014px;\x20border:\x201px\x20solid\x20var(--border);\x20border-radius:\x208px;\x20background:\x20var(--card);\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<input\x20type=\x22password\x22\x20id=\x22nodePass\x22\x20placeholder=\x22节点密码\x22\x20style=\x22flex:1;\x20min-width:\x20160px;\x20padding:\x2010px\x2014px;\x20border:\x201px\x20solid\x20var(--border);\x20border-radius:\x208px;\x20background:\x20var(--card);\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20style=\x22font-size:12px;\x20color:var(--text-sec);\x22>在\x20CF\x20面板给\x20Worker\x20配\x20Cron\x20触发器（如每天\x20*/5\x20*\x20*\x20*\x20*），自动保活才会按间隔执行；不配\x20Cron\x20也可点节点卡片「保活」手动触发。</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<input\x20type=\x22number\x22\x20id=\x22watchLimit\x22\x20placeholder=\x22观看下限（天，如\x207\x20/\x2014\x20/\x2021；0\x20=\x20不限制。超过下限未观看会在卡片红色报警）\x22\x20step=\x220.1\x22\x20min=\x220\x22\x20style=\x22padding:\x2010px\x2014px;\x20border:\x201px\x20solid\x20var(--border);\x20border-radius:\x208px;\x20background:\x20var(--card);\x20width:\x20100%;\x22>\x0a\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20style=\x22display:\x20flex;\x20gap:\x2012px;\x20flex-wrap:\x20wrap;\x20align-items:\x20center;\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20style=\x22position:\x20relative;\x20flex:\x202;\x20display:\x20flex;\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20style=\x22display:flex;\x20gap:10px;\x20align-items:center;\x20background:var(--card);\x20padding:10px\x2016px;\x20border-radius:10px;\x20border:1px\x20solid\x20var(--border);\x20flex:\x201;\x20cursor:\x20pointer;\x20transition:0.2s;\x22\x20onclick=\x22toggleIconPicker(event)\x22\x20id=\x22iconSelectBtn\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<img\x20id=\x22iconPreview\x22\x20src=\x22\x22\x20style=\x22width:24px;height:24px;display:none;border-radius:4px;object-fit:cover;\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<span\x20id=\x22iconDefault\x22\x20style=\x22font-size:20px;line-height:1;\x22>','\x20已开启\x27\x20:\x20\x27','unshift','customDeviceId','httpRequests1dGroups','\x27:\x27tv\x27,\x27','\x20节点保活</h2>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<button\x20onclick=\x22closeKaModal()\x22\x20style=\x22background:transparent;border:none;cursor:pointer;color:var(--text-sec);display:inline-flex;padding:4px;\x22>','<svg\x20viewBox=\x220\x200\x2024\x2024\x22\x20fill=\x22none\x22\x20stroke=\x22currentColor\x22\x20stroke-width=\x221.8\x22\x20stroke-linecap=\x22round\x22\x20stroke-linejoin=\x22round\x22><circle\x20cx=\x2212\x22\x20cy=\x2211\x22\x20r=\x227\x22/><circle\x20cx=\x229\x22\x20cy=\x2210\x22\x20r=\x221\x22\x20fill=\x22currentColor\x22/><circle\x20cx=\x2215\x22\x20cy=\x2210\x22\x20r=\x221\x22\x20fill=\x22currentColor\x22/><path\x20d=\x22M9.5\x2014c1\x20.8\x204\x20.8\x205\x200\x22/></svg>','获取异常','byteLength','crown','Unknown','ALTER\x20TABLE\x20routes\x20ADD\x20COLUMN\x20cache_img\x20TEXT\x20DEFAULT\x20\x27on\x27','\x20读取失败:\x20${err.message}</div>`;\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20}\x0a\x20\x20\x20\x20\x20\x20\x20\x20}\x0a\x0a\x20\x20\x20\x20\x20\x20\x20\x20function\x20toggleCustomParams()\x20{\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20const\x20mode\x20=\x20document.getElementById(\x27mode\x27).value;\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20document.getElementById(\x27customParamsDiv\x27).style.display\x20=\x20(mode.includes(\x27fake\x27)\x20||\x20mode\x20===\x20\x27custom\x27)\x20?\x20\x27flex\x27\x20:\x20\x27none\x27;\x0a\x20\x20\x20\x20\x20\x20\x20\x20}\x0a\x0a\x20\x20\x20\x20\x20\x20\x20\x20function\x20applyFakeTemplate(type)\x20{\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20const\x20templates\x20=\x20{\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x27senplayer\x27:\x20{\x20client:\x20\x27SenPlayer\x27,\x20version:\x20\x276.2.2\x27,\x20device:\x20\x27iPhone\x27,\x20ua:\x20\x27SenPlayer/6.2.2\x27\x20},\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x27eplayerx\x27:\x20{\x20client:\x20\x27EplayerX\x27,\x20version:\x20\x2710.0.22\x27,\x20device:\x20\x27iPhone\x27,\x20ua:\x20\x27EplayerX/10.0.22\x27\x20},\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x27forward\x27:\x20{\x20client:\x20\x27Forward\x27,\x20version:\x20\x271.3.18\x27,\x20device:\x20\x27iPhone\x27,\x20ua:\x20\x27Forward-Standard/1.3.18\x27\x20},\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x27rex\x27:\x20{\x20client:\x20\x27Rex\x27,\x20version:\x20\x271.0.1\x27,\x20device:\x20\x27iPhone17,2\x27,\x20ua:\x20\x27Rex/1.0.1\x27\x20},\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x27hills\x27:\x20{\x20client:\x20\x27Hills\x27,\x20version:\x20\x271.6.0\x27,\x20device:\x20\x27PD2505\x27,\x20ua:\x20\x27Hills/1.6.0\x20(android;\x2016)\x27\x20},\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x27yamby\x27:\x20{\x20client:\x20\x27Yamby\x27,\x20version:\x20\x272.0.0.5\x27,\x20device:\x20\x27vivo-V2505A\x27,\x20ua:\x20\x27Yamby/2.0.0.5(Android)\x27\x20},\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x27clear\x27:\x20{\x20client:\x20\x27\x27,\x20version:\x20\x27\x27,\x20device:\x20\x27\x27,\x20ua:\x20\x27\x27\x20}\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20};\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20const\x20tpl\x20=\x20templates[type];\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20if(tpl)\x20{\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20document.getElementById(\x27customClient\x27).value\x20=\x20tpl.client;\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20document.getElementById(\x27customVersion\x27).value\x20=\x20tpl.version;\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20document.getElementById(\x27customDevice\x27).value\x20=\x20tpl.device;\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20document.getElementById(\x27customUa\x27).value\x20=\x20tpl.ua;\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20if\x20(type\x20!==\x20\x27clear\x27\x20&&\x20!document.getElementById(\x27customDeviceId\x27).value)\x20document.getElementById(\x27customDeviceId\x27).value\x20=\x20genUuid();\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20showToast(\x27✅\x20已应用\x20\x27\x20+\x20(type\x20===\x20\x27clear\x27\x20?\x20\x27清空\x27\x20:\x20tpl.client)\x20+\x20\x27\x20预设\x27);\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20}\x0a\x20\x20\x20\x20\x20\x20\x20\x20}\x0a\x0a\x20\x20\x20\x20\x20\x20\x20\x20function\x20editNode(prefix,\x20targetStr,\x20mode,\x20remark,\x20icon,\x20cacheImg,\x20customParamsStr,\x20kaEnabled,\x20kaDays,\x20kaToken,\x20nodeUser,\x20nodePass,\x20watchLimit)\x20{\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20document.getElementById(\x27oldPrefix\x27).value\x20=\x20prefix;\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20document.getElementById(\x27remark\x27).value\x20=\x20remark;\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20document.getElementById(\x27prefix\x27).value\x20=\x20prefix;\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20document.getElementById(\x27mode\x27).value\x20=\x20mode\x20||\x20\x27off\x27;\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20document.getElementById(\x27nodeCache\x27).checked\x20=\x20(cacheImg\x20!==\x20\x27off\x27);\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20let\x20customParams\x20=\x20{};\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20if\x20(customParamsStr)\x20{\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20try\x20{\x20customParams\x20=\x20JSON.parse(decodeURIComponent(customParamsStr));\x20}\x20catch(e){}\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20}\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20document.getElementById(\x27nodeDlTrick\x27).checked\x20=\x20!!customParams.dlTrick;\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20document.getElementById(\x27customClient\x27).value\x20=\x20customParams.client\x20||\x20\x27\x27;\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20document.getElementById(\x27customVersion\x27).value\x20=\x20customParams.version\x20||\x20\x27\x27;\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20document.getElementById(\x27customDevice\x27).value\x20=\x20customParams.device\x20||\x20\x27\x27;\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20document.getElementById(\x27customDeviceId\x27).value\x20=\x20customParams.deviceId\x20||\x20\x27\x27;\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20document.getElementById(\x27customUa\x27).value\x20=\x20customParams.ua\x20||\x20\x27\x27;\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20toggleCustomParams();\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20document.getElementById(\x27kaEnabled\x27).checked\x20=\x20(kaEnabled\x20===\x20\x271\x27);\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20document.getElementById(\x27kaDays\x27).value\x20=\x20kaDays\x20||\x20\x273\x27;\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20document.getElementById(\x27kaToken\x27).value\x20=\x20kaToken\x20||\x20\x27\x27;\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20document.getElementById(\x27nodeUser\x27).value\x20=\x20nodeUser\x20||\x20\x27\x27;\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20document.getElementById(\x27nodePass\x27).value\x20=\x20nodePass\x20||\x20\x27\x27;\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20document.getElementById(\x27watchLimit\x27).value\x20=\x20watchLimit\x20||\x20\x270\x27;\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20if\x20(icon)\x20{\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20const\x20foundItem\x20=\x20globalIcons.find(i\x20=>\x20i.url\x20===\x20icon);\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20selectIcon(icon,\x20foundItem\x20?\x20foundItem.name\x20:\x20\x27已选择图标\x27);\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20}\x20else\x20{\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20selectIcon(\x27\x27,\x20\x27默认\x27);\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20}\x0a\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20document.getElementById(\x27submitBtn\x27).textContent\x20=\x20\x27保存修改\x27;\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20const\x20container\x20=\x20document.getElementById(\x27targetInputs\x27);\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20container.innerHTML\x20=\x20\x27\x27;\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20const\x20targets\x20=\x20targetStr.split(\x27,\x27).map(s\x20=>\x20s.trim()).filter(Boolean);\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20targets.forEach((url)\x20=>\x20{\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20const\x20inp\x20=\x20document.createElement(\x27input\x27);\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20inp.type\x20=\x20\x27url\x27;\x20inp.className\x20=\x20\x27target-input\x27;\x20inp.value\x20=\x20url;\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20inp.style\x20=\x20\x27padding:\x2012px\x2016px;\x20border:\x201px\x20solid\x20var(--border);\x20border-radius:\x208px;\x20background:var(--card);\x20width:\x20100%;\x27;\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20inp.oninput\x20=\x20handleTargetInputs;\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20container.appendChild(inp);\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20});\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20const\x20emptyInp\x20=\x20document.createElement(\x27input\x27);\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20emptyInp.type\x20=\x20\x27url\x27;\x20emptyInp.className\x20=\x20\x27target-input\x27;\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20emptyInp.style\x20=\x20\x27padding:\x2012px\x2016px;\x20border:\x201px\x20solid\x20var(--border);\x20border-radius:\x208px;\x20background:var(--card);\x20width:\x20100%;\x27;\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20emptyInp.oninput\x20=\x20handleTargetInputs;\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20container.appendChild(emptyInp);\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20handleTargetInputs();\x20\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20document.getElementById(\x27nodeModalTitle\x27).textContent=\x27编辑节点\x27;\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20document.getElementById(\x27nodeModal\x27).style.display=\x27block\x27;\x0a\x20\x20\x20\x20\x20\x20\x20\x20}\x0a\x20\x20\x20\x20\x20\x20\x20\x20function\x20kaRingHtml(pct,\x20color)\x20{\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20const\x20circ\x20=\x202\x20*\x20Math.PI\x20*\x2042;\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20const\x20offset\x20=\x20(circ\x20*\x20(1\x20-\x20pct\x20/\x20100)).toFixed(2);\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20return\x20\x27<div\x20style=\x22display:flex;flex-direction:column;align-items:center;padding:4px\x200\x2010px;\x22>\x27\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20+\x20\x27<div\x20style=\x22position:relative;width:100px;height:100px;\x22>\x27\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20+\x20\x27<svg\x20width=\x22100\x22\x20height=\x22100\x22\x20viewBox=\x220\x200\x20100\x20100\x22>\x27\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20+\x20\x27<circle\x20cx=\x2250\x22\x20cy=\x2250\x22\x20r=\x2242\x22\x20fill=\x22none\x22\x20stroke=\x22var(--line,#e3e3e8)\x22\x20stroke-width=\x228\x22/>\x27\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20+\x20\x27<circle\x20cx=\x2250\x22\x20cy=\x2250\x22\x20r=\x2242\x22\x20fill=\x22none\x22\x20stroke=\x22\x27\x20+\x20color\x20+\x20\x27\x22\x20stroke-width=\x228\x22\x20stroke-linecap=\x22round\x22\x20stroke-dasharray=\x22\x27\x20+\x20circ.toFixed(2)\x20+\x20\x27\x22\x20stroke-dashoffset=\x22\x27\x20+\x20offset\x20+\x20\x27\x22\x20transform=\x22rotate(-90\x2050\x2050)\x22\x20style=\x22transition:stroke-dashoffset\x20.45s\x20ease\x22/>\x27\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20+\x20\x27</svg>\x27\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20+\x20\x27<div\x20style=\x22position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-size:15px;font-weight:700;\x22>\x27\x20+\x20pct\x20+\x20\x27%</div>\x27\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20+\x20\x27</div>\x27\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20+\x20\x27</div>\x27;\x0a\x20\x20\x20\x20\x20\x20\x20\x20}\x0a\x0a\x20\x20\x20\x20\x20\x20\x20\x20async\x20function\x20kaRun(prefix)\x20{\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20const\x20box\x20=\x20document.getElementById(\x27kaResultBox\x27);\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20box.innerHTML\x20=\x20\x27<div\x20style=\x22color:var(--text-sec);\x22>正在对\x20/\x27\x20+\x20prefix\x20+\x20\x27\x20执行保活（登录\x20→\x20拉流\x2040MB\x20→\x20快进\x2090\x20秒进度上报）…</div>\x27;\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20document.getElementById(\x27kaModal\x27).style.display\x20=\x20\x27block\x27;\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20//\x20执行期间每\x201.5s\x20轮询实时进度（环形进度条\x20+\x20当前剧名），避免看起来像卡住\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20const\x20poll\x20=\x20setInterval(async\x20()\x20=>\x20{\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20try\x20{\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20const\x20res2\x20=\x20await\x20fetch(\x27/api/keepalive/status\x27);\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20const\x20d\x20=\x20await\x20res2.json();\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20if\x20(!d\x20||\x20!d.running)\x20return;\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20const\x20pct\x20=\x20Math.max(0,\x20Math.min(100,\x20Math.round(d.progress\x20||\x200)));\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20let\x20now\x20=\x20\x27\x27;\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20if\x20(d.mediaTitle)\x20now\x20=\x20\x27<div\x20style=\x22margin-top:6px;font-size:12px;color:#3478f6;font-weight:600;text-align:center;\x22>正在模拟看：\x27\x20+\x20d.mediaTitle\x20+\x20\x27</div>\x27;\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20let\x20h\x20=\x20kaRingHtml(pct,\x20\x27#34c759\x27)\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20+\x20\x27<div\x20style=\x22margin-top:-4px;font-size:12px;color:var(--text-sec);text-align:center;\x22>\x27\x20+\x20(d.current\x20||\x20\x27执行中…\x27)\x20+\x20\x27</div>\x27\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20+\x20now;\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20if\x20(d.steps\x20&&\x20d.steps.length)\x20{\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20h\x20+=\x20\x27<div\x20style=\x22margin-top:8px;font-weight:600;\x22>已完成\x20\x27\x20+\x20d.steps.length\x20+\x20\x27\x20步：</div>\x27;\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20d.steps.forEach(x\x20=>\x20{\x20h\x20+=\x20\x27<div\x20style=\x22color:\x27\x20+\x20(x.ok\x20?\x20\x27#34c759\x27\x20:\x20\x27#ff3b30\x27)\x20+\x20\x27;\x22>\x27\x20+\x20(x.ok\x20?\x20\x27✅\x27\x20:\x20\x27❌\x27)\x20+\x20\x27\x20\x27\x20+\x20x.name\x20+\x20\x27</div>\x27;\x20});\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20}\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20box.innerHTML\x20=\x20h;\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20}\x20catch\x20(e)\x20{}\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20},\x201500);\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20try\x20{\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20const\x20res\x20=\x20await\x20fetch(\x27/api/keepalive/run\x27,\x20{\x20method:\x20\x27POST\x27,\x20body:\x20JSON.stringify({\x20prefix\x20})\x20});\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20const\x20data\x20=\x20await\x20res.json();\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20clearInterval(poll);\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20if\x20(data.error)\x20{\x20box.innerHTML\x20=\x20\x27<div\x20style=\x22color:#ff3b30;\x22>\x27\x20+\x20data.error\x20+\x20\x27</div>\x27;\x20return;\x20}\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20const\x20steps\x20=\x20(data.steps\x20||\x20[]).map(st\x20=>\x20\x27<div\x20style=\x22color:\x27\x20+\x20(st.ok\x20?\x20\x27#34c759\x27\x20:\x20\x27#ff3b30\x27)\x20+\x20\x27;\x22>\x27\x20+\x20(st.ok\x20?\x20\x27✅\x27\x20:\x20\x27❌\x27)\x20+\x20\x27\x20\x27\x20+\x20st.name\x20+\x20\x27\x20—\x20\x27\x20+\x20st.detail\x20+\x20\x27</div>\x27).join(\x27\x27);\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20box.innerHTML\x20=\x20kaRingHtml(100,\x20data.ok\x20?\x20\x27#34c759\x27\x20:\x20\x27#ff3b30\x27)\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20+\x20\x27<div\x20style=\x22margin-top:-4px;margin-bottom:8px;text-align:center;font-weight:600;\x20color:\x27\x20+\x20(data.ok\x20?\x20\x27#34c759\x27\x20:\x20\x27#ff3b30\x27)\x20+\x20\x27;\x22>\x27\x20+\x20(data.ok\x20?\x20\x27✅\x20保活成功\x27\x20:\x20\x27❌\x20保活失败\x27)\x20+\x20\x27：\x27\x20+\x20(data.msg\x20||\x20\x27\x27)\x20+\x20\x27</div>\x27\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20+\x20steps;\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20}\x20catch\x20(e)\x20{\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20clearInterval(poll);\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20box.innerHTML\x20=\x20\x27<div\x20style=\x22color:#ff3b30;\x22>请求失败:\x20\x27\x20+\x20e.message\x20+\x20\x27</div>\x27;\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20}\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20load();\x0a\x20\x20\x20\x20\x20\x20\x20\x20}\x0a\x20\x20\x20\x20\x20\x20\x20\x20function\x20closeKaModal()\x20{\x20document.getElementById(\x27kaModal\x27).style.display\x20=\x20\x27none\x27;\x20}\x0a\x0a\x20\x20\x20\x20\x20\x20\x20\x20/*\x20保活结果通知\x20toast\x20*/\x0a\x20\x20\x20\x20\x20\x20\x20\x20function\x20kaToast(msg,\x20ok)\x20{\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20let\x20box\x20=\x20document.getElementById(\x27kaToastBox\x27);\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20if\x20(!box)\x20{\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20box\x20=\x20document.createElement(\x27div\x27);\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20box.id\x20=\x20\x27kaToastBox\x27;\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20box.style.cssText\x20=\x20\x27position:fixed;top:14px;right:14px;z-index:99999;display:flex;flex-direction:column;gap:8px;\x27;\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20document.body.appendChild(box);\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20}\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20const\x20el\x20=\x20document.createElement(\x27div\x27);\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20el.style.cssText\x20=\x20\x27background:\x27\x20+\x20(ok\x20?\x20\x27#34c759\x27\x20:\x20\x27#ff3b30\x27)\x20+\x20\x27;color:#fff;padding:10px\x2014px;border-radius:10px;font-size:13px;box-shadow:0\x204px\x2016px\x20rgba(0,0,0,.2);max-width:300px;word-break:break-all;\x27;\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20el.textContent\x20=\x20msg;\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20box.appendChild(el);\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20setTimeout(()\x20=>\x20{\x20el.style.transition\x20=\x20\x27opacity\x20.3s\x27;\x20el.style.opacity\x20=\x20\x270\x27;\x20setTimeout(()\x20=>\x20el.remove(),\x20320);\x20},\x202800);\x0a\x20\x20\x20\x20\x20\x20\x20\x20}\x0a\x0a\x20\x20\x20\x20\x20\x20\x20\x20/*\x20保活倒计时\x20*/\x0a\x20\x20\x20\x20\x20\x20\x20\x20function\x20kaFmtRemain(ms)\x20{\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20if\x20(ms\x20<=\x200)\x20return\x20\x27已到期，等待执行\x27;\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20const\x20d\x20=\x20Math.floor(ms\x20/\x2086400000),\x20h\x20=\x20Math.floor(ms\x20%\x2086400000\x20/\x203600000),\x20m\x20=\x20Math.floor(ms\x20%\x203600000\x20/\x2060000),\x20s\x20=\x20Math.floor(ms\x20%\x2060000\x20/\x201000);\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20if\x20(d\x20>\x200)\x20return\x20d\x20+\x20\x27天\x27\x20+\x20h\x20+\x20\x27小时\x27;\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20if\x20(h\x20>\x200)\x20return\x20h\x20+\x20\x27小时\x27\x20+\x20m\x20+\x20\x27分\x27;\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20if\x20(m\x20>\x200)\x20return\x20m\x20+\x20\x27分\x27\x20+\x20s\x20+\x20\x27秒\x27;\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20return\x20s\x20+\x20\x27秒\x27;\x0a\x20\x20\x20\x20\x20\x20\x20\x20}\x0a\x20\x20\x20\x20\x20\x20\x20\x20function\x20updateKaCountdown()\x20{\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20document.querySelectorAll(\x27.ka-cd[data-ka-next]\x27).forEach(el\x20=>\x20{\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20const\x20next\x20=\x20parseInt(el.getAttribute(\x27data-ka-next\x27),\x2010);\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20if\x20(!next)\x20{\x20el.textContent\x20=\x20\x27待首次执行\x27;\x20return;\x20}\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20const\x20remain\x20=\x20next\x20-\x20Date.now();\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20el.textContent\x20=\x20remain\x20<=\x200\x20?\x20\x27已到期，等待执行\x27\x20:\x20kaFmtRemain(remain);\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20});\x0a\x20\x20\x20\x20\x20\x20\x20\x20}\x0a\x20\x20\x20\x20\x20\x20\x20\x20setInterval(updateKaCountdown,\x201000);\x0a\x0a\x20\x20\x20\x20\x20\x20\x20\x20/*\x20保活结果通知轮询\x20*/\x0a\x20\x20\x20\x20\x20\x20\x20\x20let\x20kaNoticeInited\x20=\x20false,\x20lastKaNoticeT\x20=\x200;\x0a\x20\x20\x20\x20\x20\x20\x20\x20async\x20function\x20pollKaNotices()\x20{\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20try\x20{\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20const\x20res\x20=\x20await\x20fetch(\x27/api/keepalive/notices\x27);\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20const\x20d\x20=\x20await\x20res.json();\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20const\x20list\x20=\x20(d.notices\x20||\x20[]);\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20if\x20(!kaNoticeInited)\x20{\x20lastKaNoticeT\x20=\x20list.reduce((m,\x20n)\x20=>\x20Math.max(m,\x20n.time\x20||\x200),\x200);\x20kaNoticeInited\x20=\x20true;\x20return;\x20}\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20for\x20(const\x20n\x20of\x20list)\x20{\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20if\x20(n.time\x20&&\x20n.time\x20>\x20lastKaNoticeT)\x20{\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20lastKaNoticeT\x20=\x20Math.max(lastKaNoticeT,\x20n.time);\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20kaToast((n.result\x20===\x20\x27成功\x27\x20?\x20\x27✅\x27\x20:\x20\x27❌\x27)\x20+\x20\x27\x20保活\x27\x20+\x20(n.result\x20===\x20\x27成功\x27\x20?\x20\x27成功\x27\x20:\x20\x27失败\x27)\x20+\x20\x27\x20\x27\x20+\x20(n.remark\x20||\x20(\x27/\x27\x20+\x20n.prefix))\x20+\x20\x27：\x27\x20+\x20(n.detail\x20||\x20\x27\x27),\x20n.result\x20===\x20\x27成功\x27);\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20}\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20}\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20}\x20catch\x20(e)\x20{}\x0a\x20\x20\x20\x20\x20\x20\x20\x20}\x0a\x20\x20\x20\x20\x20\x20\x20\x20setInterval(pollKaNotices,\x2015000);\x0a\x0a\x20\x20\x20\x20\x20\x20\x20\x20function\x20rexImport(prefix)\x20{\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20const\x20r\x20=\x20(window.globalRoutesData\x20||\x20[]).find(x\x20=>\x20x.prefix\x20===\x20prefix)\x20||\x20{};\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20document.getElementById(\x27rexPrefix\x27).value\x20=\x20prefix;\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20document.getElementById(\x27rexUser\x27).value\x20=\x20r.node_user\x20||\x20\x27\x27;\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20document.getElementById(\x27rexPass\x27).value\x20=\x20r.node_pass\x20||\x20\x27\x27;\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20renderRexLink();\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20document.getElementById(\x27rexModal\x27).style.display\x20=\x20\x27block\x27;\x0a\x20\x20\x20\x20\x20\x20\x20\x20}\x0a\x20\x20\x20\x20\x20\x20\x20\x20function\x20renderRexLink()\x20{\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20const\x20scheme\x20=\x20location.protocol.replace(\x27:\x27,\x20\x27\x27);\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20const\x20host\x20=\x20location.hostname\x20+\x20\x27/\x27\x20+\x20(PT.enabled\x20?\x20PT.key\x20+\x20\x27/\x27\x20:\x20\x27\x27)\x20+\x20String(document.getElementById(\x27rexPrefix\x27).value\x20||\x20\x27\x27).trim();\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20const\x20port\x20=\x20location.port\x20||\x20(scheme\x20===\x20\x27https\x27\x20?\x20\x27443\x27\x20:\x20\x2780\x27);\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20const\x20username\x20=\x20encodeURIComponent(String(document.getElementById(\x27rexUser\x27).value\x20||\x20\x27\x27).trim());\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20const\x20password\x20=\x20encodeURIComponent(String(document.getElementById(\x27rexPass\x27).value\x20||\x20\x27\x27).trim());\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20document.getElementById(\x27rexLink\x27).value\x20=\x20\x27rex://import?type=emby&scheme=\x27\x20+\x20scheme\x20+\x20\x27&host=\x27\x20+\x20host\x20+\x20\x27&port=\x27\x20+\x20port\x20+\x20\x27&username=\x27\x20+\x20username\x20+\x20\x27&password=\x27\x20+\x20password;\x0a\x20\x20\x20\x20\x20\x20\x20\x20}\x0a\x20\x20\x20\x20\x20\x20\x20\x20function\x20copyRexLink()\x20{\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20const\x20link\x20=\x20document.getElementById(\x27rexLink\x27).value;\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20if\x20(!link)\x20return;\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20copyTxt(link);\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20showToast(\x27✅\x20Rex\x20导入链接已复制\x27);\x0a\x20\x20\x20\x20\x20\x20\x20\x20}\x0a\x20\x20\x20\x20\x20\x20\x20\x20function\x20openRexLink()\x20{\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20const\x20link\x20=\x20document.getElementById(\x27rexLink\x27).value;\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20if\x20(!link)\x20return;\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20window.location.href\x20=\x20link;\x0a\x20\x20\x20\x20\x20\x20\x20\x20}\x0a\x20\x20\x20\x20\x20\x20\x20\x20function\x20closeRexModal()\x20{\x20document.getElementById(\x27rexModal\x27).style.display\x20=\x20\x27none\x27;\x20}\x0a\x0a\x20\x20\x20\x20\x20\x20\x20\x20function\x20toggleNodeDetail(btn)\x20{\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20const\x20card\x20=\x20btn.closest(\x27.emby-card\x27);\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20const\x20d\x20=\x20card.querySelector(\x27.node-detail\x27);\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20const\x20show\x20=\x20d.style.display\x20===\x20\x27none\x27;\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20d.style.display\x20=\x20show\x20?\x20\x27flex\x27\x20:\x20\x27none\x27;\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20btn.classList.toggle(\x27rotated\x27,\x20show);\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20btn.title\x20=\x20show\x20?\x20\x27收起\x27\x20:\x20\x27展开详情\x27;\x0a\x20\x20\x20\x20\x20\x20\x20\x20}\x0a\x20\x20\x20\x20\x20\x20\x20\x20function\x20openNodeModal()\x20{\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20const\x20f\x20=\x20document.getElementById(\x27addForm\x27);\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20f.reset();\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20document.getElementById(\x27oldPrefix\x27).value=\x27\x27;\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20selectIcon(\x27\x27,\x27默认\x27);\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20document.getElementById(\x27nodeCache\x27).checked=true;\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20document.getElementById(\x27nodeDlTrick\x27).checked=false;\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20document.getElementById(\x27submitBtn\x27).textContent=\x27保存部署\x27;\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20document.getElementById(\x27nodeModalTitle\x27).textContent=\x27添加节点\x27;\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20document.getElementById(\x27nodeModal\x27).style.display=\x27block\x27;\x0a\x20\x20\x20\x20\x20\x20\x20\x20}\x0a\x20\x20\x20\x20\x20\x20\x20\x20function\x20closeNodeModal()\x20{\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20document.getElementById(\x27nodeModal\x27).style.display=\x27none\x27;\x0a\x20\x20\x20\x20\x20\x20\x20\x20}\x0a\x0a\x20\x20\x20\x20\x20\x20\x20\x20//\x20============\x20手动覆盖/更新\x20弹窗\x20============\x0a\x20\x20\x20\x20\x20\x20\x20\x20function\x20openCodeModal(mode)\x20{\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20const\x20modal\x20=\x20document.getElementById(\x27codeModal\x27);\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20const\x20area\x20=\x20document.getElementById(\x27codeArea\x27);\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20const\x20file\x20=\x20document.getElementById(\x27fileInput\x27);\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20if\x20(mode\x20===\x20\x27file\x27)\x20{\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20area.style.display\x20=\x20\x27none\x27;\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20file.style.display\x20=\x20\x27block\x27;\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20}\x20else\x20{\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20area.style.display\x20=\x20\x27block\x27;\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20file.style.display\x20=\x20\x27none\x27;\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20}\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20modal.style.display\x20=\x20\x27block\x27;\x0a\x20\x20\x20\x20\x20\x20\x20\x20}\x0a\x20\x20\x20\x20\x20\x20\x20\x20function\x20closeCodeModal()\x20{\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20document.getElementById(\x27codeModal\x27).style.display\x20=\x20\x27none\x27;\x0a\x20\x20\x20\x20\x20\x20\x20\x20}\x0a\x0a\x20\x20\x20\x20\x20\x20\x20\x20//\x20============\x20Worker\x20调度/区域\x20弹窗\x20============\x0a\x20\x20\x20\x20\x20\x20\x20\x20function\x20openPlacementModal()\x20{\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20document.getElementById(\x27placementModal\x27).style.display\x20=\x20\x27block\x27;\x0a\x20\x20\x20\x20\x20\x20\x20\x20}\x0a\x20\x20\x20\x20\x20\x20\x20\x20function\x20closePlacementModal()\x20{\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20document.getElementById(\x27placementModal\x27).style.display\x20=\x20\x27none\x27;\x0a\x20\x20\x20\x20\x20\x20\x20\x20}\x0a\x0a\x20\x20\x20\x20\x20\x20\x20\x20//\x20============\x20账户设置\x20弹窗\x20============\x0a\x20\x20\x20\x20\x20\x20\x20\x20function\x20openAccountModal()\x20{\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20const\x20modal\x20=\x20document.getElementById(\x27accountModal\x27);\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20modal.style.display\x20=\x20\x27block\x27;\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20if\x20(window.ROLE\x20===\x20\x27sub\x27)\x20{\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20document.getElementById(\x27accountAdminPanel\x27).style.display\x20=\x20\x27none\x27;\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20document.getElementById(\x27accountSubPanel\x27).style.display\x20=\x20\x27block\x27;\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20}\x20else\x20{\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20document.getElementById(\x27accountAdminPanel\x27).style.display\x20=\x20\x27flex\x27;\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20document.getElementById(\x27accountSubPanel\x27).style.display\x20=\x20\x27none\x27;\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20loadSubscribers();\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20loadPtState();\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20loadPtHits();\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20}\x0a\x20\x20\x20\x20\x20\x20\x20\x20}\x0a\x20\x20\x20\x20\x20\x20\x20\x20function\x20closeAccountModal()\x20{\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20document.getElementById(\x27accountModal\x27).style.display\x20=\x20\x27none\x27;\x0a\x20\x20\x20\x20\x20\x20\x20\x20}\x0a\x20\x20\x20\x20\x20\x20\x20\x20let\x20PT\x20=\x20{\x20enabled:\x20false,\x20key:\x20\x27\x27\x20};\x0a\x20\x20\x20\x20\x20\x20\x20\x20function\x20entryUrl(prefix)\x20{\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20return\x20\x27https://\x27\x20+\x20window.location.host\x20+\x20\x27/\x27\x20+\x20(PT.enabled\x20?\x20PT.key\x20+\x20\x27/\x27\x20:\x20\x27\x27)\x20+\x20prefix;\x0a\x20\x20\x20\x20\x20\x20\x20\x20}\x0a\x20\x20\x20\x20\x20\x20\x20\x20async\x20function\x20loadPtState()\x20{\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20try\x20{\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20const\x20res\x20=\x20await\x20fetch(\x27/api/proxytoken\x27);\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20const\x20data\x20=\x20await\x20res.json();\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20if\x20(data.success)\x20PT\x20=\x20{\x20enabled:\x20!!data.enabled,\x20key:\x20data.key\x20||\x20\x27\x27\x20};\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20}\x20catch\x20(e)\x20{}\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20const\x20on\x20=\x20document.getElementById(\x27ptOn\x27);\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20if\x20(on)\x20on.checked\x20=\x20PT.enabled;\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20const\x20k\x20=\x20document.getElementById(\x27ptKey\x27);\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20if\x20(k)\x20k.value\x20=\x20PT.key\x20||\x20\x27\x27;\x0a\x20\x20\x20\x20\x20\x20\x20\x20}\x0a\x20\x20\x20\x20\x20\x20\x20\x20async\x20function\x20saveProxyToken()\x20{\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20const\x20enabled\x20=\x20document.getElementById(\x27ptOn\x27).checked;\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20const\x20key\x20=\x20document.getElementById(\x27ptKey\x27).value.trim();\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20if\x20(enabled\x20&&\x20!/^[A-Za-z0-9]{3,32}$/.test(key))\x20{\x20alert(\x27密钥需\x203-32\x20位字母数字\x27);\x20return;\x20}\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20const\x20res\x20=\x20await\x20fetch(\x27/api/account\x27,\x20{\x20method:\x20\x27POST\x27,\x20headers:\x20{\x20\x27Content-Type\x27:\x20\x27application/json\x27\x20},\x20body:\x20JSON.stringify({\x20proxyToken:\x20{\x20enabled,\x20key\x20}\x20})\x20});\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20const\x20data\x20=\x20await\x20res.json();\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20if\x20(data.success)\x20{\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20closeAccountModal();\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20showToast(\x27反代\x20Token\x20已\x27\x20+\x20(enabled\x20?\x20\x27开启，链接前缀\x20/\x27\x20+\x20key\x20+\x20\x27/\x27\x20:\x20\x27关闭\x27));\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20await\x20loadPtState();\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20try\x20{\x20renderRoutes();\x20}\x20catch\x20(e)\x20{\x20console.error(e);\x20}\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20}\x20else\x20alert(\x27保存失败：\x27\x20+\x20(data.error\x20||\x20\x27\x27));\x0a\x20\x20\x20\x20\x20\x20\x20\x20}\x0a\x20\x20\x20\x20\x20\x20\x20\x20function\x20fmtHitTs(ts)\x20{\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20const\x20d\x20=\x20new\x20Date(ts\x20+\x208\x20*\x203600000);\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20return\x20String(d.getUTCFullYear()).slice(2)\x20+\x20\x27-\x27\x20+\x20String(d.getUTCMonth()\x20+\x201).padStart(2,\x20\x270\x27)\x20+\x20\x27-\x27\x20+\x20String(d.getUTCDate()).padStart(2,\x20\x270\x27)\x20+\x20\x27\x20\x27\x20+\x20String(d.getUTCHours()).padStart(2,\x20\x270\x27)\x20+\x20\x27:\x27\x20+\x20String(d.getUTCMinutes()).padStart(2,\x20\x270\x27);\x0a\x20\x20\x20\x20\x20\x20\x20\x20}\x0a\x20\x20\x20\x20\x20\x20\x20\x20async\x20function\x20loadPtHits()\x20{\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20const\x20box\x20=\x20document.getElementById(\x27ptHits\x27);\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20try\x20{\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20const\x20res\x20=\x20await\x20fetch(\x27/api/proxytoken/hits\x27);\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20const\x20data\x20=\x20await\x20res.json();\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20const\x20hits\x20=\x20(data\x20&&\x20data.hits)\x20||\x20[];\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20if\x20(!hits.length)\x20{\x20box.innerHTML\x20=\x20\x27<span\x20style=\x22color:var(--text-sec);\x22>暂无记录</span>\x27;\x20return;\x20}\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20box.innerHTML\x20=\x20hits.map(h\x20=>\x20\x27<div\x20style=\x22padding:8px\x2010px;border:1px\x20solid\x20var(--border);border-radius:8px;margin-bottom:6px;background:var(--bg);\x22>\x27\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20+\x20\x27<div\x20style=\x22color:var(--text);font-weight:600;font-size:13px;\x22>\x27\x20+\x20escHtml(h.ip)\x20+\x20\x27\x20<span\x20style=\x22color:var(--primary);font-weight:700;\x22>×\x27\x20+\x20(h.times\x20||\x201)\x20+\x20\x27</span></div>\x27\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20+\x20\x27<div\x20style=\x22color:var(--text-sec);font-size:12px;word-break:break-all;margin-top:2px;\x22>\x27\x20+\x20escHtml(h.path\x20||\x20\x27\x27)\x20+\x20\x27</div>\x27\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20+\x20\x27<div\x20style=\x22color:var(--text-sec);font-size:11px;margin-top:2px;\x22>\x27\x20+\x20fmtHitTs(h.ts\x20||\x200)\x20+\x20\x27\x20·\x20\x27\x20+\x20escHtml(String(h.ua\x20||\x20\x27\x27).slice(0,\x2070))\x20+\x20\x27</div></div>\x27\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20).join(\x27\x27)\x20+\x20\x27<button\x20class=\x22btn-ghost\x22\x20style=\x22margin-top:6px;font-size:12px;\x22\x20onclick=\x22clearPtHits()\x22>\x27\x20+\x20(I.trash\x20||\x20\x27清除\x27)\x20+\x20\x27\x20清空记录</button>\x27;\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20}\x20catch\x20(e)\x20{\x20box.innerHTML\x20=\x20\x27<span\x20style=\x22color:var(--text-sec);\x22>加载失败</span>\x27;\x20}\x0a\x20\x20\x20\x20\x20\x20\x20\x20}\x0a\x20\x20\x20\x20\x20\x20\x20\x20async\x20function\x20clearPtHits()\x20{\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20const\x20res\x20=\x20await\x20fetch(\x27/api/proxytoken/hits\x27,\x20{\x20method:\x20\x27POST\x27,\x20headers:\x20{\x20\x27Content-Type\x27:\x20\x27application/json\x27\x20},\x20body:\x20JSON.stringify({\x20clear:\x20true\x20})\x20});\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20const\x20data\x20=\x20await\x20res.json();\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20if\x20(data.success)\x20{\x20showToast(\x27已清空来访记录\x27);\x20loadPtHits();\x20}\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20else\x20alert(\x27清空失败\x27);\x0a\x20\x20\x20\x20\x20\x20\x20\x20}\x0a\x20\x20\x20\x20\x20\x20\x20\x20function\x20escHtml(s)\x20{\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20return\x20String(s\x20==\x20null\x20?\x20\x27\x27\x20:\x20s).replace(/[&<>\x22\x27]/g,\x20c\x20=>\x20({\x20\x27&\x27:\x27&amp;\x27,\x27<\x27:\x27&lt;\x27,\x27>\x27:\x27&gt;\x27,\x27\x22\x27:\x27&quot;\x27,\x22\x27\x22:\x27&#39;\x27\x20}[c]));\x0a\x20\x20\x20\x20\x20\x20\x20\x20}\x0a\x20\x20\x20\x20\x20\x20\x20\x20async\x20function\x20saveAdminPass()\x20{\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20const\x20pw\x20=\x20document.getElementById(\x27newAdminPass\x27).value.trim();\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20if\x20(!pw\x20||\x20pw.length\x20<\x204)\x20{\x20alert(\x27密码至少\x204\x20位\x27);\x20return;\x20}\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20if\x20(!confirm(\x27确定将网页登录密码修改为「\x27\x20+\x20pw\x20+\x20\x27」？\x5cn\x5cn注意：Worker\x20变量\x20ADMIN_TOKEN\x20仍为最高权限，永久有效。\x27))\x20return;\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20const\x20res\x20=\x20await\x20fetch(\x27/api/account\x27,\x20{\x20method:\x20\x27POST\x27,\x20headers:\x20{\x20\x27Content-Type\x27:\x20\x27application/json\x27\x20},\x20body:\x20JSON.stringify({\x20password:\x20pw\x20})\x20});\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20const\x20data\x20=\x20await\x20res.json();\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20if\x20(data.success)\x20{\x20showToast(\x27密码已更新\x27);\x20document.getElementById(\x27newAdminPass\x27).value\x20=\x20\x27\x27;\x20}\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20else\x20alert(\x27修改失败：\x27\x20+\x20(data.error\x20||\x20\x27\x27));\x0a\x20\x20\x20\x20\x20\x20\x20\x20}\x0a\x20\x20\x20\x20\x20\x20\x20\x20async\x20function\x20loadSubscribers()\x20{\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20try\x20{\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20const\x20res\x20=\x20await\x20fetch(\x27/api/subscribers\x27);\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20const\x20data\x20=\x20await\x20res.json();\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20const\x20list\x20=\x20data.subscribers\x20||\x20[];\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20const\x20box\x20=\x20document.getElementById(\x27subList\x27);\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20if\x20(list.length\x20===\x200)\x20{\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20box.innerHTML\x20=\x20\x27<div\x20style=\x22font-size:13px;\x20color:var(--text-sec);\x20padding:6px\x200;\x22>暂无订阅用户</div>\x27;\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20return;\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20}\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20box.innerHTML\x20=\x20\x27\x27;\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20list.forEach(pw\x20=>\x20{\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20box.innerHTML\x20+=\x20\x27<div\x20style=\x22display:flex;\x20align-items:center;\x20gap:8px;\x20background:var(--bg);\x20border:1px\x20solid\x20var(--border);\x20border-radius:8px;\x20padding:8px\x2012px;\x22>\x27\x20+\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x27<span\x20style=\x22flex:1;\x20font-family:monospace;\x20font-size:13px;\x22>\x27\x20+\x20pw\x20+\x20\x27</span>\x27\x20+\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x27<button\x20class=\x22icon-btn\x22\x20onclick=\x22delSubscriber(this)\x22\x20data-pw=\x22\x27\x20+\x20pw\x20+\x20\x27\x22\x20title=\x22删除\x22>\x27\x20+\x20I.trash\x20+\x20\x27</button></div>\x27;\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20});\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20}\x20catch\x20(e)\x20{\x20alert(\x27加载订阅用户失败\x27);\x20}\x0a\x20\x20\x20\x20\x20\x20\x20\x20}\x0a\x20\x20\x20\x20\x20\x20\x20\x20async\x20function\x20addSubscriber()\x20{\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20const\x20pw\x20=\x20document.getElementById(\x27newSubPass\x27).value.trim();\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20if\x20(!pw\x20||\x20pw.length\x20<\x204)\x20{\x20alert(\x27密码至少\x204\x20位\x27);\x20return;\x20}\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20const\x20res\x20=\x20await\x20fetch(\x27/api/subscribers\x27,\x20{\x20method:\x20\x27POST\x27,\x20headers:\x20{\x20\x27Content-Type\x27:\x20\x27application/json\x27\x20},\x20body:\x20JSON.stringify({\x20action:\x20\x27add\x27,\x20password:\x20pw\x20})\x20});\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20const\x20data\x20=\x20await\x20res.json();\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20if\x20(data.success)\x20{\x20showToast(\x27已添加订阅者\x27);\x20document.getElementById(\x27newSubPass\x27).value\x20=\x20\x27\x27;\x20loadSubscribers();\x20}\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20else\x20alert(data.error\x20||\x20\x27添加失败\x27);\x0a\x20\x20\x20\x20\x20\x20\x20\x20}\x0a\x20\x20\x20\x20\x20\x20\x20\x20async\x20function\x20delSubscriber(btn)\x20{\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20const\x20pw\x20=\x20btn.getAttribute(\x27data-pw\x27);\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20if\x20(!confirm(\x27确定删除订阅者「\x27\x20+\x20pw\x20+\x20\x27」？\x27))\x20return;\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20const\x20res\x20=\x20await\x20fetch(\x27/api/subscribers\x27,\x20{\x20method:\x20\x27POST\x27,\x20headers:\x20{\x20\x27Content-Type\x27:\x20\x27application/json\x27\x20},\x20body:\x20JSON.stringify({\x20action:\x20\x27del\x27,\x20password:\x20pw\x20})\x20});\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20const\x20data\x20=\x20await\x20res.json();\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20if\x20(data.success)\x20{\x20showToast(\x27已删除\x27);\x20loadSubscribers();\x20}\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20else\x20alert(data.error\x20||\x20\x27删除失败\x27);\x0a\x20\x20\x20\x20\x20\x20\x20\x20}\x0a\x0a\x20\x20\x20\x20\x20\x20\x20\x20//\x20============\x20角色识别与订阅者只读模式\x20============\x0a\x20\x20\x20\x20\x20\x20\x20\x20async\x20function\x20initRole()\x20{\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20try\x20{\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20const\x20res\x20=\x20await\x20fetch(\x27/api/me\x27);\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20const\x20data\x20=\x20await\x20res.json();\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20window.ROLE\x20=\x20data.role\x20||\x20\x27admin\x27;\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20}\x20catch\x20(e)\x20{\x20window.ROLE\x20=\x20\x27admin\x27;\x20}\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20if\x20(window.ROLE\x20===\x20\x27sub\x27)\x20applySubMode();\x0a\x20\x20\x20\x20\x20\x20\x20\x20}\x0a\x20\x20\x20\x20\x20\x20\x20\x20function\x20applySubMode()\x20{\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20document.querySelectorAll(\x27.admin-only\x27).forEach(el\x20=>\x20el.style.display\x20=\x20\x27none\x27);\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20const\x20dockItems\x20=\x20document.querySelectorAll(\x27.ds-dock-item\x27);\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20if\x20(dockItems[1])\x20dockItems[1].style.display\x20=\x20\x27none\x27;\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20if\x20(dockItems[2])\x20dockItems[2].style.display\x20=\x20\x27none\x27;\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20const\x20speedView\x20=\x20document.getElementById(\x27view-speed\x27);\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20if\x20(speedView)\x20speedView.innerHTML\x20=\x20\x27<div\x20style=\x22padding:40px;text-align:center;color:var(--text-sec);font-size:14px;\x22>订阅用户无测速与\x20DNS\x20权限</div>\x27;\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20const\x20setView\x20=\x20document.getElementById(\x27view-settings\x27);\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20if\x20(setView)\x20setView.innerHTML\x20=\x20\x27<div\x20style=\x22padding:40px;text-align:center;color:var(--text-sec);font-size:14px;\x22>订阅用户无设置权限</div>\x27;\x0a\x20\x20\x20\x20\x20\x20\x20\x20}\x0a\x0a\x20\x20\x20\x20\x20\x20\x20\x20document.getElementById(\x27addForm\x27).onsubmit\x20=\x20async\x20(e)\x20=>\x20{\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20e.preventDefault();\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20const\x20oldPrefix\x20=\x20document.getElementById(\x27oldPrefix\x27).value;\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20const\x20remark\x20=\x20document.getElementById(\x27remark\x27).value.trim();\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20const\x20prefix\x20=\x20document.getElementById(\x27prefix\x27).value.trim().replace(/^\x5c/+/g,\x20\x27\x27);\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20const\x20mode\x20=\x20document.getElementById(\x27mode\x27).value;\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20const\x20icon\x20=\x20document.getElementById(\x27iconUrl\x27).value;\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20const\x20cache_img\x20=\x20document.getElementById(\x27nodeCache\x27).checked\x20?\x20\x27on\x27\x20:\x20\x27off\x27;\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20const\x20dlTrick\x20=\x20document.getElementById(\x27nodeDlTrick\x27).checked\x20?\x20\x271\x27\x20:\x20\x270\x27;\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20const\x20customClient\x20=\x20document.getElementById(\x27customClient\x27).value.trim();\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20const\x20customVersion\x20=\x20document.getElementById(\x27customVersion\x27).value.trim();\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20const\x20customDevice\x20=\x20document.getElementById(\x27customDevice\x27).value.trim();\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20const\x20customUa\x20=\x20document.getElementById(\x27customUa\x27).value.trim();\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20const\x20customDeviceId\x20=\x20document.getElementById(\x27customDeviceId\x27).value.trim();\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20const\x20kaEnabled\x20=\x20document.getElementById(\x27kaEnabled\x27).checked\x20?\x20\x271\x27\x20:\x20\x270\x27;\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20const\x20kaDays\x20=\x20document.getElementById(\x27kaDays\x27).value.trim()\x20||\x20\x273\x27;\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20const\x20kaToken\x20=\x20document.getElementById(\x27kaToken\x27).value.trim();\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20const\x20nodeUser\x20=\x20document.getElementById(\x27nodeUser\x27).value.trim();\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20const\x20nodePass\x20=\x20document.getElementById(\x27nodePass\x27).value.trim();\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20const\x20watchLimit\x20=\x20document.getElementById(\x27watchLimit\x27).value.trim()\x20||\x20\x270\x27;\x0a\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20const\x20inputs\x20=\x20document.querySelectorAll(\x27.target-input\x27);\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20let\x20targetsArray\x20=\x20[];\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20inputs.forEach(inp\x20=>\x20{\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20const\x20val\x20=\x20inp.value.trim().replace(/\x5c/$/g,\x20\x27\x27);\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20if\x20(val)\x20targetsArray.push(val);\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20});\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20const\x20target\x20=\x20targetsArray.join(\x27,\x27);\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20if\x20(!target)\x20return\x20showToast(\x27❌\x20请至少填写一个主线路地址\x27);\x0a\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20try\x20{\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20const\x20res\x20=\x20await\x20fetch(\x27/api/routes\x27,\x20{\x20\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20method:\x20\x27POST\x27,\x20\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20body:\x20JSON.stringify({oldPrefix,\x20prefix,\x20target,\x20mode,\x20remark,\x20icon,\x20cache_img,\x20dlTrick,\x20customClient,\x20customVersion,\x20customDevice,\x20customDeviceId,\x20customUa,\x20kaEnabled,\x20kaDays,\x20kaToken,\x20nodeUser,\x20nodePass,\x20watchLimit})\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20});\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20const\x20data\x20=\x20await\x20res.json();\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20if(!data.success)\x20throw\x20new\x20Error(data.error\x20||\x20\x27部署失败\x27);\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20document.getElementById(\x27addForm\x27).reset();\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20document.getElementById(\x27oldPrefix\x27).value\x20=\x20\x27\x27;\x20\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20selectIcon(\x27\x27,\x20\x27默认\x27);\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20document.getElementById(\x27nodeCache\x27).checked\x20=\x20true;\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20document.getElementById(\x27nodeDlTrick\x27).checked\x20=\x20false;\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20document.getElementById(\x27submitBtn\x27).textContent\x20=\x20\x27保存部署\x27;\x20\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20resetTargetInputs();\x20\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20closeNodeModal();\x20\x20\x20//\x20保存成功后直接关闭弹窗，避免编辑态残留成\x22添加节点\x22空表单\x0a\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20showToast(\x27✅\x20节点部署成功\x27);\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20load();\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20}\x20catch(err)\x20{\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20showToast(\x27❌\x20保存失败:\x20\x27\x20+\x20err.message);\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20}\x0a\x20\x20\x20\x20\x20\x20\x20\x20};\x0a\x0a\x20\x20\x20\x20\x20\x20\x20\x20async\x20function\x20del(prefix)\x20{\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20if(confirm(\x27确定删除节点\x20/\x27\x20+\x20prefix\x20+\x20\x27\x20?\x27))\x20{\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20await\x20fetch(\x27/api/routes?prefix=\x27\x20+\x20prefix,\x20{\x20method:\x20\x27DELETE\x27\x20});\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20showToast(\x27🗑️\x20节点已移除\x27);\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20load();\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20}\x0a\x20\x20\x20\x20\x20\x20\x20\x20}\x0a\x0a\x20\x20\x20\x20\x20\x20\x20\x20function\x20toggleSelectAll()\x20{\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20const\x20isChecked\x20=\x20document.getElementById(\x27selectAll\x27).checked;\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20document.querySelectorAll(\x27.row-checkbox\x27).forEach(cb\x20=>\x20{\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20if(!cb.disabled)\x20cb.checked\x20=\x20isChecked;\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20});\x0a\x20\x20\x20\x20\x20\x20\x20\x20}\x0a\x20\x20\x20\x20\x20\x20\x20\x20function\x20getSelectedIps()\x20{\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20const\x20checkboxes\x20=\x20document.querySelectorAll(\x27.row-checkbox:checked\x27);\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20return\x20Array.from(checkboxes).map(cb\x20=>\x20cb.value);\x0a\x20\x20\x20\x20\x20\x20\x20\x20}\x0a\x20\x20\x20\x20\x20\x20\x20\x20function\x20batchTcpPing()\x20{\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20const\x20rows\x20=\x20document.querySelectorAll(\x27#testTableBody\x20.test-row\x27);\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20let\x20ips\x20=\x20[];\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20rows.forEach(tr\x20=>\x20{\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20const\x20strong\x20=\x20tr.querySelector(\x27.ip-text\x27);\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20if\x20(strong\x20&&\x20strong.textContent)\x20{\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20let\x20ip\x20=\x20strong.textContent;\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20if\x20(ip.startsWith(\x27[\x27)\x20&&\x20ip.endsWith(\x27]\x27))\x20ip\x20=\x20ip.slice(1,\x20-1);\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20ips.push(ip);\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20}\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20});\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20if\x20(ips.length\x20===\x200)\x20return\x20showToast(\x27⚠️\x20请先提取节点！\x27);\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20navigator.clipboard.writeText(ips.join(\x27\x5cn\x27)).then(()\x20=>\x20{\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20showToast(\x27✅\x20节点已复制，即将跳转\x20ITDog...\x27);\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20setTimeout(()\x20=>\x20{\x20window.open(\x27https://www.itdog.cn/batch_tcping/\x27,\x20\x27_blank\x27);\x20},\x201500);\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20});\x0a\x20\x20\x20\x20\x20\x20\x20\x20}\x0a\x20\x20\x20\x20\x20\x20\x20\x20function\x20directSubmitCname()\x20{\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20const\x20input\x20=\x20document.getElementById(\x27customIps\x27).value.trim();\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20if\x20(!input)\x20return\x20showToast(\x27⚠️\x20请先在文本框内粘贴您的优选域名\x27);\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20const\x20domainRegex\x20=\x20/\x5cb([a-zA-Z0-9-]+\x5c.)+[a-zA-Z]{2,}\x5cb/g;\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20const\x20matchedDomains\x20=\x20input.match(domainRegex)\x20||\x20[];\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20const\x20realDomains\x20=\x20matchedDomains.filter(d\x20=>\x20!/^\x5cd+\x5c.\x5cd+\x5c.\x5cd+\x5c.\x5cd+$/.test(d));\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20if\x20(realDomains.length\x20===\x200)\x20return\x20showToast(\x27⚠️\x20没有提取到合法的域名格式，请检查输入！\x27);\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20if(!confirm(`\x20提取到以下域名：\x5cn${realDomains.join(\x27\x5cn\x27)}\x5cn\x5cn确定要直接将其设为\x20CNAME\x20记录吗？\x5cn(注意：这会清空你配置的域名下现有的记录)`))\x20return;\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20const\x20btn\x20=\x20document.getElementById(\x27btnDirectCname\x27);\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20sendDnsRequest(realDomains,\x20btn);\x0a\x20\x20\x20\x20\x20\x20\x20\x20}\x0a\x20\x20\x20\x20\x20\x20\x20\x20async\x20function\x20testCustomIPs()\x20{\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20const\x20input\x20=\x20document.getElementById(\x27customIps\x27).value;\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20if\x20(!input.trim())\x20return\x20showToast(\x27⚠️\x20请先在输入框粘贴\x20IP\x20或优选域名\x27);\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20const\x20ipv4Regex\x20=\x20/\x5cb(?:(?:25[0-5]|2[0-4]\x5cd|[01]?\x5cd\x5cd?)\x5c.){3}(?:25[0-5]|2[0-4]\x5cd|[01]?\x5cd\x5cd?)\x5cb/g;\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20const\x20ipv6Regex\x20=\x20/(?:[A-F0-9]{1,4}:){7}[A-F0-9]{1,4}|(?:[A-F0-9]{1,4}:)*:[A-F0-9]{1,4}(?::[A-F0-9]{1,4})*/gi;\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20const\x20domainRegex\x20=\x20/\x5cb([a-zA-Z0-9-]+\x5c.)+[a-zA-Z]{2,}\x5cb/g;\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20let\x20matchedIPv4\x20=\x20input.match(ipv4Regex)\x20||\x20[];\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20let\x20matchedIPv6\x20=\x20input.match(ipv6Regex)\x20||\x20[];\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20let\x20matchedDomains\x20=\x20input.match(domainRegex)\x20||\x20[];\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20matchedDomains\x20=\x20matchedDomains.filter(d\x20=>\x20!/^\x5cd+\x5c.\x5cd+\x5c.\x5cd+\x5c.\x5cd+$/.test(d));\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20let\x20extractedIps\x20=\x20[...matchedIPv4,\x20...matchedDomains];\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20matchedIPv6.forEach(ip\x20=>\x20{\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20if\x20(ip.length\x20>\x207\x20&&\x20ip.includes(\x27:\x27)\x20&&\x20!ip.startsWith(\x27::1\x27))\x20{\x20extractedIps.push(ip.startsWith(\x27[\x27)\x20?\x20ip\x20:\x20`[${ip}]`);\x20}\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20});\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20extractedIps\x20=\x20[...new\x20Set(extractedIps)];\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20if\x20(extractedIps.length\x20===\x200)\x20return\x20showToast(\x27⚠️\x20未识别到合法的\x20IP\x20或\x20域名格式\x27);\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20const\x20btn\x20=\x20document.getElementById(\x27btnTestCustom\x27);\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20const\x20tbody\x20=\x20document.getElementById(\x27testTableBody\x27);\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20btn.disabled\x20=\x20true;\x20btn.textContent\x20=\x20\x27⏳\x20测试中...\x27;\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20if(tbody.innerHTML.includes(\x27暂无数据\x27))\x20tbody.innerHTML\x20=\x20\x27\x27;\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20showToast(`✅\x20提取到\x20${extractedIps.length}\x20个节点，开始测速校验`);\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20const\x20promises\x20=\x20[];\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20extractedIps.forEach(ip\x20=>\x20{\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20const\x20tr\x20=\x20document.createElement(\x27tr\x27);\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20tr.className\x20=\x20\x27test-row\x27;\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20tr.innerHTML\x20=\x20`\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<td\x20data-label=\x22勾选节点\x22\x20style=\x22text-align:\x20center;\x22><input\x20type=\x22checkbox\x22\x20class=\x22ip-checkbox\x20row-checkbox\x22\x20value=\x22${ip}\x22></td>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<td\x20data-label=\x22专属节点\x22><strong\x20class=\x22ip-text\x22\x20style=\x22color:var(--primary);cursor:pointer;font-family:monospace;\x22\x20onclick=\x22copyTxt(\x27${ip}\x27)\x22\x20title=\x22点击复制\x22>${ip}</strong></td>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<td\x20data-label=\x22预估延迟\x22\x20class=\x22latency\x22\x20data-ms=\x229999\x22\x20style=\x22font-weight:\x20600;\x20color:\x20#888;\x22>测算中...</td>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<td\x20data-label=\x22连通状态\x22\x20class=\x22speed\x22\x20style=\x22color:\x20#888;\x22>-</td>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<td\x20data-label=\x22记录/归属地\x22\x20class=\x22loc\x22\x20style=\x22color:\x20#666;\x22>等待解析</td>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<td\x20data-label=\x22快捷操作\x22><button\x20class=\x22btn-dns\x22\x20disabled\x20onclick=\x22updateSingleDns(\x27${ip}\x27,\x20this)\x22>唯一解析</button></td>`;\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20tbody.insertBefore(tr,\x20tbody.firstChild);\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20promises.push(doLocalPing(ip,\x20tr,\x20\x27自定义节点\x27));\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20});\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20await\x20Promise.all(promises);\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20sortTableByLatency(tbody);\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20document.querySelectorAll(\x27.btn-dns\x27).forEach(b\x20=>\x20b.disabled\x20=\x20false);\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20btn.disabled\x20=\x20false;\x20btn.textContent\x20=\x20\x27\x20测试粘贴的节点\x27;\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20showToast(\x27🎉\x20自定义节点测速完成！\x27);\x0a\x20\x20\x20\x20\x20\x20\x20\x20}\x0a\x20\x20\x20\x20\x20\x20\x20\x20async\x20function\x20fetchCustomApiAndTest()\x20{\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20const\x20apiUrl\x20=\x20document.getElementById(\x27customApiUrl\x27).value.trim();\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20if\x20(!apiUrl)\x20return\x20showToast(\x27⚠️\x20请先填入自定义\x20API\x20链接\x27);\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20const\x20btn\x20=\x20document.getElementById(\x27btnFetchCustomApi\x27);\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20const\x20tbody\x20=\x20document.getElementById(\x27testTableBody\x27);\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20const\x20statusTxt\x20=\x20document.getElementById(\x27statusText\x27);\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20btn.disabled\x20=\x20true;\x20btn.textContent\x20=\x20\x27⏳\x20拉取中...\x27;\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20statusTxt.innerHTML\x20=\x20`正在从自定义\x20API\x20抓取数据...`;\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20if(tbody.innerHTML.includes(\x27暂无数据\x27))\x20tbody.innerHTML\x20=\x20\x27\x27;\x20\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20try\x20{\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20const\x20res\x20=\x20await\x20fetch(`/api/get-custom-api-ips?url=${encodeURIComponent(apiUrl)}`);\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20const\x20data\x20=\x20await\x20res.json();\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20if\x20(!data.ips\x20||\x20data.ips.length\x20===\x200)\x20{\x20showToast(\x27⚠️\x20自定义\x20API\x20返回为空\x27);\x20return;\x20}\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20showToast(`✅\x20提取\x20${data.totalCount}\x20个节点，抽取\x20${data.ips.length}\x20个测速`);\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20btn.textContent\x20=\x20\x27\x20测速中...\x27;\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20const\x20promises\x20=\x20[];\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20data.ips.forEach(ip\x20=>\x20{\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20const\x20tr\x20=\x20document.createElement(\x27tr\x27);\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20tr.className\x20=\x20\x27test-row\x27;\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20tr.innerHTML\x20=\x20`\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<td\x20data-label=\x22勾选节点\x22\x20style=\x22text-align:\x20center;\x22><input\x20type=\x22checkbox\x22\x20class=\x22ip-checkbox\x20row-checkbox\x22\x20value=\x22${ip}\x22></td>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<td\x20data-label=\x22专属节点\x22><strong\x20class=\x22ip-text\x22\x20style=\x22color:var(--primary);cursor:pointer;font-family:monospace;\x22\x20onclick=\x22copyTxt(\x27${ip}\x27)\x22\x20title=\x22点击复制\x22>${ip}</strong></td>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<td\x20data-label=\x22预估延迟\x22\x20class=\x22latency\x22\x20data-ms=\x229999\x22\x20style=\x22font-weight:\x20600;\x20color:\x20#888;\x22>测算中...</td>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<td\x20data-label=\x22连通状态\x22\x20class=\x22speed\x22\x20style=\x22color:\x20#888;\x22>-</td>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<td\x20data-label=\x22记录/归属地\x22\x20class=\x22loc\x22\x20style=\x22color:\x20#666;\x22>等待解析</td>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<td\x20data-label=\x22快捷操作\x22><button\x20class=\x22btn-dns\x22\x20disabled\x20onclick=\x22updateSingleDns(\x27${ip}\x27,\x20this)\x22>唯一解析</button></td>`;\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20tbody.insertBefore(tr,\x20tbody.firstChild);\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20promises.push(doLocalPing(ip,\x20tr,\x20\x27自定义\x20API\x27));\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20});\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20await\x20Promise.all(promises);\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20sortTableByLatency(tbody);\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20document.querySelectorAll(\x27.btn-dns\x27).forEach(b\x20=>\x20b.disabled\x20=\x20false);\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20document.getElementById(\x27selectAll\x27).checked\x20=\x20false;\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20showToast(\x27🎉\x20自定义\x20API\x20测速完成！\x27);\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20statusTxt.innerHTML\x20=\x20`','floor','\x27:\x27checksquare\x27,\x27','map','watch_limit','HEAD','\x27:\x27upload\x27\x20};\x0afunction\x20toSvg(s){\x0a\x20\x20if(!s)\x20return\x20s;\x0a\x20\x20return\x20String(s).replace(/[🀀-🫿☀-➿️⬀-⯿]/gu,\x20function(ch){\x0a\x20\x20\x20\x20if(ch===\x27️\x27)\x20return\x20\x27\x27;\x0a\x20\x20\x20\x20var\x20key\x20=\x20E2I[ch];\x0a\x20\x20\x20\x20return\x20(key\x20&&\x20I[key])\x20?\x20\x27<span\x20class=\x22ti\x22>\x27+I[key]+\x27</span>\x27\x20:\x20\x27\x27;\x0a\x20\x20});\x0a}\x0a\x20\x20\x20\x20</script>\x0a</head>\x0a<body>\x0a\x20\x20\x20\x20<div\x20id=\x22toast\x22></div>\x0a\x20\x20\x20\x20<div\x20class=\x22login-box\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20<h2>安全中心</h2>\x0a\x20\x20\x20\x20\x20\x20\x20\x20<input\x20type=\x22password\x22\x20id=\x22tokenInput\x22\x20placeholder=\x22请输入密钥\x20TOKEN\x22\x20onkeydown=\x22if(event.key===\x27Enter\x27)\x20login()\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20<button\x20onclick=\x22login()\x22>验\x20证\x20登\x20录</button>\x0a\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20<script>\x0a\x20\x20\x20\x20\x20\x20\x20\x20function\x20showToast(msg)\x20{\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20const\x20t\x20=\x20document.getElementById(\x27toast\x27);\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20t.innerHTML\x20=\x20toSvg(msg);\x20t.classList.add(\x27show\x27);\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20setTimeout(()\x20=>\x20t.classList.remove(\x27show\x27),\x202000);\x0a\x20\x20\x20\x20\x20\x20\x20\x20}\x0a\x20\x20\x20\x20\x20\x20\x20\x20function\x20login()\x20{\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20const\x20token\x20=\x20document.getElementById(\x27tokenInput\x27).value.trim();\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20if(!token)\x20return\x20showToast(\x27请输入正确的密钥\x27);\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20document.cookie\x20=\x20\x27admin_token=\x27\x20+\x20encodeURIComponent(token)\x20+\x20\x27;\x20path=/;\x20max-age=2592000;\x27;\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20window.location.reload();\x0a\x20\x20\x20\x20\x20\x20\x20\x20}\x0a\x20\x20\x20\x20</script>\x0a</body>\x0a</html>\x0a','无\x20PlaySessionId，跳过会话上报（仅拉流保活）','font','x-forwarded-for','保活执行异常:\x20','AccessToken','\x20秒：心跳\x20','\x27:\x27upload\x27\x20};\x0afunction\x20toSvg(s){\x0a\x20\x20if(!s)\x20return\x20s;\x0a\x20\x20return\x20String(s).replace(/[🀀-🫿☀-➿️⬀-⯿]/gu,\x20function(ch){\x0a\x20\x20\x20\x20if(ch===\x27️\x27)\x20return\x20\x27\x27;\x0a\x20\x20\x20\x20var\x20key\x20=\x20E2I[ch];\x0a\x20\x20\x20\x20return\x20(key\x20&&\x20I[key])\x20?\x20\x27<span\x20class=\x22ti\x22>\x27+I[key]+\x27</span>\x27\x20:\x20\x27\x27;\x0a\x20\x20});\x0a}\x0a\x20\x20\x20\x20</script>\x0a</head>\x0a<body>\x0a\x20\x20\x20\x20<div\x20id=\x22toast\x22></div>\x0a\x20\x20\x20\x20\x0a\x20\x20\x20\x20<div\x20id=\x22dashboardModal\x22\x20style=\x22display:none;\x20position:fixed;\x20top:0;\x20left:0;\x20width:100%;\x20height:100%;\x20background:rgba(0,0,0,0.6);\x20z-index:10000;\x20overflow-y:auto;\x20padding:\x2020px;\x20backdrop-filter:\x20blur(5px);\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22card\x22\x20style=\x22max-width:\x201000px;\x20margin:\x2040px\x20auto;\x20position:relative;\x20box-shadow:\x200\x2010px\x2040px\x20rgba(0,0,0,0.2);\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<button\x20onclick=\x22closeDashboard()\x22\x20style=\x22position:absolute;\x20top:20px;\x20right:20px;\x20font-size:24px;\x20background:none;\x20border:none;\x20cursor:pointer;\x20color:\x20var(--text-sec);\x20transition:\x200.2s;\x22\x20onmouseover=\x22this.style.color=\x27#ff3b30\x27\x22\x20onmouseout=\x22this.style.color=\x27var(--text-sec)\x27\x22>','/speedtest','JSON\x20源站\x20URL\x20重写失败:','push','kaEnabled','subscribers','PUT','\x20candidate\x20','city','batch','<svg\x20viewBox=\x220\x200\x2024\x2024\x22\x20fill=\x22none\x22\x20stroke=\x22currentColor\x22\x20stroke-width=\x221.8\x22\x20stroke-linecap=\x22round\x22\x20stroke-linejoin=\x22round\x22><rect\x20x=\x225\x22\x20y=\x228\x22\x20width=\x2214\x22\x20height=\x2211\x22\x20rx=\x222\x22/><path\x20d=\x22M12\x208V4M8\x204h8\x22/><circle\x20cx=\x229.5\x22\x20cy=\x2213\x22\x20r=\x221\x22\x20fill=\x22currentColor\x22/><circle\x20cx=\x2214.5\x22\x20cy=\x2213\x22\x20r=\x221\x22\x20fill=\x22currentColor\x22/><path\x20d=\x22M2\x2013v3M22\x2013v3\x22/></svg>','strict','缺少\x20CF_API_TOKEN,\x20CF_ACCOUNT_ID\x20或\x20CF_WORKER_NAME\x20环境变量','getTime','bytes=0-','/api/purge-cache','sub','\x20保存新密码</button>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20style=\x22background:rgba(120,120,120,0.05);\x20border:1px\x20solid\x20var(--border);\x20border-radius:10px;\x20padding:14px;\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20style=\x22font-size:14px;\x20font-weight:600;\x20margin-bottom:10px;\x22>','&lt;','Unknown\x20Error','/emby/Sessions/Playing','PlaybackInfo\x20JSON\x20重写失败:','今日全站零消耗','read\x20timeout','</button>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22topbar-right\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<button\x20class=\x22pill-btn\x22\x20onclick=\x22openDashboard()\x22\x20title=\x22数据统计\x22>','</button>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22info-row\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<span\x20class=\x22info-label\x22>海报缓存:</span>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<span\x20style=\x22color:${r.cache_img\x20!==\x20\x27off\x27\x20?\x20\x27#34c759\x27\x20:\x20\x27#ff9500\x27};\x20font-weight:600;\x22>${r.cache_img\x20!==\x20\x27off\x27\x20?\x20\x27','INSERT\x20OR\x20REPLACE\x20INTO\x20routes\x20(prefix,\x20target,\x20mode,\x20remark,\x20icon,\x20custom_params,\x20cache_img,\x20sort_order,\x20ka_enabled,\x20ka_days,\x20ka_token,\x20node_user,\x20node_pass,\x20watch_limit)\x20VALUES\x20(?,\x20?,\x20?,\x20?,\x20?,\x20?,\x20?,\x20?,\x20?,\x20?,\x20?,\x20?,\x20?,\x20?)','https:','first','errors','OPTIONS','\x0a<!DOCTYPE\x20html>\x0a<html\x20lang=\x22zh-CN\x22>\x0a<head>\x0a\x20\x20\x20\x20<meta\x20charset=\x22UTF-8\x22>\x0a\x20\x20\x20\x20<meta\x20name=\x22viewport\x22\x20content=\x22width=device-width,\x20initial-scale=1.0,\x20maximum-scale=1.0,\x20user-scalable=no,\x20viewport-fit=cover\x22>\x0a\x20\x20\x20\x20<title>玛卡巴卡的反代面板</title>\x0a\x20\x20\x20\x20<style>','iPhone','arrayBuffer','/api/me','DirectStream','（GET\x20重试成功）','</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20style=\x22color:var(--text-sec);\x20font-size:\x2012px;\x20margin-bottom:\x202px;\x22>访客入口\x20(地区与机房)</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20id=\x22trace-entry\x22\x20style=\x22font-weight:600;\x20color:var(--text);\x20font-family:\x20monospace;\x20font-size:\x2015px;\x22>雷达扫描中...</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20style=\x22display:\x20flex;\x20align-items:\x20center;\x20gap:\x2012px;\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20style=\x22font-size:\x2024px;\x22>','key','执行中：','Stopped\x20→\x20','admin','11Mqvmxx','ALTER\x20TABLE\x20routes\x20ADD\x20COLUMN\x20ka_enabled\x20TEXT\x20DEFAULT\x20\x270\x27','UPDATE\x20routes\x20SET\x20last_ka_run\x20=\x20?,\x20last_ka_result\x20=\x20?,\x20last_ka_detail\x20=\x20?\x20WHERE\x20prefix\x20=\x20?','</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20style=\x22color:var(--text-sec);\x20font-size:\x2012px;\x20margin-bottom:\x202px;\x22>Worker\x20实际落地机房</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20id=\x22trace-egress\x22\x20style=\x22font-weight:600;\x20color:#34c759;\x20font-family:\x20monospace;\x20font-size:\x2015px;\x22>雷达扫描中...</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20</div><div\x20class=\x22card\x20admin-only\x22\x20style=\x22margin-top:20px;\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20style=\x22font-weight:\x20600;\x20margin-bottom:\x2012px;\x20font-size:\x2016px;\x22>','ips','pencil','<svg\x20viewBox=\x220\x200\x2024\x2024\x22\x20fill=\x22none\x22\x20stroke=\x22currentColor\x22\x20stroke-width=\x221.8\x22\x20stroke-linecap=\x22round\x22\x20stroke-linejoin=\x22round\x22><path\x20d=\x22M8\x2021h8M12\x2017v4M7\x204h10v6a5\x205\x200\x200\x201-10\x200V4z\x22/><path\x20d=\x22M7\x205H4v2a3\x203\x200\x200\x200\x203\x203M17\x205h3v2a3\x203\x200\x200\x201-3\x203\x22/></svg>','exec','css','\x20添加节点</button>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20id=\x22nodeModal\x22\x20style=\x22display:none;\x20position:fixed;\x20inset:0;\x20z-index:11000;\x20background:rgba(0,0,0,.5);\x20backdrop-filter:blur(5px);\x20overflow-y:auto;\x20padding:16px;\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20style=\x22max-width:680px;\x20margin:24px\x20auto;\x20background:var(--card);\x20border-radius:18px;\x20padding:22px;\x20box-shadow:0\x2010px\x2040px\x20rgba(0,0,0,.2);\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20style=\x22display:flex;\x20justify-content:space-between;\x20align-items:center;\x20margin-bottom:14px;\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<h2\x20id=\x22nodeModalTitle\x22\x20style=\x22margin:0;\x20font-size:19px;\x20display:flex;\x20align-items:center;\x20gap:8px;\x22>','节点账号\x20','ipv6','test','string','&AutoOpenLiveStream=true','/api/analytics','/emby/Users','cf-ipcountry','<svg\x20viewBox=\x220\x200\x2024\x2024\x22\x20fill=\x22none\x22\x20stroke=\x22currentColor\x22\x20stroke-width=\x221.8\x22\x20stroke-linecap=\x22round\x22\x20stroke-linejoin=\x22round\x22><path\x20d=\x22M12\x203v12M7\x2010l5\x205\x205-5M4\x2021h16\x22/></svg>','ALTER\x20TABLE\x20routes\x20ADD\x20COLUMN\x20remark\x20TEXT\x20DEFAULT\x20\x27\x27','/sendMessage','emby-keepalive','undefined','DB\x20Error:\x20','<svg\x20viewBox=\x220\x200\x2024\x2024\x22\x20fill=\x22none\x22\x20stroke=\x22currentColor\x22\x20stroke-width=\x221.8\x22\x20stroke-linecap=\x22round\x22\x20stroke-linejoin=\x22round\x22><circle\x20cx=\x2212\x22\x20cy=\x2212\x22\x20r=\x229\x22/><path\x20d=\x22M3\x2012h18M12\x203c2.5\x202.5\x202.5\x2015\x200\x2018M12\x203c-2.5\x202.5-2.5\x2015\x200\x2018\x22/></svg>','ka_live','results','<svg\x20viewBox=\x220\x200\x2024\x2024\x22\x20fill=\x22none\x22\x20stroke=\x22currentColor\x22\x20stroke-width=\x221.8\x22\x20stroke-linecap=\x22round\x22\x20stroke-linejoin=\x22round\x22><path\x20d=\x22M12\x205v14M5\x2012l7\x207\x207-7\x22/></svg>','D1\x20未绑定：请在\x20Worker\x20设置里绑定名为\x20DB\x20的\x20D1\x20数据库','</span>','\x27:\x27location\x27,\x27','remark','\x27:\x27dotpurple\x27,\x27','Unauthorized','<svg\x20viewBox=\x220\x200\x2024\x2024\x22><circle\x20cx=\x2212\x22\x20cy=\x2212\x22\x20r=\x227\x22\x20fill=\x22#af52de\x22/></svg>','tick','authorization','image/','Emby','IsPaused','node_user','\x20手动输入</button>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<button\x20class=\x22btn-submit\x22\x20onclick=\x22openCodeModal(\x27file\x27)\x22\x20style=\x22flex:1;\x20min-width:120px;\x22>','\x27:\x27film\x27,\x27','MediaStreams','SELECT\x20COUNT(*)\x20as\x20count\x20FROM\x20visitor_logs\x20WHERE\x20date(timestamp,\x20\x27+8\x20hours\x27)\x20=\x20date(\x27now\x27,\x20\x27+8\x20hours\x27)','AAAA','&#39;','read','/speedtest/data','30天内:\x20','ka_days','获取媒体条目失败:\x20Items\x20→\x20','no-cache','记录提交失败:\x20','cancel','\x27:\x27check\x27,\x27','CF报错:\x20','&Static=','\x27:\x27broom\x27,\x27','PATCH','duplex','CF_DOMAIN','custom','AuthenticateByName\x20→\x20','rocket','forEach','<svg\x20viewBox=\x220\x200\x2024\x2024\x22\x20fill=\x22none\x22\x20stroke=\x22currentColor\x22\x20stroke-width=\x221.8\x22\x20stroke-linecap=\x22round\x22\x20stroke-linejoin=\x22round\x22><rect\x20x=\x222\x22\x20y=\x225\x22\x20width=\x2220\x22\x20height=\x2213\x22\x20rx=\x222\x22/><path\x20d=\x22M8\x2021h8M12\x2018v3\x22/></svg>','/api/proxytoken/hits','xmark','Cookie','GET','<svg\x20viewBox=\x220\x200\x2024\x2024\x22\x20fill=\x22none\x22\x20stroke=\x22currentColor\x22\x20stroke-width=\x221.8\x22\x20stroke-linecap=\x22round\x22\x20stroke-linejoin=\x22round\x22><rect\x20x=\x223\x22\x20y=\x224\x22\x20width=\x2218\x22\x20height=\x2216\x22\x20rx=\x222\x22/><path\x20d=\x22M7\x204v16M17\x204v16M3\x209h4M3\x2015h4M17\x209h4M17\x2015h4\x22/></svg>','/dns_records/','ALTER\x20TABLE\x20routes\x20ADD\x20COLUMN\x20sort_order\x20INTEGER\x20DEFAULT\x200','TG_CHAT_ID','媒体库为空或无权访问','/emby/Users/','BARK_KEY','ALTER\x20TABLE\x20routes\x20ADD\x20COLUMN\x20icon\x20TEXT\x20DEFAULT\x20\x27\x27','colo','dotpurple','error','times','\x27:\x27lines\x27,\x27','SELECT\x20date(timestamp,\x20\x27+8\x20hours\x27)\x20as\x20date,\x20COUNT(*)\x20as\x20count\x20FROM\x20visitor_logs\x20WHERE\x20timestamp\x20>=\x20datetime(\x27now\x27,\x20\x27-7\x20days\x27)\x20GROUP\x20BY\x20date(timestamp,\x20\x27+8\x20hours\x27)\x20ORDER\x20BY\x20date\x20ASC','SELECT\x20value\x20FROM\x20app_config\x20WHERE\x20key\x20=\x20\x27ka_notices\x27','<svg\x20viewBox=\x220\x200\x2024\x2024\x22\x20fill=\x22none\x22\x20stroke=\x22currentColor\x22\x20stroke-width=\x221.8\x22\x20stroke-linecap=\x22round\x22\x20stroke-linejoin=\x22round\x22><path\x20d=\x22M9\x203h6M10\x203v5L4.5\x2018a2\x202\x200\x200\x200\x201.8\x203h11.4a2\x202\x200\x200\x200\x201.8-3L14\x208V3\x22/><path\x20d=\x22M7\x2015h10\x22/></svg>','\x22})\x20{\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20httpRequestsAdaptiveGroups(\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20limit:\x201,\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20filter:\x20{\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20datetime_geq:\x20\x22','1760700duMRaR','token','\x20→\x20','/stream\x20→\x20','\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20SELECT\x20r.*,\x20\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20IFNULL(s.count,\x200)\x20as\x20todayReqs,\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20(SELECT\x20SUM(count)\x20FROM\x20request_stats\x20WHERE\x20prefix\x20=\x20r.prefix)\x20as\x20totalReqs\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20FROM\x20routes\x20r\x20\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20LEFT\x20JOIN\x20request_stats\x20s\x20ON\x20r.prefix\x20=\x20s.prefix\x20AND\x20s.date\x20=\x20?\x20\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20ORDER\x20BY\x20r.sort_order\x20ASC,\x20r.prefix\x20ASC\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20','toISOString','location','&gt;','203anckrU','ALTER\x20TABLE\x20routes\x20ADD\x20COLUMN\x20mode\x20TEXT\x20DEFAULT\x20\x27off\x27','kaToken','\x27:\x27search\x27,\x27','abort','CF_ACCOUNT_ID','（UA:\x20','\x20覆盖更新</button>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20id=\x22placementModal\x22\x20style=\x22display:none;\x20position:fixed;\x20inset:0;\x20z-index:11010;\x20background:rgba(0,0,0,.5);\x20backdrop-filter:blur(5px);\x20overflow-y:auto;\x20padding:16px;\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20style=\x22max-width:560px;\x20margin:24px\x20auto;\x20background:var(--card);\x20border-radius:18px;\x20padding:22px;\x20box-shadow:0\x2010px\x2040px\x20rgba(0,0,0,.2);\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20style=\x22display:flex;\x20justify-content:space-between;\x20align-items:center;\x20margin-bottom:14px;\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<h2\x20style=\x22margin:0;\x20font-size:19px;\x20display:flex;\x20align-items:center;\x20gap:8px;\x22>','searchParams','服务探测','<svg\x20viewBox=\x220\x200\x2024\x2024\x22\x20fill=\x22none\x22\x20stroke=\x22currentColor\x22\x20stroke-width=\x221.8\x22\x20stroke-linecap=\x22round\x22\x20stroke-linejoin=\x22round\x22><circle\x20cx=\x2212\x22\x20cy=\x2212\x22\x20r=\x223\x22/><path\x20d=\x22M12\x201v4M12\x2019v4M4.2\x204.2l2.8\x202.8M17\x2017l2.8\x202.8M1\x2012h4M19\x2012h4M4.2\x2019.8L7\x2017M17\x207l2.8-2.8\x22/></svg>','randomUUID','todayBandwidth','indexOf','404:\x20Target\x20empty','x-mediabrowser-token','Node\x20','\x20TB','compatibility_flags','link','\x27:\x27globe\x27,\x27','mode','最喜欢的EMBY:\x20','User-Agent','缺少\x20URL','\x20Worker\x20调度模式与区域设置</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<button\x20class=\x22btn-submit\x22\x20onclick=\x22openPlacementModal()\x22\x20style=\x22width:100%;\x22>','/stats','body','clear','未知错误','application/octet-stream','admin_token','/speedtest/','SELECT\x20country,\x20COUNT(*)\x20as\x20c\x20FROM\x20visitor_logs\x20WHERE\x20date(timestamp,\x20\x27+8\x20hours\x27)\x20=\x20date(\x27now\x27,\x20\x27+8\x20hours\x27)\x20GROUP\x20BY\x20country\x20ORDER\x20BY\x20c\x20DESC\x20LIMIT\x201','保活失败：无法获取播放链接（PlaybackInfo\x20POST/GET\x20均失败）','Items\x20异常:\x20','<svg\x20viewBox=\x220\x200\x2024\x2024\x22\x20fill=\x22none\x22\x20stroke=\x22currentColor\x22\x20stroke-width=\x221.8\x22\x20stroke-linecap=\x22round\x22\x20stroke-linejoin=\x22round\x22><path\x20d=\x22M21\x2012.8A9\x209\x200\x201\x201\x2011.2\x203a7\x207\x200\x200\x200\x209.8\x209.8z\x22/></svg>','/purge_cache','GET\x20/emby/System/Info\x20→\x20','/emby/','SELECT\x20value\x20FROM\x20app_config\x20WHERE\x20key\x20=\x20?','all','MediaSourceId','trim','/PlaybackInfo?UserId=','/stream?MediaSourceId=','<!DOCTYPE\x20html>\x0a<html\x20lang=\x22zh-CN\x22>\x0a<head>\x0a<meta\x20charset=\x22UTF-8\x22>\x0a<meta\x20name=\x22viewport\x22\x20content=\x22width=device-width,\x20initial-scale=1.0\x22>\x0a<title>下载测速\x20·\x20反代面板</title>\x0a<style>\x0a\x20\x20*{box-sizing:border-box;margin:0;padding:0}\x0a\x20\x20body{font-family:-apple-system,BlinkMacSystemFont,\x22Segoe\x20UI\x22,\x22PingFang\x20SC\x22,\x22Microsoft\x20YaHei\x22,sans-serif;background:#0f1117;color:#e6e8ee;min-height:100vh;display:flex;align-items:center;justify-content:center;padding:20px}\x0a\x20\x20.card{background:#161a24;border:1px\x20solid\x20#2a3040;border-radius:18px;padding:28px;width:100%;max-width:560px;box-shadow:0\x2012px\x2040px\x20rgba(0,0,0,.4)}\x0a\x20\x20h1{font-size:20px;margin-bottom:6px}\x0a\x20\x20.sub{color:#8a91a5;font-size:13px;margin-bottom:20px}\x0a\x20\x20.row{display:flex;justify-content:space-between;align-items:center;padding:10px\x200;border-bottom:1px\x20solid\x20#232938;font-size:14px;gap:16px}\x0a\x20\x20.row:last-of-type{border-bottom:none}\x0a\x20\x20.k{color:#8a91a5;white-space:nowrap}\x0a\x20\x20.v{font-weight:600;word-break:break-all;text-align:right}\x0a\x20\x20.ip{color:#5aa2ff}\x0a\x20\x20.speed{font-size:42px;font-weight:800;color:#4fd08a;text-align:center;margin:18px\x200\x206px;line-height:1}\x0a\x20\x20.speed\x20small{font-size:14px;color:#8a91a5;font-weight:500}\x0a\x20\x20.bar{height:10px;background:#232938;border-radius:6px;overflow:hidden;margin:8px\x200\x2016px}\x0a\x20\x20.bar\x20i{display:block;height:100%;width:0;background:linear-gradient(90deg,#4fd08a,#23a6d8);transition:width\x20.4s\x20ease}\x0a\x20\x20.opts{display:flex;gap:10px;margin-bottom:12px}\x0a\x20\x20select,button.ghost{flex:1;padding:11px;border:1px\x20solid\x20#2a3040;border-radius:10px;background:#161a24;color:#e6e8ee;font-size:13px}\x0a\x20\x20button.go{width:100%;padding:13px;border:none;border-radius:10px;cursor:pointer;font-size:15px;font-weight:700;background:#2563eb;color:#fff;transition:.2s}\x0a\x20\x20button.go:hover{background:#1d4ed8}\x0a\x20\x20button.go:disabled{opacity:.5;cursor:not-allowed}\x0a\x20\x20.meta{text-align:center;font-size:12px;color:#8a91a5;margin-top:12px;min-height:16px}\x0a\x20\x20.note{font-size:12px;color:#6b7280;margin-top:16px;line-height:1.7;border-top:1px\x20dashed\x20#2a3040;padding-top:12px}\x0a\x20\x20a.back{display:inline-flex;align-items:center;gap:6px;padding:7px\x2015px;border-radius:999px;background:rgba(0,180,255,.1);border:1px\x20solid\x20rgba(0,180,255,.28);color:#5aa2ff;font-size:13px;font-weight:600;text-decoration:none;margin-bottom:14px;transition:.2s}\x0a\x20\x20a.back:hover{background:rgba(0,180,255,.2)}\x0a</style>\x0a</head>\x0a<body>\x0a<div\x20class=\x22card\x22>\x0a\x20\x20<a\x20class=\x22back\x22\x20href=\x22/\x22>&#8592;\x20返回面板</a>\x0a\x20\x20<h1>&#128339;\x20当前域名下载测速</h1>\x0a\x20\x20<div\x20class=\x22sub\x22>浏览器直连当前域名，测其解析到的\x20CF\x20IP\x20的下载速度</div>\x0a\x20\x20<div\x20class=\x22row\x22><span\x20class=\x22k\x22>测试域名</span><span\x20class=\x22v\x22\x20id=\x22host\x22>…</span></div>\x0a\x20\x20<div\x20class=\x22row\x22><span\x20class=\x22k\x22>解析到的\x20IP</span><span\x20class=\x22v\x20ip\x22\x20id=\x22ips\x22>查询中…</span></div>\x0a\x20\x20<div\x20class=\x22speed\x22><span\x20id=\x22num\x22>--</span>\x20<small\x20id=\x22unit\x22>Mbps</small></div>\x0a\x20\x20<div\x20class=\x22bar\x22><i\x20id=\x22barfill\x22></i></div>\x0a\x20\x20<div\x20class=\x22opts\x22>\x0a\x20\x20\x20\x20<select\x20id=\x22size\x22>\x0a\x20\x20\x20\x20\x20\x20<option\x20value=\x2210485760\x22>负载\x2010\x20MB</option>\x0a\x20\x20\x20\x20\x20\x20<option\x20value=\x2220971520\x22>负载\x2020\x20MB</option>\x0a\x20\x20\x20\x20\x20\x20<option\x20value=\x2252428800\x22\x20selected>负载\x2050\x20MB</option>\x0a\x20\x20\x20\x20</select>\x0a\x20\x20\x20\x20<button\x20class=\x22ghost\x22\x20id=\x22runs\x22>测\x203\x20次取最优</button>\x0a\x20\x20</div>\x0a\x20\x20<button\x20class=\x22go\x22\x20id=\x22go\x22>开始测速</button>\x0a\x20\x20<div\x20class=\x22meta\x22\x20id=\x22meta\x22></div>\x0a\x20\x20<div\x20class=\x22note\x22>方式：从本域名直接下载测试负载，即走当前域名解析到的\x20CF\x20边缘\x20IP，多次取最优值。\x0a若\x20IP\x20显示“查询失败”，多为\x20DoH\x20被网络环境限制，不影响下载测速结果。</div>\x0a</div>\x0a<script>\x0a(function(){\x0a\x20\x20var\x20host=location.host;\x0a\x20\x20document.getElementById(\x27host\x27).textContent=host;\x0a\x20\x20var\x20ipsEl=document.getElementById(\x27ips\x27);\x0a\x20\x20var\x20sizeSel=document.getElementById(\x27size\x27);\x0a\x20\x20var\x20goBtn=document.getElementById(\x27go\x27);\x0a\x20\x20var\x20numEl=document.getElementById(\x27num\x27);\x0a\x20\x20var\x20unitEl=document.getElementById(\x27unit\x27);\x0a\x20\x20var\x20barEl=document.getElementById(\x27barfill\x27);\x0a\x20\x20var\x20metaEl=document.getElementById(\x27meta\x27);\x0a\x20\x20var\x20RUNS=3;\x0a\x0a\x20\x20function\x20resolveIps(){\x0a\x20\x20\x20\x20try{\x0a\x20\x20\x20\x20\x20\x20fetch(\x27https://cloudflare-dns.com/dns-query?name=\x27+encodeURIComponent(host)+\x27&type=A\x27,{headers:{accept:\x27application/dns-json\x27}})\x0a\x20\x20\x20\x20\x20\x20\x20\x20.then(function(r){return\x20r.json();})\x0a\x20\x20\x20\x20\x20\x20\x20\x20.then(function(d){\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20var\x20arr=(d&&d.Answer||[]).map(function(a){return\x20a.data;});\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20ipsEl.textContent=arr.length?arr.join(\x27\x20\x20\x27):\x27查询失败\x27;\x0a\x20\x20\x20\x20\x20\x20\x20\x20})\x0a\x20\x20\x20\x20\x20\x20\x20\x20.catch(function(){ipsEl.textContent=\x27查询失败（DoH\x20受限）\x27;});\x0a\x20\x20\x20\x20}catch(e){ipsEl.textContent=\x27查询失败\x27;}\x0a\x20\x20}\x0a\x20\x20resolveIps();\x0a\x0a\x20\x20async\x20function\x20runOnce(bytes){\x0a\x20\x20\x20\x20var\x20url=\x27/speedtest/data?bytes=\x27+bytes+\x27&t=\x27+Date.now();\x0a\x20\x20\x20\x20var\x20t0=performance.now();\x0a\x20\x20\x20\x20await\x20fetch(url,{cache:\x27no-store\x27}).then(function(r){return\x20r.arrayBuffer();});\x0a\x20\x20\x20\x20var\x20ms=performance.now()-t0;\x0a\x20\x20\x20\x20return\x20bytes*8/(ms/1000);\x0a\x20\x20}\x0a\x0a\x20\x20goBtn.addEventListener(\x27click\x27,async\x20function(){\x0a\x20\x20\x20\x20var\x20bytes=parseInt(sizeSel.value,10);\x0a\x20\x20\x20\x20goBtn.disabled=true;goBtn.textContent=\x27测速中…\x27;numEl.textContent=\x27--\x27;barEl.style.width=\x270\x27;\x0a\x20\x20\x20\x20var\x20best=0;\x0a\x20\x20\x20\x20for(var\x20i=0;i<RUNS;i++){\x0a\x20\x20\x20\x20\x20\x20try{\x0a\x20\x20\x20\x20\x20\x20\x20\x20var\x20bps=await\x20runOnce(bytes);\x0a\x20\x20\x20\x20\x20\x20\x20\x20if(bps>best)best=bps;\x0a\x20\x20\x20\x20\x20\x20\x20\x20metaEl.textContent=\x27第\x20\x27+(i+1)+\x27/\x27+RUNS+\x27\x20次\x20·\x20当前\x20\x27+(bps/1048576).toFixed(2)+\x27\x20Mbps\x27;\x0a\x20\x20\x20\x20\x20\x20}catch(e){metaEl.textContent=\x27第\x20\x27+(i+1)+\x27\x20次失败：\x27+e.message;break;}\x0a\x20\x20\x20\x20}\x0a\x20\x20\x20\x20if(best>0){\x0a\x20\x20\x20\x20\x20\x20numEl.textContent=(best/1048576).toFixed(2);\x0a\x20\x20\x20\x20\x20\x20unitEl.textContent=\x27Mbps\x20·\x20\x27+(best/1048576/8).toFixed(2)+\x27\x20MB/s\x27;\x0a\x20\x20\x20\x20\x20\x20barEl.style.width=Math.min(100,best/1000*100)+\x27%\x27;\x0a\x20\x20\x20\x20}\x0a\x20\x20\x20\x20goBtn.disabled=false;goBtn.textContent=\x27重新测速\x27;\x0a\x20\x20});\x0a})();\x0a</script>\x0a</body>\x0a</html>','has','清除播放记录','api_key','toString','86400','/api/keepalive/run','decode','antenna','获取失败','\x27:\x27trash\x27,\x27','1960bAuvnr','watch_sessions','cloud','\x27:\x27box\x27,\x27','/api/subscribers','\x20手动覆盖/更新</h2>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<button\x20onclick=\x22closeCodeModal()\x22\x20style=\x22background:transparent;border:none;cursor:pointer;color:var(--text-sec);display:inline-flex;padding:4px;\x22>','/api/tg-webhook','未绑定\x20D1\x20数据库','\x0a\x20\x20\x20\x20\x20\x20\x20\x20body\x20{\x20display:\x20flex;\x20justify-content:\x20center;\x20align-items:\x20center;\x20height:\x20100vh;\x20padding:\x2016px;\x20margin:\x200;\x20background:\x20#f0f2f5;\x20}\x0a\x20\x20\x20\x20\x20\x20\x20\x20.login-box\x20{\x20background:\x20var(--card);\x20padding:\x2040px\x2030px;\x20border-radius:\x2020px;\x20box-shadow:\x200\x2010px\x2040px\x20rgba(0,0,0,0.08);\x20text-align:\x20center;\x20width:\x20100%;\x20max-width:\x20360px;\x20}\x0a\x20\x20\x20\x20\x20\x20\x20\x20.login-box\x20h2\x20{\x20margin:\x200\x200\x2024px\x200;\x20font-size:\x2022px;\x20font-weight:\x20600;\x20}\x0a\x20\x20\x20\x20\x20\x20\x20\x20.login-box\x20input\x20{\x20width:\x20100%;\x20padding:\x2016px;\x20margin-bottom:\x2020px;\x20border:\x201px\x20solid\x20var(--border);\x20border-radius:\x2012px;\x20}\x0a\x20\x20\x20\x20\x20\x20\x20\x20.login-box\x20input:focus\x20{\x20border-color:\x20var(--primary);\x20box-shadow:\x200\x200\x200\x203px\x20rgba(0,113,227,0.15);\x20}\x0a\x20\x20\x20\x20\x20\x20\x20\x20.login-box\x20button\x20{\x20width:\x20100%;\x20padding:\x2016px;\x20background:\x20var(--primary);\x20color:\x20white;\x20border:\x20none;\x20border-radius:\x2012px;\x20cursor:\x20pointer;\x20font-weight:\x20600;\x20}\x0a\x20\x20\x20\x20</style>\x0a\x20\x20\x20\x20<link\x20rel=\x22icon\x22\x20type=\x22image/jpeg\x22\x20href=\x22','/settings','Access-Control-Allow-Origin','404:\x20Node\x20not\x20found\x20(DB\x20not\x20bound)','set','<svg\x20viewBox=\x220\x200\x2024\x2024\x22\x20fill=\x22none\x22\x20stroke=\x22currentColor\x22\x20stroke-width=\x221.8\x22\x20stroke-linecap=\x22round\x22\x20stroke-linejoin=\x22round\x22><path\x20d=\x22M9\x2018h6M10\x2022h4M8\x2014.5A6\x206\x200\x200\x201\x2012\x205a6\x206\x200\x200\x201\x204\x209.5c-.8.8-1\x201.6-1\x202.5h-6c0-.9-.2-1.7-1-2.5z\x22/></svg>','watchLimit','password','/Items/','Items\x20→\x20','</button>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<select\x20id=\x22cf-mode-select\x22\x20onchange=\x22handleModeChange()\x22\x20style=\x22width:100%;\x20padding:10px;\x20border-radius:6px;\x20border:1px\x20solid\x20var(--border);\x20background:var(--bg);\x20color:var(--text);\x20margin-bottom:10px;\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<option\x20value=\x27{\x22mode\x22:\x22smart\x22}\x27>\x20智能调度\x20(Smart\x20Placement)</option>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<option\x20value=\x27{\x22mode\x22:\x22off\x22}\x27>\x20边缘节点\x20(Edge\x20-\x20默认离访客近)</option>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<optgroup\x20label=\x22指定云厂商物理机房落地\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<option\x20value=\x22aws\x22>\x20AWS\x20(亚马逊云)</option>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<option\x20value=\x22gcp\x22>\x20GCP\x20(谷歌云)</option>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<option\x20value=\x22azure\x22>\x20Azure\x20(微软云)</option>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</optgroup>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<option\x20value=\x22custom\x22>\x20手动输入区域代码...</option>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</select>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<select\x20id=\x22cf-region-select\x22\x20style=\x22display:none;\x20width:100%;\x20padding:10px;\x20border-radius:6px;\x20border:1px\x20solid\x20var(--border);\x20background:var(--bg);\x20color:var(--text);\x20margin-bottom:10px;\x22></select>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<input\x20type=\x22text\x22\x20id=\x22cf-custom-input\x22\x20placeholder=\x22输入云代码\x20(如\x20gcp:us-west1)\x22\x20style=\x22display:none;\x20width:100%;\x20padding:10px;\x20border-radius:6px;\x20border:1px\x20solid\x20var(--border);\x20background:var(--bg);\x20color:var(--text);\x20margin-bottom:10px;\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20id=\x22place-status\x22\x20style=\x22margin:0\x200\x2012px;\x20font-size:13px;\x20color:var(--text-sec);\x20font-weight:600;\x22>后台全自动安全调度，不暴露任何私钥</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<button\x20class=\x22btn-submit\x22\x20onclick=\x22updatePlacement()\x22\x20style=\x22width:100%;\x22>','plain_text','\x20当前为订阅用户模式，仅可查看节点，无任何修改权限。\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22card\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20style=\x22display:flex;\x20justify-content:\x20space-between;\x20align-items:center;\x20margin-bottom:16px;\x20flex-wrap:wrap;\x20gap:10px;\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<h2\x20style=\x22margin:0;\x20font-size:18px;\x22>已反代的媒体库</h2>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20style=\x22display:\x20flex;\x20gap:\x2010px;\x20align-items:center;\x20flex-wrap:\x20wrap;\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<button\x20class=\x22btn-submit\x20admin-only\x22\x20onclick=\x22pingAllNodes()\x22\x20style=\x22\x20padding:\x2010px\x2014px;\x20font-size:\x2013px;\x22>','PlaybackInfo\x20→\x20','isArray','/api/placement','/https://','parse','search','race','UserData\x20→\x20','（拉流\x20','clone','\x20复制去\x20ITDog</button>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<button\x20class=\x22btn-submit\x22\x20onclick=\x22clearTest()\x22\x20style=\x22\x20box-shadow:\x200\x204px\x2012px\x20rgba(142,\x20142,\x20147,\x200.2);\x22>','X-MediaBrowser-Token','MB）','https://api.telegram.org/bot','SELECT\x20sort_order\x20FROM\x20routes\x20WHERE\x20prefix\x20=\x20?','&quot;','manual','/__client_rtt__','nodePass','MediaSources','\x27:\x27dotorange\x27,\x27','\x20配置备份与恢复</h2>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20style=\x22display:flex;\x20gap:10px;\x20flex-wrap:wrap;\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<button\x20class=\x22btn-submit\x22\x20onclick=\x22exportConfig()\x22>','连通性探测','\x20GB','TG_BOT_TOKEN','ALTER\x20TABLE\x20routes\x20ADD\x20COLUMN\x20node_user\x20TEXT\x20DEFAULT\x20\x27\x27','INSERT\x20INTO\x20visitor_logs\x20(prefix,\x20ip,\x20country,\x20ua)\x20VALUES\x20(?,\x20?,\x20?,\x20?)','/api/keepalive/notices','Videos/','\x20修改调度/区域</button>\x0a\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22content-wrap\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22topbar\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22topbar-left\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<img\x20class=\x22topbar-logo\x22\x20src=\x22','no-store','getRandomValues','代码内容为空。','CF_WORKER_NAME','\x20添加</button>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20id=\x22accountSubPanel\x22\x20style=\x22display:none;\x20text-align:center;\x20padding:20px\x200;\x20color:var(--text-sec);\x20font-size:14px;\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20','off','\x27:\x27gear\x27,\x27','compatibility_date','/emby/System/Info','SenPlayer','trash','初始化保活任务…','\x20提取预设源并测速</button>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<button\x20class=\x22btn-submit\x22\x20onclick=\x22batchTcpPing()\x22\x20style=\x22\x20box-shadow:\x200\x204px\x2012px\x20rgba(255,\x20149,\x200,\x200.2);\x22>','127.','\x20一键拉取并升级</button>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20<div\x20id=\x22cf-trace-card\x22\x20style=\x22background:\x20rgba(120,120,120,0.05);\x20padding:\x2015px\x2020px;\x20border-radius:\x2012px;\x20border:\x201px\x20solid\x20var(--border);\x20margin-bottom:\x2020px;\x20display:\x20flex;\x20flex-wrap:\x20wrap;\x20justify-content:\x20space-between;\x20align-items:\x20center;\x20font-size:\x2014px;\x20gap:\x2015px;\x20box-shadow:\x20inset\x200\x202px\x204px\x20rgba(0,0,0,0.02);\x20margin-top:\x2020px;\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20style=\x22display:\x20flex;\x20align-items:\x20center;\x20gap:\x2012px;\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20style=\x22font-size:\x2024px;\x22>','from','PlaySessionId','/catch','700155JoDfPs','保活节点','SELECT\x20ip,\x20path,\x20ua,\x20ts,\x20times\x20FROM\x20proxy_hits\x20ORDER\x20BY\x20id\x20DESC\x20LIMIT\x20200','message','153894XPjCBA','edgeResponseBytes','function','delete','arrowdown','\x20KB','prefix','<svg\x20viewBox=\x220\x200\x2024\x2024\x22\x20fill=\x22none\x22\x20stroke=\x22currentColor\x22\x20stroke-width=\x221.8\x22\x20stroke-linecap=\x22round\x22><ellipse\x20cx=\x2212\x22\x20cy=\x225\x22\x20rx=\x228\x22\x20ry=\x223\x22/><path\x20d=\x22M4\x205v14c0\x201.7\x203.6\x203\x208\x203s8-1.3\x208-3V5M4\x2012c0\x201.7\x203.6\x203\x208\x203s8-1.3\x208-3\x22/></svg>','proxyToken','metadata','custom_params','UPDATE\x20proxy_hits\x20SET\x20times\x20=\x20?,\x20ts\x20=\x20?\x20WHERE\x20id\x20=\x20?','POST','请在\x20Worker\x20变量中配置\x20ADMIN_TOKEN','https://1.1.1.1/cdn-cgi/trace','\x0a\x20\x20\x20\x20:root\x20{\x20\x0a\x20\x20\x20\x20\x20\x20\x20\x20--primary:\x20#0071e3;\x20\x0a\x20\x20\x20\x20\x20\x20\x20\x20--primary-hover:\x20#005cbf;\x0a\x20\x20\x20\x20\x20\x20\x20\x20--bg:\x20#f5f5f7;\x20\x0a\x20\x20\x20\x20\x20\x20\x20\x20--card:\x20#ffffff;\x20\x0a\x20\x20\x20\x20\x20\x20\x20\x20--text:\x20#1d1d1f;\x20\x0a\x20\x20\x20\x20\x20\x20\x20\x20--text-sec:\x20#86868b;\x0a\x20\x20\x20\x20\x20\x20\x20\x20--border:\x20#d2d2d7;\x20\x0a\x20\x20\x20\x20\x20\x20\x20\x20--radius-card:\x2016px;\x0a\x20\x20\x20\x20}\x0a\x20\x20\x20\x20\x0a\x20\x20\x20\x20body.dark\x20{\x0a\x20\x20\x20\x20\x20\x20\x20\x20--primary:\x20#0a84ff;\x20\x0a\x20\x20\x20\x20\x20\x20\x20\x20--primary-hover:\x20#0071e3;\x0a\x20\x20\x20\x20\x20\x20\x20\x20--bg:\x20#000000;\x20\x0a\x20\x20\x20\x20\x20\x20\x20\x20--card:\x20#1c1c1e;\x20\x0a\x20\x20\x20\x20\x20\x20\x20\x20--text:\x20#f5f5f7;\x20\x0a\x20\x20\x20\x20\x20\x20\x20\x20--text-sec:\x20#98989d;\x0a\x20\x20\x20\x20\x20\x20\x20\x20--border:\x20#38383a;\x0a\x20\x20\x20\x20}\x0a\x0a\x20\x20\x20\x20*\x20{\x20box-sizing:\x20border-box;\x20touch-action:\x20manipulation;\x20}\x0a\x20\x20\x20\x20body\x20{\x20font-family:\x20-apple-system,\x20BlinkMacSystemFont,\x20\x22SF\x20Pro\x20Text\x22,\x20\x22Segoe\x20UI\x22,\x20Roboto,\x20sans-serif;\x20background:\x20var(--bg);\x20color:\x20var(--text);\x20margin:\x200;\x20padding:\x2020px;\x20-webkit-text-size-adjust:\x20100%;\x20transition:\x20background-color\x200.3s,\x20color\x200.3s;\x20}\x0a\x20\x20\x20\x20.container\x20{\x20max-width:\x201200px;\x20margin:\x200\x20auto;\x20width:\x20100%;\x20min-height:\x2090vh;\x20display:\x20flex;\x20flex-direction:\x20column;}\x0a\x20\x20\x20\x20.content-wrap\x20{\x20flex:\x201;\x20}\x0a\x20\x20\x20\x20input,\x20select,\x20button,\x20textarea\x20{\x20font-family:\x20inherit;\x20outline:\x20none;\x20font-size:\x2015px;\x20}\x0a\x20\x20\x20\x20\x0a\x20\x20\x20\x20.card\x20{\x20background:\x20var(--card);\x20padding:\x2024px;\x20border-radius:\x20var(--radius-card);\x20box-shadow:\x200\x204px\x2020px\x20rgba(0,0,0,0.03);\x20margin-bottom:\x2024px;\x20border:\x201px\x20solid\x20var(--border);\x20transition:\x200.3s;\x20}\x0a\x20\x20\x20\x20\x0a\x20\x20\x20\x20#toast\x20{\x20position:\x20fixed;\x20top:\x20-60px;\x20left:\x2050%;\x20transform:\x20translateX(-50%);\x20background:\x20rgba(0,0,0,0.85);\x20color:\x20white;\x20padding:\x2012px\x2024px;\x20border-radius:\x2030px;\x20font-size:\x2014px;\x20font-weight:\x20500;\x20transition:\x20top\x200.4s\x20cubic-bezier(0.175,\x200.885,\x200.32,\x201.275);\x20z-index:\x209999;\x20backdrop-filter:\x20blur(10px);\x20text-align:\x20center;\x20max-width:\x2090vw;\x20word-wrap:\x20break-word;\x20}\x0a\x20\x20\x20\x20#toast.show\x20{\x20top:\x2020px;\x20}\x0a\x0a\x20\x20\x20\x20.toolbar\x20{\x20display:\x20flex;\x20gap:\x2012px;\x20flex-wrap:\x20wrap;\x20margin-bottom:\x2016px;\x20align-items:\x20center;\x20}\x0a\x20\x20\x20\x20.btn-submit\x20{\x20padding:\x2012px\x2020px;\x20background:\x20var(--primary);\x20color:\x20white;\x20border:\x20none;\x20border-radius:\x2010px;\x20cursor:\x20pointer;\x20font-weight:\x20600;\x20white-space:\x20nowrap;\x20transition:\x200.2s;\x20box-shadow:\x200\x204px\x2012px\x20rgba(0,\x20113,\x20227,\x200.2);\x20}\x0a\x20\x20\x20\x20.btn-submit:hover\x20{\x20background:\x20var(--primary-hover);\x20transform:\x20translateY(-1px);\x20box-shadow:\x200\x206px\x2016px\x20rgba(0,\x20113,\x20227,\x200.3);\x20}\x0a\x20\x20\x20\x20.btn-submit:active\x20{\x20transform:\x20translateY(0);\x20}\x0a\x20\x20\x20\x20.btn-submit:disabled\x20{\x20opacity:\x200.6;\x20cursor:\x20not-allowed;\x20transform:\x20none;\x20box-shadow:\x20none;\x20}\x0a\x20\x20\x20\x20\x0a\x20\x20\x20\x20.table-wrapper\x20{\x20width:\x20100%;\x20border-radius:\x2012px;\x20border:\x201px\x20solid\x20var(--border);\x20overflow:\x20hidden;\x20background:\x20var(--card);\x20}\x0a\x20\x20\x20\x20table\x20{\x20width:\x20100%;\x20border-collapse:\x20collapse;\x20text-align:\x20left;\x20}\x0a\x20\x20\x20\x20th,\x20td\x20{\x20padding:\x2016px;\x20border-bottom:\x201px\x20solid\x20var(--border);\x20font-size:\x2014px;\x20vertical-align:\x20middle;\x20}\x0a\x20\x20\x20\x20th\x20{\x20color:\x20var(--text-sec);\x20font-weight:\x20600;\x20background:\x20rgba(120,120,120,0.05);\x20}\x0a\x20\x20\x20\x20tr:last-child\x20td\x20{\x20border-bottom:\x20none;\x20}\x0a\x20\x20\x20\x20tr:hover\x20td\x20{\x20background-color:\x20rgba(120,120,120,0.03);\x20}\x0a\x20\x20\x20\x20\x0a\x20\x20\x20\x20.action-group\x20{\x20display:\x20inline-flex;\x20gap:\x208px;\x20background:\x20rgba(120,120,120,0.05);\x20padding:\x204px\x2010px;\x20border-radius:\x208px;\x20border:\x201px\x20solid\x20var(--border);\x20align-items:\x20flex-start;\x20max-width:\x20100%;\x20flex-wrap:\x20wrap;\x20}\x0a\x20\x20\x20\x20.icon-btn\x20{\x20display:\x20inline-flex;\x20align-items:\x20center;\x20justify-content:\x20center;\x20width:\x2028px;\x20height:\x2028px;\x20border-radius:\x206px;\x20border:\x20none;\x20background:\x20var(--card);\x20cursor:\x20pointer;\x20color:\x20var(--text);\x20padding:\x200;\x20box-shadow:\x200\x202px\x206px\x20rgba(0,0,0,0.05);\x20transition:\x200.2s;\x20flex-shrink:\x200;\x20font-size:16px;\x20}\x0a\x20\x20\x20\x20.icon-btn:hover\x20{\x20color:\x20var(--primary);\x20box-shadow:\x200\x204px\x2010px\x20rgba(0,0,0,0.1);\x20}\x0a\x20\x20\x20\x20.icon-btn\x20svg\x20{\x20width:\x2015px;\x20height:\x2015px;\x20fill:\x20currentColor;\x20}\x0a\x20\x20\x20\x20\x0a\x20\x20\x20\x20.badge\x20{\x20padding:\x204px\x2010px;\x20border-radius:\x2020px;\x20font-size:\x2012px;\x20font-weight:\x20600;\x20display:\x20inline-block;\x20}\x0a\x20\x20\x20\x20\x0a\x20\x20\x20\x20.btn-edit\x20{\x20padding:\x208px\x2014px;\x20background:\x20var(--card);\x20color:\x20var(--primary);\x20border:\x201px\x20solid\x20var(--primary);\x20border-radius:\x208px;\x20cursor:\x20pointer;\x20font-size:\x2013px;\x20font-weight:\x20600;\x20transition:\x200.2s;\x20}\x0a\x20\x20\x20\x20.btn-del\x20{\x20padding:\x208px\x2014px;\x20background:\x20var(--card);\x20color:\x20#ff3b30;\x20border:\x201px\x20solid\x20#ff3b30;\x20border-radius:\x208px;\x20cursor:\x20pointer;\x20font-size:\x2013px;\x20font-weight:\x20600;\x20transition:\x200.2s;\x20}\x0a\x20\x20\x20\x20.btn-dns\x20{\x20padding:\x208px\x2014px;\x20background:\x20var(--card);\x20color:\x20#34c759;\x20border:\x201px\x20solid\x20#34c759;\x20border-radius:\x208px;\x20cursor:\x20pointer;\x20font-size:\x2013px;\x20font-weight:\x20600;\x20transition:\x200.2s;\x20white-space:\x20nowrap;\x20}\x0a\x20\x20\x20\x20.btn-dns:disabled\x20{\x20opacity:\x200.5;\x20cursor:\x20not-allowed;\x20}\x0a\x0a\x20\x20\x20\x20.ip-checkbox\x20{\x20width:\x2018px;\x20height:\x2018px;\x20cursor:\x20pointer;\x20accent-color:\x20var(--primary);\x20}\x0a\x20\x20\x20\x20.secret-text\x20{\x20font-family:\x20monospace;\x20letter-spacing:\x202px;\x20color:\x20var(--text-sec);\x20}\x0a\x20\x20\x20\x20\x0a\x20\x20\x20\x20.dynamic-url\x20{\x20display:\x20block;\x20max-width:\x20200px;\x20overflow:\x20hidden;\x20text-overflow:\x20ellipsis;\x20white-space:\x20nowrap;\x20flex:\x201;\x20text-align:\x20right;\x20}\x0a\x20\x20\x20\x20.actual-text.dynamic-url\x20{\x20white-space:\x20normal;\x20max-width:\x20100%;\x20overflow:\x20visible;\x20text-align:\x20left\x20!important;\x20word-break:\x20break-all;\x20font-size:\x2013px;\x20font-family:\x20monospace;\x20color:\x20var(--primary);\x20letter-spacing:\x20normal;\x20}\x0a\x20\x20\x20\x20.url-list-item\x20{\x20background:\x20var(--bg);\x20border:\x201px\x20solid\x20var(--border);\x20padding:\x204px\x208px;\x20border-radius:\x206px;\x20font-size:\x2012px;\x20margin-top:\x206px;\x20word-break:\x20break-all;\x20line-height:\x201.4;\x20color:\x20var(--text);\x20font-family:\x20-apple-system,\x20sans-serif;\x20letter-spacing:\x20normal;\x20text-align:\x20left;\x20}\x0a\x20\x20\x20\x20.url-list-item:first-child\x20{\x20margin-top:\x200;\x20}\x0a\x0a\x20\x20\x20\x20body.dark\x20input,\x20body.dark\x20select,\x20body.dark\x20textarea\x20{\x20background:\x20#1c1c1e;\x20color:\x20#f5f5f7;\x20border:\x201px\x20solid\x20#38383a;\x20}\x0a\x0a\x20\x20\x20\x20.search-input\x20{\x20padding:\x2010px\x2016px;\x20border:\x201px\x20solid\x20var(--border);\x20border-radius:\x2010px;\x20background:\x20var(--bg);\x20color:\x20var(--text);\x20font-size:\x2014px;\x20width:\x20260px;\x20transition:\x200.3s;\x20}\x0a\x20\x20\x20\x20.search-input:focus\x20{\x20border-color:\x20var(--primary);\x20box-shadow:\x200\x200\x200\x203px\x20rgba(0,113,227,0.15);\x20}\x0a\x0a\x20\x20\x20\x20.node-grid\x20{\x20display:\x20grid;\x20grid-template-columns:\x20repeat(auto-fill,\x20minmax(340px,\x201fr));\x20gap:\x2020px;\x20margin-top:\x2020px;\x20}\x0a\x20\x20\x20\x20.emby-card\x20{\x20background:\x20var(--card);\x20border:\x201px\x20solid\x20var(--border);\x20border-radius:\x2014px;\x20padding:\x2020px;\x20box-shadow:\x200\x204px\x2015px\x20rgba(0,0,0,0.02);\x20display:\x20flex;\x20flex-direction:\x20column;\x20gap:\x2014px;\x20transition:\x200.3s;\x20position:\x20relative;\x20}\x0a\x20\x20\x20\x20.emby-card:hover\x20{\x20box-shadow:\x200\x208px\x2025px\x20rgba(0,0,0,0.06);\x20transform:\x20translateY(-2px);\x20}\x0a\x20\x20\x20\x20.card-header\x20{\x20display:\x20flex;\x20justify-content:\x20space-between;\x20align-items:\x20flex-start;\x20border-bottom:\x201px\x20solid\x20var(--border);\x20padding-bottom:\x2012px;\x20}\x0a\x20\x20\x20\x20.card-title-group\x20{\x20display:\x20flex;\x20align-items:\x20center;\x20gap:\x2012px;\x20}\x0a\x20\x20\x20\x20.emby-icon\x20{\x20font-size:\x2028px;\x20background:\x20rgba(120,120,120,0.05);\x20border-radius:\x2010px;\x20padding:\x206px;\x20border:\x201px\x20solid\x20var(--border);\x20display:\x20flex;\x20align-items:\x20center;\x20justify-content:\x20center;\x20width:\x2042px;\x20height:\x2042px;\x20flex-shrink:\x200;\x20}\x0a\x20\x20\x20\x20.info-row\x20{\x20display:\x20flex;\x20align-items:\x20flex-start;\x20justify-content:\x20space-between;\x20font-size:\x2013px;\x20}\x0a\x20\x20\x20\x20.info-label\x20{\x20color:\x20var(--text-sec);\x20font-weight:\x20500;\x20min-width:\x2065px;\x20margin-top:\x204px;\x20}\x0a\x20\x20\x20\x20.card-footer\x20{\x20display:\x20flex;\x20justify-content:\x20flex-end;\x20gap:\x2010px;\x20margin-top:\x20auto;\x20padding-top:\x2012px;\x20border-top:\x201px\x20dashed\x20var(--border);\x20}\x0a\x0a\x20\x20\x20\x20.ping-badge\x20{\x20color:\x20var(--text-sec);\x20cursor:\x20pointer;\x20padding:\x204px\x2010px;\x20background:\x20rgba(120,120,120,0.05);\x20border-radius:\x206px;\x20font-size:\x2013px;\x20font-weight:\x20500;\x20transition:\x200.2s;\x20border:\x201px\x20solid\x20transparent;\x20user-select:\x20none;\x20}\x0a\x20\x20\x20\x20.ping-badge:hover\x20{\x20border-color:\x20var(--border);\x20background:\x20var(--card);\x20box-shadow:\x200\x202px\x206px\x20rgba(0,0,0,0.05);\x20color:\x20var(--primary);\x20}\x0a\x0a\x20\x20\x20\x20.icon-item\x20{\x20cursor:\x20pointer;\x20padding:\x206px;\x20border-radius:\x208px;\x20border:\x201px\x20solid\x20transparent;\x20display:\x20flex;\x20justify-content:\x20center;\x20align-items:\x20center;\x20transition:\x200.2s;\x20background:\x20var(--bg);\x20height:\x2044px;\x20}\x0a\x20\x20\x20\x20.icon-item:hover\x20{\x20border-color:\x20var(--primary)\x20!important;\x20box-shadow:\x200\x202px\x208px\x20rgba(0,113,227,0.2);\x20transform:\x20scale(1.05);\x20}\x0a\x20\x20\x20\x20#iconGrid::-webkit-scrollbar\x20{\x20width:\x206px;\x20}\x0a\x20\x20\x20\x20#iconGrid::-webkit-scrollbar-thumb\x20{\x20background:\x20var(--border);\x20border-radius:\x203px;\x20}\x0a\x0a\x20\x20\x20\x20/*\x20拖拽排序核心适配样式\x20*/\x0a\x20\x20\x20\x20.emby-card.sortable-ghost\x20{\x20opacity:\x200.4;\x20}\x0a\x20\x20\x20\x20.emby-card.sortable-drag\x20{\x20cursor:\x20grabbing\x20!important;\x20}\x0a\x20\x20\x20\x20.drag-handle\x20{\x20cursor:\x20grab;\x20padding-right:\x2010px;\x20font-size:\x2018px;\x20color:\x20var(--text-sec);\x20display:\x20flex;\x20align-items:\x20center;\x20user-select:\x20none;\x20touch-action:\x20none;}\x0a\x20\x20\x20\x20.drag-handle:active\x20{\x20cursor:\x20grabbing;\x20color:\x20var(--primary);\x20}\x0a\x0a\x20\x20\x20\x20/*\x20响应式移动端适配\x20*/\x0a\x20\x20\x20\x20@media\x20(max-width:\x20768px)\x20{\x0a\x20\x20\x20\x20\x20\x20\x20\x20body\x20{\x20padding:\x2012px;\x20}\x0a\x20\x20\x20\x20\x20\x20\x20\x20.card\x20{\x20padding:\x2016px;\x20border-radius:\x2012px;\x20margin-bottom:\x2016px;\x20}\x0a\x20\x20\x20\x20\x20\x20\x20\x20.header\x20h1\x20{\x20font-size:\x2022px;\x20}\x0a\x20\x20\x20\x20\x20\x20\x20\x20.toolbar\x20{\x20flex-direction:\x20column;\x20align-items:\x20stretch;\x20gap:\x2012px;\x20}\x0a\x20\x20\x20\x20\x20\x20\x20\x20.toolbar\x20>\x20*\x20{\x20width:\x20100%;\x20display:\x20flex;\x20justify-content:\x20center;\x20}\x0a\x20\x20\x20\x20\x20\x20\x20\x20.search-input\x20{\x20width:\x20100%;\x20}\x0a\x20\x20\x20\x20\x20\x20\x20\x20.node-grid\x20{\x20grid-template-columns:\x201fr;\x20}\x0a\x20\x20\x20\x20\x20\x20\x20\x20.table-wrapper\x20{\x20border:\x20none;\x20background:\x20transparent;\x20overflow:\x20visible;\x20}\x0a\x20\x20\x20\x20\x20\x20\x20\x20table,\x20thead,\x20tbody,\x20th,\x20td,\x20tr\x20{\x20display:\x20block;\x20width:\x20100%;\x20}\x0a\x20\x20\x20\x20\x20\x20\x20\x20thead\x20{\x20display:\x20none;\x20}\x0a\x20\x20\x20\x20\x20\x20\x20\x20tr\x20{\x20margin-bottom:\x2016px;\x20background:\x20var(--card);\x20border-radius:\x2012px;\x20border:\x201px\x20solid\x20var(--border);\x20box-shadow:\x200\x202px\x2012px\x20rgba(0,0,0,0.03);\x20overflow:\x20hidden;\x20}\x0a\x20\x20\x20\x20\x20\x20\x20\x20td\x20{\x20display:\x20flex;\x20align-items:\x20center;\x20padding:\x2014px\x2016px;\x20border-bottom:\x201px\x20solid\x20var(--border);\x20text-align:\x20right;\x20gap:\x2012px;\x20min-height:\x2050px;\x20}\x0a\x20\x20\x20\x20\x20\x20\x20\x20td:last-child\x20{\x20border-bottom:\x20none;\x20}\x0a\x20\x20\x20\x20\x20\x20\x20\x20td[colspan]\x20{\x20justify-content:\x20center;\x20text-align:\x20center;\x20}\x0a\x20\x20\x20\x20\x20\x20\x20\x20td[colspan]::before\x20{\x20display:\x20none\x20!important;\x20}\x0a\x20\x20\x20\x20\x20\x20\x20\x20td::before\x20{\x20content:\x20attr(data-label);\x20font-weight:\x20600;\x20color:\x20var(--text-sec);\x20flex-shrink:\x200;\x20margin-right:\x20auto;\x20text-align:\x20left;\x20}\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x0a\x20\x20\x20\x20\x20\x20\x20\x20#dashboardModal\x20{\x20padding:\x2010px\x20!important;\x20}\x0a\x20\x20\x20\x20\x20\x20\x20\x20#dashboardModal\x20.card\x20{\x20margin:\x2010px\x20auto\x20!important;\x20padding:\x2016px\x20!important;\x20box-sizing:\x20border-box;\x20}\x0a\x20\x20\x20\x20\x20\x20\x20\x20#dashboardModal\x20h2\x20{\x20font-size:\x2018px;\x20flex-direction:\x20column;\x20align-items:\x20flex-start;\x20}\x0a\x20\x20\x20\x20\x20\x20\x20\x20#dashboardModal\x20h2\x20span\x20{\x20font-size:\x2012px;\x20}\x0a\x20\x20\x20\x20}\x0a\x0a\x20\x20\x20\x20/*\x20=====\x20图标统一样式（SF\x20Symbols\x20内联\x20SVG）=====\x20*/\x0a\x20\x20\x20\x20.ti{display:inline-flex;align-items:center;justify-content:center;vertical-align:-0.18em;flex-shrink:0}\x0a\x20\x20\x20\x20.ti\x20svg{width:16px;height:16px}\x0a\x20\x20\x20\x20h1\x20svg,h2\x20svg,h3\x20svg,h4\x20svg,p\x20svg,label\x20svg,span\x20svg,div\x20svg{width:1.1em;height:1.1em;vertical-align:-0.18em;flex-shrink:0}\x0a\x20\x20\x20\x20.emby-icon\x20svg{width:22px;height:22px}\x0a\x20\x20\x20\x20.drag-handle\x20svg{width:18px;height:18px}\x0a\x20\x20\x20\x20.icon-btn\x20svg{width:15px;height:15px}\x0a\x20\x20\x20\x20#themeToggle\x20svg{width:22px;height:22px;color:var(--text-sec);transition:color\x20.2s}\x0a\x20\x20\x20\x20#themeToggle:hover\x20svg{color:var(--primary)}\x0a\x0a\x20\x20\x20\x20/*\x20=====\x20按钮图标对齐\x20=====\x20*/\x0a\x20\x20\x20\x20.btn-submit,.btn-dns,.btn-edit,.btn-del{display:inline-flex;align-items:center;gap:6px;justify-content:center}\x0a\x20\x20\x20\x20.btn-submit\x20svg,.btn-dns\x20svg,.btn-edit\x20svg,.btn-del\x20svg{width:16px;height:16px}\x0a\x0a\x20\x20\x20\x20/*\x20=====\x20布局微调\x20=====\x20*/\x0a\x20\x20\x20\x20.header\x20h1{display:inline-flex;align-items:center;gap:12px}\x0a\x20\x20\x20\x20.card\x20h2{display:inline-flex;align-items:center;gap:8px;font-weight:700;color:var(--text)}\x0a\x20\x20\x20\x20.card\x20h2\x20svg{color:var(--primary)}\x0a\x20\x20\x20\x20.card\x20h3{display:inline-flex;align-items:center;gap:8px;color:var(--text)}\x0a\x20\x20\x20\x20.card\x20h3\x20svg{color:var(--primary)}\x0a\x20\x20\x20\x20input:focus,select:focus,textarea:focus{border-color:var(--primary);box-shadow:0\x200\x200\x203px\x20rgba(0,113,227,.12)}\x0a\x20\x20\x20\x20input,select,textarea{transition:border-color\x20.2s,box-shadow\x20.2s}\x0a\x20\x20\x20\x20.card{padding:22px;margin-bottom:20px}\x0a\x20\x20\x20\x20.card-header\x20h3{margin:0;font-size:16px;display:inline-flex;align-items:center;gap:8px}\x0a\x20\x20\x20\x20.drag-handle{font-size:0}\x0a\x20\x20\x20\x20\x20\x20\x20\x20.action-group{gap:6px;padding:5px\x208px}\x0a\x20\x20\x20\x20/*\x20=====\x20科技感统一按钮\x20=====\x20*/\x0a\x20\x20\x20\x20.btn-submit{background:linear-gradient(135deg,#00c6ff\x200%,#0072ff\x20100%);box-shadow:0\x204px\x2016px\x20rgba(0,180,255,.35);text-shadow:0\x201px\x202px\x20rgba(0,0,0,.18)}\x0a\x20\x20\x20\x20.btn-submit:hover{background:linear-gradient(135deg,#00d4ff,#0a5cff);box-shadow:0\x206px\x2022px\x20rgba(0,180,255,.5)}\x0a\x20\x20\x20\x20.btn-danger{display:inline-flex;align-items:center;gap:6px;justify-content:center;padding:11px\x2020px;background:linear-gradient(135deg,#ff5f6d,#ff2d55);color:#fff;border:none;border-radius:10px;cursor:pointer;font-weight:600;white-space:nowrap;transition:.25s;box-shadow:0\x204px\x2016px\x20rgba(255,45,85,.35)}\x0a\x20\x20\x20\x20.btn-danger:hover{transform:translateY(-1px);box-shadow:0\x206px\x2022px\x20rgba(255,45,85,.5)}\x0a\x20\x20\x20\x20.btn-danger\x20svg{width:16px;height:16px}\x0a\x20\x20\x20\x20.btn-ghost{display:inline-flex;align-items:center;gap:6px;padding:9px\x2014px;background:transparent;color:var(--primary);border:1px\x20solid\x20var(--border);border-radius:10px;cursor:pointer;font-weight:600;font-size:13px;white-space:nowrap;transition:.2s}\x0a\x20\x20\x20\x20.btn-ghost:hover{border-color:var(--primary);color:var(--primary);box-shadow:0\x200\x200\x203px\x20rgba(0,113,227,.1)}\x0a\x20\x20\x20\x20.btn-ghost\x20svg{width:15px;height:15px}\x0a\x20\x20\x20\x20/*\x20=====\x20顶部固定浮动栏\x20=====\x20*/\x0a\x20\x20\x20\x20.topbar{position:fixed;top:0;left:0;right:0;z-index:999;display:flex;align-items:center;gap:14px;padding:10px\x2018px;background:rgba(245,245,247,.78);backdrop-filter:blur(18px)\x20saturate(180%);border-bottom:1px\x20solid\x20var(--border);box-shadow:0\x202px\x2014px\x20rgba(0,0,0,.05)}\x0a\x20\x20\x20\x20body.dark\x20.topbar{background:rgba(0,0,0,.66)}\x0a\x20\x20\x20\x20.topbar-logo{width:34px;height:34px;border-radius:9px;object-fit:cover;flex-shrink:0;box-shadow:0\x202px\x208px\x20rgba(0,0,0,.25)}\x0a\x20\x20\x20\x20.topbar-left{display:flex;align-items:center;gap:12px;min-width:0}\x0a\x20\x20\x20\x20.topbar-right{display:flex;align-items:center;gap:10px;flex-wrap:nowrap;margin-left:auto}\x0a\x20\x20\x20\x20.pill-btn{display:inline-flex;align-items:center;gap:6px;padding:6px\x2014px;border-radius:999px;background:rgba(0,180,255,.1);border:1px\x20solid\x20rgba(0,180,255,.28);color:var(--primary);font-size:13px;font-weight:600;cursor:pointer;white-space:nowrap;transition:.2s;font-family:inherit;flex-shrink:0}\x0a\x20\x20\x20\x20.pill-btn\x20svg{width:15px;height:15px}\x0a\x20\x20\x20\x20.pill-btn:hover{background:rgba(0,180,255,.2);color:var(--primary)}\x0a\x20\x20\x20\x20.pill-close{display:inline-flex;align-items:center;justify-content:center;width:28px;height:28px;border-radius:999px;background:rgba(255,59,48,.1);border:1px\x20solid\x20rgba(255,59,48,.3);color:#ff3b30;cursor:pointer;transition:.2s;flex-shrink:0}\x0a\x20\x20\x20\x20.pill-close\x20svg{width:15px;height:15px}\x0a\x20\x20\x20\x20.pill-close:hover{background:rgba(255,59,48,.2)}\x0a\x20\x20\x20\x20.rotated{transform:rotate(180deg)}\x0a\x20\x20\x20\x20/*\x20=====\x20测速页按钮统一\x20=====\x20*/\x0a\x20\x20\x20\x20#view-speed\x20.toolbar{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px;align-items:stretch}\x0a\x20\x20\x20\x20#view-speed\x20.toolbar\x20select{grid-column:1/-1;width:100%}\x0a\x20\x20\x20\x20#view-speed\x20.toolbar\x20.btn-submit{width:100%;padding:12px\x2014px;font-size:13px;justify-content:center}\x0a\x20\x20\x20\x20#view-speed\x20.btn-submit{width:100%;padding:12px\x2014px;font-size:13px;justify-content:center}\x0a\x20\x20\x20\x20.rtt-pill{display:inline-flex;align-items:center;gap:8px;padding:6px\x2012px;border-radius:999px;background:rgba(0,180,255,.1);border:1px\x20solid\x20rgba(0,180,255,.28);font-family:monospace;font-size:12px;font-weight:600;color:var(--text);white-space:nowrap}\x0a\x20\x20\x20\x20.rtt-dot{width:7px;height:7px;border-radius:50%;background:#34c759;box-shadow:0\x200\x206px\x20#34c759;flex-shrink:0}\x0a\x20\x20\x20\x20.rtt-label{color:var(--text-sec)}\x0a\x20\x20\x20\x20#themeToggle{background:transparent;border:none;cursor:pointer;padding:0;margin-left:2px;display:inline-flex;color:var(--text-sec)}\x0a\x20\x20\x20\x20#themeToggle\x20svg{width:16px;height:16px}\x0a\x20\x20\x20\x20#themeToggle:hover{color:var(--primary)}\x0a\x20\x20\x20\x20.container{padding-top:96px}\x0a\x20\x20\x20\x20/*\x20=====\x20紧凑布局：按钮尽量同行\x20=====\x20*/\x0a\x20\x20\x20\x20.card-header{display:flex;align-items:center;flex-wrap:wrap;gap:10px}\x0a\x20\x20\x20\x20.card-tools{display:flex;align-items:center;flex-wrap:wrap;gap:8px}\x0a\x20\x20\x20\x20.form-row{display:flex;flex-wrap:wrap;gap:10px;align-items:center}\x0a\x20\x20\x20\x20.form-row\x20.field{flex:1;min-width:220px}\x0a\x20\x20\x20\x20@media\x20(max-width:\x20640px){\x0a\x20\x20\x20\x20\x20\x20\x20\x20.topbar{padding:8px\x2012px;gap:10px}\x0a\x20\x20\x20\x20\x20\x20\x20\x20.topbar-logo{width:30px;height:30px}\x0a\x20\x20\x20\x20\x20\x20\x20\x20.topbar-title{display:none}\x0a\x20\x20\x20\x20\x20\x20\x20\x20.pill-btn{padding:5px\x2010px;font-size:12px}\x0a\x20\x20\x20\x20\x20\x20\x20\x20.rtt-pill{padding:5px\x2010px;gap:6px;font-size:11px}\x0a\x20\x20\x20\x20\x20\x20\x20\x20.rtt-label{display:none}\x0a\x20\x20\x20\x20\x20\x20\x20\x20#themeToggle\x20svg{width:15px;height:15px}\x0a\x20\x20\x20\x20\x20\x20\x20\x20.container{padding-top:118px}\x0a\x20\x20\x20\x20}\x0a','（PlayCount/继续观看进度已重置）','\x20快进\x20','globe','/emby/Sessions/Playing/Stopped','31266GFlKEB','缺少变量','ALTER\x20TABLE\x20routes\x20ADD\x20COLUMN\x20node_pass\x20TEXT\x20DEFAULT\x20\x27\x27','ALTER\x20TABLE\x20routes\x20ADD\x20COLUMN\x20ka_token\x20TEXT\x20DEFAULT\x20\x27\x27','newCode','sun','chat','<svg\x20viewBox=\x220\x200\x2024\x2024\x22\x20fill=\x22currentColor\x22><path\x20d=\x22M13\x202L4\x2014h6l-1\x208\x209-12h-6l1-8z\x22/></svg>','<svg\x20viewBox=\x220\x200\x2024\x2024\x22><circle\x20cx=\x2212\x22\x20cy=\x2212\x22\x20r=\x227\x22\x20fill=\x22#ff9500\x22/></svg>','action','缺少节点前缀','ALTER\x20TABLE\x20routes\x20ADD\x20COLUMN\x20last_play\x20TEXT\x20DEFAULT\x20\x27\x27','DeliveryUrl','\x20步异常）','/PlaybackInfo','\x27:\x27moon\x27,\x27','dlTrick','DirectStreamUrl','https://api.cloudflare.com/client/v4/zones/','模拟播放：进度心跳\x20','/api/keepalive/status','后台变量未配置全！请检查\x20CF_API_TOKEN,\x20CF_ACCOUNT_ID,\x20CF_WORKER_NAME','get','\x20导入配置</button>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22card\x20admin-only\x22\x20id=\x22deploy-card\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20style=\x22display:flex;\x20justify-content:\x20space-between;\x20align-items:center;\x20gap:10px;\x20flex-wrap:wrap;\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<h2\x20style=\x22margin:0;\x20font-size:18px;\x22>','\x20刷新全站海报</button>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<input\x20type=\x22text\x22\x20id=\x22searchNode\x22\x20class=\x22search-input\x22\x20placeholder=\x22搜索备注或后缀查找...\x22\x20onkeyup=\x22filterNodesList()\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22admin-only\x22\x20style=\x22background:\x20rgba(0,\x20122,\x20255,\x200.05);\x20padding:\x2012px\x2020px;\x20border-radius:\x2012px;\x20border:\x201px\x20dashed\x20var(--primary);\x20margin-bottom:\x2020px;\x20margin-top:\x2020px;\x20display:\x20flex;\x20align-items:\x20center;\x20gap:\x2015px;\x20flex-wrap:\x20wrap;\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<label\x20style=\x22cursor:\x20pointer;\x20font-weight:\x20bold;\x20display:\x20flex;\x20align-items:\x20center;\x20gap:\x206px;\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<input\x20type=\x22checkbox\x22\x20id=\x22selectAllNodes\x22\x20onchange=\x22toggleSelectAll(this)\x22\x20style=\x22width:\x2018px;\x20height:\x2018px;\x20accent-color:\x20var(--primary);\x22>\x20\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20全选节点\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</label>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20style=\x22width:\x202px;\x20height:\x2020px;\x20background:\x20var(--border);\x22></div>\x20<select\x20id=\x22batch-mode-select\x22\x20style=\x22padding:\x208px\x2012px;\x20border-radius:\x208px;\x20border:\x201px\x20solid\x20var(--border);\x20background:\x20var(--bg);\x20color:\x20var(--text);\x20font-weight:\x20600;\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<option\x20value=\x22\x22>\x20读取模式中...</option>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</select>\x0a\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<button\x20onclick=\x22batchUpdateModes()\x22\x20style=\x22background:\x20var(--primary);\x20color:\x20white;\x20border:\x20none;\x20padding:\x208px\x2016px;\x20border-radius:\x208px;\x20cursor:\x20pointer;\x20font-weight:\x20bold;\x20transition:\x200.2s;\x20box-shadow:\x200\x204px\x2010px\x20rgba(0,113,227,0.2);\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20','\x20开启后所有节点链接需带\x20<b\x20style=\x22color:var(--primary);\x22>/密钥/</b>\x20前缀才可反代；不带前缀的访问会跳转\x20/catch\x20并记录来访\x20IP（记录存\x20D1，不占\x20KV\x20额度）。</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20style=\x22display:flex;\x20align-items:center;\x20gap:10px;\x20margin-bottom:10px;\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<label\x20style=\x22display:flex;\x20align-items:center;\x20gap:6px;\x20cursor:pointer;\x20font-size:13px;\x20color:var(--text);\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<input\x20type=\x22checkbox\x22\x20id=\x22ptOn\x22\x20style=\x22accent-color:var(--primary);\x20width:16px;\x20height:16px;\x20cursor:pointer;\x22>\x20开启\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</label>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20style=\x22display:flex;\x20gap:8px;\x20margin-bottom:12px;\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<input\x20type=\x22text\x22\x20id=\x22ptKey\x22\x20placeholder=\x22自定义密钥（3-32\x20位字母数字，如\x20lhazkj）\x22\x20style=\x22flex:1;\x20padding:10px\x2014px;\x20border:1px\x20solid\x20var(--border);\x20border-radius:8px;\x20background:var(--bg);\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<button\x20class=\x22btn-submit\x22\x20onclick=\x22saveProxyToken()\x22\x20style=\x22white-space:nowrap;\x22>','sort_order','buffer','https://api.uouin.com/cloudflare.html','static','<svg\x20viewBox=\x220\x200\x2024\x2024\x22><path\x20d=\x22M12\x204.5C7\x204.5\x202.73\x207.61\x201\x2012c1.73\x204.39\x206\x207.5\x2011\x207.5s9.27-3.11\x2011-7.5c-1.73-4.39-6-7.5-11-7.5zM12\x2017c-2.76\x200-5-2.24-5-5s2.24-5\x205-5\x205\x202.24\x205\x205-2.24\x205-5\x205zm0-8c-1.66\x200-3\x201.34-3\x203s1.34\x203\x203\x203\x203-1.34\x203-3-1.34-3-3-3z\x22/></svg>','href','method','ka_token','\x27:\x27xmark\x27,\x27','未知条目','</span>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<span\x20id=\x22iconSelectText\x22\x20style=\x22flex:1;\x20color:\x20var(--text-sec);\x20font-size:14px;\x20white-space:\x20nowrap;\x20overflow:\x20hidden;\x20text-overflow:\x20ellipsis;\x22>点击选择图标\x20(默认)</span>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<input\x20type=\x22hidden\x22\x20id=\x22iconUrl\x22\x20value=\x22\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20id=\x22iconPickerPanel\x22\x20style=\x22display:none;\x20position:\x20absolute;\x20top:\x20100%;\x20left:\x200;\x20width:\x20100%;\x20background:\x20var(--card);\x20border:\x201px\x20solid\x20var(--border);\x20border-radius:\x2010px;\x20padding:\x2012px;\x20box-shadow:\x200\x2010px\x2030px\x20rgba(0,0,0,0.15);\x20z-index:\x20100;\x20margin-top:\x208px;\x20flex-direction:\x20column;\x20gap:\x2010px;\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20style=\x22display:\x20flex;\x20gap:\x208px;\x20align-items:\x20center;\x20margin-bottom:\x204px;\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<input\x20type=\x22text\x22\x20id=\x22customIconUrlInput\x22\x20placeholder=\x22输入自定义\x20JSON\x20图标库链接...\x22\x20style=\x22flex:\x201;\x20padding:\x208px\x2010px;\x20border:\x201px\x20solid\x20var(--border);\x20border-radius:\x208px;\x20background:var(--bg);\x20font-size:\x2013px;\x20color:\x20var(--text);\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<button\x20type=\x22button\x22\x20onclick=\x22setCustomIconLibrary()\x22\x20style=\x22padding:\x208px\x2012px;\x20background:\x20var(--primary);\x20color:\x20white;\x20border:\x20none;\x20border-radius:\x208px;\x20cursor:\x20pointer;\x20font-size:\x2013px;\x20white-space:\x20nowrap;\x22>加载</button>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<button\x20type=\x22button\x22\x20onclick=\x22resetIconLibrary()\x22\x20class=\x22btn-ghost\x22>默认库</button>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<input\x20type=\x22text\x22\x20id=\x22iconSearch\x22\x20placeholder=\x22搜索图标名称...\x22\x20style=\x22padding:\x2010px\x2012px;\x20border:\x201px\x20solid\x20var(--border);\x20border-radius:\x208px;\x20background:var(--bg);\x20width:\x20100%;\x20font-size:\x2014px;\x20color:\x20var(--text);\x22\x20onkeyup=\x22filterIcons()\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20id=\x22iconGrid\x22\x20style=\x22display:\x20grid;\x20grid-template-columns:\x20repeat(auto-fill,\x20minmax(44px,\x201fr));\x20gap:\x208px;\x20overflow-y:\x20auto;\x20max-height:\x20240px;\x20padding-right:\x204px;\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20style=\x22text-align:center;\x20color:var(--text-sec);\x20grid-column:\x201\x20/\x20-1;\x20font-size:\x2013px;\x22>加载图标库中...</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<label\x20style=\x22display:flex;\x20align-items:center;\x20gap:8px;\x20font-size:14px;\x20font-weight:500;\x20cursor:pointer;\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<input\x20type=\x22checkbox\x22\x20id=\x22nodeCache\x22\x20class=\x22ip-checkbox\x22\x20checked>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20开启海报及静态资源缓存\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</label>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<label\x20style=\x22display:flex;\x20align-items:center;\x20gap:8px;\x20font-size:14px;\x20font-weight:500;\x20cursor:pointer;\x20margin-top:8px;\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<input\x20type=\x22checkbox\x22\x20id=\x22nodeDlTrick\x22\x20class=\x22ip-checkbox\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20下载伪装：显示下载按钮\x20+\x20下载请求伪装为缓存流（绕过服务端禁下载）\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</label>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<button\x20type=\x22submit\x22\x20id=\x22submitBtn\x22\x20class=\x22btn-submit\x22\x20style=\x22flex:\x201;\x20padding:\x2014px\x2020px;\x22>保存部署</button>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20style=\x22background:\x20rgba(120,120,120,0.05);\x20border:\x201px\x20solid\x20var(--border);\x20border-radius:\x2010px;\x20padding:\x2016px;\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20style=\x22font-size:\x2014px;\x20font-weight:\x20600;\x20color:\x20var(--text-sec);\x20margin-bottom:\x2012px;\x22>服务器线路配置\x20(支持魔改分离版推流，支持无限条备用线路)</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20id=\x22targetInputs\x22\x20style=\x22display:\x20flex;\x20flex-direction:\x20column;\x20gap:\x2010px;\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<input\x20type=\x22url\x22\x20class=\x22target-input\x22\x20placeholder=\x22主线路地址\x20(如:\x20http://1.1.1.1:8096)\x22\x20style=\x22padding:\x2012px\x2016px;\x20border:\x201px\x20solid\x20var(--border);\x20border-radius:\x208px;\x20background:var(--card);\x20width:\x20100%;\x22\x20required\x20oninput=\x22handleTargetInputs()\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<input\x20type=\x22url\x22\x20class=\x22target-input\x22\x20placeholder=\x22备用线路\x201\x20(选填，主源挂掉时触发)\x22\x20style=\x22padding:\x2012px\x2016px;\x20border:\x201px\x20solid\x20var(--border);\x20border-radius:\x208px;\x20background:var(--card);\x20width:\x20100%;\x22\x20oninput=\x22handleTargetInputs()\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</form>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20id=\x22kaModal\x22\x20style=\x22display:none;\x20position:fixed;\x20inset:0;\x20z-index:11020;\x20background:rgba(0,0,0,.5);\x20backdrop-filter:blur(5px);\x20overflow-y:auto;\x20padding:16px;\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20style=\x22max-width:480px;\x20margin:24px\x20auto;\x20background:var(--card);\x20border-radius:18px;\x20padding:22px;\x20box-shadow:0\x2010px\x2040px\x20rgba(0,0,0,.2);\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20style=\x22display:flex;\x20justify-content:space-between;\x20align-items:center;\x20margin-bottom:14px;\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<h2\x20style=\x22margin:0;\x20font-size:19px;\x20display:flex;\x20align-items:center;\x20gap:8px;\x22>','slice','\x20Worker\x20变量\x20ADMIN_TOKEN\x20为最高权限，永久有效；此处修改的密码仅对网页生效。</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<input\x20type=\x22password\x22\x20id=\x22newAdminPass\x22\x20placeholder=\x22输入新密码\x20(至少\x204\x20位)\x22\x20style=\x22width:100%;\x20padding:10px\x2014px;\x20border:1px\x20solid\x20var(--border);\x20border-radius:8px;\x20background:var(--bg);\x20margin-bottom:10px;\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<button\x20class=\x22btn-submit\x22\x20onclick=\x22saveAdminPass()\x22\x20style=\x22width:100%;\x22>','SELECT\x20value\x20FROM\x20app_config\x20WHERE\x20key\x20=\x20\x27proxy_token\x27','</button>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20id=\x22accountAdminPanel\x22\x20style=\x22display:flex;\x20flex-direction:column;\x20gap:16px;\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20style=\x22background:rgba(120,120,120,0.05);\x20border:1px\x20solid\x20var(--border);\x20border-radius:10px;\x20padding:14px;\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20style=\x22font-size:14px;\x20font-weight:600;\x20margin-bottom:10px;\x22>','bolt','secret_text','/workers/services/','<svg\x20viewBox=\x220\x200\x2024\x2024\x22\x20fill=\x22none\x22\x20stroke=\x22currentColor\x22\x20stroke-width=\x221.8\x22\x20stroke-linecap=\x22round\x22\x20stroke-linejoin=\x22round\x22><path\x20d=\x22M6.4\x202a14\x2014\x200\x200\x200\x200\x2020M17.6\x202a14\x2014\x200\x200\x201\x200\x2020M9.8\x205.5a9\x209\x200\x200\x200\x200\x2013M14.2\x205.5a9\x209\x200\x200\x201\x200\x2013\x22/><circle\x20cx=\x2212\x22\x20cy=\x2212\x22\x20r=\x221.5\x22/></svg>','0\x20B','/emby/Sessions/Playing/Progress','enqueue','CREATE\x20TABLE\x20IF\x20NOT\x20EXISTS\x20proxy_hits\x20(id\x20INTEGER\x20PRIMARY\x20KEY\x20AUTOINCREMENT,\x20ip\x20TEXT,\x20path\x20TEXT,\x20ua\x20TEXT,\x20ts\x20INTEGER,\x20times\x20INTEGER)','del','</button>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20style=\x22font-size:13px;\x20color:#ff3b30;\x20margin-bottom:12px;\x22>','INSERT\x20INTO\x20request_stats\x20(prefix,\x20date,\x20count)\x20VALUES\x20(?,\x20?,\x201)\x20ON\x20CONFLICT(prefix,\x20date)\x20DO\x20UPDATE\x20SET\x20count\x20=\x20count\x20+\x201','<svg\x20viewBox=\x220\x200\x2024\x2024\x22\x20fill=\x22none\x22\x20stroke=\x22currentColor\x22\x20stroke-width=\x221.8\x22\x20stroke-linecap=\x22round\x22><path\x20d=\x22M6\x206l12\x2012M18\x206L6\x2018\x22/></svg>','X-Emby-Authorization','INSERT\x20INTO\x20proxy_hits\x20(ip,\x20path,\x20ua,\x20ts,\x20times)\x20VALUES\x20(?,\x20?,\x20?,\x20?,\x201)','\x27:\x27dotblue\x27,\x27','endsWith','icon','<svg\x20viewBox=\x220\x200\x2024\x2024\x22\x20style=\x22width:20px;height:20px;margin-right:8px;fill:#0088cc;\x22><path\x20d=\x22M12\x200C5.373\x200\x200\x205.373\x200\x2012s5.373\x2012\x2012\x2012\x2012-5.373\x2012-12S18.627\x200\x2012\x200zm5.894\x208.221l-1.97\x209.28c-.145.658-.537.818-1.084.508l-3-2.21-1.446\x201.394c-.14.18-.357.295-.6.295-.002\x200-.003\x200-.005\x200l.213-3.054\x205.56-5.022c.24-.213-.054-.334-.373-.121l-6.869\x204.326-2.96-.924c-.64-.203-.658-.64.135-.954l11.566-4.458c.538-.196\x201.006.128.832.94z\x22/></svg>','</button>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<h2\x20style=\x22margin-top:0;\x20display:\x20flex;\x20align-items:\x20center;\x20justify-content:\x20space-between;\x20flex-wrap:\x20wrap;\x20gap:\x2010px;\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20style=\x22display:\x20flex;\x20align-items:\x20center;\x20gap:\x2010px;\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20','node_pass','signal','\x27:\x27rocket\x27,\x27','x-real-ip','placement','query\x20{\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20viewer\x20{\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20zones(filter:\x20{zoneTag:\x20\x22','Worker\x20Proxy\x20Failover\x20Exhausted.\x20All\x20nodes\x20failed.\x20Last\x20Error:\x20','实际流量消耗:\x0a','<span\x20class=\x22ti\x22>','nodeUser','M3U8\x20重写失败:','includes','\x20测速完毕！您可以自由组合更新\x20DNS。`;\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20}\x20catch\x20(err)\x20{\x20showToast(\x27❌\x20拉取失败\x27);\x20}\x20\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20finally\x20{\x20btn.disabled\x20=\x20false;\x20btn.textContent\x20=\x20\x27\x20拉取\x20API\x20并测速\x27;\x20}\x0a\x20\x20\x20\x20\x20\x20\x20\x20}\x0a\x20\x20\x20\x20\x20\x20\x20\x20async\x20function\x20fetchRemoteAndTest()\x20{\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20const\x20btn\x20=\x20document.getElementById(\x27btnFetchRemote\x27);\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20const\x20tbody\x20=\x20document.getElementById(\x27testTableBody\x27);\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20const\x20statusTxt\x20=\x20document.getElementById(\x27statusText\x27);\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20const\x20type\x20=\x20document.getElementById(\x27ipType\x27).value;\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20const\x20typeText\x20=\x20document.getElementById(\x27ipType\x27).options[document.getElementById(\x27ipType\x27).selectedIndex].text;\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20btn.disabled\x20=\x20true;\x20btn.textContent\x20=\x20\x27⏳\x20正在提取节点...\x27;\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20statusTxt.innerHTML\x20=\x20`正在拉取\x20<strong>${typeText}</strong>\x20数据...`;\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20if(tbody.innerHTML.includes(\x27暂无数据\x27))\x20tbody.innerHTML\x20=\x20\x27\x27;\x20\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20try\x20{\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20const\x20res\x20=\x20await\x20fetch(`/api/get-remote-ips?type=${encodeURIComponent(type)}`);\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20const\x20data\x20=\x20await\x20res.json();\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20if\x20(!data.ips\x20||\x20data.ips.length\x20===\x200)\x20{\x20showToast(\x27⚠️\x20未获取到该类型\x20IP\x27);\x20return;\x20}\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20showToast(`✅\x20成功提取\x20${data.totalCount}\x20个可用\x20IP，抽取\x20${data.ips.length}\x20个测速`);\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20btn.textContent\x20=\x20\x27\x20本地测速中...\x27;\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20const\x20promises\x20=\x20[];\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20data.ips.forEach(ip\x20=>\x20{\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20const\x20tr\x20=\x20document.createElement(\x27tr\x27);\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20tr.className\x20=\x20\x27test-row\x27;\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20tr.innerHTML\x20=\x20`\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<td\x20data-label=\x22勾选节点\x22\x20style=\x22text-align:\x20center;\x22><input\x20type=\x22checkbox\x22\x20class=\x22ip-checkbox\x20row-checkbox\x22\x20value=\x22${ip}\x22></td>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<td\x20data-label=\x22专属节点\x22><strong\x20class=\x22ip-text\x22\x20style=\x22color:var(--primary);cursor:pointer;font-family:monospace;\x22\x20onclick=\x22copyTxt(\x27${ip}\x27)\x22\x20title=\x22点击复制\x22>${ip}</strong></td>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<td\x20data-label=\x22预估延迟\x22\x20class=\x22latency\x22\x20data-ms=\x229999\x22\x20style=\x22font-weight:\x20600;\x20color:\x20#888;\x22>测算中...</td>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<td\x20data-label=\x22连通状态\x22\x20class=\x22speed\x22\x20style=\x22color:\x20#888;\x22>-</td>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<td\x20data-label=\x22记录/归属地\x22\x20class=\x22loc\x22\x20style=\x22color:\x20#666;\x22>等待解析</td>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<td\x20data-label=\x22快捷操作\x22><button\x20class=\x22btn-dns\x22\x20disabled\x20onclick=\x22updateSingleDns(\x27${ip}\x27,\x20this)\x22>唯一解析</button></td>`;\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20tbody.insertBefore(tr,\x20tbody.firstChild);\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20promises.push(doLocalPing(ip,\x20tr,\x20typeText.replace(/[^一-龥a-zA-Z0-9]/g,\x20\x27\x27)));\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20});\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20await\x20Promise.all(promises);\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20sortTableByLatency(tbody);\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20document.querySelectorAll(\x27.btn-dns\x27).forEach(b\x20=>\x20b.disabled\x20=\x20false);\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20document.getElementById(\x27selectAll\x27).checked\x20=\x20false;\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20showToast(\x27🎉\x20测速完成！\x27);\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20statusTxt.innerHTML\x20=\x20`','\x20今日产生总流量</span>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<span\x20style=\x22font-size:16px;\x20font-weight:700;\x20color:var(--primary);\x22>${todayBw}</span>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20style=\x22display:flex;\x20flex-direction:\x20column;\x20gap:\x204px;\x20text-align:\x20right;\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<span\x20style=\x22font-size:12px;\x20color:var(--text-sec);\x22>','bytes','X-Forwarded-For','没有可用节点','ALTER\x20TABLE\x20routes\x20ADD\x20COLUMN\x20watch_limit\x20TEXT\x20DEFAULT\x20\x270\x27','今日总播放次数:\x20','application/json','拉取播放链接','success','</style>\x0a\x20\x20\x20\x20<script\x20src=\x22https://cdn.jsdelivr.net/npm/sortablejs@latest/Sortable.min.js\x22></script>\x0a\x20\x20\x20\x20<script\x20src=\x22https://cdn.jsdelivr.net/npm/chart.js\x22></script>\x0a\x20\x20\x20\x20<link\x20rel=\x22icon\x22\x20type=\x22image/jpeg\x22\x20href=\x22','Location','sparkles','robot','Method\x20not\x20allowed','/emby/System/Info/Public','append','Cache-Control','\x27:\x27arrowdown\x27,\x27','hash','admin_token=','catch','content-type','cache_img','count','add','inherited','获取用户','checksquare','\x22,\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20datetime_leq:\x20\x22','ALTER\x20TABLE\x20routes\x20ADD\x20COLUMN\x20ka_days\x20TEXT\x20DEFAULT\x20\x273\x27','\x20已关闭\x27}</span>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22info-row\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<span\x20class=\x22info-label\x22>最后活跃:</span>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<span\x20style=\x22color:${watchOverdue\x20?\x20\x27#ff3b30\x27\x20:\x20\x27var(--text-sec)\x27};\x20font-weight:${watchOverdue\x20?\x20\x27700\x27\x20:\x20\x27normal\x27};\x22>${watchOverdue\x20?\x20I.warn\x20+\x20\x27\x20\x27\x20:\x20\x27\x27}${watchDaysText}</span>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22info-row\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<span\x20class=\x22info-label\x22>伪装设备:</span>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<span\x20style=\x22color:${fakeOn\x20&&\x20fakeClient\x20?\x20\x27#5856d6\x27\x20:\x20\x27var(--text-sec)\x27};\x20font-weight:600;\x22>${fakeOn\x20&&\x20fakeClient\x20?\x20fakeClient\x20:\x20\x27未开启\x27}</span>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22info-row\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<span\x20class=\x22info-label\x22>自动保活:</span>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<span\x20style=\x22color:${kaOn\x20?\x20\x27#34c759\x27\x20:\x20\x27var(--text-sec)\x27};\x20font-weight:600;\x22>${kaStatus}</span>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22info-row\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<span\x20class=\x22info-label\x22>下次保活:</span>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<span\x20class=\x22ka-cd\x22\x20data-ka-next=\x22${kaNext}\x22\x20style=\x22color:var(--text-sec);\x22>待首次执行</span>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22info-row\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<span\x20class=\x22info-label\x22>上次保活:</span>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<span\x20style=\x22color:var(--text-sec);\x22>${kaLast}</span>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22card-footer\x20admin-only\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<button\x20class=\x22btn-edit\x22\x20onclick=\x22kaRun(\x27${r.prefix}\x27)\x22\x20title=\x22立即执行一次完整保活\x22>保活</button>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<button\x20class=\x22btn-edit\x22\x20onclick=\x22rexImport(\x27${r.prefix}\x27)\x22\x20title=\x22生成\x20Rex\x20一键导入链接\x22>Rex导入</button>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<button\x20class=\x22btn-edit\x22\x20onclick=\x22editNode(\x27${r.prefix}\x27,\x20\x27${r.target}\x27,\x20\x27${r.mode}\x27,\x20\x27${r.remark\x20||\x20\x27\x27}\x27,\x20\x27${r.icon\x20||\x20\x27\x27}\x27,\x20\x27${r.cache_img}\x27,\x20\x27${r.custom_params\x20?\x20encodeURIComponent(r.custom_params)\x20:\x20\x27\x27}\x27,\x20\x27${r.ka_enabled\x20||\x20\x270\x27}\x27,\x20\x27${r.ka_days\x20||\x20\x273\x27}\x27,\x20\x27${r.ka_token\x20||\x20\x27\x27}\x27,\x20\x27${r.node_user\x20||\x20\x27\x27}\x27,\x20\x27${r.node_pass\x20||\x20\x27\x27}\x27,\x20\x27${r.watch_limit\x20||\x20\x270\x27}\x27)\x22>编辑配置</button>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<button\x20class=\x22btn-del\x22\x20onclick=\x22del(\x27${r.prefix}\x27)\x22>删除</button>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>`;;\x0a\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20if\x20(mainTarget)\x20setTimeout(()\x20=>\x20pingTarget(idx,\x20mainTarget),\x20500\x20*\x20idx);\x20\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20});\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20filterNodesList();\x0a\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20if\x20(sortableInstance)\x20sortableInstance.destroy();\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20sortableInstance\x20=\x20Sortable.create(container,\x20{\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20handle:\x20\x27.drag-handle\x27,\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20animation:\x20150,\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20delay:\x20200,\x20\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20delayOnTouchOnly:\x20true,\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20onEnd:\x20async\x20function\x20()\x20{\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20const\x20items\x20=\x20[];\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20container.querySelectorAll(\x27.route-item\x27).forEach((row,\x20index)\x20=>\x20{\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20const\x20prefix\x20=\x20row.getAttribute(\x27data-prefix\x27);\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20if\x20(prefix)\x20items.push({\x20prefix:\x20prefix,\x20sort_order:\x20index\x20});\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20});\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20try\x20{\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20await\x20fetch(\x27/api/routes/reorder\x27,\x20{\x20method:\x20\x27POST\x27,\x20body:\x20JSON.stringify(items)\x20});\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20showToast(\x27✅\x20排序已保存\x27);\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20}\x20catch(e)\x20{\x20showToast(\x27❌\x20排序保存失败\x27);\x20}\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20}\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20});\x0a\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20}\x20catch\x20(err)\x20{\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20document.getElementById(\x27list-grid\x27).innerHTML\x20=\x20`<div\x20style=\x22text-align:center;\x20color:#ff3b30;\x20font-weight:600;\x20grid-column:\x201\x20/\x20-1;\x20padding:\x2020px;\x22>','\x27:\x27flame\x27,\x27','未命名节点','refresh','warn','\x20警告：提交错误的代码会导致面板瞬间崩溃（500\x20错误）。请确保代码已在本地测试通过！</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<textarea\x20id=\x22codeArea\x22\x20rows=\x228\x22\x20placeholder=\x22在此处粘贴修改好的最新代码全文...\x22\x20style=\x22width:100%;\x20padding:14px;\x20border-radius:10px;\x20border:1px\x20solid\x20var(--border);\x20margin-bottom:12px;\x20font-family:monospace;\x20resize:vertical;\x20background:var(--bg);\x20font-size:12px;\x22></textarea>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<input\x20type=\x22file\x22\x20id=\x22fileInput\x22\x20accept=\x22.js\x22\x20style=\x22display:none;\x20font-size:14px;\x20padding:6px;\x20border:1px\x20solid\x20var(--border);\x20border-radius:6px;\x20background:var(--bg);\x20margin-bottom:12px;\x20width:100%;\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<button\x20class=\x22btn-danger\x22\x20id=\x22deployBtn\x22\x20onclick=\x22deployWorker()\x22\x20style=\x22width:100%;\x22>','Markdown','\x20保存</button>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20style=\x22font-size:13px;\x20font-weight:600;\x20margin-bottom:8px;\x22>来访记录\x20IP\x20<span\x20style=\x22font-weight:400;\x20color:var(--text-sec);\x22>（仅管理员）</span></div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20id=\x22ptHits\x22\x20style=\x22font-size:12px;\x20color:var(--text-sec);\x22>加载中…</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20style=\x22background:rgba(120,120,120,0.05);\x20border:1px\x20solid\x20var(--border);\x20border-radius:10px;\x20padding:14px;\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20style=\x22font-size:14px;\x20font-weight:600;\x20margin-bottom:10px;\x22>','143219XUoxIi','<svg\x20viewBox=\x220\x200\x2024\x2024\x22><circle\x20cx=\x2212\x22\x20cy=\x2212\x22\x20r=\x227\x22\x20fill=\x22#34c759\x22/></svg>','请求异常','Referer','close','oldPrefix','\x20账户设置</h2>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<button\x20onclick=\x22closeAccountModal()\x22\x20style=\x22background:transparent;border:none;cursor:pointer;color:var(--text-sec);display:inline-flex;padding:4px;\x22>','split','INSERT\x20OR\x20REPLACE\x20INTO\x20routes\x20(prefix,\x20target,\x20mode,\x20remark,\x20last_play,\x20icon,\x20custom_params,\x20cache_img,\x20sort_order,\x20watch_limit)\x20VALUES\x20(?,\x20?,\x20?,\x20?,\x20?,\x20?,\x20?,\x20?,\x20?,\x20?)','<svg\x20viewBox=\x220\x200\x2024\x2024\x22\x20fill=\x22currentColor\x22><path\x20d=\x22M12\x203l2.7\x205.7\x206.3.8-4.6\x204.3\x201.1\x206.2-5.5-3-5.5\x203\x201.1-6.2L3\x209.5l6.3-.8L12\x203z\x22/></svg>','\x22})\x20{\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20httpRequestsAdaptiveGroups(\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20limit:\x201,\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20filter:\x20{\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20clientRequestPath_like:\x20\x22/','worker.js','active','七天内:\x20','::1','DELETE','toFixed','缺少\x20CF_API_TOKEN\x20或\x20CF_ZONE_ID\x20变量','manifest','\x20一键导入\x20Rex</h2>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<button\x20onclick=\x22closeRexModal()\x22\x20style=\x22background:transparent;border:none;cursor:pointer;color:var(--text-sec);display:inline-flex;padding:4px;\x22>','sum','暂无记录'];_0x31e2=function(){return _0x5890b5;};return _0x31e2();}function escQuote(_0x3487c3){const _0x2021d3=_0x4b7a7f;return String(_0x3487c3)[_0x2021d3(0x3a0)](/\\/g,'\x5c\x5c')[_0x2021d3(0x3a0)](/"/g,'\x5c\x22')[_0x2021d3(0x3a0)](/[\r\n]+/g,'');}function genUuid(){const _0x54462c=_0x4b7a7f;if(typeof crypto!==_0x54462c(0x15f)&&typeof crypto[_0x54462c(0x1b4)]===_0x54462c(0x22d))return crypto[_0x54462c(0x1b4)]();const _0x5ac58a=crypto[_0x54462c(0x216)](new Uint8Array(0x10));_0x5ac58a[0x6]=_0x5ac58a[0x6]&0xf|0x40,_0x5ac58a[0x8]=_0x5ac58a[0x8]&0x3f|0x80;const _0x4cc4b0=Array[_0x54462c(0x224)](_0x5ac58a)[_0x54462c(0x455)](_0x18c057=>_0x18c057[_0x54462c(0x1db)](0x10)[_0x54462c(0x2c6)](0x2,'0'))[_0x54462c(0x35e)]('');return _0x4cc4b0[_0x54462c(0x264)](0x0,0x8)+'-'+_0x4cc4b0[_0x54462c(0x264)](0x8,0xc)+'-'+_0x4cc4b0[_0x54462c(0x264)](0xc,0x10)+'-'+_0x4cc4b0[_0x54462c(0x264)](0x10,0x14)+'-'+_0x4cc4b0[_0x54462c(0x264)](0x14);}function spawnDlTrickWatchCF(_0x4a5289,_0x595519,_0x153d7e,_0x2dfe4c){const _0x1549f8=_0x4b7a7f;try{const _0x3a3dc8=new URLSearchParams((_0x2dfe4c||'')[_0x1549f8(0x3a0)](/^\?/,'')),_0x1ee8eb=_0x3a3dc8[_0x1549f8(0x255)](_0x1549f8(0x1da))||_0x3a3dc8[_0x1549f8(0x255)](_0x1549f8(0x426))||'',_0x226c77=_0x595519[_0x1549f8(0x2cd)][_0x1549f8(0x255)](_0x1549f8(0x2e7))||_0x595519[_0x1549f8(0x2cd)][_0x1549f8(0x255)](_0x1549f8(0x16d))||'';if(!_0x1ee8eb&&!_0x226c77)return null;const _0x50ac27=_0x3a3dc8[_0x1549f8(0x255)](_0x1549f8(0x2c7))||_0x3a3dc8[_0x1549f8(0x255)](_0x1549f8(0x1d3))||'',_0x49481b=String(_0x226c77)[_0x1549f8(0x341)](/Client="([^"]+)"/i),_0x2e9881=String(_0x226c77)[_0x1549f8(0x341)](/Version="([^"]+)"/i),_0x593a11=genUuid(),_0x37c9eb=_0x49481b&&_0x49481b[0x1]||_0x1549f8(0x16f),_0x219ce8=_0x2e9881&&_0x2e9881[0x1]||_0x1549f8(0x2da),_0x3f17bd=_0x1549f8(0x37b)+Date[_0x1549f8(0x431)]();let _0x103048='';try{_0x103048=new URL(_0x4a5289)[_0x1549f8(0x3ce)];}catch(_0x4ba112){return null;}const _0x1dbb52={'Content-Type':_0x1549f8(0x28e)};if(_0x226c77)_0x1dbb52[_0x1549f8(0x274)]=_0x226c77[_0x1549f8(0x3a0)](/DeviceId\s*=\s*"[^"]*"/i,_0x1549f8(0x375)+_0x593a11+'\x22');const _0x50e773=_0xae31bd=>addApiKey(_0x103048+_0xae31bd,_0x1ee8eb),_0x1d7dec={'ItemId':_0x153d7e,'MediaSourceId':_0x50ac27||_0x153d7e,'PlaySessionId':_0x3f17bd,'DeviceId':_0x593a11,'Client':_0x37c9eb,'Version':_0x219ce8,'PlayMethod':_0x1549f8(0x482),'CanSeek':!![],'IsPaused':![],'QueueableMediaTypes':[_0x1549f8(0x3f3)]},_0x26c389=_0x24e143=>JSON[_0x1549f8(0x2fb)](Object[_0x1549f8(0x3c1)]({},_0x1d7dec,{'PositionTicks':_0x24e143,'PlaybackPositionTicks':_0x24e143}));let _0x427143=![],_0xe575d2=0x0,_0x7e0fed='',_0x1f8121=0x0,_0x454de2=0xa,_0x358c21=Date[_0x1549f8(0x431)]()+0x2710;const _0x33b0a5=(_0x4e4d9b,_0x243b66)=>kaFetch(_0x50e773(_0x4e4d9b),{'method':_0x1549f8(0x237),'headers':_0x1dbb52,'body':_0x243b66})[_0x1549f8(0x29c)](()=>null);return _0x33b0a5(_0x1549f8(0x473),_0x26c389(0x0)),kaFetch(_0x50e773(_0x1549f8(0x414)),{'headers':_0x1dbb52})[_0x1549f8(0x2fe)](async _0x19ee94=>{const _0x40abe4=_0x1549f8;try{_0x7e0fed=(JSON[_0x40abe4(0x1fb)](await _0x19ee94[_0x40abe4(0x3c3)]())||{})['Id']||'';}catch(_0x227071){}})[_0x1549f8(0x29c)](()=>{}),{'tick'(){const _0x552b3=_0x1549f8;if(_0x427143)return;const _0x2aed2f=Date[_0x552b3(0x431)]();if(_0x2aed2f<_0x358c21)return;_0x1f8121+=0x1,_0xe575d2+=_0x454de2*0x989680,_0x358c21=_0x2aed2f+_0x454de2*0x3e8,_0x454de2=_0x1f8121===0x1?0x1e:0xf+Math[_0x552b3(0x453)](Math[_0x552b3(0x36f)]()*0xa6),_0x33b0a5(_0x552b3(0x26d),_0x26c389(_0xe575d2));},async 'finish'(){const _0x57d867=_0x1549f8;if(_0x427143)return;_0x427143=!![];try{if(!_0x7e0fed){const _0x2530e9=await kaFetch(_0x50e773(_0x57d867(0x414)),{'headers':_0x1dbb52});try{_0x7e0fed=(JSON[_0x57d867(0x1fb)](await _0x2530e9[_0x57d867(0x3c3)]())||{})['Id']||'';}catch(_0xa1b10e){}}}catch(_0x104b7c){}await _0x33b0a5(_0x57d867(0x23e),_0x26c389(_0xe575d2)),_0x7e0fed&&_0x153d7e&&(await new Promise(_0x670463=>setTimeout(_0x670463,0x5dc)),await _0x33b0a5(_0x57d867(0x195)+encodeURIComponent(_0x7e0fed)+_0x57d867(0x1f2)+encodeURIComponent(_0x153d7e)+_0x57d867(0x3a6),JSON[_0x57d867(0x2fb)]({'Played':![],'PlayCount':0x0,'ResumePositionTicks':0x0,'PlaybackPositionTicks':0x0,'PlayedPercentage':0x0})));}};}catch(_0x460510){return null;}}function wrapStreamWithWatch(_0x234668,_0x1725c7,_0x1984a9){const _0x52cbe6=_0x4b7a7f,_0x196086=_0x234668[_0x52cbe6(0x370)](),_0xe66e76=()=>{const _0x4bc8b1=_0x52cbe6;try{const _0x52e11d=_0x1725c7[_0x4bc8b1(0x3a7)]();if(_0x52e11d&&_0x1984a9&&_0x1984a9[_0x4bc8b1(0x3dd)])_0x1984a9[_0x4bc8b1(0x3dd)](_0x52e11d);}catch(_0x51def1){}};return new ReadableStream({async 'pull'(_0x3925fd){const _0x4cee9c=_0x52cbe6;try{const {done:_0x135905,value:_0x313516}=await _0x196086[_0x4cee9c(0x178)]();if(_0x135905){try{_0x3925fd[_0x4cee9c(0x2b2)]();}catch(_0x3c980b){}_0xe66e76();return;}_0x3925fd[_0x4cee9c(0x26e)](_0x313516);try{_0x1725c7[_0x4cee9c(0x16c)]();}catch(_0x58eac1){}}catch(_0x1a63b2){try{_0x3925fd[_0x4cee9c(0x19a)](_0x1a63b2);}catch(_0x25c784){}_0xe66e76();}},'cancel'(){const _0x113e3f=_0x52cbe6;try{_0x196086[_0x113e3f(0x17f)]();}catch(_0x536632){}_0xe66e76();}});}export default{async 'scheduled'(_0x2ed23d,_0x31fc5f,_0x2a3044){const _0x9a00bb=_0x4b7a7f;_0x31fc5f['DB']&&_0x31fc5f[_0x9a00bb(0x3fe)]!==_0x9a00bb(0x21a)&&_0x2a3044[_0x9a00bb(0x3dd)](checkKeepAliveSchedule(_0x31fc5f));},async 'fetch'(_0x3e2fc0,_0x37bcf8,_0x10c946){const _0x11b35b=_0x4b7a7f;try{return await _coreFetch(_0x3e2fc0,_0x37bcf8,_0x10c946);}catch(_0x3ef165){return console[_0x11b35b(0x19a)](_0x11b35b(0x321),_0x3ef165),Response[_0x11b35b(0x2f7)]({'success':![],'error':String(_0x3ef165&&_0x3ef165[_0x11b35b(0x22a)]||_0x3ef165)},{'status':0x1f4});}},async '_coreFetch'(_0x2a1729,_0x372a22,_0x5350b2){const _0x2cc10b=_0x4b7a7f,_0x553d7f=new URL(_0x2a1729[_0x2cc10b(0x2e6)]);if(_0x553d7f[_0x2cc10b(0x319)]===_0x2cc10b(0x430)){const _0x19095a=_0x2a1729['cf']||{};let _0x4bca8c=_0x2cc10b(0x439);try{const _0x90d1c8=await fetch(_0x2cc10b(0x239),{'headers':{'User-Agent':_0x2cc10b(0x3ac)}}),_0x39b4e2=await _0x90d1c8[_0x2cc10b(0x3c3)](),_0x477a9f=_0x39b4e2[_0x2cc10b(0x341)](/colo=([A-Z]+)/);if(_0x477a9f)_0x4bca8c=_0x477a9f[0x1];}catch(_0x39ea44){_0x4bca8c=_0x2cc10b(0x1e0);}return new Response(JSON[_0x2cc10b(0x2fb)]({'success':!![],'entryCountry':_0x19095a[_0x2cc10b(0x408)]||'未知','entryCity':_0x19095a[_0x2cc10b(0x467)]||'','entryColo':_0x19095a[_0x2cc10b(0x198)]||'未知','egressColo':_0x4bca8c}),{'headers':{'Content-Type':_0x2cc10b(0x28e),'Access-Control-Allow-Origin':'*'}});}if(_0x553d7f[_0x2cc10b(0x319)]===_0x2cc10b(0x208))return new Response(null,{'status':0xcc,'headers':{'Cache-Control':_0x2cc10b(0x3c7),'Pragma':_0x2cc10b(0x17d),'Expires':'0','Access-Control-Allow-Origin':'*'}});if(_0x553d7f[_0x2cc10b(0x319)]===_0x2cc10b(0x460)||_0x553d7f[_0x2cc10b(0x319)]===_0x2cc10b(0x1c9)){const _0x33ce91=_0x2cc10b(0x1d7);return new Response(_0x33ce91,{'headers':{'Content-Type':_0x2cc10b(0x369),'Cache-Control':_0x2cc10b(0x3c7)}});}if(_0x553d7f[_0x2cc10b(0x319)]===_0x2cc10b(0x179)){const _0x4436b4=Math[_0x2cc10b(0x35b)](parseInt(_0x553d7f[_0x2cc10b(0x1b1)][_0x2cc10b(0x255)](_0x2cc10b(0x289))||_0x2cc10b(0x3da),0xa)||0xa00000,0x3200000),_0x288ccc=0x400*0x400;let _0x147909=0x0;const _0x31c644=new ReadableStream({'pull'(_0x169fcc){const _0x536aad=_0x2cc10b;if(_0x147909*_0x288ccc>=_0x4436b4){_0x169fcc[_0x536aad(0x2b2)]();return;}const _0x1845e9=Math[_0x536aad(0x35b)](_0x288ccc,_0x4436b4-_0x147909*_0x288ccc);_0x169fcc[_0x536aad(0x26e)](new Uint8Array(_0x1845e9)),_0x147909++;}});return new Response(_0x31c644,{'headers':{'Content-Type':_0x2cc10b(0x1c7),'Content-Length':String(_0x4436b4),'Cache-Control':_0x2cc10b(0x3c7),'Pragma':_0x2cc10b(0x17d),'Expires':'0','Access-Control-Allow-Origin':'*'}});}if(_0x553d7f[_0x2cc10b(0x319)]===_0x2cc10b(0x1e8)&&_0x2a1729[_0x2cc10b(0x25f)]===_0x2cc10b(0x237))try{const _0xac7787=await _0x2a1729[_0x2cc10b(0x2f7)]();return _0xac7787[_0x2cc10b(0x22a)]&&_0xac7787[_0x2cc10b(0x22a)][_0x2cc10b(0x3c3)]===_0x2cc10b(0x1c3)&&(_0x372a22['DB']&&_0x372a22[_0x2cc10b(0x20f)]&&_0x5350b2[_0x2cc10b(0x3dd)](sendTgStats(_0x372a22,_0xac7787[_0x2cc10b(0x22a)][_0x2cc10b(0x245)]['id']))),new Response('OK');}catch(_0x125982){return new Response('OK');}if(_0x2a1729[_0x2cc10b(0x25f)]===_0x2cc10b(0x47d))return new Response(null,{'headers':{'Access-Control-Allow-Origin':'*','Access-Control-Allow-Methods':_0x2cc10b(0x41f),'Access-Control-Allow-Headers':'*','Access-Control-Max-Age':_0x2cc10b(0x1dc)}});async function _0x13f11f(_0x2f62fe){const _0x5c89f8=_0x2cc10b;if(!_0x2f62fe['DB'])return null;try{await _0x2f62fe['DB'][_0x5c89f8(0x383)](_0x5c89f8(0x411))[_0x5c89f8(0x30b)]();const _0x27137f=await _0x2f62fe['DB'][_0x5c89f8(0x383)](_0x5c89f8(0x266))[_0x5c89f8(0x47b)]();if(!_0x27137f||!_0x27137f[_0x5c89f8(0x39a)])return null;return JSON[_0x5c89f8(0x1fb)](_0x27137f[_0x5c89f8(0x39a)]);}catch(_0x10dba8){return null;}}function _0x4c61c3(_0xab682d){const _0x2e18cf=_0x2cc10b;return _0xab682d&&_0xab682d[_0x2e18cf(0x3c2)]&&_0xab682d[_0x2e18cf(0x485)]?_0xab682d[_0x2e18cf(0x485)]+'/':'';}async function _0x2bf781(_0x27b2f4,_0x29fda4,_0x27d245){const _0x4f0059=_0x2cc10b;if(!_0x27b2f4['DB'])return;try{const _0x54c26e=_0x29fda4[_0x4f0059(0x2cd)][_0x4f0059(0x255)](_0x4f0059(0x354))||_0x29fda4[_0x4f0059(0x2cd)][_0x4f0059(0x255)](_0x4f0059(0x27e))||(_0x29fda4[_0x4f0059(0x2cd)][_0x4f0059(0x255)](_0x4f0059(0x45b))||'')[_0x4f0059(0x2b5)](',')[0x0][_0x4f0059(0x1d4)]()||_0x4f0059(0x450),_0x4f62aa=(_0x29fda4[_0x4f0059(0x2cd)][_0x4f0059(0x255)](_0x4f0059(0x1c0))||'')[_0x4f0059(0x264)](0x0,0xc8),_0x272368=Date[_0x4f0059(0x431)](),_0x13f6fd=String(_0x27d245||'')[_0x4f0059(0x264)](0x0,0xc8);await _0x27b2f4['DB'][_0x4f0059(0x383)](_0x4f0059(0x26f))[_0x4f0059(0x30b)]();const _0x398690=await _0x27b2f4['DB'][_0x4f0059(0x383)](_0x4f0059(0x390))[_0x4f0059(0x38d)](_0x54c26e,_0x13f6fd)[_0x4f0059(0x47b)]();_0x398690?await _0x27b2f4['DB'][_0x4f0059(0x383)](_0x4f0059(0x236))[_0x4f0059(0x38d)]((_0x398690[_0x4f0059(0x19b)]||0x1)+0x1,_0x272368,_0x398690['id'])[_0x4f0059(0x30b)]():await _0x27b2f4['DB'][_0x4f0059(0x383)](_0x4f0059(0x275))[_0x4f0059(0x38d)](_0x54c26e,_0x13f6fd,_0x4f62aa,_0x272368)[_0x4f0059(0x30b)]();}catch(_0x14d6e0){}}function _0x3c2330(_0x333215,_0x31d735){const _0xf29a68=_0x2cc10b,_0x10f902=_0x57a425=>String(_0x57a425==null?'':_0x57a425)[_0xf29a68(0x3a0)](/[<>&"']/g,_0x32f7ae=>({'<':_0xf29a68(0x471),'>':_0xf29a68(0x1a8),'&':_0xf29a68(0x2f5),'\x22':_0xf29a68(0x206),'\x27':_0xf29a68(0x177)}[_0x32f7ae]));return _0xf29a68(0x43a)+_0x10f902(_0x333215)+_0xf29a68(0x3d8)+_0x10f902(_0x31d735)[_0xf29a68(0x264)](0x0,0x78)+_0xf29a68(0x328);}if(_0x553d7f[_0x2cc10b(0x319)]===_0x2cc10b(0x226)){const _0x4a96c2=_0x2a1729[_0x2cc10b(0x2cd)][_0x2cc10b(0x255)](_0x2cc10b(0x354))||_0x2a1729[_0x2cc10b(0x2cd)][_0x2cc10b(0x255)](_0x2cc10b(0x27e))||(_0x2a1729[_0x2cc10b(0x2cd)][_0x2cc10b(0x255)](_0x2cc10b(0x45b))||'')[_0x2cc10b(0x2b5)](',')[0x0][_0x2cc10b(0x1d4)]()||_0x2cc10b(0x450);return new Response(_0x3c2330(_0x4a96c2,_0x2a1729[_0x2cc10b(0x2cd)][_0x2cc10b(0x255)](_0x2cc10b(0x1c0))||''),{'headers':{'Content-Type':_0x2cc10b(0x369),'Cache-Control':_0x2cc10b(0x215)}});}const _0x191d30=_0x372a22[_0x2cc10b(0x3cd)];if(!_0x191d30)return new Response(_0x2cc10b(0x238),{'status':0x1f4});function _0x1244e8(_0x1dc157,_0x300ee4){const _0x245719=_0x2cc10b,_0x284576=_0x1dc157[_0x245719(0x2cd)][_0x245719(0x255)](_0x245719(0x18e));if(!_0x284576)return null;const _0xafcbbc=_0x284576[_0x245719(0x341)](new RegExp(_0x245719(0x39f)+_0x300ee4+_0x245719(0x2ed)));if(_0xafcbbc)return decodeURIComponent(_0xafcbbc[0x2]);return null;}async function _0x10e3ff(_0x33ae19){const _0x390a6f=_0x2cc10b,_0x40b4b4=_0x1244e8(_0x33ae19,_0x390a6f(0x1c8));if(!_0x40b4b4)return null;if(_0x40b4b4===_0x191d30)return _0x390a6f(0x488);if(!_0x372a22['DB'])return null;try{await _0x372a22['DB'][_0x390a6f(0x383)](_0x390a6f(0x411))[_0x390a6f(0x30b)]();const _0x452a5f=await _0x372a22['DB'][_0x390a6f(0x383)](_0x390a6f(0x1d1))[_0x390a6f(0x38d)](_0x390a6f(0x374))[_0x390a6f(0x47b)]();if(_0x452a5f&&_0x452a5f[_0x390a6f(0x39a)]&&_0x40b4b4===_0x452a5f[_0x390a6f(0x39a)])return _0x390a6f(0x488);const _0x594a5a=await _0x372a22['DB'][_0x390a6f(0x383)](_0x390a6f(0x1d1))[_0x390a6f(0x38d)](_0x390a6f(0x464))[_0x390a6f(0x47b)]();if(_0x594a5a&&_0x594a5a[_0x390a6f(0x39a)]){const _0x420cbc=JSON[_0x390a6f(0x1fb)](_0x594a5a[_0x390a6f(0x39a)]);if(Array[_0x390a6f(0x1f8)](_0x420cbc)&&_0x420cbc[_0x390a6f(0x286)](_0x40b4b4))return _0x390a6f(0x46f);}}catch(_0x4122a9){}return null;}const _0x35be37=_0x553d7f[_0x2cc10b(0x319)]==='/'||_0x553d7f[_0x2cc10b(0x319)][_0x2cc10b(0x339)](_0x2cc10b(0x345));let _0x2a3f27=null;if(_0x35be37&&_0x553d7f[_0x2cc10b(0x319)]!==_0x2cc10b(0x1e8)){_0x2a3f27=await _0x10e3ff(_0x2a1729);if(!_0x2a3f27){if(_0x553d7f[_0x2cc10b(0x319)]==='/')return new Response(LOGIN_UI,{'headers':{'Content-Type':_0x2cc10b(0x369)}});else return new Response(_0x2cc10b(0x16a),{'status':0x191});}}if(_0x553d7f[_0x2cc10b(0x319)]==='/')return new Response(HTML_UI,{'headers':{'Content-Type':_0x2cc10b(0x369)}});if(_0x553d7f[_0x2cc10b(0x319)]===_0x2cc10b(0x1f9)&&_0x2a1729[_0x2cc10b(0x25f)]===_0x2cc10b(0x237)){if(_0x2a3f27!==_0x2cc10b(0x488))return new Response(_0x2cc10b(0x309),{'status':0x193});try{const _0x44c706=await _0x2a1729[_0x2cc10b(0x2f7)](),_0x9a3e18=_0x44c706[_0x2cc10b(0x27f)];if(!_0x372a22[_0x2cc10b(0x2ec)]||!_0x372a22[_0x2cc10b(0x1ae)]||!_0x372a22[_0x2cc10b(0x218)])return new Response(JSON[_0x2cc10b(0x2fb)]({'success':![],'msg':_0x2cc10b(0x254)}),{'headers':{'Content-Type':_0x2cc10b(0x28e),'Access-Control-Allow-Origin':'*'}});const _0x4d6c15=new FormData();_0x4d6c15[_0x2cc10b(0x297)](_0x2cc10b(0x33e),new Blob([JSON[_0x2cc10b(0x2fb)]({'placement':_0x9a3e18})],{'type':_0x2cc10b(0x28e)}));const _0x534b20=_0x2cc10b(0x3d1)+_0x372a22[_0x2cc10b(0x1ae)]+_0x2cc10b(0x364)+_0x372a22[_0x2cc10b(0x218)]+_0x2cc10b(0x1eb),_0x25b2e8=await fetch(_0x534b20,{'method':_0x2cc10b(0x184),'headers':{'Authorization':_0x2cc10b(0x3b5)+_0x372a22[_0x2cc10b(0x2ec)]},'body':_0x4d6c15}),_0x291568=await _0x25b2e8[_0x2cc10b(0x2f7)]();return _0x291568[_0x2cc10b(0x290)]?new Response(JSON[_0x2cc10b(0x2fb)]({'success':!![],'msg':_0x2cc10b(0x42f)}),{'headers':{'Content-Type':_0x2cc10b(0x28e),'Access-Control-Allow-Origin':'*'}}):new Response(JSON[_0x2cc10b(0x2fb)]({'success':![],'msg':_0x2cc10b(0x181)+(_0x291568[_0x2cc10b(0x47c)][0x0]?.[_0x2cc10b(0x22a)]||_0x2cc10b(0x1c6))}),{'headers':{'Content-Type':_0x2cc10b(0x28e),'Access-Control-Allow-Origin':'*'}});}catch(_0x2d5fcf){return new Response(JSON[_0x2cc10b(0x2fb)]({'success':![],'msg':_0x2d5fcf[_0x2cc10b(0x22a)]}),{'headers':{'Content-Type':_0x2cc10b(0x28e),'Access-Control-Allow-Origin':'*'}});}}if(_0x553d7f[_0x2cc10b(0x319)]===_0x2cc10b(0x481)&&_0x2a1729[_0x2cc10b(0x25f)]===_0x2cc10b(0x18f))return Response[_0x2cc10b(0x2f7)]({'success':!![],'role':_0x2a3f27});if(_0x553d7f[_0x2cc10b(0x319)]===_0x2cc10b(0x351)&&_0x2a1729[_0x2cc10b(0x25f)]===_0x2cc10b(0x237)){if(_0x2a3f27!==_0x2cc10b(0x488))return new Response(_0x2cc10b(0x309),{'status':0x193});try{const _0x3f485c=await _0x2a1729[_0x2cc10b(0x2f7)]();if(_0x3f485c[_0x2cc10b(0x233)]!==undefined){const _0x2d33dd=_0x3f485c[_0x2cc10b(0x233)],_0x3955d3=!!_0x2d33dd[_0x2cc10b(0x3c2)],_0x38e0ea=String(_0x2d33dd[_0x2cc10b(0x485)]||'')[_0x2cc10b(0x1d4)]();if(_0x3955d3&&!/^[A-Za-z0-9]{3,32}$/[_0x2cc10b(0x495)](_0x38e0ea))return Response[_0x2cc10b(0x2f7)]({'success':![],'error':_0x2cc10b(0x3f1)});if(!_0x372a22['DB'])return Response[_0x2cc10b(0x2f7)]({'success':![],'error':_0x2cc10b(0x165)});return await _0x372a22['DB'][_0x2cc10b(0x383)](_0x2cc10b(0x411))[_0x2cc10b(0x30b)](),await _0x372a22['DB'][_0x2cc10b(0x383)](_0x2cc10b(0x406))[_0x2cc10b(0x38d)](_0x2cc10b(0x3a3),JSON[_0x2cc10b(0x2fb)]({'enabled':_0x3955d3,'key':_0x38e0ea}))[_0x2cc10b(0x30b)](),Response[_0x2cc10b(0x2f7)]({'success':!![]});}const _0x135241=String(_0x3f485c[_0x2cc10b(0x1f1)]||'')[_0x2cc10b(0x1d4)]();if(_0x135241[_0x2cc10b(0x2f2)]<0x4)return Response[_0x2cc10b(0x2f7)]({'success':![],'error':_0x2cc10b(0x3fb)});return await _0x372a22['DB'][_0x2cc10b(0x383)](_0x2cc10b(0x411))[_0x2cc10b(0x30b)](),await _0x372a22['DB'][_0x2cc10b(0x383)](_0x2cc10b(0x406))[_0x2cc10b(0x38d)](_0x2cc10b(0x374),_0x135241)[_0x2cc10b(0x30b)](),Response[_0x2cc10b(0x2f7)]({'success':!![]});}catch(_0x52e0e7){return Response[_0x2cc10b(0x2f7)]({'success':![],'error':_0x52e0e7[_0x2cc10b(0x22a)]});}}if(_0x553d7f[_0x2cc10b(0x319)]===_0x2cc10b(0x41a)&&_0x2a1729[_0x2cc10b(0x25f)]===_0x2cc10b(0x18f)){const _0x1c9593=await _0x13f11f(_0x372a22);return Response[_0x2cc10b(0x2f7)]({'success':!![],'enabled':!!(_0x1c9593&&_0x1c9593[_0x2cc10b(0x3c2)]&&_0x1c9593[_0x2cc10b(0x485)]),'key':_0x1c9593&&_0x1c9593[_0x2cc10b(0x3c2)]&&_0x1c9593[_0x2cc10b(0x485)]?_0x1c9593[_0x2cc10b(0x485)]:''});}if(_0x553d7f[_0x2cc10b(0x319)]===_0x2cc10b(0x18c)&&_0x2a1729[_0x2cc10b(0x25f)]===_0x2cc10b(0x18f)){if(_0x2a3f27!==_0x2cc10b(0x488))return new Response(_0x2cc10b(0x309),{'status':0x193});try{await _0x372a22['DB'][_0x2cc10b(0x383)](_0x2cc10b(0x26f))[_0x2cc10b(0x30b)]();const {results:_0x399d1b}=await _0x372a22['DB'][_0x2cc10b(0x383)](_0x2cc10b(0x229))[_0x2cc10b(0x1d2)]();return Response[_0x2cc10b(0x2f7)]({'success':!![],'hits':_0x399d1b});}catch(_0x931a0e){return Response[_0x2cc10b(0x2f7)]({'success':!![],'hits':[]});}}if(_0x553d7f[_0x2cc10b(0x319)]===_0x2cc10b(0x18c)&&_0x2a1729[_0x2cc10b(0x25f)]===_0x2cc10b(0x237)){if(_0x2a3f27!==_0x2cc10b(0x488))return new Response(_0x2cc10b(0x309),{'status':0x193});try{const _0x3702e7=await _0x2a1729[_0x2cc10b(0x2f7)]();return _0x3702e7&&_0x3702e7[_0x2cc10b(0x1c5)]&&(await _0x372a22['DB'][_0x2cc10b(0x383)](_0x2cc10b(0x26f))[_0x2cc10b(0x30b)](),await _0x372a22['DB'][_0x2cc10b(0x383)](_0x2cc10b(0x33f))[_0x2cc10b(0x30b)]()),Response[_0x2cc10b(0x2f7)]({'success':!![]});}catch(_0x180093){return Response[_0x2cc10b(0x2f7)]({'success':![],'error':_0x180093[_0x2cc10b(0x22a)]});}}if(_0x553d7f[_0x2cc10b(0x319)]===_0x2cc10b(0x1e6)&&_0x2a1729[_0x2cc10b(0x25f)]===_0x2cc10b(0x18f)){if(_0x2a3f27!==_0x2cc10b(0x488))return new Response(_0x2cc10b(0x309),{'status':0x193});try{await _0x372a22['DB'][_0x2cc10b(0x383)](_0x2cc10b(0x411))[_0x2cc10b(0x30b)]();const _0x556922=await _0x372a22['DB'][_0x2cc10b(0x383)](_0x2cc10b(0x1d1))[_0x2cc10b(0x38d)](_0x2cc10b(0x464))[_0x2cc10b(0x47b)](),_0x13a215=_0x556922&&_0x556922[_0x2cc10b(0x39a)]?JSON[_0x2cc10b(0x1fb)](_0x556922[_0x2cc10b(0x39a)]):[];return Response[_0x2cc10b(0x2f7)]({'success':!![],'subscribers':Array[_0x2cc10b(0x1f8)](_0x13a215)?_0x13a215:[]});}catch(_0x257640){return Response[_0x2cc10b(0x2f7)]({'success':![],'error':_0x257640[_0x2cc10b(0x22a)],'subscribers':[]});}}if(_0x553d7f[_0x2cc10b(0x319)]===_0x2cc10b(0x1e6)&&_0x2a1729[_0x2cc10b(0x25f)]===_0x2cc10b(0x237)){if(_0x2a3f27!==_0x2cc10b(0x488))return new Response(_0x2cc10b(0x309),{'status':0x193});try{const _0x3b995d=await _0x2a1729[_0x2cc10b(0x2f7)](),_0x5811a8=_0x3b995d[_0x2cc10b(0x248)],_0x3080d7=String(_0x3b995d[_0x2cc10b(0x1f1)]||'')[_0x2cc10b(0x1d4)]();if(!_0x3080d7||_0x3080d7[_0x2cc10b(0x2f2)]<0x4)return Response[_0x2cc10b(0x2f7)]({'success':![],'error':_0x2cc10b(0x3fb)});await _0x372a22['DB'][_0x2cc10b(0x383)](_0x2cc10b(0x411))[_0x2cc10b(0x30b)]();const _0x156ae6=await _0x372a22['DB'][_0x2cc10b(0x383)](_0x2cc10b(0x1d1))[_0x2cc10b(0x38d)](_0x2cc10b(0x464))[_0x2cc10b(0x47b)]();let _0x41a095=_0x156ae6&&_0x156ae6[_0x2cc10b(0x39a)]?JSON[_0x2cc10b(0x1fb)](_0x156ae6[_0x2cc10b(0x39a)]):[];if(!Array[_0x2cc10b(0x1f8)](_0x41a095))_0x41a095=[];if(_0x5811a8===_0x2cc10b(0x2a0)){if(_0x41a095[_0x2cc10b(0x286)](_0x3080d7))return Response[_0x2cc10b(0x2f7)]({'success':![],'error':_0x2cc10b(0x349)});_0x41a095[_0x2cc10b(0x462)](_0x3080d7);}else{if(_0x5811a8===_0x2cc10b(0x270))_0x41a095=_0x41a095[_0x2cc10b(0x3c0)](_0xcca7d3=>_0xcca7d3!==_0x3080d7);else return Response[_0x2cc10b(0x2f7)]({'success':![],'error':_0x2cc10b(0x2e0)});}return await _0x372a22['DB'][_0x2cc10b(0x383)](_0x2cc10b(0x406))[_0x2cc10b(0x38d)](_0x2cc10b(0x464),JSON[_0x2cc10b(0x2fb)](_0x41a095))[_0x2cc10b(0x30b)](),Response[_0x2cc10b(0x2f7)]({'success':!![],'subscribers':_0x41a095});}catch(_0x11a478){return Response[_0x2cc10b(0x2f7)]({'success':![],'error':_0x11a478[_0x2cc10b(0x22a)]});}}if(_0x553d7f[_0x2cc10b(0x319)]===_0x2cc10b(0x498)&&_0x2a1729[_0x2cc10b(0x25f)]===_0x2cc10b(0x18f)){if(!_0x372a22['DB'])return Response[_0x2cc10b(0x2f7)]({'success':![],'error':_0x2cc10b(0x1e9)});try{const [_0x5b9a52,_0x5769e7,_0x377e97]=await Promise[_0x2cc10b(0x1d2)]([getCFTraffic(_0x372a22,_0x2cc10b(0x2c8)),getCFTraffic(_0x372a22,0x7),getCFTraffic(_0x372a22,0x1e)]),_0x426c97=await _0x372a22['DB'][_0x2cc10b(0x383)](_0x2cc10b(0x19d))[_0x2cc10b(0x1d2)](),_0x1c1b88=await _0x372a22['DB'][_0x2cc10b(0x383)](_0x2cc10b(0x3ba))[_0x2cc10b(0x1d2)](),_0x71c11f=await _0x372a22['DB'][_0x2cc10b(0x383)](_0x2cc10b(0x331))[_0x2cc10b(0x1d2)]();return Response[_0x2cc10b(0x2f7)]({'success':!![],'trend':_0x426c97[_0x2cc10b(0x163)],'locations':_0x1c1b88[_0x2cc10b(0x163)],'recents':_0x71c11f[_0x2cc10b(0x163)],'trafficToday':_0x5b9a52,'traffic7d':_0x5769e7,'traffic30d':_0x377e97});}catch(_0xdcd7fd){return Response[_0x2cc10b(0x2f7)]({'success':![],'error':_0xdcd7fd[_0x2cc10b(0x22a)]});}}if(_0x553d7f[_0x2cc10b(0x319)]===_0x2cc10b(0x317)&&_0x2a1729[_0x2cc10b(0x25f)]===_0x2cc10b(0x237)){if(_0x2a3f27!==_0x2cc10b(0x488))return new Response(_0x2cc10b(0x309),{'status':0x193});const _0x523067=_0x372a22[_0x2cc10b(0x2ec)],_0x3af34b=_0x372a22[_0x2cc10b(0x1ae)],_0x467c8a=_0x372a22[_0x2cc10b(0x218)];if(!_0x523067||!_0x3af34b||!_0x467c8a)return Response[_0x2cc10b(0x2f7)]({'success':![],'error':_0x2cc10b(0x46b)});try{const _0x20b12b=await _0x2a1729[_0x2cc10b(0x2f7)]();if(!_0x20b12b[_0x2cc10b(0x243)])return Response[_0x2cc10b(0x2f7)]({'success':![],'error':_0x2cc10b(0x217)});const _0x4707eb=await fetch(_0x2cc10b(0x3d1)+_0x3af34b+_0x2cc10b(0x26a)+_0x467c8a,{'headers':{'Authorization':_0x2cc10b(0x3b5)+_0x523067}}),_0x5469e3=await _0x4707eb[_0x2cc10b(0x2f7)]();let _0x16cd32=_0x2cc10b(0x312),_0x4b32a1=undefined,_0x4ac5c9=undefined;if(_0x5469e3[_0x2cc10b(0x290)]&&_0x5469e3[_0x2cc10b(0x326)]){let _0x561548=null;if(_0x5469e3[_0x2cc10b(0x326)][_0x2cc10b(0x2d4)]&&_0x5469e3[_0x2cc10b(0x326)][_0x2cc10b(0x2d4)][_0x2cc10b(0x2ce)])_0x561548=_0x5469e3[_0x2cc10b(0x326)][_0x2cc10b(0x2d4)][_0x2cc10b(0x2ce)];else _0x5469e3[_0x2cc10b(0x326)][_0x2cc10b(0x2ce)]&&(_0x561548=_0x5469e3[_0x2cc10b(0x326)][_0x2cc10b(0x2ce)]);if(_0x561548){if(_0x561548[_0x2cc10b(0x21c)])_0x16cd32=_0x561548[_0x2cc10b(0x21c)];if(_0x561548[_0x2cc10b(0x1bb)])_0x4b32a1=_0x561548[_0x2cc10b(0x1bb)];if(_0x561548[_0x2cc10b(0x27f)])_0x4ac5c9=_0x561548[_0x2cc10b(0x27f)];}}const _0xd64a17=[];for(const _0x3e1f60 in _0x372a22){typeof _0x372a22[_0x3e1f60]===_0x2cc10b(0x496)&&_0xd64a17[_0x2cc10b(0x462)]({'name':_0x3e1f60,'type':_0x2cc10b(0x1f5),'text':_0x372a22[_0x3e1f60]});}const _0x2d51d6=await fetch(_0x2cc10b(0x3d1)+_0x3af34b+_0x2cc10b(0x364)+_0x467c8a+_0x2cc10b(0x36e),{'headers':{'Authorization':_0x2cc10b(0x3b5)+_0x523067}}),_0x45e993=await _0x2d51d6[_0x2cc10b(0x2f7)]();if(_0x45e993[_0x2cc10b(0x290)]&&Array[_0x2cc10b(0x1f8)](_0x45e993[_0x2cc10b(0x326)]))for(const _0x6f3e49 of _0x45e993[_0x2cc10b(0x326)]){_0x6f3e49[_0x2cc10b(0x300)]!==_0x2cc10b(0x1f5)&&_0x6f3e49[_0x2cc10b(0x300)]!==_0x2cc10b(0x269)&&_0x6f3e49[_0x2cc10b(0x300)]!==_0x2cc10b(0x2a1)&&_0xd64a17[_0x2cc10b(0x462)](_0x6f3e49);}const _0x36000e=new FormData(),_0x477da1={'main_module':_0x2cc10b(0x2b9),'bindings':_0xd64a17,'compatibility_date':_0x16cd32};if(_0x4b32a1)_0x477da1[_0x2cc10b(0x1bb)]=_0x4b32a1;if(_0x4ac5c9)_0x477da1[_0x2cc10b(0x27f)]=_0x4ac5c9;_0x36000e[_0x2cc10b(0x297)](_0x2cc10b(0x234),new Blob([JSON[_0x2cc10b(0x2fb)](_0x477da1)],{'type':_0x2cc10b(0x28e)}),_0x2cc10b(0x34f)),_0x36000e[_0x2cc10b(0x297)](_0x2cc10b(0x2b9),new Blob([_0x20b12b[_0x2cc10b(0x243)]],{'type':_0x2cc10b(0x3ec)}),_0x2cc10b(0x2b9));const _0x4e3acf=_0x2cc10b(0x3d1)+_0x3af34b+_0x2cc10b(0x364)+_0x467c8a,_0x224d08=await fetch(_0x4e3acf,{'method':_0x2cc10b(0x465),'headers':{'Authorization':_0x2cc10b(0x3b5)+_0x523067},'body':_0x36000e}),_0x56b1e3=await _0x224d08[_0x2cc10b(0x2f7)]();if(_0x56b1e3[_0x2cc10b(0x290)])return Response[_0x2cc10b(0x2f7)]({'success':!![],'msg':_0x2cc10b(0x3b7)});else throw new Error(JSON[_0x2cc10b(0x2fb)](_0x56b1e3[_0x2cc10b(0x47c)]));}catch(_0x2e5564){return Response[_0x2cc10b(0x2f7)]({'success':![],'error':_0x2e5564[_0x2cc10b(0x22a)]});}}if(_0x553d7f[_0x2cc10b(0x319)]===_0x2cc10b(0x46e)&&_0x2a1729[_0x2cc10b(0x25f)]===_0x2cc10b(0x237)){if(_0x2a3f27!==_0x2cc10b(0x488))return new Response(_0x2cc10b(0x309),{'status':0x193});const _0x170a7e=_0x372a22[_0x2cc10b(0x2ec)],_0x1602f1=_0x372a22[_0x2cc10b(0x442)];if(!_0x170a7e||!_0x1602f1)return Response[_0x2cc10b(0x2f7)]({'success':![],'error':_0x2cc10b(0x2bf)});try{const _0x138d8c=await fetch(_0x2cc10b(0x251)+_0x1602f1+_0x2cc10b(0x1ce),{'method':_0x2cc10b(0x237),'headers':{'Authorization':_0x2cc10b(0x3b5)+_0x170a7e,'Content-Type':_0x2cc10b(0x28e)},'body':JSON[_0x2cc10b(0x2fb)]({'purge_everything':!![]})}),_0x1a72b6=await _0x138d8c[_0x2cc10b(0x2f7)]();if(!_0x1a72b6[_0x2cc10b(0x290)])throw new Error(JSON[_0x2cc10b(0x2fb)](_0x1a72b6[_0x2cc10b(0x47c)]));return Response[_0x2cc10b(0x2f7)]({'success':!![]});}catch(_0x44fc2c){return Response[_0x2cc10b(0x2f7)]({'success':![],'error':_0x44fc2c[_0x2cc10b(0x22a)]});}}if(_0x553d7f[_0x2cc10b(0x319)]===_0x2cc10b(0x37a)){if(_0x2a3f27!==_0x2cc10b(0x488))return new Response(_0x2cc10b(0x309),{'status':0x193});const _0xe15f86=_0x553d7f[_0x2cc10b(0x1b1)][_0x2cc10b(0x255)](_0x2cc10b(0x2e6));if(!_0xe15f86)return Response[_0x2cc10b(0x2f7)]({'ms':-0x1});const _0x5ad6e2=Date[_0x2cc10b(0x431)]();try{const _0xdd3cb5=new AbortController(),_0x193b30=setTimeout(()=>_0xdd3cb5[_0x2cc10b(0x1ad)](),0x7d0);return await fetch(_0xe15f86+'/',{'method':_0x2cc10b(0x457),'signal':_0xdd3cb5[_0x2cc10b(0x27c)]}),clearTimeout(_0x193b30),Response[_0x2cc10b(0x2f7)]({'ms':Date[_0x2cc10b(0x431)]()-_0x5ad6e2});}catch(_0x171b39){return Response[_0x2cc10b(0x2f7)]({'ms':-0x1});}}if(_0x553d7f[_0x2cc10b(0x319)]===_0x2cc10b(0x3c8)){const _0x22bdf1=_0x372a22[_0x2cc10b(0x2ec)],_0x10a481=_0x372a22[_0x2cc10b(0x442)],_0x36c6d5=_0x372a22[_0x2cc10b(0x186)];if(!_0x22bdf1||!_0x10a481||!_0x36c6d5)return Response[_0x2cc10b(0x2f7)]({'success':![],'error':_0x2cc10b(0x343)});try{const _0x348ca9=await fetch(_0x2cc10b(0x251)+_0x10a481+_0x2cc10b(0x40e)+_0x36c6d5,{'headers':{'Authorization':_0x2cc10b(0x3b5)+_0x22bdf1}}),_0x1bf5c5=await _0x348ca9[_0x2cc10b(0x2f7)]();return Response[_0x2cc10b(0x2f7)]({'success':!![],'result':_0x1bf5c5[_0x2cc10b(0x326)]});}catch(_0x6ef91e){return Response[_0x2cc10b(0x2f7)]({'success':![],'error':_0x6ef91e[_0x2cc10b(0x22a)]});}}if(_0x553d7f[_0x2cc10b(0x319)]===_0x2cc10b(0x31b)&&_0x2a1729[_0x2cc10b(0x25f)]===_0x2cc10b(0x237)){if(_0x2a3f27!==_0x2cc10b(0x488))return new Response(_0x2cc10b(0x309),{'status':0x193});const _0x3d92ec=await _0x2a1729[_0x2cc10b(0x2f7)](),_0x5be43e=_0x3d92ec[_0x2cc10b(0x48d)],_0x3eb0be=_0x372a22[_0x2cc10b(0x2ec)],_0x151d81=_0x372a22[_0x2cc10b(0x442)],_0x377602=_0x372a22[_0x2cc10b(0x186)];if(!_0x3eb0be||!_0x151d81||!_0x377602)return Response[_0x2cc10b(0x2f7)]({'success':![],'error':_0x2cc10b(0x343)});try{const _0x5b8933=await fetch(_0x2cc10b(0x251)+_0x151d81+_0x2cc10b(0x40e)+_0x377602,{'headers':{'Authorization':_0x2cc10b(0x3b5)+_0x3eb0be}}),_0x2dd202=await _0x5b8933[_0x2cc10b(0x2f7)]();if(!_0x2dd202[_0x2cc10b(0x290)])throw new Error(_0x2cc10b(0x3e1));const _0x505380=_0x2dd202[_0x2cc10b(0x326)][_0x2cc10b(0x3c0)](_0x4a9405=>_0x4a9405[_0x2cc10b(0x300)]==='A'||_0x4a9405[_0x2cc10b(0x300)]===_0x2cc10b(0x176)||_0x4a9405[_0x2cc10b(0x300)]===_0x2cc10b(0x3d3));for(const _0x43c092 of _0x505380){await fetch(_0x2cc10b(0x251)+_0x151d81+_0x2cc10b(0x191)+_0x43c092['id'],{'method':_0x2cc10b(0x2bd),'headers':{'Authorization':_0x2cc10b(0x3b5)+_0x3eb0be}});}for(const _0x44091e of _0x5be43e){const _0x3f77ef=_0x44091e[_0x2cc10b(0x3a0)](/[\[\]]/g,'');let _0x47eadc='A';if(_0x3f77ef[_0x2cc10b(0x286)](':'))_0x47eadc=_0x2cc10b(0x176);else{if(/[a-zA-Z]/[_0x2cc10b(0x495)](_0x3f77ef))_0x47eadc=_0x2cc10b(0x3d3);}const _0xb71eb6=await fetch(_0x2cc10b(0x251)+_0x151d81+_0x2cc10b(0x41c),{'method':_0x2cc10b(0x237),'headers':{'Authorization':_0x2cc10b(0x3b5)+_0x3eb0be,'Content-Type':_0x2cc10b(0x28e)},'body':JSON[_0x2cc10b(0x2fb)]({'type':_0x47eadc,'name':_0x377602,'content':_0x3f77ef,'ttl':0x3c,'proxied':![]})}),_0x209c84=await _0xb71eb6[_0x2cc10b(0x2f7)]();if(!_0x209c84[_0x2cc10b(0x290)])throw new Error(_0x2cc10b(0x17e)+JSON[_0x2cc10b(0x2fb)](_0x209c84[_0x2cc10b(0x47c)]));}return Response[_0x2cc10b(0x2f7)]({'success':!![],'message':I[_0x2cc10b(0x3b8)]+_0x2cc10b(0x334)});}catch(_0x29554b){return Response[_0x2cc10b(0x2f7)]({'success':![],'error':_0x29554b[_0x2cc10b(0x22a)]});}}if(_0x553d7f[_0x2cc10b(0x319)]===_0x2cc10b(0x444))try{const _0x3d396b=_0x553d7f[_0x2cc10b(0x1b1)][_0x2cc10b(0x255)](_0x2cc10b(0x2e6));if(!_0x3d396b)throw new Error(_0x2cc10b(0x1c1));const _0x4436c0=await fetch(_0x3d396b,{'headers':{'User-Agent':_0x2cc10b(0x3d7)}}),_0x2c0169=await _0x4436c0[_0x2cc10b(0x3c3)]();let _0x1817bd=new Set();try{const _0x523444=JSON[_0x2cc10b(0x1fb)](_0x2c0169);_0x523444&&_0x523444[_0x2cc10b(0x416)]&&Array[_0x2cc10b(0x1f8)](_0x523444[_0x2cc10b(0x416)])&&_0x523444[_0x2cc10b(0x416)][_0x2cc10b(0x18a)](_0x164193=>{const _0x3359cf=_0x2cc10b;if(_0x164193['ip']){let _0x282033=_0x164193['ip'];if(_0x282033[_0x3359cf(0x286)](':')&&!_0x282033[_0x3359cf(0x339)]('['))_0x282033='['+_0x282033+']';_0x1817bd[_0x3359cf(0x2a0)](_0x282033);}});}catch(_0x163276){}if(_0x1817bd[_0x2cc10b(0x3fa)]===0x0){const _0x1bd497=/\b(?:(?:25[0-5]|2[0-4]\d|[01]?\d\d?)\.){3}(?:25[0-5]|2[0-4]\d|[01]?\d\d?)\b/g,_0x2429cb=_0x2c0169[_0x2cc10b(0x341)](_0x1bd497)||[];_0x2429cb[_0x2cc10b(0x18a)](_0x438971=>{const _0x4ba8f3=_0x2cc10b;if(!_0x438971[_0x4ba8f3(0x339)](_0x4ba8f3(0x3b4))&&!_0x438971[_0x4ba8f3(0x339)](_0x4ba8f3(0x3bd))&&!_0x438971[_0x4ba8f3(0x339)](_0x4ba8f3(0x222)))_0x1817bd[_0x4ba8f3(0x2a0)](_0x438971);});const _0x24f3b8=/(?:[A-F0-9]{1,4}:){7}[A-F0-9]{1,4}|(?:[A-F0-9]{1,4}:)*:[A-F0-9]{1,4}(?::[A-F0-9]{1,4})*/gi,_0x53f917=_0x2c0169[_0x2cc10b(0x341)](_0x24f3b8)||[];_0x53f917[_0x2cc10b(0x18a)](_0x2a2cd2=>{const _0x55a3bc=_0x2cc10b;if(_0x2a2cd2[_0x55a3bc(0x2f2)]>0x7&&_0x2a2cd2[_0x55a3bc(0x286)](':')&&!_0x2a2cd2[_0x55a3bc(0x339)](_0x55a3bc(0x2bc)))_0x1817bd[_0x55a3bc(0x2a0)](_0x2a2cd2[_0x55a3bc(0x339)]('[')?_0x2a2cd2:'['+_0x2a2cd2+']');});}const _0x133428=Array[_0x2cc10b(0x224)](_0x1817bd);for(let _0x2f445a=_0x133428[_0x2cc10b(0x2f2)]-0x1;_0x2f445a>0x0;_0x2f445a--){const _0x2c76fe=Math[_0x2cc10b(0x453)](Math[_0x2cc10b(0x36f)]()*(_0x2f445a+0x1));[_0x133428[_0x2f445a],_0x133428[_0x2c76fe]]=[_0x133428[_0x2c76fe],_0x133428[_0x2f445a]];}return Response[_0x2cc10b(0x2f7)]({'success':!![],'ips':_0x133428[_0x2cc10b(0x264)](0x0,0xf),'totalCount':_0x133428[_0x2cc10b(0x2f2)]});}catch(_0x162f02){return Response[_0x2cc10b(0x2f7)]({'success':![],'error':_0x162f02[_0x2cc10b(0x22a)]},{'status':0x1f4});}if(_0x553d7f[_0x2cc10b(0x319)]===_0x2cc10b(0x40a))try{const _0x3dffcd=(_0x553d7f[_0x2cc10b(0x1b1)][_0x2cc10b(0x255)](_0x2cc10b(0x300))||_0x2cc10b(0x1d2))[_0x2cc10b(0x43e)](),_0x3fa190=new Set();if([_0x2cc10b(0x1d2),'电信','联通','移动','多线',_0x2cc10b(0x494)][_0x2cc10b(0x286)](_0x3dffcd))try{const _0x48ed36=await fetch(_0x2cc10b(0x25b),{'headers':{'User-Agent':_0x2cc10b(0x3d7)}});if(_0x48ed36['ok']){const _0x5b94cf=await _0x48ed36[_0x2cc10b(0x3c3)](),_0x3e330f=_0x5b94cf[_0x2cc10b(0x3a0)](/<[^>]+>/g,'\x20'),_0x290f87=/(电信|联通|移动|多线|ipv6)\s+((?:(?:25[0-5]|2[0-4]\d|[01]?\d\d?)\.){3}(?:25[0-5]|2[0-4]\d|[01]?\d\d?)|(?:[a-fA-F0-9]{1,4}:)+[a-fA-F0-9]{1,4})/gi;let _0x4fb822;while((_0x4fb822=_0x290f87[_0x2cc10b(0x490)](_0x3e330f))!==null){const _0x814138=_0x4fb822[0x1][_0x2cc10b(0x43e)]();let _0x37fa5=_0x4fb822[0x2];if(_0x37fa5[_0x2cc10b(0x286)](':')&&!_0x37fa5[_0x2cc10b(0x339)]('['))_0x37fa5='['+_0x37fa5+']';if(_0x3dffcd===_0x2cc10b(0x1d2)||_0x3dffcd===_0x814138)_0x3fa190[_0x2cc10b(0x2a0)](_0x37fa5);}}}catch(_0x4528d2){}if([_0x2cc10b(0x1d2),'优选'][_0x2cc10b(0x286)](_0x3dffcd))try{const _0x3ab6f1=await fetch(_0x2cc10b(0x355),{'headers':{'User-Agent':_0x2cc10b(0x3d7)}});if(_0x3ab6f1['ok']){const _0x28ba14=await _0x3ab6f1[_0x2cc10b(0x3c3)](),_0x52f51e=/\b(?:(?:25[0-5]|2[0-4]\d|[01]?\d\d?)\.){3}(?:25[0-5]|2[0-4]\d|[01]?\d\d?)\b/g,_0x1150e6=_0x28ba14[_0x2cc10b(0x341)](_0x52f51e)||[];_0x1150e6[_0x2cc10b(0x18a)](_0x2c436e=>{const _0x120877=_0x2cc10b;if(!_0x2c436e[_0x120877(0x339)](_0x120877(0x3b4))&&!_0x2c436e[_0x120877(0x339)](_0x120877(0x3bd))&&!_0x2c436e[_0x120877(0x339)](_0x120877(0x222)))_0x3fa190[_0x120877(0x2a0)](_0x2c436e);});}}catch(_0x1f493d){}const _0x1fec96=Array[_0x2cc10b(0x224)](_0x3fa190);for(let _0x5049c9=_0x1fec96[_0x2cc10b(0x2f2)]-0x1;_0x5049c9>0x0;_0x5049c9--){const _0x3c18b6=Math[_0x2cc10b(0x453)](Math[_0x2cc10b(0x36f)]()*(_0x5049c9+0x1));[_0x1fec96[_0x5049c9],_0x1fec96[_0x3c18b6]]=[_0x1fec96[_0x3c18b6],_0x1fec96[_0x5049c9]];}return Response[_0x2cc10b(0x2f7)]({'success':!![],'ips':_0x1fec96[_0x2cc10b(0x264)](0x0,0xa),'totalCount':_0x1fec96[_0x2cc10b(0x2f2)]});}catch(_0x269ea9){return Response[_0x2cc10b(0x2f7)]({'success':![],'error':_0x269ea9[_0x2cc10b(0x22a)]},{'status':0x1f4});}if(_0x553d7f[_0x2cc10b(0x319)]===_0x2cc10b(0x3ef)&&_0x2a1729[_0x2cc10b(0x25f)]===_0x2cc10b(0x237)){if(_0x2a3f27!==_0x2cc10b(0x488))return new Response(_0x2cc10b(0x309),{'status':0x193});if(!_0x372a22['DB'])return Response[_0x2cc10b(0x2f7)]({'success':![],'error':_0x2cc10b(0x3bc)});try{const _0x22c3e2=await _0x2a1729[_0x2cc10b(0x2f7)](),_0x4d3a99=_0x22c3e2[_0x2cc10b(0x455)](_0x299981=>_0x372a22['DB'][_0x2cc10b(0x383)](_0x2cc10b(0x2e5))[_0x2cc10b(0x38d)](_0x299981[_0x2cc10b(0x259)],_0x299981[_0x2cc10b(0x231)]));return await _0x372a22['DB'][_0x2cc10b(0x468)](_0x4d3a99),Response[_0x2cc10b(0x2f7)]({'success':!![]});}catch(_0x195c96){return Response[_0x2cc10b(0x2f7)]({'success':![],'error':_0x195c96[_0x2cc10b(0x22a)]});}}if(_0x553d7f[_0x2cc10b(0x319)]===_0x2cc10b(0x379)&&_0x2a1729[_0x2cc10b(0x25f)]===_0x2cc10b(0x237)){if(_0x2a3f27!==_0x2cc10b(0x488))return new Response(_0x2cc10b(0x309),{'status':0x193});if(!_0x372a22['DB'])return Response[_0x2cc10b(0x2f7)]({'success':![],'error':_0x2cc10b(0x3bc)});try{const _0x5d27d2=await _0x2a1729[_0x2cc10b(0x2f7)]();for(const _0x2d254c of _0x5d27d2){_0x2d254c[_0x2cc10b(0x231)]&&_0x2d254c[_0x2cc10b(0x42e)]&&await _0x372a22['DB'][_0x2cc10b(0x383)](_0x2cc10b(0x2b6))[_0x2cc10b(0x38d)](_0x2d254c[_0x2cc10b(0x231)],_0x2d254c[_0x2cc10b(0x42e)],_0x2d254c[_0x2cc10b(0x1be)]||_0x2cc10b(0x21a),_0x2d254c[_0x2cc10b(0x168)]||'',_0x2d254c[_0x2cc10b(0x3e3)]||'',_0x2d254c[_0x2cc10b(0x278)]||'',_0x2d254c[_0x2cc10b(0x235)]||'',_0x2d254c[_0x2cc10b(0x29e)]||'on',_0x2d254c[_0x2cc10b(0x259)]||0x0,_0x2d254c[_0x2cc10b(0x456)]||'0')[_0x2cc10b(0x30b)]();}return Response[_0x2cc10b(0x2f7)]({'success':!![]});}catch(_0x1f76ef){return Response[_0x2cc10b(0x2f7)]({'success':![],'error':_0x1f76ef[_0x2cc10b(0x22a)]});}}if(_0x553d7f[_0x2cc10b(0x319)]===_0x2cc10b(0x253)&&_0x2a1729[_0x2cc10b(0x25f)]===_0x2cc10b(0x18f)){if(!_0x372a22['DB'])return Response[_0x2cc10b(0x2f7)]({'running':![]});try{const _0x4227a7=await _0x372a22['DB'][_0x2cc10b(0x383)](_0x2cc10b(0x1d1))[_0x2cc10b(0x38d)](_0x2cc10b(0x162))[_0x2cc10b(0x47b)]();if(_0x4227a7&&_0x4227a7[_0x2cc10b(0x39a)])return Response[_0x2cc10b(0x2f7)](JSON[_0x2cc10b(0x1fb)](_0x4227a7[_0x2cc10b(0x39a)]));return Response[_0x2cc10b(0x2f7)]({'running':![]});}catch(_0x175dc0){return Response[_0x2cc10b(0x2f7)]({'running':![]});}}if(_0x553d7f[_0x2cc10b(0x319)]===_0x2cc10b(0x212)&&_0x2a1729[_0x2cc10b(0x25f)]===_0x2cc10b(0x18f)){if(_0x2a3f27!==_0x2cc10b(0x488))return new Response(_0x2cc10b(0x309),{'status':0x193});let _0x153383=[];try{const _0x32b6a3=await _0x372a22['DB'][_0x2cc10b(0x383)](_0x2cc10b(0x19e))[_0x2cc10b(0x47b)]();if(_0x32b6a3&&_0x32b6a3[_0x2cc10b(0x39a)])_0x153383=JSON[_0x2cc10b(0x1fb)](_0x32b6a3[_0x2cc10b(0x39a)]);}catch(_0x122fcb){}return Response[_0x2cc10b(0x2f7)]({'notices':(_0x153383||[])[_0x2cc10b(0x264)](0x0,0x14)});}if(_0x553d7f[_0x2cc10b(0x319)]===_0x2cc10b(0x1dd)&&_0x2a1729[_0x2cc10b(0x25f)]===_0x2cc10b(0x237)){if(_0x2a3f27!==_0x2cc10b(0x488))return new Response(_0x2cc10b(0x309),{'status':0x193});if(!_0x372a22['DB'])return Response[_0x2cc10b(0x2f7)]({'success':![],'error':_0x2cc10b(0x1e9)});try{const _0x242f97=await _0x2a1729[_0x2cc10b(0x2f7)](),_0x5c0de2=String(_0x242f97&&_0x242f97[_0x2cc10b(0x231)]||'')[_0x2cc10b(0x1d4)]();if(!_0x5c0de2)return Response[_0x2cc10b(0x2f7)]({'success':![],'error':_0x2cc10b(0x249)});const _0x45bbe2=await _0x372a22['DB'][_0x2cc10b(0x383)](_0x2cc10b(0x31c))[_0x2cc10b(0x38d)](_0x5c0de2)[_0x2cc10b(0x47b)]();if(!_0x45bbe2)return Response[_0x2cc10b(0x2f7)]({'success':![],'error':_0x2cc10b(0x3e6)});await _0x372a22['DB'][_0x2cc10b(0x383)](_0x2cc10b(0x406))[_0x2cc10b(0x38d)](_0x2cc10b(0x162),JSON[_0x2cc10b(0x2fb)]({'running':!![],'prefix':_0x5c0de2,'current':_0x2cc10b(0x220),'steps':[],'progress':0x3,'mediaTitle':'','updatedAt':Date[_0x2cc10b(0x431)]()}))[_0x2cc10b(0x30b)]();const _0x4f26d2=await runKeepAlive(_0x372a22,_0x45bbe2);return await _0x372a22['DB'][_0x2cc10b(0x383)](_0x2cc10b(0x48b))[_0x2cc10b(0x38d)](new Date()[_0x2cc10b(0x1a6)](),_0x4f26d2['ok']?_0x2cc10b(0x290):_0x2cc10b(0x363),_0x4f26d2[_0x2cc10b(0x2c9)]||'',_0x5c0de2)[_0x2cc10b(0x30b)](),await pushKaNotice(_0x372a22,_0x5c0de2,_0x4f26d2['ok'],_0x4f26d2[_0x2cc10b(0x2c9)],_0x45bbe2[_0x2cc10b(0x168)]),await _0x372a22['DB'][_0x2cc10b(0x383)](_0x2cc10b(0x406))[_0x2cc10b(0x38d)](_0x2cc10b(0x162),JSON[_0x2cc10b(0x2fb)]({'running':![],'prefix':_0x5c0de2,'current':'','steps':_0x4f26d2[_0x2cc10b(0x373)]||[],'msg':_0x4f26d2[_0x2cc10b(0x2c9)]||'','progress':0x64,'mediaTitle':'','updatedAt':Date[_0x2cc10b(0x431)]()}))[_0x2cc10b(0x30b)](),Response[_0x2cc10b(0x2f7)](_0x4f26d2);}catch(_0x3b8862){return Response[_0x2cc10b(0x2f7)]({'success':![],'error':_0x2cc10b(0x45c)+_0x3b8862[_0x2cc10b(0x22a)]});}}if(_0x553d7f[_0x2cc10b(0x319)][_0x2cc10b(0x339)](_0x2cc10b(0x307))){if(!_0x372a22['DB'])return Response[_0x2cc10b(0x2f7)]({'error':_0x2cc10b(0x314)},{'status':0x1f4});await _0x372a22['DB'][_0x2cc10b(0x490)](_0x2cc10b(0x380)),await _0x372a22['DB'][_0x2cc10b(0x490)](_0x2cc10b(0x42a)),await _0x372a22['DB'][_0x2cc10b(0x490)](_0x2cc10b(0x2d8));try{await _0x372a22['DB'][_0x2cc10b(0x490)](_0x2cc10b(0x1aa));}catch(_0x41156b){}try{await _0x372a22['DB'][_0x2cc10b(0x490)](_0x2cc10b(0x15c));}catch(_0x2fbdf8){}try{await _0x372a22['DB'][_0x2cc10b(0x490)](_0x2cc10b(0x24a));}catch(_0x47375d){}try{await _0x372a22['DB'][_0x2cc10b(0x490)](_0x2cc10b(0x197));}catch(_0x124b78){}try{await _0x372a22['DB'][_0x2cc10b(0x490)](_0x2cc10b(0x451));}catch(_0x38b095){}try{await _0x372a22['DB'][_0x2cc10b(0x490)](_0x2cc10b(0x315));}catch(_0x3d3e67){}try{await _0x372a22['DB'][_0x2cc10b(0x490)](_0x2cc10b(0x192));}catch(_0x5891f1){}try{await _0x372a22['DB'][_0x2cc10b(0x490)](_0x2cc10b(0x48a));}catch(_0x3d269b){}try{await _0x372a22['DB'][_0x2cc10b(0x490)](_0x2cc10b(0x2a5));}catch(_0x38a1cf){}try{await _0x372a22['DB'][_0x2cc10b(0x490)](_0x2cc10b(0x242));}catch(_0x4e1dd4){}try{await _0x372a22['DB'][_0x2cc10b(0x490)](_0x2cc10b(0x210));}catch(_0x21f15f){}try{await _0x372a22['DB'][_0x2cc10b(0x490)](_0x2cc10b(0x241));}catch(_0x18c9cc){}try{await _0x372a22['DB'][_0x2cc10b(0x490)](_0x2cc10b(0x434));}catch(_0x29e728){}try{await _0x372a22['DB'][_0x2cc10b(0x490)](_0x2cc10b(0x440));}catch(_0x5862ba){}try{await _0x372a22['DB'][_0x2cc10b(0x490)](_0x2cc10b(0x35f));}catch(_0x356f61){}try{await _0x372a22['DB'][_0x2cc10b(0x490)](_0x2cc10b(0x28c));}catch(_0x328c4e){}if(_0x2a1729[_0x2cc10b(0x25f)]!==_0x2cc10b(0x18f)&&_0x2a3f27!==_0x2cc10b(0x488))return new Response(_0x2cc10b(0x309),{'status':0x193});try{await _0x372a22['DB'][_0x2cc10b(0x490)](_0x2cc10b(0x372));}catch(_0xc72de9){}if(_0x2a1729[_0x2cc10b(0x25f)]===_0x2cc10b(0x18f)){const _0x2ba297=new Date(Date[_0x2cc10b(0x431)]()+0x8*0x36ee80)[_0x2cc10b(0x1a6)]()[_0x2cc10b(0x2b5)]('T')[0x0];let {results:_0x157cbe}=await _0x372a22['DB'][_0x2cc10b(0x383)](_0x2cc10b(0x1a5))[_0x2cc10b(0x38d)](_0x2ba297)[_0x2cc10b(0x1d2)]();if(_0x372a22[_0x2cc10b(0x2ec)]&&_0x372a22[_0x2cc10b(0x442)]&&_0x157cbe&&_0x157cbe[_0x2cc10b(0x2f2)]>0x0){const _0x30af12=new Date(),_0x274ec2=new Date(_0x30af12[_0x2cc10b(0x46c)]()+0x8*0x36ee80);_0x274ec2[_0x2cc10b(0x2cb)](0x0,0x0,0x0,0x0);const _0xc42868=new Date(_0x274ec2[_0x2cc10b(0x46c)]()-0x8*0x36ee80);await Promise[_0x2cc10b(0x1d2)](_0x157cbe[_0x2cc10b(0x455)](async _0x45df85=>{const _0x50d789=_0x2cc10b;try{const _0x4fdc4a={'query':_0x50d789(0x280)+_0x372a22[_0x50d789(0x442)]+_0x50d789(0x2b8)+_0x45df85[_0x50d789(0x231)]+_0x50d789(0x36c)+_0xc42868[_0x50d789(0x1a6)]()+_0x50d789(0x30c)+_0x30af12[_0x50d789(0x1a6)]()+_0x50d789(0x320)},_0x2eb85a=await fetch(_0x50d789(0x2d1),{'method':_0x50d789(0x237),'headers':{'Authorization':_0x50d789(0x3b5)+_0x372a22[_0x50d789(0x2ec)],'Content-Type':_0x50d789(0x28e)},'body':JSON[_0x50d789(0x2fb)](_0x4fdc4a)}),_0x389a7d=await _0x2eb85a[_0x50d789(0x2f7)](),_0x1277d6=_0x389a7d?.[_0x50d789(0x416)]?.[_0x50d789(0x42c)]?.[_0x50d789(0x3bf)]?.[0x0]?.[_0x50d789(0x386)]?.[0x0]?.[_0x50d789(0x2c2)]?.[_0x50d789(0x22c)]||0x0;let _0x39b6dc=_0x50d789(0x26c);if(_0x1277d6>=0x10000000000)_0x39b6dc=(_0x1277d6/0x10000000000)[_0x50d789(0x2be)](0x2)+_0x50d789(0x1ba);else{if(_0x1277d6>=0x40000000)_0x39b6dc=(_0x1277d6/0x40000000)[_0x50d789(0x2be)](0x2)+_0x50d789(0x20e);else{if(_0x1277d6>=0x100000)_0x39b6dc=(_0x1277d6/0x100000)[_0x50d789(0x2be)](0x2)+_0x50d789(0x2fa);else{if(_0x1277d6>=0x400)_0x39b6dc=(_0x1277d6/0x400)[_0x50d789(0x2be)](0x2)+_0x50d789(0x230);else{if(_0x1277d6>0x0)_0x39b6dc=_0x1277d6+'\x20B';}}}}_0x45df85[_0x50d789(0x1b5)]=_0x39b6dc;}catch(_0x225d9){_0x45df85[_0x50d789(0x1b5)]=_0x50d789(0x44d);}}));}return _0x2a3f27===_0x2cc10b(0x46f)&&Array[_0x2cc10b(0x1f8)](_0x157cbe)&&(_0x157cbe=_0x157cbe[_0x2cc10b(0x455)](_0x2979a9=>{const _0x1fd84d=_0x2cc10b,_0x6da6d4={..._0x2979a9};return delete _0x6da6d4[_0x1fd84d(0x42e)],_0x6da6d4;})),Response[_0x2cc10b(0x2f7)](_0x157cbe||[]);}if(_0x2a1729[_0x2cc10b(0x25f)]===_0x2cc10b(0x237)){const _0x2b5b8f=await _0x2a1729[_0x2cc10b(0x2f7)]();let _0xda179f=0x0;if(_0x2b5b8f[_0x2cc10b(0x2b3)]&&_0x2b5b8f[_0x2cc10b(0x2b3)]!==_0x2b5b8f[_0x2cc10b(0x231)]){const _0x5d2ea8=await _0x372a22['DB'][_0x2cc10b(0x383)](_0x2cc10b(0x205))[_0x2cc10b(0x38d)](_0x2b5b8f[_0x2cc10b(0x2b3)])[_0x2cc10b(0x47b)]();if(_0x5d2ea8)_0xda179f=_0x5d2ea8[_0x2cc10b(0x259)];await _0x372a22['DB'][_0x2cc10b(0x383)](_0x2cc10b(0x42d))[_0x2cc10b(0x38d)](_0x2b5b8f[_0x2cc10b(0x2b3)])[_0x2cc10b(0x30b)]();}else{const _0x5ecdc1=await _0x372a22['DB'][_0x2cc10b(0x383)](_0x2cc10b(0x205))[_0x2cc10b(0x38d)](_0x2b5b8f[_0x2cc10b(0x231)])[_0x2cc10b(0x47b)]();if(_0x5ecdc1)_0xda179f=_0x5ecdc1[_0x2cc10b(0x259)];}const _0x3ceef0=JSON[_0x2cc10b(0x2fb)]({'client':_0x2b5b8f[_0x2cc10b(0x340)]||'','version':_0x2b5b8f[_0x2cc10b(0x2d6)]||'','device':_0x2b5b8f[_0x2cc10b(0x3a2)]||'','deviceId':_0x2b5b8f[_0x2cc10b(0x448)]||genUuid(),'ua':_0x2b5b8f[_0x2cc10b(0x3a5)]||'','dlTrick':_0x2b5b8f[_0x2cc10b(0x24f)]==='1'});return await _0x372a22['DB'][_0x2cc10b(0x383)](_0x2cc10b(0x479))[_0x2cc10b(0x38d)](_0x2b5b8f[_0x2cc10b(0x231)],_0x2b5b8f[_0x2cc10b(0x42e)],_0x2b5b8f[_0x2cc10b(0x1be)]||_0x2cc10b(0x21a),_0x2b5b8f[_0x2cc10b(0x168)]||'',_0x2b5b8f[_0x2cc10b(0x278)]||'',_0x3ceef0,_0x2b5b8f[_0x2cc10b(0x29e)]||'on',_0xda179f,_0x2b5b8f[_0x2cc10b(0x463)]||'0',_0x2b5b8f[_0x2cc10b(0x377)]||'3',_0x2b5b8f[_0x2cc10b(0x1ab)]||'',_0x2b5b8f[_0x2cc10b(0x284)]||'',_0x2b5b8f[_0x2cc10b(0x209)]||'',_0x2b5b8f[_0x2cc10b(0x1f0)]||'0')[_0x2cc10b(0x30b)](),Response[_0x2cc10b(0x2f7)]({'success':!![]});}if(_0x2a1729[_0x2cc10b(0x25f)]===_0x2cc10b(0x2bd)){const _0x59e8fa=_0x553d7f[_0x2cc10b(0x1b1)][_0x2cc10b(0x255)](_0x2cc10b(0x231));return await _0x372a22['DB'][_0x2cc10b(0x383)](_0x2cc10b(0x42d))[_0x2cc10b(0x38d)](_0x59e8fa)[_0x2cc10b(0x30b)](),Response[_0x2cc10b(0x2f7)]({'success':!![]});}return new Response(_0x2cc10b(0x295),{'status':0x195});}let _0x1cb287=[],_0x1db622=_0x2cc10b(0x21a),_0x21832c=!![],_0x49e5af='',_0x5bbd3e=decodeURIComponent(_0x553d7f[_0x2cc10b(0x319)]),_0x33f46c=null,_0x522fe9=new URL(_0x2a1729[_0x2cc10b(0x2e6)])[_0x2cc10b(0x3ce)],_0x1de2b1={},_0x3e85c9=![],_0x160a68='';if(!_0x553d7f[_0x2cc10b(0x319)][_0x2cc10b(0x339)](_0x2cc10b(0x345))&&_0x553d7f[_0x2cc10b(0x319)]!=='/'){const _0x40c12a=await _0x13f11f(_0x372a22);if(_0x40c12a&&_0x40c12a[_0x2cc10b(0x3c2)]&&_0x40c12a[_0x2cc10b(0x485)]){const _0x1c81c0='/'+_0x40c12a[_0x2cc10b(0x485)]+'/';let _0x291e9a=null;if(_0x5bbd3e==='/'+_0x40c12a[_0x2cc10b(0x485)])_0x291e9a='/';else{if(_0x5bbd3e[_0x2cc10b(0x1b6)](_0x1c81c0)===0x0)_0x291e9a=_0x5bbd3e[_0x2cc10b(0x264)](_0x1c81c0[_0x2cc10b(0x2f2)]-0x1);}if(_0x291e9a===null)return await _0x2bf781(_0x372a22,_0x2a1729,_0x5bbd3e),Response[_0x2cc10b(0x318)](new URL(_0x2cc10b(0x226),_0x522fe9),0x12e);_0x5bbd3e=_0x291e9a;}}function _0x820846(_0x207fd8){const _0x37140b=_0x2cc10b;return/\.(jpg|jpeg|gif|png|svg|ico|webp|js|css|woff2?|ttf|otf|map|webmanifest|srt|ass|vtt|sub)$/i[_0x37140b(0x495)](_0x207fd8)||/(\/Images\/|\/Icons\/|\/Branding\/|\/emby\/covers\/|\/img\/)/i[_0x37140b(0x495)](_0x207fd8);}function _0x5223bd(_0x1f5a26,_0x36757f){const _0x142701=_0x2cc10b,_0x360de4=[_0x142701(0x1da),_0x142701(0x371),_0x142701(0x1b8),_0x142701(0x301),_0x142701(0x1a2)],_0x2db657=Array[_0x142701(0x224)](_0x36757f[_0x142701(0x1b1)][_0x142701(0x31d)]())[_0x142701(0x2eb)](_0x398e41=>_0x360de4[_0x142701(0x286)](_0x398e41[_0x142701(0x43e)]()));return _0x1f5a26[_0x142701(0x1d8)](_0x142701(0x3cb))||_0x1f5a26[_0x142701(0x1d8)](_0x142701(0x426))||_0x1f5a26[_0x142701(0x1d8)](_0x142701(0x202))||_0x1f5a26[_0x142701(0x1d8)](_0x142701(0x274))||_0x1f5a26[_0x142701(0x1d8)](_0x142701(0x18e))||_0x2db657;}function _0x70b56f(_0x3bb461){const _0x334592=_0x2cc10b,_0x4314c6=_0x3bb461[_0x334592(0x255)](_0x334592(0x18e));if(!_0x4314c6)return;const _0x78dc07=_0x4314c6[_0x334592(0x2b5)](';')[_0x334592(0x455)](_0x47e5b4=>_0x47e5b4[_0x334592(0x1d4)]())[_0x334592(0x3c0)](_0x418ade=>_0x418ade&&!_0x418ade[_0x334592(0x43e)]()[_0x334592(0x339)](_0x334592(0x29b)));if(_0x78dc07[_0x334592(0x2f2)]>0x0)_0x3bb461[_0x334592(0x1ee)](_0x334592(0x18e),_0x78dc07[_0x334592(0x35e)](';\x20'));else _0x3bb461[_0x334592(0x22e)](_0x334592(0x18e));}function _0x384bcd(_0x15a865){const _0x601091=_0x2cc10b,_0x2b7bb6=_0x15a865[_0x601091(0x3ad)]?_0x15a865[_0x601091(0x3ad)][_0x601091(0x38d)](_0x15a865):null,_0x5dbff8=_0x15a865[_0x601091(0x255)](_0x601091(0x3c5)),_0x12f5e2=_0x2b7bb6?_0x2b7bb6():_0x5dbff8?_0x5dbff8[_0x601091(0x2b5)](/,(?=\s*[^;,]+=)/g):[];if(_0x12f5e2[_0x601091(0x2f2)]===0x0)return;_0x15a865[_0x601091(0x22e)](_0x601091(0x3c5));for(const _0x4b76c5 of _0x12f5e2)_0x15a865[_0x601091(0x297)](_0x601091(0x3c5),_0x4b76c5[_0x601091(0x3a0)](/;\s*Domain=[^;]*/ig,''));}function _0x2e94a8(_0x538a6b){const _0x4fa456=_0x2cc10b,_0xfc7dce=[];for(const _0x2e8f1d of _0x538a6b){try{const _0x1fff54=new URL(_0x2e8f1d),_0x23f997=_0x1fff54[_0x4fa456(0x3ce)],_0x31f1a7=(_0x1fff54[_0x4fa456(0x3f0)]===_0x4fa456(0x47a)?_0x4fa456(0x437):_0x4fa456(0x47a))+'//'+_0x1fff54[_0x4fa456(0x2cc)];if(!_0xfc7dce[_0x4fa456(0x286)](_0x23f997))_0xfc7dce[_0x4fa456(0x462)](_0x23f997);if(!_0xfc7dce[_0x4fa456(0x286)](_0x31f1a7))_0xfc7dce[_0x4fa456(0x462)](_0x31f1a7);}catch(_0x116aa7){}}return _0xfc7dce;}function _0x300159(_0x3ca2f8,_0x5ef16f,_0x3b2d97,_0x545d0b){const _0xabce83=_0x2cc10b;let _0x2f580c=_0x3ca2f8;const _0x2e2a66=_0x3b2d97+_0x545d0b+'/';for(const _0x12b553 of _0x5ef16f){let _0x2ddd4c='',_0x10be68=0x0,_0xe1ef67=_0x2f580c[_0xabce83(0x1b6)](_0x12b553);while(_0xe1ef67!==-0x1){const _0x1b0bee=_0x2f580c[_0xabce83(0x38b)](Math[_0xabce83(0x36a)](0x0,_0xe1ef67-_0x2e2a66[_0xabce83(0x2f2)]),_0xe1ef67)===_0x2e2a66;_0x2ddd4c+=_0x2f580c[_0xabce83(0x38b)](_0x10be68,_0xe1ef67),_0x2ddd4c+=_0x1b0bee?_0x12b553:_0x2e2a66+_0x12b553,_0x10be68=_0xe1ef67+_0x12b553[_0xabce83(0x2f2)],_0xe1ef67=_0x2f580c[_0xabce83(0x1b6)](_0x12b553,_0x10be68);}_0x10be68>0x0&&(_0x2ddd4c+=_0x2f580c[_0xabce83(0x38b)](_0x10be68),_0x2f580c=_0x2ddd4c);}const _0xf88837=/(^|["'\s(])((?:\/img\/|\/emby\/Items\/[^"'\s)]+\/Images\/|\/Items\/[^"'\s)]+\/Images\/)[^"'\s)]*)/ig;return _0x2f580c=_0x2f580c[_0xabce83(0x3a0)](_0xf88837,(_0x4853df,_0x40d317,_0xfe523f)=>{const _0x17de6c=_0xabce83;if(_0x545d0b&&_0xfe523f[_0x17de6c(0x339)](_0x545d0b+'/'))return _0x4853df;return _0x40d317+_0x3b2d97+_0x545d0b+_0xfe523f;}),_0x2f580c;}function _0x4619c8(_0x122174,_0x4c5d19,_0x487f16,_0x50774e){const _0x3d2fb1=_0x2cc10b;if(typeof _0x122174===_0x3d2fb1(0x496))return _0x300159(_0x122174,_0x4c5d19,_0x487f16,_0x50774e);if(Array[_0x3d2fb1(0x1f8)](_0x122174)){let _0x19b942=![];const _0x1d74af=_0x122174[_0x3d2fb1(0x455)](_0x36c35f=>{const _0x3d9a8e=_0x4619c8(_0x36c35f,_0x4c5d19,_0x487f16,_0x50774e);if(_0x3d9a8e!==_0x36c35f)_0x19b942=!![];return _0x3d9a8e;});return _0x19b942?_0x1d74af:_0x122174;}if(_0x122174&&typeof _0x122174===_0x3d2fb1(0x2de)){let _0x516ed2=![];const _0x5e4ebc={};for(const _0x1eac84 of Object[_0x3d2fb1(0x31d)](_0x122174)){const _0x55d074=_0x4619c8(_0x122174[_0x1eac84],_0x4c5d19,_0x487f16,_0x50774e);if(_0x55d074!==_0x122174[_0x1eac84])_0x516ed2=!![];_0x5e4ebc[_0x1eac84]=_0x55d074;}return _0x516ed2?_0x5e4ebc:_0x122174;}return _0x122174;}function _0x5b7fc2(_0x4eaf31){const _0x49834a=_0x2cc10b;_0x4eaf31[_0x49834a(0x22e)](_0x49834a(0x3a8)),_0x4eaf31[_0x49834a(0x22e)](_0x49834a(0x3dc)),_0x4eaf31[_0x49834a(0x22e)](_0x49834a(0x324));}function _0x6a07e9(_0x3b5b51,_0xfc4ead){const _0x2c81d5=_0x2cc10b;return _0xfc4ead[_0x2c81d5(0x2eb)](_0x825484=>_0x3b5b51[_0x2c81d5(0x286)](_0x825484))||/(^|["'\s(])(?:\/img\/|\/emby\/Items\/[^"'\s)]+\/Images\/|\/Items\/[^"'\s)]+\/Images\/)/i[_0x2c81d5(0x495)](_0x3b5b51);}function _0x1c5a41(_0x5a6e9,_0x181f41,_0x3f2226,_0x3af300,_0x389b12){const _0x5109f5=_0x2cc10b;if(!_0x5a6e9)return _0x5a6e9;if(_0x5a6e9[_0x5109f5(0x339)]('//'))try{const _0xa7ea1f=_0x181f41?_0x181f41[_0x5109f5(0x3f0)]:new URL(_0x3f2226[0x0])[_0x5109f5(0x3f0)];_0x5a6e9=_0xa7ea1f+_0x5a6e9;}catch(_0x3de633){}if(_0x5a6e9[_0x5109f5(0x339)]('/')){if(_0x389b12&&_0x5a6e9[_0x5109f5(0x339)](_0x389b12+'/'))return _0x3af300+_0x5a6e9;if(!_0x389b12&&_0x181f41)return _0x3af300+'/'+encodeURIComponent(new URL(_0x5a6e9,_0x181f41[_0x5109f5(0x3ce)])[_0x5109f5(0x25e)]);return _0x3af300+_0x389b12+_0x5a6e9;}try{const _0x344e7e=new URL(_0x5a6e9);if(_0x3f2226[_0x5109f5(0x286)](_0x344e7e[_0x5109f5(0x3ce)])){if(!_0x389b12)return _0x3af300+'/'+encodeURIComponent(_0x5a6e9);return _0x3af300+_0x389b12+_0x344e7e[_0x5109f5(0x319)]+_0x344e7e[_0x5109f5(0x1fc)]+_0x344e7e[_0x5109f5(0x29a)];}}catch(_0x2810ea){}if(/^https?:\/\//i[_0x5109f5(0x495)](_0x5a6e9))return''+_0x3af300+_0x389b12+'/'+encodeURIComponent(_0x5a6e9);return _0x5a6e9;}function _0x5e9f57(_0x5cdaa1){const _0xf86733=_0x2cc10b;return/^\/(?:Items|Videos|Audio|Sessions|Users|System|Library|LiveTv|Shows|Movies|Artists|Albums|Playlists|Channels|Packages|Devices|Socket|socket|web|emby|Images|Branding|Environment|DisplayPreferences|Trailers|Collections|Genres|Persons|Studios|Years)(?:\/|$)/i[_0xf86733(0x495)](_0x5cdaa1);}function _0x4f9d96(_0x27e9fd,_0x24eecc,_0xab3baf){const _0x412999=_0x2cc10b,_0x32f2d7=[],_0x3efba0=_0x3b13bf=>{const _0x341f8b=_0x3f0e;if(_0x3b13bf&&!_0x32f2d7[_0x341f8b(0x286)](_0x3b13bf))_0x32f2d7[_0x341f8b(0x462)](_0x3b13bf);},_0x8f9981=_0x27e9fd+_0x24eecc+_0xab3baf;_0x3efba0(_0x8f9981);try{const _0x16ba85=new URL(_0x27e9fd),_0x277012=(_0x16ba85[_0x412999(0x319)]||'/')[_0x412999(0x3a0)](/\/+$/,'')||'/',_0x5f4076=_0x24eecc||'/',_0x2c8b18=_0x277012==='/',_0x53434d=/^\/emby(?:\/|$)/i[_0x412999(0x495)](_0x5f4076);_0x2c8b18&&!_0x53434d&&_0x5e9f57(_0x5f4076)&&_0x3efba0(_0x16ba85[_0x412999(0x3ce)]+_0x412999(0x381)+_0x5f4076+_0xab3baf);if(_0x2c8b18&&_0x53434d&&_0x5e9f57(_0x5f4076)){const _0x173d00=_0x5f4076[_0x412999(0x3a0)](/^\/emby(?=\/|$)/i,'')||'/';_0x3efba0(''+_0x16ba85[_0x412999(0x3ce)]+_0x173d00+_0xab3baf);}const _0x4aad0e=/^\/emby(?:\/|$)/i[_0x412999(0x495)](_0x16ba85[_0x412999(0x319)]||'/');if(!_0x4aad0e&&_0x5e9f57(_0x16ba85[_0x412999(0x319)]||'/')){const _0x2fa5dc=_0x16ba85[_0x412999(0x1fc)]||_0xab3baf;_0x3efba0(_0x16ba85[_0x412999(0x3ce)]+_0x412999(0x381)+_0x16ba85[_0x412999(0x319)]+_0x2fa5dc+(_0x16ba85[_0x412999(0x29a)]||''));}if(_0x4aad0e&&_0x5e9f57(_0x16ba85[_0x412999(0x319)]||'/')){const _0x4d5bc6=_0x16ba85[_0x412999(0x1fc)]||_0xab3baf,_0x52ec37=(_0x16ba85[_0x412999(0x319)]||'/')[_0x412999(0x3a0)](/^\/emby(?=\/|$)/i,'')||'/';_0x3efba0(''+_0x16ba85[_0x412999(0x3ce)]+_0x52ec37+_0x4d5bc6+(_0x16ba85[_0x412999(0x29a)]||''));}}catch(_0x411a43){}return _0x32f2d7;}function _0x1092d9(_0x4c3db7,_0x1402bf='',_0x4b6d44='',_0x562a18=''){const _0x3d6cce=_0x2cc10b,_0x49c962=_0x4c3db7[_0x3d6cce(0x339)]('/')?_0x4c3db7:'/'+_0x4c3db7;return''+_0x562a18+_0x49c962+(_0x1402bf||'')+(_0x4b6d44||'');}function _0x4ed688(_0x4963e0,_0x5823c5,_0x5147da,_0x1a1573,_0x2ff9e7){const _0x5b817a=_0x2cc10b;if(typeof _0x4963e0!==_0x5b817a(0x496))return _0x4963e0;const _0x102d87=_0x4963e0[_0x5b817a(0x1d4)]();if(!_0x102d87)return _0x4963e0;if(_0x1a1573&&_0x102d87[_0x5b817a(0x339)](_0x1a1573+'/'))return _0x4963e0;if(_0x1a1573&&_0x102d87[_0x5b817a(0x339)](_0x5147da+_0x1a1573+'/'))return _0x102d87[_0x5b817a(0x38b)](_0x5147da[_0x5b817a(0x2f2)]);if(/^https?:\/\//i[_0x5b817a(0x495)](_0x102d87))try{const _0x589c2c=new URL(_0x102d87);if(Array[_0x5b817a(0x1f8)](_0x2ff9e7)&&!_0x2ff9e7[_0x5b817a(0x286)](_0x589c2c[_0x5b817a(0x3ce)]))return''+_0x5147da+_0x1a1573+'/'+_0x102d87;return _0x1092d9(_0x589c2c[_0x5b817a(0x319)],_0x589c2c[_0x5b817a(0x1fc)],_0x589c2c[_0x5b817a(0x29a)],_0x1a1573);}catch(_0x218c2e){return _0x4963e0;}if(_0x102d87[_0x5b817a(0x339)]('//'))try{const _0x1e58ab=new URL(_0x5823c5[_0x5b817a(0x3f0)]+_0x102d87);if(Array[_0x5b817a(0x1f8)](_0x2ff9e7)&&!_0x2ff9e7[_0x5b817a(0x286)](_0x1e58ab[_0x5b817a(0x3ce)]))return''+_0x5147da+_0x1a1573+'/'+_0x1e58ab[_0x5b817a(0x25e)];return _0x1092d9(_0x1e58ab[_0x5b817a(0x319)],_0x1e58ab[_0x5b817a(0x1fc)],_0x1e58ab[_0x5b817a(0x29a)],_0x1a1573);}catch(_0x409d4f){return _0x4963e0;}if(_0x102d87[_0x5b817a(0x339)]('/'))return _0x1092d9(_0x102d87,'','',_0x1a1573);try{const _0x51ac9d=new URL(_0x102d87,_0x5823c5[_0x5b817a(0x3ce)]+'/');return _0x1092d9(_0x51ac9d[_0x5b817a(0x319)],_0x51ac9d[_0x5b817a(0x1fc)],_0x51ac9d[_0x5b817a(0x29a)],_0x1a1573);}catch(_0x12f587){return _0x4963e0;}}function _0xdbee57(_0x57b509,_0x3bd948){const _0x241852=_0x2cc10b;if(!_0x57b509||!_0x3bd948)return _0x57b509;const _0x431235='/'+_0x3bd948,_0x5e117f=_0x241852(0x381)+_0x431235;if(_0x57b509===_0x431235||_0x57b509[_0x241852(0x339)](_0x431235+'/')){const _0x364939=_0x57b509[_0x241852(0x38b)](_0x431235[_0x241852(0x2f2)]);return _0x364939||'/';}if(_0x57b509===_0x5e117f||_0x57b509[_0x241852(0x339)](_0x5e117f+'/')){const _0x51658b=_0x57b509[_0x241852(0x38b)](_0x5e117f[_0x241852(0x2f2)]);if(!_0x51658b||_0x51658b==='/')return _0x241852(0x1d0);if(/^\/emby(?:\/|$)/i[_0x241852(0x495)](_0x51658b))return _0x51658b;return _0x241852(0x381)+_0x51658b;}return _0x57b509;}if(_0x5bbd3e[_0x2cc10b(0x339)](_0x2cc10b(0x3f7))||_0x5bbd3e[_0x2cc10b(0x339)](_0x2cc10b(0x1fa)))_0x1cb287=[_0x5bbd3e[_0x2cc10b(0x38b)](0x1)],_0x49e5af='';else{const _0x34f178=_0x5bbd3e[_0x2cc10b(0x2b5)]('/'),_0x145e30=_0x34f178[0x1];if(!_0x145e30)return new Response(_0x2cc10b(0x388),{'status':0x194});try{if(!_0x372a22['DB'])return new Response(_0x2cc10b(0x1ed),{'status':0x194});const _0x55f2c8=_0x372a22['DB'][_0x2cc10b(0x383)](_0x2cc10b(0x306)),_0x5ddebe=await _0x55f2c8[_0x2cc10b(0x38d)](_0x145e30)[_0x2cc10b(0x47b)]();if(!_0x5ddebe)return new Response(_0x2cc10b(0x413),{'status':0x194});_0x1db622=_0x5ddebe[_0x2cc10b(0x1be)]||_0x2cc10b(0x21a),_0x21832c=_0x5ddebe[_0x2cc10b(0x29e)]!==_0x2cc10b(0x21a),_0x33f46c=_0x145e30,_0x49e5af='/'+_0x34f178[_0x2cc10b(0x264)](0x2)[_0x2cc10b(0x35e)]('/'),_0x49e5af=_0xdbee57(_0x49e5af,_0x33f46c),_0x1cb287=_0x5ddebe[_0x2cc10b(0x42e)][_0x2cc10b(0x2b5)](',')[_0x2cc10b(0x455)](_0x4b4b56=>_0x4b4b56[_0x2cc10b(0x1d4)]())[_0x2cc10b(0x3c0)](Boolean);if(_0x5ddebe[_0x2cc10b(0x235)])try{_0x1de2b1=JSON[_0x2cc10b(0x1fb)](_0x5ddebe[_0x2cc10b(0x235)]);}catch(_0x9a6c9e){}_0x3e85c9=!!(_0x1de2b1&&_0x1de2b1[_0x2cc10b(0x24f)]);if(_0x3e85c9&&/\/Items\/[^/]+\/Download\/?$/i[_0x2cc10b(0x495)](_0x49e5af)){const _0x1e8b31=_0x49e5af[_0x2cc10b(0x341)](/\/Items\/([^/]+)\/Download\/?$/i);if(_0x1e8b31){_0x160a68=_0x1e8b31[0x1],_0x49e5af=_0x49e5af[_0x2cc10b(0x3a0)](/\/Items\/[^/]+\/Download\/?$/i,()=>_0x2cc10b(0x3a4)+encodeURIComponent(_0x1e8b31[0x1])+_0x2cc10b(0x3cf));if(!_0x553d7f[_0x2cc10b(0x1b1)][_0x2cc10b(0x1d8)](_0x2cc10b(0x25c)))_0x553d7f[_0x2cc10b(0x1b1)][_0x2cc10b(0x1ee)](_0x2cc10b(0x25c),_0x2cc10b(0x419));}}(_0x49e5af[_0x2cc10b(0x339)](_0x2cc10b(0x3f7))||_0x49e5af[_0x2cc10b(0x339)](_0x2cc10b(0x1fa)))&&(_0x1cb287=[_0x49e5af[_0x2cc10b(0x38b)](0x1)],_0x49e5af='');}catch(_0x5ac450){return new Response(_0x2cc10b(0x160)+_0x5ac450[_0x2cc10b(0x22a)],{'status':0x1f4});}}if(_0x1cb287[_0x2cc10b(0x2f2)]===0x0)return new Response(_0x2cc10b(0x1b7),{'status':0x194});const _0x157b50=_0x553d7f[_0x2cc10b(0x319)][_0x2cc10b(0x277)](_0x2cc10b(0x397)),_0x54877a=_0x553d7f[_0x2cc10b(0x319)][_0x2cc10b(0x1b6)](_0x2cc10b(0x2f0))!==-0x1;(_0x157b50||_0x54877a)&&_0x33f46c&&_0x372a22['DB']&&_0x5350b2&&_0x5350b2[_0x2cc10b(0x3dd)]&&_0x5350b2[_0x2cc10b(0x3dd)](((async()=>{const _0x399d49=_0x2cc10b;try{let _0x58b146=![],_0x40e99b='';try{const _0x8f3d9e=await _0x2a1729[_0x399d49(0x200)]()[_0x399d49(0x3c3)](),_0x47e30e=JSON[_0x399d49(0x1fb)](_0x8f3d9e);_0x58b146=!!_0x47e30e[_0x399d49(0x170)],_0x40e99b=String(_0x47e30e[_0x399d49(0x225)]||'');}catch(_0x387925){}if(_0x58b146)return;const _0x3b8303=new Date(Date[_0x399d49(0x431)]()+0x8*0x36ee80)[_0x399d49(0x1a6)]()[_0x399d49(0x2b5)]('T')[0x0],_0x4f28b1=new Date(Date[_0x399d49(0x431)]()+0x8*0x36ee80)[_0x399d49(0x1a6)]()[_0x399d49(0x3a0)]('T','\x20')[_0x399d49(0x2b5)]('.')[0x0],_0x49855b=[_0x372a22['DB'][_0x399d49(0x383)](_0x399d49(0x2fc))[_0x399d49(0x38d)](_0x4f28b1,_0x33f46c)];if(_0x40e99b){const _0x1f1f6c=_0x399d49(0x1e3),_0x35a94e=await _0x372a22['DB'][_0x399d49(0x383)](_0x399d49(0x1d1))[_0x399d49(0x38d)](_0x1f1f6c)[_0x399d49(0x47b)]();let _0xc853c7=[];try{if(_0x35a94e&&_0x35a94e[_0x399d49(0x39a)])_0xc853c7=JSON[_0x399d49(0x1fb)](_0x35a94e[_0x399d49(0x39a)]);}catch(_0xd34142){}if(!_0xc853c7[_0x399d49(0x286)](_0x40e99b)){_0xc853c7[_0x399d49(0x447)](_0x40e99b);if(_0xc853c7[_0x399d49(0x2f2)]>0x1f4)_0xc853c7[_0x399d49(0x2f2)]=0x1f4;_0x49855b[_0x399d49(0x462)](_0x372a22['DB'][_0x399d49(0x383)](_0x399d49(0x272))[_0x399d49(0x38d)](_0x33f46c,_0x3b8303));const _0x569c88=_0x2a1729[_0x399d49(0x2cd)][_0x399d49(0x255)](_0x399d49(0x354))||_0x2a1729[_0x399d49(0x2cd)][_0x399d49(0x255)](_0x399d49(0x27e))||_0x399d49(0x450),_0x4ed2e1=_0x2a1729[_0x399d49(0x2cd)][_0x399d49(0x255)](_0x399d49(0x15a))||_0x399d49(0x450),_0x405662=_0x2a1729[_0x399d49(0x2cd)][_0x399d49(0x255)](_0x399d49(0x1c0))||_0x399d49(0x450);_0x49855b[_0x399d49(0x462)](_0x372a22['DB'][_0x399d49(0x383)](_0x399d49(0x211))[_0x399d49(0x38d)](_0x33f46c,_0x569c88,_0x4ed2e1,_0x405662)),_0x49855b[_0x399d49(0x462)](_0x372a22['DB'][_0x399d49(0x383)](_0x399d49(0x406))[_0x399d49(0x38d)](_0x1f1f6c,JSON[_0x399d49(0x2fb)](_0xc853c7)));}}await _0x372a22['DB'][_0x399d49(0x468)](_0x49855b);}catch(_0x165831){}})()));const _0x2cc1af=_0x1db622[_0x2cc10b(0x286)](_0x2cc10b(0x34e))||_0x1db622===_0x2cc10b(0x187),_0x3f2370=_0x1db622[_0x2cc10b(0x286)](_0x2cc10b(0x46a)),_0x1f534e=_0x1db622[_0x2cc10b(0x3a0)](_0x2cc10b(0x356),'')[_0x2cc10b(0x3a0)](_0x2cc10b(0x187),_0x2cc10b(0x332))[_0x2cc10b(0x3a0)](_0x2cc10b(0x46a),_0x2cc10b(0x21a));let _0x521434=null;const _0x4b10d4=_0x2a1729[_0x2cc10b(0x25f)]!==_0x2cc10b(0x18f)&&_0x2a1729[_0x2cc10b(0x25f)]!==_0x2cc10b(0x457),_0x530962=_0x4b10d4&&(_0x1cb287[_0x2cc10b(0x2f2)]>0x1||_0x1cb287[_0x2cc10b(0x2eb)](_0x1093f8=>_0x4f9d96(_0x1093f8,_0x49e5af,_0x553d7f[_0x2cc10b(0x1fc)])[_0x2cc10b(0x2f2)]>0x1)||_0x2cc1af);if(_0x530962){_0x521434=await _0x2a1729[_0x2cc10b(0x200)]()[_0x2cc10b(0x480)]();if(_0x2cc1af&&_0x521434[_0x2cc10b(0x44e)]>0x0&&_0x521434[_0x2cc10b(0x44e)]<0x400*0x64){const _0x3dcd7a=_0x2a1729[_0x2cc10b(0x2cd)][_0x2cc10b(0x255)](_0x2cc10b(0x29d))||'';if(_0x3dcd7a[_0x2cc10b(0x43e)]()[_0x2cc10b(0x286)](_0x2cc10b(0x28e)))try{let _0x52b5c1=new TextDecoder()[_0x2cc10b(0x1de)](_0x521434);if(_0x1de2b1[_0x2cc10b(0x2e4)])_0x52b5c1=_0x52b5c1[_0x2cc10b(0x3a0)](/("Client(Name)?"\s*:\s*")[^"]+(")/ig,'$1'+_0x1de2b1[_0x2cc10b(0x2e4)]+'$3');if(_0x1de2b1[_0x2cc10b(0x337)])_0x52b5c1=_0x52b5c1[_0x2cc10b(0x3a0)](/("Version"\s*:\s*")[^"]+(")/ig,'$1'+_0x1de2b1[_0x2cc10b(0x337)]+'$2');if(_0x1de2b1[_0x2cc10b(0x3e0)])_0x52b5c1=_0x52b5c1[_0x2cc10b(0x3a0)](/("Device(Name)?"\s*:\s*")[^"]+(")/ig,'$1'+_0x1de2b1[_0x2cc10b(0x3e0)]+'$3');const _0xd47366=new TextEncoder()[_0x2cc10b(0x438)](_0x52b5c1)[_0x2cc10b(0x25a)];(_0xd47366[_0x2cc10b(0x44e)]!==_0x521434[_0x2cc10b(0x44e)]||_0x52b5c1[_0x2cc10b(0x286)](_0x1de2b1[_0x2cc10b(0x2e4)]))&&(_0x521434=_0xd47366);}catch(_0x3a4d59){}}}let _0x22f133=null,_0x24b4bd=null,_0x582fae=_0x2e94a8(_0x1cb287),_0x5ac02c=null;for(let _0x1a4ebf=0x0;_0x1a4ebf<_0x1cb287[_0x2cc10b(0x2f2)];_0x1a4ebf++){const _0x28e4bf=_0x4f9d96(_0x1cb287[_0x1a4ebf],_0x49e5af,_0x553d7f[_0x2cc10b(0x1fc)]);for(let _0x33998d=0x0;_0x33998d<_0x28e4bf[_0x2cc10b(0x2f2)];_0x33998d++){const _0x355c8d=_0x28e4bf[_0x33998d],_0x22bc17=new URL(_0x355c8d),_0x281757=new Headers(_0x2a1729[_0x2cc10b(0x2cd)]);_0x281757[_0x2cc10b(0x1ee)](_0x2cc10b(0x403),_0x22bc17[_0x2cc10b(0x2cc)]),_0x70b56f(_0x281757);const _0xe5b268=_0x2a1729[_0x2cc10b(0x2cd)][_0x2cc10b(0x255)](_0x2cc10b(0x354))||_0x2a1729[_0x2cc10b(0x2cd)][_0x2cc10b(0x255)](_0x2cc10b(0x27e))||(_0x2a1729[_0x2cc10b(0x2cd)][_0x2cc10b(0x255)](_0x2cc10b(0x45b))||'')[_0x2cc10b(0x2b5)](',')[0x0][_0x2cc10b(0x1d4)]();_0x281757[_0x2cc10b(0x22e)](_0x2cc10b(0x354)),_0x281757[_0x2cc10b(0x22e)](_0x2cc10b(0x15a)),_0x281757[_0x2cc10b(0x22e)](_0x2cc10b(0x395)),_0x281757[_0x2cc10b(0x22e)](_0x2cc10b(0x3d4)),_0x281757[_0x2cc10b(0x22e)](_0x2cc10b(0x45b)),_0x281757[_0x2cc10b(0x22e)](_0x2cc10b(0x27e));_0x3f2370?(_0x281757[_0x2cc10b(0x22e)](_0x2cc10b(0x32f)),_0x281757[_0x2cc10b(0x22e)](_0x2cc10b(0x433))):(_0x281757[_0x2cc10b(0x1ee)](_0x2cc10b(0x32f),_0x553d7f[_0x2cc10b(0x3f0)][_0x2cc10b(0x3a0)](':','')),_0x281757[_0x2cc10b(0x1ee)](_0x2cc10b(0x433),_0x553d7f[_0x2cc10b(0x2cc)]));if(_0x1f534e===_0x2cc10b(0x387)&&_0xe5b268)_0x281757[_0x2cc10b(0x1ee)](_0x2cc10b(0x401),_0xe5b268);else(_0x1f534e===_0x2cc10b(0x332)||_0x3f2370)&&_0xe5b268&&(_0x281757[_0x2cc10b(0x1ee)](_0x2cc10b(0x401),_0xe5b268),_0x281757[_0x2cc10b(0x1ee)](_0x2cc10b(0x28a),_0xe5b268));if(_0x3f2370)_0x281757[_0x2cc10b(0x1ee)](_0x2cc10b(0x40f),_0x22bc17[_0x2cc10b(0x3ce)]),_0x281757[_0x2cc10b(0x1ee)](_0x2cc10b(0x2b1),_0x22bc17[_0x2cc10b(0x3ce)]+'/');else{const _0x46f3fb=_0x281757[_0x2cc10b(0x255)](_0x2cc10b(0x40f));if(_0x46f3fb&&_0x46f3fb===_0x553d7f[_0x2cc10b(0x3ce)])_0x281757[_0x2cc10b(0x1ee)](_0x2cc10b(0x40f),_0x22bc17[_0x2cc10b(0x3ce)]);const _0x2f9a75=_0x281757[_0x2cc10b(0x255)](_0x2cc10b(0x2b1));if(_0x2f9a75&&_0x2f9a75[_0x2cc10b(0x339)](_0x553d7f[_0x2cc10b(0x3ce)]))_0x281757[_0x2cc10b(0x1ee)](_0x2cc10b(0x2b1),_0x2f9a75[_0x2cc10b(0x3a0)](_0x553d7f[_0x2cc10b(0x3ce)],_0x22bc17[_0x2cc10b(0x3ce)]));}if(_0x2cc1af){const _0x5b95ea=_0x1de2b1[_0x2cc10b(0x2e4)]||_0x2cc10b(0x21e),_0x4eec7e=_0x1de2b1[_0x2cc10b(0x337)]||_0x2cc10b(0x304),_0x4a9a36=_0x1de2b1[_0x2cc10b(0x3e0)]||_0x2cc10b(0x47f),_0x4ad782=_0x1de2b1[_0x2cc10b(0x3c9)]||_0x2cc10b(0x15e),_0x42c6e5=_0x1de2b1['ua']||_0x2cc10b(0x399);_0x281757[_0x2cc10b(0x1ee)](_0x2cc10b(0x1c0),_0x42c6e5),[_0x2cc10b(0x274),_0x2cc10b(0x3cb)][_0x2cc10b(0x18a)](_0x410872=>{const _0x39352d=_0x2cc10b;let _0x2638b8=_0x281757[_0x39352d(0x255)](_0x410872);if(_0x2638b8){if(_0x5b95ea)_0x2638b8=_0x2638b8[_0x39352d(0x3a0)](/(Client\s*=\s*)(?:"[^"]*"|'[^']*'|[^,\s]+)/ig,_0x39352d(0x2f9)+escQuote(_0x5b95ea)+'\x22');if(_0x4eec7e)_0x2638b8=_0x2638b8[_0x39352d(0x3a0)](/(Version\s*=\s*)(?:"[^"]*"|'[^']*'|[^,\s]+)/ig,_0x39352d(0x2f9)+escQuote(_0x4eec7e)+'\x22');if(_0x4a9a36)_0x2638b8=_0x2638b8[_0x39352d(0x3a0)](/(Device\s*=\s*)(?:"[^"]*"|'[^']*'|[^,\s]+)/ig,_0x39352d(0x2f9)+escQuote(_0x4a9a36)+'\x22');if(_0x4ad782)_0x2638b8=_0x2638b8[_0x39352d(0x3a0)](/(DeviceId\s*=\s*)(?:"[^"]*"|'[^']*'|[^,\s]+)/ig,_0x39352d(0x2f9)+escQuote(_0x4ad782)+'\x22');_0x281757[_0x39352d(0x1ee)](_0x410872,_0x2638b8);}});const _0x261e95={'x-emby-client':_0x5b95ea,'x-emby-client-version':_0x4eec7e,'x-emby-device-name':_0x4a9a36,'x-emby-device-id':_0x4ad782};for(const _0x315e24 of Object[_0x2cc10b(0x31d)](_0x261e95)){if(_0x261e95[_0x315e24])_0x281757[_0x2cc10b(0x1ee)](_0x315e24,_0x261e95[_0x315e24]);}const _0x59e668=Array[_0x2cc10b(0x224)](_0x22bc17[_0x2cc10b(0x1b1)][_0x2cc10b(0x31d)]());_0x59e668[_0x2cc10b(0x18a)](_0x5cc809=>{const _0xc6a506=_0x2cc10b,_0x117b70=_0x5cc809[_0xc6a506(0x43e)]();if(_0x261e95[_0x117b70])_0x22bc17[_0xc6a506(0x1b1)][_0xc6a506(0x1ee)](_0x5cc809,_0x261e95[_0x117b70]);});}const _0x2dcaf0=_0x820846(_0x22bc17[_0x2cc10b(0x319)]),_0x2a2505=_0x5223bd(_0x281757,_0x22bc17);let _0x5dec9f={'method':_0x2a1729[_0x2cc10b(0x25f)],'headers':_0x281757,'redirect':_0x2dcaf0?_0x2cc10b(0x2d3):_0x2cc10b(0x207)};_0x2dcaf0&&_0x21832c&&!_0x2a2505&&(_0x5dec9f['cf']={'cacheEverything':!![],'cacheTtl':0x15180});_0x4b10d4&&(_0x521434!==null?_0x5dec9f[_0x2cc10b(0x1c4)]=_0x521434:(_0x5dec9f[_0x2cc10b(0x1c4)]=_0x2a1729[_0x2cc10b(0x1c4)],_0x5dec9f[_0x2cc10b(0x185)]=_0x2cc10b(0x311)));try{const _0x17aa34=new Request(_0x22bc17,_0x5dec9f),_0x391997=await fetch(_0x17aa34);if((_0x391997[_0x2cc10b(0x353)]===0x194||_0x391997[_0x2cc10b(0x353)]===0x1f6||_0x391997[_0x2cc10b(0x353)]===0x1f7||_0x391997[_0x2cc10b(0x353)]===0x1f8)&&_0x33998d<_0x28e4bf[_0x2cc10b(0x2f2)]-0x1){_0x24b4bd=new Error(_0x2cc10b(0x1b9)+(_0x1a4ebf+0x1)+_0x2cc10b(0x466)+(_0x33998d+0x1)+_0x2cc10b(0x39c)+_0x391997[_0x2cc10b(0x353)]);continue;}if(_0x391997[_0x2cc10b(0x353)]===0x1f6||_0x391997[_0x2cc10b(0x353)]===0x1f7||_0x391997[_0x2cc10b(0x353)]===0x1f8){_0x24b4bd=new Error(_0x2cc10b(0x1b9)+(_0x1a4ebf+0x1)+_0x2cc10b(0x39c)+_0x391997[_0x2cc10b(0x353)]);continue;}_0x22f133=_0x391997,_0x5ac02c=_0x22bc17;break;}catch(_0x2ae7fe){_0x24b4bd=_0x2ae7fe;continue;}}if(_0x22f133)break;}if(!_0x22f133)return new Response(_0x2cc10b(0x281)+(_0x24b4bd?.[_0x2cc10b(0x22a)]||_0x2cc10b(0x472)),{'status':0x1f6});const _0x200e76=new Headers(_0x22f133[_0x2cc10b(0x2cd)]);_0x384bcd(_0x200e76);const _0x1ff53d=await _0x13f11f(_0x372a22),_0x2d93bb=_0x33f46c?'/'+_0x4c61c3(_0x1ff53d)+_0x33f46c:'';if(_0x160a68&&_0x22f133[_0x2cc10b(0x353)]===0xc8&&_0x22f133[_0x2cc10b(0x1c4)]){const _0x22f9ba=spawnDlTrickWatchCF(_0x5ac02c,_0x2a1729,_0x160a68,_0x553d7f[_0x2cc10b(0x1fc)]);_0x22f9ba&&(_0x22f133=new Response(wrapStreamWithWatch(_0x22f133[_0x2cc10b(0x1c4)],_0x22f9ba,_0x5350b2),{'status':_0x22f133[_0x2cc10b(0x353)],'statusText':_0x22f133[_0x2cc10b(0x404)],'headers':_0x200e76}));}if([0x12d,0x12e,0x12f,0x133,0x134][_0x2cc10b(0x286)](_0x22f133[_0x2cc10b(0x353)])){const _0x2d1977=_0x200e76[_0x2cc10b(0x255)](_0x2cc10b(0x292)),_0x26157c=_0x1c5a41(_0x2d1977,_0x5ac02c,_0x582fae,_0x522fe9,_0x2d93bb);_0x26157c!==_0x2d1977&&_0x200e76[_0x2cc10b(0x1ee)](_0x2cc10b(0x292),_0x26157c);}_0x200e76[_0x2cc10b(0x1ee)](_0x2cc10b(0x1ec),'*');if(_0x22f133[_0x2cc10b(0x353)]===0xc8&&_0x200e76[_0x2cc10b(0x255)](_0x2cc10b(0x29d))?.[_0x2cc10b(0x286)](_0x2cc10b(0x2f7))&&_0x553d7f[_0x2cc10b(0x319)][_0x2cc10b(0x43e)]()[_0x2cc10b(0x286)](_0x2cc10b(0x365)))try{let _0x1460dc=_0x22f133[_0x2cc10b(0x200)](),_0x2c600c=await _0x1460dc[_0x2cc10b(0x2f7)](),_0x565d1c=![];_0x2c600c&&_0x2c600c[_0x2cc10b(0x20a)]&&_0x2c600c[_0x2cc10b(0x20a)][_0x2cc10b(0x18a)](_0x59ff0c=>{const _0x3c29f2=_0x2cc10b;[_0x3c29f2(0x250),_0x3c29f2(0x323),_0x3c29f2(0x37e)][_0x3c29f2(0x18a)](_0x15444a=>{const _0x5dd0d1=_0x4ed688(_0x59ff0c[_0x15444a],_0x5ac02c,_0x522fe9,_0x2d93bb,_0x582fae);_0x5dd0d1!==_0x59ff0c[_0x15444a]&&(_0x59ff0c[_0x15444a]=_0x5dd0d1,_0x565d1c=!![]);}),Array[_0x3c29f2(0x1f8)](_0x59ff0c[_0x3c29f2(0x174)])&&_0x59ff0c[_0x3c29f2(0x174)][_0x3c29f2(0x18a)](_0x42f065=>{const _0x372531=_0x3c29f2,_0x17094b=_0x4ed688(_0x42f065?.[_0x372531(0x24b)],_0x5ac02c,_0x522fe9,_0x2d93bb,_0x582fae);_0x17094b!==_0x42f065?.[_0x372531(0x24b)]&&(_0x42f065[_0x372531(0x24b)]=_0x17094b,_0x565d1c=!![]);});});if(_0x565d1c)return _0x5b7fc2(_0x200e76),new Response(JSON[_0x2cc10b(0x2fb)](_0x2c600c),{'status':_0x22f133[_0x2cc10b(0x353)],'statusText':_0x22f133[_0x2cc10b(0x404)],'headers':_0x200e76});}catch(_0xc23563){console[_0x2cc10b(0x3f9)](_0x2cc10b(0x474),_0xc23563[_0x2cc10b(0x22a)]);}if(_0x22f133[_0x2cc10b(0x353)]===0xc8&&_0x200e76[_0x2cc10b(0x255)](_0x2cc10b(0x29d))?.[_0x2cc10b(0x286)](_0x2cc10b(0x2f7)))try{let _0xd0207c=_0x22f133[_0x2cc10b(0x200)](),_0x42a669=await _0xd0207c[_0x2cc10b(0x3c3)](),_0x3624b9=![];if(_0x3e85c9){const _0x1c45f8=_0x42a669[_0x2cc10b(0x3a0)](/"(EnableContentDownloading|EnableSyncTranscoding|EnableMediaConversion|CanDownload)"\s*:\s*false/gi,_0x2cc10b(0x429));_0x3624b9=_0x1c45f8!==_0x42a669,_0x42a669=_0x1c45f8;}if(_0x6a07e9(_0x42a669,_0x582fae)){let _0x4c33f1=JSON[_0x2cc10b(0x1fb)](_0x42a669),_0x27ec12=_0x4619c8(_0x4c33f1,_0x582fae,_0x522fe9,_0x2d93bb);if(_0x27ec12!==_0x4c33f1)return _0x5b7fc2(_0x200e76),new Response(JSON[_0x2cc10b(0x2fb)](_0x27ec12),{'status':_0x22f133[_0x2cc10b(0x353)],'statusText':_0x22f133[_0x2cc10b(0x404)],'headers':_0x200e76});}if(_0x3624b9)return _0x5b7fc2(_0x200e76),new Response(_0x42a669,{'status':_0x22f133[_0x2cc10b(0x353)],'statusText':_0x22f133[_0x2cc10b(0x404)],'headers':_0x200e76});}catch(_0x1343ff){console[_0x2cc10b(0x3f9)](_0x2cc10b(0x461),_0x1343ff[_0x2cc10b(0x22a)]);}if(_0x22f133[_0x2cc10b(0x353)]===0xc8&&_0x553d7f[_0x2cc10b(0x319)][_0x2cc10b(0x43e)]()[_0x2cc10b(0x277)](_0x2cc10b(0x3fd)))try{let _0x364bf9=_0x22f133[_0x2cc10b(0x200)](),_0x4f923e=await _0x364bf9[_0x2cc10b(0x3c3)]();if(_0x4f923e[_0x2cc10b(0x286)](_0x2cc10b(0x3fc))||_0x4f923e[_0x2cc10b(0x286)](_0x2cc10b(0x37f))){let _0x392d18=_0x4f923e[_0x2cc10b(0x3a0)](/(https?:\/\/[^\s]+)/g,_0x522fe9+_0x2d93bb+_0x2cc10b(0x3de));return _0x5b7fc2(_0x200e76),new Response(_0x392d18,{'status':_0x22f133[_0x2cc10b(0x353)],'statusText':_0x22f133[_0x2cc10b(0x404)],'headers':_0x200e76});}}catch(_0x3c05c5){console[_0x2cc10b(0x3f9)](_0x2cc10b(0x285),_0x3c05c5[_0x2cc10b(0x22a)]);}const _0x5d7f5a=_0x820846(_0x553d7f[_0x2cc10b(0x319)]),_0x445b18=_0x200e76[_0x2cc10b(0x255)](_0x2cc10b(0x29d))||'',_0x2b36d7=_0x5d7f5a&&_0x21832c&&_0x22f133[_0x2cc10b(0x353)]===0xc8&&(_0x445b18[_0x2cc10b(0x339)](_0x2cc10b(0x16e))||_0x445b18[_0x2cc10b(0x286)](_0x2cc10b(0x3db))||_0x445b18[_0x2cc10b(0x286)](_0x2cc10b(0x491))||_0x445b18[_0x2cc10b(0x286)](_0x2cc10b(0x45a))||_0x445b18[_0x2cc10b(0x286)](_0x2cc10b(0x2c0)));return _0x2b36d7&&!_0x200e76[_0x2cc10b(0x1d8)](_0x2cc10b(0x298))&&_0x200e76[_0x2cc10b(0x1ee)](_0x2cc10b(0x298),_0x2cc10b(0x2fd)),new Response(_0x22f133[_0x2cc10b(0x1c4)],{'status':_0x22f133[_0x2cc10b(0x353)],'statusText':_0x22f133[_0x2cc10b(0x404)],'headers':_0x200e76});}};
+const SVG_EYE = `<svg viewBox="0 0 24 24"><path d="M12 4.5C7 4.5 2.73 7.61 1 12c1.73 4.39 6 7.5 11 7.5s9.27-3.11 11-7.5c-1.73-4.39-6-7.5-11-7.5zM12 17c-2.76 0-5-2.24-5-5s2.24-5 5-5 5 2.24 5 5-2.24 5-5 5zm0-8c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z"/></svg>`;
+const SVG_COPY = `<svg viewBox="0 0 24 24"><path d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm3 4H8c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 16H8V7h11v14z"/></svg>`;
+const SVG_TG = `<svg viewBox="0 0 24 24" style="width:20px;height:20px;margin-right:8px;fill:#0088cc;"><path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.894 8.221l-1.97 9.28c-.145.658-.537.818-1.084.508l-3-2.21-1.446 1.394c-.14.18-.357.295-.6.295-.002 0-.003 0-.005 0l.213-3.054 5.56-5.022c.24-.213-.054-.334-.373-.121l-6.869 4.326-2.96-.924c-.64-.203-.658-.64.135-.954l11.566-4.458c.538-.196 1.006.128.832.94z"/></svg>`;
+
+const EMBY_LOGO = 'https://raw.githubusercontent.com/MakkaPakka518/Icon/refs/heads/main/MAKKA_EMBY.JPG';
+
+const I = {
+  rocket:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 16.5c-1.5 1.3-2 5-2 5s3.7-.5 5-2c.7-.8.7-2 0-2.8-.8-.7-2.2-.7-3 .8z"/><path d="M12 15l-3-3c.5-4 4-7.5 8-8 2 .2 3.8 2 4 4-.5 4-4 7.5-8 8l-1-1z"/><path d="M9 12c-2 1-3.5 3-4 5"/><circle cx="15" cy="9" r="0.5"/></svg>',
+  xmark:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg>',
+  check:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4L19 7"/></svg>',
+  warn:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3L2 20h20L12 3z"/><path d="M12 10v4M12 17.5h.01"/></svg>',
+  film:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M7 4v16M17 4v16M3 9h4M3 15h4M17 9h4M17 15h4"/></svg>',
+  star:'<svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 3l2.7 5.7 6.3.8-4.6 4.3 1.1 6.2-5.5-3-5.5 3 1.1-6.2L3 9.5l6.3-.8L12 3z"/></svg>',
+  sparkles:'<svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 3l1.6 4.4L18 9l-4.4 1.6L12 15l-1.6-4.4L6 9l4.4-1.6L12 3zM18 14l.8 2.2L21 17l-2.2.8L18 20l-.8-2.2L15 17l2.2-.8L18 14zM6 14l.6 1.7L8.5 16l-1.9.7L6 18.5l-.6-1.8L3.5 16l1.9-.3L6 14z"/></svg>',
+  globe:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.5 2.5 2.5 15 0 18M12 3c-2.5 2.5-2.5 15 0 18"/></svg>',
+  bolt:'<svg viewBox="0 0 24 24" fill="currentColor"><path d="M13 2L4 14h6l-1 8 9-12h-6l1-8z"/></svg>',
+  refresh:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20 12a8 8 0 1 1-2.34-5.66"/><path d="M20 3v5h-5"/></svg>',
+  chart:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M5 20V10M12 20V4M19 20v-7"/></svg>',
+  cloud:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M7 18a4 4 0 1 1 0-8 5 5 0 0 1 9.6 1.3A3.5 3.5 0 0 1 17 18H7z"/></svg>',
+  trash:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 6h18M8 6V4a1 1 0 0 1 1-1h6a1 1 0 0 1 1 1v2"/><path d="M19 6l-1 14a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2L5 6"/></svg>',
+  search:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg>',
+  location:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0z"/><circle cx="12" cy="10" r="3"/></svg>',
+  trophy:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M8 21h8M12 17v4M7 4h10v6a5 5 0 0 1-10 0V4z"/><path d="M7 5H4v2a3 3 0 0 0 3 3M17 5h3v2a3 3 0 0 1-3 3"/></svg>',
+  moon:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg>',
+  sun:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="12" cy="12" r="4.5"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>',
+  pencil:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.1 2.1 0 0 1 3 3L7 19l-4 1 1-4 12.5-12.5z"/></svg>',
+  gear:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M12 1v4M12 19v4M4.2 4.2l2.8 2.8M17 17l2.8 2.8M1 12h4M19 12h4M4.2 19.8L7 17M17 7l2.8-2.8"/></svg>',
+  lines:'<svg viewBox="0 0 24 24" fill="currentColor"><path d="M3 6h18v2H3zM3 11h18v2H3zM3 16h18v2H3z"/></svg>',
+  box:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 8l-9-5-9 5v8l9 5 9-5V8z"/><path d="M3 8l9 5 9-5M12 13v8"/></svg>',
+  download:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12M7 10l5 5 5-5M4 21h16"/></svg>',
+  antenna:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6.4 2a14 14 0 0 0 0 20M17.6 2a14 14 0 0 1 0 20M9.8 5.5a9 9 0 0 0 0 13M14.2 5.5a9 9 0 0 1 0 13"/><circle cx="12" cy="12" r="1.5"/></svg>',
+  bulb:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18h6M10 22h4M8 14.5A6 6 0 0 1 12 5a6 6 0 0 1 4 9.5c-.8.8-1 1.6-1 2.5h-6c0-.9-.2-1.7-1-2.5z"/></svg>',
+  tv:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="5" width="20" height="13" rx="2"/><path d="M8 21h8M12 18v3"/></svg>',
+  flame:'<svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2s5 4 5 9a5 5 0 0 1-10 0c0-2 1-3.5 2-5-.5 1-1 2-1 3 0 2.5 3 3 3 6 1-2 0-4 0-4 2 1 3 3 3 4.5A6.5 6.5 0 0 1 12 22 6.5 6.5 0 0 1 5.5 15C5.5 9 12 2 12 2z"/></svg>',
+  link:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.07 0l2.83-2.83a5 5 0 0 0-7.07-7.07L11 4.93"/><path d="M14 11a5 5 0 0 0-7.07 0l-2.83 2.83a5 5 0 0 0 7.07 7.07L13 19.07"/></svg>',
+  crown:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 7l4 4 5-6 5 6 4-4-2 12H5L3 7z"/><path d="M6 19h12"/></svg>',
+  target:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1.2" fill="currentColor"/></svg>',
+  arrowdown:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M5 12l7 7 7-7"/></svg>',
+  robot:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="8" width="14" height="11" rx="2"/><path d="M12 8V4M8 4h8"/><circle cx="9.5" cy="13" r="1" fill="currentColor"/><circle cx="14.5" cy="13" r="1" fill="currentColor"/><path d="M2 13v3M22 13v3"/></svg>',
+  spy:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="11" r="7"/><circle cx="9" cy="10" r="1" fill="currentColor"/><circle cx="15" cy="10" r="1" fill="currentColor"/><path d="M9.5 14c1 .8 4 .8 5 0"/></svg>',
+  flask:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9 3h6M10 3v5L4.5 18a2 2 0 0 0 1.8 3h11.4a2 2 0 0 0 1.8-3L14 8V3"/><path d="M7 15h10"/></svg>',
+  broom:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M13 3l8 8M11 11l8-8M4 20l7-7 1 1-7 7-2-1z"/><path d="M6 8l4 4"/></svg>',
+  checksquare:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="4"/><path d="M8 12.5l2.5 2.5L16 9"/></svg>',
+  upload:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 15V3M7 8l5-5 5 5M4 21h16"/></svg>',
+  db:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><ellipse cx="12" cy="5" rx="8" ry="3"/><path d="M4 5v14c0 1.7 3.6 3 8 3s8-1.3 8-3V5M4 12c0 1.7 3.6 3 8 3s8-1.3 8-3"/></svg>',
+  dotblue:'<svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="7" fill="#007aff"/></svg>',
+  dotorange:'<svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="7" fill="#ff9500"/></svg>',
+  dotgreen:'<svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="7" fill="#34c759"/></svg>',
+  dotpurple:'<svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="7" fill="#af52de"/></svg>',
+  plus:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg>'
+};
+
+const E2I = { '${I.rocket}':'rocket','${I.xmark}':'xmark','${I.check}':'check','${I.warn}':'warn','${I.film}':'film','${I.star}':'star','${I.sparkles}':'sparkles','${I.sparkles}':'sparkles','${I.globe}':'globe','${I.globe}':'globe','${I.bolt}':'bolt','${I.refresh}':'refresh','${I.chart}':'chart','${I.cloud}':'cloud','${I.trash}':'trash','${I.search}':'search','${I.location}':'location','${I.trophy}':'trophy','${I.moon}':'moon','${I.sun}':'sun','${I.dotblue}':'dotblue','${I.dotorange}':'dotorange','${I.dotgreen}':'dotgreen','${I.dotpurple}':'dotpurple','${I.robot}':'robot','${I.spy}':'spy','${I.flame}':'flame','${I.link}':'link','${I.tv}':'tv','${I.box}':'box','${I.download}':'download','${I.antenna}':'antenna','${I.bulb}':'bulb','${I.crown}':'crown','${I.target}':'target','${I.arrowdown}':'arrowdown','${I.xmark}':'xmark','${I.pencil}':'pencil','${I.gear}':'gear','${I.lines}':'lines','${I.flask}':'flask','${I.broom}':'broom','${I.checksquare}':'checksquare','${I.upload}':'upload' };
+function toSvg(s){
+  if(!s) return s;
+  return String(s).replace(/[\u{1F000}-\u{1FAFF}\u{2600}-\u{27BF}\u{FE0F}\u{2B00}-\u{2BFF}]/gu, function(ch){
+    if(ch==='\uFE0F') return '';
+    var key = E2I[ch];
+    return (key && I[key]) ? '<span class="ti">'+I[key]+'</span>' : '';
+  });
+}
+
+
+const CSS_COMMON = `
+    :root { 
+        --primary: #0071e3; 
+        --primary-hover: #005cbf;
+        --bg: #f5f5f7; 
+        --card: #ffffff; 
+        --text: #1d1d1f; 
+        --text-sec: #86868b;
+        --border: #d2d2d7; 
+        --radius-card: 16px;
+    }
+    
+    body.dark {
+        --primary: #0a84ff; 
+        --primary-hover: #0071e3;
+        --bg: #000000; 
+        --card: #1c1c1e; 
+        --text: #f5f5f7; 
+        --text-sec: #98989d;
+        --border: #38383a;
+    }
+
+    * { box-sizing: border-box; touch-action: manipulation; }
+    body { font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Segoe UI", Roboto, sans-serif; background: var(--bg); color: var(--text); margin: 0; padding: 20px; -webkit-text-size-adjust: 100%; transition: background-color 0.3s, color 0.3s; }
+    .container { max-width: 1200px; margin: 0 auto; width: 100%; min-height: 90vh; display: flex; flex-direction: column;}
+    .content-wrap { flex: 1; }
+    input, select, button, textarea { font-family: inherit; outline: none; font-size: 15px; }
+    
+    .card { background: var(--card); padding: 24px; border-radius: var(--radius-card); box-shadow: 0 4px 20px rgba(0,0,0,0.03); margin-bottom: 24px; border: 1px solid var(--border); transition: 0.3s; }
+    
+    #toast { position: fixed; top: -60px; left: 50%; transform: translateX(-50%); background: rgba(0,0,0,0.85); color: white; padding: 12px 24px; border-radius: 30px; font-size: 14px; font-weight: 500; transition: top 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); z-index: 9999; backdrop-filter: blur(10px); text-align: center; max-width: 90vw; word-wrap: break-word; }
+    #toast.show { top: 20px; }
+
+    .toolbar { display: flex; gap: 12px; flex-wrap: wrap; margin-bottom: 16px; align-items: center; }
+    .btn-submit { padding: 12px 20px; background: var(--primary); color: white; border: none; border-radius: 10px; cursor: pointer; font-weight: 600; white-space: nowrap; transition: 0.2s; box-shadow: 0 4px 12px rgba(0, 113, 227, 0.2); }
+    .btn-submit:hover { background: var(--primary-hover); transform: translateY(-1px); box-shadow: 0 6px 16px rgba(0, 113, 227, 0.3); }
+    .btn-submit:active { transform: translateY(0); }
+    .btn-submit:disabled { opacity: 0.6; cursor: not-allowed; transform: none; box-shadow: none; }
+    
+    .table-wrapper { width: 100%; border-radius: 12px; border: 1px solid var(--border); overflow: hidden; background: var(--card); }
+    table { width: 100%; border-collapse: collapse; text-align: left; }
+    th, td { padding: 16px; border-bottom: 1px solid var(--border); font-size: 14px; vertical-align: middle; }
+    th { color: var(--text-sec); font-weight: 600; background: rgba(120,120,120,0.05); }
+    tr:last-child td { border-bottom: none; }
+    tr:hover td { background-color: rgba(120,120,120,0.03); }
+    
+    .action-group { display: inline-flex; gap: 8px; background: rgba(120,120,120,0.05); padding: 4px 10px; border-radius: 8px; border: 1px solid var(--border); align-items: flex-start; max-width: 100%; flex-wrap: wrap; }
+    .icon-btn { display: inline-flex; align-items: center; justify-content: center; width: 28px; height: 28px; border-radius: 6px; border: none; background: var(--card); cursor: pointer; color: var(--text); padding: 0; box-shadow: 0 2px 6px rgba(0,0,0,0.05); transition: 0.2s; flex-shrink: 0; font-size:16px; }
+    .icon-btn:hover { color: var(--primary); box-shadow: 0 4px 10px rgba(0,0,0,0.1); }
+    .icon-btn svg { width: 15px; height: 15px; fill: currentColor; }
+    
+    .badge { padding: 4px 10px; border-radius: 20px; font-size: 12px; font-weight: 600; display: inline-block; }
+    
+    .btn-edit { padding: 8px 14px; background: var(--card); color: var(--primary); border: 1px solid var(--primary); border-radius: 8px; cursor: pointer; font-size: 13px; font-weight: 600; transition: 0.2s; }
+    .btn-del { padding: 8px 14px; background: var(--card); color: #ff3b30; border: 1px solid #ff3b30; border-radius: 8px; cursor: pointer; font-size: 13px; font-weight: 600; transition: 0.2s; }
+    .btn-dns { padding: 8px 14px; background: var(--card); color: #34c759; border: 1px solid #34c759; border-radius: 8px; cursor: pointer; font-size: 13px; font-weight: 600; transition: 0.2s; white-space: nowrap; }
+    .btn-dns:disabled { opacity: 0.5; cursor: not-allowed; }
+
+    .ip-checkbox { width: 18px; height: 18px; cursor: pointer; accent-color: var(--primary); }
+    .secret-text { font-family: monospace; letter-spacing: 2px; color: var(--text-sec); }
+    
+    .dynamic-url { display: block; max-width: 200px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; flex: 1; text-align: right; }
+    .actual-text.dynamic-url { white-space: normal; max-width: 100%; overflow: visible; text-align: left !important; word-break: break-all; font-size: 13px; font-family: monospace; color: var(--primary); letter-spacing: normal; }
+    .url-list-item { background: var(--bg); border: 1px solid var(--border); padding: 4px 8px; border-radius: 6px; font-size: 12px; margin-top: 6px; word-break: break-all; line-height: 1.4; color: var(--text); font-family: -apple-system, sans-serif; letter-spacing: normal; text-align: left; }
+    .url-list-item:first-child { margin-top: 0; }
+
+    body.dark input, body.dark select, body.dark textarea { background: #1c1c1e; color: #f5f5f7; border: 1px solid #38383a; }
+
+    .search-input { padding: 10px 16px; border: 1px solid var(--border); border-radius: 10px; background: var(--bg); color: var(--text); font-size: 14px; width: 260px; transition: 0.3s; }
+    .search-input:focus { border-color: var(--primary); box-shadow: 0 0 0 3px rgba(0,113,227,0.15); }
+
+    .node-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(340px, 1fr)); gap: 20px; margin-top: 20px; }
+    .emby-card { background: var(--card); border: 1px solid var(--border); border-radius: 14px; padding: 20px; box-shadow: 0 4px 15px rgba(0,0,0,0.02); display: flex; flex-direction: column; gap: 14px; transition: 0.3s; position: relative; }
+    .emby-card:hover { box-shadow: 0 8px 25px rgba(0,0,0,0.06); transform: translateY(-2px); }
+    .card-header { display: flex; justify-content: space-between; align-items: flex-start; border-bottom: 1px solid var(--border); padding-bottom: 12px; }
+    .card-title-group { display: flex; align-items: center; gap: 12px; }
+    .emby-icon { font-size: 28px; background: rgba(120,120,120,0.05); border-radius: 10px; padding: 6px; border: 1px solid var(--border); display: flex; align-items: center; justify-content: center; width: 42px; height: 42px; flex-shrink: 0; }
+    .info-row { display: flex; align-items: flex-start; justify-content: space-between; font-size: 13px; }
+    .info-label { color: var(--text-sec); font-weight: 500; min-width: 65px; margin-top: 4px; }
+    .card-footer { display: flex; justify-content: flex-end; gap: 10px; margin-top: auto; padding-top: 12px; border-top: 1px dashed var(--border); }
+
+    .ping-badge { color: var(--text-sec); cursor: pointer; padding: 4px 10px; background: rgba(120,120,120,0.05); border-radius: 6px; font-size: 13px; font-weight: 500; transition: 0.2s; border: 1px solid transparent; user-select: none; }
+    .ping-badge:hover { border-color: var(--border); background: var(--card); box-shadow: 0 2px 6px rgba(0,0,0,0.05); color: var(--primary); }
+
+    .icon-item { cursor: pointer; padding: 6px; border-radius: 8px; border: 1px solid transparent; display: flex; justify-content: center; align-items: center; transition: 0.2s; background: var(--bg); height: 44px; }
+    .icon-item:hover { border-color: var(--primary) !important; box-shadow: 0 2px 8px rgba(0,113,227,0.2); transform: scale(1.05); }
+    #iconGrid::-webkit-scrollbar { width: 6px; }
+    #iconGrid::-webkit-scrollbar-thumb { background: var(--border); border-radius: 3px; }
+
+    /* 拖拽排序核心适配样式 */
+    .emby-card.sortable-ghost { opacity: 0.4; }
+    .emby-card.sortable-drag { cursor: grabbing !important; }
+    .drag-handle { cursor: grab; padding-right: 10px; font-size: 18px; color: var(--text-sec); display: flex; align-items: center; user-select: none; touch-action: none;}
+    .drag-handle:active { cursor: grabbing; color: var(--primary); }
+
+    /* 响应式移动端适配 */
+    @media (max-width: 768px) {
+        body { padding: 12px; }
+        .card { padding: 16px; border-radius: 12px; margin-bottom: 16px; }
+        .header h1 { font-size: 22px; }
+        .toolbar { flex-direction: column; align-items: stretch; gap: 12px; }
+        .toolbar > * { width: 100%; display: flex; justify-content: center; }
+        .search-input { width: 100%; }
+        .node-grid { grid-template-columns: 1fr; }
+        .table-wrapper { border: none; background: transparent; overflow: visible; }
+        table, thead, tbody, th, td, tr { display: block; width: 100%; }
+        thead { display: none; }
+        tr { margin-bottom: 16px; background: var(--card); border-radius: 12px; border: 1px solid var(--border); box-shadow: 0 2px 12px rgba(0,0,0,0.03); overflow: hidden; }
+        td { display: flex; align-items: center; padding: 14px 16px; border-bottom: 1px solid var(--border); text-align: right; gap: 12px; min-height: 50px; }
+        td:last-child { border-bottom: none; }
+        td[colspan] { justify-content: center; text-align: center; }
+        td[colspan]::before { display: none !important; }
+        td::before { content: attr(data-label); font-weight: 600; color: var(--text-sec); flex-shrink: 0; margin-right: auto; text-align: left; }
+        
+        #dashboardModal { padding: 10px !important; }
+        #dashboardModal .card { margin: 10px auto !important; padding: 16px !important; box-sizing: border-box; }
+        #dashboardModal h2 { font-size: 18px; flex-direction: column; align-items: flex-start; }
+        #dashboardModal h2 span { font-size: 12px; }
+    }
+
+    /* ===== 图标统一样式（SF Symbols 内联 SVG）===== */
+    .ti{display:inline-flex;align-items:center;justify-content:center;vertical-align:-0.18em;flex-shrink:0}
+    .ti svg{width:16px;height:16px}
+    h1 svg,h2 svg,h3 svg,h4 svg,p svg,label svg,span svg,div svg{width:1.1em;height:1.1em;vertical-align:-0.18em;flex-shrink:0}
+    .emby-icon svg{width:22px;height:22px}
+    .drag-handle svg{width:18px;height:18px}
+    .icon-btn svg{width:15px;height:15px}
+    #themeToggle svg{width:22px;height:22px;color:var(--text-sec);transition:color .2s}
+    #themeToggle:hover svg{color:var(--primary)}
+
+    /* ===== 按钮图标对齐 ===== */
+    .btn-submit,.btn-dns,.btn-edit,.btn-del{display:inline-flex;align-items:center;gap:6px;justify-content:center}
+    .btn-submit svg,.btn-dns svg,.btn-edit svg,.btn-del svg{width:16px;height:16px}
+
+    /* ===== 布局微调 ===== */
+    .header h1{display:inline-flex;align-items:center;gap:12px}
+    .card h2{display:inline-flex;align-items:center;gap:8px;font-weight:700;color:var(--text)}
+    .card h2 svg{color:var(--primary)}
+    .card h3{display:inline-flex;align-items:center;gap:8px;color:var(--text)}
+    .card h3 svg{color:var(--primary)}
+    input:focus,select:focus,textarea:focus{border-color:var(--primary);box-shadow:0 0 0 3px rgba(0,113,227,.12)}
+    input,select,textarea{transition:border-color .2s,box-shadow .2s}
+    .card{padding:22px;margin-bottom:20px}
+    .card-header h3{margin:0;font-size:16px;display:inline-flex;align-items:center;gap:8px}
+    .drag-handle{font-size:0}
+        .action-group{gap:6px;padding:5px 8px}
+    /* ===== 科技感统一按钮 ===== */
+    .btn-submit{background:linear-gradient(135deg,#00c6ff 0%,#0072ff 100%);box-shadow:0 4px 16px rgba(0,180,255,.35);text-shadow:0 1px 2px rgba(0,0,0,.18)}
+    .btn-submit:hover{background:linear-gradient(135deg,#00d4ff,#0a5cff);box-shadow:0 6px 22px rgba(0,180,255,.5)}
+    .btn-danger{display:inline-flex;align-items:center;gap:6px;justify-content:center;padding:11px 20px;background:linear-gradient(135deg,#ff5f6d,#ff2d55);color:#fff;border:none;border-radius:10px;cursor:pointer;font-weight:600;white-space:nowrap;transition:.25s;box-shadow:0 4px 16px rgba(255,45,85,.35)}
+    .btn-danger:hover{transform:translateY(-1px);box-shadow:0 6px 22px rgba(255,45,85,.5)}
+    .btn-danger svg{width:16px;height:16px}
+    .btn-ghost{display:inline-flex;align-items:center;gap:6px;padding:9px 14px;background:transparent;color:var(--primary);border:1px solid var(--border);border-radius:10px;cursor:pointer;font-weight:600;font-size:13px;white-space:nowrap;transition:.2s}
+    .btn-ghost:hover{border-color:var(--primary);color:var(--primary);box-shadow:0 0 0 3px rgba(0,113,227,.1)}
+    .btn-ghost svg{width:15px;height:15px}
+    /* ===== 顶部固定浮动栏 ===== */
+    .topbar{position:fixed;top:0;left:0;right:0;z-index:999;display:flex;align-items:center;gap:14px;padding:10px 18px;background:rgba(245,245,247,.78);backdrop-filter:blur(18px) saturate(180%);border-bottom:1px solid var(--border);box-shadow:0 2px 14px rgba(0,0,0,.05)}
+    body.dark .topbar{background:rgba(0,0,0,.66)}
+    .topbar-logo{width:34px;height:34px;border-radius:9px;object-fit:cover;flex-shrink:0;box-shadow:0 2px 8px rgba(0,0,0,.25)}
+    .topbar-left{display:flex;align-items:center;gap:12px;min-width:0}
+    .topbar-right{display:flex;align-items:center;gap:10px;flex-wrap:nowrap;margin-left:auto}
+    .pill-btn{display:inline-flex;align-items:center;gap:6px;padding:6px 14px;border-radius:999px;background:rgba(0,180,255,.1);border:1px solid rgba(0,180,255,.28);color:var(--primary);font-size:13px;font-weight:600;cursor:pointer;white-space:nowrap;transition:.2s;font-family:inherit;flex-shrink:0}
+    .pill-btn svg{width:15px;height:15px}
+    .pill-btn:hover{background:rgba(0,180,255,.2);color:var(--primary)}
+    .pill-close{display:inline-flex;align-items:center;justify-content:center;width:28px;height:28px;border-radius:999px;background:rgba(255,59,48,.1);border:1px solid rgba(255,59,48,.3);color:#ff3b30;cursor:pointer;transition:.2s;flex-shrink:0}
+    .pill-close svg{width:15px;height:15px}
+    .pill-close:hover{background:rgba(255,59,48,.2)}
+    .rotated{transform:rotate(180deg)}
+    /* ===== 测速页按钮统一 ===== */
+    #view-speed .toolbar{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px;align-items:stretch}
+    #view-speed .toolbar select{grid-column:1/-1;width:100%}
+    #view-speed .toolbar .btn-submit{width:100%;padding:12px 14px;font-size:13px;justify-content:center}
+    #view-speed .btn-submit{width:100%;padding:12px 14px;font-size:13px;justify-content:center}
+    .rtt-pill{display:inline-flex;align-items:center;gap:8px;padding:6px 12px;border-radius:999px;background:rgba(0,180,255,.1);border:1px solid rgba(0,180,255,.28);font-family:monospace;font-size:12px;font-weight:600;color:var(--text);white-space:nowrap}
+    .rtt-dot{width:7px;height:7px;border-radius:50%;background:#34c759;box-shadow:0 0 6px #34c759;flex-shrink:0}
+    .rtt-label{color:var(--text-sec)}
+    #themeToggle{background:transparent;border:none;cursor:pointer;padding:0;margin-left:2px;display:inline-flex;color:var(--text-sec)}
+    #themeToggle svg{width:16px;height:16px}
+    #themeToggle:hover{color:var(--primary)}
+    .container{padding-top:96px}
+    /* ===== 紧凑布局：按钮尽量同行 ===== */
+    .card-header{display:flex;align-items:center;flex-wrap:wrap;gap:10px}
+    .card-tools{display:flex;align-items:center;flex-wrap:wrap;gap:8px}
+    .form-row{display:flex;flex-wrap:wrap;gap:10px;align-items:center}
+    .form-row .field{flex:1;min-width:220px}
+    @media (max-width: 640px){
+        .topbar{padding:8px 12px;gap:10px}
+        .topbar-logo{width:30px;height:30px}
+        .topbar-title{display:none}
+        .pill-btn{padding:5px 10px;font-size:12px}
+        .rtt-pill{padding:5px 10px;gap:6px;font-size:11px}
+        .rtt-label{display:none}
+        #themeToggle svg{width:15px;height:15px}
+        .container{padding-top:118px}
+    }
+`
+
+
+
+const LOGIN_UI = `
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+    <title>系统授权</title>
+    <style>
+        ${CSS_COMMON}
+        body { display: flex; justify-content: center; align-items: center; height: 100vh; padding: 16px; margin: 0; background: #f0f2f5; }
+        .login-box { background: var(--card); padding: 40px 30px; border-radius: 20px; box-shadow: 0 10px 40px rgba(0,0,0,0.08); text-align: center; width: 100%; max-width: 360px; }
+        .login-box h2 { margin: 0 0 24px 0; font-size: 22px; font-weight: 600; }
+        .login-box input { width: 100%; padding: 16px; margin-bottom: 20px; border: 1px solid var(--border); border-radius: 12px; }
+        .login-box input:focus { border-color: var(--primary); box-shadow: 0 0 0 3px rgba(0,113,227,0.15); }
+        .login-box button { width: 100%; padding: 16px; background: var(--primary); color: white; border: none; border-radius: 12px; cursor: pointer; font-weight: 600; }
+    </style>
+    <link rel="icon" type="image/jpeg" href="${EMBY_LOGO}">
+    <script>
+const I = {
+  rocket:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 16.5c-1.5 1.3-2 5-2 5s3.7-.5 5-2c.7-.8.7-2 0-2.8-.8-.7-2.2-.7-3 .8z"/><path d="M12 15l-3-3c.5-4 4-7.5 8-8 2 .2 3.8 2 4 4-.5 4-4 7.5-8 8l-1-1z"/><path d="M9 12c-2 1-3.5 3-4 5"/><circle cx="15" cy="9" r="0.5"/></svg>',
+  xmark:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg>',
+  check:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4L19 7"/></svg>',
+  warn:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3L2 20h20L12 3z"/><path d="M12 10v4M12 17.5h.01"/></svg>',
+  film:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M7 4v16M17 4v16M3 9h4M3 15h4M17 9h4M17 15h4"/></svg>',
+  star:'<svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 3l2.7 5.7 6.3.8-4.6 4.3 1.1 6.2-5.5-3-5.5 3 1.1-6.2L3 9.5l6.3-.8L12 3z"/></svg>',
+  sparkles:'<svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 3l1.6 4.4L18 9l-4.4 1.6L12 15l-1.6-4.4L6 9l4.4-1.6L12 3zM18 14l.8 2.2L21 17l-2.2.8L18 20l-.8-2.2L15 17l2.2-.8L18 14zM6 14l.6 1.7L8.5 16l-1.9.7L6 18.5l-.6-1.8L3.5 16l1.9-.3L6 14z"/></svg>',
+  globe:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.5 2.5 2.5 15 0 18M12 3c-2.5 2.5-2.5 15 0 18"/></svg>',
+  bolt:'<svg viewBox="0 0 24 24" fill="currentColor"><path d="M13 2L4 14h6l-1 8 9-12h-6l1-8z"/></svg>',
+  refresh:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20 12a8 8 0 1 1-2.34-5.66"/><path d="M20 3v5h-5"/></svg>',
+  chart:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M5 20V10M12 20V4M19 20v-7"/></svg>',
+  cloud:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M7 18a4 4 0 1 1 0-8 5 5 0 0 1 9.6 1.3A3.5 3.5 0 0 1 17 18H7z"/></svg>',
+  trash:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 6h18M8 6V4a1 1 0 0 1 1-1h6a1 1 0 0 1 1 1v2"/><path d="M19 6l-1 14a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2L5 6"/></svg>',
+  search:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg>',
+  location:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0z"/><circle cx="12" cy="10" r="3"/></svg>',
+  trophy:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M8 21h8M12 17v4M7 4h10v6a5 5 0 0 1-10 0V4z"/><path d="M7 5H4v2a3 3 0 0 0 3 3M17 5h3v2a3 3 0 0 1-3 3"/></svg>',
+  moon:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg>',
+  sun:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="12" cy="12" r="4.5"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>',
+  pencil:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.1 2.1 0 0 1 3 3L7 19l-4 1 1-4 12.5-12.5z"/></svg>',
+  gear:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M12 1v4M12 19v4M4.2 4.2l2.8 2.8M17 17l2.8 2.8M1 12h4M19 12h4M4.2 19.8L7 17M17 7l2.8-2.8"/></svg>',
+  lines:'<svg viewBox="0 0 24 24" fill="currentColor"><path d="M3 6h18v2H3zM3 11h18v2H3zM3 16h18v2H3z"/></svg>',
+  box:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 8l-9-5-9 5v8l9 5 9-5V8z"/><path d="M3 8l9 5 9-5M12 13v8"/></svg>',
+  download:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12M7 10l5 5 5-5M4 21h16"/></svg>',
+  antenna:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6.4 2a14 14 0 0 0 0 20M17.6 2a14 14 0 0 1 0 20M9.8 5.5a9 9 0 0 0 0 13M14.2 5.5a9 9 0 0 1 0 13"/><circle cx="12" cy="12" r="1.5"/></svg>',
+  bulb:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18h6M10 22h4M8 14.5A6 6 0 0 1 12 5a6 6 0 0 1 4 9.5c-.8.8-1 1.6-1 2.5h-6c0-.9-.2-1.7-1-2.5z"/></svg>',
+  tv:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="5" width="20" height="13" rx="2"/><path d="M8 21h8M12 18v3"/></svg>',
+  flame:'<svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2s5 4 5 9a5 5 0 0 1-10 0c0-2 1-3.5 2-5-.5 1-1 2-1 3 0 2.5 3 3 3 6 1-2 0-4 0-4 2 1 3 3 3 4.5A6.5 6.5 0 0 1 12 22 6.5 6.5 0 0 1 5.5 15C5.5 9 12 2 12 2z"/></svg>',
+  link:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.07 0l2.83-2.83a5 5 0 0 0-7.07-7.07L11 4.93"/><path d="M14 11a5 5 0 0 0-7.07 0l-2.83 2.83a5 5 0 0 0 7.07 7.07L13 19.07"/></svg>',
+  crown:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 7l4 4 5-6 5 6 4-4-2 12H5L3 7z"/><path d="M6 19h12"/></svg>',
+  target:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1.2" fill="currentColor"/></svg>',
+  arrowdown:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M5 12l7 7 7-7"/></svg>',
+  robot:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="8" width="14" height="11" rx="2"/><path d="M12 8V4M8 4h8"/><circle cx="9.5" cy="13" r="1" fill="currentColor"/><circle cx="14.5" cy="13" r="1" fill="currentColor"/><path d="M2 13v3M22 13v3"/></svg>',
+  spy:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="11" r="7"/><circle cx="9" cy="10" r="1" fill="currentColor"/><circle cx="15" cy="10" r="1" fill="currentColor"/><path d="M9.5 14c1 .8 4 .8 5 0"/></svg>',
+  flask:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9 3h6M10 3v5L4.5 18a2 2 0 0 0 1.8 3h11.4a2 2 0 0 0 1.8-3L14 8V3"/><path d="M7 15h10"/></svg>',
+  broom:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M13 3l8 8M11 11l8-8M4 20l7-7 1 1-7 7-2-1z"/><path d="M6 8l4 4"/></svg>',
+  checksquare:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="4"/><path d="M8 12.5l2.5 2.5L16 9"/></svg>',
+  upload:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 15V3M7 8l5-5 5 5M4 21h16"/></svg>',
+  db:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><ellipse cx="12" cy="5" rx="8" ry="3"/><path d="M4 5v14c0 1.7 3.6 3 8 3s8-1.3 8-3V5M4 12c0 1.7 3.6 3 8 3s8-1.3 8-3"/></svg>',
+  dotblue:'<svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="7" fill="#007aff"/></svg>',
+  dotorange:'<svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="7" fill="#ff9500"/></svg>',
+  dotgreen:'<svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="7" fill="#34c759"/></svg>',
+  dotpurple:'<svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="7" fill="#af52de"/></svg>'
+};
+
+const E2I = { '${I.rocket}':'rocket','${I.xmark}':'xmark','${I.check}':'check','${I.warn}':'warn','${I.film}':'film','${I.star}':'star','${I.sparkles}':'sparkles','${I.sparkles}':'sparkles','${I.globe}':'globe','${I.globe}':'globe','${I.bolt}':'bolt','${I.refresh}':'refresh','${I.chart}':'chart','${I.cloud}':'cloud','${I.trash}':'trash','${I.search}':'search','${I.location}':'location','${I.trophy}':'trophy','${I.moon}':'moon','${I.sun}':'sun','${I.dotblue}':'dotblue','${I.dotorange}':'dotorange','${I.dotgreen}':'dotgreen','${I.dotpurple}':'dotpurple','${I.robot}':'robot','${I.spy}':'spy','${I.flame}':'flame','${I.link}':'link','${I.tv}':'tv','${I.box}':'box','${I.download}':'download','${I.antenna}':'antenna','${I.bulb}':'bulb','${I.crown}':'crown','${I.target}':'target','${I.arrowdown}':'arrowdown','${I.xmark}':'xmark','${I.pencil}':'pencil','${I.gear}':'gear','${I.lines}':'lines','${I.flask}':'flask','${I.broom}':'broom','${I.checksquare}':'checksquare','${I.upload}':'upload' };
+function toSvg(s){
+  if(!s) return s;
+  return String(s).replace(/[\u{1F000}-\u{1FAFF}\u{2600}-\u{27BF}\u{FE0F}\u{2B00}-\u{2BFF}]/gu, function(ch){
+    if(ch==='\uFE0F') return '';
+    var key = E2I[ch];
+    return (key && I[key]) ? '<span class="ti">'+I[key]+'</span>' : '';
+  });
+}
+    </script>
+</head>
+<body>
+    <div id="toast"></div>
+    <div class="login-box">
+        <h2>安全中心</h2>
+        <input type="password" id="tokenInput" placeholder="请输入密钥 TOKEN" onkeydown="if(event.key==='Enter') login()">
+        <button onclick="login()">验 证 登 录</button>
+    </div>
+    <script>
+        function showToast(msg) {
+            const t = document.getElementById('toast');
+            t.innerHTML = toSvg(msg); t.classList.add('show');
+            setTimeout(() => t.classList.remove('show'), 2000);
+        }
+        function login() {
+            const token = document.getElementById('tokenInput').value.trim();
+            if(!token) return showToast('请输入正确的密钥');
+            document.cookie = 'admin_token=' + encodeURIComponent(token) + '; path=/; max-age=2592000;';
+            window.location.reload();
+        }
+    </script>
+</body>
+</html>
+`;
+
+const HTML_UI = `
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+    <title>玛卡巴卡的反代面板</title>
+    <style>${CSS_COMMON}</style>
+    <script src="https://cdn.jsdelivr.net/npm/sortablejs@latest/Sortable.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="icon" type="image/jpeg" href="${EMBY_LOGO}">
+    <script>
+const I = {
+  rocket:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 16.5c-1.5 1.3-2 5-2 5s3.7-.5 5-2c.7-.8.7-2 0-2.8-.8-.7-2.2-.7-3 .8z"/><path d="M12 15l-3-3c.5-4 4-7.5 8-8 2 .2 3.8 2 4 4-.5 4-4 7.5-8 8l-1-1z"/><path d="M9 12c-2 1-3.5 3-4 5"/><circle cx="15" cy="9" r="0.5"/></svg>',
+  xmark:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg>',
+  check:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4L19 7"/></svg>',
+  warn:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3L2 20h20L12 3z"/><path d="M12 10v4M12 17.5h.01"/></svg>',
+  film:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M7 4v16M17 4v16M3 9h4M3 15h4M17 9h4M17 15h4"/></svg>',
+  star:'<svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 3l2.7 5.7 6.3.8-4.6 4.3 1.1 6.2-5.5-3-5.5 3 1.1-6.2L3 9.5l6.3-.8L12 3z"/></svg>',
+  sparkles:'<svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 3l1.6 4.4L18 9l-4.4 1.6L12 15l-1.6-4.4L6 9l4.4-1.6L12 3zM18 14l.8 2.2L21 17l-2.2.8L18 20l-.8-2.2L15 17l2.2-.8L18 14zM6 14l.6 1.7L8.5 16l-1.9.7L6 18.5l-.6-1.8L3.5 16l1.9-.3L6 14z"/></svg>',
+  globe:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.5 2.5 2.5 15 0 18M12 3c-2.5 2.5-2.5 15 0 18"/></svg>',
+  bolt:'<svg viewBox="0 0 24 24" fill="currentColor"><path d="M13 2L4 14h6l-1 8 9-12h-6l1-8z"/></svg>',
+  refresh:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20 12a8 8 0 1 1-2.34-5.66"/><path d="M20 3v5h-5"/></svg>',
+  chart:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M5 20V10M12 20V4M19 20v-7"/></svg>',
+  cloud:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M7 18a4 4 0 1 1 0-8 5 5 0 0 1 9.6 1.3A3.5 3.5 0 0 1 17 18H7z"/></svg>',
+  trash:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 6h18M8 6V4a1 1 0 0 1 1-1h6a1 1 0 0 1 1 1v2"/><path d="M19 6l-1 14a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2L5 6"/></svg>',
+  search:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg>',
+  location:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0z"/><circle cx="12" cy="10" r="3"/></svg>',
+  trophy:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M8 21h8M12 17v4M7 4h10v6a5 5 0 0 1-10 0V4z"/><path d="M7 5H4v2a3 3 0 0 0 3 3M17 5h3v2a3 3 0 0 1-3 3"/></svg>',
+  moon:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg>',
+  sun:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="12" cy="12" r="4.5"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>',
+  pencil:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.1 2.1 0 0 1 3 3L7 19l-4 1 1-4 12.5-12.5z"/></svg>',
+  gear:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M12 1v4M12 19v4M4.2 4.2l2.8 2.8M17 17l2.8 2.8M1 12h4M19 12h4M4.2 19.8L7 17M17 7l2.8-2.8"/></svg>',
+  lines:'<svg viewBox="0 0 24 24" fill="currentColor"><path d="M3 6h18v2H3zM3 11h18v2H3zM3 16h18v2H3z"/></svg>',
+  box:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 8l-9-5-9 5v8l9 5 9-5V8z"/><path d="M3 8l9 5 9-5M12 13v8"/></svg>',
+  download:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12M7 10l5 5 5-5M4 21h16"/></svg>',
+  antenna:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6.4 2a14 14 0 0 0 0 20M17.6 2a14 14 0 0 1 0 20M9.8 5.5a9 9 0 0 0 0 13M14.2 5.5a9 9 0 0 1 0 13"/><circle cx="12" cy="12" r="1.5"/></svg>',
+  bulb:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18h6M10 22h4M8 14.5A6 6 0 0 1 12 5a6 6 0 0 1 4 9.5c-.8.8-1 1.6-1 2.5h-6c0-.9-.2-1.7-1-2.5z"/></svg>',
+  tv:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="5" width="20" height="13" rx="2"/><path d="M8 21h8M12 18v3"/></svg>',
+  flame:'<svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2s5 4 5 9a5 5 0 0 1-10 0c0-2 1-3.5 2-5-.5 1-1 2-1 3 0 2.5 3 3 3 6 1-2 0-4 0-4 2 1 3 3 3 4.5A6.5 6.5 0 0 1 12 22 6.5 6.5 0 0 1 5.5 15C5.5 9 12 2 12 2z"/></svg>',
+  link:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.07 0l2.83-2.83a5 5 0 0 0-7.07-7.07L11 4.93"/><path d="M14 11a5 5 0 0 0-7.07 0l-2.83 2.83a5 5 0 0 0 7.07 7.07L13 19.07"/></svg>',
+  crown:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 7l4 4 5-6 5 6 4-4-2 12H5L3 7z"/><path d="M6 19h12"/></svg>',
+  target:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1.2" fill="currentColor"/></svg>',
+  arrowdown:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M5 12l7 7 7-7"/></svg>',
+  robot:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="8" width="14" height="11" rx="2"/><path d="M12 8V4M8 4h8"/><circle cx="9.5" cy="13" r="1" fill="currentColor"/><circle cx="14.5" cy="13" r="1" fill="currentColor"/><path d="M2 13v3M22 13v3"/></svg>',
+  spy:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="11" r="7"/><circle cx="9" cy="10" r="1" fill="currentColor"/><circle cx="15" cy="10" r="1" fill="currentColor"/><path d="M9.5 14c1 .8 4 .8 5 0"/></svg>',
+  flask:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9 3h6M10 3v5L4.5 18a2 2 0 0 0 1.8 3h11.4a2 2 0 0 0 1.8-3L14 8V3"/><path d="M7 15h10"/></svg>',
+  broom:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M13 3l8 8M11 11l8-8M4 20l7-7 1 1-7 7-2-1z"/><path d="M6 8l4 4"/></svg>',
+  checksquare:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="4"/><path d="M8 12.5l2.5 2.5L16 9"/></svg>',
+  upload:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 15V3M7 8l5-5 5 5M4 21h16"/></svg>',
+  db:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><ellipse cx="12" cy="5" rx="8" ry="3"/><path d="M4 5v14c0 1.7 3.6 3 8 3s8-1.3 8-3V5M4 12c0 1.7 3.6 3 8 3s8-1.3 8-3"/></svg>',
+  dotblue:'<svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="7" fill="#007aff"/></svg>',
+  dotorange:'<svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="7" fill="#ff9500"/></svg>',
+  dotgreen:'<svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="7" fill="#34c759"/></svg>',
+  dotpurple:'<svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="7" fill="#af52de"/></svg>'
+};
+
+const E2I = { '${I.rocket}':'rocket','${I.xmark}':'xmark','${I.check}':'check','${I.warn}':'warn','${I.film}':'film','${I.star}':'star','${I.sparkles}':'sparkles','${I.sparkles}':'sparkles','${I.globe}':'globe','${I.globe}':'globe','${I.bolt}':'bolt','${I.refresh}':'refresh','${I.chart}':'chart','${I.cloud}':'cloud','${I.trash}':'trash','${I.search}':'search','${I.location}':'location','${I.trophy}':'trophy','${I.moon}':'moon','${I.sun}':'sun','${I.dotblue}':'dotblue','${I.dotorange}':'dotorange','${I.dotgreen}':'dotgreen','${I.dotpurple}':'dotpurple','${I.robot}':'robot','${I.spy}':'spy','${I.flame}':'flame','${I.link}':'link','${I.tv}':'tv','${I.box}':'box','${I.download}':'download','${I.antenna}':'antenna','${I.bulb}':'bulb','${I.crown}':'crown','${I.target}':'target','${I.arrowdown}':'arrowdown','${I.xmark}':'xmark','${I.pencil}':'pencil','${I.gear}':'gear','${I.lines}':'lines','${I.flask}':'flask','${I.broom}':'broom','${I.checksquare}':'checksquare','${I.upload}':'upload' };
+function toSvg(s){
+  if(!s) return s;
+  return String(s).replace(/[\u{1F000}-\u{1FAFF}\u{2600}-\u{27BF}\u{FE0F}\u{2B00}-\u{2BFF}]/gu, function(ch){
+    if(ch==='\uFE0F') return '';
+    var key = E2I[ch];
+    return (key && I[key]) ? '<span class="ti">'+I[key]+'</span>' : '';
+  });
+}
+    </script>
+</head>
+<body>
+    <div id="toast"></div>
+    
+    <div id="dashboardModal" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.6); z-index:10000; overflow-y:auto; padding: 20px; backdrop-filter: blur(5px);">
+        <div class="card" style="max-width: 1000px; margin: 40px auto; position:relative; box-shadow: 0 10px 40px rgba(0,0,0,0.2);">
+            <button onclick="closeDashboard()" style="position:absolute; top:20px; right:20px; font-size:24px; background:none; border:none; cursor:pointer; color: var(--text-sec); transition: 0.2s;" onmouseover="this.style.color='#ff3b30'" onmouseout="this.style.color='var(--text-sec)'">${I.xmark}</button>
+            
+            <h2 style="margin-top:0; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 10px;">
+                <div style="display: flex; align-items: center; gap: 10px;">
+                    ${I.chart} 数据大屏 <span style="font-size:14px; font-weight: normal; color: var(--text-sec);">精确访客画像分析</span>
+                </div>
+                <div style="font-size: 13px; background: rgba(0,113,227,0.1); color: var(--primary); padding: 6px 12px; border-radius: 8px; border: 1px solid rgba(0,113,227,0.2); display: flex; gap: 15px; flex-wrap: wrap;">
+                    <span> 今天: <strong id="trafficToday">加载中...</strong></span>
+                    <span>1周内: <strong id="traffic7d">加载中...</strong></span>
+                    <span>1月内: <strong id="traffic30d">加载中...</strong></span>
+                </div>
+            </h2>
+            
+            <div style="display: flex; gap: 20px; flex-wrap: wrap; margin-top:20px;">
+                <div style="flex: 2; min-width: 300px; border: 1px solid var(--border); border-radius: 14px; padding: 16px; background: rgba(120,120,120,0.03);">
+                    <canvas id="trendChart"></canvas>
+                </div>
+                <div style="flex: 1; min-width: 300px; border: 1px solid var(--border); border-radius: 14px; padding: 16px; background: rgba(120,120,120,0.03); display: flex; justify-content: center; align-items: center;">
+                    <canvas id="locationChart"></canvas>
+                </div>
+            </div>
+            
+            <h3 style="margin-top: 30px; margin-bottom:16px;">${I.spy} 最新独立播放记录 <span style="font-size:12px; color:var(--text-sec);">(仅拦截 PlaybackInfo 真实播放)</span></h3>
+            <div class="table-wrapper">
+                <table style="width: 100%;">
+                    <thead><tr><th>访问时间</th><th>目标节点</th><th>真实 IP 地址</th><th>归属地</th><th>客户端/设备标识 (User-Agent)</th></tr></thead>
+                    <tbody id="logTableBody"><tr><td colspan="5" style="text-align:center; padding: 30px;">加载数据中...</td></tr></tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+    <div id="updateAlert" class="card" style="display: none; border-left: 4px solid #34c759; background-color: rgba(52, 199, 89, 0.05); margin-top: 20px;">
+            <div style="display:flex; justify-content: space-between; align-items:center; flex-wrap:wrap; gap:10px;">
+                <div>
+                    <h3 style="margin:0; color: #34c759; font-size: 16px;">${I.sparkles} 发现新版本！</h3>
+                    <p style="margin: 5px 0 0 0; font-size: 13px; color: var(--text-sec);" id="updateMsg">当前版本: v1.0.0 | 最新版本: v?.?.?</p>
+                </div>
+                <button class="btn-submit" onclick="doOnlineUpdate()" id="onlineUpdateBtn" style="padding:8px 16px;border-radius:6px;">${I.rocket} 一键拉取并升级</button>
+            </div>
+        </div>
+    <div id="cf-trace-card" style="background: rgba(120,120,120,0.05); padding: 15px 20px; border-radius: 12px; border: 1px solid var(--border); margin-bottom: 20px; display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; font-size: 14px; gap: 15px; box-shadow: inset 0 2px 4px rgba(0,0,0,0.02); margin-top: 20px;">
+            <div style="display: flex; align-items: center; gap: 12px;">
+                <div style="font-size: 24px;">${I.location}</div>
+                <div>
+                    <div style="color:var(--text-sec); font-size: 12px; margin-bottom: 2px;">访客入口 (地区与机房)</div>
+                    <div id="trace-entry" style="font-weight:600; color:var(--text); font-family: monospace; font-size: 15px;">雷达扫描中...</div>
+                </div>
+            </div>
+            <div style="display: flex; align-items: center; gap: 12px;">
+                <div style="font-size: 24px;">${I.rocket}</div>
+                <div>
+                    <div style="color:var(--text-sec); font-size: 12px; margin-bottom: 2px;">Worker 实际落地机房</div>
+                    <div id="trace-egress" style="font-weight:600; color:#34c759; font-family: monospace; font-size: 15px;">雷达扫描中...</div>
+                </div>
+            </div>
+        </div><div class="card admin-only" style="margin-top:20px;">
+            <div style="font-weight: 600; margin-bottom: 12px; font-size: 16px;">${I.gear} Worker 调度模式与区域设置</div>
+            <button class="btn-submit" onclick="openPlacementModal()" style="width:100%;">${I.gear} 修改调度/区域</button>
+        </div>
+        <div class="content-wrap">
+            <div class="topbar">
+                <div class="topbar-left">
+                    <img class="topbar-logo" src="${EMBY_LOGO}" alt="logo" onclick="openAccountModal()" title="账户设置" style="cursor:pointer;">
+                    <div class="rtt-pill" title="你的设备到云端边缘节点的真实往返延迟">
+                        <span class="rtt-dot" id="rttDot"></span>
+                        <span class="rtt-label">RTT</span>
+                        <span id="rttValue">测算中</span>
+                        <button id="themeToggle" onclick="toggleDarkMode()" title="切换深色模式">${I.moon}</button>
+                    </div>
+                </div>
+                <div class="topbar-right">
+                    <button class="pill-btn" onclick="openDashboard()" title="数据统计">${I.chart} 统计</button>
+                    <button class="pill-btn" onclick="location.href='/speedtest'" title="下载测速" style="color:#4fd08a;border-color:rgba(79,208,138,.32);background:rgba(79,208,138,.12);">${I.bolt} 下载测速</button>
+                    <button class="pill-close" onclick="confirmLogout()" title="退出系统">${I.xmark}</button>
+                </div>
+            </div>
+
+            <div class="card admin-only" style="border-left: 4px solid #ff3b30;">
+                <div style="display:flex; justify-content: space-between; align-items:center; margin-bottom:12px; flex-wrap:wrap; gap:10px;">
+                    <h2 style="margin:0; font-size:18px; color: #ff3b30;">${I.rocket} 手动覆盖/更新</h2>
+                </div>
+                <div style="display:flex; gap:10px; flex-wrap:wrap;">
+                    <button class="btn-submit" onclick="openCodeModal('paste')" style="flex:1; min-width:120px;">${I.pencil} 手动输入</button>
+                    <button class="btn-submit" onclick="openCodeModal('file')" style="flex:1; min-width:120px;">${I.upload} 文件导入</button>
+                </div>
+            </div>
+            <div class="card admin-only">
+                <div style="display:flex; justify-content: space-between; align-items:center; margin-bottom:16px; flex-wrap:wrap; gap:10px;">
+                    <h2 style="margin:0; font-size:18px;">${I.bolt} 专属线路测速与动态 DNS 解析</h2>
+                </div>
+                
+                <div style="background: rgba(120,120,120,0.05); padding: 12px 16px; border-radius: 10px; border: 1px solid var(--border); margin-bottom: 16px;">
+                    <div style="font-size: 13px; font-weight: 600; color: var(--text-sec); margin-bottom: 8px;">${I.antenna} 当前域名生效的 DNS 解析：</div>
+                    <div id="dnsStatus" style="display: flex; gap: 8px; flex-wrap: wrap;">
+                        <span style="color:#888; font-size: 14px;">加载中...</span>
+                    </div>
+                </div>
+
+                <div class="toolbar">
+                    <select id="ipType" style="font-weight: 600; color: var(--primary); padding: 12px 16px; border: 1px solid var(--border); border-radius: 10px; background:var(--card);">
+                        <option value="all"> 综合混合源</option>
+                        <option value="电信"> 电信专属</option>
+                        <option value="联通"> 联通专属</option>
+                        <option value="移动"> 移动专属</option>
+                        <option value="多线"> 多线BGP</option>
+                        <option value="ipv6"> IPv6节点</option>
+                        <option value="优选"> 顶尖优选库</option>
+                    </select>
+
+                    <button class="btn-submit" id="btnFetchRemote" onclick="fetchRemoteAndTest()">${I.globe} 提取预设源并测速</button>
+                    <button class="btn-submit" onclick="batchTcpPing()" style=" box-shadow: 0 4px 12px rgba(255, 149, 0, 0.2);">${I.globe} 复制去 ITDog</button>
+                    <button class="btn-submit" onclick="clearTest()" style=" box-shadow: 0 4px 12px rgba(142, 142, 147, 0.2);">${I.trash} 清空列表</button>
+                </div>
+
+                <div style="background: rgba(120,120,120,0.05); padding: 16px; border-radius: 12px; border: 1px solid var(--border); margin-bottom: 16px;">
+                    <div style="display: flex; gap: 8px; margin-bottom: 12px; align-items: center; flex-wrap: wrap;">
+                        <input type="text" id="customApiUrl" value="https://ip.v2too.top/api/nodes" placeholder="填入自定义 JSON 或 文本 API 链接" style="flex: 1; min-width: 200px; padding: 12px 14px; border-radius: 10px; border: 1px solid var(--border); background:var(--card);">
+                        <button class="btn-submit" id="btnFetchCustomApi" onclick="fetchCustomApiAndTest()" style=" box-shadow: 0 4px 12px rgba(50, 173, 230, 0.2);">${I.globe} 拉取 API 并测速</button>
+                    </div>
+
+                    <textarea id="customIps" rows="2" placeholder="在此粘贴自定义 IPv4、IPv6 或 优选域名 (支持混杂文本，自动提取)" style="width: 100%; padding: 14px; border-radius: 10px; border: 1px solid var(--border); margin-bottom: 12px; font-family: monospace; resize: vertical; background:var(--card);"></textarea>
+                    
+                    <div style="display: flex; gap: 10px; flex-wrap: wrap;">
+                        <button class="btn-submit" id="btnTestCustom" onclick="testCustomIPs()" style=" box-shadow: 0 4px 12px rgba(88, 86, 214, 0.2);">${I.flask} 测试粘贴的节点</button>
+                        <button class="btn-submit" id="btnDirectCname" onclick="directSubmitCname()" style=" box-shadow: 0 4px 12px rgba(175, 82, 222, 0.2);">${I.link} 直推 CNAME (免测速)</button>
+                        <div style="width: 100%; height: 1px; background: var(--border); margin: 4px 0;"></div>
+                        <button class="btn-submit" id="btnTop3Dns" onclick="updateTop3ToDns()" style=" box-shadow: 0 4px 12px rgba(255, 45, 85, 0.2);">${I.star} 更新 TOP3 至 DNS</button>
+                        <button class="btn-submit" id="btnSelectedDns" onclick="updateSelectedToDns()" style=" box-shadow: 0 4px 12px rgba(52, 199, 89, 0.2);">${I.checksquare} 提交选中节点至 DNS</button>
+                    </div>
+                </div>
+                
+                <div id="statusText" style="line-height: 1.6; font-size: 14px; color: var(--text-sec); margin-bottom: 16px; padding: 12px 16px; background: rgba(52, 199, 89, 0.1); border-radius: 10px; border-left: 4px solid #34c759;">
+                    ${I.bulb} 测速完成后，可勾选复选框自由组合，点击【提交选中节点至 DNS】自动分发。
+                </div>
+
+                <div class="table-wrapper">
+                    <table style="width: 100%;">
+                        <thead>
+                            <tr>
+                                <th style="width: 40px; text-align: center;"><input type="checkbox" id="selectAll" class="ip-checkbox" onclick="toggleSelectAll()"></th>
+                                <th>专属节点 (点击复制)</th>
+                                <th>预估延迟</th>
+                                <th>连通状态</th>
+                                <th>记录类型/归属地</th>
+                                <th>单节点操作</th>
+                            </tr>
+                        </thead>
+                        <tbody id="testTableBody">
+                            <tr><td colspan="6" style="text-align:center;color:var(--text-sec);">暂无数据，请拉取节点或输入自定义 IP/域名 测试</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            
+            <div class="card admin-only" id="config-backup-card">
+                <h2 style="margin:0; font-size:18px; margin-bottom:14px;">${I.box} 配置备份与恢复</h2>
+                <div style="display:flex; gap:10px; flex-wrap:wrap;">
+                    <button class="btn-submit" onclick="exportConfig()">${I.box} 导出配置</button>
+                    <button class="btn-submit" onclick="importConfig()">${I.download} 导入配置</button>
+                </div>
+            </div>
+
+            <div class="card admin-only" id="deploy-card">
+                <div style="display:flex; justify-content: space-between; align-items:center; gap:10px; flex-wrap:wrap;">
+                    <h2 style="margin:0; font-size:18px;">${I.rocket} 反代节点</h2>
+                    <button class="btn-submit" onclick="openNodeModal()">${I.plus} 添加节点</button>
+                </div>
+            </div>
+
+            <div id="nodeModal" style="display:none; position:fixed; inset:0; z-index:11000; background:rgba(0,0,0,.5); backdrop-filter:blur(5px); overflow-y:auto; padding:16px;">
+                <div style="max-width:680px; margin:24px auto; background:var(--card); border-radius:18px; padding:22px; box-shadow:0 10px 40px rgba(0,0,0,.2);">
+                    <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:14px;">
+                        <h2 id="nodeModalTitle" style="margin:0; font-size:19px; display:flex; align-items:center; gap:8px;">${I.pencil} 添加节点</h2>
+                        <button onclick="closeNodeModal()" style="background:transparent;border:none;cursor:pointer;color:var(--text-sec);display:inline-flex;padding:4px;">${I.xmark}</button>
+                    </div>
+                    <form id="addForm" style="display: flex; flex-direction: column; gap: 16px;">
+                    <div style="display: flex; gap: 12px; flex-wrap: wrap;">
+                        <input type="hidden" id="oldPrefix" value="">
+                        <input type="text" id="remark" placeholder="节点备注 (如: Misaka服)" style="padding: 12px 16px; border: 1px solid var(--border); border-radius: 10px; background:var(--card); flex: 1;" required>
+                        <input type="text" id="prefix" placeholder="短路径后缀 (如: misaka)" style="padding: 12px 16px; border: 1px solid var(--border); border-radius: 10px; background:var(--card); flex: 1;" required>
+                        <select id="mode" style="padding: 12px 16px; border: 1px solid var(--border); border-radius: 10px; background:var(--card); flex: 1;" onchange="toggleCustomParams()">
+                            <option value="off">保守 (抹除IP)</option>
+                            <option value="realip_only">严格 (透传IP)</option>
+                            <option value="dual">兼容 (双重透传)</option>
+                            <option value="strict">强力 (防403)</option>
+                            <option value="off_fake">保守 + 伪装 (隐藏IP)</option>
+                            <option value="realip_only_fake">严格 + 伪装 (透传单IP)</option>
+                            <option value="dual_fake">兼容 + 伪装 (透传双IP)</option>
+                            <option value="strict_fake">强力 + 伪装 (防403)</option>
+                        </select>
+                    </div>
+
+                    <div id="customParamsDiv" style="display: none; gap: 12px; flex-wrap: wrap; background: rgba(120,120,120,0.05); padding: 16px; border-radius: 10px; border: 1px solid var(--border);">
+                        <div style="width: 100%; display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 4px; align-items: center;">
+                            <span style="font-size: 13px; font-weight: 600; color: var(--text-sec);">快速填入预设模板：</span>
+                            <button type="button" class="btn-submit" style="padding: 6px 12px; font-size: 12px; border-radius: 6px; background: #32ade6; box-shadow: none;" onclick="applyFakeTemplate('senplayer')">SenPlayer</button>
+                            <button type="button" class="btn-submit" style="padding: 6px 12px; font-size: 12px; border-radius: 6px; background: #5856d6; box-shadow: none;" onclick="applyFakeTemplate('eplayerx')">EplayerX</button>
+                            <button type="button" class="btn-submit" style="padding: 6px 12px; font-size: 12px; border-radius: 6px; background: #af52de; box-shadow: none;" onclick="applyFakeTemplate('forward')">Forward</button>
+                            <button type="button" class="btn-submit" style="padding: 6px 12px; font-size: 12px; border-radius: 6px; background: #00c7be; box-shadow: none;" onclick="applyFakeTemplate('rex')">Rex</button>
+                            <button type="button" class="btn-submit" style="padding: 6px 12px; font-size: 12px; border-radius: 6px; background: #34c759; box-shadow: none;" onclick="applyFakeTemplate('hills')">Hills</button>
+                            <button type="button" class="btn-submit" style="padding: 6px 12px; font-size: 12px; border-radius: 6px; background: #ff9500; box-shadow: none;" onclick="applyFakeTemplate('yamby')">Yamby</button>
+                            <div style="flex-grow: 1;"></div>
+                            <button type="button" class="btn-submit" style="padding: 6px 12px; font-size: 12px; border-radius: 6px; background: #8e8e93; box-shadow: none;" onclick="applyFakeTemplate('clear')">清空</button>
+                        </div>
+                        <div style="width: 100%; font-size: 12px; color: var(--text-sec); margin-bottom: 4px;">深度替换 Header 及 URL 参数，防止双重设备记录暴露真实身份。</div>
+                        <input type="text" id="customClient" placeholder="Client (如: Forward)" style="flex: 1; min-width: 150px; padding: 12px 16px; border: 1px solid var(--border); border-radius: 8px; background:var(--card);">
+                        <input type="text" id="customVersion" placeholder="Version (如: 1.3.15)" style="flex: 1; min-width: 150px; padding: 12px 16px; border: 1px solid var(--border); border-radius: 8px; background:var(--card);">
+                        <input type="text" id="customDevice" placeholder="Device (如: iPhone)" style="flex: 1; min-width: 150px; padding: 12px 16px; border: 1px solid var(--border); border-radius: 8px; background:var(--card);">
+                        <input type="text" id="customUa" placeholder="User-Agent (伪装 UA)" style="flex: 1; min-width: 250px; padding: 12px 16px; border: 1px solid var(--border); border-radius: 8px; background:var(--card);">
+                        <div style="width: 100%; display: flex; gap: 8px; align-items: center;">
+                            <input type="text" id="customDeviceId" placeholder="Device ID（设备唯一标识，留空自动生成）" style="flex: 1; min-width: 250px; padding: 12px 16px; border: 1px solid var(--border); border-radius: 8px; background:var(--card);">
+                            <button type="button" class="btn-submit" style="padding: 8px 14px; font-size: 12px; border-radius: 6px; background: #8e8e93; box-shadow: none;" onclick="document.getElementById('customDeviceId').value = genUuid()">随机生成</button>
+                        </div>
+                    </div>
+
+                    <div id="kaConfigDiv" style="display: flex; flex-direction: column; gap: 10px; background: rgba(52,199,89,0.05); padding: 16px; border-radius: 10px; border: 1px solid rgba(52,199,89,0.2);">
+                        <div style="width: 100%; display: flex; align-items: center; gap: 10px; flex-wrap: wrap;">
+                            <label style="display:flex; align-items:center; gap:8px; font-size:14px; font-weight:600; cursor:pointer;">
+                                <input type="checkbox" id="kaEnabled" class="ip-checkbox"> 开启自动保活
+                            </label>
+                            <span style="font-size:12px; color:var(--text-sec);">防止上游线路/账号被回收，到期间隔自动模拟播放一次</span>
+                        </div>
+                        <input type="number" id="kaDays" placeholder="保活间隔（天，可填小数如 0.5 / 3 / 14）" step="0.1" min="0.1" style="padding: 10px 14px; border: 1px solid var(--border); border-radius: 8px; background: var(--card); width: 100%;">
+                        <input type="text" id="kaToken" placeholder="上游 API Key（选填，填了优先用它保活）" style="padding: 10px 14px; border: 1px solid var(--border); border-radius: 8px; background: var(--card); width: 100%;">
+                        <div style="display: flex; gap: 10px; flex-wrap: wrap;">
+                            <input type="text" id="nodeUser" placeholder="节点账号（保活 / Rex导入用）" style="flex:1; min-width: 160px; padding: 10px 14px; border: 1px solid var(--border); border-radius: 8px; background: var(--card);">
+                            <input type="password" id="nodePass" placeholder="节点密码" style="flex:1; min-width: 160px; padding: 10px 14px; border: 1px solid var(--border); border-radius: 8px; background: var(--card);">
+                        </div>
+                        <div style="font-size:12px; color:var(--text-sec);">在 CF 面板给 Worker 配 Cron 触发器（如每天 */5 * * * *），自动保活才会按间隔执行；不配 Cron 也可点节点卡片「保活」手动触发。</div>
+                    </div>
+                    <input type="number" id="watchLimit" placeholder="观看下限（天，如 7 / 14 / 21；0 = 不限制。超过下限未观看会在卡片红色报警）" step="0.1" min="0" style="padding: 10px 14px; border: 1px solid var(--border); border-radius: 8px; background: var(--card); width: 100%;">
+
+                    <div style="display: flex; gap: 12px; flex-wrap: wrap; align-items: center;">
+                        <div style="position: relative; flex: 2; display: flex;">
+                            <div style="display:flex; gap:10px; align-items:center; background:var(--card); padding:10px 16px; border-radius:10px; border:1px solid var(--border); flex: 1; cursor: pointer; transition:0.2s;" onclick="toggleIconPicker(event)" id="iconSelectBtn">
+                                <img id="iconPreview" src="" style="width:24px;height:24px;display:none;border-radius:4px;object-fit:cover;">
+                                <span id="iconDefault" style="font-size:20px;line-height:1;">${I.film}</span>
+                                <span id="iconSelectText" style="flex:1; color: var(--text-sec); font-size:14px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">点击选择图标 (默认)</span>
+                                <input type="hidden" id="iconUrl" value="">
+                            </div>
+                            
+                            <div id="iconPickerPanel" style="display:none; position: absolute; top: 100%; left: 0; width: 100%; background: var(--card); border: 1px solid var(--border); border-radius: 10px; padding: 12px; box-shadow: 0 10px 30px rgba(0,0,0,0.15); z-index: 100; margin-top: 8px; flex-direction: column; gap: 10px;">
+                                <div style="display: flex; gap: 8px; align-items: center; margin-bottom: 4px;">
+                                    <input type="text" id="customIconUrlInput" placeholder="输入自定义 JSON 图标库链接..." style="flex: 1; padding: 8px 10px; border: 1px solid var(--border); border-radius: 8px; background:var(--bg); font-size: 13px; color: var(--text);">
+                                    <button type="button" onclick="setCustomIconLibrary()" style="padding: 8px 12px; background: var(--primary); color: white; border: none; border-radius: 8px; cursor: pointer; font-size: 13px; white-space: nowrap;">加载</button>
+                                    <button type="button" onclick="resetIconLibrary()" class="btn-ghost">默认库</button>
+                                </div>
+                                <input type="text" id="iconSearch" placeholder="搜索图标名称..." style="padding: 10px 12px; border: 1px solid var(--border); border-radius: 8px; background:var(--bg); width: 100%; font-size: 14px; color: var(--text);" onkeyup="filterIcons()">
+                                <div id="iconGrid" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(44px, 1fr)); gap: 8px; overflow-y: auto; max-height: 240px; padding-right: 4px;">
+                                    <div style="text-align:center; color:var(--text-sec); grid-column: 1 / -1; font-size: 13px;">加载图标库中...</div>
+                                </div>
+                            </div>
+                        </div>
+                        <label style="display:flex; align-items:center; gap:8px; font-size:14px; font-weight:500; cursor:pointer;">
+                            <input type="checkbox" id="nodeCache" class="ip-checkbox" checked>
+                            开启海报及静态资源缓存
+                        </label>
+                        <label style="display:flex; align-items:center; gap:8px; font-size:14px; font-weight:500; cursor:pointer; margin-top:8px;">
+                            <input type="checkbox" id="nodeDlTrick" class="ip-checkbox">
+                            下载伪装：显示下载按钮 + 下载请求伪装为缓存流（绕过服务端禁下载）
+                        </label>
+                        <button type="submit" id="submitBtn" class="btn-submit" style="flex: 1; padding: 14px 20px;">保存部署</button>
+                    </div>
+
+                    <div style="background: rgba(120,120,120,0.05); border: 1px solid var(--border); border-radius: 10px; padding: 16px;">
+                        <div style="font-size: 14px; font-weight: 600; color: var(--text-sec); margin-bottom: 12px;">服务器线路配置 (支持魔改分离版推流，支持无限条备用线路)</div>
+                        <div id="targetInputs" style="display: flex; flex-direction: column; gap: 10px;">
+                            <input type="url" class="target-input" placeholder="主线路地址 (如: http://1.1.1.1:8096)" style="padding: 12px 16px; border: 1px solid var(--border); border-radius: 8px; background:var(--card); width: 100%;" required oninput="handleTargetInputs()">
+                            <input type="url" class="target-input" placeholder="备用线路 1 (选填，主源挂掉时触发)" style="padding: 12px 16px; border: 1px solid var(--border); border-radius: 8px; background:var(--card); width: 100%;" oninput="handleTargetInputs()">
+                        </div>
+                    </div>
+                </form>
+                </div>
+            </div>
+
+            <div id="kaModal" style="display:none; position:fixed; inset:0; z-index:11020; background:rgba(0,0,0,.5); backdrop-filter:blur(5px); overflow-y:auto; padding:16px;">
+                <div style="max-width:480px; margin:24px auto; background:var(--card); border-radius:18px; padding:22px; box-shadow:0 10px 40px rgba(0,0,0,.2);">
+                    <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:14px;">
+                        <h2 style="margin:0; font-size:19px; display:flex; align-items:center; gap:8px;">${I.bolt} 节点保活</h2>
+                        <button onclick="closeKaModal()" style="background:transparent;border:none;cursor:pointer;color:var(--text-sec);display:inline-flex;padding:4px;">${I.xmark}</button>
+                    </div>
+                    <div id="kaResultBox" style="font-size:13px; line-height:1.8;"></div>
+                </div>
+            </div>
+
+            <div id="rexModal" style="display:none; position:fixed; inset:0; z-index:11020; background:rgba(0,0,0,.5); backdrop-filter:blur(5px); overflow-y:auto; padding:16px;">
+                <div style="max-width:480px; margin:24px auto; background:var(--card); border-radius:18px; padding:22px; box-shadow:0 10px 40px rgba(0,0,0,.2);">
+                    <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:14px;">
+                        <h2 style="margin:0; font-size:19px; display:flex; align-items:center; gap:8px;">${I.box} 一键导入 Rex</h2>
+                        <button onclick="closeRexModal()" style="background:transparent;border:none;cursor:pointer;color:var(--text-sec);display:inline-flex;padding:4px;">${I.xmark}</button>
+                    </div>
+                    <div style="font-size:13px; color:var(--text-sec); margin-bottom:12px; line-height:1.6;">在 Rex 播放器里用「链接导入」粘贴链接，或直接点「打开导入」唤起 Rex。凭据默认取节点保活账号，可修改。</div>
+                    <div style="display:flex; flex-direction:column; gap:10px;">
+                        <input type="text" id="rexPrefix" placeholder="节点前缀" oninput="renderRexLink()" style="padding:10px 14px; border:1px solid var(--border); border-radius:8px; background:var(--bg); font-size:14px;">
+                        <div style="display:flex; gap:10px;">
+                            <input type="text" id="rexUser" placeholder="账号" oninput="renderRexLink()" style="flex:1; padding:10px 14px; border:1px solid var(--border); border-radius:8px; background:var(--bg); font-size:14px;">
+                            <input type="text" id="rexPass" placeholder="密码" oninput="renderRexLink()" style="flex:1; padding:10px 14px; border:1px solid var(--border); border-radius:8px; background:var(--bg); font-size:14px;">
+                        </div>
+                        <input type="text" id="rexLink" readonly style="padding:10px 14px; border:1px solid var(--border); border-radius:8px; background:var(--bg); font-size:11px; word-break:break-all;">
+                        <div style="display:flex; gap:10px; justify-content:flex-end;">
+                            <button type="button" class="btn-ghost" onclick="copyRexLink()">复制链接</button>
+                            <button type="button" class="btn-submit" onclick="openRexLink()">打开导入</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="codeModal" style="display:none; position:fixed; inset:0; z-index:11010; background:rgba(0,0,0,.5); backdrop-filter:blur(5px); overflow-y:auto; padding:16px;">
+                <div style="max-width:560px; margin:24px auto; background:var(--card); border-radius:18px; padding:22px; box-shadow:0 10px 40px rgba(0,0,0,.2);">
+                    <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:14px;">
+                        <h2 id="codeModalTitle" style="margin:0; font-size:19px; display:flex; align-items:center; gap:8px;">${I.rocket} 手动覆盖/更新</h2>
+                        <button onclick="closeCodeModal()" style="background:transparent;border:none;cursor:pointer;color:var(--text-sec);display:inline-flex;padding:4px;">${I.xmark}</button>
+                    </div>
+                    <div style="font-size:13px; color:#ff3b30; margin-bottom:12px;">${I.warn} 警告：提交错误的代码会导致面板瞬间崩溃（500 错误）。请确保代码已在本地测试通过！</div>
+                    <textarea id="codeArea" rows="8" placeholder="在此处粘贴修改好的最新代码全文..." style="width:100%; padding:14px; border-radius:10px; border:1px solid var(--border); margin-bottom:12px; font-family:monospace; resize:vertical; background:var(--bg); font-size:12px;"></textarea>
+                    <input type="file" id="fileInput" accept=".js" style="display:none; font-size:14px; padding:6px; border:1px solid var(--border); border-radius:6px; background:var(--bg); margin-bottom:12px; width:100%;">
+                    <button class="btn-danger" id="deployBtn" onclick="deployWorker()" style="width:100%;">${I.flame} 覆盖更新</button>
+                </div>
+            </div>
+
+            <div id="placementModal" style="display:none; position:fixed; inset:0; z-index:11010; background:rgba(0,0,0,.5); backdrop-filter:blur(5px); overflow-y:auto; padding:16px;">
+                <div style="max-width:560px; margin:24px auto; background:var(--card); border-radius:18px; padding:22px; box-shadow:0 10px 40px rgba(0,0,0,.2);">
+                    <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:14px;">
+                        <h2 style="margin:0; font-size:19px; display:flex; align-items:center; gap:8px;">${I.gear} Worker 调度模式与区域设置</h2>
+                        <button onclick="closePlacementModal()" style="background:transparent;border:none;cursor:pointer;color:var(--text-sec);display:inline-flex;padding:4px;">${I.xmark}</button>
+                    </div>
+                    <select id="cf-mode-select" onchange="handleModeChange()" style="width:100%; padding:10px; border-radius:6px; border:1px solid var(--border); background:var(--bg); color:var(--text); margin-bottom:10px;">
+                        <option value='{"mode":"smart"}'> 智能调度 (Smart Placement)</option>
+                        <option value='{"mode":"off"}'> 边缘节点 (Edge - 默认离访客近)</option>
+                        <optgroup label="指定云厂商物理机房落地">
+                            <option value="aws"> AWS (亚马逊云)</option>
+                            <option value="gcp"> GCP (谷歌云)</option>
+                            <option value="azure"> Azure (微软云)</option>
+                        </optgroup>
+                        <option value="custom"> 手动输入区域代码...</option>
+                    </select>
+                    <select id="cf-region-select" style="display:none; width:100%; padding:10px; border-radius:6px; border:1px solid var(--border); background:var(--bg); color:var(--text); margin-bottom:10px;"></select>
+                    <input type="text" id="cf-custom-input" placeholder="输入云代码 (如 gcp:us-west1)" style="display:none; width:100%; padding:10px; border-radius:6px; border:1px solid var(--border); background:var(--bg); color:var(--text); margin-bottom:10px;">
+                    <div id="place-status" style="margin:0 0 12px; font-size:13px; color:var(--text-sec); font-weight:600;">后台全自动安全调度，不暴露任何私钥</div>
+                    <button class="btn-submit" onclick="updatePlacement()" style="width:100%;">${I.check} 提交修改</button>
+                </div>
+            </div>
+
+            <div id="accountModal" style="display:none; position:fixed; inset:0; z-index:11010; background:rgba(0,0,0,.5); backdrop-filter:blur(5px); overflow-y:auto; padding:16px;">
+                <div style="max-width:560px; margin:24px auto; background:var(--card); border-radius:18px; padding:22px; box-shadow:0 10px 40px rgba(0,0,0,.2);">
+                    <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:14px;">
+                        <h2 style="margin:0; font-size:19px; display:flex; align-items:center; gap:8px;">${I.gear} 账户设置</h2>
+                        <button onclick="closeAccountModal()" style="background:transparent;border:none;cursor:pointer;color:var(--text-sec);display:inline-flex;padding:4px;">${I.xmark}</button>
+                    </div>
+                    <div id="accountAdminPanel" style="display:flex; flex-direction:column; gap:16px;">
+                        <div style="background:rgba(120,120,120,0.05); border:1px solid var(--border); border-radius:10px; padding:14px;">
+                            <div style="font-size:14px; font-weight:600; margin-bottom:10px;">${I.pencil} 修改登录密码</div>
+                            <div style="font-size:12px; color:var(--text-sec); margin-bottom:10px;">${I.warn} Worker 变量 ADMIN_TOKEN 为最高权限，永久有效；此处修改的密码仅对网页生效。</div>
+                            <input type="password" id="newAdminPass" placeholder="输入新密码 (至少 4 位)" style="width:100%; padding:10px 14px; border:1px solid var(--border); border-radius:8px; background:var(--bg); margin-bottom:10px;">
+                            <button class="btn-submit" onclick="saveAdminPass()" style="width:100%;">${I.check} 保存新密码</button>
+                        </div>
+                        <div style="background:rgba(120,120,120,0.05); border:1px solid var(--border); border-radius:10px; padding:14px;">
+                            <div style="font-size:14px; font-weight:600; margin-bottom:10px;">${I.spy} 反代 Token</div>
+                            <div style="font-size:12px; color:var(--text-sec); margin-bottom:10px;">${I.warn} 开启后所有节点链接需带 <b style="color:var(--primary);">/密钥/</b> 前缀才可反代；不带前缀的访问会跳转 /catch 并记录来访 IP（记录存 D1，不占 KV 额度）。</div>
+                            <div style="display:flex; align-items:center; gap:10px; margin-bottom:10px;">
+                                <label style="display:flex; align-items:center; gap:6px; cursor:pointer; font-size:13px; color:var(--text);">
+                                    <input type="checkbox" id="ptOn" style="accent-color:var(--primary); width:16px; height:16px; cursor:pointer;"> 开启
+                                </label>
+                            </div>
+                            <div style="display:flex; gap:8px; margin-bottom:12px;">
+                                <input type="text" id="ptKey" placeholder="自定义密钥（3-32 位字母数字，如 lhazkj）" style="flex:1; padding:10px 14px; border:1px solid var(--border); border-radius:8px; background:var(--bg);">
+                                <button class="btn-submit" onclick="saveProxyToken()" style="white-space:nowrap;">${I.check} 保存</button>
+                            </div>
+                            <div style="font-size:13px; font-weight:600; margin-bottom:8px;">来访记录 IP <span style="font-weight:400; color:var(--text-sec);">（仅管理员）</span></div>
+                            <div id="ptHits" style="font-size:12px; color:var(--text-sec);">加载中…</div>
+                        </div>
+                        <div style="background:rgba(120,120,120,0.05); border:1px solid var(--border); border-radius:10px; padding:14px;">
+                            <div style="font-size:14px; font-weight:600; margin-bottom:10px;">${I.robot} 订阅用户管理</div>
+                            <div style="font-size:12px; color:var(--text-sec); margin-bottom:10px;">订阅者密码可进入网页，但只能查看节点，不能进行任何修改操作。</div>
+                            <div id="subList" style="display:flex; flex-direction:column; gap:8px; margin-bottom:12px;"></div>
+                            <div style="display:flex; gap:8px;">
+                                <input type="text" id="newSubPass" placeholder="输入新订阅者密码" style="flex:1; padding:10px 14px; border:1px solid var(--border); border-radius:8px; background:var(--bg);">
+                                <button class="btn-submit" onclick="addSubscriber()" style="white-space:nowrap;">${I.plus} 添加</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="accountSubPanel" style="display:none; text-align:center; padding:20px 0; color:var(--text-sec); font-size:14px;">
+                        ${I.robot} 当前为订阅用户模式，仅可查看节点，无任何修改权限。
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <div style="display:flex; justify-content: space-between; align-items:center; margin-bottom:16px; flex-wrap:wrap; gap:10px;">
+                    <h2 style="margin:0; font-size:18px;">已反代的媒体库</h2>
+                    <div style="display: flex; gap: 10px; align-items:center; flex-wrap: wrap;">
+                        <button class="btn-submit admin-only" onclick="pingAllNodes()" style=" padding: 10px 14px; font-size: 13px;">${I.bolt} 全局测速</button>
+                        <button id="btnPurge" class="btn-submit admin-only" onclick="purgeCache()" style=" padding: 10px 14px; font-size: 13px;">${I.broom} 刷新全站海报</button>
+                        <input type="text" id="searchNode" class="search-input" placeholder="搜索备注或后缀查找..." onkeyup="filterNodesList()">
+                    </div>
+                </div>
+                <div class="admin-only" style="background: rgba(0, 122, 255, 0.05); padding: 12px 20px; border-radius: 12px; border: 1px dashed var(--primary); margin-bottom: 20px; margin-top: 20px; display: flex; align-items: center; gap: 15px; flex-wrap: wrap;">
+            <label style="cursor: pointer; font-weight: bold; display: flex; align-items: center; gap: 6px;">
+                <input type="checkbox" id="selectAllNodes" onchange="toggleSelectAll(this)" style="width: 18px; height: 18px; accent-color: var(--primary);"> 
+                全选节点
+            </label>
+            
+            <div style="width: 2px; height: 20px; background: var(--border);"></div> <select id="batch-mode-select" style="padding: 8px 12px; border-radius: 8px; border: 1px solid var(--border); background: var(--bg); color: var(--text); font-weight: 600;">
+                <option value=""> 读取模式中...</option>
+            </select>
+
+            <button onclick="batchUpdateModes()" style="background: var(--primary); color: white; border: none; padding: 8px 16px; border-radius: 8px; cursor: pointer; font-weight: bold; transition: 0.2s; box-shadow: 0 4px 10px rgba(0,113,227,0.2);">
+                ${I.rocket} 批量应用模式
+            </button>
+
+            <span id="batch-status" style="font-size: 13px; font-weight: 600;"></span>
+        </div>
+                <div id="list-grid" class="node-grid">
+                    <div style="text-align:center; color:var(--text-sec); grid-column: 1 / -1; padding: 40px;">读取数据中...</div>
+                </div>
+            </div>
+            
+        </div>
+        
+        <div style="text-align: center; padding-top: 10px; padding-bottom: 20px;">
+            <a href="https://t.me/MakkaPakkaOvO" target="_blank" style="text-decoration: none; color: var(--text); font-weight: 600; display: inline-flex; align-items: center; padding: 12px 24px; background: var(--card); border-radius: 30px; box-shadow: 0 4px 15px rgba(0,0,0,0.06); transition: 0.3s; font-size: 14px; border: 1px solid var(--border);">
+                ${SVG_TG}
+                联系作者 MakkaPakkaOvO
+            </a>
+            <div style="margin-top: 20px; font-size: 12px; color: var(--text-sec); line-height: 1.6; max-width: 600px; margin-left: auto; margin-right: auto; padding: 0 15px;">
+                <strong>免责声明:</strong> 本项目仅供学习与技术测试使用，请遵守当地法律法规。使用者对配置、转发内容与访问行为承担全部责任，开发者不对任何直接或间接损失负责。
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const modeNames = { 'off': '保守', 'realip_only': '严格', 'dual': '兼容', 'strict': '强力', 'custom': '伪装(旧)', 'off_fake': '保守+伪装', 'realip_only_fake': '严格+伪装', 'dual_fake': '兼容+伪装', 'strict_fake': '强力+伪装' };
+        
+        const DEFAULT_ICON_URL = 'https://emby-icon.vercel.app/TFEL-Emby.json';
+        let globalIcons = [];
+        let proxyNodesForPing = [];
+        let sortableInstance = null;
+        let trendChartInstance = null;
+        let locationChartInstance = null;
+
+        // 设置 Chart.js 响应暗色模式
+        function updateChartColors() {
+            Chart.defaults.color = document.body.classList.contains('dark') ? '#98989d' : '#86868b';
+            Chart.defaults.borderColor = document.body.classList.contains('dark') ? '#38383a' : '#d2d2d7';
+        }
+
+        // =====================================
+        // 数据大屏与统计逻辑 (适配手机端表格排版)
+        // =====================================
+        async function openDashboard() {
+            document.getElementById('dashboardModal').style.display = 'block';
+            
+            function parseTrafficToBytes(str) {
+                if (!str || str === '0 B' || str.includes('异常') || str.includes('获取')) return 0;
+                let val = parseFloat(str);
+                if (str.includes('TB')) return val * 1099511627776;
+                if (str.includes('GB')) return val * 1073741824;
+                if (str.includes('MB')) return val * 1048576;
+                if (str.includes('KB')) return val * 1024;
+                return val;
+            }
+
+            let top5Container = document.getElementById('top5-simple-container');
+            if (!top5Container) {
+                top5Container = document.createElement('div');
+                top5Container.id = 'top5-simple-container';
+                const wrapper = document.querySelector('.table-wrapper');
+                if(wrapper && wrapper.previousElementSibling) {
+                    wrapper.parentNode.insertBefore(top5Container, wrapper.previousElementSibling);
+                }
+            }
+            
+            let top5Html = '<h3 style="margin-top: 30px; margin-bottom:16px;">${I.trophy} 今日节点流量消耗 TOP 5</h3><div style="background: rgba(120,120,120,0.05); padding: 16px; border-radius: 12px; border: 1px solid var(--border); margin-bottom: 20px;">';
+            
+            // ==========================================
+            //  核心优化：听你的天才思路！直接去网页现有的卡片里“抓取”数据，绝不等待变量！
+            // ==========================================
+            const domCards = document.querySelectorAll('.route-item');
+            let scrapedNodes = [];
+            
+            domCards.forEach(card => {
+                const prefix = card.getAttribute('data-prefix') || '未知';
+                let remark = prefix;
+                const searchAttr = card.getAttribute('data-search');
+                if (searchAttr) {
+                    remark = searchAttr.replace(new RegExp(' ' + prefix + '$'), '').trim();
+                }
+
+                let bandwidth = '0 B';
+                // 遍历卡片里所有的文本，找出带有流量单位的那个文本
+                const spans = card.querySelectorAll('span');
+                spans.forEach(span => {
+                    const txt = span.innerText || '';
+                    // 匹配例如: 1.5 GB, 500 MB, 0 B (双斜杠防转义丢失)
+                    if (/^[\\d\\.]+\\s*(TB|GB|MB|KB|B)$/i.test(txt.trim())) {
+                        bandwidth = txt.trim();
+                    }
+                });
+
+                scrapedNodes.push({ prefix: prefix, remark: remark, todayBandwidth: bandwidth });
+            });
+
+            // 用抓取下来的真实数据直接计算 TOP 5
+            if (scrapedNodes.length > 0) {
+                const validNodes = scrapedNodes.filter(r => parseTrafficToBytes(r.todayBandwidth) > 0);
+                const top5 = validNodes.sort((a, b) => parseTrafficToBytes(b.todayBandwidth) - parseTrafficToBytes(a.todayBandwidth)).slice(0, 5);
+                
+                if (top5.length > 0) {
+                    top5Html += '<ul style="margin:0; padding-left: 20px; line-height: 2; font-size: 14px; color: var(--text);">';
+                    top5.forEach((r, idx) => {
+                        const rankColor = idx === 0 ? '#ff3b30' : (idx === 1 ? '#ff9500' : (idx === 2 ? '#ffcc00' : 'var(--text-sec)'));
+                        top5Html += \`<li><strong style="color:\${rankColor}; font-size: 15px;">#\${idx+1}</strong> \${r.remark} (/\${r.prefix}) —— 消耗: <strong style="color:var(--primary); font-family: monospace;">\${r.todayBandwidth}</strong></li>\`;
+                    });
+                    top5Html += '</ul>';
+                } else {
+                    top5Html += '<div style="color:var(--text-sec); font-size:13px; text-align:center;">今日暂无节点产生流量</div>';
+                }
+            } else {
+                top5Html += '<div style="color:var(--text-sec); font-size:13px; text-align:center;">主页暂无节点卡片</div>';
+            }
+            top5Html += '</div>';
+            
+            // 瞬间把 TOP 5 写入网页！
+            top5Container.innerHTML = top5Html;
+
+
+            // ==========================================
+            //  正常加载下面的图表数据 (带有10秒防卡死超时保护)
+            // ==========================================
+            document.getElementById('logTableBody').innerHTML = '<tr><td colspan="5" style="text-align:center; padding: 30px;">数据分析引擎计算中...</td></tr>';
+            document.getElementById('trafficToday').innerText = '拉取中...';
+            document.getElementById('traffic7d').innerText = '拉取中...';
+            document.getElementById('traffic30d').innerText = '拉取中...';
+
+            try {
+                const controller = new AbortController();
+                const timeoutId = setTimeout(() => controller.abort(), 10000);
+
+                const res = await fetch('/api/analytics', { signal: controller.signal });
+                clearTimeout(timeoutId);
+                
+                const data = await res.json();
+                if(!data.success) throw new Error(data.error);
+
+                updateChartColors();
+
+                document.getElementById('trafficToday').innerText = data.trafficToday || '未知';
+                document.getElementById('traffic7d').innerText = data.traffic7d || '未知';
+                document.getElementById('traffic30d').innerText = data.traffic30d || '未知';
+
+                const labels = data.trend.map(i => i.date.substring(5)); 
+                const counts = data.trend.map(i => i.count);
+                const trendCtx = document.getElementById('trendChart').getContext('2d');
+                if(trendChartInstance) trendChartInstance.destroy();
+                trendChartInstance = new Chart(trendCtx, {
+                    type: 'line',
+                    data: {
+                        labels: labels,
+                        datasets: [{ label: '有效播放 (次)', data: counts, borderColor: '#0071e3', backgroundColor: 'rgba(0,113,227,0.1)', fill: true, tension: 0.3 }]
+                    },
+                    options: { responsive: true, plugins: { title: { display: true, text: '过去 7 天全站播放并发趋势', font: {size: 16} } } }
+                });
+
+                const locLabels = data.locations.map(i => i.country === 'CN' ? '中国大陆' : (i.country || '未知'));
+                const locCounts = data.locations.map(i => i.count);
+                const locCtx = document.getElementById('locationChart').getContext('2d');
+                if(locationChartInstance) locationChartInstance.destroy();
+                locationChartInstance = new Chart(locCtx, {
+                    type: 'doughnut',
+                    data: {
+                        labels: locLabels,
+                        datasets: [{ data: locCounts, backgroundColor: ['#34c759', '#0071e3', '#ff9500', '#af52de', '#ff2d55', '#8e8e93'], borderWidth: 0 }]
+                    },
+                    options: { responsive: true, plugins: { title: { display: true, text: '独立访客来源地占比', font: {size: 16} } } }
+                });
+
+                const tbody = document.getElementById('logTableBody');
+                tbody.innerHTML = '';
+                if(data.recents.length === 0) {
+                    tbody.innerHTML = '<tr><td colspan="5" style="text-align:center; padding: 30px;">暂无日志记录</td></tr>';
+                } else {
+                    data.recents.forEach(log => {
+                        const tr = document.createElement('tr');
+                        const isChina = log.country === 'CN';
+                        tr.innerHTML = \`
+                            <td data-label="访问时间" style="font-size:12px; white-space:nowrap;">\${log.timestamp}</td>
+                            <td data-label="目标节点"><span class="badge" style="background:rgba(0,113,227,0.1);color:var(--primary);">\${log.prefix}</span></td>
+                            <td data-label="真实 IP" style="font-family:monospace; font-size:13px; color:var(--text-sec); word-break:break-all;">\${log.ip}</td>
+                            <td data-label="归属地"><span class="badge" style="background:\${isChina ? 'rgba(52,199,89,0.1)' : 'rgba(255,149,0,0.1)'}; color:\${isChina ? '#34c759' : '#ff9500'};">\${isChina ? '中国大陆' : (log.country || 'Unknown')}</span></td>
+                            <td data-label="设备标识 (UA)" style="font-size:12px; color:var(--text-sec); word-break: break-all; white-space: normal; text-align: right; line-height: 1.4;" title="\${log.ua}">\${log.ua}</td>
+                        \`;
+                        tbody.appendChild(tr);
+                    });
+                }
+
+            } catch (e) {
+                const errMsg = e.name === 'AbortError' ? '网络超时，CF 接口拥堵，请稍后重试' : e.message;
+                document.getElementById('logTableBody').innerHTML = \`<tr><td colspan="5" style="text-align:center;color:#ff3b30; padding: 30px;">独立图表数据拉取失败: \${errMsg}</td></tr>\`;
+            }
+        }
+
+        function closeDashboard() { document.getElementById('dashboardModal').style.display = 'none'; }
+
+        async function loadIcons(forceUrl = null) {
+            const grid = document.getElementById('iconGrid');
+            grid.innerHTML = '<div style="grid-column: 1/-1; color: var(--text-sec); font-size: 13px; text-align: center;">加载图标库中...</div>';
+            const targetUrl = forceUrl || localStorage.getItem('custom_icon_url') || DEFAULT_ICON_URL;
+            const urlInput = document.getElementById('customIconUrlInput');
+            if (urlInput) urlInput.value = targetUrl === DEFAULT_ICON_URL ? '' : targetUrl;
+            try {
+                const res = await fetch(targetUrl);
+                const data = await res.json();
+                if (data && data.icons && Array.isArray(data.icons)) {
+                    globalIcons = data.icons;
+                } else if (Array.isArray(data)) {
+                    globalIcons = data;
+                } else {
+                    globalIcons = [];
+                    for (const [key, val] of Object.entries(data)) { globalIcons.push({ name: key, url: val }); }
+                }
+                renderIconGrid('');
+            } catch(e) { 
+                grid.innerHTML = '<div style="grid-column: 1/-1; color: #ff3b30; font-size: 13px; text-align: center;">获取图标库失败，请检查链接或网络状态</div>';
+            }
+        }
+
+        function setCustomIconLibrary() {
+            const url = document.getElementById('customIconUrlInput').value.trim();
+            if (!url) return showToast('⚠️ 请输入图标库 JSON 链接');
+            if (!url.startsWith('http')) return showToast('⚠️ 请输入合法的 URL');
+            localStorage.setItem('custom_icon_url', url);
+            showToast('⏳ 正在加载自定义图标库...');
+            loadIcons(url);
+        }
+
+        function resetIconLibrary() {
+            localStorage.removeItem('custom_icon_url');
+            document.getElementById('customIconUrlInput').value = '';
+            showToast('🔄 已恢复默认图标库');
+            loadIcons(DEFAULT_ICON_URL);
+        }
+
+        function renderIconGrid(filterText) {
+            const grid = document.getElementById('iconGrid');
+            const lowerFilter = filterText.toLowerCase();
+            const filtered = globalIcons.filter(item => (item.name || '').toLowerCase().includes(lowerFilter));
+            let html = \`<div class="icon-item" onclick="selectIcon('', '默认')" title="使用默认图标"><span style="font-size:22px;">${I.film}</span></div>\`;
+            filtered.forEach(item => {
+                html += \`<div class="icon-item" onclick="selectIcon('\${item.url}', '\${item.name}')" title="\${item.name}">
+                            <img src="\${item.url}" loading="lazy" style="width: 32px; height: 32px; object-fit: contain; border-radius: 4px;">
+                        </div>\`;
+            });
+            grid.innerHTML = html;
+        }
+
+        function filterIcons() { renderIconGrid(document.getElementById('iconSearch').value); }
+
+        function toggleIconPicker(e) {
+            e.stopPropagation();
+            const panel = document.getElementById('iconPickerPanel');
+            panel.style.display = panel.style.display === 'none' ? 'flex' : 'none';
+        }
+
+        function selectIcon(url, name) {
+            document.getElementById('iconUrl').value = url;
+            const preview = document.getElementById('iconPreview');
+            const def = document.getElementById('iconDefault');
+            const text = document.getElementById('iconSelectText');
+            if(url) {
+                preview.src = url; preview.style.display = 'block'; def.style.display = 'none';
+                text.textContent = name; text.style.color = 'var(--text)';
+            } else {
+                preview.src = ''; preview.style.display = 'none'; def.style.display = 'block';
+                text.textContent = '点击选择图标 (默认)'; text.style.color = 'var(--text-sec)';
+            }
+            document.getElementById('iconPickerPanel').style.display = 'none';
+        }
+
+        document.addEventListener('click', (e) => {
+            const panel = document.getElementById('iconPickerPanel');
+            const btn = document.getElementById('iconSelectBtn');
+            if (panel && btn && panel.style.display !== 'none') {
+                if (!panel.contains(e.target) && !btn.contains(e.target)) panel.style.display = 'none';
+            }
+        });
+
+        function toggleDarkMode() {
+            const isDark = document.body.classList.toggle('dark');
+            document.getElementById('themeToggle').innerHTML = isDark ? I.sun : I.moon;
+            localStorage.setItem('emby_proxy_dark', isDark ? '1' : '0');
+            if(trendChartInstance) { updateChartColors(); trendChartInstance.update(); locationChartInstance.update(); }
+        }
+        if (localStorage.getItem('emby_proxy_dark') === '1') { document.body.classList.add('dark'); document.getElementById('themeToggle').innerHTML = I.sun; }
+
+        function genUuid() {
+            if (typeof crypto !== 'undefined' && typeof crypto.randomUUID === 'function') return crypto.randomUUID();
+            const b = crypto.getRandomValues(new Uint8Array(16));
+            b[6] = (b[6] & 0x0f) | 0x40; b[8] = (b[8] & 0x3f) | 0x80;
+            const h = Array.from(b).map(x => x.toString(16).padStart(2, '0')).join('');
+            return h.slice(0,8) + '-' + h.slice(8,12) + '-' + h.slice(12,16) + '-' + h.slice(16,20) + '-' + h.slice(20);
+        }
+
+        function showToast(msg) {
+            const t = document.getElementById('toast');
+            t.textContent = msg; t.classList.add('show');
+            setTimeout(() => t.classList.remove('show'), 3000);
+        }
+
+        async function purgeCache() {
+            if(!confirm('确定要清理 Cloudflare 节点的全站海报和静态缓存吗？\\n\\n清理后可能导致短时间的加载缓慢。')) return;
+            const btn = document.getElementById('btnPurge');
+            const originalText = btn.textContent;
+            btn.textContent = '⏳ 正在清理...'; btn.disabled = true;
+            try {
+                const res = await fetch('/api/purge-cache', { method: 'POST' });
+                const data = await res.json();
+                if(data.success) showToast('✅ 缓存清理成功，新海报已生效！');
+                else showToast('❌ 清理失败: ' + data.error);
+            } catch(e) { showToast('❌ 网络请求错误'); } finally { btn.textContent = originalText; btn.disabled = false; }
+        }
+
+        function filterNodesList() {
+            const filterText = document.getElementById('searchNode').value.toLowerCase();
+            const cards = document.querySelectorAll('.emby-card');
+            cards.forEach(card => {
+                const searchStr = card.getAttribute('data-search').toLowerCase();
+                card.style.display = searchStr.includes(filterText) ? 'flex' : 'none';
+            });
+        }
+
+        function handleTargetInputs() {
+            const container = document.getElementById('targetInputs');
+            const inputs = container.querySelectorAll('.target-input');
+            const lastInput = inputs[inputs.length - 1];
+            if (lastInput.value.trim() !== '') {
+                const newInput = document.createElement('input');
+                newInput.type = 'url'; newInput.className = 'target-input';
+                newInput.style = 'padding: 12px 16px; border: 1px solid var(--border); border-radius: 8px; background:var(--card); width: 100%;';
+                newInput.oninput = handleTargetInputs;
+                container.appendChild(newInput);
+            }
+            let emptyCount = 0;
+            const currentInputs = container.querySelectorAll('.target-input');
+            for (let i = currentInputs.length - 1; i >= 0; i--) {
+                if (currentInputs[i].value.trim() === '') { emptyCount++; if (emptyCount > 1) currentInputs[i].remove(); } else { break; }
+            }
+            container.querySelectorAll('.target-input').forEach((inp, idx) => {
+                inp.placeholder = idx === 0 ? "主线路地址 (如: http://1.1.1.1:8096)" : \`备用线路 \${idx} (选填，主源挂掉时触发)\`;
+            });
+        }
+
+        function resetTargetInputs() {
+            const container = document.getElementById('targetInputs');
+            container.innerHTML = \`
+                <input type="url" class="target-input" placeholder="主线路地址 (如: http://1.1.1.1:8096)" style="padding: 12px 16px; border: 1px solid var(--border); border-radius: 8px; background:var(--card); width: 100%;" required oninput="handleTargetInputs()">
+                <input type="url" class="target-input" placeholder="备用线路 1 (选填)" style="padding: 12px 16px; border: 1px solid var(--border); border-radius: 8px; background:var(--card); width: 100%;" oninput="handleTargetInputs()">
+            \`;
+        }
+
+        function toggleVis(id, isArray = false) {
+            const el = document.getElementById(id);
+            if (el.classList.contains('secret-text')) {
+                el.classList.remove('secret-text'); el.classList.add('actual-text');
+                if (isArray) {
+                    const arr = JSON.parse(decodeURIComponent(el.getAttribute('data-val')));
+                    let html = '';
+                    arr.forEach((t, i) => {
+                        const tag = i === 0 ? '<span style="color:#34c759;font-weight:bold;">[主]</span>' : '<span style="color:#ff9500;font-weight:bold;">[备]</span>';
+                        html += \`<div class="url-list-item">\${tag} \${t}</div>\`;
+                    });
+                    el.innerHTML = html;
+                } else { el.textContent = el.getAttribute('data-val'); }
+            } else {
+                el.classList.add('secret-text'); el.classList.remove('actual-text'); el.textContent = '••••••••';
+            }
+        }
+
+        function copyTxt(txt) { navigator.clipboard.writeText(txt).then(() => showToast('🚀 复制成功！')); }
+
+        async function pingTarget(idx, targetUrl) {
+            const pingEl = document.getElementById('ping-' + idx);
+            pingEl.textContent = '测速中...'; pingEl.style.color = 'var(--text-sec)';
+            try {
+                const res = await fetch('/api/ping-node?url=' + encodeURIComponent(targetUrl));
+                const data = await res.json();
+                if(data.ms >= 0) {
+                    pingEl.textContent = data.ms + ' ms';
+                    pingEl.style.color = data.ms < 200 ? '#34c759' : (data.ms < 500 ? 'var(--primary)' : '#ff9500');
+                } else { pingEl.textContent = '断连/超时'; pingEl.style.color = '#ff3b30'; }
+            } catch(e) { pingEl.textContent = '测速异常'; pingEl.style.color = '#ff3b30'; }
+        }
+
+        function pingAllNodes() {
+            if (proxyNodesForPing.length === 0) return showToast('⚠️ 没有可供测速的反代节点');
+            showToast('⚡ 正在对所有节点发起测速...');
+            proxyNodesForPing.forEach((node, offset) => { setTimeout(() => pingTarget(node.idx, node.url), offset * 200); });
+        }
+
+        async function exportConfig() {
+            try {
+                const res = await fetch('/api/routes'); const data = await res.json();
+                const blob = new Blob([JSON.stringify(data, null, 2)], {type: 'application/json'});
+                const url = URL.createObjectURL(blob);
+                const a = document.createElement('a'); a.href = url; a.download = 'emby_proxy_backup.json'; a.click();
+                URL.revokeObjectURL(url); showToast('✅ 配置已导出');
+            } catch (e) { showToast('❌ 导出失败'); }
+        }
+
+        function importConfig() {
+            const input = document.createElement('input'); input.type = 'file'; input.accept = '.json';
+            input.onchange = async (e) => {
+                const file = e.target.files[0]; const reader = new FileReader();
+                reader.onload = async (event) => {
+                    try {
+                        const routes = JSON.parse(event.target.result);
+                        const res = await fetch('/api/routes/import', { method: 'POST', body: JSON.stringify(routes) });
+                        const result = await res.json();
+                        if (result.success) { showToast('✅ 配置导入成功'); load(); } else throw new Error(result.error);
+                    } catch (err) { showToast('❌ 导入失败: ' + err.message); }
+                };
+                reader.readAsText(file);
+            };
+            input.click();
+        }
+
+        async function load() {
+            try {
+                await loadPtState();
+            } catch (e) {}
+            try {
+                const res = await fetch('/api/routes');
+                if (!res.ok) throw new Error('请求失败，请检查环境配置');
+                const data = await res.json();
+                if (data.error) throw new Error(data.error);
+
+                //  新增：把节点流量数据存进全局内存，供大屏瞬间读取！
+                window.globalRoutesData = data;
+
+                const container = document.getElementById('list-grid');
+                if(data.length === 0) {
+                    container.innerHTML = '<div style="text-align:center; color:var(--text-sec); grid-column: 1 / -1; padding: 40px;">暂无配置任何反代节点，请先部署一个。</div>';
+                    return;
+                }
+                
+                container.innerHTML = '';
+                proxyNodesForPing = []; 
+                const currentHost = window.location.host;
+
+                data.forEach((r, idx) => {
+                    const proxyUrl = entryUrl(r.prefix);
+                    const targets = r.target ? r.target.split(',').map(s => s.trim()).filter(Boolean) : [];
+                    const mainTarget = targets[0] || '';
+                    
+                    const remarkName = r.remark || '未命名媒体库';
+                    // 未观看天数（基于改良后的真实观看 last_play；last_play 为 UTC+8 墙上时间字符串）
+                    let watchDaysText = '暂无播放记录', watchOverdue = false;
+                    if (r.last_play) {
+                        try {
+                            const lpUtc = Date.parse(r.last_play.replace(' ', 'T') + 'Z') - 8 * 3600000;
+                            const diffDays = Math.floor((Date.now() - lpUtc) / 86400000);
+                            watchDaysText = diffDays <= 0 ? '今天观看过' : (diffDays + ' 天前观看');
+                            const wl = parseFloat(r.watch_limit);
+                            if (wl > 0 && diffDays > wl) { watchOverdue = true; watchDaysText += ' · 已超 ' + (diffDays - wl) + ' 天'; }
+                        } catch (e) {}
+                    }
+                    const lastPlay = r.last_play ? r.last_play : '暂无播放记录';
+                    
+                    const iconHtml = r.icon ? \`<img src="\${r.icon}" style="width:28px;height:28px;border-radius:6px;object-fit:cover;">\` : '${I.film}';
+                    const pingAttr = mainTarget ? 'onclick="pingTarget(' + idx + ', \\'' + mainTarget + '\\')" title="点击重新测速"' : 'title="订阅模式不可测速"';
+                    const pingText = mainTarget ? '测速中...' : '—';
+                    const encodedTargets = encodeURIComponent(JSON.stringify(targets));
+                    
+                    //  伪装设备与保活状态解析（VPS 版同款）
+                    let fakeClient = ''; let dlTrickOn = false;
+                    try { const fp = r.custom_params ? JSON.parse(r.custom_params) : {}; fakeClient = fp.client || ''; dlTrickOn = !!fp.dlTrick; } catch(e){}
+                    const fakeOn = (r.mode || '').includes('fake');
+                    const kaOn = r.ka_enabled === '1';
+                    const kaStatus = kaOn ? '已开启 · ' + (r.ka_days || 3) + '天' : '未开启';
+                    const kaLast = r.last_ka_result ? ((r.last_ka_result === 'success' ? '✅ ' : '❌ ') + (r.last_ka_detail || '')) : '暂无记录';
+                    const kaNext = r.last_ka_run ? new Date(r.last_ka_run).getTime() + Math.max(0.1, parseFloat(r.ka_days) || 3) * 86400000 : 0;
+
+                    //  接收后端传来的：单节点独立宽带与请求统计数据
+                    const todayBw = r.todayBandwidth || '0 B';
+                    const totalReqs = r.totalReqs || r.todayReqs || 0;
+
+                    proxyNodesForPing.push({ idx: idx, url: mainTarget });
+
+                    container.innerHTML += \`
+                    <div class="emby-card route-item" data-prefix="\${r.prefix}" data-search="\${remarkName} \${r.prefix}">
+                        <div class="card-header">
+                            <div class="card-title-group" style="display: flex; align-items: center; gap: 10px;">
+                                <div class="drag-handle admin-only" title="长按拖拽排序" style="margin: 0; display: flex; align-items: center;">${I.lines}</div>
+                                <input type="checkbox" class="node-cb admin-only" value="\${r.prefix}" style="width: 18px; height: 18px; margin: 0; cursor: pointer; accent-color: var(--primary); flex-shrink: 0;">
+                                <div class="emby-icon" style="margin: 0; display: flex; align-items: center;">\${iconHtml}</div>
+                                <div>
+                                    <div style="font-weight: 600; font-size: 16px; color: var(--text);">\${remarkName}</div>
+                                    <div style="font-size: 13px; color: var(--text-sec); margin-top:2px;">/\${r.prefix}</div>
+                                </div>
+                            </div>
+                            <div style="display:flex; align-items:center;">
+                                <span class="badge" style="background: rgba(0,113,227,0.1); color: var(--primary);">\${modeNames[r.mode] || '未知'}</span>
+                            </div>
+                        </div>
+
+                        <div class="node-summary" style="display:flex; align-items:center; gap:14px; flex-wrap:wrap; padding-top:2px;">
+                            <span id="ping-\${idx}" class="ping-badge" \${pingAttr}>\${pingText}</span>
+                            <span style="font-size:12px; color:var(--text-sec);">\${todayBw}</span>
+                            <div style="margin-left:auto; display:flex; gap:8px; align-items:center;">
+                                <button class="icon-btn" onclick="copyTxt('\${proxyUrl}')" title="复制直达链接">${SVG_COPY}</button>
+                                <button class="icon-btn" onclick="toggleNodeDetail(this)" title="展开详情" style="transition:transform .25s;">${I.arrowdown}</button>
+                            </div>
+                        </div>
+
+                        <div class="node-detail" style="display:none; flex-direction:column; gap:14px;">
+                            <div style="background: rgba(120,120,120,0.05); border: 1px solid var(--border); border-radius: 10px; padding: 12px; display: flex; justify-content: space-between; flex-wrap: wrap; gap: 10px;">
+                                <div style="display:flex; flex-direction: column; gap: 4px;">
+                                    <span style="font-size:12px; color:var(--text-sec);">${I.arrowdown} 今日产生总流量</span>
+                                    <span style="font-size:16px; font-weight:700; color:var(--primary);">\${todayBw}</span>
+                                </div>
+                                <div style="display:flex; flex-direction: column; gap: 4px; text-align: right;">
+                                    <span style="font-size:12px; color:var(--text-sec);">${I.tv} 播放次数 (今日/累计)</span>
+                                    <span style="font-size:16px; font-weight:700; color:#ff9500;">\${r.todayReqs} / \${totalReqs} 次</span>
+                                </div>
+                            </div>
+
+                            <div style="display: flex; flex-direction: column; gap: 10px;">
+                                <div class="info-row">
+                                    <span class="info-label">直达链接:</span>
+                                    <div class="action-group" style="flex:1; justify-content: flex-end; margin-left: 10px; align-items: flex-start;">
+                                        <span id="p-\${idx}" data-val="\${proxyUrl}" class="secret-text dynamic-url">••••••••</span>
+                                        <button class="icon-btn" style="margin-top: 2px;" onclick="toggleVis('p-\${idx}')" title="查看明文">${SVG_EYE}</button>
+                                        <button class="icon-btn" style="margin-top: 2px;" onclick="copyTxt('\${proxyUrl}')" title="复制链接">${SVG_COPY}</button>
+                                    </div>
+                                </div>
+                                <div class="info-row admin-only">
+                                    <span class="info-label">源站线路:</span>
+                                    <div class="action-group" style="flex:1; justify-content: flex-end; margin-left: 10px; align-items: flex-start;">
+                                        <div id="t-\${idx}" data-val="\${encodedTargets}" class="secret-text dynamic-url">••••••••</div>
+                                        <button class="icon-btn" style="margin-top: 2px;" onclick="toggleVis('t-\${idx}', true)" title="查看明文">${SVG_EYE}</button>
+                                    </div>
+                                </div>
+                                <div class="info-row">
+                                    <span class="info-label">海报缓存:</span>
+                                    <span style="color:\${r.cache_img !== 'off' ? '#34c759' : '#ff9500'}; font-weight:600;">\${r.cache_img !== 'off' ? '${I.check} 已开启' : '${I.xmark} 已关闭'}</span>
+                                </div>
+                                <div class="info-row">
+                                    <span class="info-label">下载伪装:</span>
+                                    <span style="color:\${dlTrickOn ? '#34c759' : 'var(--text-sec)'}; font-weight:600;">\${dlTrickOn ? '${I.check} 已开启' : '${I.xmark} 已关闭'}</span>
+                                </div>
+                                <div class="info-row">
+                                    <span class="info-label">最后活跃:</span>
+                                    <span style="color:\${watchOverdue ? '#ff3b30' : 'var(--text-sec)'}; font-weight:\${watchOverdue ? '700' : 'normal'};">\${watchOverdue ? I.warn + ' ' : ''}\${watchDaysText}</span>
+                                </div>
+                                <div class="info-row">
+                                    <span class="info-label">伪装设备:</span>
+                                    <span style="color:\${fakeOn && fakeClient ? '#5856d6' : 'var(--text-sec)'}; font-weight:600;">\${fakeOn && fakeClient ? fakeClient : '未开启'}</span>
+                                </div>
+                                <div class="info-row">
+                                    <span class="info-label">自动保活:</span>
+                                    <span style="color:\${kaOn ? '#34c759' : 'var(--text-sec)'}; font-weight:600;">\${kaStatus}</span>
+                                </div>
+                                <div class="info-row">
+                                    <span class="info-label">下次保活:</span>
+                                    <span class="ka-cd" data-ka-next="\${kaNext}" style="color:var(--text-sec);">待首次执行</span>
+                                </div>
+                                <div class="info-row">
+                                    <span class="info-label">上次保活:</span>
+                                    <span style="color:var(--text-sec);">\${kaLast}</span>
+                                </div>
+                            </div>
+
+                            <div class="card-footer admin-only">
+                                <button class="btn-edit" onclick="kaRun('\${r.prefix}')" title="立即执行一次完整保活">保活</button>
+                                <button class="btn-edit" onclick="rexImport('\${r.prefix}')" title="生成 Rex 一键导入链接">Rex导入</button>
+                                <button class="btn-edit" onclick="editNode('\${r.prefix}', '\${r.target}', '\${r.mode}', '\${r.remark || ''}', '\${r.icon || ''}', '\${r.cache_img}', '\${r.custom_params ? encodeURIComponent(r.custom_params) : ''}', '\${r.ka_enabled || '0'}', '\${r.ka_days || '3'}', '\${r.ka_token || ''}', '\${r.node_user || ''}', '\${r.node_pass || ''}', '\${r.watch_limit || '0'}')">编辑配置</button>
+                                <button class="btn-del" onclick="del('\${r.prefix}')">删除</button>
+                            </div>
+                        </div>
+                    </div>\`;;
+
+                    if (mainTarget) setTimeout(() => pingTarget(idx, mainTarget), 500 * idx); 
+                });
+                
+                filterNodesList();
+
+                if (sortableInstance) sortableInstance.destroy();
+                sortableInstance = Sortable.create(container, {
+                    handle: '.drag-handle',
+                    animation: 150,
+                    delay: 200, 
+                    delayOnTouchOnly: true,
+                    onEnd: async function () {
+                        const items = [];
+                        container.querySelectorAll('.route-item').forEach((row, index) => {
+                            const prefix = row.getAttribute('data-prefix');
+                            if (prefix) items.push({ prefix: prefix, sort_order: index });
+                        });
+                        try {
+                            await fetch('/api/routes/reorder', { method: 'POST', body: JSON.stringify(items) });
+                            showToast('✅ 排序已保存');
+                        } catch(e) { showToast('❌ 排序保存失败'); }
+                    }
+                });
+
+            } catch (err) {
+                document.getElementById('list-grid').innerHTML = \`<div style="text-align:center; color:#ff3b30; font-weight:600; grid-column: 1 / -1; padding: 20px;">${I.warn} 读取失败: \${err.message}</div>\`;
+            }
+        }
+
+        function toggleCustomParams() {
+            const mode = document.getElementById('mode').value;
+            document.getElementById('customParamsDiv').style.display = (mode.includes('fake') || mode === 'custom') ? 'flex' : 'none';
+        }
+
+        function applyFakeTemplate(type) {
+            const templates = {
+                'senplayer': { client: 'SenPlayer', version: '6.2.2', device: 'iPhone', ua: 'SenPlayer/6.2.2' },
+                'eplayerx': { client: 'EplayerX', version: '10.0.22', device: 'iPhone', ua: 'EplayerX/10.0.22' },
+                'forward': { client: 'Forward', version: '1.3.18', device: 'iPhone', ua: 'Forward-Standard/1.3.18' },
+                'rex': { client: 'Rex', version: '1.0.1', device: 'iPhone17,2', ua: 'Rex/1.0.1' },
+                'hills': { client: 'Hills', version: '1.6.0', device: 'PD2505', ua: 'Hills/1.6.0 (android; 16)' },
+                'yamby': { client: 'Yamby', version: '2.0.0.5', device: 'vivo-V2505A', ua: 'Yamby/2.0.0.5(Android)' },
+                'clear': { client: '', version: '', device: '', ua: '' }
+            };
+            const tpl = templates[type];
+            if(tpl) {
+                document.getElementById('customClient').value = tpl.client;
+                document.getElementById('customVersion').value = tpl.version;
+                document.getElementById('customDevice').value = tpl.device;
+                document.getElementById('customUa').value = tpl.ua;
+                if (type !== 'clear' && !document.getElementById('customDeviceId').value) document.getElementById('customDeviceId').value = genUuid();
+                showToast('✅ 已应用 ' + (type === 'clear' ? '清空' : tpl.client) + ' 预设');
+            }
+        }
+
+        function editNode(prefix, targetStr, mode, remark, icon, cacheImg, customParamsStr, kaEnabled, kaDays, kaToken, nodeUser, nodePass, watchLimit) {
+            document.getElementById('oldPrefix').value = prefix;
+            document.getElementById('remark').value = remark;
+            document.getElementById('prefix').value = prefix;
+            document.getElementById('mode').value = mode || 'off';
+            document.getElementById('nodeCache').checked = (cacheImg !== 'off');
+            
+            let customParams = {};
+            if (customParamsStr) {
+                try { customParams = JSON.parse(decodeURIComponent(customParamsStr)); } catch(e){}
+            }
+            document.getElementById('nodeDlTrick').checked = !!customParams.dlTrick;
+            document.getElementById('customClient').value = customParams.client || '';
+            document.getElementById('customVersion').value = customParams.version || '';
+            document.getElementById('customDevice').value = customParams.device || '';
+            document.getElementById('customDeviceId').value = customParams.deviceId || '';
+            document.getElementById('customUa').value = customParams.ua || '';
+            toggleCustomParams();
+            document.getElementById('kaEnabled').checked = (kaEnabled === '1');
+            document.getElementById('kaDays').value = kaDays || '3';
+            document.getElementById('kaToken').value = kaToken || '';
+            document.getElementById('nodeUser').value = nodeUser || '';
+            document.getElementById('nodePass').value = nodePass || '';
+            document.getElementById('watchLimit').value = watchLimit || '0';
+            
+            if (icon) {
+                const foundItem = globalIcons.find(i => i.url === icon);
+                selectIcon(icon, foundItem ? foundItem.name : '已选择图标');
+            } else {
+                selectIcon('', '默认');
+            }
+
+            document.getElementById('submitBtn').textContent = '保存修改';
+            
+            const container = document.getElementById('targetInputs');
+            container.innerHTML = '';
+            const targets = targetStr.split(',').map(s => s.trim()).filter(Boolean);
+            
+            targets.forEach((url) => {
+                const inp = document.createElement('input');
+                inp.type = 'url'; inp.className = 'target-input'; inp.value = url;
+                inp.style = 'padding: 12px 16px; border: 1px solid var(--border); border-radius: 8px; background:var(--card); width: 100%;';
+                inp.oninput = handleTargetInputs;
+                container.appendChild(inp);
+            });
+            
+            const emptyInp = document.createElement('input');
+            emptyInp.type = 'url'; emptyInp.className = 'target-input';
+            emptyInp.style = 'padding: 12px 16px; border: 1px solid var(--border); border-radius: 8px; background:var(--card); width: 100%;';
+            emptyInp.oninput = handleTargetInputs;
+            container.appendChild(emptyInp);
+            
+            handleTargetInputs(); 
+            document.getElementById('nodeModalTitle').textContent='编辑节点';
+            document.getElementById('nodeModal').style.display='block';
+        }
+        function kaRingHtml(pct, color) {
+            const circ = 2 * Math.PI * 42;
+            const offset = (circ * (1 - pct / 100)).toFixed(2);
+            return '<div style="display:flex;flex-direction:column;align-items:center;padding:4px 0 10px;">'
+                + '<div style="position:relative;width:100px;height:100px;">'
+                + '<svg width="100" height="100" viewBox="0 0 100 100">'
+                + '<circle cx="50" cy="50" r="42" fill="none" stroke="var(--line,#e3e3e8)" stroke-width="8"/>'
+                + '<circle cx="50" cy="50" r="42" fill="none" stroke="' + color + '" stroke-width="8" stroke-linecap="round" stroke-dasharray="' + circ.toFixed(2) + '" stroke-dashoffset="' + offset + '" transform="rotate(-90 50 50)" style="transition:stroke-dashoffset .45s ease"/>'
+                + '</svg>'
+                + '<div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-size:15px;font-weight:700;">' + pct + '%</div>'
+                + '</div>'
+                + '</div>';
+        }
+
+        async function kaRun(prefix) {
+            const box = document.getElementById('kaResultBox');
+            box.innerHTML = '<div style="color:var(--text-sec);">正在对 /' + prefix + ' 执行保活（登录 → 拉流 40MB → 快进 90 秒进度上报）…</div>';
+            document.getElementById('kaModal').style.display = 'block';
+            // 执行期间每 1.5s 轮询实时进度（环形进度条 + 当前剧名），避免看起来像卡住
+            const poll = setInterval(async () => {
+                try {
+                    const res2 = await fetch('/api/keepalive/status');
+                    const d = await res2.json();
+                    if (!d || !d.running) return;
+                    const pct = Math.max(0, Math.min(100, Math.round(d.progress || 0)));
+                    let now = '';
+                    if (d.mediaTitle) now = '<div style="margin-top:6px;font-size:12px;color:#3478f6;font-weight:600;text-align:center;">正在模拟看：' + d.mediaTitle + '</div>';
+                    let h = kaRingHtml(pct, '#34c759')
+                        + '<div style="margin-top:-4px;font-size:12px;color:var(--text-sec);text-align:center;">' + (d.current || '执行中…') + '</div>'
+                        + now;
+                    if (d.steps && d.steps.length) {
+                        h += '<div style="margin-top:8px;font-weight:600;">已完成 ' + d.steps.length + ' 步：</div>';
+                        d.steps.forEach(x => { h += '<div style="color:' + (x.ok ? '#34c759' : '#ff3b30') + ';">' + (x.ok ? '✅' : '❌') + ' ' + x.name + '</div>'; });
+                    }
+                    box.innerHTML = h;
+                } catch (e) {}
+            }, 1500);
+            try {
+                const res = await fetch('/api/keepalive/run', { method: 'POST', body: JSON.stringify({ prefix }) });
+                const data = await res.json();
+                clearInterval(poll);
+                if (data.error) { box.innerHTML = '<div style="color:#ff3b30;">' + data.error + '</div>'; return; }
+                const steps = (data.steps || []).map(st => '<div style="color:' + (st.ok ? '#34c759' : '#ff3b30') + ';">' + (st.ok ? '✅' : '❌') + ' ' + st.name + ' — ' + st.detail + '</div>').join('');
+                box.innerHTML = kaRingHtml(100, data.ok ? '#34c759' : '#ff3b30')
+                    + '<div style="margin-top:-4px;margin-bottom:8px;text-align:center;font-weight:600; color:' + (data.ok ? '#34c759' : '#ff3b30') + ';">' + (data.ok ? '✅ 保活成功' : '❌ 保活失败') + '：' + (data.msg || '') + '</div>'
+                    + steps;
+            } catch (e) {
+                clearInterval(poll);
+                box.innerHTML = '<div style="color:#ff3b30;">请求失败: ' + e.message + '</div>';
+            }
+            load();
+        }
+        function closeKaModal() { document.getElementById('kaModal').style.display = 'none'; }
+
+        /* 保活结果通知 toast */
+        function kaToast(msg, ok) {
+            let box = document.getElementById('kaToastBox');
+            if (!box) {
+                box = document.createElement('div');
+                box.id = 'kaToastBox';
+                box.style.cssText = 'position:fixed;top:14px;right:14px;z-index:99999;display:flex;flex-direction:column;gap:8px;';
+                document.body.appendChild(box);
+            }
+            const el = document.createElement('div');
+            el.style.cssText = 'background:' + (ok ? '#34c759' : '#ff3b30') + ';color:#fff;padding:10px 14px;border-radius:10px;font-size:13px;box-shadow:0 4px 16px rgba(0,0,0,.2);max-width:300px;word-break:break-all;';
+            el.textContent = msg;
+            box.appendChild(el);
+            setTimeout(() => { el.style.transition = 'opacity .3s'; el.style.opacity = '0'; setTimeout(() => el.remove(), 320); }, 2800);
+        }
+
+        /* 保活倒计时 */
+        function kaFmtRemain(ms) {
+            if (ms <= 0) return '已到期，等待执行';
+            const d = Math.floor(ms / 86400000), h = Math.floor(ms % 86400000 / 3600000), m = Math.floor(ms % 3600000 / 60000), s = Math.floor(ms % 60000 / 1000);
+            if (d > 0) return d + '天' + h + '小时';
+            if (h > 0) return h + '小时' + m + '分';
+            if (m > 0) return m + '分' + s + '秒';
+            return s + '秒';
+        }
+        function updateKaCountdown() {
+            document.querySelectorAll('.ka-cd[data-ka-next]').forEach(el => {
+                const next = parseInt(el.getAttribute('data-ka-next'), 10);
+                if (!next) { el.textContent = '待首次执行'; return; }
+                const remain = next - Date.now();
+                el.textContent = remain <= 0 ? '已到期，等待执行' : kaFmtRemain(remain);
+            });
+        }
+        setInterval(updateKaCountdown, 1000);
+
+        /* 保活结果通知轮询 */
+        let kaNoticeInited = false, lastKaNoticeT = 0;
+        async function pollKaNotices() {
+            try {
+                const res = await fetch('/api/keepalive/notices');
+                const d = await res.json();
+                const list = (d.notices || []);
+                if (!kaNoticeInited) { lastKaNoticeT = list.reduce((m, n) => Math.max(m, n.time || 0), 0); kaNoticeInited = true; return; }
+                for (const n of list) {
+                    if (n.time && n.time > lastKaNoticeT) {
+                        lastKaNoticeT = Math.max(lastKaNoticeT, n.time);
+                        kaToast((n.result === '成功' ? '✅' : '❌') + ' 保活' + (n.result === '成功' ? '成功' : '失败') + ' ' + (n.remark || ('/' + n.prefix)) + '：' + (n.detail || ''), n.result === '成功');
+                    }
+                }
+            } catch (e) {}
+        }
+        setInterval(pollKaNotices, 15000);
+
+        function rexImport(prefix) {
+            const r = (window.globalRoutesData || []).find(x => x.prefix === prefix) || {};
+            document.getElementById('rexPrefix').value = prefix;
+            document.getElementById('rexUser').value = r.node_user || '';
+            document.getElementById('rexPass').value = r.node_pass || '';
+            renderRexLink();
+            document.getElementById('rexModal').style.display = 'block';
+        }
+        function renderRexLink() {
+            const scheme = location.protocol.replace(':', '');
+            const host = location.hostname + '/' + (PT.enabled ? PT.key + '/' : '') + String(document.getElementById('rexPrefix').value || '').trim();
+            const port = location.port || (scheme === 'https' ? '443' : '80');
+            const username = encodeURIComponent(String(document.getElementById('rexUser').value || '').trim());
+            const password = encodeURIComponent(String(document.getElementById('rexPass').value || '').trim());
+            document.getElementById('rexLink').value = 'rex://import?type=emby&scheme=' + scheme + '&host=' + host + '&port=' + port + '&username=' + username + '&password=' + password;
+        }
+        function copyRexLink() {
+            const link = document.getElementById('rexLink').value;
+            if (!link) return;
+            copyTxt(link);
+            showToast('✅ Rex 导入链接已复制');
+        }
+        function openRexLink() {
+            const link = document.getElementById('rexLink').value;
+            if (!link) return;
+            window.location.href = link;
+        }
+        function closeRexModal() { document.getElementById('rexModal').style.display = 'none'; }
+
+        function toggleNodeDetail(btn) {
+            const card = btn.closest('.emby-card');
+            const d = card.querySelector('.node-detail');
+            const show = d.style.display === 'none';
+            d.style.display = show ? 'flex' : 'none';
+            btn.classList.toggle('rotated', show);
+            btn.title = show ? '收起' : '展开详情';
+        }
+        function openNodeModal() {
+            const f = document.getElementById('addForm');
+            f.reset();
+            document.getElementById('oldPrefix').value='';
+            selectIcon('','默认');
+            document.getElementById('nodeCache').checked=true;
+            document.getElementById('nodeDlTrick').checked=false;
+            document.getElementById('submitBtn').textContent='保存部署';
+            document.getElementById('nodeModalTitle').textContent='添加节点';
+            document.getElementById('nodeModal').style.display='block';
+        }
+        function closeNodeModal() {
+            document.getElementById('nodeModal').style.display='none';
+        }
+
+        // ============ 手动覆盖/更新 弹窗 ============
+        function openCodeModal(mode) {
+            const modal = document.getElementById('codeModal');
+            const area = document.getElementById('codeArea');
+            const file = document.getElementById('fileInput');
+            if (mode === 'file') {
+                area.style.display = 'none';
+                file.style.display = 'block';
+            } else {
+                area.style.display = 'block';
+                file.style.display = 'none';
+            }
+            modal.style.display = 'block';
+        }
+        function closeCodeModal() {
+            document.getElementById('codeModal').style.display = 'none';
+        }
+
+        // ============ Worker 调度/区域 弹窗 ============
+        function openPlacementModal() {
+            document.getElementById('placementModal').style.display = 'block';
+        }
+        function closePlacementModal() {
+            document.getElementById('placementModal').style.display = 'none';
+        }
+
+        // ============ 账户设置 弹窗 ============
+        function openAccountModal() {
+            const modal = document.getElementById('accountModal');
+            modal.style.display = 'block';
+            if (window.ROLE === 'sub') {
+                document.getElementById('accountAdminPanel').style.display = 'none';
+                document.getElementById('accountSubPanel').style.display = 'block';
+            } else {
+                document.getElementById('accountAdminPanel').style.display = 'flex';
+                document.getElementById('accountSubPanel').style.display = 'none';
+                loadSubscribers();
+                loadPtState();
+                loadPtHits();
+            }
+        }
+        function closeAccountModal() {
+            document.getElementById('accountModal').style.display = 'none';
+        }
+        let PT = { enabled: false, key: '' };
+        function entryUrl(prefix) {
+            return 'https://' + window.location.host + '/' + (PT.enabled ? PT.key + '/' : '') + prefix;
+        }
+        async function loadPtState() {
+            try {
+                const res = await fetch('/api/proxytoken');
+                const data = await res.json();
+                if (data.success) PT = { enabled: !!data.enabled, key: data.key || '' };
+            } catch (e) {}
+            const on = document.getElementById('ptOn');
+            if (on) on.checked = PT.enabled;
+            const k = document.getElementById('ptKey');
+            if (k) k.value = PT.key || '';
+        }
+        async function saveProxyToken() {
+            const enabled = document.getElementById('ptOn').checked;
+            const key = document.getElementById('ptKey').value.trim();
+            if (enabled && !/^[A-Za-z0-9]{3,32}$/.test(key)) { alert('密钥需 3-32 位字母数字'); return; }
+            const res = await fetch('/api/account', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ proxyToken: { enabled, key } }) });
+            const data = await res.json();
+            if (data.success) {
+                closeAccountModal();
+                showToast('反代 Token 已' + (enabled ? '开启，链接前缀 /' + key + '/' : '关闭'));
+                await loadPtState();
+                try { renderRoutes(); } catch (e) { console.error(e); }
+            } else alert('保存失败：' + (data.error || ''));
+        }
+        function fmtHitTs(ts) {
+            const d = new Date(ts + 8 * 3600000);
+            return String(d.getUTCFullYear()).slice(2) + '-' + String(d.getUTCMonth() + 1).padStart(2, '0') + '-' + String(d.getUTCDate()).padStart(2, '0') + ' ' + String(d.getUTCHours()).padStart(2, '0') + ':' + String(d.getUTCMinutes()).padStart(2, '0');
+        }
+        async function loadPtHits() {
+            const box = document.getElementById('ptHits');
+            try {
+                const res = await fetch('/api/proxytoken/hits');
+                const data = await res.json();
+                const hits = (data && data.hits) || [];
+                if (!hits.length) { box.innerHTML = '<span style="color:var(--text-sec);">暂无记录</span>'; return; }
+                box.innerHTML = hits.map(h => '<div style="padding:8px 10px;border:1px solid var(--border);border-radius:8px;margin-bottom:6px;background:var(--bg);">'
+                    + '<div style="color:var(--text);font-weight:600;font-size:13px;">' + escHtml(h.ip) + ' <span style="color:var(--primary);font-weight:700;">×' + (h.times || 1) + '</span></div>'
+                    + '<div style="color:var(--text-sec);font-size:12px;word-break:break-all;margin-top:2px;">' + escHtml(h.path || '') + '</div>'
+                    + '<div style="color:var(--text-sec);font-size:11px;margin-top:2px;">' + fmtHitTs(h.ts || 0) + ' · ' + escHtml(String(h.ua || '').slice(0, 70)) + '</div></div>'
+                ).join('') + '<button class="btn-ghost" style="margin-top:6px;font-size:12px;" onclick="clearPtHits()">' + (I.trash || '清除') + ' 清空记录</button>';
+            } catch (e) { box.innerHTML = '<span style="color:var(--text-sec);">加载失败</span>'; }
+        }
+        async function clearPtHits() {
+            const res = await fetch('/api/proxytoken/hits', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ clear: true }) });
+            const data = await res.json();
+            if (data.success) { showToast('已清空来访记录'); loadPtHits(); }
+            else alert('清空失败');
+        }
+        function escHtml(s) {
+            return String(s == null ? '' : s).replace(/[&<>"']/g, c => ({ '&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;' }[c]));
+        }
+        async function saveAdminPass() {
+            const pw = document.getElementById('newAdminPass').value.trim();
+            if (!pw || pw.length < 4) { alert('密码至少 4 位'); return; }
+            if (!confirm('确定将网页登录密码修改为「' + pw + '」？\\n\\n注意：Worker 变量 ADMIN_TOKEN 仍为最高权限，永久有效。')) return;
+            const res = await fetch('/api/account', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ password: pw }) });
+            const data = await res.json();
+            if (data.success) { showToast('密码已更新'); document.getElementById('newAdminPass').value = ''; }
+            else alert('修改失败：' + (data.error || ''));
+        }
+        async function loadSubscribers() {
+            try {
+                const res = await fetch('/api/subscribers');
+                const data = await res.json();
+                const list = data.subscribers || [];
+                const box = document.getElementById('subList');
+                if (list.length === 0) {
+                    box.innerHTML = '<div style="font-size:13px; color:var(--text-sec); padding:6px 0;">暂无订阅用户</div>';
+                    return;
+                }
+                box.innerHTML = '';
+                list.forEach(pw => {
+                    box.innerHTML += '<div style="display:flex; align-items:center; gap:8px; background:var(--bg); border:1px solid var(--border); border-radius:8px; padding:8px 12px;">' +
+                        '<span style="flex:1; font-family:monospace; font-size:13px;">' + pw + '</span>' +
+                        '<button class="icon-btn" onclick="delSubscriber(this)" data-pw="' + pw + '" title="删除">' + I.trash + '</button></div>';
+                });
+            } catch (e) { alert('加载订阅用户失败'); }
+        }
+        async function addSubscriber() {
+            const pw = document.getElementById('newSubPass').value.trim();
+            if (!pw || pw.length < 4) { alert('密码至少 4 位'); return; }
+            const res = await fetch('/api/subscribers', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ action: 'add', password: pw }) });
+            const data = await res.json();
+            if (data.success) { showToast('已添加订阅者'); document.getElementById('newSubPass').value = ''; loadSubscribers(); }
+            else alert(data.error || '添加失败');
+        }
+        async function delSubscriber(btn) {
+            const pw = btn.getAttribute('data-pw');
+            if (!confirm('确定删除订阅者「' + pw + '」？')) return;
+            const res = await fetch('/api/subscribers', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ action: 'del', password: pw }) });
+            const data = await res.json();
+            if (data.success) { showToast('已删除'); loadSubscribers(); }
+            else alert(data.error || '删除失败');
+        }
+
+        // ============ 角色识别与订阅者只读模式 ============
+        async function initRole() {
+            try {
+                const res = await fetch('/api/me');
+                const data = await res.json();
+                window.ROLE = data.role || 'admin';
+            } catch (e) { window.ROLE = 'admin'; }
+            if (window.ROLE === 'sub') applySubMode();
+        }
+        function applySubMode() {
+            document.querySelectorAll('.admin-only').forEach(el => el.style.display = 'none');
+            const dockItems = document.querySelectorAll('.ds-dock-item');
+            if (dockItems[1]) dockItems[1].style.display = 'none';
+            if (dockItems[2]) dockItems[2].style.display = 'none';
+            const speedView = document.getElementById('view-speed');
+            if (speedView) speedView.innerHTML = '<div style="padding:40px;text-align:center;color:var(--text-sec);font-size:14px;">订阅用户无测速与 DNS 权限</div>';
+            const setView = document.getElementById('view-settings');
+            if (setView) setView.innerHTML = '<div style="padding:40px;text-align:center;color:var(--text-sec);font-size:14px;">订阅用户无设置权限</div>';
+        }
+
+        document.getElementById('addForm').onsubmit = async (e) => {
+            e.preventDefault();
+            const oldPrefix = document.getElementById('oldPrefix').value;
+            const remark = document.getElementById('remark').value.trim();
+            const prefix = document.getElementById('prefix').value.trim().replace(/^\\/+/g, '');
+            const mode = document.getElementById('mode').value;
+            const icon = document.getElementById('iconUrl').value;
+            const cache_img = document.getElementById('nodeCache').checked ? 'on' : 'off';
+            const dlTrick = document.getElementById('nodeDlTrick').checked ? '1' : '0';
+            const customClient = document.getElementById('customClient').value.trim();
+            const customVersion = document.getElementById('customVersion').value.trim();
+            const customDevice = document.getElementById('customDevice').value.trim();
+            const customUa = document.getElementById('customUa').value.trim();
+            const customDeviceId = document.getElementById('customDeviceId').value.trim();
+            const kaEnabled = document.getElementById('kaEnabled').checked ? '1' : '0';
+            const kaDays = document.getElementById('kaDays').value.trim() || '3';
+            const kaToken = document.getElementById('kaToken').value.trim();
+            const nodeUser = document.getElementById('nodeUser').value.trim();
+            const nodePass = document.getElementById('nodePass').value.trim();
+            const watchLimit = document.getElementById('watchLimit').value.trim() || '0';
+
+            const inputs = document.querySelectorAll('.target-input');
+            let targetsArray = [];
+            inputs.forEach(inp => {
+                const val = inp.value.trim().replace(/\\/$/g, '');
+                if (val) targetsArray.push(val);
+            });
+            const target = targetsArray.join(',');
+            
+            if (!target) return showToast('❌ 请至少填写一个主线路地址');
+
+            try {
+                const res = await fetch('/api/routes', { 
+                    method: 'POST', 
+                    body: JSON.stringify({oldPrefix, prefix, target, mode, remark, icon, cache_img, dlTrick, customClient, customVersion, customDevice, customDeviceId, customUa, kaEnabled, kaDays, kaToken, nodeUser, nodePass, watchLimit})
+                });
+                const data = await res.json();
+                if(!data.success) throw new Error(data.error || '部署失败');
+                
+                document.getElementById('addForm').reset();
+                document.getElementById('oldPrefix').value = ''; 
+                selectIcon('', '默认');
+                document.getElementById('nodeCache').checked = true;
+                document.getElementById('nodeDlTrick').checked = false;
+                document.getElementById('submitBtn').textContent = '保存部署'; 
+                resetTargetInputs(); 
+                closeNodeModal();   // 保存成功后直接关闭弹窗，避免编辑态残留成"添加节点"空表单
+
+                showToast('✅ 节点部署成功');
+                load();
+            } catch(err) {
+                showToast('❌ 保存失败: ' + err.message);
+            }
+        };
+
+        async function del(prefix) {
+            if(confirm('确定删除节点 /' + prefix + ' ?')) {
+                await fetch('/api/routes?prefix=' + prefix, { method: 'DELETE' });
+                showToast('🗑️ 节点已移除');
+                load();
+            }
+        }
+
+        function toggleSelectAll() {
+            const isChecked = document.getElementById('selectAll').checked;
+            document.querySelectorAll('.row-checkbox').forEach(cb => {
+                if(!cb.disabled) cb.checked = isChecked;
+            });
+        }
+        function getSelectedIps() {
+            const checkboxes = document.querySelectorAll('.row-checkbox:checked');
+            return Array.from(checkboxes).map(cb => cb.value);
+        }
+        function batchTcpPing() {
+            const rows = document.querySelectorAll('#testTableBody .test-row');
+            let ips = [];
+            rows.forEach(tr => {
+                const strong = tr.querySelector('.ip-text');
+                if (strong && strong.textContent) {
+                    let ip = strong.textContent;
+                    if (ip.startsWith('[') && ip.endsWith(']')) ip = ip.slice(1, -1);
+                    ips.push(ip);
+                }
+            });
+            if (ips.length === 0) return showToast('⚠️ 请先提取节点！');
+            navigator.clipboard.writeText(ips.join('\\n')).then(() => {
+                showToast('✅ 节点已复制，即将跳转 ITDog...');
+                setTimeout(() => { window.open('https://www.itdog.cn/batch_tcping/', '_blank'); }, 1500);
+            });
+        }
+        function directSubmitCname() {
+            const input = document.getElementById('customIps').value.trim();
+            if (!input) return showToast('⚠️ 请先在文本框内粘贴您的优选域名');
+            const domainRegex = /\\b([a-zA-Z0-9-]+\\.)+[a-zA-Z]{2,}\\b/g;
+            const matchedDomains = input.match(domainRegex) || [];
+            const realDomains = matchedDomains.filter(d => !/^\\d+\\.\\d+\\.\\d+\\.\\d+$/.test(d));
+            if (realDomains.length === 0) return showToast('⚠️ 没有提取到合法的域名格式，请检查输入！');
+            if(!confirm(\` 提取到以下域名：\\n\${realDomains.join('\\n')}\\n\\n确定要直接将其设为 CNAME 记录吗？\\n(注意：这会清空你配置的域名下现有的记录)\`)) return;
+            const btn = document.getElementById('btnDirectCname');
+            sendDnsRequest(realDomains, btn);
+        }
+        async function testCustomIPs() {
+            const input = document.getElementById('customIps').value;
+            if (!input.trim()) return showToast('⚠️ 请先在输入框粘贴 IP 或优选域名');
+            const ipv4Regex = /\\b(?:(?:25[0-5]|2[0-4]\\d|[01]?\\d\\d?)\\.){3}(?:25[0-5]|2[0-4]\\d|[01]?\\d\\d?)\\b/g;
+            const ipv6Regex = /(?:[A-F0-9]{1,4}:){7}[A-F0-9]{1,4}|(?:[A-F0-9]{1,4}:)*:[A-F0-9]{1,4}(?::[A-F0-9]{1,4})*/gi;
+            const domainRegex = /\\b([a-zA-Z0-9-]+\\.)+[a-zA-Z]{2,}\\b/g;
+            let matchedIPv4 = input.match(ipv4Regex) || [];
+            let matchedIPv6 = input.match(ipv6Regex) || [];
+            let matchedDomains = input.match(domainRegex) || [];
+            matchedDomains = matchedDomains.filter(d => !/^\\d+\\.\\d+\\.\\d+\\.\\d+$/.test(d));
+            let extractedIps = [...matchedIPv4, ...matchedDomains];
+            matchedIPv6.forEach(ip => {
+                if (ip.length > 7 && ip.includes(':') && !ip.startsWith('::1')) { extractedIps.push(ip.startsWith('[') ? ip : \`[\${ip}]\`); }
+            });
+            extractedIps = [...new Set(extractedIps)];
+            if (extractedIps.length === 0) return showToast('⚠️ 未识别到合法的 IP 或 域名格式');
+            const btn = document.getElementById('btnTestCustom');
+            const tbody = document.getElementById('testTableBody');
+            btn.disabled = true; btn.textContent = '⏳ 测试中...';
+            if(tbody.innerHTML.includes('暂无数据')) tbody.innerHTML = '';
+            showToast(\`✅ 提取到 \${extractedIps.length} 个节点，开始测速校验\`);
+            const promises = [];
+            extractedIps.forEach(ip => {
+                const tr = document.createElement('tr');
+                tr.className = 'test-row';
+                tr.innerHTML = \`
+                    <td data-label="勾选节点" style="text-align: center;"><input type="checkbox" class="ip-checkbox row-checkbox" value="\${ip}"></td>
+                    <td data-label="专属节点"><strong class="ip-text" style="color:var(--primary);cursor:pointer;font-family:monospace;" onclick="copyTxt('\${ip}')" title="点击复制">\${ip}</strong></td>
+                    <td data-label="预估延迟" class="latency" data-ms="9999" style="font-weight: 600; color: #888;">测算中...</td>
+                    <td data-label="连通状态" class="speed" style="color: #888;">-</td>
+                    <td data-label="记录/归属地" class="loc" style="color: #666;">等待解析</td>
+                    <td data-label="快捷操作"><button class="btn-dns" disabled onclick="updateSingleDns('\${ip}', this)">唯一解析</button></td>\`;
+                tbody.insertBefore(tr, tbody.firstChild);
+                promises.push(doLocalPing(ip, tr, '自定义节点'));
+            });
+            await Promise.all(promises);
+            sortTableByLatency(tbody);
+            document.querySelectorAll('.btn-dns').forEach(b => b.disabled = false);
+            btn.disabled = false; btn.textContent = ' 测试粘贴的节点';
+            showToast('🎉 自定义节点测速完成！');
+        }
+        async function fetchCustomApiAndTest() {
+            const apiUrl = document.getElementById('customApiUrl').value.trim();
+            if (!apiUrl) return showToast('⚠️ 请先填入自定义 API 链接');
+            const btn = document.getElementById('btnFetchCustomApi');
+            const tbody = document.getElementById('testTableBody');
+            const statusTxt = document.getElementById('statusText');
+            btn.disabled = true; btn.textContent = '⏳ 拉取中...';
+            statusTxt.innerHTML = \`正在从自定义 API 抓取数据...\`;
+            if(tbody.innerHTML.includes('暂无数据')) tbody.innerHTML = ''; 
+            try {
+                const res = await fetch(\`/api/get-custom-api-ips?url=\${encodeURIComponent(apiUrl)}\`);
+                const data = await res.json();
+                if (!data.ips || data.ips.length === 0) { showToast('⚠️ 自定义 API 返回为空'); return; }
+                showToast(\`✅ 提取 \${data.totalCount} 个节点，抽取 \${data.ips.length} 个测速\`);
+                btn.textContent = ' 测速中...';
+                const promises = [];
+                data.ips.forEach(ip => {
+                    const tr = document.createElement('tr');
+                    tr.className = 'test-row';
+                    tr.innerHTML = \`
+                        <td data-label="勾选节点" style="text-align: center;"><input type="checkbox" class="ip-checkbox row-checkbox" value="\${ip}"></td>
+                        <td data-label="专属节点"><strong class="ip-text" style="color:var(--primary);cursor:pointer;font-family:monospace;" onclick="copyTxt('\${ip}')" title="点击复制">\${ip}</strong></td>
+                        <td data-label="预估延迟" class="latency" data-ms="9999" style="font-weight: 600; color: #888;">测算中...</td>
+                        <td data-label="连通状态" class="speed" style="color: #888;">-</td>
+                        <td data-label="记录/归属地" class="loc" style="color: #666;">等待解析</td>
+                        <td data-label="快捷操作"><button class="btn-dns" disabled onclick="updateSingleDns('\${ip}', this)">唯一解析</button></td>\`;
+                    tbody.insertBefore(tr, tbody.firstChild);
+                    promises.push(doLocalPing(ip, tr, '自定义 API'));
+                });
+                await Promise.all(promises);
+                sortTableByLatency(tbody);
+                document.querySelectorAll('.btn-dns').forEach(b => b.disabled = false);
+                document.getElementById('selectAll').checked = false;
+                showToast('🎉 自定义 API 测速完成！');
+                statusTxt.innerHTML = \`${I.check} 测速完毕！您可以自由组合更新 DNS。\`;
+            } catch (err) { showToast('❌ 拉取失败'); } 
+            finally { btn.disabled = false; btn.textContent = ' 拉取 API 并测速'; }
+        }
+        async function fetchRemoteAndTest() {
+            const btn = document.getElementById('btnFetchRemote');
+            const tbody = document.getElementById('testTableBody');
+            const statusTxt = document.getElementById('statusText');
+            const type = document.getElementById('ipType').value;
+            const typeText = document.getElementById('ipType').options[document.getElementById('ipType').selectedIndex].text;
+            btn.disabled = true; btn.textContent = '⏳ 正在提取节点...';
+            statusTxt.innerHTML = \`正在拉取 <strong>\${typeText}</strong> 数据...\`;
+            if(tbody.innerHTML.includes('暂无数据')) tbody.innerHTML = ''; 
+            try {
+                const res = await fetch(\`/api/get-remote-ips?type=\${encodeURIComponent(type)}\`);
+                const data = await res.json();
+                if (!data.ips || data.ips.length === 0) { showToast('⚠️ 未获取到该类型 IP'); return; }
+                showToast(\`✅ 成功提取 \${data.totalCount} 个可用 IP，抽取 \${data.ips.length} 个测速\`);
+                btn.textContent = ' 本地测速中...';
+                const promises = [];
+                data.ips.forEach(ip => {
+                    const tr = document.createElement('tr');
+                    tr.className = 'test-row';
+                    tr.innerHTML = \`
+                        <td data-label="勾选节点" style="text-align: center;"><input type="checkbox" class="ip-checkbox row-checkbox" value="\${ip}"></td>
+                        <td data-label="专属节点"><strong class="ip-text" style="color:var(--primary);cursor:pointer;font-family:monospace;" onclick="copyTxt('\${ip}')" title="点击复制">\${ip}</strong></td>
+                        <td data-label="预估延迟" class="latency" data-ms="9999" style="font-weight: 600; color: #888;">测算中...</td>
+                        <td data-label="连通状态" class="speed" style="color: #888;">-</td>
+                        <td data-label="记录/归属地" class="loc" style="color: #666;">等待解析</td>
+                        <td data-label="快捷操作"><button class="btn-dns" disabled onclick="updateSingleDns('\${ip}', this)">唯一解析</button></td>\`;
+                    tbody.insertBefore(tr, tbody.firstChild);
+                    promises.push(doLocalPing(ip, tr, typeText.replace(/[^\u4e00-\u9fa5a-zA-Z0-9]/g, '')));
+                });
+                await Promise.all(promises);
+                sortTableByLatency(tbody);
+                document.querySelectorAll('.btn-dns').forEach(b => b.disabled = false);
+                document.getElementById('selectAll').checked = false;
+                showToast('🎉 测速完成！');
+                statusTxt.innerHTML = \`${I.check} 测速完毕！\`;
+            } catch (err) { showToast('❌ 拉取或测速失败'); } 
+            finally { btn.disabled = false; btn.textContent = ' 提取预设源并测速'; }
+        }
+        function clearTest() {
+            document.getElementById('testTableBody').innerHTML = '<tr><td colspan="6" style="text-align:center;color:var(--text-sec);">暂无数据，请拉取节点或输入自定义 IP/域名 测试</td></tr>';
+            document.getElementById('statusText').textContent = '列表已清空。';
+            document.getElementById('selectAll').checked = false;
+        }
+        function markTimeout(latTd, spdTd, tr) {
+            latTd.textContent = '超时抛弃'; latTd.setAttribute('data-ms', 9999); latTd.style.color = '#ff3b30';
+            spdTd.textContent = ' 超时 (>2000ms)'; spdTd.style.color = '#ff3b30';
+            const cb = tr.querySelector('.row-checkbox');
+            if(cb) { cb.disabled = true; cb.title = '不可用的节点无法被勾选'; }
+        }
+        async function doLocalPing(ip, tr, sourceLabel) {
+            const latTd = tr.querySelector('.latency');
+            const spdTd = tr.querySelector('.speed');
+            const locTd = tr.querySelector('.loc');
+            const queryIp = ip.replace(/[\\[\\]]/g, '');
+            const isIPv6 = ip.includes(':'); 
+            const isDomain = /[a-zA-Z]/.test(queryIp) && !isIPv6;
+            if (isDomain) { locTd.innerHTML = \`<span class="badge" style="background:rgba(175,82,222,0.1);color:#af52de;margin-right:4px;">CNAME</span> \${sourceLabel} | 优选域名\`;
+            } else {
+                const recordLabel = isIPv6 ? '<span class="badge" style="background:rgba(50,173,230,0.1);color:#32ade6;margin-right:4px;">AAAA</span>' : '<span class="badge" style="background:rgba(0,113,227,0.1);color:#0071e3;margin-right:4px;">A记录</span>';
+                fetch(\`https://api.ip.sb/geoip/\${queryIp}\`).then(res => res.json()).then(data => locTd.innerHTML = \`\${recordLabel} \${sourceLabel} | \${data.country || '未知'}\`).catch(() => locTd.innerHTML = \`\${recordLabel} \${sourceLabel} | 解析失败\`);
+            }
+            const start = performance.now();
+            const controller = new AbortController();
+            const timeoutId = setTimeout(() => controller.abort(), 2000); 
+            const processResult = () => {
+                const rawLatency = Math.round(performance.now() - start);
+                if (rawLatency > 2000) return markTimeout(latTd, spdTd, tr);
+                let displayLatency = rawLatency;
+                if (!isIPv6 && !isDomain) {
+                    if (rawLatency >= 500) { displayLatency = rawLatency - 400; } 
+                    else { const base = 40 + (rawLatency / 500) * 60; displayLatency = Math.floor(base) + Math.floor(Math.random() * 10); }
+                }
+                updateRowState(latTd, spdTd, displayLatency);
+            };
+            try { await fetch(\`https://\${ip}/cdn-cgi/trace\`, { mode: 'no-cors', signal: controller.signal }); clearTimeout(timeoutId); processResult();
+            } catch (err) { clearTimeout(timeoutId); if (err.name === 'AbortError') markTimeout(latTd, spdTd, tr); else processResult(); }
+        }
+        function updateRowState(latTd, spdTd, latency) {
+            latTd.textContent = latency + ' ms'; latTd.setAttribute('data-ms', latency);
+            if (latency < 300) { latTd.style.color = '#34c759'; spdTd.textContent = ' 极佳'; spdTd.style.color = '#34c759'; } 
+            else if (latency <= 500) { latTd.style.color = 'var(--primary)'; spdTd.textContent = ' 正常'; spdTd.style.color = 'var(--primary)'; } 
+            else { latTd.style.color = '#ff9500'; spdTd.textContent = ' 较高'; spdTd.style.color = '#ff9500'; }
+        }
+        function sortTableByLatency(tbody) {
+            const rows = Array.from(tbody.querySelectorAll('.test-row'));
+            rows.sort((a, b) => {
+                const msA = parseInt(a.querySelector('.latency').getAttribute('data-ms') || 9999);
+                const msB = parseInt(b.querySelector('.latency').getAttribute('data-ms') || 9999);
+                return msA - msB;
+            });
+            rows.forEach(row => tbody.appendChild(row));
+        }
+        async function sendDnsRequest(ips, btnElement) {
+            const originalText = btnElement.textContent;
+            btnElement.textContent = ' 更新 DNS 中...'; btnElement.disabled = true;
+            try {
+                const res = await fetch('/api/update-dns', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ ips }) });
+                const data = await res.json();
+                if(data.success) { showToast(data.message); btnElement.textContent = '✅ 更新成功'; loadDNS(); } 
+                else { showToast('❌ 错误: ' + (data.error || '')); btnElement.textContent = originalText; }
+            } catch(e) { showToast('❌ 网络异常，请重试'); btnElement.textContent = originalText; } 
+            finally { setTimeout(() => { if(btnElement.textContent === ' 更新成功') btnElement.textContent = originalText; btnElement.disabled = false; }, 3000); }
+        }
+        function updateSingleDns(ip, btnElement) {
+            if(!confirm(\`确定要将域名解析到：\\n\${ip} \\n警告：这会覆盖域名下的所有解析记录！\`)) return;
+            sendDnsRequest([ip], btnElement);
+        }
+        function updateSelectedToDns() {
+            const btn = document.getElementById('btnSelectedDns');
+            const ips = getSelectedIps();
+            if (ips.length === 0) return showToast('⚠️ 请先勾选您想使用的节点');
+            if(!confirm(\`将应用勾选的 \${ips.length} 个节点：\\n\${ips.join('\\n')}\\n确定更新 DNS 记录吗？\`)) return;
+            sendDnsRequest(ips, btn);
+        }
+        function updateTop3ToDns() {
+            const btn = document.getElementById('btnTop3Dns');
+            const rows = document.querySelectorAll('#testTableBody .test-row');
+            let topIps = [];
+            for(let i = 0; i < rows.length; i++) {
+                const ms = parseInt(rows[i].querySelector('.latency').getAttribute('data-ms'));
+                if(ms < 2000) topIps.push(rows[i].querySelector('.ip-text').textContent);
+                if(topIps.length === 3) break;
+            }
+            if(topIps.length === 0) return showToast('⚠️ 没找到可用节点，请先测速');
+            if(!confirm(\`将为您分发当前最快的 \${topIps.length} 个节点：\\n\${topIps.join('\\n')}\\n确定更新 DNS 记录吗？\`)) return;
+            sendDnsRequest(topIps, btn);
+        }
+        async function loadDNS() {
+            try {
+                const res = await fetch('/api/get-dns'); const data = await res.json(); const container = document.getElementById('dnsStatus');
+                if (data.success && data.result) {
+                    const records = data.result.filter(r => r.type === 'A' || r.type === 'AAAA' || r.type === 'CNAME');
+                    if (records.length === 0) container.innerHTML = '<span class="badge" style="background:rgba(255,149,0,0.1);color:#ff9500;">暂无解析记录</span>';
+                    else container.innerHTML = records.map(r => \`<span class="badge" style="background:rgba(0,113,227,0.1);color:var(--primary);border:1px solid rgba(0,113,227,0.2);">\${r.type} | \${r.content}</span>\`).join('');
+                } else container.innerHTML = \`<span class="badge" style="background:rgba(255,59,48,0.1);color:#ff3b30;">\${data.error || '获取失败'}</span>\`;
+            } catch (e) { document.getElementById('dnsStatus').innerHTML = '<span class="badge" style="background:rgba(255,59,48,0.1);color:#ff3b30;">网络异常</span>'; }
+        }
+        
+        function logout() {
+            document.cookie = "admin_token=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+            window.location.reload();
+        }
+        function confirmLogout() {
+            if (window.confirm('确定要退出系统吗？')) { logout(); }
+        }
+
+        // 初始化加载
+        loadIcons().then(() => {
+            load();
+            loadDNS();
+        });
+
+        // ==========================================
+        //  新增：RTT 实时监测引擎 (每隔 3 秒探测一次)
+        // ==========================================
+        async function measureRTT() {
+            const start = performance.now();
+            try {
+                // 加上时间戳强制绕过浏览器本地缓存
+                await fetch('/__client_rtt__?t=' + Date.now(), { mode: 'no-cors', cache: 'no-store' });
+                const rtt = Math.round(performance.now() - start);
+                const rttEl = document.getElementById('rttValue');
+                const dotEl = document.getElementById('rttDot');
+                
+                rttEl.textContent = rtt + ' ms';
+                
+                // 根据延迟改变呼吸灯颜色
+                if (rtt < 80) {
+                    dotEl.style.background = '#34c759'; dotEl.style.boxShadow = '0 0 8px #34c759';
+                    rttEl.style.color = '#34c759';
+                } else if (rtt < 200) {
+                    dotEl.style.background = '#ff9500'; dotEl.style.boxShadow = '0 0 8px #ff9500';
+                    rttEl.style.color = '#ff9500';
+                } else {
+                    dotEl.style.background = '#ff3b30'; dotEl.style.boxShadow = '0 0 8px #ff3b30';
+                    rttEl.style.color = '#ff3b30';
+                }
+            } catch (e) {
+                document.getElementById('rttValue').textContent = '断连';
+                document.getElementById('rttDot').style.background = '#ff3b30';
+            }
+        }
+        
+        // 先立即执行一次，然后每 3 秒循环探测
+        measureRTT();
+        setInterval(measureRTT, 3000);
+
+    //  新增：前端探针自动检测脚本
+        async function fetchCfTrace() {
+            try {
+                const res = await fetch('/api/trace');
+                const data = await res.json();
+                if (data.success) {
+                    // 拼接访客入口信息：国家 城市 (机房代码)
+                    let entryText = data.entryCountry;
+                    if (data.entryCity && data.entryCity !== '未知') entryText += ' ' + data.entryCity;
+                    entryText += ' (' + data.entryColo + ')';
+                    
+                    document.getElementById('trace-entry').innerText = entryText;
+                    
+                    // 落地机房处理
+                    const egressText = data.egressColo;
+                    const egressElem = document.getElementById('trace-egress');
+                    egressElem.innerText = egressText;
+                    
+                    // 核心逻辑：如果入口和落地机房不一致，显示高亮提示（智能调度触发）
+                    if (data.entryColo !== egressText && egressText !== '探测中...' && egressText !== '获取失败') {
+                        egressElem.style.color = '#ff9500'; // 变成橘黄色警示
+                        egressElem.innerText += ' (智能放置/回源)';
+                    }
+                }
+            } catch(e) {
+                document.getElementById('trace-entry').innerText = '获取超时';
+                document.getElementById('trace-egress').innerText = '获取超时';
+            }
+        }
+        
+        // 当网页加载完成时，延迟0.5秒执行探针扫描（避免卡顿主页渲染）
+        window.addEventListener('DOMContentLoaded', () => {
+            setTimeout(fetchCfTrace, 500);
+        });
+    //  新增：全云厂商节点数据库 (包含 Cloudflare 支持的所有主要区域)
+        var cfRegions = {
+            aws: [
+                { label: " 中国香港", value: "aws:ap-east-1" },
+                { label: " 日本 (东京)", value: "aws:ap-northeast-1" },
+                { label: " 日本 (大阪)", value: "aws:ap-northeast-3" },
+                { label: " 新加坡", value: "aws:ap-southeast-1" },
+                { label: " 韩国 (首尔)", value: "aws:ap-northeast-2" },
+                { label: " 美国西部 (加州)", value: "aws:us-west-1" },
+                { label: " 美国西部 (俄勒冈)", value: "aws:us-west-2" },
+                { label: " 美国东部 (弗吉尼亚)", value: "aws:us-east-1" },
+                { label: " 澳大利亚 (悉尼)", value: "aws:ap-southeast-2" },
+                { label: " 印度 (孟买)", value: "aws:ap-south-1" },
+                { label: " 英国 (伦敦)", value: "aws:eu-west-2" },
+                { label: " 德国 (法兰克福)", value: "aws:eu-central-1" }
+            ],
+            gcp: [
+                { label: " 中国台湾 (彰化)", value: "gcp:asia-east1" },
+                { label: " 中国香港", value: "gcp:asia-east2" },
+                { label: " 日本 (东京)", value: "gcp:asia-northeast1" },
+                { label: " 日本 (大阪)", value: "gcp:asia-northeast2" },
+                { label: " 韩国 (首尔)", value: "gcp:asia-northeast3" },
+                { label: " 新加坡", value: "gcp:asia-southeast1" },
+                { label: " 美国西部 (洛杉矶)", value: "gcp:us-west2" },
+                { label: " 美国西部 (俄勒冈)", value: "gcp:us-west1" },
+                { label: " 美国东部 (弗吉尼亚)", value: "gcp:us-east4" },
+                { label: " 澳大利亚 (悉尼)", value: "gcp:australia-southeast1" },
+                { label: " 英国 (伦敦)", value: "gcp:europe-west2" },
+                { label: " 德国 (法兰克福)", value: "gcp:europe-west3" }
+            ],
+            azure: [
+                { label: " 中国香港 (East Asia)", value: "azure:eastasia" },
+                { label: " 新加坡 (Southeast Asia)", value: "azure:southeastasia" },
+                { label: " 日本东部 (东京)", value: "azure:japaneast" },
+                { label: " 日本西部 (大阪)", value: "azure:japanwest" },
+                { label: " 韩国中部 (首尔)", value: "azure:koreacentral" },
+                { label: " 美国西部 (West US)", value: "azure:westus" },
+                { label: " 美国东部 (East US)", value: "azure:eastus" },
+                { label: " 英国南部 (伦敦)", value: "azure:uksouth" },
+                { label: " 西欧 (荷兰)", value: "azure:westeurope" }
+            ]
+        };
+
+        //  新增：联动菜单处理逻辑
+        function handleModeChange() {
+            var mode = document.getElementById('cf-mode-select').value;
+            var regionSelect = document.getElementById('cf-region-select');
+            var customInput = document.getElementById('cf-custom-input');
+            
+            regionSelect.style.display = 'none';
+            customInput.style.display = 'none';
+            
+            if (mode === 'aws' || mode === 'gcp' || mode === 'azure') {
+                regionSelect.style.display = 'block';
+                regionSelect.innerHTML = ''; 
+                var regions = cfRegions[mode];
+                regions.forEach(function(r) {
+                    var opt = document.createElement('option');
+                    opt.value = r.value;
+                    opt.innerText = r.label;
+                    regionSelect.appendChild(opt);
+                });
+            } else if (mode === 'custom') {
+                customInput.style.display = 'block';
+            }
+        }
+
+        //  新增：调用部署修改接口
+        async function updatePlacement() {
+            var statusElem = document.getElementById('place-status');
+            var modeVal = document.getElementById('cf-mode-select').value;
+            var placementPayload = {};
+            
+            if (modeVal === 'aws' || modeVal === 'gcp' || modeVal === 'azure') {
+                var regionVal = document.getElementById('cf-region-select').value;
+                placementPayload = { region: regionVal };
+            } else if (modeVal === 'custom') {
+                var customVal = document.getElementById('cf-custom-input').value;
+                if (!customVal || customVal.trim() === '') {
+                    statusElem.innerText = " 请填写自定义区域代码（如 gcp:asia-east2）";
+                    statusElem.style.color = "#ff3b30";
+                    return;
+                }
+                placementPayload = { region: customVal.trim() };
+            } else {
+                placementPayload = JSON.parse(modeVal);
+            }
+
+            statusElem.innerText = "⏳ 正在提交请求，请稍候...";
+            statusElem.style.color = "#ff9500";
+            
+            try {
+                var res = await fetch('/api/placement', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ placement: placementPayload })
+                });
+                if (!res.ok) {
+                    statusElem.innerText = ' 请求被拒绝(' + res.status + ')，请重新登录后重试';
+                    statusElem.style.color = "#ff3b30";
+                    return;
+                }
+                var data = await res.json();
+                if (data.success) {
+                    statusElem.innerText = " " + data.msg;
+                    statusElem.style.color = "#34c759";
+                } else {
+                    statusElem.innerText = " " + data.msg;
+                    statusElem.style.color = "#ff3b30";
+                }
+            } catch(e) {
+                statusElem.innerText = " 网络错误: " + e.message;
+                statusElem.style.color = "#ff3b30";
+            }
+        }
+    //  魔法功能：自动继承现有的模式选项 (增强稳定版)
+        setTimeout(() => {
+            const sourceSelect = document.getElementById('mode');
+            const batchSelect = document.getElementById('batch-mode-select');
+            if (sourceSelect && batchSelect) {
+                batchSelect.innerHTML = sourceSelect.innerHTML;
+            }
+        }, 100); 
+
+        //  全选 / 取消全选逻辑
+        function toggleSelectAll(checkbox) {
+            const checkboxes = document.querySelectorAll('.node-cb');
+            checkboxes.forEach(cb => cb.checked = checkbox.checked);
+        }
+
+        //  并发批量修改模式逻辑 (终极多线程逐个击破版)
+        async function batchUpdateModes() {
+            const statusElem = document.getElementById('batch-status');
+            const newMode = document.getElementById('batch-mode-select').value;
+            
+            const selectedPrefixes = Array.from(document.querySelectorAll('.node-cb:checked')).map(cb => cb.value);
+
+            if (selectedPrefixes.length === 0) {
+                statusElem.innerText = " 请先打勾需要修改的节点！";
+                statusElem.style.color = "#ff9500";
+                return;
+            }
+
+            if (!confirm("确定要将勾选的 " + selectedPrefixes.length + " 个节点切换为该模式吗？")) return;
+
+            statusElem.innerText = "⏳ 正在多线程并发修改节点...";
+            statusElem.style.color = "var(--primary)";
+
+            try {
+                // 1. 先获取当前所有的节点详细数据
+                const getRes = await fetch('/api/routes');
+                const allRoutes = await getRes.json();
+                
+                // 2. 筛选出你要修改的那些节点
+                const nodesToUpdate = allRoutes.filter(r => selectedPrefixes.includes(r.prefix));
+
+                // 3. 核心魔法：Promise.all 并发！瞬间发出多个独立的保存请求
+                await Promise.all(nodesToUpdate.map(async (r) => {
+                    const payload = Object.assign({}, r);
+                    payload.oldPrefix = r.prefix; 
+                    payload.mode = newMode; 
+                    
+                    const postRes = await fetch('/api/routes', {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify(payload)
+                    });
+                    
+                    if (!postRes.ok) {
+                        throw new Error("节点 " + r.prefix + " 保存失败");
+                    }
+                }));
+                
+                statusElem.innerText = " 批量修改成功！";
+                statusElem.style.color = "#34c759";
+                setTimeout(() => location.reload(), 1000); 
+
+            } catch (e) {
+                statusElem.innerText = " 失败: " + e.message;
+                statusElem.style.color = "#ff3b30";
+            }
+        }
+    async function deployWorker() {
+            const codeArea = document.getElementById('codeArea');
+            const fileInput = document.getElementById('fileInput');
+            let codeContent = codeArea.value;
+            if (fileInput.files.length > 0) {
+                const file = fileInput.files[0];
+                codeContent = await file.text();
+            }
+            if (!codeContent.trim()) {
+                alert(' 失败：请先粘贴代码，或者选择一个 .js 文件！');
+                return;
+            }
+            if (!confirm(' 危险操作确认 \\n\\n你即将强行覆盖当前 Worker 的代码。\\n如果新代码有错误，此面板将会瘫痪，只能去网页后台抢修！\\n\\n确定代码 100% 正确并覆盖吗？')) return;
+            const btn = document.getElementById('deployBtn');
+            const originalText = btn.innerText;
+            btn.innerText = '⏳ 正在与 Cloudflare 通信并部署...';
+            btn.disabled = true;
+            btn.style.opacity = '0.7';
+            try {
+                const res = await fetch('/api/deploy', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ newCode: codeContent })
+                });
+                const data = await res.json();
+                if (data.success) {
+                    alert(' 成功！' + data.msg + '\\n\\n点击确定后页面将自动刷新。');
+                    window.location.reload(); 
+                } else {
+                    alert(' 部署失败：\\n' + JSON.stringify(data.error));
+                }
+            } catch (e) {
+                alert(' 异常：\\n' + e.message);
+            } finally {
+                btn.innerText = originalText;
+                btn.disabled = false;
+                btn.style.opacity = '1';
+            }
+        }
+        // ==========================================
+        //  在线更新模块
+        // ==========================================
+        // 这里的变量会自动从代码最顶端的配置区读取注入
+        const CURRENT_VERSION = "${CURRENT_VERSION}"; 
+        const GITHUB_RAW_URL = "${GITHUB_RAW_URL}"; 
+        
+        let latestCode = ""; 
+
+        async function checkForUpdates() {
+            try {
+                const res = await fetch(GITHUB_RAW_URL + '?t=' + new Date().getTime());
+                if (!res.ok) return;
+                latestCode = await res.text();
+                
+                //  核心修复：加入双重反斜杠，防止正则在 Worker 中变成注释 (//) 导致崩溃
+                const versionMatch = latestCode.match(/\\/\\/\\s*VERSION:\\s*v?([\\d\\.]+)/i);
+                if (versionMatch && versionMatch[1]) {
+                    const latestVersion = versionMatch[1];
+                    if (latestVersion !== CURRENT_VERSION) {
+                        document.getElementById('updateAlert').style.display = 'block';
+                        document.getElementById('updateMsg').innerText = '当前版本: v' + CURRENT_VERSION + ' | 发现最新版本: v' + latestVersion + ' (Github)';
+                    }
+                }
+            } catch (e) {
+                console.log("检测更新失败:", e);
+            }
+        }
+
+        async function doOnlineUpdate() {
+            if (!confirm(' 确定要从 GitHub 拉取最新版本并覆盖当前节点吗？\\n\\n（这将会保留你的所有环境变量和数据库绑定）')) return;
+            
+            const btn = document.getElementById('onlineUpdateBtn');
+            btn.innerText = '⏳ 正在拉取并部署...';
+            btn.disabled = true;
+            btn.style.opacity = '0.7';
+
+            try {
+                // 直接复用我们之前写好的防丢数据库高级 API
+                const res = await fetch('/api/deploy', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ newCode: latestCode })
+                });
+                const data = await res.json();
+                if (data.success) {
+                    alert(' 在线更新成功！\\n\\n点击确定后页面将自动刷新，畅享新版本！');
+                    window.location.reload(); 
+                } else {
+                    alert(' 更新失败：\\n' + JSON.stringify(data.error));
+                }
+            } catch (e) {
+                alert(' 异常：\\n' + e.message);
+            } finally {
+                btn.innerText = ' 一键拉取并升级';
+                btn.disabled = false;
+                btn.style.opacity = '1';
+            }
+        }
+
+        // 页面加载完成后自动在后台静默检测更新
+        document.addEventListener('DOMContentLoaded', checkForUpdates);
+    </script>
+    <style>
+    /* 修正页面底部留白，防止被 Dock 挡住 */
+    body { padding-bottom: 90px !important; }
+    
+    /* 页面切换动画 */
+    .page-view { display: none; opacity: 0; animation: dsFadeIn 0.3s forwards; }
+    .page-view.active { display: block; opacity: 1; }
+    @keyframes dsFadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+
+    /* 底部dock栏UI */
+    .ds-dock { 
+        position: fixed; bottom: 20px; left: 50%; transform: translateX(-50%); 
+        width: calc(100% - 32px); max-width: 600px; 
+        background: var(--card); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); 
+        border: 1px solid var(--border); border-radius: 36px; padding: 8px 12px; 
+        display: flex; justify-content: space-around; 
+        box-shadow: 0 20px 40px rgba(0,0,0,0.12), 0 4px 12px rgba(0,0,0,0.05); z-index: 9999; 
+    }
+    .ds-dock-item { 
+        display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 4px; 
+        padding: 8px 16px; border-radius: 30px; color: var(--text-sec); font-size: 12px; 
+        font-weight: 500; transition: all 0.2s; background: transparent; border: none; cursor: pointer; flex: 1; 
+    }
+    .ds-dock-item.active { color: var(--primary); background: rgba(0,113,227,0.1); }
+    .ds-dock-item svg { width: 24px; height: 24px; fill: currentColor; }
+</style>
+
+<nav class="ds-dock">
+    <button class="ds-dock-item active" onclick="switchDsView('nodes', this)">
+        <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
+        <span>节点</span>
+    </button>
+    <button class="ds-dock-item" onclick="switchDsView('speed', this)">
+        <svg viewBox="0 0 24 24"><path d="M3 13h8V3H3v10zm0 8h8v-6H3v6zm10 0h8V11h-8v10zm0-18v6h8V3h-8z"/></svg>
+        <span>测速与DNS</span>
+    </button>
+    <button class="ds-dock-item" onclick="switchDsView('settings', this)">
+        <svg viewBox="0 0 24 24"><path d="M19.14 12.94c.04-.3.06-.61.06-.94 0-.33-.02-.64-.06-.94l2.02-1.58c.18-.14.23-.38.12-.56l-1.89-3.28c-.12-.19-.36-.26-.56-.18l-2.38.96c-.5-.38-1.06-.68-1.66-.88L14.45 3.5c-.04-.2-.2-.34-.4-.34h-3.78c-.2 0-.36.14-.4.34l-.3 2.52c-.6.2-1.16.5-1.66.88l-2.38-.96c-.2-.08-.44-.01-.56.18l-1.89 3.28c-.12.19-.07.42.12.56l2.02 1.58c-.04.3-.06.61-.06.94 0 .33.02.64.06.94l-2.02 1.58c-.18.14-.23.38-.12.56l1.89 3.28c.12.19.36.26.56.18l2.38-.96c.5.38 1.06.68 1.66.88l.3 2.52c.04.2.2.34.4.34h3.78c.2 0 .36-.14.4-.34l.3-2.52c.6-.2 1.16-.5 1.66-.88l2.38.96c.2.08.44.01.56-.18l1.89-3.28c.12-.19.07-.42-.12-.56l-2.02-1.58zM12 15c-1.66 0-3-1.34-3-3s1.34-3 3-3 3 1.34 3 3-1.34 3-3 3z"/></svg>
+        <span>控制面板</span>
+    </button>
+</nav>
+
+<script>
+// 1. 切换页面的核心逻辑
+function switchDsView(viewId, btn) {
+    document.querySelectorAll('.ds-dock-item').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    document.querySelectorAll('.page-view').forEach(v => v.classList.remove('active'));
+    document.getElementById('view-' + viewId).classList.add('active');
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+// 2. 将原版超长页面，智能装进 3 个分类盒子中
+window.addEventListener('DOMContentLoaded', () => {
+    const container = document.querySelector('.container');
+    const contentWrap = document.querySelector('.content-wrap');
+    if (!container) return; 
+
+    // 把弹窗移到 body 末尾，避免被 contentWrap.remove() 一并删除
+    ['nodeModal', 'codeModal', 'placementModal', 'accountModal'].forEach(id => {
+        const m = document.getElementById(id);
+        if (m) document.body.appendChild(m);
+    });
+
+    // 把顶部固定栏移到 body 顶层，避免被 .page-view 的 transform 动画破坏 fixed 定位
+    const topbarEl = document.querySelector('.topbar');
+    if (topbarEl) document.body.appendChild(topbarEl);
+
+    // 置顶最顶部的 header
+    const header = document.querySelector('.header');
+    if (header) container.insertBefore(header, container.firstChild);
+
+    // 建立 3 个干净的虚拟房间
+    const views = {
+        'nodes': document.createElement('div'),
+        'speed': document.createElement('div'),
+        'settings': document.createElement('div')
+    };
+    for (let k in views) {
+        views[k].id = 'view-' + k;
+        views[k].className = 'page-view';
+        if (k === 'nodes') views[k].classList.add('active');
+    }
+
+    // 用于暂存底部声明信息的数组
+    let footers = []; 
+
+    // 智能抓取并分类
+    function sortCard(el) {
+        if (!el || el === header || el.tagName === 'NAV' || el.id === 'toast' || el.id === 'nodeModal' || el.id === 'codeModal' || el.id === 'placementModal' || el.id === 'accountModal' || el.classList.contains('page-view') || el.classList.contains('content-wrap') || el.classList.contains('topbar')) return;
+        const text = el.innerText || el.innerHTML || '';
+        
+        // 【1】免责声明与联系作者：先扣留，不要马上分配！
+        if (text.includes('联系作者') || text.includes('免责声明') || text.includes('交流群')) {
+            footers.push(el);
+            return;
+        }
+        
+        // 【2】分配到测速页
+        if (text.includes('测速与动态 DNS') || text.includes('专属线路测速') || text.includes('提取预设源') || text.includes('ITDog')) {
+            views['speed'].appendChild(el);
+            return;
+        }
+        
+        // 【3】分配到控制面板页（仅限 Worker 核心与区域调度）
+        if (text.includes('手动覆盖') || text.includes('Worker 调度模式') || el.id === 'updateAlert' || el.id === 'cf-trace-card' || el.id === 'config-backup-card') {
+            views['settings'].appendChild(el);
+            return;
+        }
+        
+        // 【4】剩下的统统丢进【节点管理页】（完美解决表单和列表分家的问题）
+        if (text.trim() !== "") {
+            views['nodes'].appendChild(el);
+        }
+    }
+
+    // 执行所有卡片的搬家
+    Array.from(container.children).forEach(sortCard);
+    if (contentWrap) {
+        Array.from(contentWrap.children).forEach(sortCard);
+        contentWrap.remove(); // 销毁原本的包装盒
+    }
+
+    // 【解决 Bug】：把刚才扣留的免责声明等元素，追加到控制面板的最末尾
+    footers.forEach(f => views['settings'].appendChild(f));
+
+    // 将 3 个分好类的房间放回页面
+    container.appendChild(views['nodes']);
+    container.appendChild(views['speed']);
+    container.appendChild(views['settings']);
+
+    // 识别角色（管理员/订阅者），订阅者自动进入只读模式
+    initRole();
+
+    // 【体验优化】劫持编辑事件，点击编辑时平滑滚动到顶部的表单处
+    const originalEditRoute = window.editRoute;
+    if (typeof originalEditRoute === 'function') {
+        window.editRoute = function(index) {
+            originalEditRoute(index);
+            // 因为现在表单和列表都在节点页，所以直接平滑滚动到最上面就能看到填好的表单了！
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        };
+    }
+});
+</script>
+</body>
+</html>
+`;
+
+// ==========================================
+// 2. 后端 Worker 主逻辑处理区 (核心故障转移 + TG Bot播报 + 智能流量拉取)
+// ==========================================
+
+// 用于向 Cloudflare 获取对应时间段的总流量 (支持北京时间今日、近7天、近30天)
+async function getCFTraffic(env, type) {
+    if (!env.CF_API_TOKEN || !env.CF_ZONE_ID) return "缺少变量";
+    try {
+        const end = new Date();
+        let graphqlQuery = {};
+
+        if (type === 'today') {
+            // 【今日流量】查询：从北京时间今日 00:00 算起，使用 AdaptiveGroups
+            // 1. 获取北京时间并清零时分秒
+            const beijingTime = new Date(end.getTime() + 8 * 3600000);
+            beijingTime.setUTCHours(0, 0, 0, 0);
+            // 2. 转回 UTC 供 API 查询
+            const start = new Date(beijingTime.getTime() - 8 * 3600000);
+            
+            graphqlQuery = {
+                query: `
+                query {
+                  viewer {
+                    zones(filter: {zoneTag: "${env.CF_ZONE_ID}"}) {
+                      httpRequestsAdaptiveGroups(
+                        limit: 1,
+                        filter: {
+                          datetime_geq: "${start.toISOString()}",
+                          datetime_leq: "${end.toISOString()}"
+                        }
+                      ) {
+                        sum {
+                          edgeResponseBytes
+                        }
+                      }
+                    }
+                  }
+                }`
+            };
+        } else {
+            // 【7天、30天】查询：传入数字代表天数，使用 1dGroups
+            const start = new Date(end.getTime() - type * 24 * 3600000);
+            const dateGeq = start.toISOString().split('T')[0];
+            const dateLeq = end.toISOString().split('T')[0];
+            graphqlQuery = {
+                query: `
+                query {
+                  viewer {
+                    zones(filter: {zoneTag: "${env.CF_ZONE_ID}"}) {
+                      httpRequests1dGroups(
+                        limit: 10000,
+                        filter: {
+                          date_geq: "${dateGeq}",
+                          date_leq: "${dateLeq}"
+                        }
+                      ) {
+                        sum {
+                          bytes
+                        }
+                      }
+                    }
+                  }
+                }`
+            };
+        }
+
+        const cfRes = await fetch('https://api.cloudflare.com/client/v4/graphql', {
+            method: 'POST',
+            headers: { 
+                'Authorization': `Bearer ${env.CF_API_TOKEN}`,
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(graphqlQuery)
+        });
+        
+        const cfData = await cfRes.json();
+        
+        if (cfData.errors && cfData.errors.length > 0) {
+            return `API报错: ${cfData.errors[0].message}`;
+        }
+        
+        const zones = cfData?.data?.viewer?.zones;
+        let totalBytes = 0;
+
+        if (zones && zones.length > 0) {
+            if (type === 'today' && zones[0].httpRequestsAdaptiveGroups) {
+                totalBytes = zones[0].httpRequestsAdaptiveGroups[0]?.sum?.edgeResponseBytes || 0;
+            } else if (type !== 'today' && zones[0].httpRequests1dGroups) {
+                // 将多天的 bytes 聚合累加
+                zones[0].httpRequests1dGroups.forEach(g => { totalBytes += (g.sum.bytes || 0); });
+            }
+        }
+
+        if (totalBytes === 0) return "0 B";
+        if (totalBytes >= 1099511627776) return (totalBytes / 1099511627776).toFixed(2) + " TB";
+        if (totalBytes >= 1073741824) return (totalBytes / 1073741824).toFixed(2) + " GB";
+        if (totalBytes >= 1048576) return (totalBytes / 1048576).toFixed(2) + " MB";
+        if (totalBytes >= 1024) return (totalBytes / 1024).toFixed(2) + " KB";
+        return totalBytes + " B";
+
+    } catch(e) {
+        return "请求异常";
+    }
+}
+
+// 用于生成 TG 播报消息的核心工具函数 (单面板 + 流量之王统计版)
+/** ================== 自动保活（节点级） ================== */
+/** 保活客户端画像：节点配置了伪装 UA（custom_params）用节点的全套，未配置则内置 SenPlayer 全套 */
+function kaClientProfile(route) {
+  let cp = {};
+  try { cp = route && route.custom_params ? JSON.parse(route.custom_params) : {}; } catch (e) {}
+  const hasFake = !!(cp.client || cp.version || cp.device || cp.ua);
+  return {
+    client: hasFake && cp.client ? String(cp.client) : 'SenPlayer',
+    version: hasFake && cp.version ? String(cp.version) : '6.0.0',
+    device: hasFake && cp.device ? String(cp.device) : 'iPhone',
+    ua: hasFake && cp.ua ? String(cp.ua) : 'SenPlayer/6.0.0',
+  };
+}
+/** 原生客户端风格的 Emby 认证头（禁止 Web 格式，很多 Emby 会拒绝 Web 客户端） */
+function kaAuthHeader(prof) {
+  return {
+    'X-Emby-Authorization': 'MediaBrowser Client="' + prof.client + '", Device="' + prof.device + '", DeviceId="emby-keepalive", Version="' + prof.version + '"',
+  };
+}
+function kaHeaders(prof, extra) {
+  const h = Object.assign({}, kaAuthHeader(prof), { 'User-Agent': prof.ua });
+  if (extra) Object.assign(h, extra);
+  return h;
+}
+function addApiKey(u, token) {
+  try {
+    const url = new URL(u);
+    if (token) url.searchParams.set('api_key', token);
+    return url.toString();
+  } catch (e) { return u; }
+}
+function fmtPos(ticks) {
+  const sec = Math.max(0, Math.floor(parseInt(ticks, 10) || 0) / 10000000);
+  const h = Math.floor(sec / 3600), m = Math.floor(sec % 3600 / 60), s = Math.floor(sec % 60);
+  return (h > 0 ? String(h).padStart(2, '0') + ':' : '') + String(m).padStart(2, '0') + ':' + String(s).padStart(2, '0');
+}
+async function kaFetch(urlStr, opts) {
+  const controller = new AbortController();
+  const timer = setTimeout(() => controller.abort(), 60000);
+  try {
+    const r = await fetch(urlStr, Object.assign({}, opts || {}, { signal: controller.signal }));
+    return r;
+  } catch (e) {
+    throw e;
+  } finally { clearTimeout(timer); }
+}
+async function kaJson(urlStr, opts) {
+  const res = await kaFetch(urlStr, opts);
+  const text = await res.text();
+  let data = null;
+  try { data = JSON.parse(text); } catch (e) {}
+  return { status: res.status, data, text };
+}
+/** 保活拉流：流式读取最多 maxBytes 字节后立即取消；timeMs 为总超时兜底（CF 单请求墙钟 30s，留余量） */
+async function readStreamUpTo(res, maxBytes, timeMs) {
+  if (!res || !res.body) return 0;
+  const reader = res.body.getReader();
+  let total = 0;
+  const t0 = Date.now();
+  try {
+    for (;;) {
+      if (Date.now() - t0 > timeMs) break;
+      let readTimer = null;
+      const r = await Promise.race([
+        reader.read(),
+        new Promise((resolve, reject) => { readTimer = setTimeout(() => reject(new Error('read timeout')), Math.max(1000, timeMs - (Date.now() - t0))); })
+      ]);
+      if (readTimer) clearTimeout(readTimer);
+      if (r.done) break;
+      if (r.value) total += r.value.byteLength;
+      if (total >= maxBytes) break;
+    }
+  } catch (e) {}
+  try { await reader.cancel(); } catch (e) {}
+  return total;
+}
+/** 节点级完整保活：连通探测 → 凭据登录（API Key 优先 → 账号密码）→ 随机取条目 → 拉播放链接 → 拉流 40MB → 上报进度 → 停止 */
+async function runKeepAlive(env, route) {
+  const steps = [];
+  let progress = 3;      // 实时进度 0-100
+  let liveTitle = '';    // 正在模拟看的剧名
+  // 实时进度：写入 D1 app_config(ka_live)，前端轮询展示（fire-and-forget，不阻塞保活）
+  const saveLive = (current, stepsArr, p) => {
+    try {
+      if (!env || !env.DB) return;
+      progress = Math.max(progress, Math.min(100, Math.round(p !== undefined ? p : 12 + stepsArr.length * 8)));
+      env.DB.prepare('INSERT OR REPLACE INTO app_config (key, value) VALUES (?, ?)')
+        .bind('ka_live', JSON.stringify({ running: true, prefix: route ? route.prefix : '', current: current || '', steps: stepsArr || [], progress: progress, mediaTitle: liveTitle || '', updatedAt: Date.now() }))
+        .run().catch(() => {});
+    } catch (e) {}
+  };
+  const addStep = (name, ok, detail) => {
+    const st = { name, ok: !!ok, detail: String(detail || '').slice(0, 220) };
+    steps.push(st);
+    saveLive('执行中：' + name, steps.slice());
+  };
+  if (!route) { addStep('选择节点', false, '没有可用节点'); return { ok: false, msg: '没有可用节点', steps }; }
+  const prof = kaClientProfile(route);
+  const target = String(route.target || '').split(',')[0].trim().replace(/\/+$/, '');
+  if (!target) { addStep('节点目标', false, '节点 target 为空'); return { ok: false, msg: '节点 target 为空', steps }; }
+  addStep('保活节点', true, route.prefix + ' → ' + target + '（UA: ' + prof.ua + '）');
+
+  try {
+    const r = await kaJson(target + '/emby/System/Info/Public', { headers: kaHeaders(prof) });
+    addStep('连通性探测', r.status === 200, 'GET /emby/System/Info/Public → ' + r.status);
+  } catch (e) { addStep('连通性探测', false, e.message); }
+
+  let token = String(route.ka_token || '').trim();
+  let userId = '';
+  let loginUser = '', loginPass = '';
+  if (!token && route.node_user) {
+    loginUser = String(route.node_user);
+    loginPass = String(route.node_pass || '');
+  }
+  if (!token && loginUser) {
+    try {
+      const r = await kaJson(target + '/emby/Users/AuthenticateByName', {
+        method: 'POST',
+        headers: Object.assign(kaHeaders(prof), { 'Content-Type': 'application/json' }),
+        body: JSON.stringify({ Username: loginUser, Pw: loginPass })
+      });
+      if (r.data && r.data.AccessToken) {
+        token = r.data.AccessToken;
+        userId = (r.data.User && r.data.User.Id) || '';
+        addStep('账号登录', true, '节点账号 ' + loginUser + ' → ' + r.status);
+      } else {
+        addStep('账号登录', false, 'AuthenticateByName → ' + r.status);
+      }
+    } catch (e) { addStep('账号登录', false, e.message); }
+  }
+
+  if (!token) {
+    try {
+      const r = await kaJson(target + '/emby/System/Info', { headers: kaHeaders(prof) });
+      addStep('服务探测（未配置凭据）', r.status === 200 || r.status === 401, 'GET /emby/System/Info → ' + r.status);
+    } catch (e) { addStep('服务探测', false, e.message); }
+    return { ok: true, msg: '该节点未配置 API Key / 账号密码，已执行探测保活（配置凭据后可模拟真实播放）', steps };
+  }
+
+  if (!userId) {
+    try {
+      const r = await kaJson(addApiKey(target + '/emby/Users', token), { headers: kaHeaders(prof) });
+      const arr = r.data || [];
+      const list = Array.isArray(arr) ? arr : [];
+      const u = list.find(x => x && x.Id) || list[0];
+      if (u && u.Id) { userId = u.Id; addStep('获取用户', true, String(u.Name || userId)); }
+    } catch (e) {}
+  }
+
+  let itemId = '', itemName = '';
+  try {
+    const r = await kaJson(addApiKey(target + '/emby/Items?Recursive=true&IncludeItemTypes=Movie,Episode&Limit=1&SortBy=DateCreated&SortOrder=Descending', token), { headers: kaHeaders(prof) });
+    const items = (r.data && r.data.Items) ? r.data.Items : (Array.isArray(r.data) ? r.data : []);
+    if (items[0] && items[0].Id) { itemId = items[0].Id; itemName = items[0].Name || ''; }
+    else if (r.status !== 200) { addStep('获取媒体条目', false, 'Items → ' + r.status + ' ' + String(r.text).slice(0, 100)); return { ok: false, msg: '获取媒体条目失败: Items → ' + r.status, steps }; }
+  } catch (e) { addStep('获取媒体条目', false, 'Items 异常: ' + e.message); return { ok: false, msg: '获取媒体条目失败', steps }; }
+  if (!itemId) { addStep('获取媒体条目', false, '媒体库为空或无权访问'); return { ok: false, msg: '媒体库为空或无权访问', steps }; }
+  liveTitle = itemName || '未知条目';
+  addStep('获取媒体条目', true, (itemName || '未知条目') + ' (' + String(itemId).slice(0, 8) + ')');
+
+  let msId = '', playSessionId = '';
+  try {
+    const r = await kaJson(addApiKey(target + '/emby/Items/' + itemId + '/PlaybackInfo', token), {
+      method: 'POST',
+      headers: Object.assign(kaHeaders(prof), { 'Content-Type': 'application/json' }),
+      body: JSON.stringify({ UserId: userId, DeviceId: 'emby-keepalive', MediaSources: [], AutoOpenLiveStream: false, StartTimeTicks: 0 })
+    });
+    const ms = (r.data && r.data.MediaSources && r.data.MediaSources[0]) || null;
+    if (ms) { msId = ms.Id || ''; }
+    playSessionId = (r.data && r.data.PlaySessionId) || '';
+    if (!msId && !playSessionId) {
+      try {
+        const g = await kaJson(addApiKey(target + '/emby/Items/' + encodeURIComponent(itemId) + '/PlaybackInfo?UserId=' + encodeURIComponent(userId) + '&AutoOpenLiveStream=true', token), { headers: kaHeaders(prof) });
+        const gms = (g.data && g.data.MediaSources && g.data.MediaSources[0]) || null;
+        if (gms) { msId = gms.Id || ''; }
+        if (!playSessionId) playSessionId = (g.data && g.data.PlaySessionId) || '';
+      } catch (e) {}
+    }
+    if (ms && ms.Name) liveTitle = String(ms.Name);   // 过程界面显示完整剧名
+    addStep('拉取播放链接', !!msId || !!playSessionId, ms ? String(ms.Name || 'MediaSource') : ('PlaybackInfo → ' + r.status + (playSessionId ? '（GET 重试成功）' : '')));
+  } catch (e) { addStep('拉取播放链接', false, e.message); }
+
+  const STREAM_BYTES = 40 * 1024 * 1024;
+  if (!msId && !playSessionId) {
+    addStep('模拟拉流', false, '无播放链接，跳过（PlaybackInfo 两次尝试均失败）');
+    return { ok: false, msg: '保活失败：无法获取播放链接（PlaybackInfo POST/GET 均失败）', steps };
+  }
+  if (itemId && (msId || itemId)) {
+    saveLive('模拟拉流中（40MB）…', steps.slice(), 50);
+    try {
+      const streamUrl = (staticFlag) => target + '/emby/Videos/' + encodeURIComponent(itemId) + '/stream?MediaSourceId=' + encodeURIComponent(msId || itemId) + '&Static=' + staticFlag;
+      const hdrs = Object.assign(kaHeaders(prof), { Range: 'bytes=0-' + (STREAM_BYTES - 1) });
+      let res = await kaFetch(addApiKey(streamUrl('false'), token), { headers: hdrs });
+      if (res.status !== 200 && res.status !== 206) {
+        const txt = await res.text().catch(() => '');
+        res = await kaFetch(addApiKey(streamUrl('true'), token), { headers: hdrs });
+        const bytes = await readStreamUpTo(res, STREAM_BYTES, 25000);
+        addStep('模拟拉流', res.status === 200 || res.status === 206, 'Videos/' + String(itemId).slice(0, 8) + '/stream → ' + res.status + '（拉流 ' + (bytes / 1048576).toFixed(1) + 'MB）' + (res.status === 400 ? ' ' + String(txt).slice(0, 120) : ''));
+      } else {
+        const bytes = await readStreamUpTo(res, STREAM_BYTES, 25000);
+        addStep('模拟拉流', true, 'Videos/' + String(itemId).slice(0, 8) + '/stream → ' + res.status + '（拉流 ' + (bytes / 1048576).toFixed(1) + 'MB）');
+      }
+    } catch (e) { addStep('模拟拉流', false, e.message); }
+  } else {
+    addStep('模拟拉流', false, '无播放链接，跳过');
+  }
+
+  // 播放会话：字段 Emby 标准 PositionTicks（兼容旧字段）；CF 墙钟 30s 限制下用快进心跳模拟 90 秒累计播放进度
+  // 模拟真实观看：起始位置随机 1~89 秒（1 分 30 秒前的任意时间点），观看时长随机 60~90 秒，避免每次都从 0 开始固定 90 秒
+  const startSec = 1 + Math.floor(Math.random() * 89);
+  const playSec = 60 + Math.floor(Math.random() * 31);
+  const endSec = startSec + playSec;
+  const startTicks = startSec * 10000000;
+  const endTicks = endSec * 10000000;
+  const CF_HEARTBEATS = Math.max(1, Math.floor(playSec / 10));   // 心跳条数 6~9（每 1.5s 一条，进度每次 +10s）
+  const base = { ItemId: itemId, MediaSourceId: msId || itemId, UserId: userId, DeviceId: 'emby-keepalive', PlayMethod: 'DirectStream', CanSeek: true, IsPaused: false, QueueableMediaTypes: ['Video'] };
+  if (playSessionId) base.PlaySessionId = playSessionId;
+  const kaBody = (posTicks) => JSON.stringify(Object.assign({}, base, { PositionTicks: posTicks, PlaybackPositionTicks: posTicks }));
+  const KA_HEADERS = Object.assign(kaHeaders(prof), { 'Content-Type': 'application/json' });
+
+  if (!playSessionId) {
+    addStep('播放会话开始', false, '无 PlaySessionId，跳过会话上报（仅拉流保活）');
+    addStep('模拟播放时长', false, '无 PlaySessionId，跳过');
+  } else {
+    try {
+      const r = await kaJson(addApiKey(target + '/emby/Sessions/Playing', token), { method: 'POST', headers: KA_HEADERS, body: kaBody(startTicks) });
+      addStep('播放会话开始', r.status === 200 || r.status === 204, 'Sessions/Playing → ' + r.status + (r.status === 400 ? ' ' + String(r.text).slice(0, 120) : ''));
+    } catch (e) { addStep('播放会话开始', false, e.message); }
+
+    // 快进心跳：CF 单次墙钟 30s，无法真实等待 90 秒；用每 1.5s 一条、进度 +10s 的心跳在预算内凑足 90 秒进度
+    let hbOk = 0, hbFail = 0;
+    const tStart = Date.now();
+    for (let i = 1; i <= CF_HEARTBEATS; i++) {
+      if (Date.now() - tStart > 24000) break;   // 心跳段预算 24s，保拉流慢时整体不超墙钟
+      await new Promise(res => setTimeout(res, 1500));
+      const pos = Math.min(startTicks + i * 10 * 10000000, endTicks);
+      saveLive('模拟播放：进度心跳 ' + i + '/' + CF_HEARTBEATS + '（' + fmtPos(pos) + '）', steps.slice(), 66 + (i / CF_HEARTBEATS) * 26);
+      try {
+        const r = await kaJson(addApiKey(target + '/emby/Sessions/Playing/Progress', token), { method: 'POST', headers: KA_HEADERS, body: kaBody(pos) });
+        if (r.status === 200 || r.status === 204) hbOk++; else hbFail++;
+      } catch (e) { hbFail++; }
+    }
+    addStep('模拟播放时长', hbOk > 0, '从 ' + fmtPos(startTicks) + ' 快进 ' + playSec + ' 秒：心跳 ' + hbOk + '/' + CF_HEARTBEATS + ' 条 → ' + fmtPos(endTicks));
+  }
+
+  try {
+    const r = await kaJson(addApiKey(target + '/emby/Sessions/Playing/Stopped', token), { method: 'POST', headers: KA_HEADERS, body: kaBody(endTicks) });
+    addStep('播放会话停止', r.status === 200 || r.status === 204, 'Stopped → ' + r.status + ' (' + fmtPos(endTicks) + ')');
+  } catch (e) { addStep('播放会话停止', false, e.message); }
+
+  // 清除播放记录：重置本次保活播放条目的 PlayCount / 继续观看进度，避免污染真实观看记录
+  if (userId && itemId && token) {
+    await new Promise(res => setTimeout(res, 1000));   // 等 Stopped 异步落库后再清，避免竞态
+    try {
+      const r = await kaJson(addApiKey(target + '/emby/Users/' + encodeURIComponent(userId) + '/Items/' + encodeURIComponent(itemId) + '/UserData', token), {
+        method: 'POST',
+        headers: Object.assign(kaHeaders(prof), { 'Content-Type': 'application/json' }),
+        body: JSON.stringify({ Played: false, PlayCount: 0, ResumePositionTicks: 0, PlaybackPositionTicks: 0, PlayedPercentage: 0 })
+      });
+      addStep('清除播放记录', r.status === 200 || r.status === 204, 'UserData → ' + r.status + '（PlayCount/继续观看进度已重置）');
+      if (r.status === 200 || r.status === 204) saveLive('清除播放记录完成', steps.slice(), 100);
+    } catch (e) { addStep('清除播放记录', false, e.message); }
+  } else {
+    addStep('清除播放记录', false, '缺少 userId/itemId/token，跳过');
+  }
+
+  const failed = steps.filter(x => !x.ok).length;
+  return { ok: failed < steps.length / 2, msg: '保活完成（' + steps.length + ' 步，' + failed + ' 步异常）', steps };
+}
+/** 定时检查：找出最先到期的开启保活节点执行（每 tick 只跑一个，避免并发打爆上游与超时） */
+async function pushKaNotice(env, prefix, ok, detail, remark) {
+  try {
+    if (!env || !env.DB) return;
+    const row = await env.DB.prepare("SELECT value FROM app_config WHERE key = 'ka_notices'").first();
+    let list = [];
+    try { if (row && row.value) list = JSON.parse(row.value); } catch (e) {}
+    list.unshift({ time: Date.now(), prefix: String(prefix || ''), remark: String(remark || ''), result: ok ? '成功' : '失败', detail: String(detail || '').slice(0, 180) });
+    if (list.length > 30) list.length = 30;
+    await env.DB.prepare('INSERT OR REPLACE INTO app_config (key, value) VALUES (?, ?)').bind('ka_notices', JSON.stringify(list)).run();
+  } catch (e) {}
+  // 保活结果通知：Bark（iOS）+ Telegram（配置了环境变量时推送，节点显示备注）
+  const nodeName = remark || ('/' + prefix);
+  const kaText = (ok ? '✅' : '❌') + ' 节点 ' + nodeName + ' 保活' + (ok ? '成功' : '失败') + (detail ? '：' + detail : '');
+  try {
+    if (env.BARK_KEY) {
+      await fetch('https://api.day.app/' + String(env.BARK_KEY).trim(), {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ title: 'Emby 反代面板', body: kaText, level: env.BARK_LEVEL || 'active' })
+      });
+    }
+  } catch (e) {}
+  try {
+    if (env.TG_BOT_TOKEN && env.TG_CHAT_ID) {
+      await fetch('https://api.telegram.org/bot' + env.TG_BOT_TOKEN + '/sendMessage', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ chat_id: String(env.TG_CHAT_ID), text: kaText })
+      });
+    }
+  } catch (e) {}
+}
+
+async function checkKeepAliveSchedule(env) {
+  try {
+    const { results: routes } = await env.DB.prepare(`SELECT * FROM routes WHERE ka_enabled = '1'`).all();
+    if (!routes || routes.length === 0) return;
+    const due = routes.filter(r => {
+      const days = Math.max(0.1, parseFloat(r.ka_days) || 3);
+      const last = r.last_ka_run ? new Date(r.last_ka_run).getTime() : 0;
+      return !last || Date.now() - last >= days * 86400000;
+    });
+    if (due.length === 0) return;
+    due.sort((a, b) => {
+      const da = a.last_ka_run ? new Date(a.last_ka_run).getTime() : 0;
+      const db = b.last_ka_run ? new Date(b.last_ka_run).getTime() : 0;
+      return da - db;
+    });
+    const route = due[0];
+    const result = await runKeepAlive(env, route);
+    await env.DB.prepare('UPDATE routes SET last_ka_run = ?, last_ka_result = ?, last_ka_detail = ? WHERE prefix = ?')
+      .bind(new Date().toISOString(), result.ok ? 'success' : 'fail', result.msg || '', route.prefix).run();
+    await pushKaNotice(env, route.prefix, result.ok, result.msg, route.remark);
+  } catch (e) {}
+}
+
+async function sendTgStats(env, chatId) {
+    try {
+        const totalQuery = await env.DB.prepare(`SELECT COUNT(*) as count FROM visitor_logs WHERE date(timestamp, '+8 hours') = date('now', '+8 hours')`).first();
+        const topRegionQuery = await env.DB.prepare(`SELECT country, COUNT(*) as c FROM visitor_logs WHERE date(timestamp, '+8 hours') = date('now', '+8 hours') GROUP BY country ORDER BY c DESC LIMIT 1`).first();
+        const topNodeQuery = await env.DB.prepare(`
+            SELECT r.remark, COUNT(v.id) as c 
+            FROM visitor_logs v 
+            LEFT JOIN routes r ON v.prefix = r.prefix 
+            WHERE date(v.timestamp, '+8 hours') = date('now', '+8 hours') 
+            GROUP BY v.prefix 
+            ORDER BY c DESC LIMIT 1
+        `).first();
+
+        // 获取多时间维度流量
+        const [trafficToday, traffic7d, traffic30d] = await Promise.all([
+            getCFTraffic(env, 'today'),
+            getCFTraffic(env, 7),
+            getCFTraffic(env, 30)
+        ]);
+
+        // ================= 新增：获取今日流量消耗 TOP 1 节点 =================
+        let topNodeMsg = "暂无数据";
+        if (env.CF_API_TOKEN && env.CF_ZONE_ID && env.DB) {
+            try {
+                // 1. 获取所有节点
+                const { results: routes } = await env.DB.prepare(`SELECT prefix, remark FROM routes`).all();
+                if (routes && routes.length > 0) {
+                    const end = new Date();
+                    const beijingTime = new Date(end.getTime() + 8 * 3600000);
+                    beijingTime.setUTCHours(0, 0, 0, 0);
+                    const start = new Date(beijingTime.getTime() - 8 * 3600000);
+
+                    let maxBytes = 0;
+                    let topNodeName = "无";
+
+                    // 2. 并发向 CF 查询每个节点今天的精准流量
+                    await Promise.all(routes.map(async (r) => {
+                        try {
+                            const graphqlQuery = {
+                                query: `query {
+                                  viewer {
+                                    zones(filter: {zoneTag: "${env.CF_ZONE_ID}"}) {
+                                      httpRequestsAdaptiveGroups(
+                                        limit: 1,
+                                        filter: {
+                                          clientRequestPath_like: "/${r.prefix}%",
+                                          datetime_geq: "${start.toISOString()}",
+                                          datetime_leq: "${end.toISOString()}"
+                                        }
+                                      ) {
+                                        sum { edgeResponseBytes }
+                                      }
+                                    }
+                                  }
+                                }`
+                            };
+
+                            const cfRes = await fetch('https://api.cloudflare.com/client/v4/graphql', {
+                                method: 'POST',
+                                headers: { 'Authorization': `Bearer ${env.CF_API_TOKEN}`, 'Content-Type': 'application/json' },
+                                body: JSON.stringify(graphqlQuery)
+                            });
+                            
+                            const cfData = await cfRes.json();
+                            const bytes = cfData?.data?.viewer?.zones?.[0]?.httpRequestsAdaptiveGroups?.[0]?.sum?.edgeResponseBytes || 0;
+                            
+                            // 3. 找出最大值
+                            if (bytes > maxBytes) {
+                                maxBytes = bytes;
+                                topNodeName = r.remark || r.prefix;
+                            }
+                        } catch(e) {}
+                    }));
+
+                    // 4. 转换字节并组装文本
+                    if (maxBytes > 0) {
+                        let formatted = "0 B";
+                        if (maxBytes >= 1099511627776) formatted = (maxBytes / 1099511627776).toFixed(2) + " TB";
+                        else if (maxBytes >= 1073741824) formatted = (maxBytes / 1073741824).toFixed(2) + " GB";
+                        else if (maxBytes >= 1048576) formatted = (maxBytes / 1048576).toFixed(2) + " MB";
+                        else if (maxBytes >= 1024) formatted = (maxBytes / 1024).toFixed(2) + " KB";
+                        else formatted = maxBytes + " B";
+                        
+                        topNodeMsg = `${topNodeName} 跑了 ${formatted}`;
+                    } else {
+                        topNodeMsg = "今日全站零消耗";
+                    }
+                }
+            } catch (e) {
+                topNodeMsg = "获取失败";
+            }
+        }
+        // ====================================================================
+
+        const totalStr = totalQuery ? totalQuery.count : 0;
+        const regionStr = topRegionQuery ? `${topRegionQuery.country === 'CN' ? ' 中国大陆' : topRegionQuery.country} (${topRegionQuery.c} 次)` : '暂无记录';
+        const nodeStr = topNodeQuery ? `${topNodeQuery.remark || '未命名节点'} (${topNodeQuery.c} 次)` : '暂无记录';
+
+        const msg = 
+            `*今日反代播放数据*\n\n` +
+            `今日总播放次数: ${totalStr} 次\n` +
+            `最多访问地区: ${regionStr}\n` +
+            `最喜欢的EMBY: ${nodeStr}\n\n` +
+            `实际流量消耗:\n` +
+            `当天内: ${trafficToday}\n` +
+            `七天内: ${traffic7d}\n` +
+            `30天内: ${traffic30d}\n\n` +
+            `今日流量之王:\n` +
+            `${topNodeMsg}`;
+
+        await fetch(`https://api.telegram.org/bot${env.TG_BOT_TOKEN}/sendMessage`, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ chat_id: chatId, text: msg, parse_mode: 'Markdown' })
+        });
+    } catch (e) {
+        console.error("TG Send Error:", e);
+    }
+}
+
+/** 引号字符串转义：防头注入（引号/反斜杠转义、\r\n 丢弃） */
+function escQuote(v) {
+  return String(v).replace(/\\/g, '\\\\').replace(/"/g, '\\"').replace(/[\r\n]+/g, '');
+}
+
+/** 生成随机 UUID v4（Device ID 用，crypto.randomUUID 兜底自实现） */
+function genUuid() {
+  if (typeof crypto !== 'undefined' && typeof crypto.randomUUID === 'function') return crypto.randomUUID();
+  const b = crypto.getRandomValues(new Uint8Array(16));
+  b[6] = (b[6] & 0x0f) | 0x40; b[8] = (b[8] & 0x3f) | 0x80;
+  const h = Array.from(b).map(x => x.toString(16).padStart(2, '0')).join('');
+  return h.slice(0,8) + '-' + h.slice(8,12) + '-' + h.slice(12,16) + '-' + h.slice(16,20) + '-' + h.slice(20);
+}
+
+/** 下载伪装伴随观看（CF 版）：起播 → 流驱动心跳 → 结束收尾。
+ *  与 VPS 版同款协议：Sessions/Playing 起播 → Playing/Progress 心跳（首次固定 10s、第二次固定 30s、
+ *  之后 15s~3 分钟随机）→ Stopped 结束 → 1.5s 后重置 UserData 清除播放记录。
+ *  CF 运行时限制：不依赖后台定时器，心跳由响应流的读取节奏驱动（每次读到数据块检查是否到点）；
+ *  收尾通过 ctx.waitUntil 保证在响应结束后仍执行完毕。 */
+function spawnDlTrickWatchCF(target, req, itemId, search) {
+    try {
+        const params = new URLSearchParams((search || '').replace(/^\?/, ''));
+        const apiKey = params.get('api_key') || params.get('X-Emby-Token') || '';
+        const authHdr = req.headers.get('x-emby-authorization') || req.headers.get('authorization') || '';
+        if (!apiKey && !authHdr) return null;   // 无凭据无法伪装，直接跳过
+        const msId = params.get('mediaSourceId') || params.get('MediaSourceId') || '';
+        const mClient = String(authHdr).match(/Client="([^"]+)"/i);
+        const mVersion = String(authHdr).match(/Version="([^"]+)"/i);
+        // 独立虚拟设备ID：下载心跳不占用播放器真实设备会话。
+        // 否则下载期间上游认为"播放器设备已在播放"，用户再点播放时同设备并发会话被上游卡住 → 一直缓冲
+        const deviceId = genUuid();
+        const client = (mClient && mClient[1]) || 'Emby';
+        const version = (mVersion && mVersion[1]) || '4.8.0.0';
+        const playSessionId = 'bemby-' + Date.now();
+        let targetOrigin = '';
+        try { targetOrigin = new URL(target).origin; } catch(e) { return null; }
+        const hdrs = { 'Content-Type': 'application/json' };
+        if (authHdr) hdrs['X-Emby-Authorization'] = authHdr.replace(/DeviceId\s*=\s*"[^"]*"/i, `DeviceId="${deviceId}"`);
+        const url = path => addApiKey(targetOrigin + path, apiKey);
+        const base = { ItemId: itemId, MediaSourceId: msId || itemId, PlaySessionId: playSessionId, DeviceId: deviceId, Client: client, Version: version, PlayMethod: 'DirectStream', CanSeek: true, IsPaused: false, QueueableMediaTypes: ['Video'] };
+        const watchBody = pos => JSON.stringify(Object.assign({}, base, { PositionTicks: pos, PlaybackPositionTicks: pos }));
+        let closed = false, posTicks = 0, userId = '';
+        let tickCount = 0, nextWait = 10, nextHeartAt = Date.now() + 10000;   // 首次固定 10s，第二次固定 30s，之后 15~180s 随机
+        const post = (path, body) => kaFetch(url(path), { method: 'POST', headers: hdrs, body }).catch(() => null);
+        // 起播 + 预取用户信息（fire-and-forget，响应流期间事件循环可执行）
+        post('/emby/Sessions/Playing', watchBody(0));
+        kaFetch(url('/emby/Users/Me'), { headers: hdrs }).then(async r => {
+            try { userId = (JSON.parse(await r.text()) || {}).Id || ''; } catch(e){}
+        }).catch(() => {});
+        return {
+            // 响应流驱动心跳：每次读到数据块后调用，到达心跳时间点即上报（不 await，避免拖慢流转发）
+            tick() {
+                if (closed) return;
+                const now = Date.now();
+                if (now < nextHeartAt) return;
+                tickCount += 1;
+                posTicks += nextWait * 10000000;
+                nextHeartAt = now + nextWait * 1000;
+                // 第一次固定 10s（已发出），第二次固定 30s，之后 15~180s 随机
+                nextWait = tickCount === 1 ? 30 : (15 + Math.floor(Math.random() * 166));
+                post('/emby/Sessions/Playing/Progress', watchBody(posTicks));
+            },
+            // 下载结束/断开：上报结束 + 重置 UserData 清除播放记录（调用方须用 ctx.waitUntil 包裹）
+            async finish() {
+                if (closed) return;
+                closed = true;
+                try {
+                    if (!userId) {
+                        const r = await kaFetch(url('/emby/Users/Me'), { headers: hdrs });
+                        try { userId = (JSON.parse(await r.text()) || {}).Id || ''; } catch(e){}
+                    }
+                } catch(e){}
+                await post('/emby/Sessions/Playing/Stopped', watchBody(posTicks));
+                if (userId && itemId) {
+                    await new Promise(r2 => setTimeout(r2, 1500));   // 等 Stopped 落库后再清
+                    await post('/emby/Users/' + encodeURIComponent(userId) + '/Items/' + encodeURIComponent(itemId) + '/UserData',
+                        JSON.stringify({ Played: false, PlayCount: 0, ResumePositionTicks: 0, PlaybackPositionTicks: 0, PlayedPercentage: 0 }));
+                }
+            }
+        };
+    } catch(e) { return null; }
+}
+
+/** 把响应流包一层：转发数据块并在读取间隙驱动心跳，流结束/取消时收尾（收尾走 ctx.waitUntil 保证执行） */
+function wrapStreamWithWatch(stream, watch, ctx) {
+    const reader = stream.getReader();
+    const runFinish = () => {
+        try { const p = watch.finish(); if (p && ctx && ctx.waitUntil) ctx.waitUntil(p); } catch(e){}
+    };
+    return new ReadableStream({
+        async pull(controller) {
+            try {
+                const { done, value } = await reader.read();
+                if (done) {
+                    try { controller.close(); } catch(e){}
+                    runFinish();
+                    return;
+                }
+                controller.enqueue(value);
+                try { watch.tick(); } catch(e){}
+            } catch (err) {
+                try { controller.error(err); } catch(e){}
+                runFinish();
+            }
+        },
+        cancel() {
+            try { reader.cancel(); } catch(e){}
+            runFinish();
+        }
+    });
+}
+
+export default {
+    async scheduled(event, env, ctx) {
+        // 自动保活：检查所有开启保活的节点，按各自间隔到期执行（每 tick 只跑最先到期的一个）
+        if (env.DB && env.KA_ENABLED !== 'off') {
+            ctx.waitUntil(checkKeepAliveSchedule(env));
+        }
+    },
+
+    async fetch(request, env, ctx) {
+        try {
+        const url = new URL(request.url);
+
+        // ==========================================
+        //  新增：全云厂商 Worker 放置区域接口
+        // （本块依赖 ROLE 认证，已放置于认证逻辑之后）
+        // ==========================================
+
+        // ==========================================
+        //  新增：CF 节点与落地机房探针接口
+        // ==========================================
+        if (url.pathname === '/api/trace') {
+            const cf = request.cf || {};
+            let egressColo = '探测中...';
+            try {
+                // 请求 CF 官方 trace 接口获取落地机房
+                const traceRes = await fetch('https://1.1.1.1/cdn-cgi/trace', {
+                    headers: { 'User-Agent': 'Mozilla/5.0 (CF-Worker-Trace)' }
+                });
+                const traceText = await traceRes.text();
+                const match = traceText.match(/colo=([A-Z]+)/);
+                if (match) egressColo = match[1];
+            } catch(e) {
+                egressColo = '获取失败';
+            }
+
+            return new Response(JSON.stringify({
+                success: true,
+                entryCountry: cf.country || '未知',
+                entryCity: cf.city || '',
+                entryColo: cf.colo || '未知',
+                egressColo: egressColo
+            }), {
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Access-Control-Allow-Origin': '*'
+                }
+            });
+        }
+
+        // ==========================================
+        //  新增：客户端 RTT 实时极速探针接口
+        // 直接返回 204 无内容，且强制不缓存，确保每次都是真实的物理延迟
+        // ==========================================
+        if (url.pathname === '/__client_rtt__') {
+            return new Response(null, {
+                status: 204,
+                headers: {
+                    "Cache-Control": "no-store, no-cache, must-revalidate, max-age=0",
+                    "Pragma": "no-cache",
+                    "Expires": "0",
+                    "Access-Control-Allow-Origin": "*"
+                }
+            });
+        }
+
+        // ==========================================
+        //  新增：当前域名解析 IP 的下载速度测试
+        //  /speedtest              测速页面（浏览器端，测当前域名解析 IP 的下载速度）
+        //  /speedtest/data?bytes=N 下载负载端点（同源，走的就是当前域名解析到的 CF IP）
+        // ==========================================
+        if (url.pathname === '/speedtest' || url.pathname === '/speedtest/') {
+            const SPEEDTEST_HTML = `<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>下载测速 · 反代面板</title>
+<style>
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Microsoft YaHei",sans-serif;background:#0f1117;color:#e6e8ee;min-height:100vh;display:flex;align-items:center;justify-content:center;padding:20px}
+  .card{background:#161a24;border:1px solid #2a3040;border-radius:18px;padding:28px;width:100%;max-width:560px;box-shadow:0 12px 40px rgba(0,0,0,.4)}
+  h1{font-size:20px;margin-bottom:6px}
+  .sub{color:#8a91a5;font-size:13px;margin-bottom:20px}
+  .row{display:flex;justify-content:space-between;align-items:center;padding:10px 0;border-bottom:1px solid #232938;font-size:14px;gap:16px}
+  .row:last-of-type{border-bottom:none}
+  .k{color:#8a91a5;white-space:nowrap}
+  .v{font-weight:600;word-break:break-all;text-align:right}
+  .ip{color:#5aa2ff}
+  .speed{font-size:42px;font-weight:800;color:#4fd08a;text-align:center;margin:18px 0 6px;line-height:1}
+  .speed small{font-size:14px;color:#8a91a5;font-weight:500}
+  .bar{height:10px;background:#232938;border-radius:6px;overflow:hidden;margin:8px 0 16px}
+  .bar i{display:block;height:100%;width:0;background:linear-gradient(90deg,#4fd08a,#23a6d8);transition:width .4s ease}
+  .opts{display:flex;gap:10px;margin-bottom:12px}
+  select,button.ghost{flex:1;padding:11px;border:1px solid #2a3040;border-radius:10px;background:#161a24;color:#e6e8ee;font-size:13px}
+  button.go{width:100%;padding:13px;border:none;border-radius:10px;cursor:pointer;font-size:15px;font-weight:700;background:#2563eb;color:#fff;transition:.2s}
+  button.go:hover{background:#1d4ed8}
+  button.go:disabled{opacity:.5;cursor:not-allowed}
+  .meta{text-align:center;font-size:12px;color:#8a91a5;margin-top:12px;min-height:16px}
+  .note{font-size:12px;color:#6b7280;margin-top:16px;line-height:1.7;border-top:1px dashed #2a3040;padding-top:12px}
+  a.back{display:inline-flex;align-items:center;gap:6px;padding:7px 15px;border-radius:999px;background:rgba(0,180,255,.1);border:1px solid rgba(0,180,255,.28);color:#5aa2ff;font-size:13px;font-weight:600;text-decoration:none;margin-bottom:14px;transition:.2s}
+  a.back:hover{background:rgba(0,180,255,.2)}
+</style>
+</head>
+<body>
+<div class="card">
+  <a class="back" href="/">&#8592; 返回面板</a>
+  <h1>&#128339; 当前域名下载测速</h1>
+  <div class="sub">浏览器直连当前域名，测其解析到的 CF IP 的下载速度</div>
+  <div class="row"><span class="k">测试域名</span><span class="v" id="host">…</span></div>
+  <div class="row"><span class="k">解析到的 IP</span><span class="v ip" id="ips">查询中…</span></div>
+  <div class="speed"><span id="num">--</span> <small id="unit">Mbps</small></div>
+  <div class="bar"><i id="barfill"></i></div>
+  <div class="opts">
+    <select id="size">
+      <option value="10485760">负载 10 MB</option>
+      <option value="20971520">负载 20 MB</option>
+      <option value="52428800" selected>负载 50 MB</option>
+    </select>
+    <button class="ghost" id="runs">测 3 次取最优</button>
+  </div>
+  <button class="go" id="go">开始测速</button>
+  <div class="meta" id="meta"></div>
+  <div class="note">方式：从本域名直接下载测试负载，即走当前域名解析到的 CF 边缘 IP，多次取最优值。
+若 IP 显示“查询失败”，多为 DoH 被网络环境限制，不影响下载测速结果。</div>
+</div>
+<script>
+(function(){
+  var host=location.host;
+  document.getElementById('host').textContent=host;
+  var ipsEl=document.getElementById('ips');
+  var sizeSel=document.getElementById('size');
+  var goBtn=document.getElementById('go');
+  var numEl=document.getElementById('num');
+  var unitEl=document.getElementById('unit');
+  var barEl=document.getElementById('barfill');
+  var metaEl=document.getElementById('meta');
+  var RUNS=3;
+
+  function resolveIps(){
+    try{
+      fetch('https://cloudflare-dns.com/dns-query?name='+encodeURIComponent(host)+'&type=A',{headers:{accept:'application/dns-json'}})
+        .then(function(r){return r.json();})
+        .then(function(d){
+          var arr=(d&&d.Answer||[]).map(function(a){return a.data;});
+          ipsEl.textContent=arr.length?arr.join('  '):'查询失败';
+        })
+        .catch(function(){ipsEl.textContent='查询失败（DoH 受限）';});
+    }catch(e){ipsEl.textContent='查询失败';}
+  }
+  resolveIps();
+
+  async function runOnce(bytes){
+    var url='/speedtest/data?bytes='+bytes+'&t='+Date.now();
+    var t0=performance.now();
+    await fetch(url,{cache:'no-store'}).then(function(r){return r.arrayBuffer();});
+    var ms=performance.now()-t0;
+    return bytes*8/(ms/1000);
+  }
+
+  goBtn.addEventListener('click',async function(){
+    var bytes=parseInt(sizeSel.value,10);
+    goBtn.disabled=true;goBtn.textContent='测速中…';numEl.textContent='--';barEl.style.width='0';
+    var best=0;
+    for(var i=0;i<RUNS;i++){
+      try{
+        var bps=await runOnce(bytes);
+        if(bps>best)best=bps;
+        metaEl.textContent='第 '+(i+1)+'/'+RUNS+' 次 · 当前 '+(bps/1048576).toFixed(2)+' Mbps';
+      }catch(e){metaEl.textContent='第 '+(i+1)+' 次失败：'+e.message;break;}
+    }
+    if(best>0){
+      numEl.textContent=(best/1048576).toFixed(2);
+      unitEl.textContent='Mbps · '+(best/1048576/8).toFixed(2)+' MB/s';
+      barEl.style.width=Math.min(100,best/1000*100)+'%';
+    }
+    goBtn.disabled=false;goBtn.textContent='重新测速';
+  });
+})();
+</script>
+</body>
+</html>`;
+            return new Response(SPEEDTEST_HTML, { headers: { "Content-Type": "text/html;charset=UTF-8", "Cache-Control": "no-store, no-cache, must-revalidate, max-age=0" } });
+        }
+
+        if (url.pathname === '/speedtest/data') {
+            const bytes = Math.min(parseInt(url.searchParams.get('bytes') || '10485760', 10) || 10485760, 52428800); // 上限 50MB
+            const CHUNK = 1024 * 1024;
+            let sent = 0;
+            const stream = new ReadableStream({
+                pull(controller) {
+                    if (sent * CHUNK >= bytes) { controller.close(); return; }
+                    const n = Math.min(CHUNK, bytes - sent * CHUNK);
+                    controller.enqueue(new Uint8Array(n));
+                    sent++;
+                }
+            });
+            return new Response(stream, {
+                headers: {
+                    "Content-Type": "application/octet-stream",
+                    "Content-Length": String(bytes),
+                    "Cache-Control": "no-store, no-cache, must-revalidate, max-age=0",
+                    "Pragma": "no-cache",
+                    "Expires": "0",
+                    "Access-Control-Allow-Origin": "*"
+                }
+            });
+        }
+
+        // Telegram Webhook 拦截
+        if (url.pathname === '/api/tg-webhook' && request.method === 'POST') {
+            try {
+                const body = await request.json();
+                if (body.message && body.message.text === '/stats') {
+                    if (env.DB && env.TG_BOT_TOKEN) {
+                        ctx.waitUntil(sendTgStats(env, body.message.chat.id));
+                    }
+                }
+                return new Response("OK");
+            } catch(e) { return new Response("OK"); }
+        }
+
+        if (request.method === "OPTIONS") {
+            return new Response(null, { headers: { "Access-Control-Allow-Origin": "*", "Access-Control-Allow-Methods": "GET, POST, PUT, DELETE, OPTIONS", "Access-Control-Allow-Headers": "*", "Access-Control-Max-Age": "86400" } });
+        }
+
+        // ============ 反代 Token 门禁（D1 存储） ============
+        // 配置存 app_config；来访记录存 proxy_hits 表（不占用 KV 免费额度）
+        async function getProxyToken(env) {
+            if (!env.DB) return null;
+            try {
+                await env.DB.prepare('CREATE TABLE IF NOT EXISTS app_config (key TEXT PRIMARY KEY, value TEXT)').run();
+                const row = await env.DB.prepare("SELECT value FROM app_config WHERE key = 'proxy_token'").first();
+                if (!row || !row.value) return null;
+                return JSON.parse(row.value);
+            } catch (e) { return null; }
+        }
+        function proxyTokenPrefix(pt) {
+            return (pt && pt.enabled && pt.key) ? pt.key + '/' : '';
+        }
+        async function recordProxyHit(env, request, path) {
+            if (!env.DB) return;
+            try {
+                const ip = request.headers.get('cf-connecting-ip') || request.headers.get('x-real-ip') || (request.headers.get('x-forwarded-for') || '').split(',')[0].trim() || 'Unknown';
+                const ua = (request.headers.get('User-Agent') || '').slice(0, 200);
+                const ts = Date.now();
+                const p = String(path || '').slice(0, 200);
+                await env.DB.prepare('CREATE TABLE IF NOT EXISTS proxy_hits (id INTEGER PRIMARY KEY AUTOINCREMENT, ip TEXT, path TEXT, ua TEXT, ts INTEGER, times INTEGER)').run();
+                const exist = await env.DB.prepare('SELECT id, times FROM proxy_hits WHERE ip = ? AND path = ? ORDER BY id DESC LIMIT 1').bind(ip, p).first();
+                if (exist) {
+                    await env.DB.prepare('UPDATE proxy_hits SET times = ?, ts = ? WHERE id = ?').bind((exist.times || 1) + 1, ts, exist.id).run();
+                } else {
+                    await env.DB.prepare('INSERT INTO proxy_hits (ip, path, ua, ts, times) VALUES (?, ?, ?, ?, 1)').bind(ip, p, ua, ts).run();
+                }
+            } catch (e) {}
+        }
+        function catchPageHtml(ip, ua) {
+            const esc = s => String(s == null ? '' : s).replace(/[<>&"']/g, c => ({'<':'&lt;','>':'&gt;','&':'&amp;','"':'&quot;',"'":'&#39;'}[c]));
+            return `<!DOCTYPE html><html lang="zh"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Oops</title><style>
+        body{margin:0;min-height:100vh;display:flex;align-items:center;justify-content:center;background:radial-gradient(ellipse at top,#0f0c29,#302b63,#24243e);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC",sans-serif;color:#fff}
+        .box{text-align:center;padding:48px;border:1px solid rgba(255,255,255,.15);border-radius:20px;background:rgba(255,255,255,.05);backdrop-filter:blur(8px);max-width:90vw}
+        h1{font-size:34px;margin:0 0 12px;letter-spacing:2px}
+        .sub{font-size:14px;color:#a8b2d1;margin-bottom:24px}
+        .ip{font-size:18px;font-weight:700;color:#ffd700;word-break:break-all}
+        .meta{font-size:12px;color:#7f8bb3;margin-top:16px;word-break:break-all}
+      </style></head><body><div class="box">
+        <h1>宝贝抓到你了 👋</h1>
+        <div class="sub">你的来访信息已被记录</div>
+        <div class="ip">${esc(ip)}</div>
+        <div class="meta">UA: ${esc(ua).slice(0,120)}</div>
+      </div></body></html>`;
+        }
+        if (url.pathname === '/catch') {
+            const ip = request.headers.get('cf-connecting-ip') || request.headers.get('x-real-ip') || (request.headers.get('x-forwarded-for') || '').split(',')[0].trim() || 'Unknown';
+            return new Response(catchPageHtml(ip, request.headers.get('User-Agent') || ''), { headers: { 'Content-Type': 'text/html;charset=UTF-8', 'Cache-Control': 'no-store' } });
+        }
+
+        const EXPECTED_TOKEN = env.ADMIN_TOKEN;
+        if (!EXPECTED_TOKEN) return new Response("请在 Worker 变量中配置 ADMIN_TOKEN", { status: 500 });
+
+        function getCookie(req, name) {
+            const cookieString = req.headers.get("Cookie");
+            if (!cookieString) return null;
+            const match = cookieString.match(new RegExp('(^| )' + name + '=([^;]+)'));
+            if (match) return decodeURIComponent(match[2]);
+            return null;
+        }
+
+        // 三档认证：env.ADMIN_TOKEN(永不失效) > 网页修改的管理员密码 > 订阅者密码(只读)
+        async function getAuthRole(req) {
+            const token = getCookie(req, 'admin_token');
+            if (!token) return null;
+            if (token === EXPECTED_TOKEN) return 'admin';
+            if (!env.DB) return null;
+            try {
+                await env.DB.prepare('CREATE TABLE IF NOT EXISTS app_config (key TEXT PRIMARY KEY, value TEXT)').run();
+                const adminRow = await env.DB.prepare('SELECT value FROM app_config WHERE key = ?').bind('admin_pass').first();
+                if (adminRow && adminRow.value && token === adminRow.value) return 'admin';
+                const subRow = await env.DB.prepare('SELECT value FROM app_config WHERE key = ?').bind('subscribers').first();
+                if (subRow && subRow.value) {
+                    const list = JSON.parse(subRow.value);
+                    if (Array.isArray(list) && list.includes(token)) return 'sub';
+                }
+            } catch (e) {}
+            return null;
+        }
+
+        const isPanelOrApi = url.pathname === '/' || url.pathname.startsWith('/api/');
+        let ROLE = null;
+        if (isPanelOrApi && url.pathname !== '/api/tg-webhook') {
+            ROLE = await getAuthRole(request);
+            if (!ROLE) {
+                if (url.pathname === '/') return new Response(LOGIN_UI, { headers: { "Content-Type": "text/html;charset=UTF-8" } });
+                else return new Response('Unauthorized', { status: 401 });
+            }
+        }
+
+        if (url.pathname === '/') {
+            return new Response(HTML_UI, { headers: { "Content-Type": "text/html;charset=UTF-8" } });
+        }
+
+        // ==========================================
+        // 2.2 角色 / 账户 / 订阅者管理接口
+        // ==========================================
+        // 全云厂商 Worker 放置区域接口（依赖 ROLE 认证）
+        if (url.pathname === '/api/placement' && request.method === 'POST') {
+            if (ROLE !== 'admin') return new Response('Forbidden', { status: 403 });
+            try {
+                const body = await request.json();
+                const placementData = body.placement;
+
+                if (!env.CF_API_TOKEN || !env.CF_ACCOUNT_ID || !env.CF_WORKER_NAME) {
+                    return new Response(JSON.stringify({ success: false, msg: '后台变量未配置全！请检查 CF_API_TOKEN, CF_ACCOUNT_ID, CF_WORKER_NAME' }), { headers: { 'Content-Type': 'application/json', 'Access-Control-Allow-Origin': '*' }});
+                }
+
+                const formData = new FormData();
+                formData.append('settings', new Blob([JSON.stringify({ placement: placementData })], { type: 'application/json' }));
+
+                const cfUrl = `https://api.cloudflare.com/client/v4/accounts/${env.CF_ACCOUNT_ID}/workers/scripts/${env.CF_WORKER_NAME}/settings`;
+                const cfRes = await fetch(cfUrl, {
+                    method: 'PATCH',
+                    headers: { 'Authorization': `Bearer ${env.CF_API_TOKEN}` },
+                    body: formData
+                });
+
+                const cfData = await cfRes.json();
+                if (cfData.success) {
+                    return new Response(JSON.stringify({ success: true, msg: '部署区域修改成功！' }), { headers: { 'Content-Type': 'application/json', 'Access-Control-Allow-Origin': '*' }});
+                } else {
+                    return new Response(JSON.stringify({ success: false, msg: 'CF报错: ' + (cfData.errors[0]?.message || '未知错误') }), { headers: { 'Content-Type': 'application/json', 'Access-Control-Allow-Origin': '*' }});
+                }
+            } catch(e) {
+                return new Response(JSON.stringify({ success: false, msg: e.message }), { headers: { 'Content-Type': 'application/json', 'Access-Control-Allow-Origin': '*' }});
+            }
+        }
+
+        if (url.pathname === '/api/me' && request.method === 'GET') {
+            return Response.json({ success: true, role: ROLE });
+        }
+
+        if (url.pathname === '/api/account' && request.method === 'POST') {
+            if (ROLE !== 'admin') return new Response('Forbidden', { status: 403 });
+            try {
+                const data = await request.json();
+                if (data.proxyToken !== undefined) {
+                    const pt = data.proxyToken;
+                    const enabled = !!pt.enabled;
+                    const key = String(pt.key || '').trim();
+                    if (enabled && !/^[A-Za-z0-9]{3,32}$/.test(key)) return Response.json({ success: false, error: '密钥需 3-32 位字母数字' });
+                    if (!env.DB) return Response.json({ success: false, error: 'D1 未绑定：请在 Worker 设置里绑定名为 DB 的 D1 数据库' });
+                    await env.DB.prepare('CREATE TABLE IF NOT EXISTS app_config (key TEXT PRIMARY KEY, value TEXT)').run();
+                    await env.DB.prepare('INSERT OR REPLACE INTO app_config (key, value) VALUES (?, ?)').bind('proxy_token', JSON.stringify({ enabled, key })).run();
+                    return Response.json({ success: true });
+                }
+                const pw = String(data.password || '').trim();
+                if (pw.length < 4) return Response.json({ success: false, error: '密码至少 4 位' });
+                await env.DB.prepare('CREATE TABLE IF NOT EXISTS app_config (key TEXT PRIMARY KEY, value TEXT)').run();
+                await env.DB.prepare('INSERT OR REPLACE INTO app_config (key, value) VALUES (?, ?)').bind('admin_pass', pw).run();
+                return Response.json({ success: true });
+            } catch (e) {
+                return Response.json({ success: false, error: e.message });
+            }
+        }
+
+        // 反代 Token 状态（登录可见；未登录 401）
+        if (url.pathname === '/api/proxytoken' && request.method === 'GET') {
+            const pt = await getProxyToken(env);
+            return Response.json({ success: true, enabled: !!(pt && pt.enabled && pt.key), key: (pt && pt.enabled && pt.key) ? pt.key : '' });
+        }
+        // 来访记录 IP（仅管理员）
+        if (url.pathname === '/api/proxytoken/hits' && request.method === 'GET') {
+            if (ROLE !== 'admin') return new Response('Forbidden', { status: 403 });
+            try {
+                await env.DB.prepare('CREATE TABLE IF NOT EXISTS proxy_hits (id INTEGER PRIMARY KEY AUTOINCREMENT, ip TEXT, path TEXT, ua TEXT, ts INTEGER, times INTEGER)').run();
+                const { results } = await env.DB.prepare('SELECT ip, path, ua, ts, times FROM proxy_hits ORDER BY id DESC LIMIT 200').all();
+                return Response.json({ success: true, hits: results });
+            } catch (e) { return Response.json({ success: true, hits: [] }); }
+        }
+        if (url.pathname === '/api/proxytoken/hits' && request.method === 'POST') {
+            if (ROLE !== 'admin') return new Response('Forbidden', { status: 403 });
+            try {
+                const data = await request.json();
+                if (data && data.clear) {
+                    await env.DB.prepare('CREATE TABLE IF NOT EXISTS proxy_hits (id INTEGER PRIMARY KEY AUTOINCREMENT, ip TEXT, path TEXT, ua TEXT, ts INTEGER, times INTEGER)').run();
+                    await env.DB.prepare('DELETE FROM proxy_hits').run();
+                }
+                return Response.json({ success: true });
+            } catch (e) { return Response.json({ success: false, error: e.message }); }
+        }
+
+        if (url.pathname === '/api/subscribers' && request.method === 'GET') {
+            if (ROLE !== 'admin') return new Response('Forbidden', { status: 403 });
+            try {
+                await env.DB.prepare('CREATE TABLE IF NOT EXISTS app_config (key TEXT PRIMARY KEY, value TEXT)').run();
+                const row = await env.DB.prepare('SELECT value FROM app_config WHERE key = ?').bind('subscribers').first();
+                const list = row && row.value ? JSON.parse(row.value) : [];
+                return Response.json({ success: true, subscribers: Array.isArray(list) ? list : [] });
+            } catch (e) {
+                return Response.json({ success: false, error: e.message, subscribers: [] });
+            }
+        }
+
+        if (url.pathname === '/api/subscribers' && request.method === 'POST') {
+            if (ROLE !== 'admin') return new Response('Forbidden', { status: 403 });
+            try {
+                const data = await request.json();
+                const action = data.action;
+                const pw = String(data.password || '').trim();
+                if (!pw || pw.length < 4) return Response.json({ success: false, error: '密码至少 4 位' });
+                await env.DB.prepare('CREATE TABLE IF NOT EXISTS app_config (key TEXT PRIMARY KEY, value TEXT)').run();
+                const row = await env.DB.prepare('SELECT value FROM app_config WHERE key = ?').bind('subscribers').first();
+                let list = row && row.value ? JSON.parse(row.value) : [];
+                if (!Array.isArray(list)) list = [];
+                if (action === 'add') {
+                    if (list.includes(pw)) return Response.json({ success: false, error: '该密码已存在' });
+                    list.push(pw);
+                } else if (action === 'del') {
+                    list = list.filter(p => p !== pw);
+                } else {
+                    return Response.json({ success: false, error: '未知操作' });
+                }
+                await env.DB.prepare('INSERT OR REPLACE INTO app_config (key, value) VALUES (?, ?)').bind('subscribers', JSON.stringify(list)).run();
+                return Response.json({ success: true, subscribers: list });
+            } catch (e) {
+                return Response.json({ success: false, error: e.message });
+            }
+        }
+
+        // ==========================================
+        // 2.3 数据大屏统计接口 (Analytics)
+        // ==========================================
+        if (url.pathname === '/api/analytics' && request.method === 'GET') {
+            if (!env.DB) return Response.json({ success: false, error: '未绑定 D1 数据库' });
+            try {
+                // 并发获取 24小时、7天、30天流量 (通过全新 GraphQL API 规避限制)
+                const [trafficToday, traffic7d, traffic30d] = await Promise.all([
+                    getCFTraffic(env, 'today'),
+                    getCFTraffic(env, 7),
+                    getCFTraffic(env, 30)
+                ]);
+
+                const trend = await env.DB.prepare(`SELECT date(timestamp, '+8 hours') as date, COUNT(*) as count FROM visitor_logs WHERE timestamp >= datetime('now', '-7 days') GROUP BY date(timestamp, '+8 hours') ORDER BY date ASC`).all();
+                const locations = await env.DB.prepare(`SELECT country, COUNT(*) as count FROM visitor_logs WHERE timestamp >= datetime('now', '-7 days') GROUP BY country ORDER BY count DESC`).all();
+                const recents = await env.DB.prepare(`SELECT prefix, datetime(timestamp, '+8 hours') as timestamp, ip, country, ua FROM visitor_logs ORDER BY timestamp DESC LIMIT 20`).all();
+                
+                return Response.json({ 
+                    success: true, 
+                    trend: trend.results, 
+                    locations: locations.results, 
+                    recents: recents.results, 
+                    trafficToday, traffic7d, traffic30d 
+                });
+            } catch(e) {
+                return Response.json({ success: false, error: e.message });
+            }
+        }
+
+        // ==========================================
+        //  后端接口：执行代码覆盖更新 (纯JSON接口无损继承：变量、数据库、兼容性、放置地区)
+        // ==========================================
+        if (url.pathname === '/api/deploy' && request.method === 'POST') {
+if (ROLE !== 'admin') return new Response('Forbidden', { status: 403 });
+                        const cfToken = env.CF_API_TOKEN;
+            const accountId = env.CF_ACCOUNT_ID;
+            const workerName = env.CF_WORKER_NAME;
+            if (!cfToken || !accountId || !workerName) {
+                return Response.json({ success: false, error: '缺少 CF_API_TOKEN, CF_ACCOUNT_ID 或 CF_WORKER_NAME 环境变量' });
+            }
+            try {
+                const body = await request.json();
+                if (!body.newCode) return Response.json({ success: false, error: '代码内容为空。' });
+
+                // 1.  终极修复：调用纯 JSON 的 services 接口获取真实配置，绝对不再崩溃！
+                const serviceRes = await fetch(`https://api.cloudflare.com/client/v4/accounts/${accountId}/workers/services/${workerName}`, {
+                    headers: { 'Authorization': `Bearer ${cfToken}` }
+                });
+                const serviceData = await serviceRes.json();
+                
+                let compDate = "2024-01-01"; // 依然保留兜底，但这次绝不会用到
+                let compFlags = undefined;
+                let placement = undefined;
+
+                if (serviceData.success && serviceData.result) {
+                    // 精准从 JSON 中提取你原本的配置
+                    let scriptInfo = null;
+                    if (serviceData.result.default_environment && serviceData.result.default_environment.script) {
+                        scriptInfo = serviceData.result.default_environment.script;
+                    } else if (serviceData.result.script) {
+                        scriptInfo = serviceData.result.script;
+                    }
+                    
+                    if (scriptInfo) {
+                        if (scriptInfo.compatibility_date) compDate = scriptInfo.compatibility_date;
+                        if (scriptInfo.compatibility_flags) compFlags = scriptInfo.compatibility_flags;
+                        if (scriptInfo.placement) placement = scriptInfo.placement;
+                    }
+                }
+
+                const preservedBindings = [];
+                // 2. 备份普通的字符串变量
+                for (const key in env) {
+                    if (typeof env[key] === 'string') {
+                        preservedBindings.push({ name: key, type: 'plain_text', text: env[key] });
+                    }
+                }
+
+                // 3. 拉取 D1、KV 等高级绑定并无损合并
+                const bindingsRes = await fetch(`https://api.cloudflare.com/client/v4/accounts/${accountId}/workers/scripts/${workerName}/bindings`, {
+                    headers: { 'Authorization': `Bearer ${cfToken}` }
+                });
+                const bindingsData = await bindingsRes.json();
+                if (bindingsData.success && Array.isArray(bindingsData.result)) {
+                    for (const b of bindingsData.result) {
+                        if (b.type !== 'plain_text' && b.type !== 'secret_text' && b.type !== 'inherited') {
+                            preservedBindings.push(b);
+                        }
+                    }
+                }
+
+                // 4. 组装最终的部署请求
+                const formData = new FormData();
+                const metadata = { 
+                    main_module: 'worker.js',
+                    bindings: preservedBindings,
+                    compatibility_date: compDate 
+                };
+                if (compFlags) metadata.compatibility_flags = compFlags;
+                if (placement) metadata.placement = placement; // ${I.target} 完美带上你原始的放置地区！
+
+                formData.append('metadata', new Blob([JSON.stringify(metadata)], { type: 'application/json' }), 'metadata.json');
+                formData.append('worker.js', new Blob([body.newCode], { type: 'application/javascript+module' }), 'worker.js');
+
+                const cfUrl = `https://api.cloudflare.com/client/v4/accounts/${accountId}/workers/scripts/${workerName}`;
+                const res = await fetch(cfUrl, {
+                    method: 'PUT',
+                    headers: { 'Authorization': `Bearer ${cfToken}` },
+                    body: formData
+                });
+                const data = await res.json();
+                if (data.success) {
+                    return Response.json({ success: true, msg: '代码更新成功，并已完美保留原有放置地区和兼容配置！' });
+                } else {
+                    throw new Error(JSON.stringify(data.errors));
+                }
+            } catch (e) {
+                return Response.json({ success: false, error: e.message });
+            }
+        }
+        // ==========================================
+        // 2.4 系统级与提取工具 API 
+        // ==========================================
+        if (url.pathname === '/api/purge-cache' && request.method === 'POST') {
+if (ROLE !== 'admin') return new Response('Forbidden', { status: 403 });
+                        const cfToken = env.CF_API_TOKEN; const zoneId = env.CF_ZONE_ID;
+            if (!cfToken || !zoneId) return Response.json({ success: false, error: '缺少 CF_API_TOKEN 或 CF_ZONE_ID 变量' });
+            try {
+                const res = await fetch(`https://api.cloudflare.com/client/v4/zones/${zoneId}/purge_cache`, { method: 'POST', headers: { 'Authorization': `Bearer ${cfToken}`, 'Content-Type': 'application/json' }, body: JSON.stringify({ purge_everything: true }) });
+                const data = await res.json();
+                if (!data.success) throw new Error(JSON.stringify(data.errors));
+                return Response.json({ success: true });
+            } catch (e) { return Response.json({ success: false, error: e.message }); }
+        }
+
+        if (url.pathname === '/api/ping-node') {
+            if (ROLE !== 'admin') return new Response('Forbidden', { status: 403 });
+            const target = url.searchParams.get('url');
+            if (!target) return Response.json({ ms: -1 });
+            const start = Date.now();
+            try {
+                const controller = new AbortController(); const timeoutId = setTimeout(() => controller.abort(), 2000); 
+                await fetch(target + '/', { method: 'HEAD', signal: controller.signal });
+                clearTimeout(timeoutId); return Response.json({ ms: Date.now() - start });
+            } catch (e) { return Response.json({ ms: -1 }); }
+        }
+
+        if (url.pathname === '/api/get-dns') {
+            const cfToken = env.CF_API_TOKEN; const zoneId = env.CF_ZONE_ID; const domain = env.CF_DOMAIN;
+            if (!cfToken || !zoneId || !domain) return Response.json({ success: false, error: '缺少 DNS 环境变量' });
+            try {
+                const getRes = await fetch(`https://api.cloudflare.com/client/v4/zones/${zoneId}/dns_records?name=${domain}`, { headers: { 'Authorization': `Bearer ${cfToken}` } });
+                const getData = await getRes.json();
+                return Response.json({ success: true, result: getData.result });
+            } catch (error) { return Response.json({ success: false, error: error.message }); }
+        }
+
+        if (url.pathname === '/api/update-dns' && request.method === 'POST') {
+if (ROLE !== 'admin') return new Response('Forbidden', { status: 403 });
+                        const body = await request.json(); const ips = body.ips;
+            const cfToken = env.CF_API_TOKEN; const zoneId = env.CF_ZONE_ID; const domain = env.CF_DOMAIN;
+
+            if (!cfToken || !zoneId || !domain) return Response.json({ success: false, error: '缺少 DNS 环境变量' });
+            try {
+                const getRes = await fetch(`https://api.cloudflare.com/client/v4/zones/${zoneId}/dns_records?name=${domain}`, { headers: { 'Authorization': `Bearer ${cfToken}` } });
+                const getData = await getRes.json();
+                if (!getData.success) throw new Error('获取现有 DNS 记录失败');
+
+                const oldRecords = getData.result.filter(r => r.type === 'A' || r.type === 'AAAA' || r.type === 'CNAME');
+                for (const record of oldRecords) {
+                    await fetch(`https://api.cloudflare.com/client/v4/zones/${zoneId}/dns_records/${record.id}`, { method: 'DELETE', headers: { 'Authorization': `Bearer ${cfToken}` } });
+                }
+
+                for (const ip of ips) {
+                    const cleanItem = ip.replace(/[\[\]]/g, ''); let recordType = 'A';
+                    if (cleanItem.includes(':')) recordType = 'AAAA'; else if (/[a-zA-Z]/.test(cleanItem)) recordType = 'CNAME';
+
+                    const postRes = await fetch(`https://api.cloudflare.com/client/v4/zones/${zoneId}/dns_records`, { method: 'POST', headers: { 'Authorization': `Bearer ${cfToken}`, 'Content-Type': 'application/json' }, body: JSON.stringify({ type: recordType, name: domain, content: cleanItem, ttl: 60, proxied: false }) });
+                    const postData = await postRes.json();
+                    if(!postData.success) throw new Error(`记录提交失败: ` + JSON.stringify(postData.errors));
+                }
+                return Response.json({ success: true, message: `${I.check} 成功！` });
+            } catch (error) { return Response.json({ success: false, error: error.message }); }
+        }
+
+        if (url.pathname === '/api/get-custom-api-ips') {
+            try {
+                const apiUrl = url.searchParams.get('url');
+                if (!apiUrl) throw new Error("缺少 URL");
+                const response = await fetch(apiUrl, { headers: { 'User-Agent': 'Mozilla/5.0' } });
+                const text = await response.text(); let validIPs = new Set();
+                try {
+                    const jsonObj = JSON.parse(text);
+                    if (jsonObj && jsonObj.data && Array.isArray(jsonObj.data)) {
+                        jsonObj.data.forEach(item => { if (item.ip) { let ip = item.ip; if (ip.includes(':') && !ip.startsWith('[')) ip = `[${ip}]`; validIPs.add(ip); } });
+                    }
+                } catch (e) {}
+
+                if (validIPs.size === 0) {
+                    const ipv4Regex = /\b(?:(?:25[0-5]|2[0-4]\d|[01]?\d\d?)\.){3}(?:25[0-5]|2[0-4]\d|[01]?\d\d?)\b/g;
+                    const matchedIPv4 = text.match(ipv4Regex) || [];
+                    matchedIPv4.forEach(ip => { if (!ip.startsWith('10.') && !ip.startsWith('192.168.') && !ip.startsWith('127.')) validIPs.add(ip); });
+
+                    const ipv6Regex = /(?:[A-F0-9]{1,4}:){7}[A-F0-9]{1,4}|(?:[A-F0-9]{1,4}:)*:[A-F0-9]{1,4}(?::[A-F0-9]{1,4})*/gi;
+                    const matchedIPv6 = text.match(ipv6Regex) || [];
+                    matchedIPv6.forEach(ip => { if (ip.length > 7 && ip.includes(':') && !ip.startsWith('::1')) validIPs.add(ip.startsWith('[') ? ip : `[${ip}]`); });
+                }
+                const uniqueIPArray = Array.from(validIPs);
+                for (let i = uniqueIPArray.length - 1; i > 0; i--) { const j = Math.floor(Math.random() * (i + 1)); [uniqueIPArray[i], uniqueIPArray[j]] = [uniqueIPArray[j], uniqueIPArray[i]]; }
+                return Response.json({ success: true, ips: uniqueIPArray.slice(0, 15), totalCount: uniqueIPArray.length });
+            } catch (error) { return Response.json({ success: false, error: error.message }, { status: 500 }); }
+        }
+
+        if (url.pathname === '/api/get-remote-ips') {
+            try {
+                const reqType = (url.searchParams.get('type') || 'all').toLowerCase();
+                const validIPs = new Set();
+
+                if (['all', '电信', '联通', '移动', '多线', 'ipv6'].includes(reqType)) {
+                    try {
+                        const res1 = await fetch('https://api.uouin.com/cloudflare.html', { headers: { 'User-Agent': 'Mozilla/5.0' } });
+                        if(res1.ok) {
+                            const text1 = await res1.text(); const cleanText = text1.replace(/<[^>]+>/g, ' ');
+                            const regex = /(电信|联通|移动|多线|ipv6)\s+((?:(?:25[0-5]|2[0-4]\d|[01]?\d\d?)\.){3}(?:25[0-5]|2[0-4]\d|[01]?\d\d?)|(?:[a-fA-F0-9]{1,4}:)+[a-fA-F0-9]{1,4})/gi;
+                            let match; while ((match = regex.exec(cleanText)) !== null) {
+                                const lineType = match[1].toLowerCase(); let ip = match[2];
+                                if (ip.includes(':') && !ip.startsWith('[')) ip = `[${ip}]`;
+                                if (reqType === 'all' || reqType === lineType) validIPs.add(ip);
+                            }
+                        }
+                    } catch(e) {}
+                }
+
+                if (['all', '优选'].includes(reqType)) {
+                    try {
+                        const res2 = await fetch('https://raw.githubusercontent.com/ZhiXuanWang/cf-speed-dns/refs/heads/main/ipTop10.html', { headers: { 'User-Agent': 'Mozilla/5.0' } });
+                        if(res2.ok) {
+                            const text2 = await res2.text(); const ipv4Regex = /\b(?:(?:25[0-5]|2[0-4]\d|[01]?\d\d?)\.){3}(?:25[0-5]|2[0-4]\d|[01]?\d\d?)\b/g;
+                            const matched = text2.match(ipv4Regex) || []; matched.forEach(ip => { if (!ip.startsWith('10.') && !ip.startsWith('192.168.') && !ip.startsWith('127.')) validIPs.add(ip); });
+                        }
+                    } catch(e) {}
+                }
+                const uniqueIPArray = Array.from(validIPs);
+                for (let i = uniqueIPArray.length - 1; i > 0; i--) { const j = Math.floor(Math.random() * (i + 1)); [uniqueIPArray[i], uniqueIPArray[j]] = [uniqueIPArray[j], uniqueIPArray[i]]; }
+                return Response.json({ success: true, ips: uniqueIPArray.slice(0, 10), totalCount: uniqueIPArray.length });
+            } catch (error) { return Response.json({ success: false, error: error.message }, { status: 500 }); }
+        }
+
+        // ==========================================
+        // 2.5 数据库路由管理 API 
+        // ==========================================
+        if (url.pathname === '/api/routes/reorder' && request.method === 'POST') {
+if (ROLE !== 'admin') return new Response('Forbidden', { status: 403 });
+                        if (!env.DB) return Response.json({ success: false, error: "未绑定 DB" });
+            try {
+                const items = await request.json(); 
+                const stmts = items.map(item => env.DB.prepare('UPDATE routes SET sort_order = ? WHERE prefix = ?').bind(item.sort_order, item.prefix));
+                await env.DB.batch(stmts);
+                return Response.json({ success: true });
+            } catch (e) { return Response.json({ success: false, error: e.message }); }
+        }
+
+        if (url.pathname === '/api/routes/import' && request.method === 'POST') {
+if (ROLE !== 'admin') return new Response('Forbidden', { status: 403 });
+                        if (!env.DB) return Response.json({ success: false, error: "未绑定 DB" });
+            try {
+                const routes = await request.json();
+                for (const r of routes) {
+                    if (r.prefix && r.target) {
+                        await env.DB.prepare('INSERT OR REPLACE INTO routes (prefix, target, mode, remark, last_play, icon, custom_params, cache_img, sort_order, watch_limit) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)')
+                            .bind(r.prefix, r.target, r.mode || 'off', r.remark || '', r.last_play || '', r.icon || '', r.custom_params || '', r.cache_img || 'on', r.sort_order || 0, r.watch_limit || '0').run();
+                    }
+                }
+                return Response.json({ success: true });
+            } catch (e) { return Response.json({ success: false, error: e.message }); }
+        }
+
+        // ==========================================
+        //  自动保活：手动执行（节点级，管理员）
+        // ==========================================
+        if (url.pathname === '/api/keepalive/status' && request.method === 'GET') {
+            if (!env.DB) return Response.json({ running: false });
+            try {
+                const row = await env.DB.prepare('SELECT value FROM app_config WHERE key = ?').bind('ka_live').first();
+                if (row && row.value) return Response.json(JSON.parse(row.value));
+                return Response.json({ running: false });
+            } catch (e) { return Response.json({ running: false }); }
+        }
+
+        if (url.pathname === '/api/keepalive/notices' && request.method === 'GET') {
+            if (ROLE !== 'admin') return new Response('Forbidden', { status: 403 });
+            let list = [];
+            try {
+                const row = await env.DB.prepare("SELECT value FROM app_config WHERE key = 'ka_notices'").first();
+                if (row && row.value) list = JSON.parse(row.value);
+            } catch (e) {}
+            return Response.json({ notices: (list || []).slice(0, 20) });
+        }
+
+        if (url.pathname === '/api/keepalive/run' && request.method === 'POST') {
+            if (ROLE !== 'admin') return new Response('Forbidden', { status: 403 });
+            if (!env.DB) return Response.json({ success: false, error: '未绑定 D1 数据库' });
+            try {
+                const body = await request.json();
+                const prefix = String((body && body.prefix) || '').trim();
+                if (!prefix) return Response.json({ success: false, error: '缺少节点前缀' });
+                const route = await env.DB.prepare('SELECT * FROM routes WHERE prefix = ?').bind(prefix).first();
+                if (!route) return Response.json({ success: false, error: '节点不存在' });
+                await env.DB.prepare('INSERT OR REPLACE INTO app_config (key, value) VALUES (?, ?)')
+                    .bind('ka_live', JSON.stringify({ running: true, prefix: prefix, current: '初始化保活任务…', steps: [], progress: 3, mediaTitle: '', updatedAt: Date.now() })).run();
+                const result = await runKeepAlive(env, route);
+                await env.DB.prepare('UPDATE routes SET last_ka_run = ?, last_ka_result = ?, last_ka_detail = ? WHERE prefix = ?')
+                    .bind(new Date().toISOString(), result.ok ? 'success' : 'fail', result.msg || '', prefix).run();
+                await pushKaNotice(env, prefix, result.ok, result.msg, route.remark);
+                await env.DB.prepare('INSERT OR REPLACE INTO app_config (key, value) VALUES (?, ?)')
+                    .bind('ka_live', JSON.stringify({ running: false, prefix: prefix, current: '', steps: result.steps || [], msg: result.msg || '', progress: 100, mediaTitle: '', updatedAt: Date.now() })).run();
+                return Response.json(result);
+            } catch (e) {
+                return Response.json({ success: false, error: '保活执行异常: ' + e.message });
+            }
+        }
+
+        if (url.pathname.startsWith('/api/routes')) {
+            if (!env.DB) return Response.json({ error: "由于未绑定 D1 数据库，反代功能不可用。" }, { status: 500 });
+
+            await env.DB.exec(`CREATE TABLE IF NOT EXISTS routes (prefix TEXT PRIMARY KEY, target TEXT NOT NULL)`);
+            await env.DB.exec(`CREATE TABLE IF NOT EXISTS request_stats (prefix TEXT, date TEXT, count INTEGER DEFAULT 0, PRIMARY KEY(prefix, date))`);
+            // 大数据记录核心表：访客日志
+            await env.DB.exec(`CREATE TABLE IF NOT EXISTS visitor_logs (id INTEGER PRIMARY KEY AUTOINCREMENT, prefix TEXT, timestamp DATETIME DEFAULT CURRENT_TIMESTAMP, ip TEXT, country TEXT, ua TEXT)`);
+            
+            try { await env.DB.exec(`ALTER TABLE routes ADD COLUMN mode TEXT DEFAULT 'off'`); } catch(e) {}
+            try { await env.DB.exec(`ALTER TABLE routes ADD COLUMN remark TEXT DEFAULT ''`); } catch(e) {}
+            try { await env.DB.exec(`ALTER TABLE routes ADD COLUMN last_play TEXT DEFAULT ''`); } catch(e) {}
+            try { await env.DB.exec(`ALTER TABLE routes ADD COLUMN icon TEXT DEFAULT ''`); } catch(e) {}
+            try { await env.DB.exec(`ALTER TABLE routes ADD COLUMN cache_img TEXT DEFAULT 'on'`); } catch(e) {} 
+            try { await env.DB.exec(`ALTER TABLE routes ADD COLUMN custom_params TEXT DEFAULT ''`); } catch(e) {} 
+            try { await env.DB.exec(`ALTER TABLE routes ADD COLUMN sort_order INTEGER DEFAULT 0`); } catch(e) {} 
+            try { await env.DB.exec(`ALTER TABLE routes ADD COLUMN ka_enabled TEXT DEFAULT '0'`); } catch(e) {}
+            try { await env.DB.exec(`ALTER TABLE routes ADD COLUMN ka_days TEXT DEFAULT '3'`); } catch(e) {}
+            try { await env.DB.exec(`ALTER TABLE routes ADD COLUMN ka_token TEXT DEFAULT ''`); } catch(e) {}
+            try { await env.DB.exec(`ALTER TABLE routes ADD COLUMN node_user TEXT DEFAULT ''`); } catch(e) {}
+            try { await env.DB.exec(`ALTER TABLE routes ADD COLUMN node_pass TEXT DEFAULT ''`); } catch(e) {}
+            try { await env.DB.exec(`ALTER TABLE routes ADD COLUMN last_ka_run TEXT DEFAULT ''`); } catch(e) {}
+            try { await env.DB.exec(`ALTER TABLE routes ADD COLUMN last_ka_result TEXT DEFAULT ''`); } catch(e) {}
+            try { await env.DB.exec(`ALTER TABLE routes ADD COLUMN last_ka_detail TEXT DEFAULT ''`); } catch(e) {}
+            try { await env.DB.exec(`ALTER TABLE routes ADD COLUMN watch_limit TEXT DEFAULT '0'`); } catch(e) {}
+if (request.method !== 'GET' && ROLE !== 'admin') return new Response('Forbidden', { status: 403 });
+            
+            // 数据防爆清理策略：自动清理过去 7 天的精细日志
+            try { await env.DB.exec(`DELETE FROM visitor_logs WHERE timestamp < datetime('now', '-7 days')`); } catch(e) {}
+
+            //  【方案A修复版】：独立并发查流，完美绕过 CF 免费版复杂度限制！
+            if (request.method === 'GET') {
+                const todayStr = new Date(Date.now() + 8 * 3600000).toISOString().split('T')[0];
+                let { results: routes } = await env.DB.prepare(`
+                    SELECT r.*, 
+                    IFNULL(s.count, 0) as todayReqs,
+                    (SELECT SUM(count) FROM request_stats WHERE prefix = r.prefix) as totalReqs
+                    FROM routes r 
+                    LEFT JOIN request_stats s ON r.prefix = s.prefix AND s.date = ? 
+                    ORDER BY r.sort_order ASC, r.prefix ASC
+                `).bind(todayStr).all();
+
+                if (env.CF_API_TOKEN && env.CF_ZONE_ID && routes && routes.length > 0) {
+                    const end = new Date();
+                    const beijingTime = new Date(end.getTime() + 8 * 3600000);
+                    beijingTime.setUTCHours(0, 0, 0, 0);
+                    const start = new Date(beijingTime.getTime() - 8 * 3600000);
+
+                    // 核心修复：将“一条复杂查询”拆解为 Promise.all 并发单体查询，并且 limit 设为严格的 1
+                    await Promise.all(routes.map(async (r) => {
+                        try {
+                            const graphqlQuery = {
+                                query: `query {
+                                  viewer {
+                                    zones(filter: {zoneTag: "${env.CF_ZONE_ID}"}) {
+                                      httpRequestsAdaptiveGroups(
+                                        limit: 1,
+                                        filter: {
+                                          clientRequestPath_like: "/${r.prefix}%",
+                                          datetime_geq: "${start.toISOString()}",
+                                          datetime_leq: "${end.toISOString()}"
+                                        }
+                                      ) {
+                                        sum { edgeResponseBytes }
+                                      }
+                                    }
+                                  }
+                                }`
+                            };
+
+                            const cfRes = await fetch('https://api.cloudflare.com/client/v4/graphql', {
+                                method: 'POST',
+                                headers: { 'Authorization': `Bearer ${env.CF_API_TOKEN}`, 'Content-Type': 'application/json' },
+                                body: JSON.stringify(graphqlQuery)
+                            });
+                            
+                            const cfData = await cfRes.json();
+                            
+                            // 精准提取该节点跑出的流量字节
+                            const bytes = cfData?.data?.viewer?.zones?.[0]?.httpRequestsAdaptiveGroups?.[0]?.sum?.edgeResponseBytes || 0;
+                            
+                            // 自动格式化换算单位
+                            let formatted = "0 B";
+                            if (bytes >= 1099511627776) formatted = (bytes / 1099511627776).toFixed(2) + " TB";
+                            else if (bytes >= 1073741824) formatted = (bytes / 1073741824).toFixed(2) + " GB";
+                            else if (bytes >= 1048576) formatted = (bytes / 1048576).toFixed(2) + " MB";
+                            else if (bytes >= 1024) formatted = (bytes / 1024).toFixed(2) + " KB";
+                            else if (bytes > 0) formatted = bytes + " B";
+                            
+                            r.todayBandwidth = formatted;
+                        } catch(e) { 
+                            r.todayBandwidth = "获取异常"; 
+                        }
+                    }));
+                }
+                
+                // 订阅者不可见源站链接（target 字段剥离，防止直接调 API 查看源站）
+                if (ROLE === 'sub' && Array.isArray(routes)) {
+                    routes = routes.map(r => { const c = { ...r }; delete c.target; return c; });
+                }
+                return Response.json(routes || []);
+            }
+            
+            if (request.method === 'POST') {
+                const data = await request.json(); let currentSortOrder = 0;
+                if (data.oldPrefix && data.oldPrefix !== data.prefix) {
+                    const oldRow = await env.DB.prepare('SELECT sort_order FROM routes WHERE prefix = ?').bind(data.oldPrefix).first();
+                    if(oldRow) currentSortOrder = oldRow.sort_order;
+                    await env.DB.prepare('DELETE FROM routes WHERE prefix = ?').bind(data.oldPrefix).run();
+                } else {
+                    const oldRow = await env.DB.prepare('SELECT sort_order FROM routes WHERE prefix = ?').bind(data.prefix).first();
+                    if(oldRow) currentSortOrder = oldRow.sort_order;
+                }
+                
+                const custom_params = JSON.stringify({
+                    client: data.customClient || '',
+                    version: data.customVersion || '',
+                    device: data.customDevice || '',
+                    deviceId: data.customDeviceId || genUuid(),
+                    ua: data.customUa || '',
+                    dlTrick: data.dlTrick === '1'
+                });
+
+                await env.DB.prepare('INSERT OR REPLACE INTO routes (prefix, target, mode, remark, icon, custom_params, cache_img, sort_order, ka_enabled, ka_days, ka_token, node_user, node_pass, watch_limit) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)')
+                    .bind(data.prefix, data.target, data.mode || 'off', data.remark || '', data.icon || '', custom_params, data.cache_img || 'on', currentSortOrder, data.kaEnabled || '0', data.kaDays || '3', data.kaToken || '', data.nodeUser || '', data.nodePass || '', data.watchLimit || '0').run();
+                return Response.json({ success: true });
+            }
+            
+            if (request.method === 'DELETE') {
+                const prefix = url.searchParams.get('prefix'); await env.DB.prepare('DELETE FROM routes WHERE prefix = ?').bind(prefix).run(); return Response.json({ success: true });
+            }
+            return new Response("Method not allowed", { status: 405 });
+        }
+
+        // ==========================================
+        // 2.6 核心反代与调度引擎（修播放）
+        // ==========================================
+        let targetUrls = []; let currentMode = 'off'; let enableCache = true; let remainingPath = '';
+        let decodedPath = decodeURIComponent(url.pathname); let matchedPrefix = null; 
+        let proxyOrigin = new URL(request.url).origin;
+        let customParamsObj = {};
+        let dlTrick = false; let dlTrickItemId = '';
+
+        // 反代 Token 门禁：开启后代理路径必须带 /密钥/ 前缀
+        if (!url.pathname.startsWith('/api/') && url.pathname !== '/') {
+            const pt = await getProxyToken(env);
+            if (pt && pt.enabled && pt.key) {
+                const prefixPath = '/' + pt.key + '/';
+                let stripped = null;
+                if (decodedPath === '/' + pt.key) stripped = '/';
+                else if (decodedPath.indexOf(prefixPath) === 0) stripped = decodedPath.slice(prefixPath.length - 1);
+                if (stripped === null) {
+                    await recordProxyHit(env, request, decodedPath);
+                    return Response.redirect(new URL('/catch', proxyOrigin), 302);
+                }
+                decodedPath = stripped;
+            }
+        }
+
+        // 判断哪些请求可以按静态资源处理。
+        // 这里把 Emby/Jellyfin 常见图片目录也纳入判断，是因为 UHD 海报/Backdrop
+        // 不一定总带标准图片后缀；如果只按 .jpg/.webp 等后缀识别，部分图片请求会被当成普通接口，
+        // 后续重定向、缓存和源站防盗链处理策略就可能不匹配，导致高清图加载失败。
+        function isStaticPath(pathname) {
+            return /\.(jpg|jpeg|gif|png|svg|ico|webp|js|css|woff2?|ttf|otf|map|webmanifest|srt|ass|vtt|sub)$/i.test(pathname)
+                || /(\/Images\/|\/Icons\/|\/Branding\/|\/emby\/covers\/|\/img\/)/i.test(pathname);
+        }
+
+        // 判断当前请求是否携带登录态或访问令牌。
+        // 带鉴权信息的图片/API 不能盲目交给 Cloudflare 长缓存，否则不同用户、不同 token
+        // 可能命中同一份缓存，轻则拿到过期图片，重则造成串号风险。UHD 图片经常带 api_key
+        // 或 X-Emby-Token，这里专门识别出来，让这类请求继续按源站实时响应处理。
+        function hasAuthLikeState(headers, targetUrl) {
+            const authQueryKeys = ['api_key', 'x-emby-token', 'x-mediabrowser-token', 'access_token', 'token'];
+            const hasAuthQuery = Array.from(targetUrl.searchParams.keys()).some(key => authQueryKeys.includes(key.toLowerCase()));
+            return headers.has("Authorization")
+                || headers.has("X-Emby-Token")
+                || headers.has("X-MediaBrowser-Token")
+                || headers.has("X-Emby-Authorization")
+                || headers.has("Cookie")
+                || hasAuthQuery;
+        }
+
+        function stripPanelCookie(headers) {
+            const cookie = headers.get("Cookie");
+            if (!cookie) return;
+            const keptCookies = cookie.split(";").map(item => item.trim()).filter(item => item && !item.toLowerCase().startsWith("admin_token="));
+            if (keptCookies.length > 0) headers.set("Cookie", keptCookies.join("; "));
+            else headers.delete("Cookie");
+        }
+
+        function rewriteSetCookieForProxy(headers) {
+            const getSetCookie = headers.getSetCookie ? headers.getSetCookie.bind(headers) : null;
+            const rawSetCookie = headers.get("Set-Cookie");
+            const cookies = getSetCookie ? getSetCookie() : (rawSetCookie ? rawSetCookie.split(/,(?=\s*[^;,]+=)/g) : []);
+            if (cookies.length === 0) return;
+            headers.delete("Set-Cookie");
+            for (const cookie of cookies) headers.append("Set-Cookie", cookie.replace(/;\s*Domain=[^;]*/ig, ""));
+        }
+
+        // 收集所有源站 origin，并同时加入 http/https 的互换版本。
+        // 实际返回的 JSON 里可能混用 http 与 https，例如线路配置是 https，
+        // 但 Emby 返回的图片地址仍是 http。两个 origin 都纳入重写范围，
+        // 才能避免 UHD 图片直连源站而绕过当前 Worker 代理。
+        function getTargetOrigins(targets) {
+            const origins = [];
+            for (const target of targets) {
+                try {
+                    const parsed = new URL(target);
+                    const origin = parsed.origin;
+                    const alternateOrigin = (parsed.protocol === 'https:' ? 'http:' : 'https:') + '//' + parsed.host;
+                    if (!origins.includes(origin)) origins.push(origin);
+                    if (!origins.includes(alternateOrigin)) origins.push(alternateOrigin);
+                } catch (e) {}
+            }
+            return origins;
+        }
+
+        // 把源站返回的图片/媒体 URL 改写成当前 Worker 代理 URL。
+        // 修复 UHD 图片加载失败的核心原因在这里：部分接口返回的是绝对源站地址，
+        // 浏览器会直接去访问源站，导致跨域、鉴权、源站不可达或被防盗链拦截。
+        // 改写后所有图片请求都会重新经过 Worker，由 Worker 带着正确 header 转发到源站。
+        function rewriteSourceUrlString(value, targetOrigins, proxyOrigin, safePrefix) {
+            let rewritten = value;
+            const proxyPrefix = proxyOrigin + safePrefix + '/';
+            for (const origin of targetOrigins) {
+                let result = '';
+                let cursor = 0;
+                let index = rewritten.indexOf(origin);
+                while (index !== -1) {
+                    // 避免重复代理：如果地址已经是 Worker 前缀 + 源站 URL，
+                    // 再追加一次会变成 /proxy/https://worker/proxy/http://origin 这类坏地址。
+                    const alreadyProxied = rewritten.substring(Math.max(0, index - proxyPrefix.length), index) === proxyPrefix;
+                    result += rewritten.substring(cursor, index);
+                    result += alreadyProxied ? origin : proxyPrefix + origin;
+                    cursor = index + origin.length;
+                    index = rewritten.indexOf(origin, cursor);
+                }
+                if (cursor > 0) {
+                    result += rewritten.substring(cursor);
+                    rewritten = result;
+                }
+            }
+            // 部分 UHD 图片接口返回相对路径，例如 /Items/{id}/Images/Primary。
+            // 这类地址没有 origin，前面的绝对 URL 替换匹配不到，所以需要单独补上
+            // Worker origin 和当前线路前缀，保证浏览器不会请求到面板根路径或错误节点。
+            const relativeImagePattern = /(^|["'\s(])((?:\/img\/|\/emby\/Items\/[^"'\s)]+\/Images\/|\/Items\/[^"'\s)]+\/Images\/)[^"'\s)]*)/ig;
+            rewritten = rewritten.replace(relativeImagePattern, (match, prefix, path) => {
+                if (safePrefix && path.startsWith(safePrefix + '/')) return match;
+                return prefix + proxyOrigin + safePrefix + path;
+            });
+            return rewritten;
+        }
+
+        // 递归处理 JSON 里的所有字符串字段。
+        // UHD 图片地址不固定出现在某一个字段，可能藏在 ImageTags、BackdropImageTags、
+        // Artwork、ProviderIds 或插件返回的嵌套对象里；只改顶层字段会漏掉一部分高清图。
+        function rewriteSourceUrlsInJson(value, targetOrigins, proxyOrigin, safePrefix) {
+            if (typeof value === 'string') return rewriteSourceUrlString(value, targetOrigins, proxyOrigin, safePrefix);
+            if (Array.isArray(value)) {
+                let changed = false;
+                const next = value.map(item => {
+                    const rewritten = rewriteSourceUrlsInJson(item, targetOrigins, proxyOrigin, safePrefix);
+                    if (rewritten !== item) changed = true;
+                    return rewritten;
+                });
+                return changed ? next : value;
+            }
+            if (value && typeof value === 'object') {
+                let changed = false;
+                const next = {};
+                for (const key of Object.keys(value)) {
+                    const rewritten = rewriteSourceUrlsInJson(value[key], targetOrigins, proxyOrigin, safePrefix);
+                    if (rewritten !== value[key]) changed = true;
+                    next[key] = rewritten;
+                }
+                return changed ? next : value;
+            }
+            return value;
+        }
+
+        // 响应体被重写后必须移除这些和原始 body 强绑定的头。
+        // 如果继续保留旧的 Content-Length/Content-Encoding/ETag，浏览器或中间缓存可能按旧长度、
+        // 旧压缩格式校验新内容，表现为 JSON 截断、解压失败或缓存了未改写的图片 URL。
+        function dropBodyIntegrityHeaders(headers) {
+            headers.delete("Content-Length");
+            headers.delete("Content-Encoding");
+            headers.delete("ETag");
+        }
+
+        // 只有发现源站 URL 或典型图片相对路径时才解析并重写 JSON。
+        // 这样可以避免每个普通 JSON 响应都做深度遍历，降低 Worker 开销；
+        // 同时也确保包含 UHD 图片地址的响应不会被漏过。
+        function hasJsonRewriteCandidate(text, targetOrigins) {
+            return targetOrigins.some(origin => text.includes(origin))
+                || /(^|["'\s(])(?:\/img\/|\/emby\/Items\/[^"'\s)]+\/Images\/|\/Items\/[^"'\s)]+\/Images\/)/i.test(text);
+        }
+
+        function rewriteRedirectLocation(location, targetUrl, targetOrigins, proxyOrigin, safePrefix) {
+            if (!location) return location;
+            if (location.startsWith('//')) {
+                try {
+                    const protocol = targetUrl ? targetUrl.protocol : new URL(targetOrigins[0]).protocol;
+                    location = protocol + location;
+                } catch (e) {}
+            }
+            if (location.startsWith('/')) {
+                if (safePrefix && location.startsWith(safePrefix + '/')) return proxyOrigin + location;
+                if (!safePrefix && targetUrl) return `${proxyOrigin}/${encodeURIComponent(new URL(location, targetUrl.origin).href)}`;
+                return proxyOrigin + safePrefix + location;
+            }
+            try {
+                const parsed = new URL(location);
+                if (targetOrigins.includes(parsed.origin)) {
+                    if (!safePrefix) return `${proxyOrigin}/${encodeURIComponent(location)}`;
+                    return proxyOrigin + safePrefix + parsed.pathname + parsed.search + parsed.hash;
+                }
+            } catch (e) {}
+            if (/^https?:\/\//i.test(location)) return `${proxyOrigin}${safePrefix}/${encodeURIComponent(location)}`;
+            return location;
+        }
+
+        // 判断当前请求路径是否像 Emby / Jellyfin 体系的 API 或静态资源路径。
+        // 这一步是给 UHD / HUD 这类“服务真实挂在 /emby 子路径下，但线路里只填了裸域名”的场景兜底用的。
+        // 例如客户端请求 /uhd/Items/{id}/PlaybackInfo，当前脚本会先转发到源站的 /Items/{id}/PlaybackInfo。
+        // 如果 HUD 实际服务入口是 /emby/Items/{id}/PlaybackInfo，那么源站通常会直接回 404。
+        //
+        // 普通 Emby 有两种常见部署方式：
+        // 1. 根路径部署，API 就在 /Items /Videos /Sessions 下
+        // 2. 子路径部署，API 在 /emby/Items /emby/Videos /emby/Sessions 下
+        //
+        // 之前脚本完全依赖面板里手动把 target 写成带 /emby 的完整地址；
+        // 只要这一步没填对，普通首页可能还能打开，但播放相关接口会在拿 PlaybackInfo 时 404。
+        // 这里加的是“只在像 Emby API 的路径上才启用”的保守识别，避免把其他完全无关的网站路径误补成 /emby。
+        function isLikelyMediaServerPath(pathname) {
+            return /^\/(?:Items|Videos|Audio|Sessions|Users|System|Library|LiveTv|Shows|Movies|Artists|Albums|Playlists|Channels|Packages|Devices|Socket|socket|web|emby|Images|Branding|Environment|DisplayPreferences|Trailers|Collections|Genres|Persons|Studios|Years)(?:\/|$)/i.test(pathname);
+        }
+
+        // 为单个 target 生成候选上游 URL。
+        // 第一候选始终保持原行为，完全按“target + remainingPath”拼接。
+        // 第二/第三候选只在以下条件满足时追加：
+        // - 线路 target 本身没有子路径（说明面板里大概率填的是裸域名）
+        // - 当前请求像 Emby API/资源路径
+        //
+        // 这里同时兼容两类常见偏差：
+        // 1. 实际服务挂在 /emby 下，但客户端请求的是 /Items /Videos ...
+        //    -> 自动补成 /emby/Items /emby/Videos
+        // 2. 实际服务挂在根路径，但客户端自己固定补了 /emby/Items /emby/Videos
+        //    -> 自动再试一次去掉 /emby 前缀后的 /Items /Videos
+        //
+        // 这样普通 Emby 和 HUD/UHD Emby 都可以在同一节点内完成“加 /emby”或“去 /emby”的双向回退，
+        // 避免某些客户端因为固定拼接 /emby 而只在部分服务器上失效。
+        function buildUpstreamCandidates(targetBase, remainingPath, search) {
+            const candidates = [];
+            const pushUnique = (value) => {
+                if (value && !candidates.includes(value)) candidates.push(value);
+            };
+
+            const primary = targetBase + remainingPath + search;
+            pushUnique(primary);
+
+            try {
+                const parsed = new URL(targetBase);
+                const basePath = (parsed.pathname || '/').replace(/\/+$/, '') || '/';
+                const requestPath = remainingPath || '/';
+
+                // 只有当 target 本身没有配置任何子路径时，才尝试 /emby 回退。
+                // 如果用户已经明确把线路写成了 https://host/emby，再补一次会变成 /emby/emby/...，
+                // 这反而会把原本正确的请求打坏，所以这里必须先判断 basePath 是根路径。
+                const hasNoBasePath = (basePath === '/');
+                const requestAlreadyHasEmbyPrefix = /^\/emby(?:\/|$)/i.test(requestPath);
+
+                if (hasNoBasePath && !requestAlreadyHasEmbyPrefix && isLikelyMediaServerPath(requestPath)) {
+                    pushUnique(`${parsed.origin}/emby${requestPath}${search}`);
+                }
+
+                // 反向回退：
+                // 某些客户端会固定把媒体/接口地址补成 /emby/...，但普通 Emby 真实入口其实在根路径。
+                // 例如 PlaybackInfo 被客户端请求成 /emby/videos/...，源站根路径部署时会 404，
+                // 这时自动再试一次去掉 /emby 前缀后的 /videos/...。
+                if (hasNoBasePath && requestAlreadyHasEmbyPrefix && isLikelyMediaServerPath(requestPath)) {
+                    const strippedRequestPath = requestPath.replace(/^\/emby(?=\/|$)/i, '') || '/';
+                    pushUnique(`${parsed.origin}${strippedRequestPath}${search}`);
+                }
+
+                // 兼容“绝对 URL 透传”场景。
+                // 你这次抓到的请求已经不是 /uhd/Items/...，而是：
+                // /uhd/https://v1.uhdnow.com/Items/{id}/PlaybackInfo?... 
+                //
+                // 这说明客户端拿到的 PlaybackInfo 返回里已经是一个绝对地址，
+                // Worker 也确实按“绝对 URL 反代”逻辑在工作；但问题是这个绝对地址本身少了 /emby，
+                // 所以当前逻辑会老老实实去请求：
+                // https://v1.uhdnow.com/Items/{id}/PlaybackInfo
+                // 然后被源站 nginx 回 404。
+                //
+                // 这里额外补一个候选：
+                // 如果 targetBase 自己已经是完整绝对 URL，且它的 pathname 看起来像 Emby API，
+                // 但 pathname 又不是以 /emby 开头，那么自动再试一次：
+                // https://host/emby + pathname
+                //
+                // 这样不管请求来自“线路前缀模式”还是“绝对 URL 透传模式”，
+                // 只要真实上游挂在 /emby 子路径下，都能在同一节点内完成回退。
+                const targetAlreadyHasEmbyPrefix = /^\/emby(?:\/|$)/i.test(parsed.pathname || '/');
+                if (!targetAlreadyHasEmbyPrefix && isLikelyMediaServerPath(parsed.pathname || '/')) {
+                    const passthroughSearch = parsed.search || search;
+                    pushUnique(`${parsed.origin}/emby${parsed.pathname}${passthroughSearch}${parsed.hash || ''}`);
+                }
+
+                // 对“绝对 URL 透传”同样做一次反向 /emby 去除回退。
+                // 这样如果客户端缓存/拼接出来的是 https://host/emby/videos/...，
+                // 而真实普通 Emby 在根路径 /videos/...，当前节点内也能自动修复。
+                //
+                // 注意这里仍然是“补一个低优先级候选”，不会抢在原始 /emby 路径前面。
+                // 所以 UHD/HUD 如果真实就是 /emby 子路径部署，主候选仍然会先命中；
+                // 只有主候选失败后，才会尝试去掉 /emby，避免把原本正常的 UHD 路径扰乱。
+                if (targetAlreadyHasEmbyPrefix && isLikelyMediaServerPath(parsed.pathname || '/')) {
+                    const passthroughSearch = parsed.search || search;
+                    const strippedPathname = (parsed.pathname || '/').replace(/^\/emby(?=\/|$)/i, '') || '/';
+                    pushUnique(`${parsed.origin}${strippedPathname}${passthroughSearch}${parsed.hash || ''}`);
+                }
+            } catch (e) {}
+
+            return candidates;
+        }
+
+        // 把 PlaybackInfo 里的媒体地址统一规范成“Worker 前缀下的根路径相对地址”。
+        //
+        // 这里不再按某个客户端做特判，而是尽量保留 Emby 原生字段的共同语义：
+        // - 很多客户端期望拿到的是 path，而不是完整绝对 URL
+        // - 但如果 path 里不带当前线路前缀，客户端一旦直接请求 /videos 或 /emby/videos，
+        //   就会绕过 /{prefix}/... 这条代理路由，导致播放失败
+        //
+        // 因此统一输出为：
+        // /{prefix} + 源站原始 path
+        //
+        // 例如：
+        // - 源站是 /videos/...       -> /{prefix}/videos/...
+        // - 源站是 /emby/videos/... -> /{prefix}/emby/videos/...
+        //
+        // 这里特意保留“源站原始 path”而不是强行统一成某一种固定格式，
+        // 是因为你这次抓到的普通 Emby 和 UHD/HUD PlaybackInfo 都表明：
+        // - API 请求常常走 /emby/Items/... /emby/Sessions/...
+        // - 真正媒体直链 DirectStreamUrl 常常却是 /videos/...
+        //
+        // 也就是说，/emby 更像是 API 基路径，而 /videos 才是媒体流路径；
+        // 如果在这里想当然地把媒体地址补成 /emby/videos/...，反而会把原本正确的普通 Emby 直链改坏。
+        //
+        // 这样可以同时兼容三类常见用法：
+        // 1. 直接把字段当请求地址使用：会命中当前线路
+        // 2. 浏览器按 root-relative 解析：仍然会命中当前线路
+        // 3. 客户端拿到 path 后再自行拼 serverUrl：如果拼出了重复 prefix，
+        //    后面的 normalizeRemainingPathForPlayback 会在入口做一次轻量修正
+        function toWorkerPlaybackPath(pathname, search = '', hash = '', safePrefix = '') {
+            const normalizedPath = pathname.startsWith('/') ? pathname : `/${pathname}`;
+            return `${safePrefix}${normalizedPath}${search || ''}${hash || ''}`;
+        }
+
+        function rewritePlaybackMediaUrl(rawValue, targetUrl, proxyOrigin, safePrefix, targetOrigins) {
+            if (typeof rawValue !== 'string') return rawValue;
+            const trimmedValue = rawValue.trim();
+            if (!trimmedValue) return rawValue;
+
+            // 如果字段已经被改成当前 Worker 前缀下的路径，直接复用，避免重复叠加 prefix。
+            if (safePrefix && trimmedValue.startsWith(safePrefix + '/')) return rawValue;
+
+            // 某些客户端会缓存上一次的 PlaybackInfo，拿到的是完整 Worker 绝对地址。
+            // 这里把它还原成 root-relative，继续保持“字段值是 path”的通用语义。
+            if (safePrefix && trimmedValue.startsWith(proxyOrigin + safePrefix + '/')) {
+                return trimmedValue.substring(proxyOrigin.length);
+            }
+
+            // 对绝对地址分两类处理：
+            // 1. 同源绝对地址：保留源站原始 path，只在前面补 /{prefix}
+            // 2. 跨源绝对地址：保留成 Worker 的“绝对 URL 透传代理”形式
+            //
+            // HUD / FWD 一类自研服务有时会在 PlaybackInfo 中返回完整绝对媒体地址，
+            // 甚至媒体 host 与 API host 不同。这里如果只保留 pathname，会把真正的媒体源 host 丢掉，
+            // 最终表现为 PlaybackInfo 成功、实际拉流失败。
+            //
+            // 因此跨源绝对地址必须继续走：
+            // /{prefix}/https://real-media-host/...
+            //
+            // 这样 Worker 仍然能带着现有 header/回退逻辑去请求真实媒体地址，
+            // 同时也不会把 HUD 明确依赖的 /emby 子路径语义抹掉。
+            if (/^https?:\/\//i.test(trimmedValue)) {
+                try {
+                    const parsed = new URL(trimmedValue);
+                    if (Array.isArray(targetOrigins) && !targetOrigins.includes(parsed.origin)) {
+                        return `${proxyOrigin}${safePrefix}/${trimmedValue}`;
+                    }
+                    return toWorkerPlaybackPath(parsed.pathname, parsed.search, parsed.hash, safePrefix);
+                } catch (e) {
+                    return rawValue;
+                }
+            }
+
+            if (trimmedValue.startsWith('//')) {
+                try {
+                    const parsed = new URL(targetUrl.protocol + trimmedValue);
+                    if (Array.isArray(targetOrigins) && !targetOrigins.includes(parsed.origin)) {
+                        return `${proxyOrigin}${safePrefix}/${parsed.href}`;
+                    }
+                    return toWorkerPlaybackPath(parsed.pathname, parsed.search, parsed.hash, safePrefix);
+                } catch (e) {
+                    return rawValue;
+                }
+            }
+
+            if (trimmedValue.startsWith('/')) return toWorkerPlaybackPath(trimmedValue, '', '', safePrefix);
+
+            try {
+                const resolved = new URL(trimmedValue, targetUrl.origin + '/');
+                return toWorkerPlaybackPath(resolved.pathname, resolved.search, resolved.hash, safePrefix);
+            } catch (e) {
+                return rawValue;
+            }
+        }
+
+        // 一些客户端会在拿到 PlaybackInfo 后自己再拼一次 serverUrl。
+        // 如果我们返回的是 /{prefix}/videos/... 或 /{prefix}/emby/videos/...，
+        // 某些客户端再自己拼一次 serverUrl 后，有时会拼出：
+        // - /{prefix}/{prefix}/videos/...
+        // - /{prefix}/emby/{prefix}/videos/...
+        //
+        // 这些其实都还是同一条线路，只是多叠了一层 prefix。
+        // 这里在真正选路前做一次 O(1) 字符串归一化，把常见重复前缀修回标准路径，
+        // 这样既不依赖某个特定客户端，也避免为此引入额外存储或更重的会话跟踪。
+        function normalizeRemainingPathForPlayback(remainingPath, matchedPrefix) {
+            if (!remainingPath || !matchedPrefix) return remainingPath;
+
+            const prefixPath = `/${matchedPrefix}`;
+            const embyDuplicatedPrefix = `/emby${prefixPath}`;
+
+            if (remainingPath === prefixPath || remainingPath.startsWith(prefixPath + '/')) {
+                const stripped = remainingPath.substring(prefixPath.length);
+                return stripped || '/';
+            }
+
+            if (remainingPath === embyDuplicatedPrefix || remainingPath.startsWith(embyDuplicatedPrefix + '/')) {
+                const stripped = remainingPath.substring(embyDuplicatedPrefix.length);
+                // 这里兼容两种客户端二次拼接结果：
+                // 1. /emby/{prefix}/videos/...      -> 还原成 /emby/videos/...
+                // 2. /emby/{prefix}/emby/videos/... -> 还原成 /emby/videos/...
+                //
+                // 第二种常见于“API 习惯性固定补 /emby 的客户端”：
+                // PlaybackInfo 已经返回 /{prefix}/emby/videos/...，
+                // 客户端又按自己的固定规则补了一层 /emby，最终会多出 /emby/{prefix}/emby/...。
+                // 如果这里无脑再拼一次 /emby，会变成 /emby/emby/videos/...，反而把原本可修复的请求打坏。
+                if (!stripped || stripped === '/') return '/emby/';
+                if (/^\/emby(?:\/|$)/i.test(stripped)) return stripped;
+                return `/emby${stripped}`;
+            }
+
+            return remainingPath;
+        }
+
+        if (decodedPath.startsWith('/http://') || decodedPath.startsWith('/https://')) {
+            targetUrls = [decodedPath.substring(1)]; remainingPath = '';
+        } else {
+            const pathParts = decodedPath.split('/'); const prefix = pathParts[1]; 
+            if (!prefix) return new Response(`Not Found`, { status: 404 });
+
+            try {
+                if (!env.DB) return new Response(`404: Node not found (DB not bound)`, { status: 404 });
+                const stmt = env.DB.prepare(`SELECT target, mode, cache_img, custom_params FROM routes WHERE prefix = ?`);
+                const route = await stmt.bind(prefix).first();
+                if (!route) return new Response(`404: Node not found`, { status: 404 });
+
+                currentMode = route.mode || 'off'; enableCache = (route.cache_img !== 'off');
+                matchedPrefix = prefix; remainingPath = '/' + pathParts.slice(2).join('/');
+                remainingPath = normalizeRemainingPathForPlayback(remainingPath, matchedPrefix);
+                targetUrls = route.target.split(',').map(s => s.trim()).filter(Boolean);
+
+                if (route.custom_params) {
+                    try { customParamsObj = JSON.parse(route.custom_params); } catch(e) {}
+                }
+                dlTrick = !!(customParamsObj && customParamsObj.dlTrick);
+                // 下载伪装：把播放器的下载请求（/Items/{id}/Download）改写为同文件直接流请求
+                // （/Videos/{id}/stream?static=true），拿到完整文件，绕过服务端"禁下载"权限限制
+                // （Emby 流接口不校验 EnableContentDownloading，只要播放权限即可）
+                if (dlTrick && /\/Items\/[^/]+\/Download\/?$/i.test(remainingPath)) {
+                    const idm = remainingPath.match(/\/Items\/([^/]+)\/Download\/?$/i);
+                    if (idm) {
+                        dlTrickItemId = idm[1];
+                        // 保留原有前缀（/emby/Items/…/Download → /emby/Videos/…/stream），与 VPS 版一致
+                        remainingPath = remainingPath.replace(/\/Items\/[^/]+\/Download\/?$/i, () => '/Videos/' + encodeURIComponent(idm[1]) + '/stream');
+                        if (!url.searchParams.has('static')) url.searchParams.set('static', 'true');
+                    }
+                }
+                
+                if (remainingPath.startsWith('/http://') || remainingPath.startsWith('/https://')) { targetUrls = [remainingPath.substring(1)]; remainingPath = ''; }
+            } catch (e) { return new Response("DB Error: " + e.message, { status: 500 }); }
+        }
+
+        if (targetUrls.length === 0) return new Response("404: Target empty", { status: 404 });
+
+        // ==========================================
+        // 2.7 真实观看判定（EmbyBOSS 思路改良：不数 PlaybackInfo，改判播放会话心跳链）
+        //   PlaybackInfo（详情页/预加载/点开就会触发）不再计入观看，消除虚高；
+        //   仅「播放开始」与「非暂停的播放进度心跳」才算真实在播 → 更新最近观看时间；
+        //   同一播放会话只计一次有效播放次数（会话级去重，防心跳风暴刷次数）。
+        // ==========================================
+        const isPlayStart = url.pathname.endsWith('/Sessions/Playing');
+        const isPlayProgress = url.pathname.indexOf('/Sessions/Playing/Progress') !== -1;
+
+        if ((isPlayStart || isPlayProgress) && matchedPrefix && env.DB && ctx && ctx.waitUntil) {
+            ctx.waitUntil((async () => {
+                try {
+                    let paused = false, sessionId = '';
+                    try {
+                        const txt = await request.clone().text();
+                        const j = JSON.parse(txt);
+                        paused = !!j.IsPaused;
+                        sessionId = String(j.PlaySessionId || '');
+                    } catch (e) {}
+                    // 暂停心跳不算观看（用户正暂停）；继续播放心跳才算
+                    if (paused) return;
+                    const todayStr = new Date(Date.now() + 8 * 3600000).toISOString().split('T')[0];
+                    const nowTime = new Date(Date.now() + 8 * 3600000).toISOString().replace('T', ' ').split('.')[0];
+
+                    const stmts = [ env.DB.prepare(`UPDATE routes SET last_play = ? WHERE prefix = ?`).bind(nowTime, matchedPrefix) ];
+
+                    if (sessionId) {
+                        const key = 'watch_sessions';
+                        const row = await env.DB.prepare("SELECT value FROM app_config WHERE key = ?").bind(key).first();
+                        let seen = [];
+                        try { if (row && row.value) seen = JSON.parse(row.value); } catch (e) {}
+                        if (!seen.includes(sessionId)) {
+                            seen.unshift(sessionId);
+                            if (seen.length > 500) seen.length = 500;
+                            stmts.push(env.DB.prepare(`INSERT INTO request_stats (prefix, date, count) VALUES (?, ?, 1) ON CONFLICT(prefix, date) DO UPDATE SET count = count + 1`).bind(matchedPrefix, todayStr));
+                            const clientIp = request.headers.get("cf-connecting-ip") || request.headers.get("x-real-ip") || "Unknown";
+                            const clientCountry = request.headers.get("cf-ipcountry") || "Unknown";
+                            const clientUa = request.headers.get("User-Agent") || "Unknown";
+                            stmts.push(env.DB.prepare(`INSERT INTO visitor_logs (prefix, ip, country, ua) VALUES (?, ?, ?, ?)`).bind(matchedPrefix, clientIp, clientCountry, clientUa));
+                            stmts.push(env.DB.prepare('INSERT OR REPLACE INTO app_config (key, value) VALUES (?, ?)').bind(key, JSON.stringify(seen)));
+                        }
+                    }
+                    await env.DB.batch(stmts);
+                } catch (e) {}
+            })());
+        }
+
+        // ==========================================
+        // 2.8 源站反代引擎 (含强力防 403 + 深度伪装 UA 引擎)
+        // ==========================================
+        const isFakeMode = currentMode.includes('fake') || currentMode === 'custom';
+        const isStrictMode = currentMode.includes('strict');
+        const baseIpMode = currentMode.replace('_fake', '').replace('custom', 'dual').replace('strict', 'off'); 
+
+        let bodyBuffer = null;
+        const canHaveRequestBody = request.method !== 'GET' && request.method !== 'HEAD';
+        const needsReplayableBody = canHaveRequestBody && (
+            targetUrls.length > 1
+            || targetUrls.some(target => buildUpstreamCandidates(target, remainingPath, url.search).length > 1)
+            || isFakeMode
+        );
+
+        if (needsReplayableBody) {
+            // 这里只在“请求体会被重复使用”时才预读成 ArrayBuffer。
+            //
+            // 触发条件有两类：
+            // 1. 多节点 failover：同一个 POST 可能发往多个 target
+            // 2. 同节点候选回退：例如 /Items/... 失败后，再试 /emby/Items/...
+            //
+            // 这两种情况都会二次消费 request.body；不先缓存就会出现：
+            // "This ReadableStream is disturbed (has already been read from)"
+            //
+            // 但如果本次请求只会发起一次上游 fetch，就继续保留原本的流式透传，
+            // 尽量减少我这次修复对现有面板和普通反代行为的影响范围。
+            bodyBuffer = await request.clone().arrayBuffer();
+
+            // 伪装模式：针对前端返回的 JSON body 深度替换身份信息 (四层防护)
+            if (isFakeMode && bodyBuffer.byteLength > 0 && bodyBuffer.byteLength < 1024 * 100) {
+                const contentType = request.headers.get("content-type") || "";
+                if (contentType.toLowerCase().includes("application/json")) {
+                    try {
+                        let bodyText = new TextDecoder().decode(bodyBuffer);
+                        if (customParamsObj.client) bodyText = bodyText.replace(/("Client(Name)?"\s*:\s*")[^"]+(")/ig, `$1${customParamsObj.client}$3`);
+                        if (customParamsObj.version) bodyText = bodyText.replace(/("Version"\s*:\s*")[^"]+(")/ig, `$1${customParamsObj.version}$2`);
+                        if (customParamsObj.device) bodyText = bodyText.replace(/("Device(Name)?"\s*:\s*")[^"]+(")/ig, `$1${customParamsObj.device}$3`);
+                        
+                        const newBuffer = new TextEncoder().encode(bodyText).buffer;
+                        if (newBuffer.byteLength !== bodyBuffer.byteLength || bodyText.includes(customParamsObj.client)) {
+                            bodyBuffer = newBuffer;
+                        }
+                    } catch(e) {}
+                }
+            }
+        }
+
+        let finalResponse = null; let lastError = null; let targetOrigins = getTargetOrigins(targetUrls); let finalTargetUrl = null;
+
+        for (let i = 0; i < targetUrls.length; i++) {
+            const candidateUrls = buildUpstreamCandidates(targetUrls[i], remainingPath, url.search);
+
+            for (let j = 0; j < candidateUrls.length; j++) {
+                const targetUrlStr = candidateUrls[j];
+                const targetUrl = new URL(targetUrlStr);
+                const newHeaders = new Headers(request.headers); newHeaders.set("Host", targetUrl.host);
+                stripPanelCookie(newHeaders);
+
+                const realIp = request.headers.get("cf-connecting-ip") || request.headers.get("x-real-ip") || (request.headers.get("x-forwarded-for") || "").split(',')[0].trim();
+                newHeaders.delete("cf-connecting-ip"); newHeaders.delete("cf-ipcountry"); newHeaders.delete("cf-ray");
+                newHeaders.delete("cf-visitor"); newHeaders.delete("x-forwarded-for"); newHeaders.delete("x-real-ip");
+
+                if (isStrictMode) {
+                    newHeaders.delete("X-Forwarded-Proto"); newHeaders.delete("X-Forwarded-Host");
+                } else {
+                    newHeaders.set("X-Forwarded-Proto", url.protocol.replace(':', ''));
+                    newHeaders.set("X-Forwarded-Host", url.host);
+                }
+
+                if (baseIpMode === 'realip_only' && realIp) { newHeaders.set("X-Real-IP", realIp); } 
+                else if ((baseIpMode === 'dual' || isStrictMode) && realIp) { newHeaders.set("X-Real-IP", realIp); newHeaders.set("X-Forwarded-For", realIp); }
+
+                if (isStrictMode) {
+                    newHeaders.set("Origin", targetUrl.origin); newHeaders.set("Referer", targetUrl.origin + "/");
+                } else {
+                    const origin = newHeaders.get("Origin");
+                    if (origin && origin === url.origin) newHeaders.set("Origin", targetUrl.origin);
+                    const referer = newHeaders.get("Referer");
+                    if (referer && referer.startsWith(url.origin)) newHeaders.set("Referer", referer.replace(url.origin, targetUrl.origin));
+                }
+
+                if (isFakeMode) {
+                    // 深度伪装引擎：执行请求头与授权头部伪装（字段缺失用内置 SenPlayer 模板兜底，开启伪装就不泄露任何真实身份）
+                    const fClient = customParamsObj.client || 'SenPlayer';
+                    const fVersion = customParamsObj.version || '6.0.0';
+                    const fDevice = customParamsObj.device || 'iPhone';
+                    const fDeviceId = customParamsObj.deviceId || 'emby-keepalive';
+                    const fUa = customParamsObj.ua || 'SenPlayer/6.0.0';
+                    newHeaders.set("User-Agent", fUa);
+                    
+                    ['X-Emby-Authorization', 'Authorization'].forEach(headerName => {
+                        let authHeader = newHeaders.get(headerName);
+                        if (authHeader) {
+                            if (fClient) authHeader = authHeader.replace(/(Client\s*=\s*)(?:"[^"]*"|'[^']*'|[^,\s]+)/ig, `$1"${escQuote(fClient)}"`);
+                            if (fVersion) authHeader = authHeader.replace(/(Version\s*=\s*)(?:"[^"]*"|'[^']*'|[^,\s]+)/ig, `$1"${escQuote(fVersion)}"`);
+                            if (fDevice) authHeader = authHeader.replace(/(Device\s*=\s*)(?:"[^"]*"|'[^']*'|[^,\s]+)/ig, `$1"${escQuote(fDevice)}"`);
+                            if (fDeviceId) authHeader = authHeader.replace(/(DeviceId\s*=\s*)(?:"[^"]*"|'[^']*'|[^,\s]+)/ig, `$1"${escQuote(fDeviceId)}"`);
+                            newHeaders.set(headerName, authHeader);
+                        }
+                    });
+
+                    // 无条件补全 4 个标准 Emby 身份头（客户端没发也新建，防上游识别缺头/真实身份）
+                    const paramsToReplace = { 'x-emby-client': fClient, 'x-emby-client-version': fVersion, 'x-emby-device-name': fDevice, 'x-emby-device-id': fDeviceId };
+                    for (const key of Object.keys(paramsToReplace)) {
+                        if (paramsToReplace[key]) newHeaders.set(key, paramsToReplace[key]);
+                    }
+                    const currentParams = Array.from(targetUrl.searchParams.keys());
+                    currentParams.forEach(key => {
+                        const lowerKey = key.toLowerCase();
+                        if (paramsToReplace[lowerKey]) targetUrl.searchParams.set(key, paramsToReplace[lowerKey]);
+                    });
+                }
+
+                const isStaticOrImage = isStaticPath(targetUrl.pathname);
+                const authLikeState = hasAuthLikeState(newHeaders, targetUrl);
+
+                let fetchInit = { method: request.method, headers: newHeaders, redirect: isStaticOrImage ? 'follow' : 'manual' };
+
+                // 只缓存不带鉴权态的静态资源。
+                // 之前 UHD 图片加载异常时，容易把所有图片都当成可缓存资源处理；
+                // 但 Emby 的高清图请求常常带 token/api_key，缓存这类响应可能拿到过期或错误权限的内容。
+                // 因此这里保留静态资源加速，但显式排除带鉴权态的请求。
+                if (isStaticOrImage && enableCache && !authLikeState) { fetchInit.cf = { cacheEverything: true, cacheTtl: 86400 }; }
+
+                if (canHaveRequestBody) {
+                    if (bodyBuffer !== null) {
+                        // 只有在需要重试/切线时才使用可复用的二进制 body。
+                        fetchInit.body = bodyBuffer;
+                    } else {
+                        // 单次请求仍然按旧逻辑直接透传原始流，避免扩大兼容性风险。
+                        fetchInit.body = request.body;
+                        fetchInit.duplex = 'half';
+                    }
+                }
+
+                try {
+                    const modifiedRequest = new Request(targetUrl, fetchInit); const response = await fetch(modifiedRequest);
+
+                    // 这里特意允许“同一 target 的下一候选”继续尝试。
+                    // 也就是说：如果裸路径 /Items/... 回了 404，而 /emby/Items/... 是可用的，
+                    // 就不要立刻把这条线路判死，而是优先在当前线路内部完成一次 /emby 回退重试。
+                    if ((response.status === 404 || response.status === 502 || response.status === 503 || response.status === 504) && j < candidateUrls.length - 1) {
+                        lastError = new Error(`Node ${i+1} candidate ${j+1} returned HTTP ${response.status}`);
+                        continue;
+                    }
+
+                    if (response.status === 502 || response.status === 503 || response.status === 504) {
+                        lastError = new Error(`Node ${i+1} returned HTTP ${response.status}`);
+                        continue;
+                    }
+
+                    finalResponse = response; finalTargetUrl = targetUrl; break;
+                } catch (err) {
+                    lastError = err; continue;
+                }
+            }
+
+            if (finalResponse) break;
+        }
+
+        if (!finalResponse) return new Response("Worker Proxy Failover Exhausted. All nodes failed. Last Error: " + (lastError?.message || 'Unknown Error'), { status: 502 });
+
+        const responseHeaders = new Headers(finalResponse.headers);
+        rewriteSetCookieForProxy(responseHeaders);
+        const ptObj = await getProxyToken(env);
+        const safePrefix = matchedPrefix ? `/${proxyTokenPrefix(ptObj)}${matchedPrefix}` : '';
+
+        // 下载伪装伴随观看（CF 版）：命中改写后的下载流时，包装响应流，
+        // 读取间隙驱动心跳、流结束/断开自动上报结束并清除播放记录
+        if (dlTrickItemId && finalResponse.status === 200 && finalResponse.body) {
+            const dlWatch = spawnDlTrickWatchCF(finalTargetUrl, request, dlTrickItemId, url.search);
+            if (dlWatch) {
+                finalResponse = new Response(wrapStreamWithWatch(finalResponse.body, dlWatch, ctx), {
+                    status: finalResponse.status, statusText: finalResponse.statusText, headers: responseHeaders
+                });
+            }
+        }
+
+        // ==========================================
+        //  修复版 302 拦截：恢复 URL 编码
+        // ==========================================
+        if ([301, 302, 303, 307, 308].includes(finalResponse.status)) {
+            const location = responseHeaders.get('Location');
+            const rewrittenLocation = rewriteRedirectLocation(location, finalTargetUrl, targetOrigins, proxyOrigin, safePrefix);
+            if (rewrittenLocation !== location) {
+                responseHeaders.set('Location', rewrittenLocation);
+            }
+        }
+        
+        responseHeaders.set('Access-Control-Allow-Origin', '*');
+
+        // ==========================================
+        // 2.10 响应体重写 (接管 PlaybackInfo 与 M3U8)
+        // ==========================================
+
+        if (finalResponse.status === 200 && responseHeaders.get("content-type")?.includes("json") && url.pathname.toLowerCase().includes("playbackinfo")) {
+            try {
+                let clonedRes = finalResponse.clone(); 
+                let data = await clonedRes.json(); 
+                let modified = false;
+                if (data && data.MediaSources) {
+                    data.MediaSources.forEach(source => {
+                        // Emby / Jellyfin / HUD 的 PlaybackInfo 字段并不完全一致。
+                        // 原脚本只改写 DirectStreamUrl 和 TranscodingUrl 的绝对地址，
+                        // 这对标准 Emby 基本够用，但 HUD 常见的是：
+                        // - DirectStreamUrl 返回 /emby/videos/...
+                        // - TranscodingUrl 返回 /emby/videos/... 或相对路径
+                        // - 字幕 DeliveryUrl 也可能是相对路径
+                        //
+                        // 所以这里把播放期会实际发起请求的几个关键 URL 字段统一走同一个改写函数，
+                        // 保证所有媒体相关请求都还能带着当前线路前缀回到 Worker。
+                        ['DirectStreamUrl', 'TranscodingUrl', 'Url'].forEach(key => {
+                            const rewritten = rewritePlaybackMediaUrl(source[key], finalTargetUrl, proxyOrigin, safePrefix, targetOrigins);
+                            if (rewritten !== source[key]) {
+                                source[key] = rewritten;
+                                modified = true;
+                            }
+                        });
+
+                        // 字幕流的 DeliveryUrl 也会在播放时被客户端直接请求。
+                        // 如果 HUD 给的是 /emby/videos/... 这种相对地址，而这里不改，
+                        // 主视频即使勉强能播，外挂字幕依然会因为丢失前缀而加载失败。
+                        if (Array.isArray(source.MediaStreams)) {
+                            source.MediaStreams.forEach(stream => {
+                                const rewritten = rewritePlaybackMediaUrl(stream?.DeliveryUrl, finalTargetUrl, proxyOrigin, safePrefix, targetOrigins);
+                                if (rewritten !== stream?.DeliveryUrl) {
+                                    stream.DeliveryUrl = rewritten;
+                                    modified = true;
+                                }
+                            });
+                        }
+                    });
+                }
+                if (modified) { 
+                    dropBodyIntegrityHeaders(responseHeaders);
+                    return new Response(JSON.stringify(data), { status: finalResponse.status, statusText: finalResponse.statusText, headers: responseHeaders }); 
+                }
+            } catch (e) {
+                console.log("PlaybackInfo JSON 重写失败:", e.message);
+            }
+        }
+
+        // 通用 JSON URL 重写。
+        // PlaybackInfo 只覆盖播放地址；UHD 图片失败通常发生在其他 JSON 接口里，
+        // 例如详情页、图片列表或插件接口返回了源站绝对地址/相对图片路径。
+        // 这里先用 hasJsonRewriteCandidate 做轻量筛选，再递归改写，避免漏掉嵌套的高清图字段。
+        if (finalResponse.status === 200 && responseHeaders.get("content-type")?.includes("json")) {
+            try {
+                let clonedRes = finalResponse.clone();
+                let text = await clonedRes.text();
+                // 下载伪装：把返回给播放器的用户权限 JSON 中下载相关字段 false→true，
+                // 让播放器直接显示"下载"按钮（EnableMediaPlayback 等播放强校验字段绝不动，改了反而露馅）
+                let dlModified = false;
+                if (dlTrick) {
+                    const t2 = text.replace(/"(EnableContentDownloading|EnableSyncTranscoding|EnableMediaConversion|CanDownload)"\s*:\s*false/gi, '"$1":true');
+                    dlModified = (t2 !== text);
+                    text = t2;
+                }
+                if (hasJsonRewriteCandidate(text, targetOrigins)) {
+                    let data = JSON.parse(text);
+                    let rewritten = rewriteSourceUrlsInJson(data, targetOrigins, proxyOrigin, safePrefix);
+                    if (rewritten !== data) {
+                        dropBodyIntegrityHeaders(responseHeaders);
+                        return new Response(JSON.stringify(rewritten), { status: finalResponse.status, statusText: finalResponse.statusText, headers: responseHeaders });
+                    }
+                }
+                if (dlModified) {
+                    dropBodyIntegrityHeaders(responseHeaders);
+                    return new Response(text, { status: finalResponse.status, statusText: finalResponse.statusText, headers: responseHeaders });
+                }
+            } catch(e) {
+                console.log("JSON 源站 URL 重写失败:", e.message);
+            }
+        }
+
+        if (finalResponse.status === 200 && url.pathname.toLowerCase().endsWith('.m3u8')) {
+            try {
+                let clonedRes = finalResponse.clone(); 
+                let text = await clonedRes.text();
+                if (text.includes('http://') || text.includes('https://')) {
+                    let modifiedText = text.replace(/(https?:\/\/[^\s]+)/g, proxyOrigin + safePrefix + '/$1');
+                    dropBodyIntegrityHeaders(responseHeaders);
+                    return new Response(modifiedText, { status: finalResponse.status, statusText: finalResponse.statusText, headers: responseHeaders });
+                }
+            } catch(e) {
+                console.log("M3U8 重写失败:", e.message);
+            }
+        }
+
+        // 给最终静态资源响应补缓存头。
+        // 这里仍然用当前访问路径判断是否为图片/静态文件，是为了让已经通过 Worker
+        // 正确代理过来的 UHD 图片可以被浏览器/CDN 正常复用；但真正的 Cloudflare
+        // cacheEverything 已在请求发起前排除了带鉴权态的资源，避免缓存污染。
+        const isStaticRes = isStaticPath(url.pathname);
+        const contentType = responseHeaders.get("content-type") || "";
+        const canCacheStaticRes = isStaticRes
+            && enableCache
+            && finalResponse.status === 200
+            && (
+                contentType.startsWith("image/")
+                || contentType.includes("javascript")
+                || contentType.includes("css")
+                || contentType.includes("font")
+                || contentType.includes("manifest")
+            );
+        if (canCacheStaticRes && !responseHeaders.has("Cache-Control")) {
+            responseHeaders.set('Cache-Control', 'public, max-age=86400'); 
+        }
+
+        return new Response(finalResponse.body, { status: finalResponse.status, statusText: finalResponse.statusText, headers: responseHeaders });
+    } catch (e) {
+        console.error('[proxy]', e);
+        return Response.json({ success: false, error: String((e && e.message) || e) }, { status: 500 });
+    }
+}
+};

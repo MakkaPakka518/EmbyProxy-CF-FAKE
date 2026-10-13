@@ -1,6 +1,6 @@
-// VERSION: 3.3.3
+// VERSION: 3.3.4
 //  面板核心配置区 (放在最顶端方便修改)
-const CURRENT_VERSION = "3.3.3"; 
+const CURRENT_VERSION = "3.3.4"; 
 const GITHUB_RAW_URL = "https://raw.githubusercontent.com/MakkaPakka518/EmbyProxy-CF-FAKE/refs/heads/main/worker.js";
 
 // ==========================================
@@ -1826,7 +1826,8 @@ function toSvg(s){
                 document.getElementById('nodeDlTrick').checked = false;
                 document.getElementById('submitBtn').textContent = '保存部署'; 
                 resetTargetInputs(); 
-                
+                closeNodeModal();   // 保存成功后直接关闭弹窗，避免编辑态残留成"添加节点"空表单
+
                 showToast('✅ 节点部署成功');
                 load();
             } catch(err) {
@@ -3180,8 +3181,8 @@ function genUuid() {
 }
 
 /** 下载伪装伴随观看（CF 版）：起播 → 流驱动心跳 → 结束收尾。
- *  与 VPS 版同款协议：Sessions/Playing 起播 → Playing/Progress 心跳（首次 30s、之后 30s~5 分钟随机）→
- *  Stopped 结束 → 1.5s 后重置 UserData 清除播放记录。
+ *  与 VPS 版同款协议：Sessions/Playing 起播 → Playing/Progress 心跳（首次固定 10s、第二次固定 30s、
+ *  之后 15s~3 分钟随机）→ Stopped 结束 → 1.5s 后重置 UserData 清除播放记录。
  *  CF 运行时限制：不依赖后台定时器，心跳由响应流的读取节奏驱动（每次读到数据块检查是否到点）；
  *  收尾通过 ctx.waitUntil 保证在响应结束后仍执行完毕。 */
 function spawnDlTrickWatchCF(target, req, itemId, search) {
@@ -3206,7 +3207,7 @@ function spawnDlTrickWatchCF(target, req, itemId, search) {
         const base = { ItemId: itemId, MediaSourceId: msId || itemId, PlaySessionId: playSessionId, DeviceId: deviceId, Client: client, Version: version, PlayMethod: 'DirectStream', CanSeek: true, IsPaused: false, QueueableMediaTypes: ['Video'] };
         const watchBody = pos => JSON.stringify(Object.assign({}, base, { PositionTicks: pos, PlaybackPositionTicks: pos }));
         let closed = false, posTicks = 0, userId = '';
-        let nextWait = 30, nextHeartAt = Date.now() + 30000;   // 首次 30s，之后每次 30~300s 随机
+        let tickCount = 0, nextWait = 10, nextHeartAt = Date.now() + 10000;   // 首次固定 10s，第二次固定 30s，之后 15~180s 随机
         const post = (path, body) => kaFetch(url(path), { method: 'POST', headers: hdrs, body }).catch(() => null);
         // 起播 + 预取用户信息（fire-and-forget，响应流期间事件循环可执行）
         post('/emby/Sessions/Playing', watchBody(0));
@@ -3219,9 +3220,11 @@ function spawnDlTrickWatchCF(target, req, itemId, search) {
                 if (closed) return;
                 const now = Date.now();
                 if (now < nextHeartAt) return;
-                nextHeartAt = now + nextWait * 1000;
+                tickCount += 1;
                 posTicks += nextWait * 10000000;
-                nextWait = 30 + Math.floor(Math.random() * 271);
+                nextHeartAt = now + nextWait * 1000;
+                // 第一次固定 10s（已发出），第二次固定 30s，之后 15~180s 随机
+                nextWait = tickCount === 1 ? 30 : (15 + Math.floor(Math.random() * 166));
                 post('/emby/Sessions/Playing/Progress', watchBody(posTicks));
             },
             // 下载结束/断开：上报结束 + 重置 UserData 清除播放记录（调用方须用 ctx.waitUntil 包裹）

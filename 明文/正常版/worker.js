@@ -1,6 +1,6 @@
-// VERSION: 3.3.11
+// VERSION: 3.3.12
 //  面板核心配置区 (放在最顶端方便修改)
-const CURRENT_VERSION = "3.3.11"; 
+const CURRENT_VERSION = "3.3.12"; 
 const GITHUB_RAW_URL = "https://raw.githubusercontent.com/MakkaPakka518/ProxyHub_Emby/refs/heads/main/worker.js";
 
 // ==========================================
@@ -658,6 +658,10 @@ function toSvg(s){
                             <span style="font-size:14px; font-weight:500; color:var(--text-sec); white-space:nowrap;">模拟 IP（可选，抹除真实 IP 只传此 IP）</span>
                             <input type="text" id="nodeFakeIp" placeholder="如 1.2.3.4" style="flex:1; min-width:120px; padding:10px 12px; border:1px solid var(--border); border-radius:8px; background:var(--bg); font-size:14px; color:var(--text);">
                         </div>
+                        <div style="display:flex; align-items:center; gap:8px; flex: 2; min-width: 200px;">
+                            <span style="font-size:14px; font-weight:500; color:var(--text-sec); white-space:nowrap;">观看下限（天）</span>
+                            <input type="number" id="watchLimit" placeholder="如 7 / 14 / 21；0 = 不限制" step="0.1" min="0" style="flex:1; min-width:120px; padding:10px 12px; border:1px solid var(--border); border-radius:8px; background:var(--bg); font-size:14px; color:var(--text);">
+                        </div>
                         <button type="submit" id="submitBtn" class="btn-submit" style="flex: 1; padding: 14px 20px;">保存部署</button>
                     </div>
 
@@ -1212,6 +1216,16 @@ function toSvg(s){
                     
                     const remarkName = r.remark || '未命名媒体库';
                     const lastPlay = r.last_play ? r.last_play : '暂无播放记录';
+                    let watchDaysText = '暂无播放记录', watchOverdue = false;
+                    if (r.last_play) {
+                        try {
+                            const lpUtc = Date.parse(r.last_play.replace(' ', 'T') + 'Z') - 8 * 3600000;
+                            const diffDays = Math.floor((Date.now() - lpUtc) / 86400000);
+                            watchDaysText = diffDays <= 0 ? '今天观看过' : (diffDays + ' 天前观看');
+                            const wl = parseFloat(r.watch_limit);
+                            if (wl > 0 && diffDays > wl) { watchOverdue = true; watchDaysText += ' · 已超 ' + (diffDays - wl) + ' 天'; }
+                        } catch (e) {}
+                    }
                     
                     const iconHtml = r.icon ? \`<img src="\${r.icon}" style="width:28px;height:28px;border-radius:6px;object-fit:cover;">\` : '${I.film}';
                     const pingAttr = mainTarget ? 'onclick="pingTarget(' + idx + ', \\'' + mainTarget + '\\')" title="点击重新测速"' : 'title="订阅模式不可测速"';
@@ -1284,12 +1298,12 @@ function toSvg(s){
                                 </div>
                                 <div class="info-row">
                                     <span class="info-label">最后活跃:</span>
-                                    <span style="color:var(--text-sec);">\${lastPlay}</span>
+                                    <span style="color:\${watchOverdue ? '#ff3b30' : 'var(--text-sec)'}; font-weight:\${watchOverdue ? '700' : 'normal'};">\${watchOverdue ? '${I.warn} ' : ''}\${watchDaysText}</span>
                                 </div>
                             </div>
 
                             <div class="card-footer admin-only">
-                                <button class="btn-edit" onclick="editNode('\${r.prefix}', '\${r.target}', '\${r.mode}', '\${r.remark || ''}', '\${r.icon || ''}', '\${r.cache_img}', '\${r.custom_ip || ''}')">编辑配置</button>
+                                <button class="btn-edit" onclick="editNode('\${r.prefix}', '\${r.target}', '\${r.mode}', '\${r.remark || ''}', '\${r.icon || ''}', '\${r.cache_img}', '\${r.custom_ip || ''}', '\${r.watch_limit || '0'}')">编辑配置</button>
                                 <button class="btn-del" onclick="del('\${r.prefix}')">删除</button>
                             </div>
                         </div>
@@ -1324,13 +1338,14 @@ function toSvg(s){
             }
         }
 
-        function editNode(prefix, targetStr, mode, remark, icon, cacheImg, customIp) {
+        function editNode(prefix, targetStr, mode, remark, icon, cacheImg, customIp, watchLimit) {
             document.getElementById('oldPrefix').value = prefix;
             document.getElementById('remark').value = remark;
             document.getElementById('prefix').value = prefix;
             document.getElementById('mode').value = mode || 'off';
             document.getElementById('nodeCache').checked = (cacheImg !== 'off');
             document.getElementById('nodeFakeIp').value = customIp || '';
+            document.getElementById('watchLimit').value = watchLimit || '0';
             
             if (icon) {
                 const foundItem = globalIcons.find(i => i.url === icon);
@@ -1557,6 +1572,7 @@ function toSvg(s){
             const icon = document.getElementById('iconUrl').value;
             const cache_img = document.getElementById('nodeCache').checked ? 'on' : 'off';
             const fakeIp = document.getElementById('nodeFakeIp').value.trim();
+            const watchLimit = document.getElementById('watchLimit').value.trim() || '0';
 
             const inputs = document.querySelectorAll('.target-input');
             let targetsArray = [];
@@ -1571,7 +1587,7 @@ function toSvg(s){
             try {
                 const res = await fetch('/api/routes', { 
                     method: 'POST', 
-                    body: JSON.stringify({oldPrefix, prefix, target, mode, remark, icon, cache_img, fakeIp})
+                    body: JSON.stringify({oldPrefix, prefix, target, mode, remark, icon, cache_img, fakeIp, watchLimit})
                 });
                 const data = await res.json();
                 if(!data.success) throw new Error(data.error || '部署失败');
@@ -3168,8 +3184,8 @@ if (ROLE !== 'admin') return new Response('Forbidden', { status: 403 });
                 const routes = await request.json();
                 for (const r of routes) {
                     if (r.prefix && r.target) {
-                        await env.DB.prepare('INSERT OR REPLACE INTO routes (prefix, target, mode, remark, last_play, icon, cache_img, sort_order, custom_ip) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)')
-                            .bind(r.prefix, r.target, r.mode || 'off', r.remark || '', r.last_play || '', r.icon || '', r.cache_img || 'on', r.sort_order || 0, r.custom_ip || '').run();
+                        await env.DB.prepare('INSERT OR REPLACE INTO routes (prefix, target, mode, remark, last_play, icon, cache_img, sort_order, custom_ip, watch_limit) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)')
+                            .bind(r.prefix, r.target, r.mode || 'off', r.remark || '', r.last_play || '', r.icon || '', r.cache_img || 'on', r.sort_order || 0, r.custom_ip || '', r.watch_limit || '0').run();
                     }
                 }
                 return Response.json({ success: true });
@@ -3191,6 +3207,7 @@ if (ROLE !== 'admin') return new Response('Forbidden', { status: 403 });
             try { await env.DB.exec(`ALTER TABLE routes ADD COLUMN cache_img TEXT DEFAULT 'on'`); } catch(e) {} 
             try { await env.DB.exec(`ALTER TABLE routes ADD COLUMN sort_order INTEGER DEFAULT 0`); } catch(e) {} 
             try { await env.DB.exec(`ALTER TABLE routes ADD COLUMN custom_ip TEXT DEFAULT ''`); } catch(e) {} 
+            try { await env.DB.exec(`ALTER TABLE routes ADD COLUMN watch_limit TEXT DEFAULT '0'`); } catch(e) {}
 if (request.method !== 'GET' && ROLE !== 'admin') return new Response('Forbidden', { status: 403 });
             
             // 数据防爆清理策略：自动清理过去 7 天的精细日志
@@ -3280,8 +3297,8 @@ if (request.method !== 'GET' && ROLE !== 'admin') return new Response('Forbidden
                     if(oldRow) currentSortOrder = oldRow.sort_order;
                 }
                 
-                await env.DB.prepare('INSERT OR REPLACE INTO routes (prefix, target, mode, remark, icon, cache_img, sort_order, custom_ip) VALUES (?, ?, ?, ?, ?, ?, ?, ?)')
-                    .bind(data.prefix, data.target, data.mode || 'off', data.remark || '', data.icon || '', data.cache_img || 'on', currentSortOrder, data.fakeIp || '').run();
+                await env.DB.prepare('INSERT OR REPLACE INTO routes (prefix, target, mode, remark, icon, cache_img, sort_order, custom_ip, watch_limit) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)')
+                    .bind(data.prefix, data.target, data.mode || 'off', data.remark || '', data.icon || '', data.cache_img || 'on', currentSortOrder, data.fakeIp || '', data.watchLimit || '0').run();
                 return Response.json({ success: true });
             }
             

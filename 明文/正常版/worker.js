@@ -1,7 +1,7 @@
-// VERSION: new
+// VERSION: 3.1.2
 //  面板核心配置区 (放在最顶端方便修改)
-const CURRENT_VERSION = "new"; 
-const GITHUB_RAW_URL = "链接";
+const CURRENT_VERSION = "3.1.2"; 
+const GITHUB_RAW_URL = "https://raw.githubusercontent.com/MakkaPakka518/ProxyHub_Emby/refs/heads/FAKE/worker.js";
 
 // ==========================================
 // 1. 网页界面-单播报版本
@@ -514,7 +514,6 @@ function toSvg(s){
                 </div>
                 <div class="topbar-right">
                     <button class="pill-btn" onclick="openDashboard()" title="数据统计">${I.chart} 统计</button>
-                    <button class="pill-btn" onclick="location.href='/speedtest'" title="下载测速" style="color:#4fd08a;border-color:rgba(79,208,138,.32);background:rgba(79,208,138,.12);">${I.bolt} 下载测速</button>
                     <button class="pill-close" onclick="confirmLogout()" title="退出系统">${I.xmark}</button>
                 </div>
             </div>
@@ -655,7 +654,10 @@ function toSvg(s){
                             <input type="checkbox" id="nodeCache" class="ip-checkbox" checked>
                             开启海报及静态资源缓存
                         </label>
-                        <input type="number" id="watchLimit" placeholder="观看下限（天，如 7 / 14 / 21；0 = 不限制。超过下限未观看会在卡片红色报警）" step="0.1" min="0" style="padding: 12px 16px; border: 1px solid var(--border); border-radius: 10px; background:var(--card); width: 100%;">
+                        <div style="display:flex; align-items:center; gap:8px; flex: 2; min-width: 200px;">
+                            <span style="font-size:14px; font-weight:500; color:var(--text-sec); white-space:nowrap;">模拟 IP（可选，抹除真实 IP 只传此 IP）</span>
+                            <input type="text" id="nodeFakeIp" placeholder="如 1.2.3.4" style="flex:1; min-width:120px; padding:10px 12px; border:1px solid var(--border); border-radius:8px; background:var(--bg); font-size:14px; color:var(--text);">
+                        </div>
                         <button type="submit" id="submitBtn" class="btn-submit" style="flex: 1; padding: 14px 20px;">保存部署</button>
                     </div>
 
@@ -718,6 +720,21 @@ function toSvg(s){
                             <div style="font-size:12px; color:var(--text-sec); margin-bottom:10px;">${I.warn} Worker 变量 ADMIN_TOKEN 为最高权限，永久有效；此处修改的密码仅对网页生效。</div>
                             <input type="password" id="newAdminPass" placeholder="输入新密码 (至少 4 位)" style="width:100%; padding:10px 14px; border:1px solid var(--border); border-radius:8px; background:var(--bg); margin-bottom:10px;">
                             <button class="btn-submit" onclick="saveAdminPass()" style="width:100%;">${I.check} 保存新密码</button>
+                        </div>
+                        <div style="background:rgba(120,120,120,0.05); border:1px solid var(--border); border-radius:10px; padding:14px;">
+                            <div style="font-size:14px; font-weight:600; margin-bottom:10px;">${I.robot} 反代 Token</div>
+                            <div style="font-size:12px; color:var(--text-sec); margin-bottom:10px;">${I.warn} 开启后所有节点链接需带 <b style="color:var(--primary);">/密钥/</b> 前缀才可反代；不带前缀的访问会跳转 /catch 并记录来访 IP（记录存 D1，不占 KV 额度）。</div>
+                            <div style="display:flex; align-items:center; gap:10px; margin-bottom:10px;">
+                                <label style="display:flex; align-items:center; gap:6px; cursor:pointer; font-size:13px; color:var(--text);">
+                                    <input type="checkbox" id="ptOn" style="accent-color:var(--primary); width:16px; height:16px; cursor:pointer;"> 开启
+                                </label>
+                            </div>
+                            <div style="display:flex; gap:8px; margin-bottom:12px;">
+                                <input type="text" id="ptKey" placeholder="自定义密钥（3-32 位字母数字，如 lhazkj）" style="flex:1; padding:10px 14px; border:1px solid var(--border); border-radius:8px; background:var(--bg);">
+                                <button class="btn-submit" onclick="saveProxyToken()" style="white-space:nowrap;">${I.check} 保存</button>
+                            </div>
+                            <div style="font-size:13px; font-weight:600; margin-bottom:8px;">来访记录 IP <span style="font-weight:400; color:var(--text-sec);">（仅管理员）</span></div>
+                            <div id="ptHits" style="font-size:12px; color:var(--text-sec);">加载中…</div>
                         </div>
                         <div style="background:rgba(120,120,120,0.05); border:1px solid var(--border); border-radius:10px; padding:14px;">
                             <div style="font-size:14px; font-weight:600; margin-bottom:10px;">${I.robot} 订阅用户管理</div>
@@ -1165,23 +1182,6 @@ function toSvg(s){
             input.click();
         }
 
-        /* 保号提醒轮询：每 20 秒检查新提醒并弹 toast */
-        let watchNoticeT = 0;
-        async function pollWatchNotices() {
-            try {
-                const res = await fetch('/api/watch-notices');
-                const data = await res.json();
-                if (!data.success || !Array.isArray(data.notices)) return;
-                for (const n of data.notices) {
-                    if (n.time > watchNoticeT) {
-                        watchNoticeT = n.time;
-                        showToast(n.text);
-                    }
-                }
-            } catch (e) {}
-        }
-        setInterval(pollWatchNotices, 20000);
-
         async function load() {
             try {
                 const res = await fetch('/api/routes');
@@ -1203,22 +1203,11 @@ function toSvg(s){
                 const currentHost = window.location.host;
 
                 data.forEach((r, idx) => {
-                    const proxyUrl = 'https://' + currentHost + '/' + r.prefix;
+                    const proxyUrl = entryUrl(r.prefix);
                     const targets = r.target ? r.target.split(',').map(s => s.trim()).filter(Boolean) : [];
                     const mainTarget = targets[0] || '';
                     
                     const remarkName = r.remark || '未命名媒体库';
-                    // 未观看天数（基于改良后的真实观看 last_play；last_play 为 UTC+8 墙上时间字符串）
-                    let watchDaysText = '暂无播放记录', watchOverdue = false;
-                    if (r.last_play) {
-                        try {
-                            const lpUtc = Date.parse(r.last_play.replace(' ', 'T') + 'Z') - 8 * 3600000;
-                            const diffDays = Math.floor((Date.now() - lpUtc) / 86400000);
-                            watchDaysText = diffDays <= 0 ? '今天观看过' : (diffDays + ' 天前观看');
-                            const wl = parseFloat(r.watch_limit);
-                            if (wl > 0 && diffDays > wl) { watchOverdue = true; watchDaysText += ' · 已超 ' + (diffDays - wl) + ' 天'; }
-                        } catch (e) {}
-                    }
                     const lastPlay = r.last_play ? r.last_play : '暂无播放记录';
                     
                     const iconHtml = r.icon ? \`<img src="\${r.icon}" style="width:28px;height:28px;border-radius:6px;object-fit:cover;">\` : '${I.film}';
@@ -1292,12 +1281,12 @@ function toSvg(s){
                                 </div>
                                 <div class="info-row">
                                     <span class="info-label">最后活跃:</span>
-                                    <span style="color:\${watchOverdue ? '#ff3b30' : 'var(--text-sec)'}; font-weight:\${watchOverdue ? '700' : 'normal'};">\${watchOverdue ? I.warn + ' ' : ''}\${watchDaysText}</span>
+                                    <span style="color:var(--text-sec);">\${lastPlay}</span>
                                 </div>
                             </div>
 
                             <div class="card-footer admin-only">
-                                <button class="btn-edit" onclick="editNode('\${r.prefix}', '\${r.target}', '\${r.mode}', '\${r.remark || ''}', '\${r.icon || ''}', '\${r.cache_img}', '\${r.watch_limit || '0'}')">编辑配置</button>
+                                <button class="btn-edit" onclick="editNode('\${r.prefix}', '\${r.target}', '\${r.mode}', '\${r.remark || ''}', '\${r.icon || ''}', '\${r.cache_img}', '\${r.custom_ip || ''}')">编辑配置</button>
                                 <button class="btn-del" onclick="del('\${r.prefix}')">删除</button>
                             </div>
                         </div>
@@ -1332,13 +1321,13 @@ function toSvg(s){
             }
         }
 
-        function editNode(prefix, targetStr, mode, remark, icon, cacheImg, watchLimit) {
+        function editNode(prefix, targetStr, mode, remark, icon, cacheImg, customIp) {
             document.getElementById('oldPrefix').value = prefix;
             document.getElementById('remark').value = remark;
             document.getElementById('prefix').value = prefix;
             document.getElementById('mode').value = mode || 'off';
             document.getElementById('nodeCache').checked = (cacheImg !== 'off');
-            document.getElementById('watchLimit').value = watchLimit || '0';
+            document.getElementById('nodeFakeIp').value = customIp || '';
             
             if (icon) {
                 const foundItem = globalIcons.find(i => i.url === icon);
@@ -1430,10 +1419,66 @@ function toSvg(s){
                 document.getElementById('accountAdminPanel').style.display = 'flex';
                 document.getElementById('accountSubPanel').style.display = 'none';
                 loadSubscribers();
+                loadPtState();
+                loadPtHits();
             }
         }
         function closeAccountModal() {
             document.getElementById('accountModal').style.display = 'none';
+        }
+        let PT = { enabled: false, key: '' };
+        function entryUrl(prefix) {
+            return 'https://' + currentHost + '/' + (PT.enabled ? PT.key + '/' : '') + prefix;
+        }
+        async function loadPtState() {
+            try {
+                const res = await fetch('/api/proxytoken');
+                const data = await res.json();
+                if (data.success) PT = { enabled: !!data.enabled, key: data.key || '' };
+            } catch (e) {}
+            const on = document.getElementById('ptOn');
+            if (on) on.checked = PT.enabled;
+            const k = document.getElementById('ptKey');
+            if (k) k.value = PT.key || '';
+        }
+        async function saveProxyToken() {
+            const enabled = document.getElementById('ptOn').checked;
+            const key = document.getElementById('ptKey').value.trim();
+            if (enabled && !/^[A-Za-z0-9]{3,32}$/.test(key)) { alert('密钥需 3-32 位字母数字'); return; }
+            const res = await fetch('/api/account', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ proxyToken: { enabled, key } }) });
+            const data = await res.json();
+            if (data.success) {
+                showToast('反代 Token 已' + (enabled ? '开启，链接前缀 /' + key + '/' : '关闭'));
+                await loadPtState();
+                renderRoutes();
+            } else alert('保存失败：' + (data.error || ''));
+        }
+        function fmtHitTs(ts) {
+            const d = new Date(ts + 8 * 3600000);
+            return String(d.getUTCFullYear()).slice(2) + '-' + String(d.getUTCMonth() + 1).padStart(2, '0') + '-' + String(d.getUTCDate()).padStart(2, '0') + ' ' + String(d.getUTCHours()).padStart(2, '0') + ':' + String(d.getUTCMinutes()).padStart(2, '0');
+        }
+        async function loadPtHits() {
+            const box = document.getElementById('ptHits');
+            try {
+                const res = await fetch('/api/proxytoken/hits');
+                const data = await res.json();
+                const hits = (data && data.hits) || [];
+                if (!hits.length) { box.innerHTML = '<span style="color:var(--text-sec);">暂无记录</span>'; return; }
+                box.innerHTML = hits.map(h => '<div style="padding:8px 10px;border:1px solid var(--border);border-radius:8px;margin-bottom:6px;background:var(--bg);">'
+                    + '<div style="color:var(--text);font-weight:600;font-size:13px;">' + escHtml(h.ip) + ' <span style="color:var(--primary);font-weight:700;">×' + (h.times || 1) + '</span></div>'
+                    + '<div style="color:var(--text-sec);font-size:12px;word-break:break-all;margin-top:2px;">' + escHtml(h.path || '') + '</div>'
+                    + '<div style="color:var(--text-sec);font-size:11px;margin-top:2px;">' + fmtHitTs(h.ts || 0) + ' · ' + escHtml(String(h.ua || '').slice(0, 70)) + '</div></div>'
+                ).join('') + '<button class="btn-ghost" style="margin-top:6px;font-size:12px;" onclick="clearPtHits()">' + (I.trash || '清除') + ' 清空记录</button>';
+            } catch (e) { box.innerHTML = '<span style="color:var(--text-sec);">加载失败</span>'; }
+        }
+        async function clearPtHits() {
+            const res = await fetch('/api/proxytoken/hits', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ clear: true }) });
+            const data = await res.json();
+            if (data.success) { showToast('已清空来访记录'); loadPtHits(); }
+            else alert('清空失败');
+        }
+        function escHtml(s) {
+            return String(s == null ? '' : s).replace(/[&<>"']/g, c => ({ '&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;' }[c]));
         }
         async function saveAdminPass() {
             const pw = document.getElementById('newAdminPass').value.trim();
@@ -1507,7 +1552,7 @@ function toSvg(s){
             const mode = document.getElementById('mode').value;
             const icon = document.getElementById('iconUrl').value;
             const cache_img = document.getElementById('nodeCache').checked ? 'on' : 'off';
-            const watchLimit = document.getElementById('watchLimit').value.trim() || '0';
+            const fakeIp = document.getElementById('nodeFakeIp').value.trim();
 
             const inputs = document.querySelectorAll('.target-input');
             let targetsArray = [];
@@ -1522,7 +1567,7 @@ function toSvg(s){
             try {
                 const res = await fetch('/api/routes', { 
                     method: 'POST', 
-                    body: JSON.stringify({oldPrefix, prefix, target, mode, remark, icon, cache_img, watchLimit})
+                    body: JSON.stringify({oldPrefix, prefix, target, mode, remark, icon, cache_img, fakeIp})
                 });
                 const data = await res.json();
                 if(!data.success) throw new Error(data.error || '部署失败');
@@ -1816,7 +1861,6 @@ function toSvg(s){
         loadIcons().then(() => {
             load();
             loadDNS();
-            pollWatchNotices();
         });
 
         // ==========================================
@@ -2427,53 +2471,6 @@ async function getCFTraffic(env, type) {
 }
 
 // 用于生成 TG 播报消息的核心工具函数 (单面板 + 流量之王统计版)
-/** 保号提醒：节点设置观看下限 watch_limit（如 21 天），提前 3 天预警 + 逾期报警；每天每节点一条，推送 Bark（BARK_KEY）与 Telegram（TG_BOT_TOKEN/TG_CHAT_ID） */
-async function checkWatchReminder(env) {
-  try {
-    if (!env || !env.DB) return;
-    const { results: routes } = await env.DB.prepare("SELECT prefix, remark, watch_limit, last_play FROM routes").all();
-    if (!routes || routes.length === 0) return;
-    const now = Date.now();
-    const today = new Date(now + 8 * 3600000).toISOString().slice(0, 10);
-    const row = await env.DB.prepare("SELECT value FROM app_config WHERE key = 'watch_noticed'").first();
-    let noticed = {};
-    try { if (row && row.value) noticed = JSON.parse(row.value); } catch (e) {}
-    let nList = [];
-    const nrow = await env.DB.prepare("SELECT value FROM app_config WHERE key = 'watch_notices'").first();
-    try { if (nrow && nrow.value) nList = JSON.parse(nrow.value); } catch (e) {}
-    for (const r of routes) {
-      const wl = parseFloat(r.watch_limit);
-      if (!(wl > 0) || !r.last_play) continue;
-      let lpUtc;
-      try { lpUtc = Date.parse(String(r.last_play).replace(' ', 'T') + 'Z') - 8 * 3600000; } catch (e) { continue; }
-      if (isNaN(lpUtc)) continue;
-      const diffDays = Math.floor((now - lpUtc) / 86400000);
-      const name = r.remark || ('/' + r.prefix);
-      let txt = '';
-      if (diffDays >= wl) {
-        txt = '⚠️ 节点 ' + name + ' 已 ' + diffDays + ' 天未观看，超过设定的 ' + wl + ' 天观看下限，请注意保号！';
-      } else if (diffDays >= wl - 3) {
-        const left = Math.max(0, wl - diffDays);
-        txt = '⚠️ 节点 ' + name + ' 已 ' + diffDays + ' 天未观看，还有 ' + left + ' 天将达到设定的 ' + wl + ' 天观看下限，请注意保号！';
-      } else {
-        continue;
-      }
-      if (noticed[r.prefix] === today) continue;
-      noticed[r.prefix] = today;
-      nList.unshift({ time: Date.now(), prefix: String(r.prefix || ''), remark: String(r.remark || ''), text: txt });
-      if (nList.length > 20) nList.length = 20;
-      await env.DB.prepare('INSERT OR REPLACE INTO app_config (key, value) VALUES (?, ?)').bind('watch_notices', JSON.stringify(nList)).run();
-      if (env.BARK_KEY) {
-        try { await fetch('https://api.day.app/' + String(env.BARK_KEY).trim(), { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ title: 'Emby 反代面板', body: txt, level: env.BARK_LEVEL || 'active' }) }); } catch (e) {}
-      }
-      if (env.TG_BOT_TOKEN && env.TG_CHAT_ID) {
-        try { await fetch('https://api.telegram.org/bot' + env.TG_BOT_TOKEN + '/sendMessage', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ chat_id: String(env.TG_CHAT_ID), text: txt }) }); } catch (e) {}
-      }
-    }
-    await env.DB.prepare('INSERT OR REPLACE INTO app_config (key, value) VALUES (?, ?)').bind('watch_noticed', JSON.stringify(noticed)).run();
-  } catch (e) {}
-}
-
 async function sendTgStats(env, chatId) {
     try {
         const totalQuery = await env.DB.prepare(`SELECT COUNT(*) as count FROM visitor_logs WHERE date(timestamp, '+8 hours') = date('now', '+8 hours')`).first();
@@ -2600,9 +2597,6 @@ export default {
         if (env.TG_BOT_TOKEN && env.TG_CHAT_ID && env.DB) {
             ctx.waitUntil(sendTgStats(env, env.TG_CHAT_ID));
         }
-        if (env.DB) {
-            ctx.waitUntil(checkWatchReminder(env));
-        }
     },
 
     async fetch(request, env, ctx) {
@@ -2661,149 +2655,6 @@ export default {
             });
         }
 
-        // ==========================================
-        //  新增：当前域名解析 IP 的下载速度测试
-        //  /speedtest              测速页面（浏览器端，测当前域名解析 IP 的下载速度）
-        //  /speedtest/data?bytes=N 下载负载端点（同源，走的就是当前域名解析到的 CF IP）
-        // ==========================================
-        if (url.pathname === '/speedtest' || url.pathname === '/speedtest/') {
-            const SPEEDTEST_HTML = `<!DOCTYPE html>
-<html lang="zh-CN">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>下载测速 · 反代面板</title>
-<style>
-  *{box-sizing:border-box;margin:0;padding:0}
-  body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Microsoft YaHei",sans-serif;background:#0f1117;color:#e6e8ee;min-height:100vh;display:flex;align-items:center;justify-content:center;padding:20px}
-  .card{background:#161a24;border:1px solid #2a3040;border-radius:18px;padding:28px;width:100%;max-width:560px;box-shadow:0 12px 40px rgba(0,0,0,.4)}
-  h1{font-size:20px;margin-bottom:6px}
-  .sub{color:#8a91a5;font-size:13px;margin-bottom:20px}
-  .row{display:flex;justify-content:space-between;align-items:center;padding:10px 0;border-bottom:1px solid #232938;font-size:14px;gap:16px}
-  .row:last-of-type{border-bottom:none}
-  .k{color:#8a91a5;white-space:nowrap}
-  .v{font-weight:600;word-break:break-all;text-align:right}
-  .ip{color:#5aa2ff}
-  .speed{font-size:42px;font-weight:800;color:#4fd08a;text-align:center;margin:18px 0 6px;line-height:1}
-  .speed small{font-size:14px;color:#8a91a5;font-weight:500}
-  .bar{height:10px;background:#232938;border-radius:6px;overflow:hidden;margin:8px 0 16px}
-  .bar i{display:block;height:100%;width:0;background:linear-gradient(90deg,#4fd08a,#23a6d8);transition:width .4s ease}
-  .opts{display:flex;gap:10px;margin-bottom:12px}
-  select,button.ghost{flex:1;padding:11px;border:1px solid #2a3040;border-radius:10px;background:#161a24;color:#e6e8ee;font-size:13px}
-  button.go{width:100%;padding:13px;border:none;border-radius:10px;cursor:pointer;font-size:15px;font-weight:700;background:#2563eb;color:#fff;transition:.2s}
-  button.go:hover{background:#1d4ed8}
-  button.go:disabled{opacity:.5;cursor:not-allowed}
-  .meta{text-align:center;font-size:12px;color:#8a91a5;margin-top:12px;min-height:16px}
-  .note{font-size:12px;color:#6b7280;margin-top:16px;line-height:1.7;border-top:1px dashed #2a3040;padding-top:12px}
-  a.back{display:inline-flex;align-items:center;gap:6px;padding:7px 15px;border-radius:999px;background:rgba(0,180,255,.1);border:1px solid rgba(0,180,255,.28);color:#5aa2ff;font-size:13px;font-weight:600;text-decoration:none;margin-bottom:14px;transition:.2s}
-  a.back:hover{background:rgba(0,180,255,.2)}
-</style>
-</head>
-<body>
-<div class="card">
-  <a class="back" href="/">&#8592; 返回面板</a>
-  <h1>&#128339; 当前域名下载测速</h1>
-  <div class="sub">浏览器直连当前域名，测其解析到的 CF IP 的下载速度</div>
-  <div class="row"><span class="k">测试域名</span><span class="v" id="host">…</span></div>
-  <div class="row"><span class="k">解析到的 IP</span><span class="v ip" id="ips">查询中…</span></div>
-  <div class="speed"><span id="num">--</span> <small id="unit">Mbps</small></div>
-  <div class="bar"><i id="barfill"></i></div>
-  <div class="opts">
-    <select id="size">
-      <option value="10485760">负载 10 MB</option>
-      <option value="20971520">负载 20 MB</option>
-      <option value="52428800" selected>负载 50 MB</option>
-    </select>
-    <button class="ghost" id="runs">测 3 次取最优</button>
-  </div>
-  <button class="go" id="go">开始测速</button>
-  <div class="meta" id="meta"></div>
-  <div class="note">方式：从本域名直接下载测试负载，即走当前域名解析到的 CF 边缘 IP，多次取最优值。
-若 IP 显示“查询失败”，多为 DoH 被网络环境限制，不影响下载测速结果。</div>
-</div>
-<script>
-(function(){
-  var host=location.host;
-  document.getElementById('host').textContent=host;
-  var ipsEl=document.getElementById('ips');
-  var sizeSel=document.getElementById('size');
-  var goBtn=document.getElementById('go');
-  var numEl=document.getElementById('num');
-  var unitEl=document.getElementById('unit');
-  var barEl=document.getElementById('barfill');
-  var metaEl=document.getElementById('meta');
-  var RUNS=3;
-
-  function resolveIps(){
-    try{
-      fetch('https://cloudflare-dns.com/dns-query?name='+encodeURIComponent(host)+'&type=A',{headers:{accept:'application/dns-json'}})
-        .then(function(r){return r.json();})
-        .then(function(d){
-          var arr=(d&&d.Answer||[]).map(function(a){return a.data;});
-          ipsEl.textContent=arr.length?arr.join('  '):'查询失败';
-        })
-        .catch(function(){ipsEl.textContent='查询失败（DoH 受限）';});
-    }catch(e){ipsEl.textContent='查询失败';}
-  }
-  resolveIps();
-
-  async function runOnce(bytes){
-    var url='/speedtest/data?bytes='+bytes+'&t='+Date.now();
-    var t0=performance.now();
-    await fetch(url,{cache:'no-store'}).then(function(r){return r.arrayBuffer();});
-    var ms=performance.now()-t0;
-    return bytes*8/(ms/1000);
-  }
-
-  goBtn.addEventListener('click',async function(){
-    var bytes=parseInt(sizeSel.value,10);
-    goBtn.disabled=true;goBtn.textContent='测速中…';numEl.textContent='--';barEl.style.width='0';
-    var best=0;
-    for(var i=0;i<RUNS;i++){
-      try{
-        var bps=await runOnce(bytes);
-        if(bps>best)best=bps;
-        metaEl.textContent='第 '+(i+1)+'/'+RUNS+' 次 · 当前 '+(bps/1048576).toFixed(2)+' Mbps';
-      }catch(e){metaEl.textContent='第 '+(i+1)+' 次失败：'+e.message;break;}
-    }
-    if(best>0){
-      numEl.textContent=(best/1048576).toFixed(2);
-      unitEl.textContent='Mbps · '+(best/1048576/8).toFixed(2)+' MB/s';
-      barEl.style.width=Math.min(100,best/1000*100)+'%';
-    }
-    goBtn.disabled=false;goBtn.textContent='重新测速';
-  });
-})();
-</script>
-</body>
-</html>`;
-            return new Response(SPEEDTEST_HTML, { headers: { "Content-Type": "text/html;charset=UTF-8", "Cache-Control": "no-store, no-cache, must-revalidate, max-age=0" } });
-        }
-
-        if (url.pathname === '/speedtest/data') {
-            const bytes = Math.min(parseInt(url.searchParams.get('bytes') || '10485760', 10) || 10485760, 52428800); // 上限 50MB
-            const CHUNK = 1024 * 1024;
-            let sent = 0;
-            const stream = new ReadableStream({
-                pull(controller) {
-                    if (sent * CHUNK >= bytes) { controller.close(); return; }
-                    const n = Math.min(CHUNK, bytes - sent * CHUNK);
-                    controller.enqueue(new Uint8Array(n));
-                    sent++;
-                }
-            });
-            return new Response(stream, {
-                headers: {
-                    "Content-Type": "application/octet-stream",
-                    "Content-Length": String(bytes),
-                    "Cache-Control": "no-store, no-cache, must-revalidate, max-age=0",
-                    "Pragma": "no-cache",
-                    "Expires": "0",
-                    "Access-Control-Allow-Origin": "*"
-                }
-            });
-        }
-
         // Telegram Webhook 拦截
         if (url.pathname === '/api/tg-webhook' && request.method === 'POST') {
             try {
@@ -2819,6 +2670,57 @@ export default {
 
         if (request.method === "OPTIONS") {
             return new Response(null, { headers: { "Access-Control-Allow-Origin": "*", "Access-Control-Allow-Methods": "GET, POST, PUT, DELETE, OPTIONS", "Access-Control-Allow-Headers": "*", "Access-Control-Max-Age": "86400" } });
+        }
+
+        // ============ 反代 Token 门禁（D1 存储） ============
+        // 配置存 app_config；来访记录存 proxy_hits 表（不占用 KV 免费额度）
+        async function getProxyToken(env) {
+            if (!env.DB) return null;
+            try {
+                await env.DB.prepare('CREATE TABLE IF NOT EXISTS app_config (key TEXT PRIMARY KEY, value TEXT)').run();
+                const row = await env.DB.prepare("SELECT value FROM app_config WHERE key = 'proxy_token'").first();
+                if (!row || !row.value) return null;
+                return JSON.parse(row.value);
+            } catch (e) { return null; }
+        }
+        function proxyTokenPrefix(pt) {
+            return (pt && pt.enabled && pt.key) ? pt.key + '/' : '';
+        }
+        async function recordProxyHit(env, request, path) {
+            if (!env.DB) return;
+            try {
+                const ip = request.headers.get('cf-connecting-ip') || request.headers.get('x-real-ip') || (request.headers.get('x-forwarded-for') || '').split(',')[0].trim() || 'Unknown';
+                const ua = (request.headers.get('User-Agent') || '').slice(0, 200);
+                const ts = Date.now();
+                const p = String(path || '').slice(0, 200);
+                await env.DB.prepare('CREATE TABLE IF NOT EXISTS proxy_hits (id INTEGER PRIMARY KEY AUTOINCREMENT, ip TEXT, path TEXT, ua TEXT, ts INTEGER, times INTEGER)').run();
+                const exist = await env.DB.prepare('SELECT id, times FROM proxy_hits WHERE ip = ? AND path = ? ORDER BY id DESC LIMIT 1').bind(ip, p).first();
+                if (exist) {
+                    await env.DB.prepare('UPDATE proxy_hits SET times = ?, ts = ? WHERE id = ?').bind((exist.times || 1) + 1, ts, exist.id).run();
+                } else {
+                    await env.DB.prepare('INSERT INTO proxy_hits (ip, path, ua, ts, times) VALUES (?, ?, ?, ?, 1)').bind(ip, p, ua, ts).run();
+                }
+            } catch (e) {}
+        }
+        function catchPageHtml(ip, ua) {
+            const esc = s => String(s == null ? '' : s).replace(/[<>&"']/g, c => ({'<':'&lt;','>':'&gt;','&':'&amp;','"':'&quot;',"'":'&#39;'}[c]));
+            return `<!DOCTYPE html><html lang="zh"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Oops</title><style>
+        body{margin:0;min-height:100vh;display:flex;align-items:center;justify-content:center;background:radial-gradient(ellipse at top,#0f0c29,#302b63,#24243e);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC",sans-serif;color:#fff}
+        .box{text-align:center;padding:48px;border:1px solid rgba(255,255,255,.15);border-radius:20px;background:rgba(255,255,255,.05);backdrop-filter:blur(8px);max-width:90vw}
+        h1{font-size:34px;margin:0 0 12px;letter-spacing:2px}
+        .sub{font-size:14px;color:#a8b2d1;margin-bottom:24px}
+        .ip{font-size:18px;font-weight:700;color:#ffd700;word-break:break-all}
+        .meta{font-size:12px;color:#7f8bb3;margin-top:16px;word-break:break-all}
+      </style></head><body><div class="box">
+        <h1>宝贝抓到你了 👋</h1>
+        <div class="sub">你的来访信息已被记录</div>
+        <div class="ip">${esc(ip)}</div>
+        <div class="meta">UA: ${esc(ua).slice(0,120)}</div>
+      </div></body></html>`;
+        }
+        if (url.pathname === '/catch') {
+            const ip = request.headers.get('cf-connecting-ip') || request.headers.get('x-real-ip') || (request.headers.get('x-forwarded-for') || '').split(',')[0].trim() || 'Unknown';
+            return new Response(catchPageHtml(ip, request.headers.get('User-Agent') || ''), { headers: { 'Content-Type': 'text/html;charset=UTF-8', 'Cache-Control': 'no-store' } });
         }
 
         const EXPECTED_TOKEN = env.ADMIN_TOKEN;
@@ -2908,6 +2810,15 @@ export default {
             if (ROLE !== 'admin') return new Response('Forbidden', { status: 403 });
             try {
                 const data = await request.json();
+                if (data.proxyToken !== undefined) {
+                    const pt = data.proxyToken;
+                    const enabled = !!pt.enabled;
+                    const key = String(pt.key || '').trim();
+                    if (enabled && !/^[A-Za-z0-9]{3,32}$/.test(key)) return Response.json({ success: false, error: '密钥需 3-32 位字母数字' });
+                    await env.DB.prepare('CREATE TABLE IF NOT EXISTS app_config (key TEXT PRIMARY KEY, value TEXT)').run();
+                    await env.DB.prepare('INSERT OR REPLACE INTO app_config (key, value) VALUES (?, ?)').bind('proxy_token', JSON.stringify({ enabled, key })).run();
+                    return Response.json({ success: true });
+                }
                 const pw = String(data.password || '').trim();
                 if (pw.length < 4) return Response.json({ success: false, error: '密码至少 4 位' });
                 await env.DB.prepare('CREATE TABLE IF NOT EXISTS app_config (key TEXT PRIMARY KEY, value TEXT)').run();
@@ -2916,6 +2827,32 @@ export default {
             } catch (e) {
                 return Response.json({ success: false, error: e.message });
             }
+        }
+
+        // 反代 Token 状态（登录可见；未登录 401）
+        if (url.pathname === '/api/proxytoken' && request.method === 'GET') {
+            const pt = await getProxyToken(env);
+            return Response.json({ success: true, enabled: !!(pt && pt.enabled && pt.key), key: (pt && pt.enabled && pt.key) ? pt.key : '' });
+        }
+        // 来访记录 IP（仅管理员）
+        if (url.pathname === '/api/proxytoken/hits' && request.method === 'GET') {
+            if (ROLE !== 'admin') return new Response('Forbidden', { status: 403 });
+            try {
+                await env.DB.prepare('CREATE TABLE IF NOT EXISTS proxy_hits (id INTEGER PRIMARY KEY AUTOINCREMENT, ip TEXT, path TEXT, ua TEXT, ts INTEGER, times INTEGER)').run();
+                const { results } = await env.DB.prepare('SELECT ip, path, ua, ts, times FROM proxy_hits ORDER BY id DESC LIMIT 200').all();
+                return Response.json({ success: true, hits: results });
+            } catch (e) { return Response.json({ success: true, hits: [] }); }
+        }
+        if (url.pathname === '/api/proxytoken/hits' && request.method === 'POST') {
+            if (ROLE !== 'admin') return new Response('Forbidden', { status: 403 });
+            try {
+                const data = await request.json();
+                if (data && data.clear) {
+                    await env.DB.prepare('CREATE TABLE IF NOT EXISTS proxy_hits (id INTEGER PRIMARY KEY AUTOINCREMENT, ip TEXT, path TEXT, ua TEXT, ts INTEGER, times INTEGER)').run();
+                    await env.DB.prepare('DELETE FROM proxy_hits').run();
+                }
+                return Response.json({ success: true });
+            } catch (e) { return Response.json({ success: false, error: e.message }); }
         }
 
         if (url.pathname === '/api/subscribers' && request.method === 'GET') {
@@ -2959,18 +2896,6 @@ export default {
         // ==========================================
         // 2.3 数据大屏统计接口 (Analytics)
         // ==========================================
-        if (url.pathname === '/api/watch-notices' && request.method === 'GET') {
-            if (!env.DB) return Response.json({ success: false, error: '未绑定 D1 数据库' });
-            try {
-                const row = await env.DB.prepare("SELECT value FROM app_config WHERE key = 'watch_notices'").first();
-                let list = [];
-                try { if (row && row.value) list = JSON.parse(row.value); } catch (e) {}
-                return Response.json({ success: true, notices: list });
-            } catch (e) {
-                return Response.json({ success: false, error: String((e && e.message) || e) });
-            }
-        }
-
         if (url.pathname === '/api/analytics' && request.method === 'GET') {
             if (!env.DB) return Response.json({ success: false, error: '未绑定 D1 数据库' });
             try {
@@ -3237,8 +3162,8 @@ if (ROLE !== 'admin') return new Response('Forbidden', { status: 403 });
                 const routes = await request.json();
                 for (const r of routes) {
                     if (r.prefix && r.target) {
-                        await env.DB.prepare('INSERT OR REPLACE INTO routes (prefix, target, mode, remark, last_play, icon, cache_img, sort_order, watch_limit) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)')
-                            .bind(r.prefix, r.target, r.mode || 'off', r.remark || '', r.last_play || '', r.icon || '', r.cache_img || 'on', r.sort_order || 0, r.watch_limit || '0').run();
+                        await env.DB.prepare('INSERT OR REPLACE INTO routes (prefix, target, mode, remark, last_play, icon, cache_img, sort_order, custom_ip) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)')
+                            .bind(r.prefix, r.target, r.mode || 'off', r.remark || '', r.last_play || '', r.icon || '', r.cache_img || 'on', r.sort_order || 0, r.custom_ip || '').run();
                     }
                 }
                 return Response.json({ success: true });
@@ -3258,8 +3183,8 @@ if (ROLE !== 'admin') return new Response('Forbidden', { status: 403 });
             try { await env.DB.exec(`ALTER TABLE routes ADD COLUMN last_play TEXT DEFAULT ''`); } catch(e) {}
             try { await env.DB.exec(`ALTER TABLE routes ADD COLUMN icon TEXT DEFAULT ''`); } catch(e) {}
             try { await env.DB.exec(`ALTER TABLE routes ADD COLUMN cache_img TEXT DEFAULT 'on'`); } catch(e) {} 
-            try { await env.DB.exec(`ALTER TABLE routes ADD COLUMN sort_order INTEGER DEFAULT 0`); } catch(e) {}
-            try { await env.DB.exec(`ALTER TABLE routes ADD COLUMN watch_limit TEXT DEFAULT '0'`); } catch(e) {} 
+            try { await env.DB.exec(`ALTER TABLE routes ADD COLUMN sort_order INTEGER DEFAULT 0`); } catch(e) {} 
+            try { await env.DB.exec(`ALTER TABLE routes ADD COLUMN custom_ip TEXT DEFAULT ''`); } catch(e) {} 
 if (request.method !== 'GET' && ROLE !== 'admin') return new Response('Forbidden', { status: 403 });
             
             // 数据防爆清理策略：自动清理过去 7 天的精细日志
@@ -3349,8 +3274,8 @@ if (request.method !== 'GET' && ROLE !== 'admin') return new Response('Forbidden
                     if(oldRow) currentSortOrder = oldRow.sort_order;
                 }
                 
-                await env.DB.prepare('INSERT OR REPLACE INTO routes (prefix, target, mode, remark, icon, cache_img, sort_order, watch_limit) VALUES (?, ?, ?, ?, ?, ?, ?, ?)')
-                    .bind(data.prefix, data.target, data.mode || 'off', data.remark || '', data.icon || '', data.cache_img || 'on', currentSortOrder, data.watchLimit || '0').run();
+                await env.DB.prepare('INSERT OR REPLACE INTO routes (prefix, target, mode, remark, icon, cache_img, sort_order, custom_ip) VALUES (?, ?, ?, ?, ?, ?, ?, ?)')
+                    .bind(data.prefix, data.target, data.mode || 'off', data.remark || '', data.icon || '', data.cache_img || 'on', currentSortOrder, data.fakeIp || '').run();
                 return Response.json({ success: true });
             }
             
@@ -3364,8 +3289,24 @@ if (request.method !== 'GET' && ROLE !== 'admin') return new Response('Forbidden
         // 2.6 核心反代与调度引擎（修播放）
         // ==========================================
         let targetUrls = []; let currentMode = 'off'; let enableCache = true; let remainingPath = '';
-        const decodedPath = decodeURIComponent(url.pathname); let matchedPrefix = null; 
+        let decodedPath = decodeURIComponent(url.pathname); let matchedPrefix = null; 
         let proxyOrigin = new URL(request.url).origin;
+
+        // 反代 Token 门禁：开启后代理路径必须带 /密钥/ 前缀
+        if (!url.pathname.startsWith('/api/') && url.pathname !== '/') {
+            const pt = await getProxyToken(env);
+            if (pt && pt.enabled && pt.key) {
+                const prefixPath = '/' + pt.key + '/';
+                let stripped = null;
+                if (decodedPath === '/' + pt.key) stripped = '/';
+                else if (decodedPath.indexOf(prefixPath) === 0) stripped = decodedPath.slice(prefixPath.length - 1);
+                if (stripped === null) {
+                    await recordProxyHit(env, request, decodedPath);
+                    return Response.redirect(new URL('/catch', proxyOrigin), 302);
+                }
+                decodedPath = stripped;
+            }
+        }
 
         // 判断哪些请求可以按静态资源处理。
         // 这里把 Emby/Jellyfin 常见图片目录也纳入判断，是因为 UHD 海报/Backdrop
@@ -3772,7 +3713,8 @@ if (request.method !== 'GET' && ROLE !== 'admin') return new Response('Forbidden
 
             try {
                 if (!env.DB) return new Response(`404: Node not found (DB not bound)`, { status: 404 });
-                const stmt = env.DB.prepare(`SELECT target, mode, cache_img FROM routes WHERE prefix = ?`);
+                try { await env.DB.exec(`ALTER TABLE routes ADD COLUMN custom_ip TEXT DEFAULT ''`); } catch(e) {}
+                const stmt = env.DB.prepare(`SELECT target, mode, cache_img, custom_ip FROM routes WHERE prefix = ?`);
                 const route = await stmt.bind(prefix).first();
                 if (!route) return new Response(`404: Node not found`, { status: 404 });
 
@@ -3788,50 +3730,27 @@ if (request.method !== 'GET' && ROLE !== 'admin') return new Response('Forbidden
         if (targetUrls.length === 0) return new Response("404: Target empty", { status: 404 });
 
         // ==========================================
-        // 2.7 真实观看判定（EmbyBOSS 思路改良：不数 PlaybackInfo，改判播放会话心跳链）
-        //   PlaybackInfo（详情页/预加载/点开就会触发）不再计入观看，消除虚高；
-        //   仅「播放开始」与「非暂停的播放进度心跳」才算真实在播 → 更新最近观看时间；
-        //   同一播放会话只计一次有效播放次数（会话级去重，防心跳风暴刷次数）。
+        // 2.7 防爆型精准日志拦截 (修复统计虚高：仅拦截点火请求)
         // ==========================================
-        const isPlayStart = url.pathname.endsWith('/Sessions/Playing');
-        const isPlayProgress = url.pathname.indexOf('/Sessions/Playing/Progress') !== -1;
+        const isNewPlaySession = /\/PlaybackInfo/i.test(url.pathname); 
 
-        if ((isPlayStart || isPlayProgress) && matchedPrefix && env.DB && ctx && ctx.waitUntil) {
-            ctx.waitUntil((async () => {
-                try {
-                    let paused = false, sessionId = '';
-                    try {
-                        const txt = await request.clone().text();
-                        const j = JSON.parse(txt);
-                        paused = !!j.IsPaused;
-                        sessionId = String(j.PlaySessionId || '');
-                    } catch (e) {}
-                    // 暂停心跳不算观看（用户正暂停）；继续播放心跳才算
-                    if (paused) return;
-                    const todayStr = new Date(Date.now() + 8 * 3600000).toISOString().split('T')[0];
-                    const nowTime = new Date(Date.now() + 8 * 3600000).toISOString().replace('T', ' ').split('.')[0];
+        if (isNewPlaySession && matchedPrefix && env.DB && ctx && ctx.waitUntil) {
+            try {
+                const todayStr = new Date(Date.now() + 8 * 3600000).toISOString().split('T')[0];
+                const nowTime = new Date(Date.now() + 8 * 3600000).toISOString().replace('T', ' ').split('.')[0]; 
+                
+                let stmts = [
+                    env.DB.prepare(`INSERT INTO request_stats (prefix, date, count) VALUES (?, ?, 1) ON CONFLICT(prefix, date) DO UPDATE SET count = count + 1`).bind(matchedPrefix, todayStr),
+                    env.DB.prepare(`UPDATE routes SET last_play = ? WHERE prefix = ?`).bind(nowTime, matchedPrefix)
+                ];
 
-                    const stmts = [ env.DB.prepare(`UPDATE routes SET last_play = ? WHERE prefix = ?`).bind(nowTime, matchedPrefix) ];
+                const clientIp = request.headers.get("cf-connecting-ip") || request.headers.get("x-real-ip") || "Unknown";
+                const clientCountry = request.headers.get("cf-ipcountry") || "Unknown";
+                const clientUa = request.headers.get("User-Agent") || "Unknown";
+                stmts.push(env.DB.prepare(`INSERT INTO visitor_logs (prefix, ip, country, ua) VALUES (?, ?, ?, ?)`).bind(matchedPrefix, clientIp, clientCountry, clientUa));
 
-                    if (sessionId) {
-                        const key = 'watch_sessions';
-                        const row = await env.DB.prepare("SELECT value FROM app_config WHERE key = ?").bind(key).first();
-                        let seen = [];
-                        try { if (row && row.value) seen = JSON.parse(row.value); } catch (e) {}
-                        if (!seen.includes(sessionId)) {
-                            seen.unshift(sessionId);
-                            if (seen.length > 500) seen.length = 500;
-                            stmts.push(env.DB.prepare(`INSERT INTO request_stats (prefix, date, count) VALUES (?, ?, 1) ON CONFLICT(prefix, date) DO UPDATE SET count = count + 1`).bind(matchedPrefix, todayStr));
-                            const clientIp = request.headers.get("cf-connecting-ip") || request.headers.get("x-real-ip") || "Unknown";
-                            const clientCountry = request.headers.get("cf-ipcountry") || "Unknown";
-                            const clientUa = request.headers.get("User-Agent") || "Unknown";
-                            stmts.push(env.DB.prepare(`INSERT INTO visitor_logs (prefix, ip, country, ua) VALUES (?, ?, ?, ?)`).bind(matchedPrefix, clientIp, clientCountry, clientUa));
-                            stmts.push(env.DB.prepare('INSERT OR REPLACE INTO app_config (key, value) VALUES (?, ?)').bind(key, JSON.stringify(seen)));
-                        }
-                    }
-                    await env.DB.batch(stmts);
-                } catch (e) {}
-            })());
+                ctx.waitUntil(env.DB.batch(stmts));
+            } catch(e) {}
         }
 
         // ==========================================
@@ -3879,7 +3798,18 @@ if (request.method !== 'GET' && ROLE !== 'admin') return new Response('Forbidden
                 newHeaders.set("X-Forwarded-Proto", url.protocol.replace(':', ''));
                 newHeaders.set("X-Forwarded-Host", url.host);
 
-                if (currentMode === 'realip_only' && realIp) { newHeaders.set("X-Real-IP", realIp); } 
+                // 模拟 IP 伪装：节点配置了 custom_ip 时，抹除全部真实 IP 头，只传伪装 IP
+                const fakeIp = (route && route.custom_ip) || '';
+                if (fakeIp) {
+                    newHeaders.delete("cf-connecting-ip"); newHeaders.delete("cf-ipcountry"); newHeaders.delete("cf-ray");
+                    newHeaders.delete("cf-visitor"); newHeaders.delete("x-forwarded-for"); newHeaders.delete("x-real-ip");
+                    newHeaders.delete("x-client-ip"); newHeaders.delete("true-client-ip"); newHeaders.delete("forwarded");
+                    newHeaders.delete("via"); newHeaders.delete("x-originating-ip"); newHeaders.delete("x-forwarded-server");
+                    newHeaders.delete("client-ip");
+                    newHeaders.set("X-Forwarded-For", fakeIp);
+                    newHeaders.set("X-Real-IP", fakeIp);
+                    newHeaders.set("X-Client-IP", fakeIp);
+                } else if (currentMode === 'realip_only' && realIp) { newHeaders.set("X-Real-IP", realIp); } 
                 else if ((currentMode === 'dual' || isStrictMode) && realIp) { newHeaders.set("X-Real-IP", realIp); newHeaders.set("X-Forwarded-For", realIp); }
 
                 if (isStrictMode) {
@@ -3942,7 +3872,8 @@ if (request.method !== 'GET' && ROLE !== 'admin') return new Response('Forbidden
 
         const responseHeaders = new Headers(finalResponse.headers);
         rewriteSetCookieForProxy(responseHeaders);
-        const safePrefix = matchedPrefix ? `/${matchedPrefix}` : '';
+        const ptObj = await getProxyToken(env);
+        const safePrefix = matchedPrefix ? `/${proxyTokenPrefix(ptObj)}${matchedPrefix}` : '';
 
         // ==========================================
         //  修复版 302 拦截：恢复 URL 编码

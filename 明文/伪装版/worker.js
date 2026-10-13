@@ -1,6 +1,6 @@
-// VERSION: 3.3.0
+// VERSION: 3.3.3
 //  面板核心配置区 (放在最顶端方便修改)
-const CURRENT_VERSION = "3.3.0"; 
+const CURRENT_VERSION = "3.3.3"; 
 const GITHUB_RAW_URL = "https://raw.githubusercontent.com/MakkaPakka518/EmbyProxy-CF-FAKE/refs/heads/main/worker.js";
 
 // ==========================================
@@ -699,6 +699,10 @@ function toSvg(s){
                             <input type="checkbox" id="nodeCache" class="ip-checkbox" checked>
                             开启海报及静态资源缓存
                         </label>
+                        <label style="display:flex; align-items:center; gap:8px; font-size:14px; font-weight:500; cursor:pointer; margin-top:8px;">
+                            <input type="checkbox" id="nodeDlTrick" class="ip-checkbox">
+                            下载伪装：显示下载按钮 + 下载请求伪装为缓存流（绕过服务端禁下载）
+                        </label>
                         <button type="submit" id="submitBtn" class="btn-submit" style="flex: 1; padding: 14px 20px;">保存部署</button>
                     </div>
 
@@ -1293,8 +1297,8 @@ function toSvg(s){
                     const encodedTargets = encodeURIComponent(JSON.stringify(targets));
                     
                     //  伪装设备与保活状态解析（VPS 版同款）
-                    let fakeClient = '';
-                    try { const fp = r.custom_params ? JSON.parse(r.custom_params) : {}; fakeClient = fp.client || ''; } catch(e){}
+                    let fakeClient = ''; let dlTrickOn = false;
+                    try { const fp = r.custom_params ? JSON.parse(r.custom_params) : {}; fakeClient = fp.client || ''; dlTrickOn = !!fp.dlTrick; } catch(e){}
                     const fakeOn = (r.mode || '').includes('fake');
                     const kaOn = r.ka_enabled === '1';
                     const kaStatus = kaOn ? '已开启 · ' + (r.ka_days || 3) + '天' : '未开启';
@@ -1364,6 +1368,10 @@ function toSvg(s){
                                 <div class="info-row">
                                     <span class="info-label">海报缓存:</span>
                                     <span style="color:\${r.cache_img !== 'off' ? '#34c759' : '#ff9500'}; font-weight:600;">\${r.cache_img !== 'off' ? '${I.check} 已开启' : '${I.xmark} 已关闭'}</span>
+                                </div>
+                                <div class="info-row">
+                                    <span class="info-label">下载伪装:</span>
+                                    <span style="color:\${dlTrickOn ? '#34c759' : 'var(--text-sec)'}; font-weight:600;">\${dlTrickOn ? '${I.check} 已开启' : '${I.xmark} 已关闭'}</span>
                                 </div>
                                 <div class="info-row">
                                     <span class="info-label">最后活跃:</span>
@@ -1462,6 +1470,7 @@ function toSvg(s){
             if (customParamsStr) {
                 try { customParams = JSON.parse(decodeURIComponent(customParamsStr)); } catch(e){}
             }
+            document.getElementById('nodeDlTrick').checked = !!customParams.dlTrick;
             document.getElementById('customClient').value = customParams.client || '';
             document.getElementById('customVersion').value = customParams.version || '';
             document.getElementById('customDevice').value = customParams.device || '';
@@ -1656,6 +1665,7 @@ function toSvg(s){
             document.getElementById('oldPrefix').value='';
             selectIcon('','默认');
             document.getElementById('nodeCache').checked=true;
+            document.getElementById('nodeDlTrick').checked=false;
             document.getElementById('submitBtn').textContent='保存部署';
             document.getElementById('nodeModalTitle').textContent='添加节点';
             document.getElementById('nodeModal').style.display='block';
@@ -1778,6 +1788,7 @@ function toSvg(s){
             const mode = document.getElementById('mode').value;
             const icon = document.getElementById('iconUrl').value;
             const cache_img = document.getElementById('nodeCache').checked ? 'on' : 'off';
+            const dlTrick = document.getElementById('nodeDlTrick').checked ? '1' : '0';
             const customClient = document.getElementById('customClient').value.trim();
             const customVersion = document.getElementById('customVersion').value.trim();
             const customDevice = document.getElementById('customDevice').value.trim();
@@ -1803,7 +1814,7 @@ function toSvg(s){
             try {
                 const res = await fetch('/api/routes', { 
                     method: 'POST', 
-                    body: JSON.stringify({oldPrefix, prefix, target, mode, remark, icon, cache_img, customClient, customVersion, customDevice, customDeviceId, customUa, kaEnabled, kaDays, kaToken, nodeUser, nodePass, watchLimit})
+                    body: JSON.stringify({oldPrefix, prefix, target, mode, remark, icon, cache_img, dlTrick, customClient, customVersion, customDevice, customDeviceId, customUa, kaEnabled, kaDays, kaToken, nodeUser, nodePass, watchLimit})
                 });
                 const data = await res.json();
                 if(!data.success) throw new Error(data.error || '部署失败');
@@ -1812,6 +1823,7 @@ function toSvg(s){
                 document.getElementById('oldPrefix').value = ''; 
                 selectIcon('', '默认');
                 document.getElementById('nodeCache').checked = true;
+                document.getElementById('nodeDlTrick').checked = false;
                 document.getElementById('submitBtn').textContent = '保存部署'; 
                 resetTargetInputs(); 
                 
@@ -3167,6 +3179,101 @@ function genUuid() {
   return h.slice(0,8) + '-' + h.slice(8,12) + '-' + h.slice(12,16) + '-' + h.slice(16,20) + '-' + h.slice(20);
 }
 
+/** 下载伪装伴随观看（CF 版）：起播 → 流驱动心跳 → 结束收尾。
+ *  与 VPS 版同款协议：Sessions/Playing 起播 → Playing/Progress 心跳（首次 30s、之后 30s~5 分钟随机）→
+ *  Stopped 结束 → 1.5s 后重置 UserData 清除播放记录。
+ *  CF 运行时限制：不依赖后台定时器，心跳由响应流的读取节奏驱动（每次读到数据块检查是否到点）；
+ *  收尾通过 ctx.waitUntil 保证在响应结束后仍执行完毕。 */
+function spawnDlTrickWatchCF(target, req, itemId, search) {
+    try {
+        const params = new URLSearchParams((search || '').replace(/^\?/, ''));
+        const apiKey = params.get('api_key') || params.get('X-Emby-Token') || '';
+        const authHdr = req.headers.get('x-emby-authorization') || req.headers.get('authorization') || '';
+        if (!apiKey && !authHdr) return null;   // 无凭据无法伪装，直接跳过
+        const msId = params.get('mediaSourceId') || params.get('MediaSourceId') || '';
+        const mDevice = String(authHdr).match(/DeviceId="([^"]+)"/i);
+        const mClient = String(authHdr).match(/Client="([^"]+)"/i);
+        const mVersion = String(authHdr).match(/Version="([^"]+)"/i);
+        const deviceId = (mDevice && mDevice[1]) || genUuid();
+        const client = (mClient && mClient[1]) || 'Emby';
+        const version = (mVersion && mVersion[1]) || '4.8.0.0';
+        const playSessionId = 'bemby-' + Date.now();
+        let targetOrigin = '';
+        try { targetOrigin = new URL(target).origin; } catch(e) { return null; }
+        const hdrs = { 'Content-Type': 'application/json' };
+        if (authHdr) hdrs['X-Emby-Authorization'] = authHdr;
+        const url = path => addApiKey(targetOrigin + path, apiKey);
+        const base = { ItemId: itemId, MediaSourceId: msId || itemId, PlaySessionId: playSessionId, DeviceId: deviceId, Client: client, Version: version, PlayMethod: 'DirectStream', CanSeek: true, IsPaused: false, QueueableMediaTypes: ['Video'] };
+        const watchBody = pos => JSON.stringify(Object.assign({}, base, { PositionTicks: pos, PlaybackPositionTicks: pos }));
+        let closed = false, posTicks = 0, userId = '';
+        let nextWait = 30, nextHeartAt = Date.now() + 30000;   // 首次 30s，之后每次 30~300s 随机
+        const post = (path, body) => kaFetch(url(path), { method: 'POST', headers: hdrs, body }).catch(() => null);
+        // 起播 + 预取用户信息（fire-and-forget，响应流期间事件循环可执行）
+        post('/emby/Sessions/Playing', watchBody(0));
+        kaFetch(url('/emby/Users/Me'), { headers: hdrs }).then(async r => {
+            try { userId = (JSON.parse(await r.text()) || {}).Id || ''; } catch(e){}
+        }).catch(() => {});
+        return {
+            // 响应流驱动心跳：每次读到数据块后调用，到达心跳时间点即上报（不 await，避免拖慢流转发）
+            tick() {
+                if (closed) return;
+                const now = Date.now();
+                if (now < nextHeartAt) return;
+                nextHeartAt = now + nextWait * 1000;
+                posTicks += nextWait * 10000000;
+                nextWait = 30 + Math.floor(Math.random() * 271);
+                post('/emby/Sessions/Playing/Progress', watchBody(posTicks));
+            },
+            // 下载结束/断开：上报结束 + 重置 UserData 清除播放记录（调用方须用 ctx.waitUntil 包裹）
+            async finish() {
+                if (closed) return;
+                closed = true;
+                try {
+                    if (!userId) {
+                        const r = await kaFetch(url('/emby/Users/Me'), { headers: hdrs });
+                        try { userId = (JSON.parse(await r.text()) || {}).Id || ''; } catch(e){}
+                    }
+                } catch(e){}
+                await post('/emby/Sessions/Playing/Stopped', watchBody(posTicks));
+                if (userId && itemId) {
+                    await new Promise(r2 => setTimeout(r2, 1500));   // 等 Stopped 落库后再清
+                    await post('/emby/Users/' + encodeURIComponent(userId) + '/Items/' + encodeURIComponent(itemId) + '/UserData',
+                        JSON.stringify({ Played: false, PlayCount: 0, ResumePositionTicks: 0, PlaybackPositionTicks: 0, PlayedPercentage: 0 }));
+                }
+            }
+        };
+    } catch(e) { return null; }
+}
+
+/** 把响应流包一层：转发数据块并在读取间隙驱动心跳，流结束/取消时收尾（收尾走 ctx.waitUntil 保证执行） */
+function wrapStreamWithWatch(stream, watch, ctx) {
+    const reader = stream.getReader();
+    const runFinish = () => {
+        try { const p = watch.finish(); if (p && ctx && ctx.waitUntil) ctx.waitUntil(p); } catch(e){}
+    };
+    return new ReadableStream({
+        async pull(controller) {
+            try {
+                const { done, value } = await reader.read();
+                if (done) {
+                    try { controller.close(); } catch(e){}
+                    runFinish();
+                    return;
+                }
+                controller.enqueue(value);
+                try { watch.tick(); } catch(e){}
+            } catch (err) {
+                try { controller.error(err); } catch(e){}
+                runFinish();
+            }
+        },
+        cancel() {
+            try { reader.cancel(); } catch(e){}
+            runFinish();
+        }
+    });
+}
+
 export default {
     async scheduled(event, env, ctx) {
         // 自动保活：检查所有开启保活的节点，按各自间隔到期执行（每 tick 只跑最先到期的一个）
@@ -3966,7 +4073,8 @@ if (request.method !== 'GET' && ROLE !== 'admin') return new Response('Forbidden
                     version: data.customVersion || '',
                     device: data.customDevice || '',
                     deviceId: data.customDeviceId || genUuid(),
-                    ua: data.customUa || ''
+                    ua: data.customUa || '',
+                    dlTrick: data.dlTrick === '1'
                 });
 
                 await env.DB.prepare('INSERT OR REPLACE INTO routes (prefix, target, mode, remark, icon, custom_params, cache_img, sort_order, ka_enabled, ka_days, ka_token, node_user, node_pass, watch_limit) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)')
@@ -3987,6 +4095,7 @@ if (request.method !== 'GET' && ROLE !== 'admin') return new Response('Forbidden
         const decodedPath = decodeURIComponent(url.pathname); let matchedPrefix = null; 
         let proxyOrigin = new URL(request.url).origin;
         let customParamsObj = {};
+        let dlTrick = false; let dlTrickItemId = '';
 
         // 判断哪些请求可以按静态资源处理。
         // 这里把 Emby/Jellyfin 常见图片目录也纳入判断，是因为 UHD 海报/Backdrop
@@ -4405,6 +4514,19 @@ if (request.method !== 'GET' && ROLE !== 'admin') return new Response('Forbidden
                 if (route.custom_params) {
                     try { customParamsObj = JSON.parse(route.custom_params); } catch(e) {}
                 }
+                dlTrick = !!(customParamsObj && customParamsObj.dlTrick);
+                // 下载伪装：把播放器的下载请求（/Items/{id}/Download）改写为同文件直接流请求
+                // （/Videos/{id}/stream?static=true），拿到完整文件，绕过服务端"禁下载"权限限制
+                // （Emby 流接口不校验 EnableContentDownloading，只要播放权限即可）
+                if (dlTrick && /\/Items\/[^/]+\/Download\/?$/i.test(remainingPath)) {
+                    const idm = remainingPath.match(/\/Items\/([^/]+)\/Download\/?$/i);
+                    if (idm) {
+                        dlTrickItemId = idm[1];
+                        // 保留原有前缀（/emby/Items/…/Download → /emby/Videos/…/stream），与 VPS 版一致
+                        remainingPath = remainingPath.replace(/\/Items\/[^/]+\/Download\/?$/i, () => '/Videos/' + encodeURIComponent(idm[1]) + '/stream');
+                        if (!url.searchParams.has('static')) url.searchParams.set('static', 'true');
+                    }
+                }
                 
                 if (remainingPath.startsWith('/http://') || remainingPath.startsWith('/https://')) { targetUrls = [remainingPath.substring(1)]; remainingPath = ''; }
             } catch (e) { return new Response("DB Error: " + e.message, { status: 500 }); }
@@ -4626,6 +4748,17 @@ if (request.method !== 'GET' && ROLE !== 'admin') return new Response('Forbidden
         rewriteSetCookieForProxy(responseHeaders);
         const safePrefix = matchedPrefix ? `/${matchedPrefix}` : '';
 
+        // 下载伪装伴随观看（CF 版）：命中改写后的下载流时，包装响应流，
+        // 读取间隙驱动心跳、流结束/断开自动上报结束并清除播放记录
+        if (dlTrickItemId && finalResponse.status === 200 && finalResponse.body) {
+            const dlWatch = spawnDlTrickWatchCF(finalTargetUrl, request, dlTrickItemId, url.search);
+            if (dlWatch) {
+                finalResponse = new Response(wrapStreamWithWatch(finalResponse.body, dlWatch, ctx), {
+                    status: finalResponse.status, statusText: finalResponse.statusText, headers: responseHeaders
+                });
+            }
+        }
+
         // ==========================================
         //  修复版 302 拦截：恢复 URL 编码
         // ==========================================
@@ -4698,6 +4831,14 @@ if (request.method !== 'GET' && ROLE !== 'admin') return new Response('Forbidden
             try {
                 let clonedRes = finalResponse.clone();
                 let text = await clonedRes.text();
+                // 下载伪装：把返回给播放器的用户权限 JSON 中下载相关字段 false→true，
+                // 让播放器直接显示"下载"按钮（EnableMediaPlayback 等播放强校验字段绝不动，改了反而露馅）
+                let dlModified = false;
+                if (dlTrick) {
+                    const t2 = text.replace(/"(EnableContentDownloading|EnableSyncTranscoding|EnableMediaConversion|CanDownload)"\s*:\s*false/gi, '"$1":true');
+                    dlModified = (t2 !== text);
+                    text = t2;
+                }
                 if (hasJsonRewriteCandidate(text, targetOrigins)) {
                     let data = JSON.parse(text);
                     let rewritten = rewriteSourceUrlsInJson(data, targetOrigins, proxyOrigin, safePrefix);
@@ -4705,6 +4846,10 @@ if (request.method !== 'GET' && ROLE !== 'admin') return new Response('Forbidden
                         dropBodyIntegrityHeaders(responseHeaders);
                         return new Response(JSON.stringify(rewritten), { status: finalResponse.status, statusText: finalResponse.statusText, headers: responseHeaders });
                     }
+                }
+                if (dlModified) {
+                    dropBodyIntegrityHeaders(responseHeaders);
+                    return new Response(text, { status: finalResponse.status, statusText: finalResponse.statusText, headers: responseHeaders });
                 }
             } catch(e) {
                 console.log("JSON 源站 URL 重写失败:", e.message);

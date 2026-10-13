@@ -1451,10 +1451,10 @@ function toSvg(s){
             const res = await fetch('/api/account', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ proxyToken: { enabled, key } }) });
             const data = await res.json();
             if (data.success) {
+                closeAccountModal();
                 showToast('反代 Token 已' + (enabled ? '开启，链接前缀 /' + key + '/' : '关闭'));
                 await loadPtState();
-                renderRoutes();
-                closeAccountModal();
+                try { renderRoutes(); } catch (e) { console.error(e); }
             } else alert('保存失败：' + (data.error || ''));
         }
         function fmtHitTs(ts) {

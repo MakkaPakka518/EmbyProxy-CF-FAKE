@@ -4005,4 +4005,5 @@ if (request.method !== 'GET' && ROLE !== 'admin') return new Response('Forbidden
         console.error('[proxy]', e);
         return Response.json({ success: false, error: String((e && e.message) || e) }, { status: 500 });
     }
+}
 };

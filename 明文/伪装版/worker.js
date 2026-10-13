@@ -1,6 +1,6 @@
-// VERSION: 3.3.4
+// VERSION: 3.3.10
 //  面板核心配置区 (放在最顶端方便修改)
-const CURRENT_VERSION = "3.3.4"; 
+const CURRENT_VERSION = "3.3.10"; 
 const GITHUB_RAW_URL = "https://raw.githubusercontent.com/MakkaPakka518/EmbyProxy-CF-FAKE/refs/heads/main/worker.js";
 
 // ==========================================
@@ -3362,11 +3362,7 @@ export default {
     },
 
     async fetch(request, env, ctx) {
-        try { return await _coreFetch(request, env, ctx); }
-        catch (e) { console.error('[proxy]', e); return Response.json({ success: false, error: String((e && e.message) || e) }, { status: 500 }); }
-    },
-
-    async _coreFetch(request, env, ctx) {
+        try {
         const url = new URL(request.url);
 
         // ==========================================
@@ -5079,5 +5075,8 @@ if (request.method !== 'GET' && ROLE !== 'admin') return new Response('Forbidden
         }
 
         return new Response(finalResponse.body, { status: finalResponse.status, statusText: finalResponse.statusText, headers: responseHeaders });
+    } catch (e) {
+        console.error('[proxy]', e);
+        return Response.json({ success: false, error: String((e && e.message) || e) }, { status: 500 });
     }
 };

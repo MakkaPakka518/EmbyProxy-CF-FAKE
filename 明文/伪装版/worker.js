@@ -3192,17 +3192,18 @@ function spawnDlTrickWatchCF(target, req, itemId, search) {
         const authHdr = req.headers.get('x-emby-authorization') || req.headers.get('authorization') || '';
         if (!apiKey && !authHdr) return null;   // 无凭据无法伪装，直接跳过
         const msId = params.get('mediaSourceId') || params.get('MediaSourceId') || '';
-        const mDevice = String(authHdr).match(/DeviceId="([^"]+)"/i);
         const mClient = String(authHdr).match(/Client="([^"]+)"/i);
         const mVersion = String(authHdr).match(/Version="([^"]+)"/i);
-        const deviceId = (mDevice && mDevice[1]) || genUuid();
+        // 独立虚拟设备ID：下载心跳不占用播放器真实设备会话。
+        // 否则下载期间上游认为"播放器设备已在播放"，用户再点播放时同设备并发会话被上游卡住 → 一直缓冲
+        const deviceId = genUuid();
         const client = (mClient && mClient[1]) || 'Emby';
         const version = (mVersion && mVersion[1]) || '4.8.0.0';
         const playSessionId = 'bemby-' + Date.now();
         let targetOrigin = '';
         try { targetOrigin = new URL(target).origin; } catch(e) { return null; }
         const hdrs = { 'Content-Type': 'application/json' };
-        if (authHdr) hdrs['X-Emby-Authorization'] = authHdr;
+        if (authHdr) hdrs['X-Emby-Authorization'] = authHdr.replace(/DeviceId\s*=\s*"[^"]*"/i, `DeviceId="${deviceId}"`);
         const url = path => addApiKey(targetOrigin + path, apiKey);
         const base = { ItemId: itemId, MediaSourceId: msId || itemId, PlaySessionId: playSessionId, DeviceId: deviceId, Client: client, Version: version, PlayMethod: 'DirectStream', CanSeek: true, IsPaused: false, QueueableMediaTypes: ['Video'] };
         const watchBody = pos => JSON.stringify(Object.assign({}, base, { PositionTicks: pos, PlaybackPositionTicks: pos }));

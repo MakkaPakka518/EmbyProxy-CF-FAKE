@@ -2604,6 +2604,11 @@ export default {
     },
 
     async fetch(request, env, ctx) {
+        try { return await _coreFetch(request, env, ctx); }
+        catch (e) { console.error('[proxy]', e); return Response.json({ success: false, error: String((e && e.message) || e) }, { status: 500 }); }
+    },
+
+    async _coreFetch(request, env, ctx) {
         const url = new URL(request.url);
 
         // ==========================================
@@ -2819,6 +2824,7 @@ export default {
                     const enabled = !!pt.enabled;
                     const key = String(pt.key || '').trim();
                     if (enabled && !/^[A-Za-z0-9]{3,32}$/.test(key)) return Response.json({ success: false, error: '密钥需 3-32 位字母数字' });
+                    if (!env.DB) return Response.json({ success: false, error: 'D1 未绑定：请在 Worker 设置里绑定名为 DB 的 D1 数据库' });
                     await env.DB.prepare('CREATE TABLE IF NOT EXISTS app_config (key TEXT PRIMARY KEY, value TEXT)').run();
                     await env.DB.prepare('INSERT OR REPLACE INTO app_config (key, value) VALUES (?, ?)').bind('proxy_token', JSON.stringify({ enabled, key })).run();
                     return Response.json({ success: true });

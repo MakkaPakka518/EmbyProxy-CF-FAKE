@@ -1,6 +1,6 @@
-// VERSION: 3.3.19
+// VERSION: 3.3.20
 //  面板核心配置区 (放在最顶端方便修改)
-const CURRENT_VERSION = "3.3.19"; 
+const CURRENT_VERSION = "3.3.20"; 
 const GITHUB_RAW_URL = "https://raw.githubusercontent.com/MakkaPakka518/ProxyHub_Emby/refs/heads/main/worker.js";
 
 // ==========================================
@@ -1661,6 +1661,8 @@ function toSvg(s){
                 resetTargetInputs(); 
                 
                 showToast('✅ 节点部署成功');
+                // 编辑已有节点时保存成功自动关窗（新增节点保留弹窗便于连续添加）
+                if (oldPrefix) document.getElementById('nodeModal').style.display = 'none';
                 load();
             } catch(err) {
                 showToast('❌ 保存失败: ' + err.message);

@@ -1,6 +1,6 @@
-// VERSION: 3.3.16
+// VERSION: 3.3.17
 //  面板核心配置区 (放在最顶端方便修改)
-const CURRENT_VERSION = "3.3.16"; 
+const CURRENT_VERSION = "3.3.17"; 
 const GITHUB_RAW_URL = "https://raw.githubusercontent.com/MakkaPakka518/ProxyHub_Emby/refs/heads/main/worker.js";
 
 // ==========================================
@@ -747,15 +747,13 @@ function toSvg(s){
                                 <label style="display:flex;align-items:center;gap:6px;font-size:13px;"><input type="checkbox" id="barkNotify" style="accent-color:var(--primary);"> Bark</label>
                                 <label style="display:flex;align-items:center;gap:6px;font-size:13px;"><input type="checkbox" id="tgNotify" style="accent-color:var(--primary);"> Telegram</label>
                             </div>
-                            <div style="display:flex; gap:8px; margin-bottom:8px;">
-                                <input type="text" id="barkKey" placeholder="Bark 设备 Key（留空不修改）" style="flex:1; padding:10px 14px; border:1px solid var(--border); border-radius:8px; background:var(--bg);">
-                                <select id="barkLevel" style="padding:10px 14px; border:1px solid var(--border); border-radius:8px; background:var(--bg);">
-                                    <option value="active">active（默认）</option>
-                                    <option value="timeSensitive">timeSensitive</option>
-                                    <option value="critical">critical（紧急）</option>
-                                    <option value="passive">passive</option>
-                                </select>
-                            </div>
+                            <input type="text" id="barkKey" placeholder="Bark 设备 Key（留空不修改）" style="width:100%; padding:10px 14px; border:1px solid var(--border); border-radius:8px; background:var(--bg); margin-bottom:8px;">
+                            <select id="barkLevel" style="width:100%; padding:10px 14px; border:1px solid var(--border); border-radius:8px; background:var(--bg); margin-bottom:10px;">
+                                <option value="active">active（默认）</option>
+                                <option value="timeSensitive">timeSensitive</option>
+                                <option value="critical">critical（紧急）</option>
+                                <option value="passive">passive</option>
+                            </select>
                             <input type="text" id="barkServer" placeholder="Bark 服务地址（默认 https://api.day.app）" style="width:100%; padding:10px 14px; border:1px solid var(--border); border-radius:8px; background:var(--bg); margin-bottom:10px;">
                             <input type="text" id="tgToken" placeholder="TG Bot Token（@BotFather 获取，留空不修改）" style="width:100%; padding:10px 14px; border:1px solid var(--border); border-radius:8px; background:var(--bg); margin-bottom:8px;">
                             <input type="text" id="tgChatId" placeholder="TG Chat ID（留空不修改）" style="width:100%; padding:10px 14px; border:1px solid var(--border); border-radius:8px; background:var(--bg); margin-bottom:10px;">

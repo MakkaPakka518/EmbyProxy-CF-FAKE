@@ -1,6 +1,6 @@
-// VERSION: 3.3.11
+// VERSION: 3.3.12
 //  面板核心配置区 (放在最顶端方便修改)
-const CURRENT_VERSION = "3.3.11"; 
+const CURRENT_VERSION = "3.3.12"; 
 const GITHUB_RAW_URL = "https://raw.githubusercontent.com/MakkaPakka518/EmbyProxy-CF-FAKE/refs/heads/main/worker.js";
 
 // ==========================================
@@ -1439,7 +1439,7 @@ function toSvg(s){
                             <div class="card-footer admin-only">
                                 <button class="btn-edit" onclick="kaRun('\${r.prefix}')" title="立即执行一次完整保活">保活</button>
                                 <button class="btn-edit" onclick="rexImport('\${r.prefix}')" title="生成 Rex 一键导入链接">Rex导入</button>
-                                <button class="btn-edit" onclick="editNode('\${r.prefix}', '\${r.target}', '\${r.mode}', '\${r.remark || ''}', '\${r.icon || ''}', '\${r.cache_img}', '\${r.custom_params ? encodeURIComponent(r.custom_params) : ''}', '\${r.ka_enabled || '0'}', '\${r.ka_days || '3'}', '\${r.ka_token || ''}', '\${r.node_user || ''}', '\${r.node_pass || ''}', '\${r.watch_limit || '0'}')">编辑配置</button>
+                                <button class="btn-edit" onclick="editNode('\${esc(r.prefix)}', '\${esc(r.target)}', '\${esc(r.mode)}', '\${esc(r.remark || '')}', '\${esc(r.icon || '')}', '\${esc(r.cache_img)}', '\${esc(r.custom_params ? encodeURIComponent(r.custom_params) : '')}', '\${esc(r.ka_enabled || '0')}', '\${esc(r.ka_days || '3')}', '\${esc(r.ka_token || '')}', '\${esc(r.node_user || '')}', '\${esc(r.node_pass || '')}', '\${esc(r.watch_limit || '0')}')">编辑配置</button>
                                 <button class="btn-del" onclick="del('\${r.prefix}')">删除</button>
                             </div>
                         </div>
@@ -1500,11 +1500,18 @@ function toSvg(s){
             }
         }
 
+        const esc = s => String(s == null ? '' : s).replaceAll('"', '\\\\"').replaceAll("'", "\\\\'");
         function editNode(prefix, targetStr, mode, remark, icon, cacheImg, customParamsStr, kaEnabled, kaDays, kaToken, nodeUser, nodePass, watchLimit) {
             document.getElementById('oldPrefix').value = prefix;
             document.getElementById('remark').value = remark;
             document.getElementById('prefix').value = prefix;
-            document.getElementById('mode').value = mode || 'off';
+            const modeSel = document.getElementById('mode');
+            if (mode && ![...modeSel.options].some(o => o.value === mode)) {
+                const opt = document.createElement('option');
+                opt.value = mode; opt.textContent = mode + '（自定义）';
+                modeSel.appendChild(opt);
+            }
+            modeSel.value = mode || 'off';
             document.getElementById('nodeCache').checked = (cacheImg !== 'off');
             
             let customParams = {};
@@ -3159,8 +3166,20 @@ async function pushKaNotice(env, prefix, ok, detail, remark) {
 
 async function checkKeepAliveSchedule(env) {
   try {
+    try { await env.DB.exec(`ALTER TABLE routes ADD COLUMN ka_enabled TEXT DEFAULT '0'`); } catch(e) {}
+    try { await env.DB.exec(`ALTER TABLE routes ADD COLUMN ka_days TEXT DEFAULT '3'`); } catch(e) {}
+    try { await env.DB.exec(`ALTER TABLE routes ADD COLUMN ka_token TEXT DEFAULT ''`); } catch(e) {}
+    try { await env.DB.exec(`ALTER TABLE routes ADD COLUMN node_user TEXT DEFAULT ''`); } catch(e) {}
+    try { await env.DB.exec(`ALTER TABLE routes ADD COLUMN node_pass TEXT DEFAULT ''`); } catch(e) {}
+    try { await env.DB.exec(`ALTER TABLE routes ADD COLUMN last_ka_run TEXT DEFAULT ''`); } catch(e) {}
+    try { await env.DB.exec(`ALTER TABLE routes ADD COLUMN last_ka_result TEXT DEFAULT ''`); } catch(e) {}
+    try { await env.DB.exec(`ALTER TABLE routes ADD COLUMN last_ka_detail TEXT DEFAULT ''`); } catch(e) {}
     const { results: routes } = await env.DB.prepare(`SELECT * FROM routes WHERE ka_enabled = '1'`).all();
     if (!routes || routes.length === 0) return;
+    const liveRow = await env.DB.prepare("SELECT value FROM app_config WHERE key = ?").bind('ka_live').first();
+    if (liveRow && liveRow.value) {
+        try { const ls = JSON.parse(liveRow.value); if (ls && ls.running) return; } catch(e) {}
+    }
     const due = routes.filter(r => {
       const days = Math.max(0.1, parseFloat(r.ka_days) || 3);
       const last = r.last_ka_run ? new Date(r.last_ka_run).getTime() : 0;
@@ -3456,6 +3475,7 @@ async function scanOverdueNotify(env, ctx) {
         let last = {};
         try { if (lastRow && lastRow.value) last = JSON.parse(lastRow.value); } catch (e) {}
         if (last.date === todayStr) return;
+        try { await env.DB.exec(`ALTER TABLE routes ADD COLUMN watch_limit TEXT DEFAULT '0'`); } catch (e) {}
         const { results } = await env.DB.prepare('SELECT prefix, remark, target, last_play, watch_limit FROM routes').all();
         const list = [];
         for (const r of (results || [])) {
@@ -3778,7 +3798,7 @@ export default {
             const cookieString = req.headers.get("Cookie");
             if (!cookieString) return null;
             const match = cookieString.match(new RegExp('(^| )' + name + '=([^;]+)'));
-            if (match) return decodeURIComponent(match[2]);
+            if (match) { try { return decodeURIComponent(match[2]); } catch(e) { return match[2]; } }
             return null;
         }
 
@@ -4264,8 +4284,8 @@ if (ROLE !== 'admin') return new Response('Forbidden', { status: 403 });
                 const routes = await request.json();
                 for (const r of routes) {
                     if (r.prefix && r.target) {
-                        await env.DB.prepare('INSERT OR REPLACE INTO routes (prefix, target, mode, remark, last_play, icon, custom_params, cache_img, sort_order, watch_limit) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)')
-                            .bind(r.prefix, r.target, r.mode || 'off', r.remark || '', r.last_play || '', r.icon || '', r.custom_params || '', r.cache_img || 'on', r.sort_order || 0, r.watch_limit || '0').run();
+                        await env.DB.prepare('INSERT OR REPLACE INTO routes (prefix, target, mode, remark, last_play, icon, custom_params, cache_img, sort_order, watch_limit, ka_enabled, ka_days, ka_token, node_user, node_pass) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)')
+                            .bind(r.prefix, r.target, r.mode || 'off', r.remark || '', r.last_play || '', r.icon || '', r.custom_params || '', r.cache_img || 'on', r.sort_order || 0, r.watch_limit || '0', r.ka_enabled || '0', r.ka_days || '3', r.ka_token || '', r.node_user || '', r.node_pass || '').run();
                     }
                 }
                 return Response.json({ success: true });
@@ -4301,6 +4321,10 @@ if (ROLE !== 'admin') return new Response('Forbidden', { status: 403 });
                 const body = await request.json();
                 const prefix = String((body && body.prefix) || '').trim();
                 if (!prefix) return Response.json({ success: false, error: '缺少节点前缀' });
+                const curRow = await env.DB.prepare("SELECT value FROM app_config WHERE key = ?").bind('ka_live').first();
+                if (curRow && curRow.value) {
+                    try { const curSt = JSON.parse(curRow.value); if (curSt && curSt.running) return Response.json({ success: false, error: '已有保活任务正在运行，请稍后重试' }); } catch(e) {}
+                }
                 const route = await env.DB.prepare('SELECT * FROM routes WHERE prefix = ?').bind(prefix).first();
                 if (!route) return Response.json({ success: false, error: '节点不存在' });
                 await env.DB.prepare('INSERT OR REPLACE INTO app_config (key, value) VALUES (?, ?)')
@@ -4358,7 +4382,7 @@ if (request.method !== 'GET' && ROLE !== 'admin') return new Response('Forbidden
                     ORDER BY r.sort_order ASC, r.prefix ASC
                 `).bind(todayStr).all();
 
-                if (env.CF_API_TOKEN && env.CF_ZONE_ID && routes && routes.length > 0) {
+                if (ROLE === 'admin' && env.CF_API_TOKEN && env.CF_ZONE_ID && routes && routes.length > 0) {
                     const end = new Date();
                     const beijingTime = new Date(end.getTime() + 8 * 3600000);
                     beijingTime.setUTCHours(0, 0, 0, 0);
@@ -4454,7 +4478,7 @@ if (request.method !== 'GET' && ROLE !== 'admin') return new Response('Forbidden
         // 2.6 核心反代与调度引擎（修播放）
         // ==========================================
         let targetUrls = []; let currentMode = 'off'; let enableCache = true; let remainingPath = '';
-        let decodedPath = decodeURIComponent(url.pathname); let matchedPrefix = null; 
+        let decodedPath = url.pathname; try { decodedPath = decodeURIComponent(url.pathname); } catch (e) { decodedPath = url.pathname; } let matchedPrefix = null; 
         let proxyOrigin = new URL(request.url).origin;
         let customParamsObj = {};
         let dlTrick = false; let dlTrickItemId = '';
@@ -5239,8 +5263,16 @@ if (request.method !== 'GET' && ROLE !== 'admin') return new Response('Forbidden
             try {
                 let clonedRes = finalResponse.clone(); 
                 let text = await clonedRes.text();
-                if (text.includes('http://') || text.includes('https://')) {
+                if (text.includes('http://') || text.includes('https://') || /^\s*\//m.test(text)) {
+                    // 绝对 URL 分片：代理到 /密钥/节点/源站URL
                     let modifiedText = text.replace(/(https?:\/\/[^\s]+)/g, proxyOrigin + safePrefix + '/$1');
+                    // 协议相对分片（//host/path）：补 https 协议再代理
+                    modifiedText = modifiedText.replace(/^(?!\s*#)(\s*)\/\/([^\s]+)$/gm, (m, sp, p) => sp + proxyOrigin + safePrefix + '/https://' + p);
+                    // 根相对分片（/path）：浏览器会解析到不带节点前缀的根路径导致 404，补上源站根 + 代理前缀
+                    const firstOrigin = (targetUrls[0] || '').replace(/\/+$/, '');
+                    if (firstOrigin) {
+                        modifiedText = modifiedText.replace(/^(?!\s*#)(\s*)\/([^\s]+)$/gm, (m, sp, p) => sp + proxyOrigin + safePrefix + '/' + firstOrigin + '/' + p);
+                    }
                     dropBodyIntegrityHeaders(responseHeaders);
                     return new Response(modifiedText, { status: finalResponse.status, statusText: finalResponse.statusText, headers: responseHeaders });
                 }

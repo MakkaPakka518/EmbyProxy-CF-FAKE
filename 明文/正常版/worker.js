@@ -1,7 +1,8 @@
-// VERSION: 3.3.20
+// VERSION: 3.3.21
 //  面板核心配置区 (放在最顶端方便修改)
-const CURRENT_VERSION = "3.3.20"; 
+const CURRENT_VERSION = "3.3.21"; 
 const GITHUB_RAW_URL = "https://raw.githubusercontent.com/MakkaPakka518/ProxyHub_Emby/refs/heads/main/worker.js";
+const CHANGELOG_URL = "https://raw.githubusercontent.com/MakkaPakka518/ProxyHub_Emby/refs/heads/main/changelog.json";
 
 // ==========================================
 // 1. 网页界面-单播报版本
@@ -716,7 +717,10 @@ function toSvg(s){
                 <div style="max-width:560px; margin:24px auto; background:var(--card); border-radius:18px; padding:22px; box-shadow:0 10px 40px rgba(0,0,0,.2);">
                     <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:14px;">
                         <h2 style="margin:0; font-size:19px; display:flex; align-items:center; gap:8px;">${I.gear} 账户设置</h2>
-                        <button onclick="closeAccountModal()" style="background:transparent;border:none;cursor:pointer;color:var(--text-sec);display:inline-flex;padding:4px;">${I.xmark}</button>
+                        <div style="display:flex; align-items:center; gap:8px;">
+                            <span id="topVersionBadge" style="background:var(--primary); color:#fff; padding:3px 10px; border-radius:20px; font-size:12px; font-weight:600;">v${CURRENT_VERSION}</span>
+                            <button onclick="closeAccountModal()" style="background:transparent;border:none;cursor:pointer;color:var(--text-sec);display:inline-flex;padding:4px;">${I.xmark}</button>
+                        </div>
                     </div>
                     <div id="accountAdminPanel" style="display:flex; flex-direction:column; gap:16px;">
                         <div style="background:rgba(120,120,120,0.05); border:1px solid var(--border); border-radius:10px; padding:14px;">
@@ -772,10 +776,62 @@ function toSvg(s){
                                 <button class="btn-submit" onclick="addSubscriber()" style="white-space:nowrap;">${I.plus} 添加</button>
                             </div>
                         </div>
+                        <div style="background:rgba(120,120,120,0.05); border:1px solid var(--border); border-radius:10px; padding:14px;">
+                            <div style="font-size:14px; font-weight:600; margin-bottom:10px;">${I.rocket} 版本</div>
+                            <div style="display:flex; align-items:center; gap:8px; margin-bottom:10px; flex-wrap:wrap;">
+                                <span style="font-size:13px;">当前版本：</span>
+                                <span id="curVersionBadge" style="background:var(--primary); color:#fff; padding:3px 10px; border-radius:20px; font-size:12px; font-weight:600;">v${CURRENT_VERSION}</span>
+                                <span id="latestVersionInfo" style="font-size:12px; color:var(--text-sec);"></span>
+                            </div>
+                            <div style="display:flex; align-items:center; gap:8px; margin-bottom:12px;">
+                                <label style="display:flex;align-items:center;gap:6px;font-size:13px;cursor:pointer;">
+                                    <input type="checkbox" id="updateNotifyChk" style="accent-color:var(--primary);"> 开启更新提醒（检测到新版本时弹窗提示）
+                                </label>
+                                <button class="btn-ghost" onclick="saveUpdateNotify()" style="padding:6px 12px;font-size:12px;">保存</button>
+                            </div>
+                            <div style="font-size:13px; font-weight:600; margin-bottom:6px;">${I.rocket} 最新更新内容</div>
+                            <div id="latestChangelog" style="font-size:12px; color:var(--text-sec); margin-bottom:12px; line-height:1.8;">加载中…</div>
+                            <div style="display:flex; gap:8px; margin-bottom:12px;">
+                                <button class="btn-submit" onclick="checkForUpdates(true)" style="flex:1;">${I.search} 检查更新</button>
+                                <button class="btn-ghost" onclick="manualUpdateFlow()" style="flex:1;">${I.rocket} 立即更新</button>
+                            </div>
+                            <details style="font-size:12px; color:var(--text-sec);">
+                                <summary style="cursor:pointer; font-weight:600;">${I.lines} 历史更新内容</summary>
+                                <div id="historyChangelog" style="margin-top:8px; line-height:1.8;">加载中…</div>
+                            </details>
+                        </div>
                     </div>
                     <div id="accountSubPanel" style="display:none; text-align:center; padding:20px 0; color:var(--text-sec); font-size:14px;">
                         ${I.robot} 当前为订阅用户模式，仅可查看节点，无任何修改权限。
                     </div>
+                </div>
+            </div>
+
+            <div id="updateModal" style="display:none; position:fixed; inset:0; z-index:12000; background:rgba(0,0,0,.55); backdrop-filter:blur(5px); overflow-y:auto; -webkit-overflow-scrolling:touch; padding:16px 16px 150px;">
+                <div style="max-width:480px; margin:40px auto; background:var(--card); border-radius:18px; padding:22px; box-shadow:0 10px 40px rgba(0,0,0,.25);">
+                    <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:12px;">
+                        <h2 style="margin:0; font-size:18px; display:flex; align-items:center; gap:8px;">${I.rocket} 发现新版本</h2>
+                        <button onclick="hideUpdateModal()" style="background:transparent;border:none;cursor:pointer;color:var(--text-sec);display:inline-flex;padding:4px;">${I.xmark}</button>
+                    </div>
+                    <div style="font-size:13px; margin-bottom:12px;">当前版本 <span id="updateModalCurVer" style="font-weight:600;">v${CURRENT_VERSION}</span> → 新版本 <span id="updateModalVersion" style="font-weight:600; color:var(--primary);"></span></div>
+                    <div style="background:rgba(52,199,89,0.06); border:1px solid rgba(52,199,89,.25); border-radius:10px; padding:14px; margin-bottom:14px;">
+                        <div id="updateModalBody" style="font-size:12px; color:var(--text); line-height:1.9;">加载中…</div>
+                    </div>
+                    <div style="display:flex; gap:8px;">
+                        <button class="btn-submit" onclick="doOnlineUpdate()" style="flex:1;">${I.rocket} 立即更新</button>
+                        <button class="btn-ghost" onclick="hideUpdateModal()" style="flex:1;">稍后再说</button>
+                    </div>
+                </div>
+            </div>
+
+            <div id="updateResultModal" style="display:none; position:fixed; inset:0; z-index:12010; background:rgba(0,0,0,.55); backdrop-filter:blur(5px); overflow-y:auto; -webkit-overflow-scrolling:touch; padding:16px 16px 150px;">
+                <div style="max-width:480px; margin:40px auto; background:var(--card); border-radius:18px; padding:22px; box-shadow:0 10px 40px rgba(0,0,0,.25);">
+                    <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:12px;">
+                        <h2 style="margin:0; font-size:18px; display:flex; align-items:center; gap:8px; color:#34c759;">${I.check} 更新成功</h2>
+                        <button onclick="document.getElementById('updateResultModal').style.display='none'" style="background:transparent;border:none;cursor:pointer;color:var(--text-sec);display:inline-flex;padding:4px;">${I.xmark}</button>
+                    </div>
+                    <div id="updateResultBody" style="font-size:12px; color:var(--text); line-height:1.9; margin-bottom:14px;"></div>
+                    <button class="btn-submit" onclick="window.location.reload()" style="width:100%;">${I.check} 刷新页面</button>
                 </div>
             </div>
 
@@ -1464,6 +1520,7 @@ function toSvg(s){
                 loadSubscribers();
                 loadPtState();
                 loadPtHits();
+                loadVersionPanel();
             }
         }
         function closeAccountModal() {
@@ -2242,39 +2299,116 @@ function toSvg(s){
         // 这里的变量会自动从代码最顶端的配置区读取注入
         const CURRENT_VERSION = "${CURRENT_VERSION}"; 
         const GITHUB_RAW_URL = "${GITHUB_RAW_URL}"; 
+        const CHANGELOG_URL = "${CHANGELOG_URL}"; 
         
         let latestCode = ""; 
+        let latestVersion = "";
+        let changelogCache = null;
 
-        async function checkForUpdates() {
+        async function loadChangelog() {
             try {
-                const res = await fetch(GITHUB_RAW_URL + '?t=' + new Date().getTime());
-                if (!res.ok) return;
-                latestCode = await res.text();
-                
-                //  核心修复：加入双重反斜杠，防止正则在 Worker 中变成注释 (//) 导致崩溃
-                const versionMatch = latestCode.match(/\\/\\/\\s*VERSION:\\s*v?([\\d\\.]+)/i);
-                if (versionMatch && versionMatch[1]) {
-                    const latestVersion = versionMatch[1];
-                    if (latestVersion !== CURRENT_VERSION) {
-                        document.getElementById('updateAlert').style.display = 'block';
-                        document.getElementById('updateMsg').innerText = '当前版本: v' + CURRENT_VERSION + ' | 发现最新版本: v' + latestVersion + ' (Github)';
-                    }
+                const res = await fetch(CHANGELOG_URL + '?t=' + new Date().getTime());
+                if (!res.ok) return null;
+                changelogCache = await res.json();
+                return changelogCache;
+            } catch (e) { console.log("拉取更新内容失败:", e); return null; }
+        }
+
+        async function loadVersionPanel() {
+            try {
+                const res = await fetch('/api/version');
+                const data = await res.json();
+                if (data.success) {
+                    const badge = document.getElementById('curVersionBadge');
+                    if (badge) badge.textContent = 'v' + data.version;
+                    const chk = document.getElementById('updateNotifyChk');
+                    if (chk) chk.checked = !!data.updateNotify;
                 }
-            } catch (e) {
-                console.log("检测更新失败:", e);
+            } catch (e) {}
+            const cl = await loadChangelog();
+            if (cl && cl.versions && cl.versions.length) {
+                const latest = cl.versions[0];
+                const lc = document.getElementById('latestChangelog');
+                if (lc) lc.innerHTML = '<div style="font-weight:600; color:var(--text);">v' + latest.version + ' · ' + (latest.date || '') + (latest.title ? ' · ' + latest.title : '') + '</div>' + (latest.items || []).map(i => '· ' + i).join('<br>');
+                const hc = document.getElementById('historyChangelog');
+                if (hc) hc.innerHTML = cl.versions.slice(1).map(v => '<div style="margin-bottom:10px;"><span style="font-weight:600;">v' + v.version + '</span> <span style="color:var(--text-sec);">(' + (v.date || '') + ')</span>' + (v.title ? ' ' + v.title : '') + '<br>' + (v.items || []).map(i => '&nbsp;&nbsp;· ' + i).join('<br>') + '</div>').join('') || '暂无更多历史记录';
+            } else {
+                const lc = document.getElementById('latestChangelog');
+                if (lc) lc.textContent = '暂无更新内容';
             }
         }
 
+        async function saveUpdateNotify() {
+            const chk = document.getElementById('updateNotifyChk');
+            const on = chk ? chk.checked : true;
+            try {
+                const res = await fetch('/api/account', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ updateNotify: on }) });
+                const data = await res.json();
+                if (data.success) showToast(on ? '更新提醒已开启' : '更新提醒已关闭');
+                else alert('保存失败：' + (data.error || ''));
+            } catch (e) { alert('保存失败：' + e.message); }
+        }
+
+        async function checkForUpdates(manual) {
+            try {
+                const res = await fetch(GITHUB_RAW_URL + '?t=' + new Date().getTime());
+                if (!res.ok) { if (manual) alert('检查更新失败：无法访问更新源'); return; }
+                latestCode = await res.text();
+                
+                const versionMatch = latestCode.match(/\\/\\/\\s*VERSION:\\s*v?([\\d\\.]+)/i);
+                if (!versionMatch || !versionMatch[1]) { if (manual) alert('未获取到版本信息'); return; }
+                latestVersion = versionMatch[1];
+                if (latestVersion === CURRENT_VERSION) {
+                    if (manual) alert('当前已是最新版本 v' + CURRENT_VERSION);
+                    return;
+                }
+                const cl = changelogCache || await loadChangelog();
+                let items = []; let title = '';
+                if (cl && cl.versions && cl.versions.length) {
+                    const v = cl.versions.find(x => x.version === latestVersion) || cl.versions[0];
+                    items = v.items || []; title = v.title || '';
+                }
+                if (!manual) {
+                    try {
+                        const vres = await fetch('/api/version');
+                        const vdata = await vres.json();
+                        if (vdata.success && !vdata.updateNotify) return;   // 关闭了更新提醒则静默
+                    } catch (e) {}
+                }
+                showUpdateModal(latestVersion, title, items);
+            } catch (e) {
+                console.log("检测更新失败:", e);
+                if (manual) alert('检查更新失败：' + e.message);
+            }
+        }
+
+        function showUpdateModal(version, title, items) {
+            document.getElementById('updateModalVersion').textContent = 'v' + version;
+            document.getElementById('updateModalCurVer').textContent = 'v' + CURRENT_VERSION;
+            document.getElementById('updateModalBody').innerHTML = '<div style="font-size:13px; font-weight:600; margin-bottom:8px;">' + (title ? title : '本次更新内容') + '</div>' + (items && items.length ? items.map(i => '· ' + i).join('<br>') : '<span style="color:var(--text-sec);">暂无详细更新内容</span>');
+            document.getElementById('updateModal').style.display = 'block';
+        }
+        function hideUpdateModal() { document.getElementById('updateModal').style.display = 'none'; }
+
+        async function manualUpdateFlow() {
+            if (!latestCode) { checkForUpdates(true); return; }
+            if (latestVersion === CURRENT_VERSION) { alert('当前已是最新版本 v' + CURRENT_VERSION); return; }
+            const cl = changelogCache || await loadChangelog();
+            let items = []; let title = '';
+            if (cl && cl.versions && cl.versions.length) {
+                const v = cl.versions.find(x => x.version === latestVersion) || cl.versions[0];
+                items = v.items || []; title = v.title || '';
+            }
+            showUpdateModal(latestVersion, title, items);
+        }
+
         async function doOnlineUpdate() {
-            if (!confirm(' 确定要从 GitHub 拉取最新版本并覆盖当前节点吗？\\n\\n（这将会保留你的所有环境变量和数据库绑定）')) return;
+            hideUpdateModal();
+            if (!latestCode) { checkForUpdates(true); return; }
             
             const btn = document.getElementById('onlineUpdateBtn');
-            btn.innerText = '⏳ 正在拉取并部署...';
-            btn.disabled = true;
-            btn.style.opacity = '0.7';
-
+            if (btn) { btn.innerText = '⏳ 正在拉取并部署...'; btn.disabled = true; btn.style.opacity = '0.7'; }
             try {
-                // 直接复用我们之前写好的防丢数据库高级 API
                 const res = await fetch('/api/deploy', {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
@@ -2282,22 +2416,26 @@ function toSvg(s){
                 });
                 const data = await res.json();
                 if (data.success) {
-                    alert(' 在线更新成功！\\n\\n点击确定后页面将自动刷新，畅享新版本！');
-                    window.location.reload(); 
+                    const cl = changelogCache || await loadChangelog();
+                    let items = [];
+                    if (cl && cl.versions && cl.versions.length) {
+                        const v = cl.versions.find(x => x.version === latestVersion) || cl.versions[0];
+                        items = v.items || [];
+                    }
+                    document.getElementById('updateResultBody').innerHTML = '<div style="font-size:13px; margin-bottom:8px;">已成功更新到 <b style="color:var(--primary);">v' + latestVersion + '</b>，本次更新内容：</div>' + (items.length ? items.map(i => '· ' + i).join('<br>') : '暂无详细更新内容');
+                    document.getElementById('updateResultModal').style.display = 'block';
                 } else {
                     alert(' 更新失败：\\n' + JSON.stringify(data.error));
                 }
             } catch (e) {
                 alert(' 异常：\\n' + e.message);
             } finally {
-                btn.innerText = ' 一键拉取并升级';
-                btn.disabled = false;
-                btn.style.opacity = '1';
+                if (btn) { btn.innerText = ' 一键拉取并升级'; btn.disabled = false; btn.style.opacity = '1'; }
             }
         }
 
         // 页面加载完成后自动在后台静默检测更新
-        document.addEventListener('DOMContentLoaded', checkForUpdates);
+        document.addEventListener('DOMContentLoaded', () => checkForUpdates(false));
     </script>
     <style>
     /* 修正页面底部留白，防止被 Dock 挡住 */
@@ -2975,6 +3113,18 @@ export default {
             return Response.json({ success: true, role: ROLE });
         }
 
+        // 版本信息（登录可见）：当前版本 + 更新提醒开关
+        if (url.pathname === '/api/version' && request.method === 'GET') {
+            let updateNotify = true;
+            try {
+                if (env.DB) {
+                    const row = await env.DB.prepare("SELECT value FROM app_config WHERE key = 'update_notify'").first();
+                    if (row && row.value !== null && row.value !== undefined) updateNotify = String(row.value) !== '0';
+                }
+            } catch (e) {}
+            return Response.json({ success: true, version: CURRENT_VERSION, updateNotify });
+        }
+
         // 保号通知设置（登录可见，脱敏返回）
         if (url.pathname === '/api/account/notify' && request.method === 'GET') {
             if (ROLE !== 'admin') return new Response('Forbidden', { status: 403 });
@@ -3040,6 +3190,12 @@ export default {
                         tgNotify: n.tgNotify !== false
                     };
                     await env.DB.prepare('INSERT OR REPLACE INTO app_config (key, value) VALUES (?, ?)').bind('notify_settings', JSON.stringify(cfg)).run();
+                    return Response.json({ success: true });
+                }
+                if (data.updateNotify !== undefined) {
+                    if (!env.DB) return Response.json({ success: false, error: 'D1 未绑定：请在 Worker 设置里绑定名为 DB 的 D1 数据库' });
+                    await env.DB.prepare('CREATE TABLE IF NOT EXISTS app_config (key TEXT PRIMARY KEY, value TEXT)').run();
+                    await env.DB.prepare('INSERT OR REPLACE INTO app_config (key, value) VALUES (?, ?)').bind('update_notify', data.updateNotify ? '1' : '0').run();
                     return Response.json({ success: true });
                 }
                 const pw = String(data.password || '').trim();

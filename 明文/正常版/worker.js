@@ -1,6 +1,6 @@
-// VERSION: 3.3.17
+// VERSION: 3.3.18
 //  面板核心配置区 (放在最顶端方便修改)
-const CURRENT_VERSION = "3.3.17"; 
+const CURRENT_VERSION = "3.3.18"; 
 const GITHUB_RAW_URL = "https://raw.githubusercontent.com/MakkaPakka518/ProxyHub_Emby/refs/heads/main/worker.js";
 
 // ==========================================
@@ -1233,6 +1233,8 @@ function toSvg(s){
                 const currentHost = window.location.host;
 
                 data.forEach((r, idx) => {
+                    // 转义引号，防止备注/图标/链接里的英文单引号截断 onclick 参数
+                    const esc = s => String(s == null ? '' : s).replace(/\\/g, '\\\\').replace(/'/g, "\\'");
                     const proxyUrl = entryUrl(r.prefix);
                     const targets = r.target ? r.target.split(',').map(s => s.trim()).filter(Boolean) : [];
                     const mainTarget = targets[0] || '';
@@ -1326,8 +1328,8 @@ function toSvg(s){
                             </div>
 
                             <div class="card-footer admin-only">
-                                <button class="btn-edit" onclick="editNode('\${r.prefix}', '\${r.target}', '\${r.mode}', '\${r.remark || ''}', '\${r.icon || ''}', '\${r.cache_img}', '\${r.custom_ip || ''}', '\${r.watch_limit || '0'}')">编辑配置</button>
-                                <button class="btn-del" onclick="del('\${r.prefix}')">删除</button>
+                                <button class="btn-edit" onclick="editNode('\${esc(r.prefix)}', '\${esc(r.target)}', '\${esc(r.mode)}', '\${esc(r.remark || '')}', '\${esc(r.icon || '')}', '\${esc(r.cache_img)}', '\${esc(r.custom_ip || '')}', '\${esc(r.watch_limit || '0')}')">编辑配置</button>
+                                <button class="btn-del" onclick="del('\${esc(r.prefix)}')">删除</button>
                             </div>
                         </div>
                     </div>\`;;
@@ -1528,7 +1530,7 @@ function toSvg(s){
                 closeAccountModal();
                 showToast('反代 Token 已' + (enabled ? '开启，链接前缀 /' + key + '/' : '关闭'));
                 await loadPtState();
-                try { renderRoutes(); } catch (e) { console.error(e); }
+                try { load(); } catch (e) { console.error(e); }
             } else alert('保存失败：' + (data.error || ''));
         }
         function fmtHitTs(ts) {
@@ -2714,6 +2716,8 @@ async function scanOverdueNotify(env, ctx) {
         let last = {};
         try { if (lastRow && lastRow.value) last = JSON.parse(lastRow.value); } catch (e) {}
         if (last.date === todayStr) return;
+        // 老库可能还没有 watch_limit 列：先补列再查询，防止 SQL 报错导致超限提醒静默失效
+        try { await env.DB.exec(`ALTER TABLE routes ADD COLUMN watch_limit TEXT DEFAULT '0'`); } catch (e) {}
         const { results } = await env.DB.prepare('SELECT prefix, remark, target, last_play, watch_limit FROM routes').all();
         const list = [];
         for (const r of (results || [])) {
@@ -3507,7 +3511,7 @@ if (request.method !== 'GET' && ROLE !== 'admin') return new Response('Forbidden
         // 2.6 核心反代与调度引擎（修播放）
         // ==========================================
         let targetUrls = []; let currentMode = 'off'; let enableCache = true; let remainingPath = '';
-        let decodedPath = decodeURIComponent(url.pathname); let matchedPrefix = null; 
+        let decodedPath; try { decodedPath = decodeURIComponent(url.pathname); } catch (e) { decodedPath = url.pathname; } let matchedPrefix = null; 
         let proxyOrigin = new URL(request.url).origin;
 
         // 反代 Token 门禁：开启后代理路径必须带 /密钥/ 前缀
@@ -4183,8 +4187,16 @@ if (request.method !== 'GET' && ROLE !== 'admin') return new Response('Forbidden
             try {
                 let clonedRes = finalResponse.clone(); 
                 let text = await clonedRes.text();
-                if (text.includes('http://') || text.includes('https://')) {
+                if (text.includes('http://') || text.includes('https://') || /^\s*\//m.test(text)) {
+                    // 绝对 URL 分片：代理到 /密钥/节点/源站URL
                     let modifiedText = text.replace(/(https?:\/\/[^\s]+)/g, proxyOrigin + safePrefix + '/$1');
+                    // 协议相对分片（//host/path）：补 https 协议再代理
+                    modifiedText = modifiedText.replace(/^(?!\s*#)(\s*)\/\/([^\s]+)$/gm, (m, sp, p) => sp + proxyOrigin + safePrefix + '/https://' + p);
+                    // 根相对分片（/path）：浏览器会解析到不带节点前缀的根路径导致 404，补上源站根 + 代理前缀
+                    const firstOrigin = (targetUrls[0] || '').replace(/\/+$/, '');
+                    if (firstOrigin) {
+                        modifiedText = modifiedText.replace(/^(?!\s*#)(\s*)\/([^\s]+)$/gm, (m, sp, p) => sp + proxyOrigin + safePrefix + '/' + firstOrigin + '/' + p);
+                    }
                     dropBodyIntegrityHeaders(responseHeaders);
                     return new Response(modifiedText, { status: finalResponse.status, statusText: finalResponse.statusText, headers: responseHeaders });
                 }

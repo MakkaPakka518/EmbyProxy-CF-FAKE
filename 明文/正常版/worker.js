@@ -1,6 +1,6 @@
-// VERSION: 3.3.14
+// VERSION: 3.3.15
 //  面板核心配置区 (放在最顶端方便修改)
-const CURRENT_VERSION = "3.3.14"; 
+const CURRENT_VERSION = "3.3.15"; 
 const GITHUB_RAW_URL = "https://raw.githubusercontent.com/MakkaPakka518/ProxyHub_Emby/refs/heads/main/worker.js";
 
 // ==========================================
@@ -1510,7 +1510,7 @@ function toSvg(s){
             const tgNotify = document.getElementById('tgNotify').checked;
             const res = await fetch('/api/account', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ notify: { barkKey, barkLevel, barkServer, barkNotify, tgToken, tgChatId, tgNotify } }) });
             const data = await res.json();
-            if (data.success) { showToast('保号通知设置已保存'); await loadNotifyState(); }
+            if (data.success) { showToast('保号通知设置已保存'); closeAccountModal(); }
             else alert('保存失败：' + (data.error || ''));
         }
         async function testNotifyFn(type) {

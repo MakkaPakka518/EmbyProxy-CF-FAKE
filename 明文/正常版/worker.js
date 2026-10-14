@@ -1,6 +1,6 @@
-// VERSION: 3.3.15
+// VERSION: 3.3.16
 //  面板核心配置区 (放在最顶端方便修改)
-const CURRENT_VERSION = "3.3.15"; 
+const CURRENT_VERSION = "3.3.16"; 
 const GITHUB_RAW_URL = "https://raw.githubusercontent.com/MakkaPakka518/ProxyHub_Emby/refs/heads/main/worker.js";
 
 // ==========================================
@@ -712,7 +712,7 @@ function toSvg(s){
                 </div>
             </div>
 
-            <div id="accountModal" style="display:none; position:fixed; inset:0; z-index:11010; background:rgba(0,0,0,.5); backdrop-filter:blur(5px); overflow-y:auto; padding:16px;">
+            <div id="accountModal" style="display:none; position:fixed; inset:0; z-index:11010; background:rgba(0,0,0,.5); backdrop-filter:blur(5px); overflow-y:auto; -webkit-overflow-scrolling:touch; padding:16px 16px 150px;">
                 <div style="max-width:560px; margin:24px auto; background:var(--card); border-radius:18px; padding:22px; box-shadow:0 10px 40px rgba(0,0,0,.2);">
                     <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:14px;">
                         <h2 style="margin:0; font-size:19px; display:flex; align-items:center; gap:8px;">${I.gear} 账户设置</h2>
@@ -741,9 +741,12 @@ function toSvg(s){
                             <div id="ptHits" style="font-size:12px; color:var(--text-sec);">加载中…</div>
                         </div>
                         <div style="background:rgba(120,120,120,0.05); border:1px solid var(--border); border-radius:10px; padding:14px;">
-                            <div style="font-size:14px; font-weight:600; margin-bottom:10px;">${I.bulb} 保号通知（Bark / Telegram）</div>
-                            <div style="font-size:12px; color:var(--text-sec); margin-bottom:10px;">${I.warn} 节点超过观看下限未观看时，每日自动推送一次到 Bark（iOS）与/或 Telegram；测试按钮可立即验证。</div>
-                            <label style="display:flex;align-items:center;gap:6px;font-size:13px;margin-bottom:10px;"><input type="checkbox" id="barkNotify" style="accent-color:var(--primary);"> 启用 Bark 通知</label>
+                            <div style="font-size:14px; font-weight:600; margin-bottom:8px;">${I.bulb} 保号通知（Bark / Telegram）</div>
+                            <div style="font-size:12px; color:var(--text-sec); margin-bottom:10px;">${I.warn} 节点超观看下限未观看时每日推送一次；测试按钮可立即验证。</div>
+                            <div style="display:flex; gap:14px; margin-bottom:10px;">
+                                <label style="display:flex;align-items:center;gap:6px;font-size:13px;"><input type="checkbox" id="barkNotify" style="accent-color:var(--primary);"> Bark</label>
+                                <label style="display:flex;align-items:center;gap:6px;font-size:13px;"><input type="checkbox" id="tgNotify" style="accent-color:var(--primary);"> Telegram</label>
+                            </div>
                             <div style="display:flex; gap:8px; margin-bottom:8px;">
                                 <input type="text" id="barkKey" placeholder="Bark 设备 Key（留空不修改）" style="flex:1; padding:10px 14px; border:1px solid var(--border); border-radius:8px; background:var(--bg);">
                                 <select id="barkLevel" style="padding:10px 14px; border:1px solid var(--border); border-radius:8px; background:var(--bg);">
@@ -754,11 +757,10 @@ function toSvg(s){
                                 </select>
                             </div>
                             <input type="text" id="barkServer" placeholder="Bark 服务地址（默认 https://api.day.app）" style="width:100%; padding:10px 14px; border:1px solid var(--border); border-radius:8px; background:var(--bg); margin-bottom:10px;">
-                            <label style="display:flex;align-items:center;gap:6px;font-size:13px;margin-bottom:10px;"><input type="checkbox" id="tgNotify" style="accent-color:var(--primary);"> 启用 Telegram 通知</label>
                             <input type="text" id="tgToken" placeholder="TG Bot Token（@BotFather 获取，留空不修改）" style="width:100%; padding:10px 14px; border:1px solid var(--border); border-radius:8px; background:var(--bg); margin-bottom:8px;">
                             <input type="text" id="tgChatId" placeholder="TG Chat ID（留空不修改）" style="width:100%; padding:10px 14px; border:1px solid var(--border); border-radius:8px; background:var(--bg); margin-bottom:10px;">
                             <div style="display:flex; gap:8px;">
-                                <button class="btn-submit" onclick="saveNotifySettings()" style="flex:1;">${I.check} 保存通知设置</button>
+                                <button class="btn-submit" onclick="saveNotifySettings()" style="flex:1;">${I.check} 保存</button>
                                 <button class="btn-ghost" onclick="testNotifyFn('bark')" style="white-space:nowrap;">测试 Bark</button>
                                 <button class="btn-ghost" onclick="testNotifyFn('tg')" style="white-space:nowrap;">测试 TG</button>
                             </div>

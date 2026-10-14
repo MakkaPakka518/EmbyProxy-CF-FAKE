@@ -1,6 +1,6 @@
-// VERSION: 3.3.18
+// VERSION: 3.3.19
 //  面板核心配置区 (放在最顶端方便修改)
-const CURRENT_VERSION = "3.3.18"; 
+const CURRENT_VERSION = "3.3.19"; 
 const GITHUB_RAW_URL = "https://raw.githubusercontent.com/MakkaPakka518/ProxyHub_Emby/refs/heads/main/worker.js";
 
 // ==========================================
@@ -1234,7 +1234,7 @@ function toSvg(s){
 
                 data.forEach((r, idx) => {
                     // 转义引号，防止备注/图标/链接里的英文单引号截断 onclick 参数
-                    const esc = s => String(s == null ? '' : s).replace(/\\/g, '\\\\').replace(/'/g, "\\'");
+                    const esc = s => String(s == null ? '' : s).replaceAll('"', '\\\\"').replaceAll("'", "\\\\'");
                     const proxyUrl = entryUrl(r.prefix);
                     const targets = r.target ? r.target.split(',').map(s => s.trim()).filter(Boolean) : [];
                     const mainTarget = targets[0] || '';

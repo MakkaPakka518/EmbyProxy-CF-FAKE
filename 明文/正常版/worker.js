@@ -1,6 +1,6 @@
-// VERSION: 3.3.13
+// VERSION: 3.3.14
 //  面板核心配置区 (放在最顶端方便修改)
-const CURRENT_VERSION = "3.3.13"; 
+const CURRENT_VERSION = "3.3.14"; 
 const GITHUB_RAW_URL = "https://raw.githubusercontent.com/MakkaPakka518/ProxyHub_Emby/refs/heads/main/worker.js";
 
 // ==========================================
@@ -2733,6 +2733,19 @@ async function scanOverdueNotify(env, ctx) {
     } catch (e) { console.error('scanOverdueNotify:', e); }
 }
 
+async function maybeScanOverdue(env) {
+    try {
+        if (!env.DB) return;
+        const now = Date.now();
+        const row = await env.DB.prepare("SELECT value FROM app_config WHERE key = 'overdue_last_check'").first();
+        let lastCheck = 0;
+        if (row && row.value) lastCheck = parseInt(row.value, 10) || 0;
+        if (now - lastCheck < 6 * 3600000) return;
+        await env.DB.prepare('INSERT OR REPLACE INTO app_config (key, value) VALUES (?, ?)').bind('overdue_last_check', String(now)).run();
+        await scanOverdueNotify(env, {});
+    } catch (e) {}
+}
+
 export default {
     // 每天自动运行发送 TG 统计
     async scheduled(event, env, ctx) {
@@ -2747,6 +2760,10 @@ export default {
     async fetch(request, env, ctx) {
         try {
         const url = new URL(request.url);
+        // 保号超限检查：请求时低频触发（6 小时节流），无需 Cron 也能每日推送
+        if (env.DB && ctx && ctx.waitUntil && url.pathname !== '/__client_rtt__') {
+            ctx.waitUntil(maybeScanOverdue(env));
+        }
 
         // ==========================================
         //  新增：全云厂商 Worker 放置区域接口

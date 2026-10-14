@@ -1,6 +1,15 @@
 {
   "versions": [
     {
+      "version": "3.3.16",
+      "date": "2026-10-14",
+      "title": "修复 Token 播放 404",
+      "items": [
+        "修复开启反代 Token 后播放报 404（找不到文件）：客户端二次拼接出 /密钥/节点/emby/密钥/节点/... 双重前缀，归一化逻辑未识别 token 形态，导致多余前缀打到源站",
+        "normalizeRemainingPathForPlayback 新增 /emby/{密钥}/{节点}/... 双重前缀剥离，开 token 后播放恢复正常"
+      ]
+    },
+    {
       "version": "3.3.15",
       "date": "2026-10-14",
       "title": "新版本通知推送",

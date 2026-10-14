@@ -1,6 +1,6 @@
-// VERSION: 3.3.2
+// VERSION: 3.3.11
 //  面板核心配置区 (放在最顶端方便修改)
-const CURRENT_VERSION = "3.3.2"; 
+const CURRENT_VERSION = "3.3.11"; 
 const GITHUB_RAW_URL = "https://raw.githubusercontent.com/MakkaPakka518/EmbyProxy-CF-FAKE/refs/heads/main/worker.js";
 
 // ==========================================
@@ -672,9 +672,7 @@ function toSvg(s){
                         </div>
                         <div style="font-size:12px; color:var(--text-sec);">在 CF 面板给 Worker 配 Cron 触发器（如每天 */5 * * * *），自动保活才会按间隔执行；不配 Cron 也可点节点卡片「保活」手动触发。</div>
                     </div>
-                    <label style="display:block; font-size:14px; font-weight:600; color:var(--text); margin:14px 0 4px;">观看下限（保号天数）</label>
-                        <div style="font-size:12px; color:var(--text-sec); margin-bottom:8px;">超过此天数未观看，节点卡片红色报警并推送提醒；0 = 不限制（可填小数，如 14.5）</div>
-                        <input type="number" id="watchLimit" placeholder="如 7 / 14 / 21 / 14.5" step="0.1" min="0" style="padding: 10px 14px; border: 1px solid var(--border); border-radius: 8px; background: var(--card); width: 100%;">
+                    <input type="number" id="watchLimit" placeholder="观看下限（天，如 7 / 14 / 21；0 = 不限制。超过下限未观看会在卡片红色报警）" step="0.1" min="0" style="padding: 10px 14px; border: 1px solid var(--border); border-radius: 8px; background: var(--card); width: 100%;">
 
                     <div style="display: flex; gap: 12px; flex-wrap: wrap; align-items: center;">
                         <div style="position: relative; flex: 2; display: flex;">
@@ -700,6 +698,10 @@ function toSvg(s){
                         <label style="display:flex; align-items:center; gap:8px; font-size:14px; font-weight:500; cursor:pointer;">
                             <input type="checkbox" id="nodeCache" class="ip-checkbox" checked>
                             开启海报及静态资源缓存
+                        </label>
+                        <label style="display:flex; align-items:center; gap:8px; font-size:14px; font-weight:500; cursor:pointer; margin-top:8px;">
+                            <input type="checkbox" id="nodeDlTrick" class="ip-checkbox">
+                            下载伪装：显示下载按钮 + 下载请求伪装为缓存流（绕过服务端禁下载）
                         </label>
                         <button type="submit" id="submitBtn" class="btn-submit" style="flex: 1; padding: 14px 20px;">保存部署</button>
                     </div>
@@ -783,7 +785,7 @@ function toSvg(s){
                 </div>
             </div>
 
-            <div id="accountModal" style="display:none; position:fixed; inset:0; z-index:11010; background:rgba(0,0,0,.5); backdrop-filter:blur(5px); overflow-y:auto; padding:16px;">
+            <div id="accountModal" style="display:none; position:fixed; inset:0; z-index:11010; background:rgba(0,0,0,.5); backdrop-filter:blur(5px); overflow-y:auto; -webkit-overflow-scrolling:touch; padding:16px 16px 150px;">
                 <div style="max-width:560px; margin:24px auto; background:var(--card); border-radius:18px; padding:22px; box-shadow:0 10px 40px rgba(0,0,0,.2);">
                     <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:14px;">
                         <h2 style="margin:0; font-size:19px; display:flex; align-items:center; gap:8px;">${I.gear} 账户设置</h2>
@@ -797,27 +799,50 @@ function toSvg(s){
                             <button class="btn-submit" onclick="saveAdminPass()" style="width:100%;">${I.check} 保存新密码</button>
                         </div>
                         <div style="background:rgba(120,120,120,0.05); border:1px solid var(--border); border-radius:10px; padding:14px;">
+                            <div style="font-size:14px; font-weight:600; margin-bottom:10px;">${I.spy} 反代 Token</div>
+                            <div style="font-size:12px; color:var(--text-sec); margin-bottom:10px;">${I.warn} 开启后所有节点链接需带 <b style="color:var(--primary);">/密钥/</b> 前缀才可反代；不带前缀的访问会跳转 /catch 并记录来访 IP（记录存 D1，不占 KV 额度）。</div>
+                            <div style="display:flex; align-items:center; gap:10px; margin-bottom:10px;">
+                                <label style="display:flex; align-items:center; gap:6px; cursor:pointer; font-size:13px; color:var(--text);">
+                                    <input type="checkbox" id="ptOn" style="accent-color:var(--primary); width:16px; height:16px; cursor:pointer;"> 开启
+                                </label>
+                            </div>
+                            <div style="display:flex; gap:8px; margin-bottom:12px;">
+                                <input type="text" id="ptKey" placeholder="自定义密钥（3-32 位字母数字，如 lhazkj）" style="flex:1; padding:10px 14px; border:1px solid var(--border); border-radius:8px; background:var(--bg);">
+                                <button class="btn-submit" onclick="saveProxyToken()" style="white-space:nowrap;">${I.check} 保存</button>
+                            </div>
+                            <div style="font-size:13px; font-weight:600; margin-bottom:8px;">来访记录 IP <span style="font-weight:400; color:var(--text-sec);">（仅管理员）</span></div>
+                            <div id="ptHits" style="font-size:12px; color:var(--text-sec);">加载中…</div>
+                        </div>
+                        <div style="background:rgba(120,120,120,0.05); border:1px solid var(--border); border-radius:10px; padding:14px;">
+                            <div style="font-size:14px; font-weight:600; margin-bottom:8px;">${I.bulb} 保号通知（Bark / Telegram）</div>
+                            <div style="font-size:12px; color:var(--text-sec); margin-bottom:10px;">${I.warn} 节点超观看下限未观看时每日推送一次；测试按钮可立即验证。</div>
+                            <div style="display:flex; gap:14px; margin-bottom:10px;">
+                                <label style="display:flex;align-items:center;gap:6px;font-size:13px;"><input type="checkbox" id="barkNotify" style="accent-color:var(--primary);"> Bark</label>
+                                <label style="display:flex;align-items:center;gap:6px;font-size:13px;"><input type="checkbox" id="tgNotify" style="accent-color:var(--primary);"> Telegram</label>
+                            </div>
+                            <input type="text" id="barkKey" placeholder="Bark 设备 Key（留空不修改）" style="width:100%; padding:10px 14px; border:1px solid var(--border); border-radius:8px; background:var(--bg); margin-bottom:8px;">
+                            <select id="barkLevel" style="width:100%; padding:10px 14px; border:1px solid var(--border); border-radius:8px; background:var(--bg); margin-bottom:10px;">
+                                <option value="active">active（默认）</option>
+                                <option value="timeSensitive">timeSensitive</option>
+                                <option value="critical">critical（紧急）</option>
+                                <option value="passive">passive</option>
+                            </select>
+                            <input type="text" id="barkServer" placeholder="Bark 服务地址（默认 https://api.day.app）" style="width:100%; padding:10px 14px; border:1px solid var(--border); border-radius:8px; background:var(--bg); margin-bottom:10px;">
+                            <input type="text" id="tgToken" placeholder="TG Bot Token（@BotFather 获取，留空不修改）" style="width:100%; padding:10px 14px; border:1px solid var(--border); border-radius:8px; background:var(--bg); margin-bottom:8px;">
+                            <input type="text" id="tgChatId" placeholder="TG Chat ID（留空不修改）" style="width:100%; padding:10px 14px; border:1px solid var(--border); border-radius:8px; background:var(--bg); margin-bottom:10px;">
+                            <div style="display:flex; gap:8px;">
+                                <button class="btn-submit" onclick="saveNotifySettings()" style="flex:1;">${I.check} 保存</button>
+                                <button class="btn-ghost" onclick="testNotifyFn('bark')" style="white-space:nowrap;">测试 Bark</button>
+                                <button class="btn-ghost" onclick="testNotifyFn('tg')" style="white-space:nowrap;">测试 TG</button>
+                            </div>
+                        </div>
+                        <div style="background:rgba(120,120,120,0.05); border:1px solid var(--border); border-radius:10px; padding:14px;">
                             <div style="font-size:14px; font-weight:600; margin-bottom:10px;">${I.robot} 订阅用户管理</div>
                             <div style="font-size:12px; color:var(--text-sec); margin-bottom:10px;">订阅者密码可进入网页，但只能查看节点，不能进行任何修改操作。</div>
                             <div id="subList" style="display:flex; flex-direction:column; gap:8px; margin-bottom:12px;"></div>
                             <div style="display:flex; gap:8px;">
                                 <input type="text" id="newSubPass" placeholder="输入新订阅者密码" style="flex:1; padding:10px 14px; border:1px solid var(--border); border-radius:8px; background:var(--bg);">
                                 <button class="btn-submit" onclick="addSubscriber()" style="white-space:nowrap;">${I.plus} 添加</button>
-                            </div>
-                        </div>
-                        <div style="background:rgba(120,120,120,0.05); border:1px solid var(--border); border-radius:10px; padding:14px;">
-                            <div style="font-size:14px; font-weight:600; margin-bottom:10px;">🔔 保活通知（Bark / Telegram）</div>
-                            <div style="font-size:12px; color:var(--text-sec); margin-bottom:10px;">自动保活成功/失败时推送提醒；配置保存在 D1，Worker 变量（BARK_KEY / TG_BOT_TOKEN 等）优先，留空不修改。</div>
-                            <input type="text" id="cfgBarkKey" placeholder="Bark 设备 Key（留空不修改）" style="width:100%; padding:10px 14px; border:1px solid var(--border); border-radius:8px; background:var(--bg); margin-bottom:8px;">
-                            <input type="text" id="cfgBarkLevel" placeholder="Bark 级别 active/timeSensitive/critical/passive" style="width:100%; padding:10px 14px; border:1px solid var(--border); border-radius:8px; background:var(--bg); margin-bottom:8px;">
-                            <input type="text" id="cfgTgToken" placeholder="TG Bot Token（留空不修改）" style="width:100%; padding:10px 14px; border:1px solid var(--border); border-radius:8px; background:var(--bg); margin-bottom:8px;">
-                            <input type="text" id="cfgTgChatId" placeholder="TG Chat ID" style="width:100%; padding:10px 14px; border:1px solid var(--border); border-radius:8px; background:var(--bg); margin-bottom:8px;">
-                            <label style="display:flex; align-items:center; gap:8px; font-size:13px; margin-bottom:4px;"><input type="checkbox" id="cfgBarkNotify" checked> 启用 Bark 推送</label>
-                            <label style="display:flex; align-items:center; gap:8px; font-size:13px; margin-bottom:12px;"><input type="checkbox" id="cfgTgNotify" checked> 启用 TG 推送</label>
-                            <div style="display:flex; gap:8px;">
-                                <button class="btn-submit" onclick="saveNotifConfig()" style="flex:1;">${I.check} 保存</button>
-                                <button class="btn-submit" onclick="testNotifyNow('bark')" style="flex:1;">测试 Bark</button>
-                                <button class="btn-submit" onclick="testNotifyNow('tg')" style="flex:1;">测试 TG</button>
                             </div>
                         </div>
                     </div>
@@ -1267,6 +1292,9 @@ function toSvg(s){
 
         async function load() {
             try {
+                await loadPtState();
+            } catch (e) {}
+            try {
                 const res = await fetch('/api/routes');
                 if (!res.ok) throw new Error('请求失败，请检查环境配置');
                 const data = await res.json();
@@ -1286,7 +1314,7 @@ function toSvg(s){
                 const currentHost = window.location.host;
 
                 data.forEach((r, idx) => {
-                    const proxyUrl = 'https://' + currentHost + '/' + r.prefix;
+                    const proxyUrl = entryUrl(r.prefix);
                     const targets = r.target ? r.target.split(',').map(s => s.trim()).filter(Boolean) : [];
                     const mainTarget = targets[0] || '';
                     
@@ -1310,8 +1338,8 @@ function toSvg(s){
                     const encodedTargets = encodeURIComponent(JSON.stringify(targets));
                     
                     //  伪装设备与保活状态解析（VPS 版同款）
-                    let fakeClient = '';
-                    try { const fp = r.custom_params ? JSON.parse(r.custom_params) : {}; fakeClient = fp.client || ''; } catch(e){}
+                    let fakeClient = ''; let dlTrickOn = false;
+                    try { const fp = r.custom_params ? JSON.parse(r.custom_params) : {}; fakeClient = fp.client || ''; dlTrickOn = !!fp.dlTrick; } catch(e){}
                     const fakeOn = (r.mode || '').includes('fake');
                     const kaOn = r.ka_enabled === '1';
                     const kaStatus = kaOn ? '已开启 · ' + (r.ka_days || 3) + '天' : '未开启';
@@ -1381,6 +1409,10 @@ function toSvg(s){
                                 <div class="info-row">
                                     <span class="info-label">海报缓存:</span>
                                     <span style="color:\${r.cache_img !== 'off' ? '#34c759' : '#ff9500'}; font-weight:600;">\${r.cache_img !== 'off' ? '${I.check} 已开启' : '${I.xmark} 已关闭'}</span>
+                                </div>
+                                <div class="info-row">
+                                    <span class="info-label">下载伪装:</span>
+                                    <span style="color:\${dlTrickOn ? '#34c759' : 'var(--text-sec)'}; font-weight:600;">\${dlTrickOn ? '${I.check} 已开启' : '${I.xmark} 已关闭'}</span>
                                 </div>
                                 <div class="info-row">
                                     <span class="info-label">最后活跃:</span>
@@ -1479,6 +1511,7 @@ function toSvg(s){
             if (customParamsStr) {
                 try { customParams = JSON.parse(decodeURIComponent(customParamsStr)); } catch(e){}
             }
+            document.getElementById('nodeDlTrick').checked = !!customParams.dlTrick;
             document.getElementById('customClient').value = customParams.client || '';
             document.getElementById('customVersion').value = customParams.version || '';
             document.getElementById('customDevice').value = customParams.device || '';
@@ -1623,7 +1656,7 @@ function toSvg(s){
                 for (const n of list) {
                     if (n.time && n.time > lastKaNoticeT) {
                         lastKaNoticeT = Math.max(lastKaNoticeT, n.time);
-                        kaToast((n.result === '成功' ? '✅' : '❌') + ' 保活' + (n.result === '成功' ? '成功' : '失败') + ' /' + n.prefix + '：' + (n.detail || ''), n.result === '成功');
+                        kaToast((n.result === '成功' ? '✅' : '❌') + ' 保活' + (n.result === '成功' ? '成功' : '失败') + ' ' + (n.remark || ('/' + n.prefix)) + '：' + (n.detail || ''), n.result === '成功');
                     }
                 }
             } catch (e) {}
@@ -1640,7 +1673,7 @@ function toSvg(s){
         }
         function renderRexLink() {
             const scheme = location.protocol.replace(':', '');
-            const host = location.hostname + '/' + String(document.getElementById('rexPrefix').value || '').trim();
+            const host = location.hostname + '/' + (PT.enabled ? PT.key + '/' : '') + String(document.getElementById('rexPrefix').value || '').trim();
             const port = location.port || (scheme === 'https' ? '443' : '80');
             const username = encodeURIComponent(String(document.getElementById('rexUser').value || '').trim());
             const password = encodeURIComponent(String(document.getElementById('rexPass').value || '').trim());
@@ -1673,6 +1706,7 @@ function toSvg(s){
             document.getElementById('oldPrefix').value='';
             selectIcon('','默认');
             document.getElementById('nodeCache').checked=true;
+            document.getElementById('nodeDlTrick').checked=false;
             document.getElementById('submitBtn').textContent='保存部署';
             document.getElementById('nodeModalTitle').textContent='添加节点';
             document.getElementById('nodeModal').style.display='block';
@@ -1718,44 +1752,103 @@ function toSvg(s){
                 document.getElementById('accountAdminPanel').style.display = 'flex';
                 document.getElementById('accountSubPanel').style.display = 'none';
                 loadSubscribers();
-                loadNotifConfig();
+                loadPtState();
+                loadPtHits();
             }
         }
         function closeAccountModal() {
             document.getElementById('accountModal').style.display = 'none';
         }
-        // ============ 通知设置（Bark / TG） ============
-        async function loadNotifConfig() {
+        let PT = { enabled: false, key: '' };
+        function entryUrl(prefix) {
+            return 'https://' + window.location.host + '/' + (PT.enabled ? PT.key + '/' : '') + prefix;
+        }
+        async function loadPtState() {
             try {
-                const res = await fetch('/api/config');
+                const res = await fetch('/api/proxytoken');
                 const data = await res.json();
-                if (!data.success) return;
-                document.getElementById('cfgBarkKey').placeholder = data.barkKey ? 'Bark Key：' + data.barkKey + '（留空不修改）' : 'Bark 设备 Key（留空不修改）';
-                document.getElementById('cfgBarkLevel').value = data.barkLevel || 'active';
-                document.getElementById('cfgTgToken').placeholder = data.tgToken ? 'TG Token：' + data.tgToken + '（留空不修改）' : 'TG Bot Token（留空不修改）';
-                document.getElementById('cfgTgChatId').value = data.tgChatId || '';
-                document.getElementById('cfgBarkNotify').checked = !!data.barkNotify;
-                document.getElementById('cfgTgNotify').checked = !!data.tgNotify;
+                if (data.success) PT = { enabled: !!data.enabled, key: data.key || '' };
+            } catch (e) {}
+            const on = document.getElementById('ptOn');
+            if (on) on.checked = PT.enabled;
+            const k = document.getElementById('ptKey');
+            if (k) k.value = PT.key || '';
+            await loadNotifyState();
+        }
+        async function loadNotifyState() {
+            try {
+                const res = await fetch('/api/account/notify');
+                const data = await res.json();
+                if (data.success) {
+                    const set = (id, v) => { const el = document.getElementById(id); if (el) el.value = v || ''; };
+                    const setChk = (id, v) => { const el = document.getElementById(id); if (el) el.checked = v !== false; };
+                    set('barkKey', data.barkKey);
+                    set('barkLevel', data.barkLevel || 'active');
+                    set('barkServer', data.barkServer || 'https://api.day.app');
+                    setChk('barkNotify', data.barkNotify);
+                    set('tgToken', data.tgToken);
+                    set('tgChatId', data.tgChatId);
+                    setChk('tgNotify', data.tgNotify);
+                }
             } catch (e) {}
         }
-        async function saveNotifConfig() {
-            const body = {
-                barkKey: document.getElementById('cfgBarkKey').value.trim(),
-                barkLevel: document.getElementById('cfgBarkLevel').value.trim() || 'active',
-                barkNotify: document.getElementById('cfgBarkNotify').checked,
-                tgToken: document.getElementById('cfgTgToken').value.trim(),
-                tgChatId: document.getElementById('cfgTgChatId').value.trim(),
-                tgNotify: document.getElementById('cfgTgNotify').checked
-            };
-            const res = await fetch('/api/config', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(body) });
+        async function saveNotifySettings() {
+            const barkKey = document.getElementById('barkKey').value.trim();
+            const barkLevel = document.getElementById('barkLevel').value;
+            const barkServer = document.getElementById('barkServer').value.trim();
+            const barkNotify = document.getElementById('barkNotify').checked;
+            const tgToken = document.getElementById('tgToken').value.trim();
+            const tgChatId = document.getElementById('tgChatId').value.trim();
+            const tgNotify = document.getElementById('tgNotify').checked;
+            const res = await fetch('/api/account', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ notify: { barkKey, barkLevel, barkServer, barkNotify, tgToken, tgChatId, tgNotify } }) });
             const data = await res.json();
-            if (data.success) { showToast('通知设置已保存'); loadNotifConfig(); }
-            else alert(data.error || '保存失败');
+            if (data.success) { showToast('保号通知设置已保存'); closeAccountModal(); }
+            else alert('保存失败：' + (data.error || ''));
         }
-        async function testNotifyNow(type) {
+        async function testNotifyFn(type) {
             const res = await fetch('/api/test-notify', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ type }) });
             const data = await res.json();
-            showToast(data.msg || '已发送');
+            alert(data.success ? '测试通知发送成功' : ('发送失败：' + (data.error || '')));
+        }
+        async function saveProxyToken() {
+            const enabled = document.getElementById('ptOn').checked;
+            const key = document.getElementById('ptKey').value.trim();
+            if (enabled && !/^[A-Za-z0-9]{3,32}$/.test(key)) { alert('密钥需 3-32 位字母数字'); return; }
+            const res = await fetch('/api/account', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ proxyToken: { enabled, key } }) });
+            const data = await res.json();
+            if (data.success) {
+                closeAccountModal();
+                showToast('反代 Token 已' + (enabled ? '开启，链接前缀 /' + key + '/' : '关闭'));
+                await loadPtState();
+                try { renderRoutes(); } catch (e) { console.error(e); }
+            } else alert('保存失败：' + (data.error || ''));
+        }
+        function fmtHitTs(ts) {
+            const d = new Date(ts + 8 * 3600000);
+            return String(d.getUTCFullYear()).slice(2) + '-' + String(d.getUTCMonth() + 1).padStart(2, '0') + '-' + String(d.getUTCDate()).padStart(2, '0') + ' ' + String(d.getUTCHours()).padStart(2, '0') + ':' + String(d.getUTCMinutes()).padStart(2, '0');
+        }
+        async function loadPtHits() {
+            const box = document.getElementById('ptHits');
+            try {
+                const res = await fetch('/api/proxytoken/hits');
+                const data = await res.json();
+                const hits = (data && data.hits) || [];
+                if (!hits.length) { box.innerHTML = '<span style="color:var(--text-sec);">暂无记录</span>'; return; }
+                box.innerHTML = hits.map(h => '<div style="padding:8px 10px;border:1px solid var(--border);border-radius:8px;margin-bottom:6px;background:var(--bg);">'
+                    + '<div style="color:var(--text);font-weight:600;font-size:13px;">' + escHtml(h.ip) + ' <span style="color:var(--primary);font-weight:700;">×' + (h.times || 1) + '</span></div>'
+                    + '<div style="color:var(--text-sec);font-size:12px;word-break:break-all;margin-top:2px;">' + escHtml(h.path || '') + '</div>'
+                    + '<div style="color:var(--text-sec);font-size:11px;margin-top:2px;">' + fmtHitTs(h.ts || 0) + ' · ' + escHtml(String(h.ua || '').slice(0, 70)) + '</div></div>'
+                ).join('') + '<button class="btn-ghost" style="margin-top:6px;font-size:12px;" onclick="clearPtHits()">' + (I.trash || '清除') + ' 清空记录</button>';
+            } catch (e) { box.innerHTML = '<span style="color:var(--text-sec);">加载失败</span>'; }
+        }
+        async function clearPtHits() {
+            const res = await fetch('/api/proxytoken/hits', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ clear: true }) });
+            const data = await res.json();
+            if (data.success) { showToast('已清空来访记录'); loadPtHits(); }
+            else alert('清空失败');
+        }
+        function escHtml(s) {
+            return String(s == null ? '' : s).replace(/[&<>"']/g, c => ({ '&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;' }[c]));
         }
         async function saveAdminPass() {
             const pw = document.getElementById('newAdminPass').value.trim();
@@ -1829,6 +1922,7 @@ function toSvg(s){
             const mode = document.getElementById('mode').value;
             const icon = document.getElementById('iconUrl').value;
             const cache_img = document.getElementById('nodeCache').checked ? 'on' : 'off';
+            const dlTrick = document.getElementById('nodeDlTrick').checked ? '1' : '0';
             const customClient = document.getElementById('customClient').value.trim();
             const customVersion = document.getElementById('customVersion').value.trim();
             const customDevice = document.getElementById('customDevice').value.trim();
@@ -1854,7 +1948,7 @@ function toSvg(s){
             try {
                 const res = await fetch('/api/routes', { 
                     method: 'POST', 
-                    body: JSON.stringify({oldPrefix, prefix, target, mode, remark, icon, cache_img, customClient, customVersion, customDevice, customDeviceId, customUa, kaEnabled, kaDays, kaToken, nodeUser, nodePass, watchLimit})
+                    body: JSON.stringify({oldPrefix, prefix, target, mode, remark, icon, cache_img, dlTrick, customClient, customVersion, customDevice, customDeviceId, customUa, kaEnabled, kaDays, kaToken, nodeUser, nodePass, watchLimit})
                 });
                 const data = await res.json();
                 if(!data.success) throw new Error(data.error || '部署失败');
@@ -1863,9 +1957,11 @@ function toSvg(s){
                 document.getElementById('oldPrefix').value = ''; 
                 selectIcon('', '默认');
                 document.getElementById('nodeCache').checked = true;
+                document.getElementById('nodeDlTrick').checked = false;
                 document.getElementById('submitBtn').textContent = '保存部署'; 
                 resetTargetInputs(); 
-                
+                closeNodeModal();   // 保存成功后直接关闭弹窗，避免编辑态残留成"添加节点"空表单
+
                 showToast('✅ 节点部署成功');
                 load();
             } catch(err) {
@@ -3027,72 +3123,37 @@ async function runKeepAlive(env, route) {
   const failed = steps.filter(x => !x.ok).length;
   return { ok: failed < steps.length / 2, msg: '保活完成（' + steps.length + ' 步，' + failed + ' 步异常）', steps };
 }
-/** 读取通知配置：D1 app_config 存储，env 变量（BARK_KEY/BARK_LEVEL/TG_BOT_TOKEN/TG_CHAT_ID 等）优先 */
-async function getNotifConfig(env) {
-  const cfg = { barkKey: '', barkLevel: 'active', barkNotify: true, tgToken: '', tgChatId: '', tgNotify: true };
-  try {
-    if (env && env.DB) {
-      const map = { bark_key: 'barkKey', bark_level: 'barkLevel', bark_notify: 'barkNotify', tg_token: 'tgToken', tg_chat_id: 'tgChatId', tg_notify: 'tgNotify' };
-      for (const key of Object.keys(map)) {
-        const row = await env.DB.prepare('SELECT value FROM app_config WHERE key = ?').bind(key).first();
-        if (row && row.value !== undefined && row.value !== null && String(row.value) !== '') {
-          const k = map[key];
-          cfg[k] = (k === 'barkNotify' || k === 'tgNotify') ? String(row.value) !== 'false' : String(row.value);
-        }
-      }
-    }
-  } catch (e) {}
-  if (env.BARK_KEY) cfg.barkKey = env.BARK_KEY;
-  if (env.BARK_LEVEL) cfg.barkLevel = env.BARK_LEVEL;
-  if (env.BARK_NOTIFY !== undefined) cfg.barkNotify = String(env.BARK_NOTIFY) !== 'false';
-  if (env.TG_BOT_TOKEN) cfg.tgToken = env.TG_BOT_TOKEN;
-  if (env.TG_CHAT_ID) cfg.tgChatId = env.TG_CHAT_ID;
-  if (env.TG_NOTIFY !== undefined) cfg.tgNotify = String(env.TG_NOTIFY) !== 'false';
-  return cfg;
-}
-
-/** 发送 Bark 推送 */
-async function sendBark(cfg, title, body) {
-  try {
-    const level = cfg.barkLevel || 'active';
-    await fetch(`https://api.day.app/${encodeURIComponent(cfg.barkKey)}/${encodeURIComponent(title)}/${encodeURIComponent(body)}?level=${encodeURIComponent(level)}`);
-  } catch (e) {}
-}
-
-/** 发送 TG 推送 */
-async function sendTg(cfg, title, body) {
-  try {
-    await fetch(`https://api.telegram.org/bot${cfg.tgToken}/sendMessage`, {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ chat_id: cfg.tgChatId, text: title + '\n' + body })
-    });
-  } catch (e) {}
-}
-
 /** 定时检查：找出最先到期的开启保活节点执行（每 tick 只跑一个，避免并发打爆上游与超时） */
-async function pushKaNotice(env, prefix, ok, detail) {
+async function pushKaNotice(env, prefix, ok, detail, remark) {
   try {
     if (!env || !env.DB) return;
     const row = await env.DB.prepare("SELECT value FROM app_config WHERE key = 'ka_notices'").first();
     let list = [];
     try { if (row && row.value) list = JSON.parse(row.value); } catch (e) {}
-    list.unshift({ time: Date.now(), prefix: String(prefix || ''), result: ok ? '成功' : '失败', detail: String(detail || '').slice(0, 180) });
+    list.unshift({ time: Date.now(), prefix: String(prefix || ''), remark: String(remark || ''), result: ok ? '成功' : '失败', detail: String(detail || '').slice(0, 180) });
     if (list.length > 30) list.length = 30;
     await env.DB.prepare('INSERT OR REPLACE INTO app_config (key, value) VALUES (?, ?)').bind('ka_notices', JSON.stringify(list)).run();
-    // 保活结果推送 Bark/TG
-    try {
-      const cfg = await getNotifConfig(env);
-      const hasBark = cfg.barkNotify && cfg.barkKey;
-      const hasTg = cfg.tgNotify && cfg.tgToken && cfg.tgChatId;
-      if (hasBark || hasTg) {
-        const rr = await env.DB.prepare('SELECT remark FROM routes WHERE prefix = ?').bind(String(prefix || '')).first();
-        const remark = (rr && rr.remark) || ('/' + String(prefix || ''));
-        const title = (ok ? '✅ ' : '❌ ') + '节点 ' + remark + ' 保活' + (ok ? '成功' : '失败');
-        if (hasBark) await sendBark(cfg, title, String(detail || ''));
-        if (hasTg) await sendTg(cfg, title, String(detail || ''));
-      }
-    } catch (e2) {}
+  } catch (e) {}
+  // 保活结果通知：Bark（iOS）+ Telegram（配置了环境变量时推送，节点显示备注）
+  const nodeName = remark || ('/' + prefix);
+  const kaText = (ok ? '✅' : '❌') + ' 节点 ' + nodeName + ' 保活' + (ok ? '成功' : '失败') + (detail ? '：' + detail : '');
+  try {
+    if (env.BARK_KEY) {
+      await fetch('https://api.day.app/' + String(env.BARK_KEY).trim(), {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ title: 'Emby 反代面板', body: kaText, level: env.BARK_LEVEL || 'active' })
+      });
+    }
+  } catch (e) {}
+  try {
+    if (env.TG_BOT_TOKEN && env.TG_CHAT_ID) {
+      await fetch('https://api.telegram.org/bot' + env.TG_BOT_TOKEN + '/sendMessage', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ chat_id: String(env.TG_CHAT_ID), text: kaText })
+      });
+    }
   } catch (e) {}
 }
 
@@ -3115,7 +3176,7 @@ async function checkKeepAliveSchedule(env) {
     const result = await runKeepAlive(env, route);
     await env.DB.prepare('UPDATE routes SET last_ka_run = ?, last_ka_result = ?, last_ka_detail = ? WHERE prefix = ?')
       .bind(new Date().toISOString(), result.ok ? 'success' : 'fail', result.msg || '', route.prefix).run();
-    await pushKaNotice(env, route.prefix, result.ok, result.msg);
+    await pushKaNotice(env, route.prefix, result.ok, result.msg, route.remark);
   } catch (e) {}
 }
 
@@ -3253,16 +3314,198 @@ function genUuid() {
   return h.slice(0,8) + '-' + h.slice(8,12) + '-' + h.slice(12,16) + '-' + h.slice(16,20) + '-' + h.slice(20);
 }
 
+/** 下载伪装伴随观看（CF 版）：起播 → 流驱动心跳 → 结束收尾。
+ *  与 VPS 版同款协议：Sessions/Playing 起播 → Playing/Progress 心跳（首次固定 10s、第二次固定 30s、
+ *  之后 15s~3 分钟随机）→ Stopped 结束 → 1.5s 后重置 UserData 清除播放记录。
+ *  CF 运行时限制：不依赖后台定时器，心跳由响应流的读取节奏驱动（每次读到数据块检查是否到点）；
+ *  收尾通过 ctx.waitUntil 保证在响应结束后仍执行完毕。 */
+function spawnDlTrickWatchCF(target, req, itemId, search) {
+    try {
+        const params = new URLSearchParams((search || '').replace(/^\?/, ''));
+        const apiKey = params.get('api_key') || params.get('X-Emby-Token') || '';
+        const authHdr = req.headers.get('x-emby-authorization') || req.headers.get('authorization') || '';
+        if (!apiKey && !authHdr) return null;   // 无凭据无法伪装，直接跳过
+        const msId = params.get('mediaSourceId') || params.get('MediaSourceId') || '';
+        const mClient = String(authHdr).match(/Client="([^"]+)"/i);
+        const mVersion = String(authHdr).match(/Version="([^"]+)"/i);
+        // 独立虚拟设备ID：下载心跳不占用播放器真实设备会话。
+        // 否则下载期间上游认为"播放器设备已在播放"，用户再点播放时同设备并发会话被上游卡住 → 一直缓冲
+        const deviceId = genUuid();
+        const client = (mClient && mClient[1]) || 'Emby';
+        const version = (mVersion && mVersion[1]) || '4.8.0.0';
+        const playSessionId = 'bemby-' + Date.now();
+        let targetOrigin = '';
+        try { targetOrigin = new URL(target).origin; } catch(e) { return null; }
+        const hdrs = { 'Content-Type': 'application/json' };
+        if (authHdr) hdrs['X-Emby-Authorization'] = authHdr.replace(/DeviceId\s*=\s*"[^"]*"/i, `DeviceId="${deviceId}"`);
+        const url = path => addApiKey(targetOrigin + path, apiKey);
+        const base = { ItemId: itemId, MediaSourceId: msId || itemId, PlaySessionId: playSessionId, DeviceId: deviceId, Client: client, Version: version, PlayMethod: 'DirectStream', CanSeek: true, IsPaused: false, QueueableMediaTypes: ['Video'] };
+        const watchBody = pos => JSON.stringify(Object.assign({}, base, { PositionTicks: pos, PlaybackPositionTicks: pos }));
+        let closed = false, posTicks = 0, userId = '';
+        let tickCount = 0, nextWait = 10, nextHeartAt = Date.now() + 10000;   // 首次固定 10s，第二次固定 30s，之后 15~180s 随机
+        const post = (path, body) => kaFetch(url(path), { method: 'POST', headers: hdrs, body }).catch(() => null);
+        // 起播 + 预取用户信息（fire-and-forget，响应流期间事件循环可执行）
+        post('/emby/Sessions/Playing', watchBody(0));
+        kaFetch(url('/emby/Users/Me'), { headers: hdrs }).then(async r => {
+            try { userId = (JSON.parse(await r.text()) || {}).Id || ''; } catch(e){}
+        }).catch(() => {});
+        return {
+            // 响应流驱动心跳：每次读到数据块后调用，到达心跳时间点即上报（不 await，避免拖慢流转发）
+            tick() {
+                if (closed) return;
+                const now = Date.now();
+                if (now < nextHeartAt) return;
+                tickCount += 1;
+                posTicks += nextWait * 10000000;
+                nextHeartAt = now + nextWait * 1000;
+                // 第一次固定 10s（已发出），第二次固定 30s，之后 15~180s 随机
+                nextWait = tickCount === 1 ? 30 : (15 + Math.floor(Math.random() * 166));
+                post('/emby/Sessions/Playing/Progress', watchBody(posTicks));
+            },
+            // 下载结束/断开：上报结束 + 重置 UserData 清除播放记录（调用方须用 ctx.waitUntil 包裹）
+            async finish() {
+                if (closed) return;
+                closed = true;
+                try {
+                    if (!userId) {
+                        const r = await kaFetch(url('/emby/Users/Me'), { headers: hdrs });
+                        try { userId = (JSON.parse(await r.text()) || {}).Id || ''; } catch(e){}
+                    }
+                } catch(e){}
+                await post('/emby/Sessions/Playing/Stopped', watchBody(posTicks));
+                if (userId && itemId) {
+                    await new Promise(r2 => setTimeout(r2, 1500));   // 等 Stopped 落库后再清
+                    await post('/emby/Users/' + encodeURIComponent(userId) + '/Items/' + encodeURIComponent(itemId) + '/UserData',
+                        JSON.stringify({ Played: false, PlayCount: 0, ResumePositionTicks: 0, PlaybackPositionTicks: 0, PlayedPercentage: 0 }));
+                }
+            }
+        };
+    } catch(e) { return null; }
+}
+
+/** 把响应流包一层：转发数据块并在读取间隙驱动心跳，流结束/取消时收尾（收尾走 ctx.waitUntil 保证执行） */
+function wrapStreamWithWatch(stream, watch, ctx) {
+    const reader = stream.getReader();
+    const runFinish = () => {
+        try { const p = watch.finish(); if (p && ctx && ctx.waitUntil) ctx.waitUntil(p); } catch(e){}
+    };
+    return new ReadableStream({
+        async pull(controller) {
+            try {
+                const { done, value } = await reader.read();
+                if (done) {
+                    try { controller.close(); } catch(e){}
+                    runFinish();
+                    return;
+                }
+                controller.enqueue(value);
+                try { watch.tick(); } catch(e){}
+            } catch (err) {
+                try { controller.error(err); } catch(e){}
+                runFinish();
+            }
+        },
+        cancel() {
+            try { reader.cancel(); } catch(e){}
+            runFinish();
+        }
+    });
+}
+
+// ============ 保号通知（Bark / Telegram）============
+async function getNotifyCfg(env) {
+    let cfg = { barkKey: '', barkLevel: 'active', barkServer: 'https://api.day.app', barkNotify: true, tgToken: '', tgChatId: '', tgNotify: true };
+    try {
+        if (env && env.DB) {
+            const row = await env.DB.prepare("SELECT value FROM app_config WHERE key = 'notify_settings'").first();
+            if (row && row.value) Object.assign(cfg, JSON.parse(row.value));
+        }
+    } catch (e) {}
+    return cfg;
+}
+async function sendBarkN(cfg, title, body) {
+    try {
+        if (!cfg.barkKey) return false;
+        const r = await fetch((cfg.barkServer || 'https://api.day.app').replace(/\/+$/, '') + '/' + String(cfg.barkKey).trim(), {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json; charset=utf-8' },
+            body: JSON.stringify({ title: title, body: body, level: cfg.barkLevel || 'active' })
+        });
+        return r.ok;
+    } catch (e) { return false; }
+}
+async function sendTgN(cfg, text) {
+    try {
+        if (!cfg.tgToken || !cfg.tgChatId) return false;
+        const r = await fetch('https://api.telegram.org/bot' + String(cfg.tgToken).trim() + '/sendMessage', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ chat_id: String(cfg.tgChatId).trim(), text: text })
+        });
+        return r.ok;
+    } catch (e) { return false; }
+}
+async function scanOverdueNotify(env, ctx) {
+    try {
+        if (!env.DB) return;
+        const cfg = await getNotifyCfg(env);
+        if (!cfg.barkNotify && !cfg.tgNotify) return;
+        if (!cfg.barkKey && !(cfg.tgToken && cfg.tgChatId)) return;
+        const todayStr = new Date(Date.now() + 8 * 3600000).toISOString().split('T')[0];
+        const lastRow = await env.DB.prepare("SELECT value FROM app_config WHERE key = 'overdue_notify'").first();
+        let last = {};
+        try { if (lastRow && lastRow.value) last = JSON.parse(lastRow.value); } catch (e) {}
+        if (last.date === todayStr) return;
+        const { results } = await env.DB.prepare('SELECT prefix, remark, target, last_play, watch_limit FROM routes').all();
+        const list = [];
+        for (const r of (results || [])) {
+            const wl = parseFloat(r.watch_limit);
+            if (!wl || wl <= 0 || !r.last_play) continue;
+            const lpUtc = Date.parse(String(r.last_play).replace(' ', 'T') + 'Z') - 8 * 3600000;
+            if (isNaN(lpUtc)) continue;
+            const diffDays = Math.floor((Date.now() - lpUtc) / 86400000);
+            if (diffDays > wl) list.push({ prefix: r.prefix, remark: r.remark || r.prefix, days: diffDays, wl: wl });
+        }
+        await env.DB.prepare('INSERT OR REPLACE INTO app_config (key, value) VALUES (?, ?)').bind('overdue_notify', JSON.stringify({ date: todayStr, list: list })).run();
+        if (!list.length) return;
+        const lines = list.map(n => '· ' + n.remark + '（/' + n.prefix + '）已 ' + n.days + ' 天未观看，超过下限 ' + n.wl + ' 天');
+        const text = '⚠️ 保号提醒：' + list.length + ' 个节点超过观看下限未观看\n' + lines.join('\n');
+        if (cfg.barkNotify && cfg.barkKey) await sendBarkN(cfg, 'Emby 反代面板 · 保号提醒', text);
+        if (cfg.tgNotify && cfg.tgToken && cfg.tgChatId) await sendTgN(cfg, text);
+    } catch (e) { console.error('scanOverdueNotify:', e); }
+}
+async function maybeScanOverdue(env) {
+    try {
+        if (!env.DB) return;
+        const now = Date.now();
+        const row = await env.DB.prepare("SELECT value FROM app_config WHERE key = 'overdue_last_check'").first();
+        let lastCheck = 0;
+        if (row && row.value) lastCheck = parseInt(row.value, 10) || 0;
+        if (now - lastCheck < 6 * 3600000) return;
+        await env.DB.prepare('INSERT OR REPLACE INTO app_config (key, value) VALUES (?, ?)').bind('overdue_last_check', String(now)).run();
+        await scanOverdueNotify(env, {});
+    } catch (e) {}
+}
+
 export default {
     async scheduled(event, env, ctx) {
         // 自动保活：检查所有开启保活的节点，按各自间隔到期执行（每 tick 只跑最先到期的一个）
         if (env.DB && env.KA_ENABLED !== 'off') {
             ctx.waitUntil(checkKeepAliveSchedule(env));
         }
+        // 保号超限每日扫描（配了 Cron 时也走）
+        if (env.DB) {
+            ctx.waitUntil(scanOverdueNotify(env, ctx));
+        }
     },
 
     async fetch(request, env, ctx) {
+        try {
         const url = new URL(request.url);
+        // 保号超限检查：请求时低频触发（6 小时节流），无需 Cron 也能每日推送
+        if (env.DB && ctx && ctx.waitUntil && url.pathname !== '/__client_rtt__') {
+            ctx.waitUntil(maybeScanOverdue(env));
+        }
 
         // ==========================================
         //  新增：全云厂商 Worker 放置区域接口
@@ -3477,6 +3720,57 @@ export default {
             return new Response(null, { headers: { "Access-Control-Allow-Origin": "*", "Access-Control-Allow-Methods": "GET, POST, PUT, DELETE, OPTIONS", "Access-Control-Allow-Headers": "*", "Access-Control-Max-Age": "86400" } });
         }
 
+        // ============ 反代 Token 门禁（D1 存储） ============
+        // 配置存 app_config；来访记录存 proxy_hits 表（不占用 KV 免费额度）
+        async function getProxyToken(env) {
+            if (!env.DB) return null;
+            try {
+                await env.DB.prepare('CREATE TABLE IF NOT EXISTS app_config (key TEXT PRIMARY KEY, value TEXT)').run();
+                const row = await env.DB.prepare("SELECT value FROM app_config WHERE key = 'proxy_token'").first();
+                if (!row || !row.value) return null;
+                return JSON.parse(row.value);
+            } catch (e) { return null; }
+        }
+        function proxyTokenPrefix(pt) {
+            return (pt && pt.enabled && pt.key) ? pt.key + '/' : '';
+        }
+        async function recordProxyHit(env, request, path) {
+            if (!env.DB) return;
+            try {
+                const ip = request.headers.get('cf-connecting-ip') || request.headers.get('x-real-ip') || (request.headers.get('x-forwarded-for') || '').split(',')[0].trim() || 'Unknown';
+                const ua = (request.headers.get('User-Agent') || '').slice(0, 200);
+                const ts = Date.now();
+                const p = String(path || '').slice(0, 200);
+                await env.DB.prepare('CREATE TABLE IF NOT EXISTS proxy_hits (id INTEGER PRIMARY KEY AUTOINCREMENT, ip TEXT, path TEXT, ua TEXT, ts INTEGER, times INTEGER)').run();
+                const exist = await env.DB.prepare('SELECT id, times FROM proxy_hits WHERE ip = ? AND path = ? ORDER BY id DESC LIMIT 1').bind(ip, p).first();
+                if (exist) {
+                    await env.DB.prepare('UPDATE proxy_hits SET times = ?, ts = ? WHERE id = ?').bind((exist.times || 1) + 1, ts, exist.id).run();
+                } else {
+                    await env.DB.prepare('INSERT INTO proxy_hits (ip, path, ua, ts, times) VALUES (?, ?, ?, ?, 1)').bind(ip, p, ua, ts).run();
+                }
+            } catch (e) {}
+        }
+        function catchPageHtml(ip, ua) {
+            const esc = s => String(s == null ? '' : s).replace(/[<>&"']/g, c => ({'<':'&lt;','>':'&gt;','&':'&amp;','"':'&quot;',"'":'&#39;'}[c]));
+            return `<!DOCTYPE html><html lang="zh"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Oops</title><style>
+        body{margin:0;min-height:100vh;display:flex;align-items:center;justify-content:center;background:radial-gradient(ellipse at top,#0f0c29,#302b63,#24243e);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC",sans-serif;color:#fff}
+        .box{text-align:center;padding:48px;border:1px solid rgba(255,255,255,.15);border-radius:20px;background:rgba(255,255,255,.05);backdrop-filter:blur(8px);max-width:90vw}
+        h1{font-size:34px;margin:0 0 12px;letter-spacing:2px}
+        .sub{font-size:14px;color:#a8b2d1;margin-bottom:24px}
+        .ip{font-size:18px;font-weight:700;color:#ffd700;word-break:break-all}
+        .meta{font-size:12px;color:#7f8bb3;margin-top:16px;word-break:break-all}
+      </style></head><body><div class="box">
+        <h1>宝贝抓到你了 👋</h1>
+        <div class="sub">你的来访信息已被记录</div>
+        <div class="ip">${esc(ip)}</div>
+        <div class="meta">UA: ${esc(ua).slice(0,120)}</div>
+      </div></body></html>`;
+        }
+        if (url.pathname === '/catch') {
+            const ip = request.headers.get('cf-connecting-ip') || request.headers.get('x-real-ip') || (request.headers.get('x-forwarded-for') || '').split(',')[0].trim() || 'Unknown';
+            return new Response(catchPageHtml(ip, request.headers.get('User-Agent') || ''), { headers: { 'Content-Type': 'text/html;charset=UTF-8', 'Cache-Control': 'no-store' } });
+        }
+
         const EXPECTED_TOKEN = env.ADMIN_TOKEN;
         if (!EXPECTED_TOKEN) return new Response("请在 Worker 变量中配置 ADMIN_TOKEN", { status: 500 });
 
@@ -3559,50 +3853,74 @@ export default {
         if (url.pathname === '/api/me' && request.method === 'GET') {
             return Response.json({ success: true, role: ROLE });
         }
-        // ============ 通知设置（Bark / Telegram，管理员） ============
-        if (url.pathname === '/api/config' && request.method === 'GET') {
+
+        // 保号通知设置（登录可见，脱敏返回）
+        if (url.pathname === '/api/account/notify' && request.method === 'GET') {
             if (ROLE !== 'admin') return new Response('Forbidden', { status: 403 });
-            const cfg = await getNotifConfig(env);
-            return Response.json({ success: true,
-                barkKey: cfg.barkKey ? '已配置' : '',
-                barkLevel: cfg.barkLevel, barkNotify: cfg.barkNotify,
-                tgToken: cfg.tgToken ? '已配置' : '',
-                tgChatId: cfg.tgChatId, tgNotify: cfg.tgNotify });
-        }
-        if (url.pathname === '/api/config' && request.method === 'POST') {
-            if (ROLE !== 'admin') return new Response('Forbidden', { status: 403 });
-            const b = await request.json().catch(() => ({}));
-            const map = { barkKey: 'bark_key', barkLevel: 'bark_level', barkNotify: 'bark_notify', tgToken: 'tg_token', tgChatId: 'tg_chat_id', tgNotify: 'tg_notify' };
+            let cfg = {};
             try {
-                for (const k of Object.keys(map)) {
-                    if (b[k] === undefined) continue;
-                    let v = String(b[k]);
-                    if ((k === 'barkKey' || k === 'tgToken') && !v) continue;
-                    await env.DB.prepare('INSERT OR REPLACE INTO app_config (key, value) VALUES (?, ?)').bind(map[k], v).run();
+                if (env.DB) {
+                    const row = await env.DB.prepare("SELECT value FROM app_config WHERE key = 'notify_settings'").first();
+                    if (row && row.value) cfg = JSON.parse(row.value);
                 }
-            } catch (e) { return Response.json({ success: false, error: '保存失败：' + e.message }); }
-            return Response.json({ success: true });
+            } catch (e) {}
+            return Response.json({ success: true, barkKey: cfg.barkKey ? '********' : '', barkLevel: cfg.barkLevel || 'active', barkServer: cfg.barkServer || 'https://api.day.app', barkNotify: cfg.barkNotify !== false, tgToken: cfg.tgToken ? '********' : '', tgChatId: cfg.tgChatId || '', tgNotify: cfg.tgNotify !== false });
         }
+
+        // 测试通知（bark / tg）
         if (url.pathname === '/api/test-notify' && request.method === 'POST') {
             if (ROLE !== 'admin') return new Response('Forbidden', { status: 403 });
-            const b = await request.json().catch(() => ({}));
-            const cfg = await getNotifConfig(env);
-            const type = b.type === 'tg' ? 'tg' : 'bark';
-            const send = async () => {
-                const c = await getNotifConfig(env);
-                const title = '🔔 测试通知', body = '测试成功（' + new Date().toLocaleString('zh-CN') + '）';
-                if (type === 'bark' && c.barkNotify && c.barkKey) await sendBark(c, title, body);
-                else if (type === 'tg' && c.tgNotify && c.tgToken && c.tgChatId) await sendTg(c, title, body);
-            };
-            if (b.delay) ctx.waitUntil(new Promise(res => setTimeout(() => { send().then(res); }, 60000)));
-            else await send();
-            return Response.json({ success: true, msg: b.delay ? '已安排 60 秒后发送测试通知' : '测试通知已发送' });
+            try {
+                const body = await request.json();
+                const type = String(body.type || 'bark');
+                const cfg = await getNotifyCfg(env);
+                if (type === 'bark') {
+                    if (!cfg.barkKey) return Response.json({ success: false, error: '未配置 Bark Key' });
+                    const ok = await sendBarkN(cfg, 'Emby 反代面板', '保号通知测试成功 ✅');
+                    return Response.json({ success: ok, error: ok ? '' : 'Bark 发送失败，请检查 Key/服务地址' });
+                }
+                if (type === 'tg') {
+                    if (!cfg.tgToken || !cfg.tgChatId) return Response.json({ success: false, error: '未配置 TG Bot Token / Chat ID' });
+                    const ok = await sendTgN(cfg, '保号通知测试成功 ✅');
+                    return Response.json({ success: ok, error: ok ? '' : 'TG 发送失败，请检查 Token / Chat ID' });
+                }
+                return Response.json({ success: false, error: '未知类型' });
+            } catch (e) { return Response.json({ success: false, error: e.message }); }
         }
 
         if (url.pathname === '/api/account' && request.method === 'POST') {
             if (ROLE !== 'admin') return new Response('Forbidden', { status: 403 });
             try {
                 const data = await request.json();
+                if (data.proxyToken !== undefined) {
+                    const pt = data.proxyToken;
+                    const enabled = !!pt.enabled;
+                    const key = String(pt.key || '').trim();
+                    if (enabled && !/^[A-Za-z0-9]{3,32}$/.test(key)) return Response.json({ success: false, error: '密钥需 3-32 位字母数字' });
+                    if (!env.DB) return Response.json({ success: false, error: 'D1 未绑定：请在 Worker 设置里绑定名为 DB 的 D1 数据库' });
+                    await env.DB.prepare('CREATE TABLE IF NOT EXISTS app_config (key TEXT PRIMARY KEY, value TEXT)').run();
+                    await env.DB.prepare('INSERT OR REPLACE INTO app_config (key, value) VALUES (?, ?)').bind('proxy_token', JSON.stringify({ enabled, key })).run();
+                    return Response.json({ success: true });
+                }
+                if (data.notify !== undefined) {
+                    const n = data.notify;
+                    if (!env.DB) return Response.json({ success: false, error: 'D1 未绑定：请在 Worker 设置里绑定名为 DB 的 D1 数据库' });
+                    await env.DB.prepare('CREATE TABLE IF NOT EXISTS app_config (key TEXT PRIMARY KEY, value TEXT)').run();
+                    const oldRow = await env.DB.prepare("SELECT value FROM app_config WHERE key = 'notify_settings'").first();
+                    let old = {};
+                    try { if (oldRow && oldRow.value) old = JSON.parse(oldRow.value); } catch (e) {}
+                    const cfg = {
+                        barkKey: (n.barkKey && n.barkKey !== '********') ? String(n.barkKey).trim() : (old.barkKey || ''),
+                        barkLevel: ['critical', 'active', 'timeSensitive', 'passive'].includes(n.barkLevel) ? n.barkLevel : (old.barkLevel || 'active'),
+                        barkServer: (n.barkServer && n.barkServer !== 'https://api.day.app') ? String(n.barkServer).trim().replace(/\/+$/, '') : (old.barkServer || 'https://api.day.app'),
+                        barkNotify: n.barkNotify !== false,
+                        tgToken: (n.tgToken && n.tgToken !== '********') ? String(n.tgToken).trim() : (old.tgToken || ''),
+                        tgChatId: n.tgChatId ? String(n.tgChatId).trim() : (old.tgChatId || ''),
+                        tgNotify: n.tgNotify !== false
+                    };
+                    await env.DB.prepare('INSERT OR REPLACE INTO app_config (key, value) VALUES (?, ?)').bind('notify_settings', JSON.stringify(cfg)).run();
+                    return Response.json({ success: true });
+                }
                 const pw = String(data.password || '').trim();
                 if (pw.length < 4) return Response.json({ success: false, error: '密码至少 4 位' });
                 await env.DB.prepare('CREATE TABLE IF NOT EXISTS app_config (key TEXT PRIMARY KEY, value TEXT)').run();
@@ -3611,6 +3929,32 @@ export default {
             } catch (e) {
                 return Response.json({ success: false, error: e.message });
             }
+        }
+
+        // 反代 Token 状态（登录可见；未登录 401）
+        if (url.pathname === '/api/proxytoken' && request.method === 'GET') {
+            const pt = await getProxyToken(env);
+            return Response.json({ success: true, enabled: !!(pt && pt.enabled && pt.key), key: (pt && pt.enabled && pt.key) ? pt.key : '' });
+        }
+        // 来访记录 IP（仅管理员）
+        if (url.pathname === '/api/proxytoken/hits' && request.method === 'GET') {
+            if (ROLE !== 'admin') return new Response('Forbidden', { status: 403 });
+            try {
+                await env.DB.prepare('CREATE TABLE IF NOT EXISTS proxy_hits (id INTEGER PRIMARY KEY AUTOINCREMENT, ip TEXT, path TEXT, ua TEXT, ts INTEGER, times INTEGER)').run();
+                const { results } = await env.DB.prepare('SELECT ip, path, ua, ts, times FROM proxy_hits ORDER BY id DESC LIMIT 200').all();
+                return Response.json({ success: true, hits: results });
+            } catch (e) { return Response.json({ success: true, hits: [] }); }
+        }
+        if (url.pathname === '/api/proxytoken/hits' && request.method === 'POST') {
+            if (ROLE !== 'admin') return new Response('Forbidden', { status: 403 });
+            try {
+                const data = await request.json();
+                if (data && data.clear) {
+                    await env.DB.prepare('CREATE TABLE IF NOT EXISTS proxy_hits (id INTEGER PRIMARY KEY AUTOINCREMENT, ip TEXT, path TEXT, ua TEXT, ts INTEGER, times INTEGER)').run();
+                    await env.DB.prepare('DELETE FROM proxy_hits').run();
+                }
+                return Response.json({ success: true });
+            } catch (e) { return Response.json({ success: false, error: e.message }); }
         }
 
         if (url.pathname === '/api/subscribers' && request.method === 'GET') {
@@ -3964,7 +4308,7 @@ if (ROLE !== 'admin') return new Response('Forbidden', { status: 403 });
                 const result = await runKeepAlive(env, route);
                 await env.DB.prepare('UPDATE routes SET last_ka_run = ?, last_ka_result = ?, last_ka_detail = ? WHERE prefix = ?')
                     .bind(new Date().toISOString(), result.ok ? 'success' : 'fail', result.msg || '', prefix).run();
-                await pushKaNotice(env, prefix, result.ok, result.msg);
+                await pushKaNotice(env, prefix, result.ok, result.msg, route.remark);
                 await env.DB.prepare('INSERT OR REPLACE INTO app_config (key, value) VALUES (?, ?)')
                     .bind('ka_live', JSON.stringify({ running: false, prefix: prefix, current: '', steps: result.steps || [], msg: result.msg || '', progress: 100, mediaTitle: '', updatedAt: Date.now() })).run();
                 return Response.json(result);
@@ -4091,7 +4435,8 @@ if (request.method !== 'GET' && ROLE !== 'admin') return new Response('Forbidden
                     version: data.customVersion || '',
                     device: data.customDevice || '',
                     deviceId: data.customDeviceId || genUuid(),
-                    ua: data.customUa || ''
+                    ua: data.customUa || '',
+                    dlTrick: data.dlTrick === '1'
                 });
 
                 await env.DB.prepare('INSERT OR REPLACE INTO routes (prefix, target, mode, remark, icon, custom_params, cache_img, sort_order, ka_enabled, ka_days, ka_token, node_user, node_pass, watch_limit) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)')
@@ -4109,9 +4454,26 @@ if (request.method !== 'GET' && ROLE !== 'admin') return new Response('Forbidden
         // 2.6 核心反代与调度引擎（修播放）
         // ==========================================
         let targetUrls = []; let currentMode = 'off'; let enableCache = true; let remainingPath = '';
-        const decodedPath = decodeURIComponent(url.pathname); let matchedPrefix = null; 
+        let decodedPath = decodeURIComponent(url.pathname); let matchedPrefix = null; 
         let proxyOrigin = new URL(request.url).origin;
         let customParamsObj = {};
+        let dlTrick = false; let dlTrickItemId = '';
+
+        // 反代 Token 门禁：开启后代理路径必须带 /密钥/ 前缀
+        if (!url.pathname.startsWith('/api/') && url.pathname !== '/') {
+            const pt = await getProxyToken(env);
+            if (pt && pt.enabled && pt.key) {
+                const prefixPath = '/' + pt.key + '/';
+                let stripped = null;
+                if (decodedPath === '/' + pt.key) stripped = '/';
+                else if (decodedPath.indexOf(prefixPath) === 0) stripped = decodedPath.slice(prefixPath.length - 1);
+                if (stripped === null) {
+                    await recordProxyHit(env, request, decodedPath);
+                    return Response.redirect(new URL('/catch', proxyOrigin), 302);
+                }
+                decodedPath = stripped;
+            }
+        }
 
         // 判断哪些请求可以按静态资源处理。
         // 这里把 Emby/Jellyfin 常见图片目录也纳入判断，是因为 UHD 海报/Backdrop
@@ -4530,6 +4892,19 @@ if (request.method !== 'GET' && ROLE !== 'admin') return new Response('Forbidden
                 if (route.custom_params) {
                     try { customParamsObj = JSON.parse(route.custom_params); } catch(e) {}
                 }
+                dlTrick = !!(customParamsObj && customParamsObj.dlTrick);
+                // 下载伪装：把播放器的下载请求（/Items/{id}/Download）改写为同文件直接流请求
+                // （/Videos/{id}/stream?static=true），拿到完整文件，绕过服务端"禁下载"权限限制
+                // （Emby 流接口不校验 EnableContentDownloading，只要播放权限即可）
+                if (dlTrick && /\/Items\/[^/]+\/Download\/?$/i.test(remainingPath)) {
+                    const idm = remainingPath.match(/\/Items\/([^/]+)\/Download\/?$/i);
+                    if (idm) {
+                        dlTrickItemId = idm[1];
+                        // 保留原有前缀（/emby/Items/…/Download → /emby/Videos/…/stream），与 VPS 版一致
+                        remainingPath = remainingPath.replace(/\/Items\/[^/]+\/Download\/?$/i, () => '/Videos/' + encodeURIComponent(idm[1]) + '/stream');
+                        if (!url.searchParams.has('static')) url.searchParams.set('static', 'true');
+                    }
+                }
                 
                 if (remainingPath.startsWith('/http://') || remainingPath.startsWith('/https://')) { targetUrls = [remainingPath.substring(1)]; remainingPath = ''; }
             } catch (e) { return new Response("DB Error: " + e.message, { status: 500 }); }
@@ -4749,7 +5124,19 @@ if (request.method !== 'GET' && ROLE !== 'admin') return new Response('Forbidden
 
         const responseHeaders = new Headers(finalResponse.headers);
         rewriteSetCookieForProxy(responseHeaders);
-        const safePrefix = matchedPrefix ? `/${matchedPrefix}` : '';
+        const ptObj = await getProxyToken(env);
+        const safePrefix = matchedPrefix ? `/${proxyTokenPrefix(ptObj)}${matchedPrefix}` : '';
+
+        // 下载伪装伴随观看（CF 版）：命中改写后的下载流时，包装响应流，
+        // 读取间隙驱动心跳、流结束/断开自动上报结束并清除播放记录
+        if (dlTrickItemId && finalResponse.status === 200 && finalResponse.body) {
+            const dlWatch = spawnDlTrickWatchCF(finalTargetUrl, request, dlTrickItemId, url.search);
+            if (dlWatch) {
+                finalResponse = new Response(wrapStreamWithWatch(finalResponse.body, dlWatch, ctx), {
+                    status: finalResponse.status, statusText: finalResponse.statusText, headers: responseHeaders
+                });
+            }
+        }
 
         // ==========================================
         //  修复版 302 拦截：恢复 URL 编码
@@ -4823,6 +5210,14 @@ if (request.method !== 'GET' && ROLE !== 'admin') return new Response('Forbidden
             try {
                 let clonedRes = finalResponse.clone();
                 let text = await clonedRes.text();
+                // 下载伪装：把返回给播放器的用户权限 JSON 中下载相关字段 false→true，
+                // 让播放器直接显示"下载"按钮（EnableMediaPlayback 等播放强校验字段绝不动，改了反而露馅）
+                let dlModified = false;
+                if (dlTrick) {
+                    const t2 = text.replace(/"(EnableContentDownloading|EnableSyncTranscoding|EnableMediaConversion|CanDownload)"\s*:\s*false/gi, '"$1":true');
+                    dlModified = (t2 !== text);
+                    text = t2;
+                }
                 if (hasJsonRewriteCandidate(text, targetOrigins)) {
                     let data = JSON.parse(text);
                     let rewritten = rewriteSourceUrlsInJson(data, targetOrigins, proxyOrigin, safePrefix);
@@ -4830,6 +5225,10 @@ if (request.method !== 'GET' && ROLE !== 'admin') return new Response('Forbidden
                         dropBodyIntegrityHeaders(responseHeaders);
                         return new Response(JSON.stringify(rewritten), { status: finalResponse.status, statusText: finalResponse.statusText, headers: responseHeaders });
                     }
+                }
+                if (dlModified) {
+                    dropBodyIntegrityHeaders(responseHeaders);
+                    return new Response(text, { status: finalResponse.status, statusText: finalResponse.statusText, headers: responseHeaders });
                 }
             } catch(e) {
                 console.log("JSON 源站 URL 重写失败:", e.message);
@@ -4871,5 +5270,9 @@ if (request.method !== 'GET' && ROLE !== 'admin') return new Response('Forbidden
         }
 
         return new Response(finalResponse.body, { status: finalResponse.status, statusText: finalResponse.statusText, headers: responseHeaders });
+    } catch (e) {
+        console.error('[proxy]', e);
+        return Response.json({ success: false, error: String((e && e.message) || e) }, { status: 500 });
     }
+}
 };

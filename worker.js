@@ -1,6 +1,6 @@
-// VERSION: 3.3.16
+// VERSION: 3.3.17
 //  面板核心配置区 (放在最顶端方便修改)
-const CURRENT_VERSION = "3.3.16"; 
+const CURRENT_VERSION = "3.3.17"; 
 const GITHUB_RAW_URL = "https://raw.githubusercontent.com/MakkaPakka518/EmbyProxy-CF-FAKE/refs/heads/main/worker.js";
 const CHANGELOG_URL = "https://raw.githubusercontent.com/MakkaPakka518/EmbyProxy-CF-FAKE/refs/heads/main/changelog.json";
 

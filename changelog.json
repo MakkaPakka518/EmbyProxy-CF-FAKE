@@ -1,6 +1,15 @@
 {
   "versions": [
     {
+      "version": "3.3.17",
+      "date": "2026-10-14",
+      "title": "Token 双前缀通用剥离",
+      "items": [
+        "修复视频前缀为 /videos、/stream 等非 /emby 形态时，开启反代 Token 后播放仍 404 的问题",
+        "token 双前缀剥离通用化：兼容 /emby、/videos、/stream 任意视频 API 前缀，并覆盖纯节点重复形态"
+      ]
+    },
+    {
       "version": "3.3.16",
       "date": "2026-10-14",
       "title": "修复 Token 播放 404",

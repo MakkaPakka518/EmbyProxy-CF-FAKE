@@ -1,6 +1,15 @@
 {
   "versions": [
     {
+      "version": "3.4.3（beta）",
+      "date": "2026-10-15",
+      "title": "修复：CF 统计获取失败（字节字段改为 edgeResponseBytes）",
+      "items": [
+        "修复：CF 统计显示「获取失败 unknown field bytes / clientRequestBytes」——httpRequestsAdaptiveGroups 的数据传输字节字段为 edgeResponseBytes（官方推荐），修正后今日带宽/缓存命中率/状态码分布/分时趋势/防火墙拦截全部恢复",
+        "缓存命中率改为独立容错查询：该字段不可用或接口异常时仅缓存命中率显示 0，不影响其他 CF 统计"
+      ]
+    },
+    {
       "version": "3.4.2（beta）",
       "date": "2026-10-15",
       "title": "修复：CF 统计获取失败（GraphQL 字段修正）",

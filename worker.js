@@ -1,6 +1,6 @@
-// VERSION: 3.4.2（beta）
-//  更新内容：① 修复 CF 统计获取失败——GraphQL 的 httpRequestsAdaptiveGroups.sum 无 bytes 字段（正确为 clientRequestBytes），修正后带宽/缓存/状态码/分时/拦截统计全部恢复
-const CURRENT_VERSION = "3.4.2（beta）"; 
+// VERSION: 3.4.3（beta）
+//  更新内容：① 修复 CF 统计获取失败——httpRequestsAdaptiveGroups 的字节字段为 edgeResponseBytes（此前误用 bytes/clientRequestBytes 导致 unknown field），带宽/缓存/状态码/分时/拦截统计全部恢复；缓存命中率改为独立容错查询，字段不可用仅该项为 0 不影响其他统计
+const CURRENT_VERSION = "3.4.3（beta）"; 
 const GITHUB_RAW_URL = "https://raw.githubusercontent.com/MakkaPakka518/EmbyProxy-CF-FAKE/refs/heads/main/worker.js";
 const CHANGELOG_URL = "https://raw.githubusercontent.com/MakkaPakka518/EmbyProxy-CF-FAKE/refs/heads/main/changelog.json";
 
@@ -8,4 +8,6174 @@ const CHANGELOG_URL = "https://raw.githubusercontent.com/MakkaPakka518/EmbyProxy
 // 1. 网页界面
 // ==========================================
 
-const _0x11f33f=_0x3480;(function(_0x2b5980,_0x5dd254){const _0x425c75=_0x3480,_0x1f883a=_0x2b5980();while(!![]){try{const _0x32a0a7=-parseInt(_0x425c75(0x23b))/0x1*(-parseInt(_0x425c75(0x2c8))/0x2)+-parseInt(_0x425c75(0x39c))/0x3*(-parseInt(_0x425c75(0x2dd))/0x4)+-parseInt(_0x425c75(0x226))/0x5*(parseInt(_0x425c75(0x224))/0x6)+-parseInt(_0x425c75(0x293))/0x7+-parseInt(_0x425c75(0x20d))/0x8*(parseInt(_0x425c75(0x2bb))/0x9)+-parseInt(_0x425c75(0x3f3))/0xa+parseInt(_0x425c75(0x3da))/0xb;if(_0x32a0a7===_0x5dd254)break;else _0x1f883a['push'](_0x1f883a['shift']());}catch(_0x23842e){_0x1f883a['push'](_0x1f883a['shift']());}}}(_0x3fec,0x49092));function _0x3480(_0x5c43f2,_0x54d0eb){_0x5c43f2=_0x5c43f2-0x162;const _0x3fecc1=_0x3fec();let _0x3480e6=_0x3fecc1[_0x5c43f2];if(_0x3480['cxrjaN']===undefined){var _0x1b2023=function(_0x239c0d){const _0x576c6a='abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789+/=';let _0x5051c7='',_0xbed34c='';for(let _0x445268=0x0,_0x105f8d,_0x50745a,_0x563bfa=0x0;_0x50745a=_0x239c0d['charAt'](_0x563bfa++);~_0x50745a&&(_0x105f8d=_0x445268%0x4?_0x105f8d*0x40+_0x50745a:_0x50745a,_0x445268++%0x4)?_0x5051c7+=String['fromCharCode'](0xff&_0x105f8d>>(-0x2*_0x445268&0x6)):0x0){_0x50745a=_0x576c6a['indexOf'](_0x50745a);}for(let _0x4d1192=0x0,_0x53ee0a=_0x5051c7['length'];_0x4d1192<_0x53ee0a;_0x4d1192++){_0xbed34c+='%'+('00'+_0x5051c7['charCodeAt'](_0x4d1192)['toString'](0x10))['slice'](-0x2);}return decodeURIComponent(_0xbed34c);};_0x3480['moRxpc']=_0x1b2023,_0x3480['nRTFki']={},_0x3480['cxrjaN']=!![];}const _0x4f933d=_0x3fecc1[0x0];_0x3480['dOVAnS']!==_0x4f933d&&(_0x3480['nRTFki']={},_0x3480['dOVAnS']=_0x4f933d);const _0xde129d=_0x3480['nRTFki'][_0x5c43f2];return _0xde129d===undefined?(_0x3480e6=_0x3480['moRxpc'](_0x3480e6),_0x3480['nRTFki'][_0x5c43f2]=_0x3480e6):_0x3480e6=_0xde129d,_0x3480e6;}const SVG_EYE=_0x11f33f(0x295),SVG_COPY=_0x11f33f(0x170),SVG_TG='<svg\x20viewBox=\x220\x200\x2024\x2024\x22\x20style=\x22width:20px;height:20px;margin-right:8px;fill:#0088cc;\x22><path\x20d=\x22M12\x200C5.373\x200\x200\x205.373\x200\x2012s5.373\x2012\x2012\x2012\x2012-5.373\x2012-12S18.627\x200\x2012\x200zm5.894\x208.221l-1.97\x209.28c-.145.658-.537.818-1.084.508l-3-2.21-1.446\x201.394c-.14.18-.357.295-.6.295-.002\x200-.003\x200-.005\x200l.213-3.054\x205.56-5.022c.24-.213-.054-.334-.373-.121l-6.869\x204.326-2.96-.924c-.64-.203-.658-.64.135-.954l11.566-4.458c.538-.196\x201.006.128.832.94z\x22/></svg>',EMBY_LOGO='https://raw.githubusercontent.com/MakkaPakka518/Icon/refs/heads/main/MAKKA_EMBY.JPG',I={'rocket':_0x11f33f(0x25b),'xmark':_0x11f33f(0x267),'check':_0x11f33f(0x2e8),'warn':_0x11f33f(0x361),'film':_0x11f33f(0x299),'star':_0x11f33f(0x396),'sparkles':_0x11f33f(0x340),'globe':'<svg\x20viewBox=\x220\x200\x2024\x2024\x22\x20fill=\x22none\x22\x20stroke=\x22currentColor\x22\x20stroke-width=\x221.8\x22\x20stroke-linecap=\x22round\x22\x20stroke-linejoin=\x22round\x22><circle\x20cx=\x2212\x22\x20cy=\x2212\x22\x20r=\x229\x22/><path\x20d=\x22M3\x2012h18M12\x203c2.5\x202.5\x202.5\x2015\x200\x2018M12\x203c-2.5\x202.5-2.5\x2015\x200\x2018\x22/></svg>','bolt':_0x11f33f(0x37a),'refresh':'<svg\x20viewBox=\x220\x200\x2024\x2024\x22\x20fill=\x22none\x22\x20stroke=\x22currentColor\x22\x20stroke-width=\x221.8\x22\x20stroke-linecap=\x22round\x22\x20stroke-linejoin=\x22round\x22><path\x20d=\x22M20\x2012a8\x208\x200\x201\x201-2.34-5.66\x22/><path\x20d=\x22M20\x203v5h-5\x22/></svg>','chart':_0x11f33f(0x28e),'cloud':_0x11f33f(0x3d4),'trash':'<svg\x20viewBox=\x220\x200\x2024\x2024\x22\x20fill=\x22none\x22\x20stroke=\x22currentColor\x22\x20stroke-width=\x221.8\x22\x20stroke-linecap=\x22round\x22\x20stroke-linejoin=\x22round\x22><path\x20d=\x22M3\x206h18M8\x206V4a1\x201\x200\x200\x201\x201-1h6a1\x201\x200\x200\x201\x201\x201v2\x22/><path\x20d=\x22M19\x206l-1\x2014a2\x202\x200\x200\x201-2\x202H8a2\x202\x200\x200\x201-2-2L5\x206\x22/></svg>','search':_0x11f33f(0x38c),'location':_0x11f33f(0x398),'trophy':_0x11f33f(0x174),'moon':_0x11f33f(0x36b),'sun':_0x11f33f(0x3a1),'pencil':_0x11f33f(0x31e),'gear':_0x11f33f(0x369),'lines':'<svg\x20viewBox=\x220\x200\x2024\x2024\x22\x20fill=\x22currentColor\x22><path\x20d=\x22M3\x206h18v2H3zM3\x2011h18v2H3zM3\x2016h18v2H3z\x22/></svg>','box':_0x11f33f(0x30a),'download':_0x11f33f(0x43e),'antenna':_0x11f33f(0x22b),'bulb':_0x11f33f(0x35c),'tv':'<svg\x20viewBox=\x220\x200\x2024\x2024\x22\x20fill=\x22none\x22\x20stroke=\x22currentColor\x22\x20stroke-width=\x221.8\x22\x20stroke-linecap=\x22round\x22\x20stroke-linejoin=\x22round\x22><rect\x20x=\x222\x22\x20y=\x225\x22\x20width=\x2220\x22\x20height=\x2213\x22\x20rx=\x222\x22/><path\x20d=\x22M8\x2021h8M12\x2018v3\x22/></svg>','flame':_0x11f33f(0x2b4),'link':'<svg\x20viewBox=\x220\x200\x2024\x2024\x22\x20fill=\x22none\x22\x20stroke=\x22currentColor\x22\x20stroke-width=\x221.8\x22\x20stroke-linecap=\x22round\x22\x20stroke-linejoin=\x22round\x22><path\x20d=\x22M10\x2013a5\x205\x200\x200\x200\x207.07\x200l2.83-2.83a5\x205\x200\x200\x200-7.07-7.07L11\x204.93\x22/><path\x20d=\x22M14\x2011a5\x205\x200\x200\x200-7.07\x200l-2.83\x202.83a5\x205\x200\x200\x200\x207.07\x207.07L13\x2019.07\x22/></svg>','crown':'<svg\x20viewBox=\x220\x200\x2024\x2024\x22\x20fill=\x22none\x22\x20stroke=\x22currentColor\x22\x20stroke-width=\x221.8\x22\x20stroke-linecap=\x22round\x22\x20stroke-linejoin=\x22round\x22><path\x20d=\x22M3\x207l4\x204\x205-6\x205\x206\x204-4-2\x2012H5L3\x207z\x22/><path\x20d=\x22M6\x2019h12\x22/></svg>','target':_0x11f33f(0x3ae),'arrowdown':_0x11f33f(0x1cb),'robot':'<svg\x20viewBox=\x220\x200\x2024\x2024\x22\x20fill=\x22none\x22\x20stroke=\x22currentColor\x22\x20stroke-width=\x221.8\x22\x20stroke-linecap=\x22round\x22\x20stroke-linejoin=\x22round\x22><rect\x20x=\x225\x22\x20y=\x228\x22\x20width=\x2214\x22\x20height=\x2211\x22\x20rx=\x222\x22/><path\x20d=\x22M12\x208V4M8\x204h8\x22/><circle\x20cx=\x229.5\x22\x20cy=\x2213\x22\x20r=\x221\x22\x20fill=\x22currentColor\x22/><circle\x20cx=\x2214.5\x22\x20cy=\x2213\x22\x20r=\x221\x22\x20fill=\x22currentColor\x22/><path\x20d=\x22M2\x2013v3M22\x2013v3\x22/></svg>','spy':'<svg\x20viewBox=\x220\x200\x2024\x2024\x22\x20fill=\x22none\x22\x20stroke=\x22currentColor\x22\x20stroke-width=\x221.8\x22\x20stroke-linecap=\x22round\x22\x20stroke-linejoin=\x22round\x22><circle\x20cx=\x2212\x22\x20cy=\x2211\x22\x20r=\x227\x22/><circle\x20cx=\x229\x22\x20cy=\x2210\x22\x20r=\x221\x22\x20fill=\x22currentColor\x22/><circle\x20cx=\x2215\x22\x20cy=\x2210\x22\x20r=\x221\x22\x20fill=\x22currentColor\x22/><path\x20d=\x22M9.5\x2014c1\x20.8\x204\x20.8\x205\x200\x22/></svg>','flask':'<svg\x20viewBox=\x220\x200\x2024\x2024\x22\x20fill=\x22none\x22\x20stroke=\x22currentColor\x22\x20stroke-width=\x221.8\x22\x20stroke-linecap=\x22round\x22\x20stroke-linejoin=\x22round\x22><path\x20d=\x22M9\x203h6M10\x203v5L4.5\x2018a2\x202\x200\x200\x200\x201.8\x203h11.4a2\x202\x200\x200\x200\x201.8-3L14\x208V3\x22/><path\x20d=\x22M7\x2015h10\x22/></svg>','broom':_0x11f33f(0x1ab),'checksquare':_0x11f33f(0x386),'upload':_0x11f33f(0x378),'db':'<svg\x20viewBox=\x220\x200\x2024\x2024\x22\x20fill=\x22none\x22\x20stroke=\x22currentColor\x22\x20stroke-width=\x221.8\x22\x20stroke-linecap=\x22round\x22><ellipse\x20cx=\x2212\x22\x20cy=\x225\x22\x20rx=\x228\x22\x20ry=\x223\x22/><path\x20d=\x22M4\x205v14c0\x201.7\x203.6\x203\x208\x203s8-1.3\x208-3V5M4\x2012c0\x201.7\x203.6\x203\x208\x203s8-1.3\x208-3\x22/></svg>','dotblue':_0x11f33f(0x229),'dotorange':'<svg\x20viewBox=\x220\x200\x2024\x2024\x22><circle\x20cx=\x2212\x22\x20cy=\x2212\x22\x20r=\x227\x22\x20fill=\x22#ff9500\x22/></svg>','dotgreen':_0x11f33f(0x27f),'dotpurple':_0x11f33f(0x2ee),'plus':_0x11f33f(0x3fe)},E2I={'${I.rocket}':_0x11f33f(0x368),'${I.xmark}':_0x11f33f(0x3e6),'${I.check}':_0x11f33f(0x20e),'${I.warn}':'warn','${I.film}':_0x11f33f(0x18e),'${I.star}':'star','${I.sparkles}':_0x11f33f(0x242),'${I.sparkles}':'sparkles','${I.globe}':'globe','${I.globe}':_0x11f33f(0x351),'${I.bolt}':_0x11f33f(0x188),'${I.refresh}':'refresh','${I.chart}':'chart','${I.cloud}':_0x11f33f(0x178),'${I.trash}':_0x11f33f(0x1f5),'${I.search}':'search','${I.location}':_0x11f33f(0x162),'${I.trophy}':_0x11f33f(0x308),'${I.moon}':_0x11f33f(0x33e),'${I.sun}':_0x11f33f(0x2f7),'${I.dotblue}':_0x11f33f(0x461),'${I.dotorange}':_0x11f33f(0x444),'${I.dotgreen}':_0x11f33f(0x431),'${I.dotpurple}':_0x11f33f(0x317),'${I.robot}':_0x11f33f(0x1f6),'${I.spy}':'spy','${I.flame}':_0x11f33f(0x46a),'${I.link}':_0x11f33f(0x2cb),'${I.tv}':'tv','${I.box}':'box','${I.download}':_0x11f33f(0x35e),'${I.antenna}':_0x11f33f(0x3d8),'${I.bulb}':'bulb','${I.crown}':'crown','${I.target}':'target','${I.arrowdown}':_0x11f33f(0x211),'${I.xmark}':_0x11f33f(0x3e6),'${I.pencil}':_0x11f33f(0x30d),'${I.gear}':_0x11f33f(0x19b),'${I.lines}':_0x11f33f(0x2c0),'${I.flask}':_0x11f33f(0x39d),'${I.broom}':_0x11f33f(0x44b),'${I.checksquare}':_0x11f33f(0x1a1),'${I.upload}':_0x11f33f(0x3b1)};function toSvg(_0xbed34c){const _0xe63405=_0x11f33f;if(!_0xbed34c)return _0xbed34c;return String(_0xbed34c)[_0xe63405(0x395)](/[\u{1F000}-\u{1FAFF}\u{2600}-\u{27BF}\u{FE0F}\u{2B00}-\u{2BFF}]/gu,function(_0x445268){const _0x135a90=_0xe63405;if(_0x445268==='\uFE0F')return'';var _0x105f8d=E2I[_0x445268];return _0x105f8d&&I[_0x105f8d]?'<span\x20class=\x22ti\x22>'+I[_0x105f8d]+_0x135a90(0x3c2):'';});}const CSS_COMMON=_0x11f33f(0x277),LOGIN_UI=_0x11f33f(0x1f0)+CSS_COMMON+_0x11f33f(0x18a)+EMBY_LOGO+_0x11f33f(0x3bd)+I[_0x11f33f(0x368)]+'\x27:\x27rocket\x27,\x27'+I[_0x11f33f(0x3e6)]+'\x27:\x27xmark\x27,\x27'+I[_0x11f33f(0x20e)]+_0x11f33f(0x419)+I['warn']+_0x11f33f(0x31b)+I['film']+_0x11f33f(0x43d)+I[_0x11f33f(0x227)]+_0x11f33f(0x334)+I[_0x11f33f(0x242)]+'\x27:\x27sparkles\x27,\x27'+I[_0x11f33f(0x242)]+_0x11f33f(0x20f)+I[_0x11f33f(0x351)]+_0x11f33f(0x28c)+I[_0x11f33f(0x351)]+_0x11f33f(0x28c)+I[_0x11f33f(0x188)]+_0x11f33f(0x34b)+I[_0x11f33f(0x166)]+_0x11f33f(0x332)+I[_0x11f33f(0x1bb)]+'\x27:\x27chart\x27,\x27'+I[_0x11f33f(0x178)]+_0x11f33f(0x385)+I[_0x11f33f(0x1f5)]+'\x27:\x27trash\x27,\x27'+I[_0x11f33f(0x3dd)]+'\x27:\x27search\x27,\x27'+I[_0x11f33f(0x162)]+_0x11f33f(0x2da)+I[_0x11f33f(0x308)]+_0x11f33f(0x1e6)+I[_0x11f33f(0x33e)]+_0x11f33f(0x441)+I['sun']+_0x11f33f(0x2e5)+I[_0x11f33f(0x461)]+_0x11f33f(0x282)+I[_0x11f33f(0x444)]+'\x27:\x27dotorange\x27,\x27'+I[_0x11f33f(0x431)]+'\x27:\x27dotgreen\x27,\x27'+I[_0x11f33f(0x317)]+_0x11f33f(0x430)+I[_0x11f33f(0x1f6)]+_0x11f33f(0x46c)+I[_0x11f33f(0x204)]+_0x11f33f(0x320)+I['flame']+_0x11f33f(0x45d)+I[_0x11f33f(0x2cb)]+_0x11f33f(0x438)+I['tv']+_0x11f33f(0x1f8)+I[_0x11f33f(0x273)]+'\x27:\x27box\x27,\x27'+I['download']+_0x11f33f(0x21d)+I[_0x11f33f(0x3d8)]+_0x11f33f(0x251)+I[_0x11f33f(0x1c0)]+_0x11f33f(0x24d)+I['crown']+'\x27:\x27crown\x27,\x27'+I[_0x11f33f(0x2c2)]+_0x11f33f(0x346)+I[_0x11f33f(0x211)]+_0x11f33f(0x24f)+I[_0x11f33f(0x3e6)]+_0x11f33f(0x3b6)+I[_0x11f33f(0x30d)]+_0x11f33f(0x460)+I[_0x11f33f(0x19b)]+_0x11f33f(0x45f)+I[_0x11f33f(0x2c0)]+_0x11f33f(0x17d)+I[_0x11f33f(0x39d)]+_0x11f33f(0x2d6)+I[_0x11f33f(0x44b)]+_0x11f33f(0x243)+I['checksquare']+'\x27:\x27checksquare\x27,\x27'+I[_0x11f33f(0x3b1)]+_0x11f33f(0x3a9)+EMBY_LOGO+'\x22\x20alt=\x22logo\x22\x20onerror=\x22this.style.display=\x27none\x27\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<h2>安全中心</h2>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<p\x20class=\x22login-sub\x22>请输入访问密钥以继续</p>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<input\x20type=\x22password\x22\x20id=\x22tokenInput\x22\x20placeholder=\x22请输入密钥\x20TOKEN\x22\x20onkeydown=\x22if(event.key===\x27Enter\x27)\x20login()\x22\x20autocomplete=\x22off\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<button\x20onclick=\x22login()\x22>验\x20证\x20登\x20录</button>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<p\x20class=\x22login-foot\x22>登录后浏览器将记住本次授权</p>\x0a\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20<script>\x0a\x20\x20\x20\x20\x20\x20\x20\x20function\x20showToast(msg)\x20{\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20const\x20t\x20=\x20document.getElementById(\x27toast\x27);\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20t.innerHTML\x20=\x20toSvg(msg);\x20t.classList.add(\x27show\x27);\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20setTimeout(()\x20=>\x20t.classList.remove(\x27show\x27),\x202000);\x0a\x20\x20\x20\x20\x20\x20\x20\x20}\x0a\x20\x20\x20\x20\x20\x20\x20\x20function\x20login()\x20{\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20const\x20token\x20=\x20document.getElementById(\x27tokenInput\x27).value.trim();\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20if(!token)\x20return\x20showToast(\x27请输入正确的密钥\x27);\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20document.cookie\x20=\x20\x27admin_token=\x27\x20+\x20encodeURIComponent(token)\x20+\x20\x27;\x20path=/;\x20max-age=2592000;\x27;\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20window.location.reload();\x0a\x20\x20\x20\x20\x20\x20\x20\x20}\x0a\x20\x20\x20\x20</script>\x0a\x0a</body>\x0a</html>\x0a',HTML_UI=_0x11f33f(0x2a8)+CSS_COMMON+_0x11f33f(0x43f)+EMBY_LOGO+_0x11f33f(0x3bd)+I['rocket']+_0x11f33f(0x2be)+I[_0x11f33f(0x3e6)]+'\x27:\x27xmark\x27,\x27'+I[_0x11f33f(0x20e)]+_0x11f33f(0x419)+I[_0x11f33f(0x256)]+_0x11f33f(0x31b)+I[_0x11f33f(0x18e)]+'\x27:\x27film\x27,\x27'+I['star']+_0x11f33f(0x334)+I[_0x11f33f(0x242)]+_0x11f33f(0x20f)+I[_0x11f33f(0x242)]+_0x11f33f(0x20f)+I[_0x11f33f(0x351)]+'\x27:\x27globe\x27,\x27'+I[_0x11f33f(0x351)]+_0x11f33f(0x28c)+I[_0x11f33f(0x188)]+_0x11f33f(0x34b)+I[_0x11f33f(0x166)]+_0x11f33f(0x332)+I['chart']+'\x27:\x27chart\x27,\x27'+I[_0x11f33f(0x178)]+_0x11f33f(0x385)+I['trash']+_0x11f33f(0x26a)+I['search']+_0x11f33f(0x309)+I[_0x11f33f(0x162)]+_0x11f33f(0x2da)+I[_0x11f33f(0x308)]+_0x11f33f(0x1e6)+I['moon']+_0x11f33f(0x441)+I[_0x11f33f(0x2f7)]+'\x27:\x27sun\x27,\x27'+I[_0x11f33f(0x461)]+_0x11f33f(0x282)+I[_0x11f33f(0x444)]+'\x27:\x27dotorange\x27,\x27'+I[_0x11f33f(0x431)]+_0x11f33f(0x21c)+I['dotpurple']+'\x27:\x27dotpurple\x27,\x27'+I[_0x11f33f(0x1f6)]+_0x11f33f(0x46c)+I['spy']+_0x11f33f(0x320)+I[_0x11f33f(0x46a)]+_0x11f33f(0x45d)+I[_0x11f33f(0x2cb)]+_0x11f33f(0x438)+I['tv']+'\x27:\x27tv\x27,\x27'+I['box']+_0x11f33f(0x281)+I[_0x11f33f(0x35e)]+_0x11f33f(0x21d)+I[_0x11f33f(0x3d8)]+_0x11f33f(0x251)+I[_0x11f33f(0x1c0)]+'\x27:\x27bulb\x27,\x27'+I[_0x11f33f(0x1c9)]+_0x11f33f(0x47c)+I[_0x11f33f(0x2c2)]+_0x11f33f(0x346)+I[_0x11f33f(0x211)]+_0x11f33f(0x24f)+I[_0x11f33f(0x3e6)]+_0x11f33f(0x3b6)+I[_0x11f33f(0x30d)]+_0x11f33f(0x460)+I['gear']+'\x27:\x27gear\x27,\x27'+I[_0x11f33f(0x2c0)]+'\x27:\x27lines\x27,\x27'+I[_0x11f33f(0x39d)]+_0x11f33f(0x2d6)+I['broom']+_0x11f33f(0x243)+I[_0x11f33f(0x1a1)]+_0x11f33f(0x347)+I[_0x11f33f(0x3b1)]+_0x11f33f(0x3a5)+I[_0x11f33f(0x3e6)]+'</button>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<h2\x20style=\x22margin-top:0;\x20display:\x20flex;\x20align-items:\x20center;\x20justify-content:\x20space-between;\x20flex-wrap:\x20wrap;\x20gap:\x2010px;\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20style=\x22display:\x20flex;\x20align-items:\x20center;\x20gap:\x2010px;\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20'+I[_0x11f33f(0x1bb)]+_0x11f33f(0x169)+I[_0x11f33f(0x204)]+_0x11f33f(0x371)+I[_0x11f33f(0x242)]+_0x11f33f(0x46e)+I['rocket']+_0x11f33f(0x34a)+I[_0x11f33f(0x162)]+_0x11f33f(0x27a)+I[_0x11f33f(0x368)]+_0x11f33f(0x47f)+I[_0x11f33f(0x19b)]+_0x11f33f(0x344)+I[_0x11f33f(0x19b)]+'\x20修改调度/区域</button>\x0a\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22content-wrap\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22topbar\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22topbar-left\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<img\x20class=\x22topbar-logo\x22\x20src=\x22'+EMBY_LOGO+_0x11f33f(0x32e)+I['moon']+_0x11f33f(0x18b)+I[_0x11f33f(0x1bb)]+'\x20统计</button>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<button\x20class=\x22pill-btn\x22\x20onclick=\x22location.href=\x27/speedtest\x27\x22\x20title=\x22下载测速\x22\x20style=\x22color:#4fd08a;border-color:rgba(79,208,138,.32);background:rgba(79,208,138,.12);\x22>'+I[_0x11f33f(0x188)]+_0x11f33f(0x194)+I[_0x11f33f(0x3e6)]+_0x11f33f(0x43a)+I[_0x11f33f(0x368)]+'\x20手动覆盖/更新</h2>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20style=\x22display:flex;\x20gap:10px;\x20flex-wrap:wrap;\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<button\x20class=\x22btn-submit\x22\x20onclick=\x22openCodeModal(\x27paste\x27)\x22\x20style=\x22flex:1;\x20min-width:120px;\x22>'+I[_0x11f33f(0x30d)]+_0x11f33f(0x2ed)+I[_0x11f33f(0x3b1)]+'\x20文件导入</button>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22card\x20admin-only\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20style=\x22display:flex;\x20justify-content:\x20space-between;\x20align-items:center;\x20margin-bottom:16px;\x20flex-wrap:wrap;\x20gap:10px;\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<h2\x20style=\x22margin:0;\x20font-size:18px;\x22>'+I[_0x11f33f(0x188)]+_0x11f33f(0x366)+I[_0x11f33f(0x3d8)]+_0x11f33f(0x1e2)+I['globe']+'\x20提取预设源并测速</button>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<button\x20class=\x22btn-submit\x22\x20onclick=\x22batchTcpPing()\x22\x20style=\x22\x20box-shadow:\x200\x204px\x2012px\x20rgba(255,\x20149,\x200,\x200.2);\x22>'+I[_0x11f33f(0x351)]+_0x11f33f(0x467)+I[_0x11f33f(0x1f5)]+_0x11f33f(0x382)+I['globe']+_0x11f33f(0x38a)+I['flask']+'\x20测试粘贴的节点</button>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<button\x20class=\x22btn-submit\x22\x20id=\x22btnDirectCname\x22\x20onclick=\x22directSubmitCname()\x22\x20style=\x22\x20box-shadow:\x200\x204px\x2012px\x20rgba(175,\x2082,\x20222,\x200.2);\x22>'+I[_0x11f33f(0x2cb)]+_0x11f33f(0x1e9)+I['star']+_0x11f33f(0x405)+I[_0x11f33f(0x1a1)]+_0x11f33f(0x1f3)+I[_0x11f33f(0x1c0)]+_0x11f33f(0x330)+I['box']+'\x20配置备份与恢复</h2>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20style=\x22display:flex;\x20gap:10px;\x20flex-wrap:wrap;\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<button\x20class=\x22btn-submit\x22\x20onclick=\x22exportConfig()\x22>'+I[_0x11f33f(0x273)]+'\x20导出配置</button>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<button\x20class=\x22btn-submit\x22\x20onclick=\x22importConfig()\x22>'+I[_0x11f33f(0x35e)]+'\x20导入配置</button>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22card\x20admin-only\x22\x20id=\x22deploy-card\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20style=\x22display:flex;\x20justify-content:\x20space-between;\x20align-items:center;\x20gap:10px;\x20flex-wrap:wrap;\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<h2\x20style=\x22margin:0;\x20font-size:18px;\x22>'+I[_0x11f33f(0x368)]+'\x20反代节点</h2>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<button\x20class=\x22btn-submit\x22\x20onclick=\x22openNodeModal()\x22>'+I[_0x11f33f(0x2fc)]+_0x11f33f(0x24b)+I['pencil']+_0x11f33f(0x2fe)+I['xmark']+_0x11f33f(0x35d)+I[_0x11f33f(0x18e)]+_0x11f33f(0x265)+I[_0x11f33f(0x188)]+'\x20节点保活</h2>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<button\x20onclick=\x22closeKaModal()\x22\x20style=\x22background:transparent;border:none;cursor:pointer;color:var(--text-sec);display:inline-flex;padding:4px;\x22>'+I[_0x11f33f(0x3e6)]+_0x11f33f(0x364)+I['box']+_0x11f33f(0x2e0)+I[_0x11f33f(0x3e6)]+'</button>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20style=\x22font-size:13px;\x20color:var(--text-sec);\x20margin-bottom:12px;\x20line-height:1.6;\x22>在\x20Rex\x20播放器里用「链接导入」粘贴链接，或直接点「打开导入」唤起\x20Rex。凭据默认取节点保活账号，可修改。</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20style=\x22display:flex;\x20flex-direction:column;\x20gap:10px;\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<input\x20type=\x22text\x22\x20id=\x22rexPrefix\x22\x20placeholder=\x22节点前缀\x22\x20oninput=\x22renderRexLink()\x22\x20style=\x22padding:10px\x2014px;\x20border:1px\x20solid\x20var(--border);\x20border-radius:8px;\x20background:var(--bg);\x20font-size:14px;\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20style=\x22display:flex;\x20gap:10px;\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<input\x20type=\x22text\x22\x20id=\x22rexUser\x22\x20placeholder=\x22账号\x22\x20oninput=\x22renderRexLink()\x22\x20style=\x22flex:1;\x20padding:10px\x2014px;\x20border:1px\x20solid\x20var(--border);\x20border-radius:8px;\x20background:var(--bg);\x20font-size:14px;\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<input\x20type=\x22text\x22\x20id=\x22rexPass\x22\x20placeholder=\x22密码\x22\x20oninput=\x22renderRexLink()\x22\x20style=\x22flex:1;\x20padding:10px\x2014px;\x20border:1px\x20solid\x20var(--border);\x20border-radius:8px;\x20background:var(--bg);\x20font-size:14px;\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<input\x20type=\x22text\x22\x20id=\x22rexLink\x22\x20readonly\x20style=\x22padding:10px\x2014px;\x20border:1px\x20solid\x20var(--border);\x20border-radius:8px;\x20background:var(--bg);\x20font-size:11px;\x20word-break:break-all;\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20style=\x22display:flex;\x20gap:10px;\x20justify-content:flex-end;\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<button\x20type=\x22button\x22\x20class=\x22btn-ghost\x22\x20onclick=\x22copyRexLink()\x22>复制链接</button>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<button\x20type=\x22button\x22\x20class=\x22btn-submit\x22\x20onclick=\x22openRexLink()\x22>打开导入</button>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20id=\x22codeModal\x22\x20style=\x22display:none;\x20position:fixed;\x20inset:0;\x20z-index:11010;\x20background:rgba(0,0,0,.5);\x20backdrop-filter:blur(5px);\x20overflow-y:auto;\x20padding:16px;\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20style=\x22max-width:560px;\x20margin:24px\x20auto;\x20background:var(--card);\x20border-radius:18px;\x20padding:22px;\x20box-shadow:0\x2010px\x2040px\x20rgba(0,0,0,.2);\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20style=\x22display:flex;\x20justify-content:space-between;\x20align-items:center;\x20margin-bottom:14px;\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<h2\x20id=\x22codeModalTitle\x22\x20style=\x22margin:0;\x20font-size:19px;\x20display:flex;\x20align-items:center;\x20gap:8px;\x22>'+I[_0x11f33f(0x368)]+_0x11f33f(0x19d)+I[_0x11f33f(0x3e6)]+_0x11f33f(0x175)+I['warn']+_0x11f33f(0x479)+I[_0x11f33f(0x46a)]+_0x11f33f(0x42b)+I[_0x11f33f(0x19b)]+_0x11f33f(0x34f)+I[_0x11f33f(0x3e6)]+_0x11f33f(0x1a0)+I[_0x11f33f(0x20e)]+'\x20提交修改</button>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20id=\x22accountModal\x22\x20style=\x22display:none;\x20position:fixed;\x20inset:0;\x20z-index:11010;\x20background:rgba(0,0,0,.5);\x20backdrop-filter:blur(5px);\x20overflow-y:auto;\x20-webkit-overflow-scrolling:touch;\x20padding:16px\x2016px\x20150px;\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20style=\x22max-width:560px;\x20margin:24px\x20auto;\x20background:var(--card);\x20border-radius:18px;\x20padding:22px;\x20box-shadow:0\x2010px\x2040px\x20rgba(0,0,0,.2);\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20style=\x22display:flex;\x20justify-content:space-between;\x20align-items:center;\x20margin-bottom:14px;\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<h2\x20style=\x22margin:0;\x20font-size:19px;\x20display:flex;\x20align-items:center;\x20gap:8px;\x22>'+I[_0x11f33f(0x19b)]+_0x11f33f(0x195)+CURRENT_VERSION+_0x11f33f(0x3cd)+I['xmark']+_0x11f33f(0x1f7)+I['pencil']+_0x11f33f(0x3e1)+I[_0x11f33f(0x256)]+_0x11f33f(0x47e)+I[_0x11f33f(0x20e)]+_0x11f33f(0x316)+I[_0x11f33f(0x204)]+'\x20反代\x20Token</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20style=\x22font-size:12px;\x20color:var(--text-sec);\x20margin-bottom:10px;\x22>'+I[_0x11f33f(0x256)]+'\x20开启后所有节点链接需带\x20<b\x20style=\x22color:var(--primary);\x22>/密钥/</b>\x20前缀才可反代；不带前缀的访问会跳转\x20/catch\x20并记录来访\x20IP（记录存\x20D1，不占\x20KV\x20额度）。</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20style=\x22display:flex;\x20align-items:center;\x20gap:10px;\x20margin-bottom:10px;\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<label\x20style=\x22display:flex;\x20align-items:center;\x20gap:6px;\x20cursor:pointer;\x20font-size:13px;\x20color:var(--text);\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<input\x20type=\x22checkbox\x22\x20id=\x22ptOn\x22\x20style=\x22accent-color:var(--primary);\x20width:16px;\x20height:16px;\x20cursor:pointer;\x22>\x20开启\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</label>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20style=\x22display:flex;\x20gap:8px;\x20margin-bottom:12px;\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<input\x20type=\x22text\x22\x20id=\x22ptKey\x22\x20placeholder=\x22自定义密钥（3-32\x20位字母数字，如\x20lhazkj）\x22\x20style=\x22flex:1;\x20padding:10px\x2014px;\x20border:1px\x20solid\x20var(--border);\x20border-radius:8px;\x20background:var(--bg);\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<button\x20class=\x22btn-submit\x22\x20onclick=\x22saveProxyToken()\x22\x20style=\x22white-space:nowrap;\x22>'+I[_0x11f33f(0x20e)]+_0x11f33f(0x289)+I[_0x11f33f(0x1c0)]+_0x11f33f(0x3a2)+I[_0x11f33f(0x256)]+'\x20节点超观看下限未观看时每日推送一次；测试按钮可立即验证。</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20style=\x22display:flex;\x20gap:14px;\x20margin-bottom:10px;\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<label\x20style=\x22display:flex;align-items:center;gap:6px;font-size:13px;\x22><input\x20type=\x22checkbox\x22\x20id=\x22barkNotify\x22\x20style=\x22accent-color:var(--primary);\x22>\x20Bark</label>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<label\x20style=\x22display:flex;align-items:center;gap:6px;font-size:13px;\x22><input\x20type=\x22checkbox\x22\x20id=\x22tgNotify\x22\x20style=\x22accent-color:var(--primary);\x22>\x20Telegram</label>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<input\x20type=\x22text\x22\x20id=\x22barkKey\x22\x20placeholder=\x22Bark\x20设备\x20Key（留空不修改）\x22\x20style=\x22width:100%;\x20padding:10px\x2014px;\x20border:1px\x20solid\x20var(--border);\x20border-radius:8px;\x20background:var(--bg);\x20margin-bottom:8px;\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<select\x20id=\x22barkLevel\x22\x20style=\x22width:100%;\x20padding:10px\x2014px;\x20border:1px\x20solid\x20var(--border);\x20border-radius:8px;\x20background:var(--bg);\x20margin-bottom:10px;\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<option\x20value=\x22active\x22>active（默认）</option>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<option\x20value=\x22timeSensitive\x22>timeSensitive</option>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<option\x20value=\x22critical\x22>critical（紧急）</option>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<option\x20value=\x22passive\x22>passive</option>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</select>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<input\x20type=\x22text\x22\x20id=\x22barkServer\x22\x20placeholder=\x22Bark\x20服务地址（默认\x20https://api.day.app）\x22\x20style=\x22width:100%;\x20padding:10px\x2014px;\x20border:1px\x20solid\x20var(--border);\x20border-radius:8px;\x20background:var(--bg);\x20margin-bottom:10px;\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<input\x20type=\x22text\x22\x20id=\x22tgToken\x22\x20placeholder=\x22TG\x20Bot\x20Token（@BotFather\x20获取，留空不修改）\x22\x20style=\x22width:100%;\x20padding:10px\x2014px;\x20border:1px\x20solid\x20var(--border);\x20border-radius:8px;\x20background:var(--bg);\x20margin-bottom:8px;\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<input\x20type=\x22text\x22\x20id=\x22tgChatId\x22\x20placeholder=\x22TG\x20Chat\x20ID（留空不修改）\x22\x20style=\x22width:100%;\x20padding:10px\x2014px;\x20border:1px\x20solid\x20var(--border);\x20border-radius:8px;\x20background:var(--bg);\x20margin-bottom:10px;\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20style=\x22display:flex;\x20gap:8px;\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<button\x20class=\x22btn-submit\x22\x20onclick=\x22saveNotifySettings()\x22\x20style=\x22flex:1;\x22>'+I[_0x11f33f(0x20e)]+_0x11f33f(0x26b)+I[_0x11f33f(0x1f6)]+_0x11f33f(0x354)+I[_0x11f33f(0x2fc)]+_0x11f33f(0x3ab)+I[_0x11f33f(0x368)]+'\x20版本</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20style=\x22display:flex;\x20align-items:center;\x20gap:8px;\x20margin-bottom:10px;\x20flex-wrap:wrap;\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<span\x20style=\x22font-size:13px;\x22>当前版本：</span>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<span\x20id=\x22curVersionBadge\x22\x20style=\x22background:var(--primary);\x20color:#fff;\x20padding:3px\x2010px;\x20border-radius:20px;\x20font-size:12px;\x20font-weight:600;\x22>v'+CURRENT_VERSION+_0x11f33f(0x319)+I[_0x11f33f(0x368)]+_0x11f33f(0x1e0)+I[_0x11f33f(0x3dd)]+_0x11f33f(0x2ba)+I[_0x11f33f(0x368)]+_0x11f33f(0x3f5)+I['lines']+_0x11f33f(0x28b)+I[_0x11f33f(0x1f6)]+_0x11f33f(0x1d6)+I[_0x11f33f(0x368)]+_0x11f33f(0x214)+I['xmark']+'</button>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20style=\x22font-size:13px;\x20margin-bottom:12px;\x22>当前版本\x20<span\x20id=\x22updateModalCurVer\x22\x20style=\x22font-weight:600;\x22>v'+CURRENT_VERSION+_0x11f33f(0x3cb)+I['rocket']+'\x20立即更新</button>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<button\x20class=\x22btn-ghost\x22\x20onclick=\x22hideUpdateModal()\x22\x20style=\x22flex:1;\x22>稍后再说</button>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20id=\x22updateResultModal\x22\x20style=\x22display:none;\x20position:fixed;\x20inset:0;\x20z-index:12010;\x20background:rgba(0,0,0,.55);\x20backdrop-filter:blur(5px);\x20overflow-y:auto;\x20-webkit-overflow-scrolling:touch;\x20padding:16px\x2016px\x20150px;\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20style=\x22max-width:480px;\x20margin:40px\x20auto;\x20background:var(--card);\x20border-radius:18px;\x20padding:22px;\x20box-shadow:0\x2010px\x2040px\x20rgba(0,0,0,.25);\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20style=\x22display:flex;\x20justify-content:space-between;\x20align-items:center;\x20margin-bottom:12px;\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<h2\x20style=\x22margin:0;\x20font-size:18px;\x20display:flex;\x20align-items:center;\x20gap:8px;\x20color:#34c759;\x22>'+I[_0x11f33f(0x20e)]+_0x11f33f(0x3c3)+I['xmark']+_0x11f33f(0x35f)+I[_0x11f33f(0x20e)]+'\x20刷新页面</button>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22card\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20style=\x22display:flex;\x20justify-content:\x20space-between;\x20align-items:center;\x20margin-bottom:16px;\x20flex-wrap:wrap;\x20gap:10px;\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<h2\x20style=\x22margin:0;\x20font-size:18px;\x22>已反代的媒体库</h2>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20style=\x22display:\x20flex;\x20gap:\x2010px;\x20align-items:center;\x20flex-wrap:\x20wrap;\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<button\x20class=\x22btn-submit\x20admin-only\x22\x20onclick=\x22pingAllNodes()\x22\x20style=\x22\x20padding:\x2010px\x2014px;\x20font-size:\x2013px;\x22>'+I[_0x11f33f(0x188)]+_0x11f33f(0x407)+I[_0x11f33f(0x44b)]+_0x11f33f(0x363)+I[_0x11f33f(0x368)]+'\x20批量应用模式\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</button>\x0a\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<span\x20id=\x22batch-status\x22\x20style=\x22font-size:\x2013px;\x20font-weight:\x20600;\x22></span>\x0a\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20id=\x22list-grid\x22\x20class=\x22node-grid\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20style=\x22text-align:center;\x20color:var(--text-sec);\x20grid-column:\x201\x20/\x20-1;\x20padding:\x2040px;\x22>读取数据中...</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x0a\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x0a\x20\x20\x20\x20\x20\x20\x20\x20<div\x20style=\x22text-align:\x20center;\x20padding-top:\x2010px;\x20padding-bottom:\x2020px;\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<a\x20href=\x22https://t.me/MakkaPakkaOvO\x22\x20target=\x22_blank\x22\x20style=\x22text-decoration:\x20none;\x20color:\x20var(--text);\x20font-weight:\x20600;\x20display:\x20inline-flex;\x20align-items:\x20center;\x20padding:\x2012px\x2024px;\x20background:\x20var(--card);\x20border-radius:\x2030px;\x20box-shadow:\x200\x204px\x2015px\x20rgba(0,0,0,0.06);\x20transition:\x200.3s;\x20font-size:\x2014px;\x20border:\x201px\x20solid\x20var(--border);\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20'+SVG_TG+_0x11f33f(0x238)+I[_0x11f33f(0x308)]+_0x11f33f(0x1d9)+I[_0x11f33f(0x18e)]+_0x11f33f(0x45a)+I[_0x11f33f(0x18e)]+_0x11f33f(0x16b)+I[_0x11f33f(0x2c0)]+_0x11f33f(0x415)+SVG_COPY+'</button>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<button\x20class=\x22icon-btn\x22\x20onclick=\x22toggleNodeDetail(this)\x22\x20title=\x22展开详情\x22\x20style=\x22transition:transform\x20.25s;\x22>'+I[_0x11f33f(0x211)]+_0x11f33f(0x37f)+I[_0x11f33f(0x211)]+_0x11f33f(0x359)+I['tv']+_0x11f33f(0x387)+SVG_EYE+'</button>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<button\x20class=\x22icon-btn\x22\x20style=\x22margin-top:\x202px;\x22\x20onclick=\x22copyTxt(\x27${proxyUrl}\x27)\x22\x20title=\x22复制链接\x22>'+SVG_COPY+_0x11f33f(0x440)+SVG_EYE+'</button>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22info-row\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<span\x20class=\x22info-label\x22>海报缓存:</span>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<span\x20style=\x22color:${r.cache_img\x20!==\x20\x27off\x27\x20?\x20\x27#34c759\x27\x20:\x20\x27#ff9500\x27};\x20font-weight:600;\x22>${r.cache_img\x20!==\x20\x27off\x27\x20?\x20\x27'+I[_0x11f33f(0x20e)]+_0x11f33f(0x3af)+I[_0x11f33f(0x3e6)]+_0x11f33f(0x303)+I[_0x11f33f(0x20e)]+_0x11f33f(0x3af)+I[_0x11f33f(0x3e6)]+'\x20已关闭\x27}</span>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22info-row\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<span\x20class=\x22info-label\x22>最后活跃:</span>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<span\x20style=\x22color:${watchOverdue\x20?\x20\x27#ff3b30\x27\x20:\x20\x27var(--text-sec)\x27};\x20font-weight:${watchOverdue\x20?\x20\x27700\x27\x20:\x20\x27normal\x27};\x22>${watchOverdue\x20?\x20I.warn\x20+\x20\x27\x20\x27\x20:\x20\x27\x27}${watchDaysText}</span>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22info-row\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<span\x20class=\x22info-label\x22>伪装设备:</span>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<span\x20style=\x22color:${fakeOn\x20&&\x20fakeClient\x20?\x20\x27#5856d6\x27\x20:\x20\x27var(--text-sec)\x27};\x20font-weight:600;\x22>${fakeOn\x20&&\x20fakeClient\x20?\x20fakeClient\x20:\x20\x27未开启\x27}</span>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22info-row\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<span\x20class=\x22info-label\x22>自动保活:</span>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<span\x20style=\x22color:${kaOn\x20?\x20\x27#34c759\x27\x20:\x20\x27var(--text-sec)\x27};\x20font-weight:600;\x22>${kaStatus}</span>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22info-row\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<span\x20class=\x22info-label\x22>下次保活:</span>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<span\x20class=\x22ka-cd\x22\x20data-ka-next=\x22${kaNext}\x22\x20style=\x22color:var(--text-sec);\x22>待首次执行</span>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22info-row\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<span\x20class=\x22info-label\x22>上次保活:</span>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<span\x20style=\x22color:var(--text-sec);\x22>${kaLast}</span>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<div\x20class=\x22card-footer\x20admin-only\x22>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<button\x20class=\x22btn-edit\x22\x20onclick=\x22kaRun(\x27${r.prefix}\x27)\x22\x20title=\x22立即执行一次完整保活\x22>保活</button>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<button\x20class=\x22btn-edit\x22\x20onclick=\x22rexImport(\x27${r.prefix}\x27)\x22\x20title=\x22生成\x20Rex\x20一键导入链接\x22>Rex导入</button>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<button\x20class=\x22btn-edit\x22\x20onclick=\x22editNode(\x27${esc(r.prefix)}\x27,\x20\x27${esc(r.target)}\x27,\x20\x27${esc(r.mode)}\x27,\x20\x27${esc(r.remark\x20||\x20\x27\x27)}\x27,\x20\x27${esc(r.icon\x20||\x20\x27\x27)}\x27,\x20\x27${esc(r.cache_img)}\x27,\x20\x27${esc(r.custom_params\x20?\x20encodeURIComponent(r.custom_params)\x20:\x20\x27\x27)}\x27,\x20\x27${esc(r.ka_enabled\x20||\x20\x270\x27)}\x27,\x20\x27${esc(r.ka_days\x20||\x20\x273\x27)}\x27,\x20\x27${esc(r.ka_token\x20||\x20\x27\x27)}\x27,\x20\x27${esc(r.node_user\x20||\x20\x27\x27)}\x27,\x20\x27${esc(r.node_pass\x20||\x20\x27\x27)}\x27,\x20\x27${esc(r.watch_limit\x20||\x20\x270\x27)}\x27)\x22>编辑配置</button>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20<button\x20class=\x22btn-del\x22\x20onclick=\x22del(\x27${r.prefix}\x27)\x22>删除</button>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20</div>`;;\x0a\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20if\x20(mainTarget)\x20setTimeout(()\x20=>\x20pingTarget(idx,\x20mainTarget),\x20500\x20*\x20idx);\x20\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20});\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20filterNodesList();\x0a\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20if\x20(sortableInstance)\x20sortableInstance.destroy();\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20sortableInstance\x20=\x20Sortable.create(container,\x20{\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20handle:\x20\x27.drag-handle\x27,\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20animation:\x20150,\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20delay:\x20200,\x20\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20delayOnTouchOnly:\x20true,\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20onEnd:\x20async\x20function\x20()\x20{\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20const\x20items\x20=\x20[];\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20container.querySelectorAll(\x27.route-item\x27).forEach((row,\x20index)\x20=>\x20{\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20const\x20prefix\x20=\x20row.getAttribute(\x27data-prefix\x27);\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20if\x20(prefix)\x20items.push({\x20prefix:\x20prefix,\x20sort_order:\x20index\x20});\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20});\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20try\x20{\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20await\x20fetch(\x27/api/routes/reorder\x27,\x20{\x20method:\x20\x27POST\x27,\x20body:\x20JSON.stringify(items)\x20});\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20showToast(\x27✅\x20排序已保存\x27);\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20}\x20catch(e)\x20{\x20showToast(\x27❌\x20排序保存失败\x27);\x20}\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20}\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20});\x0a\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20}\x20catch\x20(err)\x20{\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20document.getElementById(\x27list-grid\x27).innerHTML\x20=\x20`<div\x20style=\x22text-align:center;\x20color:#ff3b30;\x20font-weight:600;\x20grid-column:\x201\x20/\x20-1;\x20padding:\x2020px;\x22>'+I['warn']+_0x11f33f(0x193)+I['check']+_0x11f33f(0x3fa)+I['check']+_0x11f33f(0x2a2)+CURRENT_VERSION+_0x11f33f(0x181)+GITHUB_RAW_URL+_0x11f33f(0x3c9)+CHANGELOG_URL+_0x11f33f(0x336);async function getCFTraffic(_0x50745a,_0x563bfa){const _0xd7f8fb=_0x11f33f;if(!_0x50745a['CF_API_TOKEN']||!_0x50745a[_0xd7f8fb(0x37b)])return _0xd7f8fb(0x341);try{const _0x4d1192=new Date();let _0x53ee0a={};if(_0x563bfa===_0xd7f8fb(0x196)){const _0x1b21e9=new Date(_0x4d1192[_0xd7f8fb(0x1e5)]()+0x8*0x36ee80);_0x1b21e9[_0xd7f8fb(0x3b8)](0x0,0x0,0x0,0x0);const _0x3feb4d=new Date(_0x1b21e9[_0xd7f8fb(0x1e5)]()-0x8*0x36ee80);_0x53ee0a={'query':_0xd7f8fb(0x3d3)+_0x50745a[_0xd7f8fb(0x37b)]+_0xd7f8fb(0x3b0)+_0x3feb4d[_0xd7f8fb(0x286)]()+_0xd7f8fb(0x3d9)+_0x4d1192[_0xd7f8fb(0x286)]()+_0xd7f8fb(0x3fc)};}else{const _0x1490b6=new Date(_0x4d1192[_0xd7f8fb(0x1e5)]()-_0x563bfa*0x18*0x36ee80),_0x613c90=_0x1490b6[_0xd7f8fb(0x286)]()['split']('T')[0x0],_0x4d7a9a=_0x4d1192[_0xd7f8fb(0x286)]()[_0xd7f8fb(0x38d)]('T')[0x0];_0x53ee0a={'query':_0xd7f8fb(0x3d3)+_0x50745a[_0xd7f8fb(0x37b)]+'\x22})\x20{\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20httpRequests1dGroups(\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20limit:\x2010000,\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20filter:\x20{\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20date_geq:\x20\x22'+_0x613c90+_0xd7f8fb(0x1ff)+_0x4d7a9a+_0xd7f8fb(0x476)};}const _0x21f32f=await fetch(_0xd7f8fb(0x1ad),{'method':'POST','headers':{'Authorization':_0xd7f8fb(0x38b)+_0x50745a['CF_API_TOKEN'],'Content-Type':'application/json'},'body':JSON[_0xd7f8fb(0x335)](_0x53ee0a)}),_0x292925=await _0x21f32f['json']();if(_0x292925['errors']&&_0x292925['errors'][_0xd7f8fb(0x30c)]>0x0)return'API报错:\x20'+_0x292925[_0xd7f8fb(0x464)][0x0][_0xd7f8fb(0x475)];const _0x3a44f4=_0x292925?.[_0xd7f8fb(0x3db)]?.[_0xd7f8fb(0x3a3)]?.[_0xd7f8fb(0x3ed)];let _0x315ff6=0x0;if(_0x3a44f4&&_0x3a44f4['length']>0x0){if(_0x563bfa===_0xd7f8fb(0x196)&&_0x3a44f4[0x0][_0xd7f8fb(0x394)])_0x315ff6=_0x3a44f4[0x0][_0xd7f8fb(0x394)][0x0]?.[_0xd7f8fb(0x3d6)]?.[_0xd7f8fb(0x426)]||0x0;else _0x563bfa!==_0xd7f8fb(0x196)&&_0x3a44f4[0x0][_0xd7f8fb(0x186)]&&_0x3a44f4[0x0][_0xd7f8fb(0x186)][_0xd7f8fb(0x3ea)](_0x239665=>{const _0x289487=_0xd7f8fb;_0x315ff6+=_0x239665[_0x289487(0x3d6)]['bytes']||0x0;});}if(_0x315ff6===0x0)return'0\x20B';if(_0x315ff6>=0x10000000000)return(_0x315ff6/0x10000000000)[_0xd7f8fb(0x198)](0x2)+'\x20TB';if(_0x315ff6>=0x40000000)return(_0x315ff6/0x40000000)[_0xd7f8fb(0x198)](0x2)+_0xd7f8fb(0x16e);if(_0x315ff6>=0x100000)return(_0x315ff6/0x100000)[_0xd7f8fb(0x198)](0x2)+_0xd7f8fb(0x3c5);if(_0x315ff6>=0x400)return(_0x315ff6/0x400)['toFixed'](0x2)+_0xd7f8fb(0x1be);return _0x315ff6+'\x20B';}catch(_0x39f2b5){return _0xd7f8fb(0x1a7);}}async function getCFRequests(_0x4cde77,_0x55ec98){const _0x2d3fe9=_0x11f33f;if(!_0x4cde77[_0x2d3fe9(0x1a3)]||!_0x4cde77['CF_ZONE_ID'])return{'ok':![],'error':_0x2d3fe9(0x341)};try{const _0x177052=new Date();let _0x45d741={};if(_0x55ec98==='today'){const _0x5da105=new Date(Date[_0x2d3fe9(0x2cd)](_0x177052['getUTCFullYear'](),_0x177052['getUTCMonth'](),_0x177052[_0x2d3fe9(0x393)]()));_0x45d741={'query':_0x2d3fe9(0x3d3)+_0x4cde77['CF_ZONE_ID']+_0x2d3fe9(0x3b0)+_0x5da105[_0x2d3fe9(0x286)]()+'\x22,\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20datetime_leq:\x20\x22'+_0x177052['toISOString']()+_0x2d3fe9(0x356)};}else{const _0x8458de=new Date(_0x177052[_0x2d3fe9(0x1e5)]()-_0x55ec98*0x18*0x36ee80),_0x3522aa=_0x8458de[_0x2d3fe9(0x286)]()['split']('T')[0x0],_0x2cb4bb=_0x177052[_0x2d3fe9(0x286)]()[_0x2d3fe9(0x38d)]('T')[0x0];_0x45d741={'query':_0x2d3fe9(0x3d3)+_0x4cde77['CF_ZONE_ID']+_0x2d3fe9(0x44a)+_0x3522aa+_0x2d3fe9(0x1ff)+_0x2cb4bb+_0x2d3fe9(0x365)};}const _0x3e0510=await fetch(_0x2d3fe9(0x1ad),{'method':_0x2d3fe9(0x3b5),'headers':{'Authorization':_0x2d3fe9(0x38b)+_0x4cde77['CF_API_TOKEN'],'Content-Type':'application/json'},'body':JSON['stringify'](_0x45d741)}),_0x6dcde7=await _0x3e0510[_0x2d3fe9(0x304)]();if(_0x6dcde7[_0x2d3fe9(0x464)]&&_0x6dcde7['errors']['length']>0x0)return{'ok':![],'error':_0x6dcde7[_0x2d3fe9(0x464)][0x0][_0x2d3fe9(0x475)]};const _0x550bb9=_0x6dcde7?.['data']?.[_0x2d3fe9(0x3a3)]?.[_0x2d3fe9(0x3ed)];let _0xe599e4=0x0;if(_0x550bb9&&_0x550bb9[_0x2d3fe9(0x30c)]>0x0){if(_0x55ec98===_0x2d3fe9(0x196)&&_0x550bb9[0x0][_0x2d3fe9(0x394)])_0xe599e4=_0x550bb9[0x0][_0x2d3fe9(0x394)][0x0]?.[_0x2d3fe9(0x327)]||0x0;else _0x55ec98!==_0x2d3fe9(0x196)&&_0x550bb9[0x0][_0x2d3fe9(0x186)]&&_0x550bb9[0x0][_0x2d3fe9(0x186)][_0x2d3fe9(0x3ea)](_0x4138b8=>{const _0xa83224=_0x2d3fe9;_0xe599e4+=_0x4138b8[_0xa83224(0x3d6)][_0xa83224(0x16f)]||0x0;});}return{'ok':!![],'count':_0xe599e4};}catch(_0x206959){return{'ok':![],'error':_0x206959[_0x2d3fe9(0x475)]};}}async function getCFTodayStats(_0x3accbf){const _0x5844c0=_0x11f33f;if(!_0x3accbf['CF_API_TOKEN']||!_0x3accbf[_0x5844c0(0x37b)])return{'ok':![],'error':'缺少变量'};try{const _0x420def=new Date(),_0x41279b=new Date(Date[_0x5844c0(0x2cd)](_0x420def[_0x5844c0(0x2c4)](),_0x420def[_0x5844c0(0x3e2)](),_0x420def[_0x5844c0(0x393)]())),_0x4fe873=_0x41279b[_0x5844c0(0x286)](),_0x5a4d9d=_0x420def[_0x5844c0(0x286)](),_0x3b8e68=_0x5844c0(0x477)+_0x3accbf[_0x5844c0(0x37b)]+_0x5844c0(0x3aa)+_0x4fe873+'\x22,\x20datetime_leq:\x20\x22'+_0x5a4d9d+'\x22})\x20{\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20count\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20sum\x20{\x20clientRequestBytes\x20cachedBytes\x20}\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20}\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20byStatus:\x20httpRequestsAdaptiveGroups(limit:\x2020,\x20filter:\x20{datetime_geq:\x20\x22'+_0x4fe873+_0x5844c0(0x218)+_0x5a4d9d+'\x22},\x20groupBy:\x20[responseStatus])\x20{\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20count\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20dimensions\x20{\x20responseStatus\x20}\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20}\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20byCountry:\x20httpRequestsAdaptiveGroups(limit:\x206,\x20filter:\x20{datetime_geq:\x20\x22'+_0x4fe873+_0x5844c0(0x218)+_0x5a4d9d+_0x5844c0(0x28f)+_0x4fe873+_0x5844c0(0x218)+_0x5a4d9d+_0x5844c0(0x1e1)+_0x4fe873+_0x5844c0(0x218)+_0x5a4d9d+'\x22})\x20{\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20count\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20}\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20}\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20}\x0a\x20\x20\x20\x20\x20\x20\x20\x20}',_0xd08004=await fetch(_0x5844c0(0x1ad),{'method':_0x5844c0(0x3b5),'headers':{'Authorization':_0x5844c0(0x38b)+_0x3accbf[_0x5844c0(0x1a3)],'Content-Type':_0x5844c0(0x1b0)},'body':JSON[_0x5844c0(0x335)]({'query':_0x3b8e68})}),_0x3a636c=await _0xd08004[_0x5844c0(0x304)]();if(_0x3a636c[_0x5844c0(0x464)]&&_0x3a636c[_0x5844c0(0x464)][_0x5844c0(0x30c)]>0x0)return{'ok':![],'error':_0x3a636c['errors'][0x0]['message']};const _0x5d5004=_0x3a636c?.[_0x5844c0(0x3db)]?.[_0x5844c0(0x3a3)]?.[_0x5844c0(0x3ed)]?.[0x0];if(!_0x5d5004)return{'ok':!![],'requests':0x0,'bytes':0x0,'cachedBytes':0x0,'statusCodes':{'2xx':0x0,'3xx':0x0,'4xx':0x0,'5xx':0x0},'countries':[],'hours':[],'blocked':0x0};const _0x1d89d8=_0x5d5004[_0x5844c0(0x3a7)]?.[0x0]||{},_0x3be58a={'2xx':0x0,'3xx':0x0,'4xx':0x0,'5xx':0x0};(_0x5d5004[_0x5844c0(0x3a0)]||[])[_0x5844c0(0x3ea)](_0xcaaefc=>{const _0x5b47d9=_0x5844c0,_0x1dd0dc=Number(_0xcaaefc[_0x5b47d9(0x376)]?.[_0x5b47d9(0x3f9)])||0x0;if(_0x1dd0dc>=0x1f4)_0x3be58a['5xx']+=_0xcaaefc[_0x5b47d9(0x327)];else{if(_0x1dd0dc>=0x190)_0x3be58a[_0x5b47d9(0x3f4)]+=_0xcaaefc['count'];else{if(_0x1dd0dc>=0x12c)_0x3be58a[_0x5b47d9(0x437)]+=_0xcaaefc[_0x5b47d9(0x327)];else{if(_0x1dd0dc>=0xc8)_0x3be58a[_0x5b47d9(0x1a6)]+=_0xcaaefc['count'];}}}});const _0x1c2b0f=new Array(0x18)[_0x5844c0(0x23d)](0x0);(_0x5d5004[_0x5844c0(0x44d)]||[])[_0x5844c0(0x3ea)](_0x3c85eb=>{const _0x8c7873=_0x5844c0,_0x2e019e=new Date(_0x3c85eb[_0x8c7873(0x376)]?.[_0x8c7873(0x31c)]);if(!isNaN(_0x2e019e[_0x8c7873(0x1e5)]()))_0x1c2b0f[_0x2e019e['getUTCHours']()]+=_0x3c85eb[_0x8c7873(0x327)];});const _0x3bb906=(_0x5d5004[_0x5844c0(0x1db)]||[])[_0x5844c0(0x28a)](0x0,0x5)[_0x5844c0(0x3b4)](_0x22309b=>({'country':_0x22309b[_0x5844c0(0x376)]?.[_0x5844c0(0x1ba)]||'未知','count':_0x22309b[_0x5844c0(0x327)]}));return{'ok':!![],'requests':_0x1d89d8['count']||0x0,'bytes':_0x1d89d8['sum']?.['clientRequestBytes']||0x0,'cachedBytes':_0x1d89d8[_0x5844c0(0x3d6)]?.['cachedBytes']||0x0,'statusCodes':_0x3be58a,'countries':_0x3bb906,'hours':_0x1c2b0f,'blocked':_0x5d5004[_0x5844c0(0x400)]?.[0x0]?.['count']||0x0};}catch(_0x282a2b){return{'ok':![],'error':_0x282a2b[_0x5844c0(0x475)]};}}function kaClientProfile(_0x40eaba){const _0x33d283=_0x11f33f;let _0x2fa235={};try{_0x2fa235=_0x40eaba&&_0x40eaba[_0x33d283(0x36a)]?JSON['parse'](_0x40eaba[_0x33d283(0x36a)]):{};}catch(_0x5cd0aa){}const _0x52a917=!!(_0x2fa235[_0x33d283(0x235)]||_0x2fa235[_0x33d283(0x27e)]||_0x2fa235[_0x33d283(0x40b)]||_0x2fa235['ua']);return{'client':_0x52a917&&_0x2fa235[_0x33d283(0x235)]?String(_0x2fa235['client']):_0x33d283(0x451),'version':_0x52a917&&_0x2fa235[_0x33d283(0x27e)]?String(_0x2fa235['version']):_0x33d283(0x41d),'device':_0x52a917&&_0x2fa235[_0x33d283(0x40b)]?String(_0x2fa235[_0x33d283(0x40b)]):'iPhone','ua':_0x52a917&&_0x2fa235['ua']?String(_0x2fa235['ua']):_0x33d283(0x1a2)};}function kaAuthHeader(_0x32e954){const _0x2f06b6=_0x11f33f;return{'X-Emby-Authorization':_0x2f06b6(0x370)+_0x32e954[_0x2f06b6(0x235)]+_0x2f06b6(0x1d7)+_0x32e954[_0x2f06b6(0x40b)]+_0x2f06b6(0x3ef)+_0x32e954[_0x2f06b6(0x27e)]+'\x22'};}function kaHeaders(_0x45448a,_0x1586dc){const _0x4b057e=_0x11f33f,_0x50c0af=Object[_0x4b057e(0x457)]({},kaAuthHeader(_0x45448a),{'User-Agent':_0x45448a['ua']});if(_0x1586dc)Object['assign'](_0x50c0af,_0x1586dc);return _0x50c0af;}function addApiKey(_0x23b6fd,_0x520540){const _0x2d1308=_0x11f33f;try{const _0x1e36b1=new URL(_0x23b6fd);if(_0x520540)_0x1e36b1[_0x2d1308(0x328)]['set'](_0x2d1308(0x257),_0x520540);return _0x1e36b1['toString']();}catch(_0x228452){return _0x23b6fd;}}function fmtPos(_0x229ef4){const _0x24cd55=_0x11f33f,_0x9caad8=Math['max'](0x0,Math['floor'](parseInt(_0x229ef4,0xa)||0x0)/0x989680),_0x54de50=Math[_0x24cd55(0x3ce)](_0x9caad8/0xe10),_0x52bf4=Math[_0x24cd55(0x3ce)](_0x9caad8%0xe10/0x3c),_0x2db8c5=Math[_0x24cd55(0x3ce)](_0x9caad8%0x3c);return(_0x54de50>0x0?String(_0x54de50)[_0x24cd55(0x30f)](0x2,'0')+':':'')+String(_0x52bf4)[_0x24cd55(0x30f)](0x2,'0')+':'+String(_0x2db8c5)[_0x24cd55(0x30f)](0x2,'0');}async function kaFetch(_0x506c18,_0x308dcb){const _0x715caa=_0x11f33f,_0xd82c30=new AbortController(),_0x2016ed=setTimeout(()=>_0xd82c30['abort'](),0xea60);try{const _0x335751=await fetch(_0x506c18,Object['assign']({},_0x308dcb||{},{'signal':_0xd82c30[_0x715caa(0x1b6)]}));return _0x335751;}catch(_0x2b9d6b){throw _0x2b9d6b;}finally{clearTimeout(_0x2016ed);}}async function kaJson(_0x3e5611,_0x5076ab){const _0x19edc7=_0x11f33f,_0xf65498=await kaFetch(_0x3e5611,_0x5076ab),_0x812ed=await _0xf65498[_0x19edc7(0x391)]();let _0x57ef4f=null;try{_0x57ef4f=JSON[_0x19edc7(0x29c)](_0x812ed);}catch(_0x3c41af){}return{'status':_0xf65498[_0x19edc7(0x164)],'data':_0x57ef4f,'text':_0x812ed};}async function readStreamUpTo(_0x23cdcc,_0xe5381c,_0x5b8e9f){const _0x18eb61=_0x11f33f;if(!_0x23cdcc||!_0x23cdcc['body'])return 0x0;const _0x52400d=_0x23cdcc['body'][_0x18eb61(0x2cf)]();let _0xf8c072=0x0;const _0x552900=Date[_0x18eb61(0x31f)]();try{for(;;){if(Date[_0x18eb61(0x31f)]()-_0x552900>_0x5b8e9f)break;let _0x44deb5=null;const _0x2325dc=await Promise[_0x18eb61(0x445)]([_0x52400d[_0x18eb61(0x302)](),new Promise((_0x8a04b4,_0x3bd850)=>{const _0x3db786=_0x18eb61;_0x44deb5=setTimeout(()=>_0x3bd850(new Error('read\x20timeout')),Math['max'](0x3e8,_0x5b8e9f-(Date[_0x3db786(0x31f)]()-_0x552900)));})]);if(_0x44deb5)clearTimeout(_0x44deb5);if(_0x2325dc[_0x18eb61(0x2f9)])break;if(_0x2325dc['value'])_0xf8c072+=_0x2325dc[_0x18eb61(0x246)][_0x18eb61(0x3de)];if(_0xf8c072>=_0xe5381c)break;}}catch(_0x210ac6){}try{await _0x52400d[_0x18eb61(0x34d)]();}catch(_0x138b75){}return _0xf8c072;}function _0x3fec(){const _0x24d7ff=['phn2zYb2Awv3qM94psiWidaGmJqGmJqIigzPBgW9iMn1CNjLBNrdB2XVCIi+phbHDgGGzd0ItteZidjmncaXngG2Bc0XidGGos0XmMGTnMWXltH6iI8+pc9ZDMC+','q0zFwK9orv9jra','twv0Ag9Kig5VDcbHBgXVD2vK','l2fWAs9KzxbSB3K','y2XVDwrMBgfYzs13B3jRzxi','pc9IDxr0B24+cIaGicaGicaGicaGicaGicaGicaGicaGicaGica8l2rPDJ4kicaGicaGicaGicaGicaGicaGicaGicaGpc9KAxy+cGOGicaGicaGicaGicaGicaGicaGicaGica8zgL2ignSyxnZpsjUB2rLlwrLDgfPBciGC3r5Bgu9iMrPC3bSyxK6BM9UztSGzMXLEc1KAxjLy3rPB246y29SDw1UoYbNyxa6mtrWEdSIpGOGicaGicaGicaGicaGicaGicaGicaGicaGicaGpgrPDIbZDhLSzt0IyMfJA2DYB3vUzdOGCMDIysGXmJaSmtiWldeYmcWWlJa1ktSGyM9YzgvYoIaXChGGC29SAwqGDMfYkc0TyM9YzgvYktSGyM9YzgvYlxjHzgL1CZOGmtbWEdSGCgfKzgLUzZOGmtjWEdSGzgLZCgXHEtOGzMXLEdSGANvZDgLMEs1JB250zw50oIbZCgfJzs1Izxr3zwvUoYbMBgv4lxDYyxa6ihDYyxa7igDHCdOGmtbWEdSIpGOGicaGicaGicaGicaGicaGicaGicaGicaGicaGicaGidXKAxyGC3r5Bgu9iMrPC3bSyxK6zMXLEdSGzMXLEc1KAxjLy3rPB246ignVBhvTBJSGz2fWoIa0ChG7iJ4kicaGicaGicaGicaGicaGicaGicaGicaGicaGicaGicaGicaGphnWyw4GC3r5Bgu9iMzVBNqTC2L6ztOXmNb4oYbJB2XVCJP2yxiOls10zxH0lxnLyYK7iJ4','AgfZ','Aw5KzxHpzG','ioA4HEEPUUwiL+IHQdWVyNv0Dg9UpGOGicaGicaGicaGicaGicaGpc9KAxy+cGOGicaGicaGicaGicaGicaGpgrPDIbZDhLSzt0IyMfJA2DYB3vUzdOGCMDIysGXmJaSmtiWldeYmcWWlJa1ktSGCgfKzgLUzZOGmtzWEdSGyM9YzgvYlxjHzgL1CZOGmtjWEdSGyM9YzgvYoIaXChGGC29SAwqGDMfYkc0TyM9YzgvYktSGBwfYz2LUlwjVDhrVBtOGmtzWEdSIpGOGicaGicaGicaGicaGicaGicaGidXKAxyGC3r5Bgu9iMrPC3bSyxK6igzSzxG7igDHCdOGohb4oYbTyxjNAw4TyM90Dg9ToIaXmNb4oYbHBgLNBI1PDgvTCZOGy2vUDgvYoYbMBgv4lxDYyxa6ihDYyxa7iJ4kicaGicaGicaGicaGicaGicaGicaGicaGpgLUChv0ihr5Cgu9iNrLEhqIigLKpsjJDxn0B21bCgLvCMWIihzHBhvLpsjODhrWCZOVl2LWlNyYDg9VlNrVCc9HCgKVBM9KzxmIihbSywnLAg9SzgvYpslLOAVLHAxOH6RLRPRKUyKGsLnptIdMIjyG5PAh5PYSiefqssdPK77MJQuIihn0EwXLpsjMBgv4oIaXoYbTAw4TD2LKDgG6idiWmhb4oYbWywrKAw5NoIaXmNb4ide0ChG7igjVCMrLCI1YywrPDxm6ideWChG7igjVCMrLCJOGmxb4ihnVBgLKihzHCIGTlwjVCMrLCIK7igjHy2TNCM91BMq6DMfYkc0Ty2fYzcK7iJ4kicaGicaGicaGicaGicaGicaGicaGicaGpgj1DhrVBIbJBgfZCZ0IyNrUlxn1yM1PDciGAwq9iMj0BKzLDgnOq3vZDg9TqxbPiIbVBMnSAwnRpsjMzxrJAen1C3rVBufWAufUzfrLC3qOksiGC3r5Bgu9iIbIB3GTC2HHzg93oIaWidrWEcaXmNb4ihjNyMeOntaSide3mYWGmJmWlcaWlJiPoYi+','rw1IEq','zNvUy3rPB24','jZONy2XVDwqNlcC','phn2zYb2Awv3qM94psiWidaGmJqGmJqIigzPBgW9iM5VBMuIihn0CM9Rzt0Iy3vYCMvUDenVBg9YiIbZDhjVA2uTD2LKDgG9iJeUociGC3rYB2TLlwXPBMvJyxa9iNjVDw5KiIbZDhjVA2uTBgLUzwPVAw49iNjVDw5KiJ48CMvJDcb4psiZiIb5psiZiIb3Awr0Ad0ImtGIigHLAwDODd0ImtGIihj4psi0iI8+phbHDgGGzd0IttGGmtiUnwWYlJuGmI41tde2idKIlZ48l3n2zZ4','ioAsREAuVUASOEAvScaO5lUk5PELl+E0R+IUOsK8l3nWyw4+cIaGicaGicaGicaGicaGicaGicaGicaGicaGicaGicaGicaGidXZCgfUihn0EwXLpsjMB250lxnPEMu6mtzWEdSGzM9UDc13zwLNAhq6nZaWoYbJB2XVCJOJzMy5ntaWoYi+jhTYlNrVzgf5uMvXC30GlYaKE3rVDgfSuMvXC30G5QYHpc9ZCgfUpGOGicaGicaGicaGicaGicaGicaGicaGicaGicaGicaGidWVzgL2pGOGicaGicaGicaGicaGicaGicaGicaGicaGicaGpc9KAxy+cGOGicaGicaGicaGicaGicaGicaGicaGicaGicaGpgrPDIbZDhLSzt0IzgLZCgXHEtOGzMXLEdSGzMXLEc1KAxjLy3rPB246ignVBhvTBJSGz2fWoIaXmhb4oYi+cIaGicaGicaGicaGicaGicaGicaGicaGicaGicaGicaGpgrPDIbJBgfZCZ0IAw5MBY1YB3CIpGOGicaGicaGicaGicaGicaGicaGicaGicaGicaGicaGicaGica8C3bHBIbJBgfZCZ0IAw5MBY1SywjLBci+55U06l6+6zo+5O6LoJWVC3bHBJ4kicaGicaGicaGicaGicaGicaGicaGicaGicaGicaGicaGicaGpgrPDIbJBgfZCZ0Iywn0Aw9UlwDYB3vWiIbZDhLSzt0IzMXLEdOXoYbQDxn0Awz5lwnVBNrLBNq6igzSzxGTzw5KoYbTyxjNAw4TBgvMDdOGmtbWEdSGywXPz24TAxrLBxm6igzSzxGTC3rHCNq7iJ4kicaGicaGicaGicaGicaGicaGicaGicaGicaGicaGicaGicaGicaGidXZCgfUigLKpsjWlsr7Awr4FsiGzgf0ys12ywW9iIr7ChjVEhLvCMX9iIbJBgfZCZ0IC2vJCMv0lxrLEhqGzhLUyw1PyY11CMWIpUkaOUkaOUkaOUkaOUkaOUkaOUkaOUkaOJWVC3bHBJ4kicaGicaGicaGicaGicaGicaGicaGicaGicaGicaGicaGicaGicaGidXIDxr0B24Gy2XHC3m9iMLJB24TyNrUiIbZDhLSzt0IBwfYz2LUlxrVCdOGmNb4oYiGB25JBgLJAZ0IDg9Nz2XLvMLZkcDWlsr7Awr4FsCPiIb0AxrSzt0I5P+L55Yl5PIo5PAhiJ4','iIWkicaGicaGicaGicaGicaGicaGicaGicaGicaGicaGicaGicaGicaGicaGzgf0zxrPBwvFBgvXoIaI','DMvYC2LVBNm','ioAlIEwpLIbbueKG5BM25Rwl6ycFpc9IDxr0B24+cIaGicaGicaGicaGicaGicaGicaGpc9KAxy+cGOGicaGicaGicaGicaGicaGicaGidX0zxH0yxjLysbPzd0Iy3vZDg9TsxbZiIbYB3DZpsiYiIbWBgfJzwHVBgrLCJ0I5zYO5Q2K57ky6ls06iEQ5A6A5lMjieLqDJtJGifjuhy2ioAiLIdKVjJPGiNLN5/LKi0GkoAuR+AmGEA3T+ADGUAwH+ACRo+8JoIhQUwkQoApKowpLIKIihn0EwXLpsj3Awr0AdOGmtaWjtSGCgfKzgLUzZOGmtrWEdSGyM9YzgvYlxjHzgL1CZOGmtbWEdSGyM9YzgvYoIaXChGGC29SAwqGDMfYkc0TyM9YzgvYktSGBwfYz2LUlwjVDhrVBtOGmtjWEdSGzM9UDc1Myw1PBhK6ig1VBM9ZCgfJztSGCMvZAxPLoIb2zxj0AwnHBdSGyMfJA2DYB3vUzdP2yxiOls1JyxjKktSIpJWVDgv4DgfYzwe+cIaGicaGicaGicaGicaGicaGicaGcIaGicaGicaGicaGicaGicaGicaGpgrPDIbZDhLSzt0IzgLZCgXHEtOGzMXLEdSGz2fWoIaXmhb4oYbMBgv4lxDYyxa6ihDYyxa7iJ4kicaGicaGicaGicaGicaGicaGicaGicaGpgj1DhrVBIbJBgfZCZ0IyNrUlxn1yM1PDciGAwq9iMj0BLrLC3rdDxn0B20Iig9Uy2XPy2S9iNrLC3rdDxn0B21juhmOksiGC3r5Bgu9iIbIB3GTC2HHzg93oIaWidrWEcaXmNb4ihjNyMeOodGSidG2lcaYmtqSidaUmIK7iJ4','qMvHCMvYia','phn2zYb2Awv3qM94psiWidaGmJqGmJqIigzPBgW9iM5VBMuIihn0CM9Rzt0Iy3vYCMvUDenVBg9YiIbZDhjVA2uTD2LKDgG9iJeUociGC3rYB2TLlwXPBMvJyxa9iNjVDw5KiJ48y2LYy2XLign4psiXmsiGy3K9iJeXiIbYpsi3iI8+phbHDgGGzd0IttiXidiXBc00lJmTnc4ZiI8+pc9ZDMC+','C3bSAxq','vvbeqvrfihjVDxrLCYbtrvqGBgfZDf9Ryv9YDw4Gpsa/lcbSyxn0x2THx3jLC3vSDca9id8SigXHC3rFA2fFzgv0ywLSid0GpYbxsevsrsbWCMvMAxGGpsa/','Bwf4','jdeI','Dgv4Da','C2v0','z2v0vvrdrgf0zq','Ahr0CfjLCxvLC3rZqwrHChrPDMvhCM91Chm','CMvWBgfJzq','phn2zYb2Awv3qM94psiWidaGmJqGmJqIigzPBgW9iMn1CNjLBNrdB2XVCIi+phbHDgGGzd0ItteYidnSmI43iduUnYa2lJmUoc00lJyGnc4ZideUmsa2lJiTns41ltmTns41idmGms4XltyUmKWZidKUnwW2lJmTlJHmmtiGm3OIlZ48l3n2zZ4','twvKAwftB3vYy2vZ','phn2zYb2Awv3qM94psiWidaGmJqGmJqIigzPBgW9iM5VBMuIihn0CM9Rzt0Iy3vYCMvUDenVBg9YiIbZDhjVA2uTD2LKDgG9iJeUociGC3rYB2TLlwXPBMvJyxa9iNjVDw5KiIbZDhjVA2uTBgLUzwPVAw49iNjVDw5KiJ48Cgf0AcbKpsjnmJaGmtbJmca2ltGGmtiTocaXmNmToc02ltGTmtjHoca4idaGmcaXide2idb6iI8+pgnPCMnSzsbJEd0ImtiIign5psiXmciGCJ0ImYiVpJWVC3zNpG','6i635y+w5AQs5l2t5P2H55UU','C3rHDgLJ','BwfUAwzLC3q','mtvUB1f3zKW','zMXHC2S','quXurviGvefcteuGCM91DgvZiefercbdt0Xvtu4GCMvTyxjRifrfwfqGrevgqvvmvcaNjW','Ec1TzwrPywjYB3DZzxiTDg9Rzw4','yNLtDgf0Dxm','phn2zYb2Awv3qM94psiWidaGmJqGmJqIigzPBgW9iM5VBMuIihn0CM9Rzt0Iy3vYCMvUDenVBg9YiIbZDhjVA2uTD2LKDgG9iJeUociGC3rYB2TLlwXPBMvJyxa9iNjVDw5KiJ48y2LYy2XLign4psiXmIiGy3K9iJeYiIbYpsi0lJuIlZ48Cgf0AcbKpsjnmtiGmNyYtteYidiWDJjnnc45idqUowWXlJqGms40tte3lJCGmtCUn2WXlJqGms40ttiGmtjOmK0YmcaXmMGYttqUosaXos4XBdeUnc0XlJrnmtCUnYa2lJnSms40lteUnciVpJWVC3zNpG','ios/NEwpT+MaMUEFPE+8IejHCMSGlYbuzwXLz3jHBE+8ItWVzgL2pGOGicaGicaGicaGicaGicaGicaGicaGicaGicaGpgrPDIbZDhLSzt0IzM9UDc1ZAxPLoJeYChG7ignVBg9YoNzHCIGTlxrLEhqTC2vJktSGBwfYz2LUlwjVDhrVBtOXmhb4oYi+','DMLLD2vY','quXurviGvefcteuGCM91DgvZiefercbdt0Xvtu4GBgfZDf9Ryv9Yzxn1BhqGvevyvcberuzbvuXuicCN','jZONDxbSB2fKjYb9oWPMDw5JDgLVBIb0B1n2zYHZkxSkicbPzIGHCYKGCMv0DxjUihm7cIaGCMv0DxjUifn0CMLUzYHZks5YzxbSywnLkc9B8j+aGc3WN6U/4PIalEkEV++4J+kSGc3IR79Dl2D1lcbMDw5JDgLVBIHJAcL7cIaGicbPzIHJAd09psFVUi8NksbYzxr1CM4GjYC7cIaGicb2yxiGA2v5id0Grtjjw2nOxtSkicaGihjLDhvYBIaOA2v5icyMieLBA2v5xsKGpYaNphnWyw4Gy2XHC3m9iNrPiJ4Nk0LBA2v5xsSNpc9ZCgfUpICGoIaNjZSkicb9ktSkFqOGicaGpc9Zy3jPChq+cJWVAgvHzd4kphnJCMLWDd50CNL7AwyOiwXVy2fSu3rVCMfNzs5NzxrjDgvTkcDLBwj5x3bYB3H5x2rHCMSNksLKB2n1BwvUDc5IB2r5lMnSyxnZtgLZDc5HzgqOj2rHCMSNkx1JyxrJAcHLkxT9pc9Zy3jPChq+cIaGica8zgL2igLKpsj0B2fZDci+pc9KAxy+cIaGicakicaGidXKAxyGAwq9iMrHC2HIB2fYze1VzgfSiIbZDhLSzt0IzgLZCgXHEtPUB25LoYbWB3nPDgLVBJPMAxHLzdSGDg9WoJa7igXLzNq6mdSGD2LKDgG6mtaWjtSGAgvPz2H0oJeWmcu7igjHy2TNCM91BMq6CMDIysGWldaSmcWWlJyPoYb6lwLUzgv4oJeWmdaWoYbVDMvYzMXVDY15oMf1Dg87ihbHzgrPBMC6idiWChG7igjHy2TKCM9WlwzPBhrLCJOGyMX1CIG1ChGPoYi+cIaGicaGicaGpgrPDIbJBgfZCZ0Iy2fYzciGC3r5Bgu9iM1HEc13Awr0AdOGmtaWmhb4oYbTyxjNAw46idqWChGGyxv0BZSGCg9ZAxrPB246CMvSyxrPDMu7igjVEc1ZAgfKB3C6idaGmtbWEca0mhb4ihjNyMeOmcWWldaSmc4YktSIpGOGicaGicaGicaGica8yNv0Dg9Uig9Uy2XPy2S9iMnSB3nLrgfZAgjVyxjKkcKIihn0EwXLpsjWB3nPDgLVBJPHyNnVBhv0ztSGDg9WoJiWChG7ihjPz2H0oJiWChG7igzVBNqTC2L6ztOYnhb4oYbIywnRz3jVDw5KoM5VBMu7igjVCMrLCJPUB25LoYbJDxjZB3i6Cg9PBNrLCJSGy29SB3i6ihzHCIGTlxrLEhqTC2vJktSGDhjHBNnPDgLVBJOGmc4YCZSIig9UBw91C2vVDMvYpsj0AgLZlNn0EwXLlMnVBg9YpsCJzMyZyJmWjYiGB25TB3vZzw91Dd0IDgHPCY5ZDhLSzs5JB2XVCJ0NDMfYkc0TDgv4Dc1ZzwmPjYi+','ioATPE+8Ja','B3zLCNzPzxC','l2jPBMrPBMDZ','jZONDxbSB2fKjYb9oWPMDw5JDgLVBIb0B1n2zYHZkxSkicbPzIGHCYKGCMv0DxjUihm7cIaGCMv0DxjUifn0CMLUzYHZks5YzxbSywnLkc9B8j+aGc3WN6U/4PIalEkEV++4J+kSGc3IR79Dl2D1lcbMDw5JDgLVBIHJAcL7cIaGicbPzIHJAd09psFVUi8NksbYzxr1CM4GjYC7cIaGicb2yxiGA2v5id0Grtjjw2nOxtSkicaGihjLDhvYBIaOA2v5icyMieLBA2v5xsKGpYaNphnWyw4Gy2XHC3m9iNrPiJ4Nk0LBA2v5xsSNpc9ZCgfUpICGoIaNjZSkicb9ktSkFqOGicaGpc9Zy3jPChq+cGO8l2HLywq+cJXIB2r5pGOGicaGpgrPDIbPzd0IDg9HC3qIpJWVzgL2pGOGicaGpgrPDIbJBgfZCZ0IBg9NAw4TD3jHCci+cIaGicaGicaGpgrPDIbJBgfZCZ0IBg9NAw4TyM94iJ4kicaGicaGicaGicaGpgLTzYbJBgfZCZ0IBg9NAw4TBg9NBYiGC3jJpsi','iN0PihSkicaGicaGicaGicaGicbVDMvYDMLLDZOGAhr0CfjLCxvLC3rZqwrHChrPDMvhCM91ChmOBgLTAxq6ideSigzPBhrLCJOGE2rHDgv0Aw1Lx2DLCtOGiG','ioA3U+wkOdWVyNv0Dg9UpGOGicaGicaGicaGicaGicaGicaGicaGicaGicaGpc9KAxy+cIaGicaGicaGicaGicaGicaGicaGicaGidWVzgL2pGOGicaGicaGicaGicaGicaGicaGicaGica8zgL2ihn0EwXLpsjIywnRz3jVDw5KoNjNyMeOmtiWldeYmcWXmJaSmc4WnsK7igjVCMrLCJOXChGGC29SAwqGDMfYkc0TyM9YzgvYktSGyM9YzgvYlxjHzgL1CZOXmhb4oYbWywrKAw5NoJe0ChG7iJ4kicaGicaGicaGicaGicaGicaGicaGicaGicaGidXKAxyGC3r5Bgu9iMzVBNqTC2L6ztOXnhb4oYbMB250lxDLAwDODdO2mda7ig1HCMDPBI1IB3r0B206mtbWEdSIpG','y3nZ','6iQc54k555UU5Qch','phn2zYb2Awv3qM94psiWidaGmJqGmJqIigzPBgW9iM5VBMuIihn0CM9Rzt0Iy3vYCMvUDenVBg9YiIbZDhjVA2uTD2LKDgG9iJeUoci+pgnPCMnSzsbJEd0ImtiIign5psiXmIiGCJ0IosiVpJXJAxjJBguGy3G9iJeYiIbJEt0ImtiIihi9iJuIlZ48y2LYy2XLign4psiXmIiGy3K9iJeYiIbYpsiXlJiIigzPBgW9iMn1CNjLBNrdB2XVCIiVpJWVC3zNpG','iow3SUw8GowqRYCGoIaN','iN0PihSkicaGicaGicaGicaGicaGicaGicaGigH0Dhbszxf1zxn0C0fKyxb0AxzLr3jVDxbZkaOGicaGicaGicaGicaGicaGicaGicaGicbSAw1PDdOGmsWkicaGicaGicaGicaGicaGicaGicaGicaGzMLSDgvYoIb7cIaGicaGicaGicaGicaGicaGicaGicaGicaGzgf0zxrPBwvFz2vXoIaI','DxbSB2fK','q05btuu','y3vZDg9Tvwe','BwfW','ue9tva','jZONEg1HCMSNlcC','y3vZDg9TvMvYC2LVBG','C2v0vvrdsg91CNm','t3jPz2LU','yNL0zxm9mc0','ioI3KEs6HIa','DgDdAgf0swq','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','6iQc54k56lsM5y+3ia','z2v0uMfUzg9TvMfSDwvZ','quXurviGvefcteuGCM91DgvZiefercbdt0Xvtu4GBgfZDf9WBgf5ifrfwfqGrevgqvvmvcaNjW','B2XKuhjLzML4','pc9ZCgfUpG','ioABToAwSoAiKowkNZWVAdi+cIaGicaGicaGicaGicaGicaGicaGicaGidXIDxr0B24GB25JBgLJAZ0Izg9JDw1LBNqUz2v0rwXLBwvUDej5swqOj3vWzgf0zvjLC3vSDe1VzgfSjYKUC3r5BguUzgLZCgXHEt0NBM9UzsCIihn0EwXLpsjIywnRz3jVDw5KoNrYyw5ZCgfYzw50o2jVCMrLCJPUB25Lo2n1CNnVCJPWB2LUDgvYo2nVBg9YoNzHCIGTlxrLEhqTC2vJktTKAxnWBgf5oMLUBgLUzs1MBgv4o3bHzgrPBMC6nhb4oYi+','l3n0CMvHBsdIHPiG','ie1c','5PYQ55+L5P2H55UU','6i635y+w5AQs5l2t5P2H55UU5AsX6lsLoIbjDgvTCYdIHPiG','55sX5lQo5PYQ57Ur5A6AieqXioAvSoAnRUw6K++8JowpJEs7O+wkN+IdVEs4JEwpR+EuQooaGG','iJSGcIaGicaGicaGy29UC3qGq0HbtKDfte9hx1vstca9ici','DgHLBG','pc9ZCgfUpIdIHPiG5PAW54Mi5PYSidXZCgfUigLKpsj1CgrHDgvnB2rHBfzLCNnPB24Iihn0EwXLpsjMB250lxDLAwDODdO2mda7ignVBg9YoNzHCIGTlxbYAw1HCNKPoYi+pc9ZCgfUpJWVzgL2pGOGicaGicaGicaGicaGicaGicaGidXKAxyGC3r5Bgu9iMjHy2TNCM91BMq6CMDIysG1mIWXotKSodKSmc4WnIK7igjVCMrLCJOXChGGC29SAwqGCMDIysG1mIWXotKSodKSlJi1ktSGyM9YzgvYlxjHzgL1CZOXmhb4oYbWywrKAw5NoJe0ChG7ig1HCMDPBI1IB3r0B206mtrWEdSIpGOGicaGicaGicaGicaGicaGicaGicaGica8zgL2igLKpsj1CgrHDgvnB2rHBejVzhKIihn0EwXLpsjMB250lxnPEMu6mtjWEdSGy29SB3i6DMfYkc0TDgv4DcK7igXPBMuTAgvPz2H0oJeUotSIpUwkOoI9VEs4REkaPJWVzgL2pGOGicaGicaGicaGicaGicaGicaGidWVzgL2pGOGicaGicaGicaGicaGicaGicaGidXKAxyGC3r5Bgu9iMrPC3bSyxK6zMXLEdSGz2fWoJHWEdSIpGOGicaGicaGicaGicaGicaGicaGicaGica8yNv0Dg9UignSyxnZpsjIDg4TC3vIBwL0iIbVBMnSAwnRpsjKB09UBgLUzvvWzgf0zsGPiIbZDhLSzt0IzMXLEdOXoYi+','q0zFqundt1vovf9jra','pc9ZCgfUpGOGicaGicaGicaGicaGicaGicaGicaGicaGicaGpgj1DhrVBIbVBMnSAwnRpsjJBg9ZzufJy291BNrnB2rHBcGPiIbZDhLSzt0IyMfJA2DYB3vUzdP0CMfUC3bHCMvUDdTIB3jKzxi6BM9UztTJDxjZB3i6Cg9PBNrLCJTJB2XVCJP2yxiOls10zxH0lxnLyYK7zgLZCgXHEtPPBMXPBMuTzMXLEdTWywrKAw5NoJrWEdSIpG','zMXVB3i','l3nWzwvKDgvZDc8','uefuq0G','l3nWzwvKDgvZDa','yMfYA0TLEq','cIaGicaGicaGicaGicaGicbXDwvYEsb7cIaGicaGicaGicaGicaGicaGihzPzxDLCIb7cIaGicaGicaGicaGicaGicaGicaGEM9UzxmOzMLSDgvYoIb7EM9UzvrHzZOGiG','phn2zYb2Awv3qM94psiWidaGmJqGmJqIigzPBgW9iM5VBMuIihn0CM9Rzt0Iy3vYCMvUDenVBg9YiIbZDhjVA2uTD2LKDgG9iJeUociGC3rYB2TLlwXPBMvJyxa9iNjVDw5KiIbZDhjVA2uTBgLUzwPVAw49iNjVDw5KiJ48Cgf0AcbKpsjnnYaXoge0idqGmcaXideGmc04iduGnsaWidaGmsa5lJyGms4ZqtmUnsaZlJuGmcaWideGmtCGmtHin3OIlZ48l3n2zZ4','Ec1LBwj5lwf1DgHVCML6yxrPB24','C3vT','su5trvjuieLove8GChjVEhLFAgL0CYaOAxaSihbHDgGSihvHlcb0CYWGDgLTzxmPifzbtfvfuYaOpYWGpYWGpYWGpYWGmsK','yw50zw5Uyq','iIWkicaGicaGicaGicaGicaGicaGicaGicaGicbKyxrLDgLTzv9Szxe6ici','mtm0odK5mJDiENDYsvO','zgf0yq','zxjYB3i','C2vHCMnO','yNL0zuXLBMD0Aa','DgLJAW','zhvHBa','ios/RUAuUEEzU+w9LEwVHUEGGtWVzgL2pGOGicaGicaGicaGicaGicaGicaGicaGicaGicaGpgrPDIbZDhLSzt0IzM9UDc1ZAxPLoJeYChG7ignVBg9YoNzHCIGTlxrLEhqTC2vJktSGBwfYz2LUlwjVDhrVBtOXmhb4oYi+','z2v0vvrdtw9UDgG','C2nHBK92zxjKDwvoB3rPzNK6','DxjS','mtaU','Eg1HCMS','iokgKIa','wc1fBwj5lvrVA2vU','sxrLBxmG5BYc5BI4oIa','zM9YrwfJAa','zMfRzq','5QIH5OUF5OUj5Rwb5lIT77YindbnqU+8IEkaPG','EM9Uzxm','sg9ZDa','iIWGrgv2AwnLswq9iMvTyNKTA2vLCgfSAxzLiIWGvMvYC2LVBJ0I','C3rYAwn0','l2vTyNKVsxrLBxmV','r0vuic9LBwj5l1n5C3rLBs9jBMzViokgKIa','ndi1nZqWzwzlsMvy','nhH4','ioERI+wnS+ABToAwSdWVyNv0Dg9UpGOGicaGicaGicaGicaGicaGicaGicaGicaGicaGpc9KAxy+cIaGicaGicaGicaGicaGicaGicaGicaGicaGica8zgv0ywLSCYbZDhLSzt0IzM9UDc1ZAxPLoJeYChG7ignVBg9YoNzHCIGTlxrLEhqTC2vJktSIpGOGicaGicaGicaGicaGicaGicaGicaGicaGicaGicaGidXZDw1Tyxj5ihn0EwXLpsjJDxjZB3i6Cg9PBNrLCJSGzM9UDc13zwLNAhq6nJaWoYi+','u0vmrunuicOGrLjptsbYB3v0zxmGv0HfuKuGChjLzML4id0GpW','quXurviGvefcteuGCM91DgvZiefercbdt0Xvtu4GBw9KzsburvHuierfrKfvtfqGj29MzIC','l2fWAs92zxjZAw9U','CMvZCg9UC2vtDgf0Dxm','ioA1I+MaN+wUJoAVLE+8GEAcQowpR+s7PEIhQUEuSEE7HowqIoABToAwScbetLpJGijGoWOGicaGicaGicaGicb9ignHDgnOicHLCNiPihSGC2HVD1rVyxn0kcFINyWG5OUj5y+w5AsX6lsLjYK7ih0GcIaGicaGicaGicaGigzPBMfSBhKGEYbIDg4UzgLZywjSzwqGpsbMywXZztSGyNrUlNrLEhrdB250zw50id0GjYdMI4NLJ5yGqvbjiow5TUA1I+MaNYC7ih0kicaGicaGicb9cIaGicaGicaGyxn5BMmGzNvUy3rPB24GzMv0y2Hszw1VDgvbBMruzxn0kcKGEWOGicaGicaGicaGicbJB25ZDcbIDg4GpsbKB2n1BwvUDc5NzxrfBgvTzw50qNLjzcGNyNrUrMv0y2Hszw1VDguNktSkicaGicaGicaGicaGy29UC3qGDgjVzhKGpsbKB2n1BwvUDc5NzxrfBgvTzw50qNLjzcGNDgvZDfrHyMXLqM9KEsCPoWOGicaGicaGicaGicbJB25ZDcbZDgf0DxnuEhqGpsbKB2n1BwvUDc5NzxrfBgvTzw50qNLjzcGNC3rHDhvZvgv4DcCPoWOGicaGicaGicaGicbJB25ZDcb0ExbLid0Gzg9JDw1LBNqUz2v0rwXLBwvUDej5swqOj2LWvhLWzsCPlNzHBhvLoWOGicaGicaGicaGicbJB25ZDcb0ExbLvgv4Dca9igrVy3vTzw50lMDLDevSzw1LBNrcEuLKkcDPCfr5CguNks5VChrPB25Zw2rVy3vTzw50lMDLDevSzw1LBNrcEuLKkcDPCfr5CguNks5ZzwXLy3rLzeLUzgv4xs50zxH0oWOGicaGicaGicaGicbIDg4UzgLZywjSzwqGpsb0CNvLoYbIDg4UDgv4DenVBNrLBNqGpsaN4O+ZioATO+wCQoApKowpLUIkGUEcUs4UlIC7cIaGicaGicaGicaGihn0yxr1C1r4Dc5PBM5LCKHutuWGpsbG5Q2J5zYO5OUj5y+widXZDhjVBMC+jhT0ExbLvgv4Dh08l3n0CM9UzZ4G5PwW5O2UlI4UydSkicaGicaGicaGicaGAwyODgjVzhKUAw5Uzxjive1mlMLUy2X1zgvZkcFMMOlML6dMLBdMJA4NksKGDgjVzhKUAw5Uzxjive1mid0GjYC7iaOGicaGicaGicaGicb0CNKGEWOGicaGicaGicaGicaGicaGy29UC3qGCMvZid0GyxDHAxqGzMv0y2GOyc9HCgKVz2v0lxjLBw90zs1PChm/DhLWzt0KE2vUy29KzvvssunVBxbVBMvUDcH0ExbLkx1GktSkicaGicaGicaGicaGicaGignVBNn0igrHDgeGpsbHD2fPDcbYzxmUANnVBIGPoWOGicaGicaGicaGicaGicaGAwyGkcfKyxrHlMLWCYb8FcbKyxrHlMLWCY5Szw5NDgGGpt09idaPihSGC2HVD1rVyxn0kcFIMQdVUi8G5PYQ6i635y+w5yIW6k+L57g75z6lieLqjYK7ihjLDhvYBJSGFqOGicaGicaGicaGicaGicaGC2HVD1rVyxn0kgdINiuG5OIq5yQF5O+q5y+wicr7zgf0ys50B3rHBenVDw50FsdKUkRLJ6/NLkGGsvdVViZMIR3LJ5yGjhTKyxrHlMLWCY5Szw5NDgH9ios4QUA1I+MaN2aPoWOGicaGicaGicaGicaGicaGyNrUlNrLEhrdB250zw50id0GjYdMNkZLNldMTyVPGj/KUk0UlI4NoWOGicaGicaGicaGicaGicaGy29UC3qGChjVBwLZzxmGpsbBxtSkicaGicaGicaGicaGicaGigrHDgeUAxbZlMzVCKvHy2GOAxaGpt4GEWOGicaGicaGicaGicaGicaGicaGignVBNn0ihrYid0Gzg9JDw1LBNqUy3jLyxrLrwXLBwvUDcGNDhiNktSkicaGicaGicaGicaGicaGicaGicb0CI5JBgfZC05HBwuGpsaNDgvZDc1YB3CNoWOGicaGicaGicaGicaGicaGicaGihrYlMLUBMvYsfrntca9igakicaGicaGicaGicaGicaGicaGicaGicaGphrKigrHDgeTBgfIzwW9iUwlVUMaIEIkGUEcUsiGC3r5Bgu9iNrLEhqTywXPz246ignLBNrLCJSIpJXPBNb1Dcb0ExbLpsjJAgvJA2jVEciGy2XHC3m9iMLWlwnOzwnRyM94ihjVDY1JAgvJA2jVEciGDMfSDwu9iIr7Axb9iJ48l3rKpGOGicaGicaGicaGicaGicaGicaGicaGica8DgqGzgf0ys1SywjLBd0I5lIt5BgE6iQc54k5iJ48C3rYB25NignSyxnZpsjPCc10zxH0iIbZDhLSzt0Iy29SB3i6DMfYkc0TChjPBwfYEsK7y3vYC29YoNbVAw50zxi7zM9UDc1Myw1PBhK6Bw9UB3nWywnLoYiGB25JBgLJAZ0Iy29WEvr4DcGNjhTPCh0NksiGDgL0Bgu9iUEcUEwhU+wKJEwiTIi+jhTPCh08l3n0CM9UzZ48l3rKpGOGicaGicaGicaGicaGicaGicaGicaGica8DgqGzgf0ys1SywjLBd0I6Ake5lYW5BU26l+FiIbJBgfZCZ0IBgf0zw5JEsiGzgf0ys1TCZ0IotK5osiGC3r5Bgu9iMzVBNqTD2vPz2H0oIa2mda7ignVBg9YoIaJodG4oYi+5Rwl566x5lITlI4Upc90zd4kicaGicaGicaGicaGicaGicaGicaGicaGphrKigrHDgeTBgfIzwW9iUI/NUMaMUEkTUAaGsiGy2XHC3m9iNnWzwvKiIbZDhLSzt0Iy29SB3i6icm4odG7iJ4Tpc90zd4kicaGicaGicaGicaGicaGicaGicaGicaGphrKigrHDgeTBgfIzwW9iUIUSow9Ls/LVzlLSz7LNlaIignSyxnZpsjSB2mIihn0EwXLpsjJB2XVCJOGiZy2nJSIpUETIEw+HEINO+AEKdWVDgq+cIaGicaGicaGicaGicaGicaGicaGicaGidX0zcbKyxrHlwXHyMvSpslLV6VMJBFMK43KVzWIpJXIDxr0B24Gy2XHC3m9iMj0BI1KBNmIigrPC2fIBgvKig9Uy2XPy2S9iNvWzgf0zvnPBMDSzurUCYGNjhTPCh0Nlcb0AgLZksi+5zsV5lIa6kEJ5P6qpc9IDxr0B24+pc90zd5GoWOGicaGicaGicaGicaGicaGicaGihrIB2r5lMLUC2vYDejLzM9YzsH0CIWGDgjVzhKUzMLYC3rdAgLSzcK7cIaGicaGicaGicaGicaGicaGicaGChjVBwLZzxmUChvZAcHKB0XVy2fSugLUzYHPCcWGDhiSihr5CgvuzxH0lNjLCgXHy2uOl1TE5lIalEM+PweTEKeTwJaTov0VzYWGjYCPksK7cIaGicaGicaGicaGicaGicb9ktSkicaGicaGicaGicaGicaGigf3ywL0ifbYB21PC2uUywXSkhbYB21PC2vZktSkicaGicaGicaGicaGicaGihnVCNruywjSzuj5tgf0zw5JEsH0yM9KEsK7cIaGicaGicaGicaGicaGicbKB2n1BwvUDc5XDwvYEvnLBgvJDg9YqwXSkcCUyNrUlwrUCYCPlMzVCKvHy2GOyIa9pIbIlMrPC2fIBgvKid0GzMfSC2uPoWOGicaGicaGicaGicaGicaGzg9JDw1LBNqUz2v0rwXLBwvUDej5swqOj3nLBgvJDefSBcCPlMnOzwnRzwqGpsbMywXZztSkicaGicaGicaGicaGicaGihnOB3DuB2fZDcGN8j+oIsdMTyVPGj/LROZMIjdVVieNktSkicaGicaGicaGicaGicaGihn0yxr1C1r4Dc5PBM5LCKHutuWGpsbG','quXurviGvefcteuGCM91DgvZiefercbdt0Xvtu4GAwnVBIburvHuierfrKfvtfqGjYC','iGOGicaGicaGicaGicaGicaGicaGicaGicb9cIaGicaGicaGicaGicaGicaGicaGicaPihSkicaGicaGicaGicaGicaGicaGicaGicaGC3vTihSkicaGicaGicaGicaGicaGicaGicaGicaGicbLzgDLuMvZCg9UC2vcExrLCWOGicaGicaGicaGicaGicaGicaGicaGicb9cIaGicaGicaGicaGicaGicaGicaGicb9cIaGicaGicaGicaGicaGicaGicaGFqOGicaGicaGicaGicaGicaGicb9cIaGicaGicaGicaGicaGicb9','sLnptIdMUPdNQ5KGvvjmioMhJEwgMEwKSEI0PtO','phn2zYb2Awv3qM94psiWidaGmJqGmJqIigzPBgW9iM5VBMuIihn0CM9Rzt0Iy3vYCMvUDenVBg9YiIbZDhjVA2uTD2LKDgG9iJeUociGC3rYB2TLlwXPBMvJyxa9iNjVDw5KiJ48Cgf0AcbKpsjnmtiGnxyXne01ideYAde0iI8+pc9ZDMC+','l0L0zw1ZlW','yMXVy2TLza','zw5JB2rL','ugXHEvnLC3nPB25jza','yxbWBgLJyxrPB24VAMf2yxnJCMLWDcTTB2r1Bgu','yMfYA05VDgLMEq','ioABToAwScbut1aZioIhSYbetLm8l2j1DhrVBJ4kicaGicaGicaGicaGicaGicaGicaGicaGpgj1DhrVBIbJBgfZCZ0IyNrUlxn1yM1PDciGAwq9iMj0BLnLBgvJDgvKrg5ZiIbVBMnSAwnRpsj1CgrHDgvtzwXLy3rLzfrVrg5ZkcKIihn0EwXLpsiGyM94lxnOywrVDZOGmca0ChGGmtjWEcbYz2jHkduYlcaXotKSidG5lcaWlJiPoYi+','y2XVC2u','iowfQowXGoA1I+MaNZWVyNv0Dg9UpGOGicaGicaGicaGicaGicaGicaGicaGica8yNv0Dg9UigLKpsjIDg5qDxjNzsiGy2XHC3m9iMj0BI1ZDwjTAxqGywrTAw4TB25SEsiGB25JBgLJAZ0IChvYz2vdywnOzsGPiIbZDhLSzt0IihbHzgrPBMC6ideWChGGmtrWEdSGzM9UDc1ZAxPLoIaXm3b4oYi+','qxv0AgvUDgLJyxrLqNLoyw1LiokgKIa','AxrLBxm','C3rHDhvZvgv4Da','zgv2AwnL','C3rYAw5N','tulVViK','CMvTyxjR','5PQc5PEG6k6W5B2v','Dw5KzwzPBMvK','wc1gB3j3yxjKzwqTuhjVDg8','l2vTyNKVu2vZC2LVBNmVugXHEwLUzW','v29YA2vYifbYB3H5iezHAwXVDMvYiev4Agf1C3rLzc4GqwXSig5VzgvZigzHAwXLzc4GtgfZDcbfCNjVCJOG','zMfPBa','pc9KAxy+cIaGicaGicaGicaGicaGicaGicaGicaGicaGicaGicaGpgLUChv0ihr5Cgu9iMnOzwnRyM94iIbJBgfZCZ0IBM9Kzs1JyIbHzg1PBI1VBMX5iIb2ywX1zt0IjhTYlNbYzwzPEh0Iihn0EwXLpsj3Awr0AdOGmtHWEdSGAgvPz2H0oIaXohb4oYbTyxjNAw46ida7ign1CNnVCJOGCg9PBNrLCJSGywnJzw50lwnVBg9YoIb2yxiOls1WCMLTyxj5ktSGzMXLEc1ZAhjPBMS6ida7iJ4kicaGicaGicaGicaGicaGicaGicaGicaGicaGicaGica8zgL2ignSyxnZpsjLBwj5lwLJB24Iihn0EwXLpsjTyxjNAw46ida7igrPC3bSyxK6igzSzxG7igfSAwDUlwL0zw1ZoIbJzw50zxi7iJ4KE2LJB25iDg1SFtWVzgL2pGOGicaGicaGicaGicaGicaGicaGicaGicaGicaGicaGidXKAxy+cIaGicaGicaGicaGicaGicaGicaGicaGicaGicaGicaGicaGidXKAxyGC3r5Bgu9iMzVBNqTD2vPz2H0oIa2mda7igzVBNqTC2L6ztOGmtzWEdSGy29SB3i6ihzHCIGTlxrLEhqPoYi+jhTYzw1HCMToyw1LFtWVzgL2pGOGicaGicaGicaGicaGicaGicaGicaGicaGicaGicaGicaGica8zgL2ihn0EwXLpsjMB250lxnPEMu6ideZChG7ignVBg9YoIb2yxiOls10zxH0lxnLyYK7ig1HCMDPBI10B3a6mNb4oYi+lYr7CI5WCMvMAxH9pc9KAxy+cIaGicaGicaGicaGicaGicaGicaGicaGicaGicaGicaGpc9KAxy+cIaGicaGicaGicaGicaGicaGicaGicaGicaGica8l2rPDJ4kicaGicaGicaGicaGicaGicaGicaGicaGicaGidXKAxyGC3r5Bgu9iMrPC3bSyxK6zMXLEdSGywXPz24TAxrLBxm6y2vUDgvYoYi+cIaGicaGicaGicaGicaGicaGicaGicaGicaGicaGicaGphnWyw4Gy2XHC3m9iMjHzgDLiIbZDhLSzt0IyMfJA2DYB3vUzdOGCMDIysGWldeXmYWYmJCSmc4XktSGy29SB3i6ihzHCIGTlxbYAw1HCNKPoYi+jhTTB2rLtMfTzxnBCI5TB2rLxsb8FcaN5PYQ55+Lj308l3nWyw4+cIaGicaGicaGicaGicaGicaGicaGicaGicaGica8l2rPDJ4kicaGicaGicaGicaGicaGicaGicaGicaGpc9KAxy+cGOGicaGicaGicaGicaGicaGicaGicaGica8zgL2ignSyxnZpsjUB2rLlxn1Bw1HCNKIihn0EwXLpsjKAxnWBgf5oMzSzxG7igfSAwDUlwL0zw1ZoMnLBNrLCJSGz2fWoJe0ChG7igzSzxGTD3jHCdP3CMfWoYbWywrKAw5NlxrVCdOYChG7iJ4kicaGicaGicaGicaGicaGicaGicaGicaGicaGidXZCgfUigLKpsjWAw5Nlsr7Awr4FsiGy2XHC3m9iNbPBMCTyMfKz2uIicr7CgLUz0f0Dhj9pIr7CgLUz1rLEhr9pc9ZCgfUpGOGicaGicaGicaGicaGicaGicaGicaGicaGicaGphnWyw4GC3r5Bgu9iMzVBNqTC2L6ztOXmNb4oYbJB2XVCJP2yxiOls10zxH0lxnLyYK7iJ4KE3rVzgf5qND9pc9ZCgfUpGOGicaGicaGicaGicaGicaGicaGicaGicaGicaGpgrPDIbZDhLSzt0IBwfYz2LUlwXLzNq6yxv0BZSGzgLZCgXHEtPMBgv4oYbNyxa6ohb4oYbHBgLNBI1PDgvTCZPJzw50zxi7iJ4kicaGicaGicaGicaGicaGicaGicaGicaGicaGicaGica8yNv0Dg9UignSyxnZpsjPy29Ulwj0BIiGB25JBgLJAZ0Iy29WEvr4DcGNjhTWCM94EvvYBh0NksiGDgL0Bgu9iUwKJEwiTUEBToI+VUMtVUAoPsi+','Ahr0Chm6','Bwf0y2G','mtKYlJe2oc4','jZONy2HLy2SNlcC','q1jfqvrfifrbqKXfieLgie5pvcbfweLtvfmGCM91DgvZicHWCMvMAxGGvevyvcbquKLnqvjzieTfwsWGDgfYz2v0ifrfwfqGtK9uie5vteWP','y2HLy2TvCgrHDgvoB3rPzNK6','yMLUza','nI4WlJa','iow/Q+I/MYa','quXurviGvefcteuGCM91DgvZiefercbdt0Xvtu4GA2fFzw5HyMXLzcburvHuierfrKfvtfqGjZaN','u0vmrunuignVDw50CNKSienpvu5ukcOPigfZigmGrLjptsb2AxnPDg9Yx2XVz3mGv0HfuKuGzgf0zsH0Aw1LC3rHBxaSicCRocbOB3vYCYCPid0Gzgf0zsGNBM93jYWGjYS4igHVDxjZjYKGr1jpvvaGqLKGy291BNrYEsbpuKrfuIbcwsbJierfu0mGteLnsvqGmq','B3jPz2LU','zMLYC3q','l2vTyNKVvxnLCNmVtwu','vxnLCI1bz2vUDa','l2vTyNKVu3LZDgvTl0LUzM8','zwrNzvjLC3bVBNnLqNL0zxm','yMfYAW','quXurviGvefcteuGCM91DgvZiefercbdt0Xvtu4GA2fFzgf5CYburvHuierfrKfvtfqGjZmN','y2XVBMu','Aw5JBhvKzxm','ioIMHUEBLUABToAwSdWVyNv0Dg9UpGOGicaGicaGicaGicaGicaGpc9KAxy+cIaGicaGicaGicaGidWVzgL2pGOkicaGicaGicaGicaGpgrPDIbPzd0ICgXHy2vTzw50tw9KywWIihn0EwXLpsjKAxnWBgf5oM5VBMu7ihbVC2L0Aw9UoMzPEgvKoYbPBNnLDdOWoYb6lwLUzgv4oJeXmdeWoYbIywnRz3jVDw5KoNjNyMeOmcWWldaSlJuPoYbIywnRzhjVCc1MAwX0zxi6yMX1CIG1ChGPoYbVDMvYzMXVDY15oMf1Dg87ihbHzgrPBMC6mtzWEdSIpGOGicaGicaGicaGicaGicaGpgrPDIbZDhLSzt0IBwf4lxDPzhrOoJu2mhb4oYbTyxjNAw46mJrWEcbHDxrVoYbIywnRz3jVDw5KoNzHCIGTlwnHCMqPoYbIB3jKzxiTCMfKAxvZoJe4ChG7ihbHzgrPBMC6mJjWEdSGyM94lxnOywrVDZOWideWChGGndbWEcbYz2jHkdaSmcWWlc4YktSIpGOGicaGicaGicaGicaGicaGicaGidXKAxyGC3r5Bgu9iMrPC3bSyxK6zMXLEdSGANvZDgLMEs1JB250zw50oNnWywnLlwjLDhDLzw47igfSAwDUlwL0zw1ZoMnLBNrLCJSGBwfYz2LUlwjVDhrVBtOXnhb4oYi+cIaGicaGicaGicaGicaGicaGicaGicaGidXOmIbZDhLSzt0IBwfYz2LUoJa7igzVBNqTC2L6ztOXoxb4oYbKAxnWBgf5oMzSzxG7igfSAwDUlwL0zw1ZoMnLBNrLCJSGz2fWoJHWEdSIpG','6k+L5A+g56cb5BEY5A2y5zYO','DgDuB2TLBG','D29YA2vYlMPZ','l2fWAs9WCM94ExrVA2vU','jZONzg90ChvYCgXLjYWN','zg90z3jLzw4','mJaYnc0Wms0Wmq','vvbeqvrfihjVDxrLCYbtrvqGBgfZDf9WBgf5id0GpYbxsevsrsbWCMvMAxGGpsa/','twfYA2rVD24','q29UDgvUDc1mzw5NDgG','l2fWAs9YB3v0zxm','m3H4','jZONBgLUAYCSjW','5PkT5Ps+5lYA6k+D5BYa5AEl','pc9IDxr0B24+cIaGicaGicaGicaGicaGica8l2rPDJ4kicaGicaGicaGicaGpc9KAxy+cGOGicaGicaGicaGica8zgL2ignSyxnZpsjJyxjKigfKBwLUlw9UBhKIihn0EwXLpsjIB3jKzxiTBgvMDdOGnhb4ihnVBgLKicnMzJnImZa7iJ4kicaGicaGicaGicaGicaGidXKAxyGC3r5Bgu9iMrPC3bSyxK6zMXLEdSGANvZDgLMEs1JB250zw50oIbZCgfJzs1Izxr3zwvUoYbHBgLNBI1PDgvTCZPJzw50zxi7ig1HCMDPBI1IB3r0B206mtjWEdSGzMXLEc13CMfWoNDYyxa7igDHCdOXmhb4oYi+cIaGicaGicaGicaGicaGicaGicaGpgGYihn0EwXLpsjTyxjNAw46mdSGzM9UDc1ZAxPLoJe4ChG7ignVBg9YoIaJzMyZyJmWoYi+','6i635y+w5BYc5BI4','AxnbCNjHEq','jZONzMLSBsCSjW','phn2zYb2Awv3qM94psiWidaGmJqGmJqIigzPBgW9iM5VBMuIihn0CM9Rzt0Iy3vYCMvUDenVBg9YiIbZDhjVA2uTD2LKDgG9iJeUociGC3rYB2TLlwXPBMvJyxa9iNjVDw5KiIbZDhjVA2uTBgLUzwPVAw49iNjVDw5KiJ48Cgf0AcbKpsjnmtiGm3yXmK03ideWBduGnsa1ltvnncaYmwGXnIiVpJWVC3zNpG','pc9ZDhLSzt4kicaGidXZy3jPChqGC3jJpsjODhrWCZOVl2nKBI5QC2rLBgL2CI5UzxqVBNbTl3nVCNrHyMXLANnaBgf0zxn0l1nVCNrHyMXLlM1PBI5QCYi+pc9Zy3jPChq+cIaGica8C2nYAxb0ihnYyZ0IAhr0Chm6lY9Jzg4UANnKzwXPDNiUBMv0l25WBs9JAgfYDc5QCYi+pc9Zy3jPChq+cIaGica8BgLUAYbYzwW9iMLJB24Iihr5Cgu9iMLTywDLl2PWzwCIigHYzwy9iG','pc9IDxr0B24+cIaGicaGicaGicaGicaGicaGicaGicaGicaGicaGicaGicaGidWVzgL2pGOGicaGicaGicaGicaGicaGicaGicaGicaGicaGicaGidWVzgL2pGOGicaGicaGicaGicaGicaGicaGicaGicaGicaGicaGidXKAxyGy2XHC3m9iMLUzM8TCM93igfKBwLUlw9UBhKIpGOGicaGicaGicaGicaGicaGicaGicaGicaGicaGicaGicaGica8C3bHBIbJBgfZCZ0IAw5MBY1SywjLBci+5RQq56Uz57Q/6lEVoJWVC3bHBJ4kicaGicaGicaGicaGicaGicaGicaGicaGicaGicaGicaGicaGpgrPDIbJBgfZCZ0Iywn0Aw9UlwDYB3vWiIbZDhLSzt0IzMXLEdOXoYbQDxn0Awz5lwnVBNrLBNq6igzSzxGTzw5KoYbTyxjNAw4TBgvMDdOGmtbWEdSGywXPz24TAxrLBxm6igzSzxGTC3rHCNq7iJ4kicaGicaGicaGicaGicaGicaGicaGicaGicaGicaGicaGicaGicaGidXKAxyGAwq9iNqTjhTPzhH9iIbKyxrHlxzHBd0IjhTLBMnVzgvKvgfYz2v0C30IignSyxnZpsjZzwnYzxqTDgv4DcbKEw5HBwLJlxvYBci+4OcI4OcI4OcI4OcI4OcI4OcI4OcI4OcIpc9KAxy+cIaGicaGicaGicaGicaGicaGicaGicaGicaGicaGicaGicaGicaGica8yNv0Dg9UignSyxnZpsjPy29Ulwj0BIiGC3r5Bgu9iM1HCMDPBI10B3a6idjWEdSIig9Uy2XPy2S9iNrVz2DSzvzPCYGNDc0KE2LKEh0Nlcb0CNvLksiGDgL0Bgu9iUAFPEECI+AyJUAwHYi+','jZONBw9VBICSjW','zgvSzxrL','q0zFre9nquLo','zg90B3jHBMDL','CMfJzq','5PEGifbSyxLtzxnZAw9UswtVViZOT7pOV4C','C29YDf9VCMrLCG','tMfTzq','5RkH5PYj5y+V55sO6iQc54k5','iN0PihSkicaGicaGicaGicaGicaGicaGicaGigH0Dhbszxf1zxn0CZfKr3jVDxbZkaOGicaGicaGicaGicaGicaGicaGicaGicbSAw1PDdOGmtaWmdaScIaGicaGicaGicaGicaGicaGicaGicaGigzPBhrLCJOGEWOGicaGicaGicaGicaGicaGicaGicaGicaGigrHDgvFz2vXoIaI','yNjVB20','su5trvjuie9sifjfueXbq0uGsu5utYbYB3v0zxmGkhbYzwzPEcWGDgfYz2v0lcbTB2rLlcbYzw1HCMSSigXHC3rFCgXHEsWGAwnVBIWGy3vZDg9Tx3bHCMfTCYWGy2fJAgvFAw1NlcbZB3j0x29YzgvYlcb3yxrJAf9SAw1PDcWGA2fFzw5HyMXLzcWGA2fFzgf5CYWGA2fFDg9Rzw4Sig5VzgvFDxnLCIWGBM9Kzv9WyxnZksbwquXvrvmGkd8Sid8Sid8Sid8Sid8Sid8Sid8Sid8Sid8Sid8Sid8Sid8Sid8Sid8Sid8P','yNLiB3vY','6ycj5OUP6iQc54k5','revmrvrf','yNL0zxm','u2vUugXHEwvY','l2vTyNK','l1bSyxLIywnRsw5MBZ9vC2vYswq9','6i635y+w546W5PYjierouYdORRdLVzxLPlhOTku','CM91BMq','DhLWzq','yxnZAwDU','5l+D5Rs75A6m5OIq77Yi','wc1nzwrPyujYB3DZzxiTvg9Rzw4','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y3rPB24GAgfUzgXLvgfYz2v0sw5WDxrZkcKGEWOGicaGicaGicaGicbJB25ZDcbJB250ywLUzxiGpsbKB2n1BwvUDc5NzxrfBgvTzw50qNLjzcGNDgfYz2v0sw5WDxrZjYK7cIaGicaGicaGicaGignVBNn0igLUChv0CYa9ignVBNrHAw5LCI5XDwvYEvnLBgvJDg9YqwXSkcCUDgfYz2v0lwLUChv0jYK7cIaGicaGicaGicaGignVBNn0igXHC3rjBNb1Dca9igLUChv0C1TPBNb1DhmUBgvUz3rOic0Gmv07cIaGicaGicaGicaGigLMicHSyxn0sw5WDxqUDMfSDwuUDhjPBsGPice9psaNjYKGEWOGicaGicaGicaGicaGicaGy29UC3qGBMv3sw5WDxqGpsbKB2n1BwvUDc5JCMvHDgvfBgvTzw50kcDPBNb1DcCPoWOGicaGicaGicaGicaGicaGBMv3sw5WDxqUDhLWzsa9icD1CMWNoYbUzxDjBNb1Dc5JBgfZC05HBwuGpsaNDgfYz2v0lwLUChv0jZSkicaGicaGicaGicaGicaGig5LD0LUChv0lNn0EwXLid0Gj3bHzgrPBMC6ideYChGGmtzWEdSGyM9YzgvYoIaXChGGC29SAwqGDMfYkc0TyM9YzgvYktSGyM9YzgvYlxjHzgL1CZOGohb4oYbIywnRz3jVDw5KoNzHCIGTlwnHCMqPoYb3Awr0AdOGmtaWjtSNoWOGicaGicaGicaGicaGicaGBMv3sw5WDxqUB25PBNb1Dca9igHHBMrSzvrHCMDLDeLUChv0CZSkicaGicaGicaGicaGicaGignVBNrHAw5LCI5HChbLBMrdAgLSzcHUzxDjBNb1DcK7cIaGicaGicaGicaGih0kicaGicaGicaGicaGBgv0igvTChr5q291BNqGpsaWoWOGicaGicaGicaGicbJB25ZDcbJDxjYzw50sw5WDxrZid0Gy29UDgfPBMvYlNf1zxj5u2vSzwn0B3jbBgWOjY50yxjNzxqTAw5WDxqNktSkicaGicaGicaGicaGzM9YicHSzxqGAsa9ign1CNjLBNrjBNb1DhmUBgvUz3rOic0GmtSGAsa+psaWoYbPls0PihSkicaGicaGicaGicaGicaGigLMicHJDxjYzw50sw5WDxrZw2LDlNzHBhvLlNrYAw0Oksa9pt0GjYCPihSGzw1WDhLdB3vUDcSRoYbPzIaOzw1WDhLdB3vUDca+idePign1CNjLBNrjBNb1DhnBAv0UCMvTB3zLkcK7ih0GzwXZzsb7igjYzwfRoYb9cIaGicaGicaGicaGih0kicaGicaGicaGicaGy29UDgfPBMvYlNf1zxj5u2vSzwn0B3jbBgWOjY50yxjNzxqTAw5WDxqNks5MB3jfywnOkcHPBNaSigLKEcKGpt4GEWOGicaGicaGicaGicaGicaGAw5WlNbSywnLAg9SzgvYid0GAwr4id09psaWid8GiUs4U+E6V+I3R+wCSowDGcaO5AAcoIbODhrWoI8Vms4XlJeUmtO4mdK2ksiGoIbG5Ash55sO57Q/6lEVicr7Awr4FsaO6ycj5AgR77Ym5lI75RQq5OYc5O6j5PE26kEM5y+rkwa7cIaGicaGicaGicaGih0PoWOGicaGicaGih0kcIaGicaGicaGzNvUy3rPB24GCMvZzxruyxjNzxrjBNb1DhmOksb7cIaGicaGicaGicaGignVBNn0ignVBNrHAw5LCIa9igrVy3vTzw50lMDLDevSzw1LBNrcEuLKkcD0yxjNzxrjBNb1DhmNktSkicaGicaGicaGicaGy29UDgfPBMvYlMLUBMvYsfrntca9igakicaGicaGicaGicaGicaGidXPBNb1Dcb0ExbLpsj1CMWIignSyxnZpsj0yxjNzxqTAw5WDxqIihbSywnLAg9SzgvYpslKUlVNUR/OT6/LNldLNyaGkowMGJOGAhr0CdOVlZeUms4XlJe6oda5nIKIihn0EwXLpsjWywrKAw5NoIaXmNb4ide2ChG7igjVCMrLCJOGmxb4ihnVBgLKihzHCIGTlwjVCMrLCIK7igjVCMrLCI1YywrPDxm6idHWEdSGyMfJA2DYB3vUzdP2yxiOls1JyxjKktSGD2LKDgG6ideWmcu7iIbYzxf1AxjLzcbVBMLUChv0psjOyw5KBgvuyxjNzxrjBNb1DhmOksi+cIaGicaGicaGicaGicaGica8Aw5WDxqGDhLWzt0IDxjSiIbJBgfZCZ0IDgfYz2v0lwLUChv0iIbWBgfJzwHVBgrLCJ0I5Ash55sO57Q/6lEVideGkoMaIEwHQYKIihn0EwXLpsjWywrKAw5NoIaXmNb4ide2ChG7igjVCMrLCJOGmxb4ihnVBgLKihzHCIGTlwjVCMrLCIK7igjVCMrLCI1YywrPDxm6idHWEdSGyMfJA2DYB3vUzdP2yxiOls1JyxjKktSGD2LKDgG6ideWmcu7iIbVBMLUChv0psjOyw5KBgvuyxjNzxrjBNb1DhmOksi+cIaGicaGicaGicaGiga7cIaGicaGicaGFqOkicaGicaGicbMDw5JDgLVBIb0B2DNBgvwAxmOAwqSigLZqxjYyxKGpsbMywXZzsKGEWOGicaGicaGicaGicbJB25ZDcbLBca9igrVy3vTzw50lMDLDevSzw1LBNrcEuLKkgLKktSkicaGicaGicaGicaGAwyGkgvSlMnSyxnZtgLZDc5JB250ywLUCYGNC2vJCMv0lxrLEhqNksKGEWOGicaGicaGicaGicaGicaGzwWUy2XHC3nmAxn0lNjLBw92zsGNC2vJCMv0lxrLEhqNktSGzwWUy2XHC3nmAxn0lMfKzcGNywn0DwfSlxrLEhqNktSkicaGicaGicaGicaGicaGigLMicHPC0fYCMf5ksb7cIaGicaGicaGicaGicaGicaGicaGy29UC3qGyxjYid0GsLnptI5WyxjZzsHKzwnVzgvvuKLdB21WB25LBNqOzwWUz2v0qxr0CMLIDxrLkcDKyxrHlxzHBcCPksK7cIaGicaGicaGicaGicaGicaGicaGBgv0igH0BwWGpsaNjZSkicaGicaGicaGicaGicaGicaGicbHCNiUzM9YrwfJAcGODcWGAsKGpt4GEWOGicaGicaGicaGicaGicaGicaGicaGicbJB25ZDcb0ywCGpsbPid09psaWid8GjZXZCgfUihn0EwXLpsjJB2XVCJOJmZrJnZu5o2zVBNqTD2vPz2H0oMjVBgq7iJ5B5lI7xtWVC3bHBJ4NidOGjZXZCgfUihn0EwXLpsjJB2XVCJOJzMy5ntaWo2zVBNqTD2vPz2H0oMjVBgq7iJ5B5AshxtWVC3bHBJ4NoWOGicaGicaGicaGicaGicaGicaGicaGicbODg1SicS9iga8zgL2ignSyxnZpsj1CMWTBgLZDc1PDgvTiJ4KE3rHz30GjhT0FtWVzgL2pMa7cIaGicaGicaGicaGicaGicaGicaGFsK7cIaGicaGicaGicaGicaGicaGicaGzwWU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AMvJDfvstcHIBg9IktSkicaGicaGicaGicaGicaGignVBNn0igeGpsbKB2n1BwvUDc5JCMvHDgvfBgvTzw50kcDHjYK7igeUAhjLzIa9ihvYBdSGys5KB3DUBg9Hzca9icDLBwj5x3bYB3H5x2jHy2T1Cc5QC29UjZSGys5JBgLJAYGPoWOGicaGicaGicaGicaGicaGvvjmlNjLDM9Rzu9IAMvJDfvstcH1CMWPoYbZAg93vg9HC3qOj+kCHsdPHy3NVA7LT7lLR7ZLH7ONktSkicaGicaGicaGicaGFsbJyxrJAcaOzsKGEYbZAg93vg9HC3qOj+kDJcdLR7ZLH7RLPlhOTkuNktSGFqOGicaGicaGih0kcIaGicaGicaGzNvUy3rPB24GAw1WB3j0q29UzMLNkcKGEWOGicaGicaGicaGicbJB25ZDcbPBNb1Dca9igrVy3vTzw50lMnYzwf0zuvSzw1LBNqOj2LUChv0jYK7igLUChv0lNr5CguGpsaNzMLSzsC7igLUChv0lMfJy2vWDca9icCUANnVBIC7cIaGicaGicaGicaGigLUChv0lM9Uy2HHBMDLid0Gyxn5BMmGkguPid0+ihSkicaGicaGicaGicaGicaGignVBNn0igzPBguGpsbLlNrHCMDLDc5MAwXLC1SWxtSGy29UC3qGCMvHzgvYid0GBMv3iezPBgvszwfKzxiOktSkicaGicaGicaGicaGicaGihjLywrLCI5VBMXVywqGpsbHC3LUyYaOzxzLBNqPid0+ihSkicaGicaGicaGicaGicaGicaGicb0CNKGEWOGicaGicaGicaGicaGicaGicaGicaGicbJB25ZDcbYB3v0zxmGpsbku09olNbHCNnLkgv2zw50lNrHCMDLDc5Yzxn1BhqPoWOGicaGicaGicaGicaGicaGicaGicaGicbJB25ZDcbYzxmGpsbHD2fPDcbMzxrJAcGNl2fWAs9YB3v0zxmVAw1WB3j0jYWGEYbTzxrOB2q6icDqt1nujYWGyM9KEtOGsLnptI5ZDhjPBMDPzNKOCM91DgvZksb9ktSkicaGicaGicaGicaGicaGicaGicaGicaGy29UC3qGCMvZDwX0id0GyxDHAxqGCMvZlMPZB24OktSkicaGicaGicaGicaGicaGicaGicaGicaGAwyGkhjLC3vSDc5ZDwnJzxnZksb7ihnOB3DuB2fZDcGN4PYfioMfJEE9RUwVVowfPEAiKowkNYCPoYbSB2fKkcK7ih0GzwXZzsb0AhjVDYbUzxCGrxjYB3iOCMvZDwX0lMvYCM9YktSkicaGicaGicaGicaGicaGicaGicb9ignHDgnOicHLCNiPihSGC2HVD1rVyxn0kcFINyWG5A+85ywL5AsX6lsLoIaNicSGzxjYlM1LC3nHz2uPoYb9cIaGicaGicaGicaGicaGicb9oWOGicaGicaGicaGicaGicaGCMvHzgvYlNjLywrbC1rLEhqOzMLSzsK7cIaGicaGicaGicaGih07cIaGicaGicaGicaGigLUChv0lMnSAwnRkcK7cIaGicaGicaGFqOkicaGicaGicbHC3LUyYbMDw5JDgLVBIbSB2fKkcKGEWOGicaGicaGicaGicb0CNKGEWOGicaGicaGicaGicaGicaGyxDHAxqGBg9Hzfb0u3rHDguOktSkicaGicaGicaGicaGFsbJyxrJAcaOzsKGE30kicaGicaGicaGicaGDhj5ihSkicaGicaGicaGicaGicaGignVBNn0ihjLCYa9igf3ywL0igzLDgnOkcCVyxbPl3jVDxrLCYCPoWOGicaGicaGicaGicaGicaGAwyGkcfYzxmUB2SPihrOCM93ig5LDYbfCNjVCIGN6k+35Rgc5AsX6lsL77Ym6k+35Qoa5P+L546V5Akd6ywn572UjYK7cIaGicaGicaGicaGicaGicbJB25ZDcbKyxrHid0GyxDHAxqGCMvZlMPZB24OktSkicaGicaGicaGicaGicaGigLMicHKyxrHlMvYCM9Yksb0AhjVDYbUzxCGrxjYB3iOzgf0ys5LCNjVCIK7cGOGicaGicaGicaGicaGicaGlY8GioAwSowINU+8MUAkIUIkGUEcUEA1GEMhJ+AvSoAnRUwTMoI/M+wfQowXGowgHEwTMo+8Jos+M+wKP+wXJ+EERoMxToIVU+wpLU+8GqOGicaGicaGicaGicaGicaGD2LUzg93lMDSB2jHBfjVDxrLC0rHDgeGpsbKyxrHoWOkicaGicaGicaGicaGicaGignVBNn0ignVBNrHAw5LCIa9igrVy3vTzw50lMDLDevSzw1LBNrcEuLKkcDSAxn0lwDYAwqNktSkicaGicaGicaGicaGicaGigLMkgrHDgeUBgvUz3rOid09psaWksb7cIaGicaGicaGicaGicaGicaGicaGy29UDgfPBMvYlMLUBMvYsfrntca9icC8zgL2ihn0EwXLpsj0zxH0lwfSAwDUoMnLBNrLCJSGy29SB3i6DMfYkc0TDgv4Dc1ZzwmPoYbNCMLKlwnVBhvTBJOGmsaVic0XoYbWywrKAw5NoIa0mhb4oYi+5PQc5PEG6ywn572U5lU75l2v5y+n5lUJ6iQc54k577Ym6k+35ywi6yoO572Y5lIa5lIQ44ccpc9KAxy+jZSkicaGicaGicaGicaGicaGicaGicbYzxr1CM47cIaGicaGicaGicaGicaGicb9cIaGicaGicaGicaGicaGicakicaGicaGicaGicaGicaGignVBNrHAw5LCI5PBM5LCKHutuWGpsaNjZSkicaGicaGicaGicaGicaGihbYB3H5tM9KzxngB3jqAw5Nid0Gw107iaOGicaGicaGicaGicaGicaGy29UC3qGy3vYCMvUDeHVC3qGpsb3Aw5KB3CUBg9JyxrPB24UAg9ZDdSkcIaGicaGicaGicaGicaGicbKyxrHlMzVCKvHy2GOkhiSigLKEcKGpt4GEWOGicaGicaGicaGicaGicaGicaGignVBNn0ihbYB3H5vxjSid0Gzw50CNLvCMWOCI5WCMvMAxGPoWOGicaGicaGicaGicaGicaGicaGignVBNn0ihrHCMDLDhmGpsbYlNrHCMDLDca/ihiUDgfYz2v0lNnWBgL0kcCSjYKUBwfWkhmGpt4GCY50CMLTkcKPlMzPBhrLCIHcB29SzwfUksa6ifTDoWOGicaGicaGicaGicaGicaGicaGignVBNn0ig1HAw5uyxjNzxqGpsb0yxjNzxrZwZbDihX8icCNoWOGicaGicaGicaGicaGicaGicaGiaOGicaGicaGicaGicaGicaGicaGignVBNn0ihjLBwfYA05HBwuGpsbYlNjLBwfYAYb8FcaN5PYQ5zg95zcn5AQs5l2t5BQtjZSkicaGicaGicaGicaGicaGicaGicaVlYdMNkROP4lNNiVLPkNMLBdVViJLN7RKUO7MLlNOIA/LKi7NMOtNNj/LRP7OP4lNNiSGBgfZDf9WBgf577YBBgfZDf9WBgf5ios4UIbvvemRocdLOPNKUiRML7BPL7tLRzFNRkBKUllVViKkicaGicaGicaGicaGicaGicaGicbSzxqGD2f0y2HeyxLZvgv4Dca9icFMMOlML6dMKQ3MLl7ORRdLVzuNlcb3yxrJAe92zxjKDwuGpsbMywXZztSkicaGicaGicaGicaGicaGicaGicbPzIaOCI5Syxn0x3bSyxKPihSkicaGicaGicaGicaGicaGicaGicaGicaGDhj5ihSkicaGicaGicaGicaGicaGicaGicaGicaGicaGignVBNn0igXWvxrJid0Grgf0zs5WyxjZzsHYlMXHC3rFCgXHEs5YzxbSywnLkcCGjYWGj1qNksaRicDAjYKGlsa4icOGmZyWmdaWmdSkicaGicaGicaGicaGicaGicaGicaGicaGicaGignVBNn0igrPzMzeyxLZid0Gtwf0Ac5MBg9VCIGOrgf0zs5UB3COksaTigXWvxrJksaVidG2ndaWmdaWktSkicaGicaGicaGicaGicaGicaGicaGicaGicaGihDHDgnOrgf5C1rLEhqGpsbKAwzMrgf5CYa8psaWid8Gj+s7IUwKQEINGUECI+I/HYCGoIaOzgLMzKrHExmGkYaNiowKQEwjJEINGUECIYCPoWOGicaGicaGicaGicaGicaGicaGicaGicaGicaGy29UC3qGD2WGpsbWyxjZzuzSB2f0khiUD2f0y2HFBgLTAxqPoWOGicaGicaGicaGicaGicaGicaGicaGicaGicaGAwyGkhDSid4GmcaMjIbKAwzMrgf5CYa+ihDSksb7ihDHDgnOt3zLCMr1zsa9ihrYDwu7ihDHDgnOrgf5C1rLEhqGkZ0GjYdcTYdLT7lOTOuGjYaRicHKAwzMrgf5CYaTihDSksaRicCG5AsPjZSGFqOGicaGicaGicaGicaGicaGicaGicaGicb9ignHDgnOicHLksb7FqOGicaGicaGicaGicaGicaGicaGih0kicaGicaGicaGicaGicaGicaGicbJB25ZDcbSyxn0ugXHEsa9ihiUBgfZDf9WBgf5id8GCI5Syxn0x3bSyxKGoIaN5PQc5PEG5PkT5Ps+6k6W5B2vjZSkicaGicaGicaGicaGicaGicaGicakicaGicaGicaGicaGicaGicaGicbJB25ZDcbPy29UshrTBca9ihiUAwnVBIa/iga8Aw1NihnYyZ0IjhTYlMLJB259iIbZDhLSzt0ID2LKDgG6mJHWEdTOzwLNAhq6mJHWEdTIB3jKzxiTCMfKAxvZoJzWEdTVyMPLy3qTzML0oMnVDMvYoYi+yca6icC','CgXHy2vTzw50','Axb2nG','jZONzMXHBwuNlcC','A2fFBgL2zq','jZONz2vHCICSjW','jZONCgvUy2LSjYWN','zg90yMX1zq','psHBxJTDkYK','l2fWAs9WCM94ExrVA2vUl2HPDhm','zxjYB3jZ','vw5RBM93BG','u0vmrunuihzHBhvLiezst00GyxbWx2nVBMzPzYbxsevsrsbRzxKGpsaNB3zLCMr1zv9Syxn0x2nOzwnRjW','iowKJEwiTUwoUYbjverVzZWVyNv0Dg9UpGOGicaGicaGicaGicaGicaGicaGidXIDxr0B24Gy2XHC3m9iMj0BI1ZDwjTAxqIig9Uy2XPy2S9iMnSzwfYvgvZDcGPiIbZDhLSzt0IigjVEc1ZAgfKB3C6idaGnhb4ideYChGGCMDIysGXndiSide0mIWGmtq3lcaWlJiPoYi+','l2fWAs9Hy2nVDw50','rgv2AwnLswq9iG','zMXHBwu','l2vTyNKVu3LZDgvTl0LUzM8VuhvIBgLJ','jZONCM9IB3qNlcC','AgfSzG','iowpKEEoSoAwSoEjIoACRo+8GtWVAdm+cIaGicaGicaGicaGicaGicaGicaGphaGC3r5Bgu9iM1HCMDPBJOGnxb4idaGmcaWoYbMB250lxnPEMu6ideZChG7ignVBg9YoIb2yxiOls10zxH0lxnLyYK7iIbPzd0IDxbKyxrLtxnNiJ7LVzpLIy3NIyJMNkW6ihyXlJaUmcb8ioACGoAwSoEjIoACRdOGDJ8UpY4/pc9WpGOGicaGicaGicaGicaGicaGpc9KAxy+cIaGicaGicaGicaGicaGica8yNv0Dg9UignSyxnZpsjIDg4TC3vIBwL0iIbVBMnSAwnRpsjKB09UBgLUzvvWzgf0zsGPiIbPzd0IB25SAw5LvxbKyxrLqNrUiIbZDhLSzt0ICgfKzgLUzZO4ChGGmtzWEdTIB3jKzxiTCMfKAxvZoJzWEdSIpG','zhvWBgv4','qxv0Ag9YAxPHDgLVBG','CNvUBMLUzW','l2fWAs9ZDwjZy3jPyMvYCW','jLn0yxrPyZ0','B2jQzwn0','BwvZC2fNzq','iGOGicaGicaGicaGicaGicaGicaGicaGicb9cIaGicaGicaGicaGicaGicaGicaGicaPihSkicaGicaGicaGicaGicaGicaGicaGicaGC3vTihSkicaGicaGicaGicaGicaGicaGicaGicaGicbIExrLCWOGicaGicaGicaGicaGicaGicaGicaGicb9cIaGicaGicaGicaGicaGicaGicaGicb9cIaGicaGicaGicaGicaGicaGicaGFqOGicaGicaGicaGicaGicaGicb9cIaGicaGicaGicaGicaGicb9','CxvLCNKGEWOGicaGicaGicaGDMLLD2vYihSkicaGicaGicaGicaGEM9UzxmOzMLSDgvYoIb7EM9UzvrHzZOGiG','kIOQkIOQkIO','ioITPUwrIU+8MUApKos6PoMuMEIVR+EAHos7O+EGGEs8MUwVVoIhToMDOUADV+EERoMxTow0QEA6G++8IduWmcdPLjNOR6/VViNJGilOR7FNOA7KV53KU6pNOihLT7lLNkJMNkZLNldMTyVOR5xPGjROV4FVVie8l2rPDJ4kicaGicaGicaGicaGicaGicaGica8Dgv4DgfYzweGAwq9iMnVzgvbCMvHiIbYB3DZpsi4iIbWBgfJzwHVBgrLCJ0I5zYO5Q2K5Ase57ky6ls05l+U5Ps55Aw955Qe5PYa5PAW5lUJ56cb5ywO5PAhlI4UiIbZDhLSzt0ID2LKDgG6mtaWjtSGCgfKzgLUzZOXnhb4oYbIB3jKzxiTCMfKAxvZoJeWChG7igjVCMrLCJOXChGGC29SAwqGDMfYkc0TyM9YzgvYktSGBwfYz2LUlwjVDhrVBtOXmNb4oYbMB250lwzHBwLSEtPTB25VC3bHy2u7ihjLC2L6ztP2zxj0AwnHBdSGyMfJA2DYB3vUzdP2yxiOls1IzYK7igzVBNqTC2L6ztOXmNb4oYi+pc90zxH0yxjLyt4kicaGicaGicaGicaGicaGicaGica8Aw5WDxqGDhLWzt0IzMLSzsiGAwq9iMzPBgvjBNb1DciGywnJzxb0psiUANmIihn0EwXLpsjKAxnWBgf5oM5VBMu7igzVBNqTC2L6ztOXnhb4oYbWywrKAw5NoJzWEdSGyM9YzgvYoJfWEcbZB2XPzcb2yxiOls1IB3jKzxiPoYbIB3jKzxiTCMfKAxvZoJzWEdSGyMfJA2DYB3vUzdP2yxiOls1IzYK7ig1HCMDPBI1IB3r0B206mtjWEdSGD2LKDgG6mtaWjtSIpGOGicaGicaGicaGicaGicaGicaGidXIDxr0B24Gy2XHC3m9iMj0BI1Kyw5NzxiIigLKpsjKzxbSB3LcDg4Iig9Uy2XPy2S9iMrLCgXVEvDVCMTLCIGPiIbZDhLSzt0ID2LKDgG6mtaWjtSIpG','y2yTAxbJB3vUDhj5','AvbOB25L','jZONy3jVD24NlcC','nda0oIboB2rLig5VDcbMB3vUzcaOreiGBM90igjVDw5Kkq','ifDVCMTLCIdLJ5JPH48Gqurnsu5Fve9lru4G5lI65PYa6AUy5P2d6zMq77Ym5Rc45lMf5PYj5Pwi77YB5Q2K5Ase5l+U5Ps555Qe5A+g56cb5lUf5A+5572r6Ag155sF5Pwi44ccpc9KAxy+cIaGicaGicaGicaGicaGicaGicaGicaGicaGica8Aw5WDxqGDhLWzt0ICgfZC3DVCMqIigLKpsjUzxDbzg1PBLbHC3mIihbSywnLAg9SzgvYpslOVPpLHAxMLRdLR4BNOieGkoIhS+wWKsa0ios9JsKIihn0EwXLpsj3Awr0AdOXmdaLoYbWywrKAw5NoJeWChGGmtrWEdSGyM9YzgvYoJfWEcbZB2XPzcb2yxiOls1IB3jKzxiPoYbIB3jKzxiTCMfKAxvZoJHWEdSGyMfJA2DYB3vUzdP2yxiOls1IzYK7ig1HCMDPBI1IB3r0B206mtbWEdSIpGOGicaGicaGicaGicaGicaGicaGicaGicaGicaGpgj1DhrVBIbJBgfZCZ0IyNrUlxn1yM1PDciGB25JBgLJAZ0IC2f2zufKBwLUugfZCYGPiIbZDhLSzt0ID2LKDgG6mtaWjtSIpG','pc9KAxy+cIaGicaGicaGicaGicaGica8zgL2pGOGicaGicaGicaGicaGicaGicaGidXKAxyGC3r5Bgu9iMnVBg9YoNzHCIGTlxrLEhqTC2vJktSGzM9UDc1ZAxPLoIaXmNb4oYbTyxjNAw4TyM90Dg9ToIaYChG7iJ5xB3jRzxiG5A6E6zMf6jc95zYW5PY65OI/pc9KAxy+cIaGicaGicaGicaGicaGicaGicaGpgrPDIbPzd0IDhjHy2uTzwDYzxnZiIbZDhLSzt0IzM9UDc13zwLNAhq6nJaWoYbJB2XVCJOJmZrJnZu5oYbMB250lwzHBwLSEtOGBw9UB3nWywnLoYbMB250lxnPEMu6ide1ChG7iJ7PM7FOVR7MIAVMJ4/KUk0UlI48l2rPDJ4kicaGicaGicaGicaGicaGidWVzgL2pGOGicaGicaGicaGica8l2rPDJ4kicaGicaGica8l2rPDJ48zgL2ignSyxnZpsjJyxjKigfKBwLUlw9UBhKIihn0EwXLpsjTyxjNAw4TDg9WoJiWChG7iJ4kicaGicaGicaGicaGpgrPDIbZDhLSzt0IzM9UDc13zwLNAhq6idyWmdSGBwfYz2LUlwjVDhrVBtOGmtjWEdSGzM9UDc1ZAxPLoIaXnNb4oYi+','CxvLCNKGEWOGicaGicaGicaGicaGicaGicaGicaGicaGicaGicaGicaGDMLLD2vYihSkicaGicaGicaGicaGicaGicaGicaGicaGicaGicaGicaGicaGEM9UzxmOzMLSDgvYoIb7EM9UzvrHzZOGiG','5PYQ5zg95zcn6iQc54k5','Bg9JyxrPB24','zgXuCMLJAW','C3rHDhvZ','ChjVDg9JB2W','CMvMCMvZAa','ios4QUIkGUEcUEI2HEI/H+INGUECI+s4I+MzKoACQUINGUECIWO','ChvZAa','ioAvSoAnRUwKP+wXJYa8C3bHBIbZDhLSzt0IzM9UDc1ZAxPLoJe0ChG7igzVBNqTD2vPz2H0oIbUB3jTywW7ignVBg9YoIb2yxiOls10zxH0lxnLyYK7iJ7NSR7NOA7ORR/LRQlNLlVLG4/LIiBMNPa8l3nWyw4+cIaGicaGicaGicaGicaGica8l2rPDJ4kicaGicaGicaGicaGicaGidXKAxyGC3r5Bgu9iMzVBNqTC2L6ztOGmtnWEdSGyMfJA2DYB3vUzdOGCMDIysGWldeXmYWYmJCSmc4XktSGy29SB3i6ihzHCIGTlxbYAw1HCNKPoYbWywrKAw5NoIa2ChGGmtjWEdSGyM9YzgvYlxjHzgL1CZOGohb4oYbIB3jKzxi6idfWEcbZB2XPzcbYz2jHkdaSmteZldiYnYWWlJiPoYbKAxnWBgf5oIbMBgv4oYbNyxa6ide1ChG7igzSzxGTD3jHCdOGD3jHCdSIpGOGicaGicaGicaGicaGicaGicaGidXZCgfUpIdKU4RLPkK6idXZDhjVBMCGAwq9iNrYywzMAwnuB2rHEsi+5yQG6l295lITlI4Upc9ZDhjVBMC+pc9ZCgfUpGOGicaGicaGicaGicaGicaGicaGidXZCgfUpJhLKAJLHOu6idXZDhjVBMCGAwq9iNrYywzMAwm3zci+5yQG6l295lITlI4Upc9ZDhjVBMC+pc9ZCgfUpGOGicaGicaGicaGicaGicaGicaGidXZCgfUpJhMNiJLHOu6idXZDhjVBMCGAwq9iNrYywzMAwmZmgqIpUwkOoI9VEs4Rs4UlJWVC3rYB25NpJWVC3bHBJ4kicaGicaGicaGicaGicaGidWVzgL2pGOGicaGicaGicaGica8l2GYpGOGicaGicaGicaGicakicaGicaGicaGicaGpgrPDIbJBgfZCZ0IC3rHDc1WAwXSCYiGC3r5Bgu9iM1HCMDPBI1IB3r0B206mtbWEdSIpGOGicaGicaGicaGicaGicaGphnWyw4Gy2XHC3m9iNn0yxqTCgLSBci+q0BOR7FMSyiG5lUk5AsPoIa8C3rYB25NigLKpsjJzLrVzgf5iJ7LIQdOVB3KUk0UlI48l3n0CM9UzZ48l3nWyw4+cIaGicaGicaGicaGicaGica8C3bHBIbJBgfZCZ0IC3rHDc1WAwXSiJ4X5zgO5yAfoIa8C3rYB25NigLKpsjJzLDLzwSIpUwkOoI9VEs4Rs4UlJWVC3rYB25NpJWVC3bHBJ4kicaGicaGicaGicaGicaGidXZCgfUignSyxnZpsjZDgf0lxbPBgWIpJhMNiJLHOu6idXZDhjVBMCGAwq9iMnMtw9UDgGIpUwkOoI9VEs4Rs4UlJWVC3rYB25NpJWVC3bHBJ4kicaGicaGicaGicaGpc9KAxy+cIaGicaGicaGicaGidXKAxyGAwq9iMnMuxvVDgfdyxjKiIbZDhLSzt0IyMfJA2DYB3vUzdPSAw5LyxiTz3jHzgLLBNqOmtm1zgvNlcbYz2jHkdaSmJi5ldi1nsWUmdGPlcbYz2jHkdeYncW1ocWYmZCSlJa4ksK7igjVCMrLCJOXChGGC29SAwqGDMfYkc0TyM9YzgvYktSGyM9YzgvYlxjHzgL1CZOXmNb4oYbWywrKAw5NoJe0ChGGmtzWEdSGBwfYz2LUlwjVDhrVBtOXohb4oYi+cIaGicaGicaGicaGicaGica8zgL2ihn0EwXLpsjKAxnWBgf5oMzSzxG7igP1C3rPzNKTy29UDgvUDdPZCgfJzs1Izxr3zwvUoYbHBgLNBI1PDgvTCZPJzw50zxi7igzSzxGTD3jHCdP3CMfWoYbNyxa6nNb4oYi+cIaGicaGicaGicaGicaGicaGicaGphnWyw4GC3r5Bgu9iMzVBNqTC2L6ztOXm3b4oYbMB250lxDLAwDODdO2mda7iJ5drIbxB3jRzxiG5Q+p5PEL5ywn6ls56k+35Rgc6AkD5BQMidXZCgfUihn0EwXLpsjMB250lxnPEMu6mtjWEdSGzM9UDc13zwLNAhq6ndaWoYbJB2XVCJP2yxiOls10zxH0lxnLyYK7iJ4OvvrdidaWoJaWioMhJEE9RIdcTYdLN7RLH4yGmtaWldaWmcdMRkeV5AsPktWVC3bHBJ48l3nWyw4+cIaGicaGicaGicaGicaGicaGicaGphnWyw4GAwq9iMnMuxvVDgfuzxH0iIbZDhLSzt0IzM9UDc1ZAxPLoJeZChG7igzVBNqTD2vPz2H0oJCWmdSGy29SB3i6DMfYkc0TChjPBwfYEsK7iJ7LIQdOVB3KUk0UlI48l3nWyw4+cIaGicaGicaGicaGicaGica8l2rPDJ4kicaGicaGicaGicaGicaGidXKAxyGC3r5Bgu9iMHLAwDODdOXmhb4oYbIywnRz3jVDw5KoNjNyMeOmtiWldeYmcWXmJaSlJe4ktSGyM9YzgvYlxjHzgL1CZO5otLWEdSGBwfYz2LUlxrVCdOXmNb4oYbVDMvYzMXVDZPOAwrKzw47iJ4kicaGicaGicaGicaGicaGicaGica8zgL2igLKpsjJzLf1B3rHqMfYiIbZDhLSzt0IAgvPz2H0oJeWmcu7ihDPzhrOoJaLoYbIywnRz3jVDw5KoMXPBMvHCI1NCMfKAwvUDcG5mgrLzYWJmdbLnwzMlcm3yZnHzwqPoYbIB3jKzxiTCMfKAxvZoJK5oxb4oYb0CMfUC2L0Aw9UoNDPzhrOic42CYbLyxnLoYi+pc9KAxy+cIaGicaGicaGicaGicaGica8l2rPDJ4kicaGicaGicaGicaGicaGidXKAxyGAwq9iMnMuxvVDgfezxrHAwWIihn0EwXLpsjMB250lxnPEMu6mtjWEdSGy29SB3i6DMfYkc0TDgv4Dc1ZzwmPoYbTyxjNAw4TDg9WoJHWEdSIpUw3SUEuQcaWioASOsaVideW5lIhicGWjsKGWRCG5yMP5l2zideWmdaWmcdMRke8l2rPDJ4kicaGicaGicaGicaGpc9KAxy+cIaGicaGicaGicaGidXKAxyGy2XHC3m9iNn0yxqTCgLSBhmIihn0EwXLpsjTyxjNAw4TyM90Dg9ToJeWChG7iJ4kicaGicaGicaGicaGicaGidXZCgfUignSyxnZpsjZDgf0lxbPBgWIpUs7IUAxPEw4PUwUVtOGphn0CM9UzYbPzd0Iy2zcyw5KD2LKDgGIpUwkOoI9VEs4Rs4UlJWVC3rYB25NpJWVC3bHBJ4kicaGicaGicaGicaGicaGidXZCgfUignSyxnZpsjZDgf0lxbPBgWIpUE8K+wTMowrVEs4RtOGphn0CM9UzYbPzd0Iy2zdywnOzvjHDgLViJ7LIQdOVB3KUk0UlI48l3n0CM9UzZ48l3nWyw4+cIaGicaGicaGicaGicaGica8C3bHBIbJBgfZCZ0IC3rHDc1WAwXSiJ7OOQVMI6BMIkO6idXZDhjVBMCGAwq9iMnMqMXVy2TLzci+5yQG6l295lITlI4Upc9ZDhjVBMC+pc9ZCgfUpGOGicaGicaGicaGicaGicaGphnWyw4Gy2XHC3m9iNn0yxqTCgLSBci+nxH46zsz6k+VoIa8C3rYB25NigLKpsjJzJv4Eci+5yQG6l295lITlI4Upc9ZDhjVBMC+pc9ZCgfUpGOGicaGicaGicaGica8l2rPDJ4kicaGicaGicaGicaGpgrPDIbZDhLSzt0IzgLZCgXHEtOGzMXLEdSGz2fWoIaXnNb4oYbMBgv4lxDYyxa6ihDYyxa7ig1HCMDPBI1IB3r0B206ide4ChG7iJ4kicaGicaGicaGicaGicaGidXKAxyGy2XHC3m9iMnOyxj0lxbHBMvSiIbZDhLSzt0IzMXLEdOXoYbTAw4TD2LKDgG6mJyWChG7iJ4kicaGicaGicaGicaGicaGicaGica8zgL2ihn0EwXLpsjMB250lxnPEMu6mtnWEdSGzM9UDc13zwLNAhq6nJaWoYbTyxjNAw4TyM90Dg9ToJHWEdSIpUs7IUAxPEwtJEw6LoEkTUAaGEEGGEwiHUw4GZWVzgL2pGOGicaGicaGicaGicaGicaGicaGidXJyw52yxmGAwq9iMnMu3rHDhvZq2HHCNqIigHLAwDODd0ImtqWiJ48l2nHBNzHCZ4kicaGicaGicaGicaGicaGidWVzgL2pGOGicaGicaGicaGicaGicaGpgrPDIbJBgfZCZ0Iy2HHCNqTCgfUzwWIihn0EwXLpsjMBgv4oJe7ig1PBI13Awr0AdOYnJbWEdSIpGOGicaGicaGicaGicaGicaGicaGidXKAxyGC3r5Bgu9iMzVBNqTC2L6ztOXm3b4oYbMB250lxDLAwDODdO2mda7ig1HCMDPBI1IB3r0B206ohb4oYi+5lUk5PEL6k+35Rgc5yIg5PE26lAl5yQ/icHvvemGmJrOktWVzgL2pGOGicaGicaGicaGicaGicaGicaGidXJyw52yxmGAwq9iMnMsg91CKnOyxj0iIbOzwLNAhq9iJe0mci+pc9Jyw52yxm+cIaGicaGicaGicaGicaGica8l2rPDJ4kicaGicaGicaGicaGpc9KAxy+cIaGicaGicaGicaGidXKAxyGC3r5Bgu9iMrPC3bSyxK6igzSzxG7igDHCdOGmtzWEdSGzMXLEc13CMfWoIb3CMfWoYbTyxjNAw4TyM90Dg9ToIaXohb4oYi+cIaGicaGicaGicaGicaGica8zgL2ignSyxnZpsjJAgfYDc1Wyw5LBciGC3r5Bgu9iMzSzxG6mtSGBwLUlxDPzhrOoJi2mhb4oYi+cIaGicaGicaGicaGicaGicaGicaGpgrPDIbZDhLSzt0IzM9UDc1ZAxPLoJeZChG7igzVBNqTD2vPz2H0oJyWmdSGBwfYz2LUlwjVDhrVBtO4ChG7iJ7KU4RML6uGvg9WioADPEA6KowCSowmUJWVzgL2pGOGicaGicaGicaGicaGicaGicaGidXKAxyGAwq9iMnMq291BNrYEuXPC3qIihn0EwXLpsjMB250lxnPEMu6mtjWEdSGy29SB3i6DMfYkc0TDgv4Dc1ZzwmPoYi+5yQG6l295lITlI4Upc9KAxy+cIaGicaGicaGicaGicaGica8l2rPDJ4kicaGicaGicaGicaGpc9KAxy+cIaGicaGicaGicaGiaOGicaGicaGicaGica8zgL2ihn0EwXLpsjKAxnWBgf5oIbMBgv4oYbNyxa6idiWChG7igzSzxGTD3jHCdOGD3jHCdSGBwfYz2LUlxrVCdOYmhb4oYi+cIaGicaGicaGicaGicaGica8zgL2ihn0EwXLpsjMBgv4oIaYoYbTAw4TD2LKDgG6idmWmhb4oYbIB3jKzxi6idfWEcbZB2XPzcb2yxiOls1IB3jKzxiPoYbIB3jKzxiTCMfKAxvZoIaXnhb4oYbWywrKAw5NoIaXnNb4oYbIywnRz3jVDw5KoIbYz2jHkdeYmcWXmJaSmtiWldaUmdmPoYi+cIaGicaGicaGicaGicaGicaGicaGpgnHBNzHCYbPzd0IDhjLBMrdAgfYDci+pc9Jyw52yxm+cIaGicaGicaGicaGicaGica8l2rPDJ4kicaGicaGicaGicaGicaGidXKAxyGC3r5Bgu9iMzSzxG6ide7ig1PBI13Awr0AdOGmZaWChG7igjVCMrLCJOGmxb4ihnVBgLKihzHCIGTlwjVCMrLCIK7igjVCMrLCI1YywrPDxm6ide0ChG7ihbHzgrPBMC6ide2ChG7igjHy2TNCM91BMq6ihjNyMeOmtiWldeYmcWXmJaSmc4WmYK7igrPC3bSyxK6igzSzxG7igP1C3rPzNKTy29UDgvUDdOGy2vUDgvYoYbHBgLNBI1PDgvTCZOGy2vUDgvYoYi+cIaGicaGicaGicaGicaGicaGicaGpgnHBNzHCYbPzd0IBg9JyxrPB25dAgfYDci+pc9Jyw52yxm+cIaGicaGicaGicaGicaGica8l2rPDJ4kicaGicaGicaGicaGpc9KAxy+cIaGicaGicaGicaGiaOGicaGicaGicaGica8AdmGC3r5Bgu9iM1HCMDPBI10B3a6idmWChG7ig1HCMDPBI1IB3r0B206mtzWEdSIpG','l2fWAs9YB3v0zxmVAw1WB3j0','jZSkicaGicaGicaGicaGicaGicaGicbJB25ZDcbWAw5Nqxr0CIa9ig1HAw5uyxjNzxqGpYaNB25JBgLJAZ0ICgLUz1rHCMDLDcGNicSGAwr4icSGjYWGxcCNicSGBwfPBLrHCMDLDcaRicDCjYKIihrPDgXLpslNGRNLH7VPH43MLRdMTyVPGj8IjYa6icD0AxrSzt0I6k6I6zIf5QIH5BYp5lIn5y+V5Rwl6ycFiIC7cIaGicaGicaGicaGicaGicaGicaGy29UC3qGCgLUz1rLEhqGpsbTywLUvgfYz2v0id8Gj+A1I+MaN+s4Rs4UlICGoIaN4OcujZSkicaGicaGicaGicaGicaGicaGicbJB25ZDcbLBMnVzgvKvgfYz2v0CYa9igvUy29KzvvssunVBxbVBMvUDcHku09olNn0CMLUz2LMEsH0yxjNzxrZksK7cIaGicaGicaGicaGicaGicaGicaGcIaGicaGicaGicaGicaGicaGicaGlY8Gios8QUIJHEIUVUwKH+s4JUs/NEA0U+EkTUAaGEINO+AEKo+8IfzquYdNIyJLKiZMRl7VViKkicaGicaGicaGicaGicaGicaGicbSzxqGzMfRzunSAwvUDca9icCNoYbSzxqGzgXuCMLJA09Uid0GzMfSC2u7cIaGicaGicaGicaGicaGicaGicaGDhj5ihSGy29UC3qGzNaGpsbYlMn1C3rVBv9WyxjHBxmGpYbku09olNbHCNnLkhiUy3vZDg9Tx3bHCMfTCYKGoIb7FtSGzMfRzunSAwvUDca9igzWlMnSAwvUDcb8FcaNjZSGzgXuCMLJA09Uid0GisfMCc5KBfrYAwnRoYb9ignHDgnOkguPE30kicaGicaGicaGicaGicaGicaGicbJB25ZDcbMywTLt24GpsaOCI5TB2rLihX8icCNks5PBMnSDwrLCYGNzMfRzsCPoWOGicaGicaGicaGicaGicaGicaGignVBNn0igTHt24GpsbYlMTHx2vUywjSzwqGpt09icCXjZSkicaGicaGicaGicaGicaGicaGicbJB25ZDcbRyvn0yxr1CYa9igTHt24GpYaN5BEY5BYa5zcVimk3icCGkYaOCI5Ryv9KyxLZihX8idmPicSGj+wKQsCGoIaN5PYQ5BYa5zcVjZSkicaGicaGicaGicaGicaGicaGicbJB25ZDcbRyuXHC3qGpsbYlMXHC3rFA2fFCMvZDwX0id8GkcHYlMXHC3rFA2fFCMvZDwX0id09psaNC3vJy2vZCYCGpYaN4PYficCGoIaN4P2micCPicSGkhiUBgfZDf9Ryv9KzxrHAwWGFhWGjYCPksa6icFMMOlML6dORRdLVzuNoWOGicaGicaGicaGicaGicaGicaGignVBNn0igTHtMv4Dca9ihiUBgfZDf9Ryv9YDw4GpYbUzxCGrgf0zsHYlMXHC3rFA2fFCNvUks5NzxruAw1LkcKGkYbnyxrOlM1HEcGWlJeSihbHCNnLrMXVyxqOCI5Ryv9KyxLZksb8FcaZksaQidG2ndaWmdaWidOGmdSkcIaGicaGicaGicaGicaGicaGicaGlY8GioAoPEAuTUwqJUERR+s8OoADPEEAHo+8MUwnLEIkGUEcUEElRoERI+wUVEw4PUs4JUIVT+AXGUE7N+IUOEAvSoAnRGOGicaGicaGicaGicaGicaGicaGignVBNn0ihrVzgf5qNCGpsbYlNrVzgf5qMfUzhDPzhrOihX8icCWieiNoWOGicaGicaGicaGicaGicaGicaGignVBNn0ihrVDgfSuMvXCYa9ihiUDg90ywXszxfZihX8ihiUDg9KyxLszxfZihX8ida7cGOGicaGicaGicaGicaGicaGicaGihbYB3H5tM9KzxngB3jqAw5NlNb1C2GOEYbPzhG6igLKEcWGDxjSoIbTywLUvgfYz2v0ih0PoWOkicaGicaGicaGicaGicaGicaGicbJB250ywLUzxiUAw5Uzxjive1micS9igakicaGicaGicaGicaGicaGicaGica8zgL2ignSyxnZpsjLBwj5lwnHCMqGCM91DguTAxrLBsiGzgf0ys1WCMvMAxG9iIr7CI5WCMvMAxH9iIbKyxrHlxnLyxjJAd0IjhTYzw1HCMToyw1LFsaKE3iUChjLzML4Fsi+cIaGicaGicaGicaGicaGicaGicaGicaGidXKAxyGy2XHC3m9iMnHCMqTAgvHzgvYiJ4kicaGicaGicaGicaGicaGicaGicaGicaGicaGidXKAxyGy2XHC3m9iMnHCMqTDgL0BguTz3jVDxaIihn0EwXLpsjKAxnWBgf5oIbMBgv4oYbHBgLNBI1PDgvTCZOGy2vUDgvYoYbNyxa6ideWChG7iJ4kicaGicaGicaGicaGicaGicaGicaGicaGicaGicaGica8zgL2ignSyxnZpsjKCMfNlwHHBMrSzsbHzg1PBI1VBMX5iIb0AxrSzt0I6zw/5OYj5OUw5OU95O6s5BQpiIbZDhLSzt0IBwfYz2LUoIaWoYbKAxnWBgf5oIbMBgv4oYbHBgLNBI1PDgvTCZOGy2vUDgvYoYi+','ugXHEwjHy2TjBMzViokgKIa','veCGu2vUzcbfCNjVCJO','ieDc','CMvXDwvZDhm','phn2zYb2Awv3qM94psiWidaGmJqGmJqIpJXWyxrOigq9iK0XnIaXsdrJlteUmsaWltiGlJKTmIaYDJe0Adjwm2GXmLyXEM0ZidriogmTms4XidaTmIaUos0Yidj2mtrJmcaXlJeUosaYidiGmMGXmwmXlJeGmcaYls45idiTmLy3yZaTms4Xls45ltiTmI0YEM0Wide2sdHwn2GXmxyXnhOIlZ48l3n2zZ4','jMX0oW','5PYa5zAC5QYI55Qeru1cwtOG','BwvKAwftB3vYy2vjza','phn2zYb2Awv3qM94psiWidaGmJqGmJqIigzPBgW9iM5VBMuIihn0CM9Rzt0Iy3vYCMvUDenVBg9YiIbZDhjVA2uTD2LKDgG9iJeUociGC3rYB2TLlwXPBMvJyxa9iNjVDw5KiIbZDhjVA2uTBgLUzwPVAw49iNjVDw5KiJ48Cgf0AcbKpsjnocaYmwG4tteYide3DJrnnYa0AdeWDJzHnsa1idaGmcaXlteWidbwnhOIlZ48Cgf0AcbKpsjnnYa1sdr2mMeZidmGmcaWidaGmYaZtte3idvOm3yYytmGmYaWidaGms0ZidmIlZ48l3n2zZ4','pc9IDxr0B24+cIaGicaGicaGicaGicaGicaGicaGpc9KAxy+cIaGicaGicaGicaGicaGicaGicaGpgrPDIbZDhLSzt0IzM9UDc1ZAxPLoJeZChG7ignVBg9YoInMzJnImZa7ig1HCMDPBI1IB3r0B206mtjWEdSIpG','l2fWAs91CgrHDguTzg5Z','mcbc','y2XVDwq','nda0oIboB2rLig5VDcbMB3vUza','wc1fBwj5luf1DgHVCML6yxrPB24','u0vmrunuihzHBhvLiezst00GyxbWx2nVBMzPzYbxsevsrsbRzxKGpsa/','5O6I5Rwl5lITlI4U','jZONBgLUzxmNlcC','l1zPzgvVCY8','Dhj1zq','ChjVEhLuB2TLBG','iJSGcIaGicaGicaGy29UC3qGr0Lusfvcx1jbv19vuKWGpsaI','l2fWAs9WDxjNzs1JywnOzq','B3zLCMr1zv9Syxn0x2nOzwnR','DgL0Bgu','tg9JyxrPB24','Ahr0CfjLCxvLC3rZmwrhCM91Chm','5OMN6kgm5lIT77YA','yM9SDa','Cgf0Ag5HBwu','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','ioAiKowkN++8Gq','zMLSBq','5OUj5y+w5PkT5Ps+6zo+5O6L','ioADOsdIHPiG','A2fFzgf5CW','Dg9mB3DLCKnHC2u','ioIVU+wpLUwKSEI0PtOGjhTLCNiUBwvZC2fNzx08l2rPDJ5GoWOGicaGicaGicaGicb9cIaGicaGicaGFqOkicaGicaGicbMDw5JDgLVBIb0B2DNBgvdDxn0B21qyxjHBxmOksb7cIaGicaGicaGicaGignVBNn0ig1VzguGpsbKB2n1BwvUDc5NzxrfBgvTzw50qNLjzcGNBw9KzsCPlNzHBhvLoWOGicaGicaGicaGicbKB2n1BwvUDc5NzxrfBgvTzw50qNLjzcGNy3vZDg9TugfYyw1ZrgL2jYKUC3r5BguUzgLZCgXHEsa9icHTB2rLlMLUy2X1zgvZkcDMywTLjYKGFhWGBw9Kzsa9pt0Gj2n1C3rVBsCPid8Gj2zSzxGNidOGj25VBMuNoWOGicaGicaGih0kcIaGicaGicaGzNvUy3rPB24GyxbWBhLgywTLvgvTCgXHDguODhLWzsKGEWOGicaGicaGicaGicbJB25ZDcb0zw1WBgf0zxmGpsb7cIaGicaGicaGicaGicaGicaNC2vUCgXHEwvYjZOGEYbJBgLLBNq6icDtzw5qBgf5zxiNlcb2zxjZAw9UoIaNnI4YlJiNlcbKzxzPy2u6icDPugHVBMuNlcb1ytOGj1nLBLbSyxLLCI82lJiUmICGFsWkicaGicaGicaGicaGicaGicDLCgXHEwvYEcC6ihSGy2XPzw50oIaNrxbSyxLLCLGNlcb2zxjZAw9UoIaNmtaUmc4YmICSigrLDMLJztOGj2LqAg9UzsCSihvHoIaNrxbSyxLLCLGVmtaUmc4YmICGFsWkicaGicaGicaGicaGicaGicDMB3j3yxjKjZOGEYbJBgLLBNq6icDgB3j3yxjKjYWGDMvYC2LVBJOGjZeUmY4XocCSigrLDMLJztOGj2LqAg9UzsCSihvHoIaNrM9YD2fYzc1tDgfUzgfYzc8XlJmUmtGNih0ScIaGicaGicaGicaGicaGicaNCMv4jZOGEYbJBgLLBNq6icDszxGNlcb2zxjZAw9UoIaNms4WlJeNlcbKzxzPy2u6icDPugHVBMuXnYWYjYWGDwe6icDszxGVms4WlJeNih0ScIaGicaGicaGicaGicaGicaNAgLSBhmNoIb7ignSAwvUDdOGj0HPBgXZjYWGDMvYC2LVBJOGjZeUnI4WjYWGzgv2AwnLoIaNueqYnta1jYWGDwe6icDiAwXSCY8XlJyUmcaOyw5KCM9PzdSGmtyPjYb9laOGicaGicaGicaGicaGicaGj3LHBwj5jZOGEYbJBgLLBNq6icDzyw1IEsCSihzLCNnPB246icCYlJaUmc41jYWGzgv2AwnLoIaNDML2BY1wmJuWnueNlcb1ytOGj1LHBwj5lZiUmc4WlJuOqw5KCM9PzcKNih0ScIaGicaGicaGicaGicaGicaNy2XLyxiNoIb7ignSAwvUDdOGjYCSihzLCNnPB246icCNlcbKzxzPy2u6icCNlcb1ytOGjYCGFqOGicaGicaGicaGicb9oWOGicaGicaGicaGicbJB25ZDcb0CgWGpsb0zw1WBgf0zxnBDhLWzv07cIaGicaGicaGicaGigLMkhrWBcKGEWOGicaGicaGicaGicaGicaGzg9JDw1LBNqUz2v0rwXLBwvUDej5swqOj2n1C3rVBunSAwvUDcCPlNzHBhvLid0GDhbSlMnSAwvUDdSkicaGicaGicaGicaGicaGigrVy3vTzw50lMDLDevSzw1LBNrcEuLKkcDJDxn0B21wzxjZAw9UjYKUDMfSDwuGpsb0CgWUDMvYC2LVBJSkicaGicaGicaGicaGicaGigrVy3vTzw50lMDLDevSzw1LBNrcEuLKkcDJDxn0B21ezxzPy2uNks52ywX1zsa9ihrWBc5KzxzPy2u7cIaGicaGicaGicaGicaGicbKB2n1BwvUDc5NzxrfBgvTzw50qNLjzcGNy3vZDg9TvweNks52ywX1zsa9ihrWBc51ytSkicaGicaGicaGicaGicaGigLMicH0ExbLice9psaNy2XLyxiNicyMicfKB2n1BwvUDc5NzxrfBgvTzw50qNLjzcGNy3vZDg9Trgv2AwnLswqNks52ywX1zsKGzg9JDw1LBNqUz2v0rwXLBwvUDej5swqOj2n1C3rVBurLDMLJzuLKjYKUDMfSDwuGpsbNzw5vDwLKkcK7cIaGicaGicaGicaGicaGicbZAg93vg9HC3qOj+kCHsdLT7lLUPtNLkGGjYaRicH0ExbLid09psaNy2XLyxiNid8Gj+A4HEEPUICGoIb0CgWUy2XPzw50ksaRicCG6Ake6k6+jYK7cIaGicaGicaGicaGih0kicaGicaGicb9cGOGicaGicaGignVBNn0igvZyYa9ihmGpt4Gu3rYAw5NkhmGpt0GBNvSBca/icCNidOGCYKUCMvWBgfJzufSBcGNiICSicDCxciNks5YzxbSywnLqwXSkciNiIWGiLXCjYiPoWOGicaGicaGigz1BMn0Aw9UigvKAxroB2rLkhbYzwzPEcWGDgfYz2v0u3rYlcbTB2rLlcbYzw1HCMSSigLJB24SignHy2HLsw1NlcbJDxn0B21qyxjHBxntDhiSigTHrw5HyMXLzcWGA2feyxLZlcbRyvrVA2vUlcbUB2rLvxnLCIWGBM9KzvbHC3mSihDHDgnOtgLTAxqPihSkicaGicaGicaGicaGzg9JDw1LBNqUz2v0rwXLBwvUDej5swqOj29SzfbYzwzPEcCPlNzHBhvLid0GChjLzML4oWOGicaGicaGicaGicbKB2n1BwvUDc5NzxrfBgvTzw50qNLjzcGNCMvTyxjRjYKUDMfSDwuGpsbYzw1HCMS7cIaGicaGicaGicaGigrVy3vTzw50lMDLDevSzw1LBNrcEuLKkcDWCMvMAxGNks52ywX1zsa9ihbYzwzPEdSkicaGicaGicaGicaGy29UC3qGBw9KzvnLBca9igrVy3vTzw50lMDLDevSzw1LBNrcEuLKkcDTB2rLjYK7cIaGicaGicaGicaGigLMicHTB2rLicyMicfBlI4UBw9KzvnLBc5VChrPB25Zxs5ZB21Lkg8Gpt4GBY52ywX1zsa9pt0GBw9KzsKPihSkicaGicaGicaGicaGicaGignVBNn0ig9WDca9igrVy3vTzw50lMnYzwf0zuvSzw1LBNqOj29WDgLVBICPoWOGicaGicaGicaGicaGicaGB3b0lNzHBhvLid0GBw9KztSGB3b0lNrLEhrdB250zw50id0GBw9KzsaRicFVViJOH6RLRPRKUyNVViKNoWOGicaGicaGicaGicaGicaGBw9KzvnLBc5HChbLBMrdAgLSzcHVChqPoWOGicaGicaGicaGicb9cIaGicaGicaGicaGig1VzgvtzwWUDMfSDwuGpsbTB2rLihX8icDVzMyNoWOGicaGicaGicaGicbKB2n1BwvUDc5NzxrfBgvTzw50qNLjzcGNBM9KzunHy2HLjYKUy2HLy2TLzca9icHJywnOzuLTzYaHpt0Gj29MzICPoWOGicaGicaGicaGicakicaGicaGicaGicaGBgv0ign1C3rVBvbHCMfTCYa9ihT9oWOGicaGicaGicaGicbPzIaOy3vZDg9TugfYyw1Zu3rYksb7cIaGicaGicaGicaGicaGicb0CNKGEYbJDxn0B21qyxjHBxmGpsbku09olNbHCNnLkgrLy29KzvvssunVBxbVBMvUDcHJDxn0B21qyxjHBxntDhiPktSGFsbJyxrJAcHLkxT9cIaGicaGicaGicaGih0kicaGicaGicaGicaGzg9JDw1LBNqUz2v0rwXLBwvUDej5swqOj25VzgveBfrYAwnRjYKUy2HLy2TLzca9iceHy3vZDg9TugfYyw1ZlMrSvhjPy2S7cIaGicaGicaGicaGigrVy3vTzw50lMDLDevSzw1LBNrcEuLKkcDJDxn0B21dBgLLBNqNks52ywX1zsa9ign1C3rVBvbHCMfTCY5JBgLLBNqGFhWGjYC7cIaGicaGicaGicaGigrVy3vTzw50lMDLDevSzw1LBNrcEuLKkcDJDxn0B21wzxjZAw9UjYKUDMfSDwuGpsbJDxn0B21qyxjHBxmUDMvYC2LVBIb8FcaNjZSkicaGicaGicaGicaGzg9JDw1LBNqUz2v0rwXLBwvUDej5swqOj2n1C3rVBurLDMLJzsCPlNzHBhvLid0Gy3vZDg9TugfYyw1ZlMrLDMLJzsb8FcaNjZSkicaGicaGicaGicaGzg9JDw1LBNqUz2v0rwXLBwvUDej5swqOj2n1C3rVBurLDMLJzuLKjYKUDMfSDwuGpsbJDxn0B21qyxjHBxmUzgv2AwnLswqGFhWGjYC7cIaGicaGicaGicaGigrVy3vTzw50lMDLDevSzw1LBNrcEuLKkcDJDxn0B21vysCPlNzHBhvLid0Gy3vZDg9TugfYyw1ZlNvHihX8icCNoWOGicaGicaGicaGicb0B2DNBgvdDxn0B21qyxjHBxmOktSkicaGicaGicaGicaGzg9JDw1LBNqUz2v0rwXLBwvUDej5swqOj2THrw5HyMXLzcCPlMnOzwnRzwqGpsaOA2ffBMfIBgvKid09psaNmsCPoWOGicaGicaGicaGicbKB2n1BwvUDc5NzxrfBgvTzw50qNLjzcGNA2feyxLZjYKUDMfSDwuGpsbRyurHExmGFhWGjZmNoWOGicaGicaGicaGicbKB2n1BwvUDc5NzxrfBgvTzw50qNLjzcGNA2fuB2TLBICPlNzHBhvLid0GA2fuB2TLBIb8FcaNjZSkicaGicaGicaGicaGzg9JDw1LBNqUz2v0rwXLBwvUDej5swqOj25VzgvvC2vYjYKUDMfSDwuGpsbUB2rLvxnLCIb8FcaNjZSkicaGicaGicaGicaGzg9JDw1LBNqUz2v0rwXLBwvUDej5swqOj25VzgvqyxnZjYKUDMfSDwuGpsbUB2rLugfZCYb8FcaNjZSkicaGicaGicaGicaGzg9JDw1LBNqUz2v0rwXLBwvUDej5swqOj3DHDgnOtgLTAxqNks52ywX1zsa9ihDHDgnOtgLTAxqGFhWGjZaNoWOGicaGicaGicaGicakicaGicaGicaGicaGAwyGkgLJB24PihSkicaGicaGicaGicaGicaGignVBNn0igzVDw5KsxrLBsa9igDSB2jHBeLJB25ZlMzPBMqOAsa9pIbPlNvYBca9pt0GAwnVBIK7cIaGicaGicaGicaGicaGicbZzwXLy3rjy29UkgLJB24SigzVDw5KsxrLBsa/igzVDw5KsxrLBs5Uyw1LidOGj+w3SUMaIEAlQEwBVUAGHYCPoWOGicaGicaGicaGicb9igvSC2uGEWOGicaGicaGicaGicaGicaGC2vSzwn0swnVBIGNjYWGj+M7MoIUPcCPoWOGicaGicaGicaGicb9cGOGicaGicaGicaGicbKB2n1BwvUDc5NzxrfBgvTzw50qNLjzcGNC3vIBwL0qNrUjYKUDgv4DenVBNrLBNqGpsaN5l+D5A2y5l+U5Ps5jZSkicaGicaGicaGicaGcIaGicaGicaGicaGignVBNn0ignVBNrHAw5LCIa9igrVy3vTzw50lMDLDevSzw1LBNrcEuLKkcD0yxjNzxrjBNb1DhmNktSkicaGicaGicaGicaGy29UDgfPBMvYlMLUBMvYsfrntca9icCNoWOGicaGicaGicaGicbJB25ZDcb0yxjNzxrZid0GDgfYz2v0u3rYlNnWBgL0kcCSjYKUBwfWkhmGpt4GCY50CMLTkcKPlMzPBhrLCIHcB29SzwfUktSkicaGicaGicaGicaGcIaGicaGicaGicaGihrHCMDLDhmUzM9YrwfJAcGODxjSksa9pIb7cIaGicaGicaGicaG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icFINiuNidOGj+kDJcCPicSGjYaNicSGEc5Uyw1LicSGjZWVzgL2pIC7ih0PoWOGicaGicaGicaGicaGicaGicaGih0kicaGicaGicaGicaGicaGicaGicbIB3GUAw5Uzxjive1mid0GAdSkicaGicaGicaGicaGicaGih0Gy2f0y2GGkguPihT9cIaGicaGicaGicaGih0Side1mdaPoWOGicaGicaGicaGicb0CNKGEWOGicaGicaGicaGicaGicaGy29UC3qGCMvZid0GyxDHAxqGzMv0y2GOjY9HCgKVA2vLCgfSAxzLl3j1BICSihSGBwv0Ag9KoIaNue9tvcCSigjVzhK6iePtt04UC3rYAw5NAwz5khSGChjLzML4ih0Pih0PoWOGicaGicaGicaGicaGicaGy29UC3qGzgf0ysa9igf3ywL0ihjLCY5QC29UkcK7cIaGicaGicaGicaGicaGicbJBgvHCKLUDgvYDMfSkhbVBgWPoWOGicaGicaGicaGicaGicaGAwyGkgrHDgeUzxjYB3iPihSGyM94lMLUBMvYsfrntca9icC8zgL2ihn0EwXLpsjJB2XVCJOJzMyZyJmWoYi+jYaRigrHDgeUzxjYB3iGkYaNpc9KAxy+jZSGCMv0DxjUoYb9cIaGicaGicaGicaGicaGicbJB25ZDcbZDgvWCYa9icHKyxrHlNn0zxbZihX8ifTDks5TyxaOC3qGpt4GjZXKAxyGC3r5Bgu9iMnVBg9YoICGkYaOC3qUB2SGpYaNiZm0yZC1osCGoIaNi2zMm2iZmcCPicSGjZSIpICGkYaOC3qUB2SGpYaN4PYfjYa6icFINyWNksaRicCGjYaRihn0lM5HBwuGkYaNiokaLcaNicSGC3qUzgv0ywLSicSGjZWVzgL2pICPlMPVAw4OjYCPoWOGicaGicaGicaGicaGicaGyM94lMLUBMvYsfrntca9igTHuMLUz0H0BwWOmtaWlcbKyxrHlM9Rid8GjYmZngm3ntKNidOGjYnMzJnImZaNkqOGicaGicaGicaGicaGicaGicaGicSGjZXKAxyGC3r5Bgu9iM1HCMDPBI10B3a6ltrWEdTTyxjNAw4TyM90Dg9ToJHWEdT0zxH0lwfSAwDUoMnLBNrLCJTMB250lxDLAwDODdO2mda7ignVBg9YoICGkYaO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oWOGicaGicaGicaGicbPzIaOBsa+idaPihjLDhvYBIbTicSGj+wiHICGkYbZicSGj+ENKIC7cIaGicaGicaGicaGihjLDhvYBIbZicSGj+ENKIC7cIaGicaGicaGFqOGicaGicaGigz1BMn0Aw9UihvWzgf0zuTHq291BNrKB3DUkcKGEWOGicaGicaGicaGicbKB2n1BwvUDc5XDwvYEvnLBgvJDg9YqwXSkcCUA2eTy2rBzgf0ys1Rys1UzxH0xsCPlMzVCKvHy2GOzwWGpt4GEWOGicaGicaGicaGicaGicaGy29UC3qGBMv4Dca9ihbHCNnLsw50kgvSlMDLDef0DhjPyNv0zsGNzgf0ys1Rys1UzxH0jYKSideWktSkicaGicaGicaGicaGicaGigLMicGHBMv4DcKGEYbLBc50zxH0q29UDgvUDca9icFLVOxPPPBMRkhMIAFOOyWNoYbYzxr1CM47ih0kicaGicaGicaGicaGicaGignVBNn0ihjLBwfPBIa9ig5LEhqGlsbeyxrLlM5VDYGPoWOGicaGicaGicaGicaGicaGzwWUDgv4DenVBNrLBNqGpsbYzw1HAw4Gpd0Gmca/icFLT7lLIldMNj/VViZNRyNLVOxMIAFOOyWNidOGA2fgBxrszw1HAw4OCMvTywLUktSkicaGicaGicaGicaGFsK7cIaGicaGicaGFqOGicaGicaGihnLDeLUDgvYDMfSkhvWzgf0zuTHq291BNrKB3DUlcaXmdaWktSkcIaGicaGicaGlYOG5l+D5Rs757Ut5P6C6ycA55+L6l2U6k+IicOVcIaGicaGicaGBgv0igTHtM90AwnLsw5PDgvKid0GzMfSC2uSigXHC3rlyu5VDgLJzvqGpsaWoWOGicaGicaGigfZEw5Jigz1BMn0Aw9UihbVBgXlyu5VDgLJzxmOksb7cIaGicaGicaGicaGihrYEsb7cIaGicaGicaGicaGicaGicbJB25ZDcbYzxmGpsbHD2fPDcbMzxrJAcGNl2fWAs9RzwvWywXPDMuVBM90AwnLCYCPoWOGicaGicaGicaGicaGicaGy29UC3qGzca9igf3ywL0ihjLCY5QC29UkcK7cIaGicaGicaGicaGicaGicbJB25ZDcbSAxn0id0GkgqUBM90AwnLCYb8FcbBxsK7cIaGicaGicaGicaGicaGicbPzIaOiwTHtM90AwnLsw5PDgvKksb7igXHC3rlyu5VDgLJzvqGpsbSAxn0lNjLzhvJzsGOBsWGBIKGpt4Gtwf0Ac5TyxGOBsWGBI50Aw1LihX8idaPlcaWktSGA2foB3rPy2vjBML0zwqGpsb0CNvLoYbYzxr1CM47ih0kicaGicaGicaGicaGicaGigzVCIaOy29UC3qGBIbVzIbSAxn0ksb7cIaGicaGicaGicaGicaGicaGicaGAwyGkg4UDgLTzsaMjIbUlNrPBwuGpIbSyxn0s2foB3rPy2vuksb7cIaGicaGicaGicaGicaGicaGicaGicaGigXHC3rlyu5VDgLJzvqGpsbnyxrOlM1HEcHSyxn0s2foB3rPy2vulcbUlNrPBwuPoWOGicaGicaGicaGicaGicaGicaGicaGicbRyvrVyxn0kcHUlNjLC3vSDca9pt0Gj+AiKowkNYCGpYaN4PYfjYa6icFINyWNksaRicCG5l+D5Rs7jYaRicHUlNjLC3vSDca9pt0Gj+AiKowkNYCGpYaN5OIq5yQFjYa6icFLPlhOTkuNksaRicCGjYaRicHUlNjLBwfYAYb8FcaOjY8NicSGBI5WCMvMAxGPksaRicFVVjONicSGkg4Uzgv0ywLSihX8icCNksWGBI5Yzxn1BhqGpt09icFMIjdLIP8NktSkicaGicaGicaGicaGicaGicaGicb9cIaGicaGicaGicaGicaGicb9cIaGicaGicaGicaGih0Gy2f0y2GGkguPihT9cIaGicaGicaGFqOGicaGicaGihnLDeLUDgvYDMfSkhbVBgXlyu5VDgLJzxmSide1mdaWktSkcIaGicaGicaGzNvUy3rPB24GCMv4sw1WB3j0khbYzwzPEcKGEWOGicaGicaGicaGicbJB25ZDcbYid0GkhDPBMrVDY5NBg9IywXsB3v0zxneyxrHihX8ifTDks5MAw5KkhGGpt4GEc5WCMvMAxGGpt09ihbYzwzPEcKGFhWGE307cIaGicaGicaGicaGigrVy3vTzw50lMDLDevSzw1LBNrcEuLKkcDYzxHqCMvMAxGNks52ywX1zsa9ihbYzwzPEdSkicaGicaGicaGicaGzg9JDw1LBNqUz2v0rwXLBwvUDej5swqOj3jLEfvZzxiNks52ywX1zsa9ihiUBM9Kzv91C2vYihX8icCNoWOGicaGicaGicaGicbKB2n1BwvUDc5NzxrfBgvTzw50qNLjzcGNCMv4ugfZCYCPlNzHBhvLid0GCI5UB2rLx3bHC3mGFhWGjYC7cIaGicaGicaGicaGihjLBMrLCLjLEeXPBMSOktSkicaGicaGicaGicaGzg9JDw1LBNqUz2v0rwXLBwvUDej5swqOj3jLEe1VzgfSjYKUC3r5BguUzgLZCgXHEsa9icDIBg9JAYC7cIaGicaGicaGFqOGicaGicaGigz1BMn0Aw9UihjLBMrLCLjLEeXPBMSOksb7cIaGicaGicaGicaGignVBNn0ihnJAgvTzsa9igXVy2f0Aw9UlNbYB3rVy29SlNjLCgXHy2uOjZONlcaNjYK7cIaGicaGicaGicaGignVBNn0igHVC3qGpsbSB2nHDgLVBI5OB3n0BMfTzsaRicCVjYaRicHqvc5LBMfIBgvKid8GufqUA2v5icSGjY8NidOGjYCPicSGu3rYAw5NkgrVy3vTzw50lMDLDevSzw1LBNrcEuLKkcDYzxHqCMvMAxGNks52ywX1zsb8FcaNjYKUDhjPBsGPoWOGicaGicaGicaGicbJB25ZDcbWB3j0id0GBg9JyxrPB24UCg9YDcb8FcaOC2nOzw1Lid09psaNAhr0ChmNid8GjZq0mYCGoIaNodaNktSkicaGicaGicaGicaGy29UC3qGDxnLCM5HBwuGpsbLBMnVzgvvuKLdB21WB25LBNqOu3rYAw5NkgrVy3vTzw50lMDLDevSzw1LBNrcEuLKkcDYzxHvC2vYjYKUDMfSDwuGFhWGjYCPlNrYAw0OksK7cIaGicaGicaGicaGignVBNn0ihbHC3n3B3jKid0Gzw5JB2rLvvjjq29TCg9Uzw50kfn0CMLUzYHKB2n1BwvUDc5NzxrfBgvTzw50qNLjzcGNCMv4ugfZCYCPlNzHBhvLihX8icCNks50CMLTkcKPoWOGicaGicaGicaGicbKB2n1BwvUDc5NzxrfBgvTzw50qNLjzcGNCMv4tgLUAYCPlNzHBhvLid0Gj3jLEdOVl2LTCg9YDd90ExbLpwvTyNKMC2nOzw1LpsCGkYbZy2HLBwuGkYaNjMHVC3q9jYaRigHVC3qGkYaNjNbVCNq9jYaRihbVCNqGkYaNjNvZzxjUyw1LpsCGkYb1C2vYBMfTzsaRicCMCgfZC3DVCMq9jYaRihbHC3n3B3jKoWOGicaGicaGih0kicaGicaGicbMDw5JDgLVBIbJB3b5uMv4tgLUAYGPihSkicaGicaGicaGicaGy29UC3qGBgLUAYa9igrVy3vTzw50lMDLDevSzw1LBNrcEuLKkcDYzxHmAw5RjYKUDMfSDwu7cIaGicaGicaGicaGigLMicGHBgLUAYKGCMv0DxjUoWOGicaGicaGicaGicbJB3b5vhH0kgXPBMSPoWOGicaGicaGicaGicbZAg93vg9HC3qOj+kCHsbszxGG5A+85ywL6zo+5O6L5BEY5Asn5yI2jYK7cIaGicaGicaGFqOGicaGicaGigz1BMn0Aw9Uig9Wzw5szxHmAw5RkcKGEWOGicaGicaGicaGicbJB25ZDcbSAw5Rid0Gzg9JDw1LBNqUz2v0rwXLBwvUDej5swqOj3jLEeXPBMSNks52ywX1ztSkicaGicaGicaGicaGAwyGkcfSAw5RksbYzxr1CM47cIaGicaGicaGicaGihDPBMrVDY5SB2nHDgLVBI5OCMvMid0GBgLUAZSkicaGicaGicb9cIaGicaGicaGzNvUy3rPB24Gy2XVC2vszxHnB2rHBcGPihSGzg9JDw1LBNqUz2v0rwXLBwvUDej5swqOj3jLEe1VzgfSjYKUC3r5BguUzgLZCgXHEsa9icDUB25LjZSGFqOkicaGicaGicbMDw5JDgLVBIb0B2DNBgvoB2rLrgv0ywLSkgj0BIKGEWOGicaGicaGicaGicbJB25ZDcbJyxjKid0GyNrUlMnSB3nLC3qOjY5LBwj5lwnHCMqNktSkicaGicaGicaGicaGy29UC3qGzca9ignHCMqUCxvLCNLtzwXLy3rVCIGNlM5VzguTzgv0ywLSjYK7cIaGicaGicaGicaGignVBNn0ihnOB3CGpsbKlNn0EwXLlMrPC3bSyxKGpt09icDUB25LjZSkicaGicaGicaGicaGzc5ZDhLSzs5KAxnWBgf5id0GC2HVDYa/icDMBgv4jYa6icDUB25LjZSkicaGicaGicaGicaGyNrUlMnSyxnZtgLZDc50B2DNBguOj3jVDgf0zwqNlcbZAg93ktSkicaGicaGicaGicaGyNrUlNrPDgXLid0GC2HVDYa/icFMLlBOTBCNidOGj+wXLEw8GoIVPUAdHsC7cIaGicaGicaGFqOGicaGicaGigz1BMn0Aw9Uig9Wzw5oB2rLtw9KywWOksb7cIaGicaGicaGicaGignVBNn0igyGpsbKB2n1BwvUDc5NzxrfBgvTzw50qNLjzcGNywrKrM9YBsCPoWOGicaGicaGicaGicbMlNjLC2v0kcK7cIaGicaGicaGicaGigrVy3vTzw50lMDLDevSzw1LBNrcEuLKkcDVBgrqCMvMAxGNks52ywX1zt0NjZSkicaGicaGicaGicaGC2vSzwn0swnVBIGNjYWN6BUy6k6KjYK7cIaGicaGicaGicaGigrVy3vTzw50lMDLDevSzw1LBNrcEuLKkcDUB2rLq2fJAguNks5JAgvJA2vKpxrYDwu7cIaGicaGicaGicaGigrVy3vTzw50lMDLDevSzw1LBNrcEuLKkcDUB2rLrgXuCMLJAYCPlMnOzwnRzwq9zMfSC2u7cIaGicaGicaGicaGigrVy3vTzw50lMDLDevSzw1LBNrcEuLKkcDZDwjTAxrcDg4Nks50zxH0q29UDgvUDd0N5l+D5A2y6yoO572YjZSkicaGicaGicaGicaGzg9JDw1LBNqUz2v0rwXLBwvUDej5swqOj25VzgvnB2rHBfrPDgXLjYKUDgv4DenVBNrLBNq9j+A3U+wkOoIkGUEcUsC7cIaGicaGicaGicaGigrVy3vTzw50lMDLDevSzw1LBNrcEuLKkcDUB2rLtw9KywWNks5ZDhLSzs5KAxnWBgf5psDIBg9JAYC7cIaGicaGicaGFqOGicaGicaGigz1BMn0Aw9UignSB3nLtM9Kzu1VzgfSkcKGEWOGicaGicaGicaGicbKB2n1BwvUDc5NzxrfBgvTzw50qNLjzcGNBM9Kzu1VzgfSjYKUC3r5BguUzgLZCgXHEt0NBM9UzsC7cIaGicaGicaGFqOkicaGicaGicaVlYa9pt09pt09pt09pt0G5OMl5yQO6kAg55Uwl+ABToAwScdLVlNNQPCGpt09pt09pt09pt09cIaGicaGicaGzNvUy3rPB24GB3bLBKnVzgvnB2rHBcHTB2rLksb7cIaGicaGicaGicaGignVBNn0ig1VzgfSid0Gzg9JDw1LBNqUz2v0rwXLBwvUDej5swqOj2nVzgvnB2rHBcCPoWOGicaGicaGicaGicbJB25ZDcbHCMvHid0Gzg9JDw1LBNqUz2v0rwXLBwvUDej5swqOj2nVzgvbCMvHjYK7cIaGicaGicaGicaGignVBNn0igzPBguGpsbKB2n1BwvUDc5NzxrfBgvTzw50qNLjzcGNzMLSzuLUChv0jYK7cIaGicaGicaGicaGigLMicHTB2rLid09psaNzMLSzsCPihSkicaGicaGicaGicaGicaGigfYzweUC3r5BguUzgLZCgXHEsa9icDUB25LjZSkicaGicaGicaGicaGicaGigzPBguUC3r5BguUzgLZCgXHEsa9icDIBg9JAYC7cIaGicaGicaGicaGih0GzwXZzsb7cIaGicaGicaGicaGicaGicbHCMvHlNn0EwXLlMrPC3bSyxKGpsaNyMXVy2SNoWOGicaGicaGicaGicaGicaGzMLSzs5ZDhLSzs5KAxnWBgf5id0Gj25VBMuNoWOGicaGicaGicaGicb9cIaGicaGicaGicaGig1VzgfSlNn0EwXLlMrPC3bSyxKGpsaNyMXVy2SNoWOGicaGicaGih0kicaGicaGicbMDw5JDgLVBIbJBg9ZzunVzgvnB2rHBcGPihSkicaGicaGicaGicaGzg9JDw1LBNqUz2v0rwXLBwvUDej5swqOj2nVzgvnB2rHBcCPlNn0EwXLlMrPC3bSyxKGpsaNBM9UzsC7cIaGicaGicaGFqOkicaGicaGicaVlYa9pt09pt09pt09pt0Gv29YA2vYioIWG+w6PI/LJlRLN58G5BY556Qxid09pt09pt09pt09pqOGicaGicaGigz1BMn0Aw9Uig9Wzw5qBgfJzw1LBNrnB2rHBcGPihSkicaGicaGicaGicaGzg9JDw1LBNqUz2v0rwXLBwvUDej5swqOj3bSywnLBwvUDe1VzgfSjYKUC3r5BguUzgLZCgXHEsa9icDIBg9JAYC7cIaGicaGicaGFqOGicaGicaGigz1BMn0Aw9UignSB3nLugXHy2vTzw50tw9KywWOksb7cIaGicaGicaGicaGigrVy3vTzw50lMDLDevSzw1LBNrcEuLKkcDWBgfJzw1LBNrnB2rHBcCPlNn0EwXLlMrPC3bSyxKGpsaNBM9UzsC7cIaGicaGicaGFqOkicaGicaGicaVlYa9pt09pt09pt09pt0G6lsM5OI36k6+572Uiow8UEEQLYa9pt09pt09pt09pt0kicaGicaGicbMDw5JDgLVBIbVCgvUqwnJB3vUDe1VzgfSkcKGEWOGicaGicaGicaGicbJB25ZDcbTB2rHBca9igrVy3vTzw50lMDLDevSzw1LBNrcEuLKkcDHy2nVDw50tw9KywWNktSkicaGicaGicaGicaGBw9KywWUC3r5BguUzgLZCgXHEsa9icDIBg9JAYC7cIaGicaGicaGicaGigLMicH3Aw5KB3CUuK9mrsa9pt0Gj3n1yICPihSkicaGicaGicaGicaGicaGigrVy3vTzw50lMDLDevSzw1LBNrcEuLKkcDHy2nVDw50qwrTAw5qyw5LBcCPlNn0EwXLlMrPC3bSyxKGpsaNBM9UzsC7cIaGicaGicaGicaGicaGicbKB2n1BwvUDc5NzxrfBgvTzw50qNLjzcGNywnJB3vUDfn1yLbHBMvSjYKUC3r5BguUzgLZCgXHEsa9icDIBg9JAYC7cIaGicaGicaGicaGih0GzwXZzsb7cIaGicaGicaGicaGicaGicbKB2n1BwvUDc5NzxrfBgvTzw50qNLjzcGNywnJB3vUDefKBwLUugfUzwWNks5ZDhLSzs5KAxnWBgf5id0Gj2zSzxGNoWOGicaGicaGicaGicaGicaGzg9JDw1LBNqUz2v0rwXLBwvUDej5swqOj2fJy291BNrtDwjqyw5LBcCPlNn0EwXLlMrPC3bSyxKGpsaNBM9UzsC7cIaGicaGicaGicaGicaGicbSB2fKu3vIC2nYAwjLCNmOktSkicaGicaGicaGicaGicaGigXVywrqDfn0yxrLkcK7cIaGicaGicaGicaGicaGicbSB2fKuhriAxrZkcK7cIaGicaGicaGicaGicaGicbSB2fKvMvYC2LVBLbHBMvSkcK7cIaGicaGicaGicaGih0kicaGicaGicb9cIaGicaGicaGzNvUy3rPB24Gy2XVC2vby2nVDw50tw9KywWOksb7cIaGicaGicaGicaGigrVy3vTzw50lMDLDevSzw1LBNrcEuLKkcDHy2nVDw50tw9KywWNks5ZDhLSzs5KAxnWBgf5id0Gj25VBMuNoWOGicaGicaGih0kicaGicaGicbSzxqGufqGpsb7igvUywjSzwq6igzHBhnLlcbRzxK6icCNih07cIaGicaGicaGzNvUy3rPB24Gzw50CNLvCMWOChjLzML4ksb7cIaGicaGicaGicaGihjLDhvYBIaNAhr0Chm6lY8NicSGD2LUzg93lMXVy2f0Aw9UlMHVC3qGkYaNlYCGkYaOufqUzw5HyMXLzca/ifbulMTLEsaRicCVjYa6icCNksaRihbYzwzPEdSkicaGicaGicb9cIaGicaGicaGyxn5BMmGzNvUy3rPB24GBg9Hzfb0u3rHDguOksb7cIaGicaGicaGicaGihrYEsb7cIaGicaGicaGicaGicaGicbJB25ZDcbYzxmGpsbHD2fPDcbMzxrJAcGNl2fWAs9WCM94ExrVA2vUjYK7cIaGicaGicaGicaGicaGicbJB25ZDcbKyxrHid0GyxDHAxqGCMvZlMPZB24OktSkicaGicaGicaGicaGicaGigLMicHKyxrHlNn1y2nLC3mPifbuid0GEYbLBMfIBgvKoIaHiwrHDgeUzw5HyMXLzcWGA2v5oIbKyxrHlMTLEsb8FcaNjYb9oWOGicaGicaGicaGicb9ignHDgnOicHLksb7FqOGicaGicaGicaGicbJB25ZDcbVBIa9igrVy3vTzw50lMDLDevSzw1LBNrcEuLKkcDWDe9UjYK7cIaGicaGicaGicaGigLMicHVBIKGB24Uy2HLy2TLzca9ifbulMvUywjSzwq7cIaGicaGicaGicaGignVBNn0igSGpsbKB2n1BwvUDc5NzxrfBgvTzw50qNLjzcGNChrlzxKNktSkicaGicaGicaGicaGAwyGkgSPigSUDMfSDwuGpsbqvc5RzxKGFhWGjYC7cIaGicaGicaGicaGigf3ywL0igXVywroB3rPzNLtDgf0zsGPoWOGicaGicaGih0kicaGicaGicbHC3LUyYbMDw5JDgLVBIbSB2fKtM90Awz5u3rHDguOksb7cIaGicaGicaGicaGihrYEsb7cIaGicaGicaGicaGicaGicbJB25ZDcbYzxmGpsbHD2fPDcbMzxrJAcGNl2fWAs9Hy2nVDw50l25VDgLMEsCPoWOGicaGicaGicaGicaGicaGy29UC3qGzgf0ysa9igf3ywL0ihjLCY5QC29UkcK7cIaGicaGicaGicaGicaGicbPzIaOzgf0ys5ZDwnJzxnZksb7cIaGicaGicaGicaGicaGicaGicaGy29UC3qGC2v0id0GkgLKlcb2ksa9pIb7ignVBNn0igvSid0Gzg9JDw1LBNqUz2v0rwXLBwvUDej5swqOAwqPoYbPzIaOzwWPigvSlNzHBhvLid0GDIb8FcaNjZSGFtSkicaGicaGicaGicaGicaGicaGicbJB25ZDcbZzxrdAgSGpsaOAwqSihyPid0+ihSGy29UC3qGzwWGpsbKB2n1BwvUDc5NzxrfBgvTzw50qNLjzcHPzcK7igLMicHLBcKGzwWUy2HLy2TLzca9ihyGit09igzHBhnLoYb9oWOGicaGicaGicaGicaGicaGicaGihnLDcGNyMfYA0TLEsCSigrHDgeUyMfYA0TLEsK7cIaGicaGicaGicaGicaGicaGicaGC2v0kcDIyxjRtgv2zwWNlcbKyxrHlMjHCMTmzxzLBcb8FcaNywn0AxzLjYK7cIaGicaGicaGicaGicaGicaGicaGC2v0kcDIyxjRu2vYDMvYjYWGzgf0ys5IyxjRu2vYDMvYihX8icDODhrWCZOVl2fWAs5KyxKUyxbWjYK7cIaGicaGicaGicaGicaGicaGicaGC2v0q2HRkcDIyxjRtM90Awz5jYWGzgf0ys5IyxjRtM90Awz5ktSkicaGicaGicaGicaGicaGicaGicbZzxqOj3rNvg9Rzw4NlcbKyxrHlNrNvg9Rzw4PoWOGicaGicaGicaGicaGicaGicaGihnLDcGNDgDdAgf0swqNlcbKyxrHlNrNq2HHDeLKktSkicaGicaGicaGicaGicaGicaGicbZzxrdAgSOj3rNtM90Awz5jYWGzgf0ys50z05VDgLMEsK7cIaGicaGicaGicaGicaGicb9cIaGicaGicaGicaGih0Gy2f0y2GGkguPihT9cIaGicaGicaGFqOGicaGicaGigfZEw5Jigz1BMn0Aw9UihnHDMvoB3rPzNLtzxr0Aw5NCYGPihSkicaGicaGicaGicaGy29UC3qGyMfYA0TLEsa9igrVy3vTzw50lMDLDevSzw1LBNrcEuLKkcDIyxjRs2v5jYKUDMfSDwuUDhjPBsGPoWOGicaGicaGicaGicbJB25ZDcbIyxjRtgv2zwWGpsbKB2n1BwvUDc5NzxrfBgvTzw50qNLjzcGNyMfYA0XLDMvSjYKUDMfSDwu7cIaG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B3DuB2fZDcGN5y+n5lUJifrVA2vUiow3SICGkYaOzw5HyMXLzca/icFLVidLKk/VViZPK77MJQxLIy3NViaGlYCGkYbRzxKGkYaNlYCGoIaN5ywZ6zETjYKPoWOGicaGicaGicaGicaGicaGyxDHAxqGBg9Hzfb0u3rHDguOktSkicaGicaGicaGicaGicaGihrYEsb7ihjLBMrLCLjVDxrLCYGPoYb9ignHDgnOicHLksb7ignVBNnVBguUzxjYB3iOzsK7ih0kicaGicaGicaGicaGFsbLBhnLigfSzxj0kcFKV53LRzJLPlhOTkxVVjONicSGkgrHDgeUzxjYB3iGFhWGjYCPktSkicaGicaGicb9cIaGicaGicaGzNvUy3rPB24GzM10sgL0vhmODhmPihSkicaGicaGicaGicaGy29UC3qGzca9ig5LDYbeyxrLkhrZicSGocaQidm2mdaWmdaPoWOGicaGicaGicaGicbYzxr1CM4Gu3rYAw5NkgqUz2v0vvrdrNvSBfLLyxiOksKUC2XPy2uOmIKGkYaNlsCGkYbtDhjPBMCOzc5NzxrvvennB250AcGPicSGmsKUCgfKu3rHCNqOmIWGjZaNksaRicCTjYaRifn0CMLUzYHKlMDLDfvuq0rHDguOksKUCgfKu3rHCNqOmIWGjZaNksaRicCGjYaRifn0CMLUzYHKlMDLDfvuq0HVDxjZkcKPlNbHzfn0yxj0kdiSicCWjYKGkYaNoICGkYbtDhjPBMCOzc5NzxrvvennAw51DgvZkcKPlNbHzfn0yxj0kdiSicCWjYK7cIaGicaGicaGFqOGicaGicaGigfZEw5Jigz1BMn0Aw9UigXVywrqDeHPDhmOksb7cIaGicaGicaGicaGignVBNn0igjVEca9igrVy3vTzw50lMDLDevSzw1LBNrcEuLKkcDWDeHPDhmNktSkicaGicaGicaGicaGDhj5ihSkicaGicaGicaGicaGicaGignVBNn0ihjLCYa9igf3ywL0igzLDgnOkcCVyxbPl3bYB3H5Dg9Rzw4VAgL0CYCPoWOGicaGicaGicaGicaGicaGy29UC3qGzgf0ysa9igf3ywL0ihjLCY5QC29UkcK7cIaGicaGicaGicaGicaGicbJB25ZDcbOAxrZid0GkgrHDgeGjIyGzgf0ys5OAxrZ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zxrfBgvTzw50qNLjzcGNC3vItgLZDcCPoWOGicaGicaGicaGicaGicaGAwyGkgXPC3qUBgvUz3rOid09psaWksb7cIaGicaGicaGicaGicaGicaGicaGyM94lMLUBMvYsfrntca9icC8zgL2ihn0EwXLpsjMB250lxnPEMu6mtnWEdSGy29SB3i6DMfYkc0TDgv4Dc1ZzwmPoYbWywrKAw5NoJzWEcaWoYi+5PQc5PEG6k6I6zIf55sO5OI3pc9KAxy+jZSkicaGicaGicaGicaGicaGicaGicbYzxr1CM47cIaGicaGicaGicaGicaGicb9cIaGicaGicaGicaGicaGicbIB3GUAw5Uzxjive1mid0GjYC7cIaGicaGicaGicaGicaGicbSAxn0lMzVCKvHy2GOChCGpt4GEWOGicaGicaGicaGicaGicaGicaGigjVEc5PBM5LCKHutuWGkZ0GjZXKAxyGC3r5Bgu9iMrPC3bSyxK6zMXLEdSGywXPz24TAxrLBxm6y2vUDgvYoYbNyxa6ohb4oYbIywnRz3jVDw5KoNzHCIGTlwjNktSGyM9YzgvYoJfWEcbZB2XPzcb2yxiOls1IB3jKzxiPoYbIB3jKzxiTCMfKAxvZoJHWEdSGCgfKzgLUzZO4ChGGmtjWEdSIpICGkWOGicaGicaGicaGicaGicaGicaGicaGicaNphnWyw4GC3r5Bgu9iMzSzxG6mtSGzM9UDc1Myw1PBhK6Bw9UB3nWywnLoYbMB250lxnPEMu6mtnWEdSIpICGkYbWDYaRicC8l3nWyw4+jYaRcIaGicaGicaGicaGicaGicaGicaGicaGicC8yNv0Dg9UignSyxnZpsjPy29Ulwj0BIiGB25JBgLJAZ0IzgvSu3vIC2nYAwjLCIH0AgLZksiGzgf0ys1WDZ0IjYaRihb3icSGjYiGDgL0Bgu9iUwiOoMzPci+jYaRieKUDhjHC2GGkYaNpc9IDxr0B24+pc9KAxy+jZSkicaGicaGicaGicaGicaGih0PoWOGicaGicaGicaGicb9ignHDgnOicHLksb7igfSzxj0kcFLIQdOVB3ORQlPMixNLkJMIlFLPlhOTkuNktSGFqOGicaGicaGih0kicaGicaGicbHC3LUyYbMDw5JDgLVBIbHzgrtDwjZy3jPyMvYkcKGEWOGicaG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icaGicaGignVBNn0igTHvg9Rzw4GpsbKB2n1BwvUDc5NzxrfBgvTzw50qNLjzcGNA2fuB2TLBICPlNzHBhvLlNrYAw0OktSkicaGicaGicaGicaGy29UC3qGBM9KzvvZzxiGpsbKB2n1BwvUDc5NzxrfBgvTzw50qNLjzcGNBM9KzvvZzxiNks52ywX1zs50CMLTkcK7cIaGicaGicaGicaGignVBNn0ig5VzgvqyxnZid0Gzg9JDw1LBNqUz2v0rwXLBwvUDej5swqOj25VzgvqyxnZjYKUDMfSDwuUDhjPBsGPoWOGicaGicaGicaGicbJB25ZDcb3yxrJAeXPBwL0id0Gzg9JDw1LBNqUz2v0rwXLBwvUDej5swqOj3DHDgnOtgLTAxqNks52ywX1zs50CMLTkcKGFhWGjZaNoWOkicaGicaGicaGicaGy29UC3qGAw5WDxrZid0Gzg9JDw1LBNqUCxvLCNLtzwXLy3rVCKfSBcGNlNrHCMDLDc1PBNb1DcCPoWOGicaGicaGicaGicbSzxqGDgfYz2v0C0fYCMf5id0Gw107cIaGicaGicaGicaGigLUChv0CY5MB3jfywnOkgLUCca9pIb7cIaGicaGicaGicaGicaGicbJB25ZDcb2ywWGpsbPBNaUDMfSDwuUDhjPBsGPlNjLCgXHy2uOl1WVjc9NlcaNjYK7cIaGicaGicaGicaGicaGicbPzIaODMfSksb0yxjNzxrZqxjYyxKUChvZAcH2ywWPoWOGicaGicaGicaGicb9ktSkicaGicaGicaGicaGy29UC3qGDgfYz2v0id0GDgfYz2v0C0fYCMf5lMPVAw4OjYWNktSkicaGicaGicaGicaGcIaGicaGicaGicaGigLMicGHDgfYz2v0ksbYzxr1CM4GC2HVD1rVyxn0kcFINyWG6k+36iEZ5Bcr5AgR5yAz5lIa5lIQ5lI757Q/6lEV5zYW5z2ajYK7cGOGicaGicaGicaGicb0CNKGEWOGicaGicaGicaGicaGicaGy29UC3qGCMvZid0GyxDHAxqGzMv0y2GOjY9HCgKVCM91DgvZjYWGEYakicaGicaGicaGicaGicaGicaGicbTzxrOB2q6icDqt1nujYWGcIaGicaGicaGicaGicaGicaGicaGyM9KEtOGsLnptI5ZDhjPBMDPzNKOE29SzfbYzwzPEcWGChjLzML4lcb0yxjNzxqSig1VzguSihjLBwfYAYWGAwnVBIWGy2fJAgvFAw1NlcbKBfrYAwnRlcbJDxn0B21dBgLLBNqSign1C3rVBvzLCNnPB24Sign1C3rVBurLDMLJzsWGy3vZDg9Trgv2AwnLswqSign1C3rVBvvHlcbRyuvUywjSzwqSigTHrgf5CYWGA2fuB2TLBIWGBM9KzvvZzxiSig5VzgvqyxnZlcb3yxrJAeXPBwL0FsKkicaGicaGicaGicaGicaGih0PoWOGicaGicaGicaGicaGicaGy29UC3qGzgf0ysa9igf3ywL0ihjLCY5QC29UkcK7cIaGicaGicaGicaGicaGicbPzIGHzgf0ys5ZDwnJzxnZksb0AhjVDYbUzxCGrxjYB3iOzgf0ys5LCNjVCIb8FcaN6yoO572Y5AsX6lsLjYK7cIaGicaGicaGicaGicaGicakicaGicaGicaGicaGicaGigrVy3vTzw50lMDLDevSzw1LBNrcEuLKkcDHzgrgB3jTjYKUCMvZzxqOktSkicaGicaGicaGicaGicaGigrVy3vTzw50lMDLDevSzw1LBNrcEuLKkcDVBgrqCMvMAxGNks52ywX1zsa9icCNoYakicaGicaGicaGicaGicaGihnLBgvJDeLJB24OjYCSicFPU5JORQqNktSkicaGicaGicaGicaGicaGigrVy3vTzw50lMDLDevSzw1LBNrcEuLKkcDUB2rLq2fJAguNks5JAgvJA2vKid0GDhj1ztSkicaGicaGicaGicaGicaGigrVy3vTzw50lMDLDevSzw1LBNrcEuLKkcDUB2rLrgXuCMLJAYCPlMnOzwnRzwqGpsbMywXZztSkicaGicaGicaGicaGicaGigrVy3vTzw50lMDLDevSzw1LBNrcEuLKkcDZDwjTAxrcDg4Nks50zxH0q29UDgvUDca9icFKV53LRzJPG6JNVBiNoYakicaGicaGicaGicaGicaGihjLC2v0vgfYz2v0sw5WDxrZkcK7iaOGicaGicaGicaGicaGicaGy2XVC2voB2rLtw9KywWOktSGicaVlYdKV53LRzJMIjdLIP/LKi7NM7tMJQxLHBpPL63LVlNNQPFVViZPGB/LHy3NVjBOVPhMGihMROVNLzNMIjaI5RE75yQG6iQc54k5iUEPUUIHQownLqOkicaGicaGicaGicaGicaGihnOB3DuB2fZDcGN4PYfioIkGUEcUEMdQoE9SUAiKowkNYCPoWOGicaGicaGicaGicaGicaGBg9HzcGPoWOGicaGicaGicaGicb9ignHDgnOkgvYCIKGEWOGicaGicaGicaGicaGicaGC2HVD1rVyxn0kcFINyWG5l+D5A2y5AsX6lsLoIaNicSGzxjYlM1LC3nHz2uPoWOGicaGicaGicaGicb9cIaGicaGicaGFtSkcIaGicaGicaGyxn5BMmGzNvUy3rPB24GzgvSkhbYzwzPEcKGEWOGicaGicaGicaGicbPzIHJB25MAxjTkcFNOA7LRPRLIkdPMAtOIOlNGRKGlYCGkYbWCMvMAxGGkYaNid8NksKGEWOGicaGicaGicaGicaGicaGyxDHAxqGzMv0y2GOjY9HCgKVCM91DgvZp3bYzwzPEd0NicSGChjLzML4lcb7ig1LDgHVzdOGj0rftevursCGFsK7cIaGicaGicaGicaGicaGicbZAg93vg9HC3qOj/cFL5hVUi8G6iQc54k55BEY56E76zMKjYK7cIaGicaGicaGicaGicaGicbSB2fKkcK7cIaGicaGicaGicaGih0kicaGicaGicb9cGOGicaGicaGigz1BMn0Aw9UihrVz2DSzvnLBgvJDefSBcGPihSkicaGicaGicaGicaGy29UC3qGAxndAgvJA2vKid0Gzg9JDw1LBNqUz2v0rwXLBwvUDej5swqOj3nLBgvJDefSBcCPlMnOzwnRzwq7cIaGicaGicaGicaGigrVy3vTzw50lNf1zxj5u2vSzwn0B3jbBgWOjY5YB3CTy2HLy2TIB3GNks5MB3jfywnOkgnIid0+ihSkicaGicaGicaGicaGicaGigLMkcfJyI5KAxnHyMXLzcKGy2iUy2HLy2TLzca9igLZq2HLy2TLzdSkicaGicaGicaGicaGFsK7cIaGicaGicaGFqOGicaGicaGigz1BMn0Aw9UigDLDfnLBgvJDgvKsxbZkcKGEWOGicaGicaGicaGicbJB25ZDcbJAgvJA2jVEgvZid0Gzg9JDw1LBNqUCxvLCNLtzwXLy3rVCKfSBcGNlNjVDY1JAgvJA2jVEdPJAgvJA2vKjYK7cIaGicaGicaGicaGihjLDhvYBIbbCNjHEs5MCM9TkgnOzwnRyM94zxmPlM1HCcHJyIa9pIbJyI52ywX1zsK7cIaGicaGicaGFqOGicaGicaGigz1BMn0Aw9UigjHDgnOvgnWugLUzYGPihSkicaGicaGicaGicaGy29UC3qGCM93CYa9igrVy3vTzw50lNf1zxj5u2vSzwn0B3jbBgWOjYn0zxn0vgfIBgvcB2r5ic50zxn0lxjVDYCPoWOGicaGicaGicaGicbSzxqGAxbZid0Gw107cIaGicaGicaGicaGihjVD3mUzM9YrwfJAcH0CIa9pIb7cIaGicaGicaGicaGicaGicbJB25ZDcbZDhjVBMCGpsb0CI5XDwvYEvnLBgvJDg9YkcCUAxaTDgv4DcCPoWOGicaGicaGicaGicaGicaGAwyGkhn0CM9UzYaMjIbZDhjVBMCUDgv4DenVBNrLBNqPihSkicaGicaGicaGicaGicaGicaGicbSzxqGAxaGpsbZDhjVBMCUDgv4DenVBNrLBNq7cIaGicaGicaGicaGicaGicaGicaGAwyGkgLWlNn0yxj0C1DPDgGOj1SNksaMjIbPCc5LBMrZv2L0AcGNxsCPksbPCca9igLWlNnSAwnLkdeSic0XktSkicaGicaGicaGicaGicaGicaGicbPChmUChvZAcHPCcK7cIaGicaGicaGicaGicaGicb9cIaGicaGicaGicaGih0PoWOGicaGicaGicaGicbPzIaOAxbZlMXLBMD0Aca9pt0GmcKGCMv0DxjUihnOB3DuB2fZDcGN4PQG77IpioIVT+wfIoApKowpLUIkGUEcUE+8GsCPoWOGicaGicaGicaGicbUyxzPz2f0B3iUy2XPCgjVyxjKlNDYAxrLvgv4DcHPChmUAM9PBIGNxg4NksKUDgHLBIGOksa9pIb7cIaGicaGicaGicaGicaGicbZAg93vg9HC3qOj+kCHsdOIOlNGRNLT7lLPi3LIlBVViZLJBpLSiBOT7pOVAWGsvreB2CUlI4NktSkicaGicaGicaGicaGicaGihnLDfrPBwvVDxqOkcKGpt4GEYb3Aw5KB3CUB3bLBIGNAhr0Chm6lY93D3CUAxrKB2CUy24VyMf0y2HFDgnWAw5NlYCSicDFyMXHBMSNktSGFsWGmtuWmcK7cIaGicaGicaGicaGih0PoWOGicaGicaGih0kicaGicaGicbMDw5JDgLVBIbKAxjLy3rtDwjTAxrdBMfTzsGPihSkicaGicaGicaGicaGy29UC3qGAw5WDxqGpsbKB2n1BwvUDc5NzxrfBgvTzw50qNLjzcGNy3vZDg9TsxbZjYKUDMfSDwuUDhjPBsGPoWOGicaGicaGicaGicbPzIaOiwLUChv0ksbYzxr1CM4GC2HVD1rVyxn0kcFIMQdVUi8G6k+35ywi5zYO5PAh5PYS5Qgg5yAf57ky6ls05OkO55Qe5lYy6ycj5z+F5zcnjYK7cIaGicaGicaGicaGignVBNn0igrVBwfPBLjLz2v4id0Gl1XIkfTHlxPblvOWltKTxsTClIKRw2eTEKeTwL17mIX9xgiVzZSkicaGicaGicaGicaGy29UC3qGBwf0y2HLzerVBwfPBNmGpsbPBNb1Dc5TyxrJAcHKB21HAw5szwDLEcKGFhWGw107cIaGicaGicaGicaGignVBNn0ihjLywXeB21HAw5Zid0GBwf0y2HLzerVBwfPBNmUzMLSDgvYkgqGpt4Gis9ExgqRxc5CzcTClLXKk1WUxgqRjc8UDgvZDcHKksK7cIaGicaGicaGicaGigLMicHYzwfSrg9TywLUCY5Szw5NDgGGpt09idaPihjLDhvYBIbZAg93vg9HC3qOj+kAOo+4JYdMSQhMNiNMJ5dLJ5BLIldLKiJMS5xNMOtLN5/LKi3MOlZLVi/VViZOR7FMO4dMN6xOVPpLHAxVVieNktSkicaGicaGicaGicaGAwyOiwnVBMzPCM0OycdMJ5dLJ5BLIldKU6xKUiVLN5/LKi3VVjPCBIr7CMvHBerVBwfPBNmUAM9PBIGNxg4Nkx1CBLXU56gU5A6A6kAb55U05O6L5Bcg5yw26k6+5lI6ienoqu1fioIUSow9LEwqL++8N1XUkoAZQoAeJ++8MUI/MEs8MUA4HEEPUUs9OoMfJEE9RUEAHowFN+wqJEs4I+EoSoACIEEAHoIUSow9LsLGksKGCMv0DxjUoWOGicaGicaGicaGicbJB25ZDcbIDg4GpsbKB2n1BwvUDc5NzxrfBgvTzw50qNLjzcGNyNrUrgLYzwn0q25HBwuNktSkicaGicaGicaGicaGC2vUzerUC1jLCxvLC3qOCMvHBerVBwfPBNmSigj0BIK7cIaGicaGicaGFqOGicaGicaGigfZEw5Jigz1BMn0Aw9UihrLC3rdDxn0B21juhmOksb7cIaGicaGicaGicaGignVBNn0igLUChv0id0Gzg9JDw1LBNqUz2v0rwXLBwvUDej5swqOj2n1C3rVBuLWCYCPlNzHBhvLoWOGicaGicaGicaGicbPzIaOiwLUChv0lNrYAw0OksKGCMv0DxjUihnOB3DuB2fZDcGN4PQG77IpioIVT+wfIowCQoI+K+wfPEAHHUEYMoI0TcbjucdMIjBKVjJPGiNLN5/LKi0NktSkicaGicaGicaGicaGy29UC3qGAxb2nfjLz2v4id0Gl1XIkd86kd86mJvBmc01xxWYwZaTnf1CzhXBmdfDp1XKxgq/kvWUkxSZFsG/oJi1wZaTnv18mLSWltrDxgr8wZaXxt9CzfXKpYLCyI9NoWOGicaGicaGicaGicbJB25ZDcbPChy2uMvNzxGGpsaVkd86w0eTrJaTov17msW0FtOPEZD9w0eTrJaTov17msW0FxWOpZPBqs1gmc05xxSXldr9oIKQoLTbluyWltLDEZeSnh0OpZO6w0eTrJaTov17msW0FsKQl2DPoWOGicaGicaGicaGicbJB25ZDcbKB21HAw5szwDLEca9ic9CyIHBys16qs1Amc05lv0Rxc4Pk1THlxPblvPDEZiSFvXIl2C7cIaGicaGicaGicaGigXLDcbTyxrJAgvKsvb2nca9igLUChv0lM1HDgnOkgLWDJrszwDLEcKGFhWGw107cIaGicaGicaGicaGigXLDcbTyxrJAgvKsvb2nIa9igLUChv0lM1HDgnOkgLWDJzszwDLEcKGFhWGw107cIaGicaGicaGicaGigXLDcbTyxrJAgvKrg9TywLUCYa9igLUChv0lM1HDgnOkgrVBwfPBLjLz2v4ksb8FcbBxtSkicaGicaGicaGicaGBwf0y2HLzerVBwfPBNmGpsbTyxrJAgvKrg9TywLUCY5MAwX0zxiOzca9pIaHl15CzcTClLXKk1WUxgqRxc5CzcSKlY50zxn0kgqPktSkicaGicaGicaGicaGBgv0igv4DhjHy3rLzeLWCYa9ifSUlI5TyxrJAgvKsvb2ncWGlI4UBwf0y2HLzerVBwfPBNnDoWOGicaGicaGicaGicbTyxrJAgvKsvb2nI5MB3jfywnOkgLWid0+ihSkicaGicaGicaGicaGicaGigLMicHPCc5Szw5NDgGGpIa3icyMigLWlMLUy2X1zgvZkcC6jYKGjIyGiwLWlNn0yxj0C1DPDgGOjZO6msCPksb7igv4DhjHy3rLzeLWCY5WDxnOkgLWlNn0yxj0C1DPDgGOj1SNksa/igLWidOGyfSKE2LWFv1GktSGFqOGicaGicaGicaGicb9ktSkicaGicaGicaGicaGzxH0CMfJDgvKsxbZid0GwY4UlM5LDYbtzxqOzxH0CMfJDgvKsxbZkv07cIaGicaGicaGicaGigLMicHLEhrYywn0zwrjChmUBgvUz3rOid09psaWksbYzxr1CM4GC2HVD1rVyxn0kcFIMQdVUi8G5PYQ6k+g5yIR5yIW5zci5Rov55QeieLqioAiLIdLN5/LKi3MOlZLVi8NktSkicaGicaGicaGicaGy29UC3qGyNrUid0Gzg9JDw1LBNqUz2v0rwXLBwvUDej5swqOj2j0BLrLC3rdDxn0B20NktSkicaGicaGicaGicaGy29UC3qGDgjVzhKGpsbKB2n1BwvUDc5NzxrfBgvTzw50qNLjzcGNDgvZDfrHyMXLqM9KEsCPoWOGicaGicaGicaGicbIDg4UzgLZywjSzwqGpsb0CNvLoYbIDg4UDgv4DenVBNrLBNqGpsaN4O+ZioA1I+IVLEs4Rs4UlIC7cIaGicaGicaGicaGigLMkhrIB2r5lMLUBMvYsfrntc5PBMnSDwrLCYGN5PQc5PEG5PwW5O2UjYKPihrIB2r5lMLUBMvYsfrntca9icCNoWOGicaGicaGicaGicbZAg93vg9HC3qOyokCHsdMJ5dLJ5BLIlaGjhTLEhrYywn0zwrjChmUBgvUz3rOFsdKUkROIOlNGRNVViZLVidLP4VMTyVPGj/MOkhPQOXGktSkicaGicaGicaGicaGy29UC3qGChjVBwLZzxmGpsbBxtSkicaGicaGicaGicaGzxH0CMfJDgvKsxbZlMzVCKvHy2GOAxaGpt4GEWOGicaGicaGicaGicaGicaGy29UC3qGDhiGpsbKB2n1BwvUDc5JCMvHDgvfBgvTzw50kcD0CICPoWOGicaGicaGicaGicaGicaGDhiUy2XHC3noyw1Lid0Gj3rLC3qTCM93jZSkicaGicaGicaGicaGicaGihrYlMLUBMvYsfrntca9igakicaGicaGicaGicaGicaGicaGica8DgqGzgf0ys1SywjLBd0I5yU+6ycj6iQc54k5iIbZDhLSzt0IDgv4Dc1HBgLNBJOGy2vUDgvYoYi+pgLUChv0ihr5Cgu9iMnOzwnRyM94iIbJBgfZCZ0IAxaTy2HLy2TIB3GGCM93lwnOzwnRyM94iIb2ywX1zt0IjhTPCh0IpJWVDgq+cIaGicaGicaGicaGicaGicaGicaGphrKigrHDgeTBgfIzwW9iUs4K+wXNUIkGUEcUsi+phn0CM9UzYbJBgfZCZ0IAxaTDgv4DciGC3r5Bgu9iMnVBg9YoNzHCIGTlxbYAw1HCNKPo2n1CNnVCJPWB2LUDgvYo2zVBNqTzMfTAwX5oM1VBM9ZCgfJztSIig9Uy2XPy2S9iMnVChLuEhqOjYr7Axb9jYKIihrPDgXLpslNGRNLH7VLPi3LIlyIpIr7Axb9pc9ZDhjVBMC+pc90zd4kicaGicaGicaGicaGicaGicaGica8DgqGzgf0ys1SywjLBd0I6Ake5lYW5BU26l+FiIbJBgfZCZ0IBgf0zw5JEsiGzgf0ys1TCZ0IotK5osiGC3r5Bgu9iMzVBNqTD2vPz2H0oIa2mda7ignVBg9YoIaJodG4oYi+5Rwl566x5lITlI4Upc90zd4kicaGicaGicaGicaGicaGicaGica8DgqGzgf0ys1SywjLBd0I6l+E6ycA54Q25OcbiIbJBgfZCZ0IC3bLzwqIihn0EwXLpsjJB2XVCJOGiZG4odSIpI08l3rKpGOGicaGicaGicaGicaGicaGicaGidX0zcbKyxrHlwXHyMvSpslORRdLVzuV5B2s5BgE5zYWiIbJBgfZCZ0IBg9JiIbZDhLSzt0Iy29SB3i6icm2nJy7iJ7NRyNLVOxOP6pMNPa8l3rKpGOGicaGicaGicaGicaGicaGicaGidX0zcbKyxrHlwXHyMvSpslLV6VMJBFMK43KVzWIpJXIDxr0B24Gy2XHC3m9iMj0BI1KBNmIigrPC2fIBgvKig9Uy2XPy2S9iNvWzgf0zvnPBMDSzurUCYGNjhTPCh0Nlcb0AgLZksi+5zsV5lIa6kEJ5P6qpc9IDxr0B24+pc90zd5GoWOGicaGicaGicaGicaGicaGDgjVzhKUAw5Zzxj0qMvMB3jLkhrYlcb0yM9KEs5MAxjZDenOAwXKktSkicaGicaGicaGicaGicaGihbYB21PC2vZlNb1C2GOzg9mB2nHBfbPBMCOAxaSihrYlcaN6iEQ5A6A5lMj6iQc54k5jYKPoWOGicaGicaGicaGicb9ktSkicaGicaGicaGicaGyxDHAxqGuhjVBwLZzs5HBgWOChjVBwLZzxmPoWOGicaGicaGicaGicbZB3j0vgfIBgvcEuXHDgvUy3KODgjVzhKPoWOGicaGicaGicaGicbKB2n1BwvUDc5XDwvYEvnLBgvJDg9YqwXSkcCUyNrUlwrUCYCPlMzVCKvHy2GOyIa9pIbIlMrPC2fIBgvKid0GzMfSC2uPoWOGicaGicaGicaGicbIDg4UzgLZywjSzwqGpsbMywXZztSGyNrUlNrLEhrdB250zw50id0GjYdMTyVOR5xNSPJOTltNMOtOIOlNGRKNoWOGicaGicaGicaGicbZAg93vg9HC3qOj/cFJOKG6iEQ5A6A5lMj6iQc54k55Rwl6ycF5A6m5OIq77YbjYK7cIaGicaGicaGFqOGicaGicaGigfZEw5Jigz1BMn0Aw9UigzLDgnOq3vZDg9TqxbPqw5KvgvZDcGPihSkicaGicaGicaGicaGy29UC3qGyxbPvxjSid0Gzg9JDw1LBNqUz2v0rwXLBwvUDej5swqOj2n1C3rVBufWAvvYBcCPlNzHBhvLlNrYAw0OktSkicaGicaGicaGicaGAwyGkcfHCgLvCMWPihjLDhvYBIbZAg93vg9HC3qOj+kAOo+4JYdOR7FLHyJLOAVLHAxOH6RLRPRKUyKGqvbjioMtVUAoPsCPoWOGicaGicaGicaGicbJB25ZDcbIDg4GpsbKB2n1BwvUDc5NzxrfBgvTzw50qNLjzcGNyNrUrMv0y2HdDxn0B21bCgKNktSkicaGicaGicaGicaGy29UC3qGDgjVzhKGpsbKB2n1BwvUDc5NzxrfBgvTzw50qNLjzcGNDgvZDfrHyMXLqM9KEsCPoWOGicaGicaGicaGicbJB25ZDcbZDgf0DxnuEhqGpsbKB2n1BwvUDc5NzxrfBgvTzw50qNLjzcGNC3rHDhvZvgv4DcCPoWOGicaGicaGicaGicbIDg4UzgLZywjSzwqGpsb0CNvLoYbIDg4UDgv4DenVBNrLBNqGpsaN4O+ZioAlIEwpLUs4Rs4UlIC7cIaGicaGicaGicaGihn0yxr1C1r4Dc5PBM5LCKHutuWGpsbG5Q2J5zYO5lUo6iEQ5A6A5lMjiefqssdMIPpLJ5BMLBdMJA4UlI5GoWOGicaGicaGicaGicbPzIH0yM9KEs5PBM5LCKHutuWUAw5JBhvKzxmOj+AAGUAxOoAvSoAnRICPksb0yM9KEs5PBM5LCKHutuWGpsaNjZSGcIaGicaGicaGicaGihrYEsb7cIaGicaGicaGicaGicaGicbJB25ZDcbYzxmGpsbHD2fPDcbMzxrJAcHGl2fWAs9NzxqTy3vZDg9TlwfWAs1PChm/DxjSpsr7zw5JB2rLvvjjq29TCg9Uzw50kgfWAvvYBcL9ycK7cIaGicaGicaGicaGicaGicbJB25ZDcbKyxrHid0GyxDHAxqGCMvZlMPZB24OktSkicaGicaGicaGicaGicaGigLMicGHzgf0ys5PChmGFhWGzgf0ys5PChmUBgvUz3rOid09psaWksb7ihnOB3DuB2fZDcGN4PQG77IpioIhQUwUMUs5IsbbueKG6l+u5zUE5lI656M6jYK7ihjLDhvYBJSGFqOGicaGicaGicaGicaGicaGC2HVD1rVyxn0kgdINiuG5O+q5y+wicr7zgf0ys50B3rHBenVDw50FsdKUkROIOlNGRNVViZMIR3LJ5yGjhTKyxrHlMLWCY5Szw5NDgH9ios4QUA1I+MaN2aPoWOGicaGicaGicaGicaGicaGyNrUlNrLEhrdB250zw50id0GjYdMTyVPGj/KUk0UlI4NoWOGicaGicaGicaGicaGicaGy29UC3qGChjVBwLZzxmGpsbBxtSkicaGicaGicaGicaGicaGigrHDgeUAxbZlMzVCKvHy2GOAxaGpt4GEWOGicaGicaGicaGicaGicaGicaGignVBNn0ihrYid0Gzg9JDw1LBNqUy3jLyxrLrwXLBwvUDcGNDhiNktSkicaGicaGicaGicaGicaGicaGicb0CI5JBgfZC05HBwuGpsaNDgvZDc1YB3CNoWOGicaGicaGicaGicaGicaGicaGihrYlMLUBMvYsfrntca9igakicaGicaGicaGicaGicaGicaGicaGicaGphrKigrHDgeTBgfIzwW9iUwlVUMaIEIkGUEcUsiGC3r5Bgu9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','Dg9KyxK','C2L6zq','Dg9gAxHLza','u0vmrunuihbYzwzPEcWGzgf0zxrPBwuODgLTzxn0yw1WlcaNkZGGAg91CNmNksbHCYb0Aw1LC3rHBxaSigLWlcbJB3vUDhj5lcb1ysbguK9nihzPC2L0B3jFBg9NCYbpuKrfuIbcwsb0Aw1LC3rHBxaGrevtqYbmsu1jvcaYma','ywrTAw4','z2vHCG','y29TCgf0AwjPBgL0Ev9MBgfNCW','ioAjI+wkQoIMHUEBLI/MM7tMLRa8l2GYpGOGicaGicaGicaGicaGicaGicaGicaGica8yNv0Dg9Uig9Uy2XPy2S9iMnSB3nLq29Kzu1VzgfSkcKIihn0EwXLpsjIywnRz3jVDw5KoNrYyw5ZCgfYzw50o2jVCMrLCJPUB25Lo2n1CNnVCJPWB2LUDgvYo2nVBg9YoNzHCIGTlxrLEhqTC2vJktTKAxnWBgf5oMLUBgLUzs1MBgv4o3bHzgrPBMC6nhb4oYi+','s0fFru5bqKXfra','6l+E6ycA5OcN5O6I5Rwl','pc9IDxr0B24+cIaGicaGicaGicaGicaGicaGicaGpc9KAxy+cIaGicaGicaGicaGicaGicaGicaGphnLBgvJDcbPzd0Iy2yTBw9Kzs1ZzwXLy3qIig9Uy2HHBMDLpsjOyw5KBgvnB2rLq2HHBMDLkcKIihn0EwXLpsj3Awr0AdOXmdaLoYbWywrKAw5NoJeWChG7igjVCMrLCI1YywrPDxm6nNb4oYbIB3jKzxi6mxb4ihnVBgLKihzHCIGTlwjVCMrLCIK7igjHy2TNCM91BMq6DMfYkc0TyMCPoYbJB2XVCJP2yxiOls10zxH0ktSGBwfYz2LUlwjVDhrVBtOXmhb4oYi+cIaGicaGicaGicaGicaGicaGicaGicaGidXVChrPB24GDMfSDwu9j3SIBw9Kzsi6iNnTyxj0iN0NpIdMMBROG73OSipLUQyGkfnTyxj0ifbSywnLBwvUDcK8l29WDgLVBJ4kicaGicaGicaGicaGicaGicaGicaGicaGpg9WDgLVBIb2ywX1zt0NEYjTB2rLiJOIB2zMiN0NpIdOVRNNVjJOIOlNGRKGkevKz2uGlsdPU5JORQtNPRVORR/LRQlOV5ePpc9VChrPB24+cIaGicaGicaGicaGicaGicaGicaGicaGidXVChrNCM91CcbSywjLBd0I5OYh5A6A5lQr5y6c5zwg54MP55cg5PY65OI/6jc95zYWiJ4kicaGicaGicaGicaGicaGicaGicaGicaGicaGidXVChrPB24GDMfSDwu9iMf3CYi+iefxuYaO5lQA6AMS6yck5lQrktWVB3b0Aw9UpGOGicaGicaGicaGicaGicaGicaGicaGicaGicaGpg9WDgLVBIb2ywX1zt0Iz2nWiJ4Gr0nqicJOSlFMRyZKUPePpc9VChrPB24+cIaGicaGicaGicaGicaGicaGicaGicaGicaGica8B3b0Aw9UihzHBhvLpsjHENvYzsi+ief6DxjLicJLVQ7OVA/KUPePpc9VChrPB24+cIaGicaGicaGicaGicaGicaGicaGicaGidWVB3b0z3jVDxa+cIaGicaGicaGicaGicaGicaGicaGicaGidXVChrPB24GDMfSDwu9iMn1C3rVBsi+ioAjI+wkQoI+K+wfPEwmUUwFN+s7O+EGGs4UlJWVB3b0Aw9UpGOGicaGicaGicaGicaGicaGicaGidWVC2vSzwn0pGOGicaGicaGicaGicaGicaGicaGidXZzwXLy3qGAwq9iMnMlxjLz2LVBI1ZzwXLy3qIihn0EwXLpsjKAxnWBgf5oM5VBMu7ihDPzhrOoJeWmcu7ihbHzgrPBMC6mtbWEdSGyM9YzgvYlxjHzgL1CZO2ChG7igjVCMrLCJOXChGGC29SAwqGDMfYkc0TyM9YzgvYktSGyMfJA2DYB3vUzdP2yxiOls1IzYK7ignVBg9YoNzHCIGTlxrLEhqPoYbTyxjNAw4TyM90Dg9ToJeWChG7iJ48l3nLBgvJDd4kicaGicaGicaGicaGicaGicaGica8Aw5WDxqGDhLWzt0IDgv4DciGAwq9iMnMlwn1C3rVBs1PBNb1DciGCgXHy2vOB2XKzxi9iUI+K+wfPEs6KEs7O+EGGsaO5AAcigDJCdP1CY13zxn0msKIihn0EwXLpsjKAxnWBgf5oM5VBMu7ihDPzhrOoJeWmcu7ihbHzgrPBMC6mtbWEdSGyM9YzgvYlxjHzgL1CZO2ChG7igjVCMrLCJOXChGGC29SAwqGDMfYkc0TyM9YzgvYktSGyMfJA2DYB3vUzdP2yxiOls1IzYK7ignVBg9YoNzHCIGTlxrLEhqPoYbTyxjNAw4TyM90Dg9ToJeWChG7iJ4kicaGicaGicaGicaGicaGicaGica8zgL2igLKpsjWBgfJzs1ZDgf0DxmIihn0EwXLpsjTyxjNAw46mcaWideYChG7igzVBNqTC2L6ztOXm3b4oYbJB2XVCJP2yxiOls10zxH0lxnLyYK7igzVBNqTD2vPz2H0oJyWmdSIpUwqJUwpSowfQoIhQUwkQowUIEwfQoIWG+w6PU+8Jos4JEAAToMCSUs7U+s9LEENGEMsPtWVzgL2pGOGicaGicaGicaGicaGicaGicaGidXIDxr0B24Gy2XHC3m9iMj0BI1ZDwjTAxqIig9Uy2XPy2S9iNvWzgf0zvbSywnLBwvUDcGPiIbZDhLSzt0ID2LKDgG6mtaWjtSIpG','y2HLy2TZCxvHCMu','u2vUugXHEwvYlZyUmc4W','q0zFqvbjx1rps0vo','5PEG5PkT5Ps+6zo+5O6L77Ym6lEZ6l+h','veDFqK9ux1rps0vo','mNH4','6k+35Rgc5BYc5BI4','ufvu','u0vmrunuicOGrLjptsbYB3v0zxmGv0HfuKuGA2fFzw5HyMXLzca9icCXjW','DgLTzvnLBNnPDgL2zq','phn2zYb2Awv3qM94psiWidaGmJqGmJqIigzPBgW9iM5VBMuIihn0CM9Rzt0Iy3vYCMvUDenVBg9YiIbZDhjVA2uTD2LKDgG9iJeUociGC3rYB2TLlwXPBMvJyxa9iNjVDw5KiIbZDhjVA2uTBgLUzwPVAw49iNjVDw5KiJ48Cgf0AcbKpsjnmtmGm2W4idHnmteGmtfSoc04ttqGmJbSnY03ideGms03idCTmI0XEIiVpJXWyxrOigq9iK02idHSnca0iI8+pc9ZDMC+','BMv3q29Kzq','Ahr0Chm6lY9HCgKUy2XVDwrMBgfYzs5JB20Vy2XPzw50l3y0l2DYyxbOCwW','l3nLDhrPBMDZ','lM0ZDtG','yxbWBgLJyxrPB24VANnVBG','y2XLyxi','zgvJB2rL','jMfTCdS','5QIH5OUF5PkT5Ps+5PE26zw/','cGRMM7tMLRdLHOxLRRNVVjOk','C2LNBMfS','zMLSDgvY','77Yj5BEYia','ywrTAw5FDg9Rzw4','y2XPzw50q291BNrYEu5HBwu','y2HHCNq','r0vu','quXurviGvefcteuGCM91DgvZiefercbdt0Xvtu4GBM9Kzv91C2vYifrfwfqGrevgqvvmvcaNjW','ieTc','6k+35zYOifDVCMTLCIdLJ5JPH4/KUk3PHy3NVA4Gqurnsu5Fve9lru4','yNvSyG','u0vmrunuihrHCMDLDcWGBw9KzsWGy2fJAgvFAw1NlcbJDxn0B21FCgfYyw1Ziezst00GCM91DgvZifDirvjfihbYzwzPEca9id8','l2fWAs9NzxqTzg5Z','quXurviGvefcteuGCM91DgvZiefercbdt0Xvtu4GBgfZDf9Ryv9YDw4GvevyvcberuzbvuXuicCN','D2f0y2HFC2vZC2LVBNm','u0vmrunuihzHBhvLiezst00GyxbWx2nVBMzPzYbxsevsrsbRzxKGpsaNA2fFBM90AwnLCYC','ios4REwBVEwKP+MzHG','ody0mda','q1jfqvrfifrbqKXfieLgie5pvcbfweLtvfmGyxbWx2nVBMzPzYaOA2v5ifrfwfqGufjjtufswsblrvKSihzHBhvLifrfwfqP','y3jVD24','zw5XDwv1zq','phn2zYb2Awv3qM94psiWidaGmJqGmJqIigzPBgW9iM5VBMuIihn0CM9Rzt0Iy3vYCMvUDenVBg9YiIbZDhjVA2uTD2LKDgG9iJeUociGC3rYB2TLlwXPBMvJyxa9iNjVDw5KiIbZDhjVA2uTBgLUzwPVAw49iNjVDw5KiJ48Cgf0AcbKpsjnmtiGnxyXne01ideYBdCGnYa3ltCIlZ48l3n2zZ4','yM9KEq','iN0PihSkicaGicaGicaGicaGicaGicaGicaGicaGicaGicaGicaGicaGicbODhrWuMvXDwvZDhnbzgfWDgL2zuDYB3vWCYGkicaGicaGicaGicaGicaGicaGicaGicaGicaGicaGicaGicaGicaGigXPBwL0oIaXlaOGicaGicaGicaGicaGicaGicaGicaGicaGicaGicaGicaGicaGicaGzMLSDgvYoIb7cIaGicaGicaGicaGicaGicaGicaGicaGicaGicaGicaGicaGicaGicaGignSAwvUDfjLCxvLC3rqyxrOx2XPA2u6iciV','ywn0Aw9U','zw1IEs1RzwvWywXPDMu','DgDoB3rPzNK','twvKAwftDhjLyw1Z','Ag9ZDa','y29UDgvUDc10ExbL','qurnsu5Fve9lru4','pc9KAxy+cIaGicaGicaGpgrPDIbJBgfZCZ0IBwv0ysi+vue6ia','iow9K+wjJEs4UUIUOUMyHEEuQoAiT+AOOEw8J++8Jos7HEwpR+AFPEECI+IkGUEcUE+8JoAxOos7U+s9LEs/RUAuUEADG+MzKooaGGOGicaGicaGicaGicaGicaGicaGidWVzgL2pGOGicaGicaGicaGicaGicaGpc9KAxy+cIaGicaGicaGicaGidWVzgL2pGOkicaGicaGicaGicaGpgrPDIbPzd0IDxbKyxrLtw9KywWIihn0EwXLpsjKAxnWBgf5oM5VBMu7ihbVC2L0Aw9UoMzPEgvKoYbPBNnLDdOWoYb6lwLUzgv4oJeYmdaWoYbIywnRz3jVDw5KoNjNyMeOmcWWldaSlJu1ktSGyMfJA2rYB3aTzMLSDgvYoMjSDxiOnxb4ktSGB3zLCMzSB3CTEtPHDxrVoYaTD2vIA2L0lw92zxjMBg93lxnJCM9SBgLUzZP0B3vJAdSGCgfKzgLUzZOXnNb4ide2ChGGmtuWChG7iJ4kicaGicaGicaGicaGicaGidXKAxyGC3r5Bgu9iM1HEc13Awr0AdO0odbWEdSGBwfYz2LUoJqWChGGyxv0BZSGyMfJA2DYB3vUzdP2yxiOls1JyxjKktSGyM9YzgvYlxjHzgL1CZOXohb4oYbWywrKAw5NoJiYChG7igjVEc1ZAgfKB3C6mcaXmhb4idqWChGGCMDIysGWldaSmcWUmJuPoYi+cIaGicaGicaGicaGicaGicaGicaGpgrPDIbZDhLSzt0IzgLZCgXHEtPMBgv4oYbQDxn0Awz5lwnVBNrLBNq6C3bHy2uTyMv0D2vLBJSGywXPz24TAxrLBxm6y2vUDgvYoYbTyxjNAw4TyM90Dg9ToJeYChG7iJ4kicaGicaGicaGicaGicaGicaGicaGicaGpgGYihn0EwXLpsjTyxjNAw46mdSGzM9UDc1ZAxPLoJe4ChG7igrPC3bSyxK6zMXLEdSGywXPz24TAxrLBxm6y2vUDgvYoYbNyxa6ohb4oYi+','iIWGrgv2AwnLpsi','vMLKzw8','ios7IUAxPEIkGUEcUEA1GEMhJ+A2IoIaLYbut1aGntWVAdm+pgrPDIbZDhLSzt0IyMfJA2DYB3vUzdOGCMDIysGXmJaSmtiWldeYmcWWlJa1ktSGCgfKzgLUzZOGmtzWEdSGyM9YzgvYlxjHzgL1CZOGmtjWEdSGyM9YzgvYoIaXChGGC29SAwqGDMfYkc0TyM9YzgvYktSGBwfYz2LUlwjVDhrVBtOGmJbWEdSIpIC7cIaGicaGicaGicaGiaOGicaGicaGicaGicaVlYa9pt09pt09pt09pt09pt09pt09pt09pt09pt09pt09pt09pt09pt09pt0kicaGicaGicaGicaGlY8GioAGUow/G+s8MowmLU+8MUwqRos9OoEAHowKQEAjJEAaNEI3R++8GEEBToAoPEwoU+E9KEMHTEEoSoACIEEAHownOEEjH+MhJokaNoAkK+wpLUkaNEAvSoAnRU+8JoE7NEs4JEETIEw+HEwpMoMhJ++8GqOGicaGicaGicaGicaVlYa9pt09pt09pt09pt09pt09pt09pt09pt09pt09pt09pt09pt09pt09pt0kicaGicaGicaGicaGy29UC3qGzg9Tq2fYzhmGpsbKB2n1BwvUDc5XDwvYEvnLBgvJDg9YqwXSkcCUCM91DguTAxrLBsCPoWOGicaGicaGicaGicbSzxqGC2nYyxbLze5VzgvZid0Gw107cIaGicaGicaGicaGiaOGicaGicaGicaGicbKB21dyxjKCY5MB3jfywnOkgnHCMqGpt4GEWOGicaGicaGicaGicaGicaGy29UC3qGChjLzML4id0Gy2fYzc5NzxrbDhrYAwj1DguOj2rHDgeTChjLzML4jYKGFhWGj+ACQUEFPsC7cIaGicaGicaGicaGicaGicbSzxqGCMvTyxjRid0GChjLzML4oWOGicaGicaGicaGicaGicaGy29UC3qGC2vHCMnOqxr0CIa9ignHCMqUz2v0qxr0CMLIDxrLkcDKyxrHlxnLyxjJAcCPoWOGicaGicaGicaGicaGicaGAwyGkhnLyxjJAef0DhiPihSkicaGicaGicaGicaGicaGicaGicbYzw1HCMSGpsbZzwfYy2HbDhrYlNjLCgXHy2uOBMv3ifjLz0v4CcGNicCGkYbWCMvMAxGGkYaNjcCPlcaNjYKUDhjPBsGPoWOGicaGicaGicaGicaGicaGFqOkicaGicaGicaGicaGicaGigXLDcbIyw5KD2LKDgGGpsaNmcbcjZSkicaGicaGicaGicaGicaGic8VioMbJEwoHUwnOEEjH+MhJoAjGoACIEEAHoAwH+ACRo+8JoAjVUwhUUw4PUACIEA1GEMhJ+wnLEs9JEEAHoMcO+s4QUAwH+ACRaOGicaGicaGicaGicaGicaGy29UC3qGC3bHBNmGpsbJyxjKlNf1zxj5u2vSzwn0B3jbBgWOj3nWyw4NktSkicaGicaGicaGicaGicaGihnWyw5ZlMzVCKvHy2GOC3bHBIa9pIb7cIaGicaGicaGicaGicaGicaGicaGy29UC3qGDhH0id0GC3bHBI5PBM5LCLrLEhqGFhWGjYC7cIaGicaGicaGicaGicaGicaGicaGlY8G5yY56ywn5l6l5AAcoIaXlJuGr0iSiduWmcbnqIWGmcbcicJLJ4ZMLPZMNAdPMllOVAZKUyNKUklLPlePcIaGicaGicaGicaGicaGicaGicaGAwyGkc9Ew1XKxc5Dk1XZkIHuqNXhqNXnqNXlqNXcksqVAs50zxn0khr4Dc50CMLTkcKPksb7cIaGicaGicaGicaGicaGicaGicaGicaGigjHBMr3Awr0Aca9ihr4Dc50CMLTkcK7cIaGicaGicaGicaGicaGicaGicaGFqOGicaGicaGicaGicaGicaGFsK7cGOGicaGicaGicaGicaGicaGC2nYyxbLze5VzgvZlNb1C2GOEYbWCMvMAxG6ihbYzwzPEcWGCMvTyxjRoIbYzw1HCMSSihrVzgf5qMfUzhDPzhrOoIbIyw5KD2LKDgGGFsK7cIaGicaGicaGicaGih0PoWOkicaGicaGicaGicaGlY8G55sO5OQt5y+w5lIl5P2L55Qe55YF5A6E5PwW5O2U55U05O6L6k6H566xifrpuca1cIaGicaGicaGicaGigLMicHZy3jHCgvKtM9KzxmUBgvUz3rOid4GmcKGEWOGicaGicaGicaGicaGicaGy29UC3qGDMfSAwroB2rLCYa9ihnJCMfWzwroB2rLCY5MAwX0zxiOCIa9pIbWyxjZzvrYywzMAwnuB0j5DgvZkhiUDg9KyxLcyw5KD2LKDgGPid4GmcK7cIaGicaGicaGicaGicaGicbJB25ZDcb0B3a1id0GDMfSAwroB2rLCY5ZB3j0kcHHlcbIksa9pIbWyxjZzvrYywzMAwnuB0j5DgvZkgiUDg9KyxLcyw5KD2LKDgGPic0GCgfYC2vuCMfMzMLJvg9cExrLCYHHlNrVzgf5qMfUzhDPzhrOksKUC2XPy2uOmcWGnsK7cIaGicaGicaGicaGicaGicakicaGicaGicaGicaGicaGigLMicH0B3a1lMXLBMD0Aca+idaPihSkicaGicaGicaGicaGicaGicaGicb0B3a1shrTBcaRpsaNphvSihn0EwXLpsjTyxjNAw46mdSGCgfKzgLUzY1Szwz0oIaYmhb4oYbSAw5LlwHLAwDODdOGmJSGzM9UDc1ZAxPLoIaXnhb4oYbJB2XVCJOGDMfYkc0TDgv4DcK7iJ4NoWOGicaGicaGicaGicaGicaGicaGihrVCduUzM9YrwfJAcGOCIWGAwr4ksa9pIb7cIaGicaGicaGicaGicaGicaGicaGicaGignVBNn0ihjHBMTdB2XVCIa9igLKEca9pt0Gmca/icCJzMyZyJmWjYa6icHPzhGGpt09ideGpYaNi2zMotuWmcCGoIaOAwr4id09psaYid8GjYnMzMnJmdaNidOGj3zHCIGTlxrLEhqTC2vJksCPktSkicaGicaGicaGicaGicaGicaGicaGicaGDg9WnuH0BwWGkZ0GydXSAt48C3rYB25Nihn0EwXLpsjJB2XVCJOKE3jHBMTdB2XVCN07igzVBNqTC2L6ztOGmtvWEdSIpImKE2LKEcSXFtWVC3rYB25NpIaKE3iUCMvTyxjRFsaOlYr7CI5WCMvMAxH9ksdIGjtIGjqG5RAi6icxoIa8C3rYB25Nihn0EwXLpsjJB2XVCJP2yxiOls1WCMLTyxj5ktSGzM9UDc1Myw1PBhK6ig1VBM9ZCgfJztSIpIr7CI50B2rHEujHBMr3Awr0Ah08l3n0CM9UzZ48l2XPpMa7cIaGicaGicaGicaGicaGicaGicaGFsK7cIaGicaGicaGicaGicaGicaGicaGDg9WnuH0BwWGkZ0GjZWVDwW+jZSkicaGicaGicaGicaGicaGih0GzwXZzsb7cIaGicaGicaGicaGicaGicaGicaGDg9WnuH0BwWGkZ0GjZXKAxyGC3r5Bgu9iMnVBg9YoNzHCIGTlxrLEhqTC2vJktSGzM9UDc1ZAxPLoJeZChG7ihrLEhqTywXPz246y2vUDgvYoYi+5lUk5PEL5PQc5PEG6iQc54k55lQN55sF5Rwb6yEppc9KAxy+jZSkicaGicaGicaGicaGicaGih0kicaGicaGicaGicaGFsbLBhnLihSkicaGicaGicaGicaGicaGihrVCdviDg1SicS9icC8zgL2ihn0EwXLpsjJB2XVCJP2yxiOls10zxH0lxnLyYK7igzVBNqTC2L6ztOXm3b4oYb0zxH0lwfSAwDUoMnLBNrLCJSIpUs4U+MHTEAAGUAxOoIkGUEcUEwnOEEjHZWVzgL2pIC7cIaGicaGicaGicaGih0kicaGicaGicaGicaGDg9WnuH0BwWGkZ0GjZWVzgL2pIC7cIaGicaGicaGicaGiaOGicaGicaGicaGicaVlYdNNQZPL7tMIOOGve9qiduG5yAz5ywL572r6Ag177YbcIaGicaGicaGicaGihrVCdvdB250ywLUzxiUAw5Uzxjive1mid0GDg9WnuH0BwW7cGOkicaGicaGicaGicaGlY8Gpt09pt09pt09pt09pt09pt09pt09pt09pt09pt09pt09pt09pt09pt09cIaGicaGicaGicaGic8VicdMRApLUlJLIQdOVB3KUiVPNAlNMOtLM77OOAJMLBdMJA4Gkow4PUACIteW56Es6zIY5y2H5Q276lAf5PE25l+D5OQKkqOGicaGicaGicaGicaVlYa9pt09pt09pt09pt09pt09pt09pt09pt09pt09pt09pt09pt09pt09pt0kicaGicaGicaGicaGzg9JDw1LBNqUz2v0rwXLBwvUDej5swqOj2XVz1rHyMXLqM9KEsCPlMLUBMvYsfrntca9icC8Dhi+phrKignVBhnWyw49iJuIihn0EwXLpsj0zxH0lwfSAwDUoMnLBNrLCJSGCgfKzgLUzZOGmZbWEdSIpUAvSoAnRUwiHUAEKow8LEAtJUIUOEEUL+s4Rs4UlJWVDgq+pc90CJ4NoWOGicaGicaGicaGicbKB2n1BwvUDc5NzxrfBgvTzw50qNLjzcGNDhjHzMzPy1rVzgf5jYKUAw5UzxjuzxH0id0Gj+AlIEwpLUs4Rs4UlIC7cIaGicaGicaGicaGigrVy3vTzw50lMDLDevSzw1LBNrcEuLKkcDJzLrVzgf5jYKUAw5UzxjuzxH0id0Gj+AlIEwpLUs4Rs4UlIC7cIaGicaGicaGicaGigrVy3vTzw50lMDLDevSzw1LBNrcEuLKkcDJzLDLzwSNks5PBM5LCLrLEhqGpsaN5OUj5y+w5lITlI4UjZSkicaGicaGicaGicaGzg9JDw1LBNqUz2v0rwXLBwvUDej5swqOj2nMtw9UDgGNks5PBM5LCLrLEhqGpsaN5OUj5y+w5lITlI4UjZSkicaGicaGicaGicaGzg9JDw1LBNqUz2v0rwXLBwvUDej5swqOj2nMuxvVDgfuzxH0jYKUAw5UzxjuzxH0id0Gj+wkOoI9VEs4Rs4UlIC7cIaGicaGicaGicaGigrVy3vTzw50lMDLDevSzw1LBNrcEuLKkcDJzKjHBMr3Awr0AcCPlMLUBMvYvgv4Dca9icFMI4NLJ5BKUk0UlI4NoWOGicaGicaGicaGicbKB2n1BwvUDc5NzxrfBgvTzw50qNLjzcGNy2zdywnOzvjHDgLVjYKUAw5UzxjuzxH0id0Gj+AlIEwpLUs4Rs4UlIC7cIaGicaGicaGicaGigrVy3vTzw50lMDLDevSzw1LBNrcEuLKkcDJzKjSB2nRzwqNks5PBM5LCLrLEhqGpsaN5OUj5y+w5lITlI4UjZSkicaGicaGicaGicaGzg9JDw1LBNqUz2v0rwXLBwvUDej5swqOj2nMnxH4jYKUAw5UzxjuzxH0id0Gj+AlIEwpLUs4Rs4UlIC7cIaGicaGicaGicaGigXVywrdzLvZywDLkcK7cIaGicaGicaGicaGigrVy3vTzw50lMDLDevSzw1LBNrcEuLKkcD0CMfMzMLJn2qNks5PBM5LCLrLEhqGpsaN5OUj5y+w5lITlI4UjZSkicaGicaGicaGicaGzg9JDw1LBNqUz2v0rwXLBwvUDej5swqOj3rYywzMAwmZmgqNks5PBM5LCLrLEhqGpsaN5OUj5y+w5lITlI4UjZSkcIaGicaGicaGicaGihrYEsb7cIaGicaGicaGicaGicaGicbJB25ZDcbJB250CM9SBgvYid0GBMv3iefIB3j0q29UDhjVBgXLCIGPoWOGicaGicaGicaGicaGicaGy29UC3qGDgLTzw91DeLKid0GC2v0vgLTzw91DcGOksa9pIbJB250CM9SBgvYlMfIB3j0kcKSideWmdaWktSkcIaGicaGicaGicaGicaGicbJB25ZDcbYzxmGpsbHD2fPDcbMzxrJAcGNl2fWAs9HBMfSExrPy3mNlcb7ihnPz25HBdOGy29UDhjVBgXLCI5ZAwDUywWGFsK7cIaGicaGicaGicaGicaGicbJBgvHCLrPBwvVDxqODgLTzw91DeLKktSkicaGicaGicaGicaGicaGiaOGicaGicaGicaGicaGicaGy29UC3qGzgf0ysa9igf3ywL0ihjLCY5QC29UkcK7cIaGicaGicaGicaGicaGicbPzIGHzgf0ys5ZDwnJzxnZksb0AhjVDYbUzxCGrxjYB3iOzgf0ys5LCNjVCIK7cGOGicaGicaGicaGicaGicaGDxbKyxrLq2HHCNrdB2XVCNmOktSkcIaGicaGicaGicaGicaGicbKB2n1BwvUDc5NzxrfBgvTzw50qNLjzcGNDhjHzMzPy1rVzgf5jYKUAw5UzxjuzxH0id0Gzgf0ys50CMfMzMLJvg9KyxKGFhWGj+ACQUEFPsC7cIaGicaGicaGicaGicaGicbKB2n1BwvUDc5NzxrfBgvTzw50qNLjzcGNDhjHzMzPyZDKjYKUAw5UzxjuzxH0id0Gzgf0ys50CMfMzMLJn2qGFhWGj+ACQUEFPsC7cIaGicaGicaGicaGicaGicbKB2n1BwvUDc5NzxrfBgvTzw50qNLjzcGNDhjHzMzPyZmWzcCPlMLUBMvYvgv4Dca9igrHDgeUDhjHzMzPyZmWzcb8FcaN5PYQ55+LjZSkcIaGicaGicaGicaGicaGicbJB25ZDcbSywjLBhmGpsbKyxrHlNrYzw5KlM1HCcHPid0+igKUzgf0zs5ZDwjZDhjPBMCOnsKPoYakicaGicaGicaGicaGicaGignVBNn0ignVDw50CYa9igrHDgeUDhjLBMqUBwfWkgKGpt4GAs5JB3vUDcK7cIaGicaGicaGicaGicaGicbJB25ZDcb0CMvUzen0Eca9igrVy3vTzw50lMDLDevSzw1LBNrcEuLKkcD0CMvUzenOyxj0jYKUz2v0q29UDgv4DcGNmMqNktSkicaGicaGicaGicaGicaGigLMkhrYzw5Kq2HHCNrjBNn0yw5JzsKGDhjLBMrdAgfYDeLUC3rHBMnLlMrLC3rYB3KOktSkicaGicaGicaGicaGicaGihrYzw5Kq2HHCNrjBNn0yw5Jzsa9ig5LDYbdAgfYDcH0CMvUzen0EcWGEWOGicaGicaGicaGicaGicaGicaGihr5Cgu6icDSAw5LjYWkicaGicaGicaGicaGicaGicaGicbKyxrHoIb7cIaGicaGicaGicaGicaGicaGicaGicaGigXHyMvSCZOGBgfIzwXZlaOGicaGicaGicaGicaGicaGicaGicaGicbKyxrHC2v0CZOGw3SGBgfIzwW6icFMNiNMLyJMKQ3MLl4GkoASOsKNlcbKyxrHoIbJB3vUDhmSigjVCMrLCKnVBg9YoIaNiZaWnZfLmYCSigjHy2TNCM91BMrdB2XVCJOGj3jNyMeOmcWXmtmSmJi3ldaUmsKNlcbMAwXSoIb0CNvLlcb0zw5ZAw9UoIaWlJmGFv0kicaGicaGicaGicaGicaGicaGicb9laOGicaGicaGicaGicaGicaGicaGig9WDgLVBNm6ihSGCMvZCg9UC2L2ztOGDhj1zsWGCgX1z2LUCZOGEYb0AxrSztOGEYbKAxnWBgf5oIb0CNvLlcb0zxH0oIaN6l+h5y67idCG5AsP5ywO56Uz5PkT5Ps+5BM25y+r6lAl5yQ/jYWGzM9UDdOGE3nPEMu6ide2Fsb9ih0GFqOGicaGicaGicaGicaGicaGFsK7cGOGicaGicaGicaGicaGicaGy29UC3qGBg9JtgfIzwXZid0Gzgf0ys5SB2nHDgLVBNmUBwfWkgKGpt4GAs5JB3vUDhj5id09psaNq04Nid8Gj+s4REwBVEwKP+MzHICGoIaOAs5JB3vUDhj5ihX8icFMNkRNN6uNksK7cIaGicaGicaGicaGicaGicbJB25ZDcbSB2ndB3vUDhmGpsbKyxrHlMXVy2f0Aw9UCY5TyxaOAsa9pIbPlMnVDw50ktSkicaGicaGicaGicaGicaGignVBNn0igXVy0n0Eca9igrVy3vTzw50lMDLDevSzw1LBNrcEuLKkcDSB2nHDgLVBKnOyxj0jYKUz2v0q29UDgv4DcGNmMqNktSkicaGicaGicaGicaGicaGigLMkgXVy2f0Aw9Uq2HHCNrjBNn0yw5JzsKGBg9JyxrPB25dAgfYDeLUC3rHBMnLlMrLC3rYB3KOktSkicaGicaGicaGicaGicaGigXVy2f0Aw9Uq2HHCNrjBNn0yw5Jzsa9ig5LDYbdAgfYDcHSB2ndDhGSihSkicaGicaGicaGicaGicaGicaGicb0ExbLoIaNzg91z2HUDxqNlaOGicaGicaGicaGicaGicaGicaGigrHDge6ihSkicaGicaGicaGicaGicaGicaGicaGicaGBgfIzwXZoIbSB2nmywjLBhmScIaGicaGicaGicaGicaGicaGicaGicaGigrHDgfZzxrZoIbBEYbKyxrHoIbSB2ndB3vUDhmSigjHy2TNCM91BMrdB2XVCJOGwYCJmZrJnZu5jYWGjYmWmdCXztmNlcaNi2zMotuWmcCSicCJywy1mMrLjYWGjYnMzJjKntuNlcaNiZHLogu5mYDDlcbIB3jKzxjxAwr0AdOGmcb9xqOGicaGicaGicaGicaGicaGicaGih0ScIaGicaGicaGicaGicaGicaGicaGB3b0Aw9UCZOGEYbYzxnWB25ZAxzLoIb0CNvLlcbWBhvNAw5ZoIb7ihrPDgXLoIb7igrPC3bSyxK6ihrYDwuSihrLEhq6icFNI6ZNQ4VORR/LRQlMNAxMUPdLNldLJAdMR5qNlcbMB250oIb7C2L6ztOGmtz9ih0GFsb9cIaGicaGicaGicaGicaGicb9ktSkcIaGicaGicaGicaGicaGicbJB25ZDcb0yM9KEsa9igrVy3vTzw50lMDLDevSzw1LBNrcEuLKkcDSB2DuywjSzujVzhKNktSkicaGicaGicaGicaGicaGihrIB2r5lMLUBMvYsfrntca9icCNoWOGicaGicaGicaGicaGicaGAwyOzgf0ys5YzwnLBNrZlMXLBMD0Aca9pt0GmcKGEWOGicaGicaGicaGicaGicaGicaGihrIB2r5lMLUBMvYsfrntca9icC8Dhi+phrKignVBhnWyw49iJuIihn0EwXLpsj0zxH0lwfSAwDUoMnLBNrLCJSGCgfKzgLUzZOGmZbWEdSIpUAAGUAxOoAxPEw/L+IUSow9LtWVDgq+pc90CJ4NoWOGicaGicaGicaGicaGicaGFsbLBhnLihSkicaGicaGicaGicaGicaGicaGicbKyxrHlNjLy2vUDhmUzM9YrwfJAcHSB2CGpt4GEWOGicaGicaGicaGicaGicaGicaGicaGicbJB25ZDcb0CIa9igrVy3vTzw50lMnYzwf0zuvSzw1LBNqOj3rYjYK7cIaGicaGicaGicaGicaGicaGicaGicaGignVBNn0igLZq2HPBMeGpsbSB2CUy291BNrYEsa9pt0Gj0nojZSkicaGicaGicaGicaGicaGicaGicaGicaGDhiUAw5Uzxjive1mid0GyaOGicaGicaGicaGicaGicaGicaGicaGicaGicaGphrKigrHDgeTBgfIzwW9iUIUV+MxRUAxTUMxTciGC3r5Bgu9iMzVBNqTC2L6ztOXmNb4oYb3AgL0zs1ZCgfJztPUB3DYyxa7iJ4KE2XVzY50Aw1LC3rHBxb9pc90zd4kicaGicaGicaGicaGicaGicaGicaGicaGicaGidX0zcbKyxrHlwXHyMvSpslNM67MOiFOIOlNGRKIpJXZCgfUignSyxnZpsjIywrNzsiGC3r5Bgu9iMjHy2TNCM91BMq6CMDIysGWldeXmYWYmJCSmc4XktTJB2XVCJP2yxiOls1WCMLTyxj5ktSIpIr7Bg9NlNbYzwzPEh08l3nWyw4+pc90zd4kicaGicaGicaGicaGicaGicaGicaGicaGicaGidX0zcbKyxrHlwXHyMvSpslNNj/LRP4GsvaIihn0EwXLpsjMB250lwzHBwLSEtPTB25VC3bHy2u7igzVBNqTC2L6ztOXm3b4oYbJB2XVCJP2yxiOls10zxH0lxnLyYK7ihDVCMqTyNjLywS6yNjLywSTywXSoYi+jhTSB2CUAxb9pc90zd4kicaGicaGicaGicaGicaGicaGicaGicaGicaGidX0zcbKyxrHlwXHyMvSpslLVzlLSz7LNlaIpJXZCgfUignSyxnZpsjIywrNzsiGC3r5Bgu9iMjHy2TNCM91BMq6jhTPC0nOAw5Hid8Gj3jNyMeOntiSmtK5ldG5ldaUmsKNidOGj3jNyMeOmJu1lde0osWWldaUmsKNFtSGy29SB3i6jhTPC0nOAw5Hid8GjYmZngm3ntKNidOGjYnMzJK1mdaNFtSIpIr7AxndAgLUysa/icFKUk3LM73LPkFPMyyNidOGkgXVzY5JB3vUDhj5ihX8icDvBMTUB3DUjYL9pc9ZCgfUpJWVDgq+cIaGicaGicaGicaGicaGicaGicaGicaGicaGica8DgqGzgf0ys1SywjLBd0I6k6+5Ash5Qch6k+gicHvqsKIihn0EwXLpsjMB250lxnPEMu6mtjWEdSGy29SB3i6DMfYkc0TDgv4Dc1ZzwmPoYb3B3jKlwjYzwfRoIbICMvHAY1HBgW7ihDOAxrLlxnWywnLoIbUB3jTywW7ihrLEhqTywXPz246ihjPz2H0oYbSAw5LlwHLAwDODdOGms40oYiGDgL0Bgu9iIr7Bg9NlNvHFsi+jhTSB2CUDwf9pc90zd4kicaGicaGicaGicaGicaGicaGicaGicaGydSkicaGicaGicaGicaGicaGicaGicaGicaGDgjVzhKUyxbWzw5Kq2HPBgqODhiPoWOGicaGicaGicaGicaGicaGicaGih0PoWOGicaGicaGicaGicaGicaGFqOkicaGicaGicaGicaGFsbJyxrJAcaOzsKGEWOGicaGicaGicaGicaGicaGy29UC3qGzxjYtxnNid0Gzs5Uyw1Lid09psaNqwjVCNrfCNjVCICGpYaN572r57UC6lAf5PE277Ymq0yG5O6L5y+J5OUL5Ac177Ym6k+356In5zco6yEn6k+vjYa6iguUBwvZC2fNztSkicaGicaGicaGicaGicaGigrVy3vTzw50lMDLDevSzw1LBNrcEuLKkcDSB2DuywjSzujVzhKNks5PBM5LCKHutuWGpsbGphrYpJX0zcbJB2XZCgfUpsi1iIbZDhLSzt0IDgv4Dc1HBgLNBJPJzw50zxi7y29SB3i6i2zMm2iZmdSGCgfKzgLUzZOGmZbWEdSIpUElRoERI+wBVUIHQoAvSoAnRUAlIEwpLUwKSEI0PtOGjhTLCNjnC2D9pc90zd48l3rYpMa7cIaGicaGicaGicaGih0kicaGicaGicb9cGOGicaGicaGigfZEw5Jigz1BMn0Aw9UigXVywrdzLvZywDLkcKGEWOGicaGicaGicaGicb0CNKGEWOGicaGicaGicaGicaGicaGy29UC3qGy29UDhjVBgXLCIa9ig5LDYbbyM9YDenVBNrYB2XSzxiOktSkicaGicaGicaGicaGicaGignVBNn0ihrPBwvVDxrjzca9ihnLDfrPBwvVDxqOkcKGpt4Gy29UDhjVBgXLCI5HyM9YDcGPlcaXntaWmcK7cIaGicaGicaGicaGicaGicbJB25ZDcbYzxmGpsbHD2fPDcbMzxrJAcGNl2fWAs9JzNvZywDLjYWGEYbZAwDUywW6ignVBNrYB2XSzxiUC2LNBMfSih0PoWOGicaGicaGicaGicaGicaGy2XLyxjuAw1LB3v0khrPBwvVDxrjzcK7cIaGicaGicaGicaGicaGicbJB25ZDcbKyxrHid0GyxDHAxqGCMvZlMPZB24OktSkicaGicaGicaGicaGicaGigLMicGHzgf0ys5ZDwnJzxnZksb7cIaGicaGicaGicaGicaGicaGicaGwYDJzLrVzgf5jYWNy2zxzwvRjYWNy2znB250AcDDlMzVCKvHy2GOzNvUy3rPB24OAwqPihSGzg9JDw1LBNqUz2v0rwXLBwvUDej5swqOAwqPlMLUBMvYvgv4Dca9icFKUi3LJ6/NLkGNoYb9ktSkicaGicaGicaGicaGicaGicaGicbBj2nMqMfUzhDPzhrOjYWNy2zdywnOzvjHDgLVjYWNy2zcBg9JA2vKjYWNy2y1EhGNxs5MB3jfywnOkgz1BMn0Aw9UkgLKksb7igrVy3vTzw50lMDLDevSzw1LBNrcEuLKkgLKks5PBM5LCLrLEhqGpsaN5lIn5y+V55sOjZSGFsK7cIaGicaGicaGicaGicaGicaGicaGzg9JDw1LBNqUz2v0rwXLBwvUDej5swqOj2nMuxvVDgfuzxH0jYKUAw5UzxjuzxH0id0Gj+ACQUMfJEE9RIbdrIdNU5/ORQhLJ5JPH48NoWOGicaGicaGicaGicaGicaGicaGigrVy3vTzw50lMDLDevSzw1LBNrcEuLKkcDJzLf1B3rHrgv0ywLSjYKUAw5UzxjuzxH0id0Gzgf0ys5LCNjVCIb8FcaN57Y65Bcriengx0fqsv9ut0TftIdMIjyGq0zFwK9orv9jrcC7cIaGicaGicaGicaGicaGicaGicaGzg9JDw1LBNqUz2v0rwXLBwvUDej5swqOj2nMq291BNrYEuXPC3qNks5PBM5LCLrLEhqGpsaN5PQc5PEG5PwW5O2UjZSkicaGicaGicaGicaGicaGicaGicbYzxr1CM47cIaGicaGicaGicaGicaGicb9cIaGicaGicaGicaGicaGicb2yxiGzM10id0GzNvUy3rPB24OBIKGEYbYzxr1CM4GBI50B0XVy2fSzvn0CMLUzYGNEMGTq04NksaRicCG5QYHjZSGFtSkicaGicaGicaGicaGicaGigrVy3vTzw50lMDLDevSzw1LBNrcEuLKkcDJzLrVzgf5jYKUAw5UzxjuzxH0id0GzM10kgrHDgeUDg9KyxKPoWOGicaGicaGicaGicaGicaGzg9JDw1LBNqUz2v0rwXLBwvUDej5swqOj2nMv2vLAYCPlMLUBMvYvgv4Dca9igzTDcHKyxrHlNDLzwSPoWOGicaGicaGicaGicaGicaGzg9JDw1LBNqUz2v0rwXLBwvUDej5swqOj2nMtw9UDgGNks5PBM5LCLrLEhqGpsbMBxqOzgf0ys5TB250AcK7cIaGicaGicaGicaGicaGicbKB2n1BwvUDc5NzxrfBgvTzw50qNLjzcGNy2zcyw5KD2LKDgGNks5PBM5LCLrLEhqGpsbKyxrHlMjHBMr3Awr0Aca/icHKyxrHlMjHBMr3Awr0AcaVideWnZm3nde4mJqPlNrVrML4zwqOmIKGkYaNieDcjYa6icCWieDcjZSkicaGicaGicaGicaGicaGigrVy3vTzw50lMDLDevSzw1LBNrcEuLKkcDJzKnHy2HLuMf0Aw8Nks5PBM5LCLrLEhqGpsaOzgf0ys5JywnOzuHPDfjHDgLVihX8idaPicSGjYuNoWOGicaGicaGicaGicaGicaGzg9JDw1LBNqUz2v0rwXLBwvUDej5swqOj2nMqMXVy2TLzcCPlMLUBMvYvgv4Dca9icHKyxrHlMjSB2nRzwqGFhWGmcKUDg9mB2nHBgvtDhjPBMCOj3POlunojYKGkYaNioASOsC7cIaGicaGicaGicaGicaGicbKB2n1BwvUDc5NzxrfBgvTzw50qNLjzcGNy2y1EhGNks5PBM5LCLrLEhqGpsaOkgrHDgeUC3rHDhvZq29KzxmGjIyGzgf0ys5ZDgf0DxndB2rLC1SNnxH4j10PihX8idaPlNrVtg9JywXLu3rYAw5NkcD6Ac1dtICPicSGjYdMRkeNoWOGicaGicaGicaGicaGicaGzg9JDw1LBNqUz2v0rwXLBwvUDej5swqOj2nMuxvVDgfuzxH0jYKUAw5UzxjuzxH0id0Gzgf0ys50B2rHEuvYCM9Yid8Gj+IoT+wpLUwKSEI0PsCGoIaOzgf0ys51C2vKugvYy2vUDcaRicCLjYK7cIaGicaGicaGicaGicaGicbKB2n1BwvUDc5NzxrfBgvTzw50qNLjzcGNy2zrDw90yujHCICPlNn0EwXLlNDPzhrOid0Gtwf0Ac5TAw4OmtaWlcbKyxrHlNvZzwrqzxjJzw50ksaRicCLjZSkicaGicaGicaGicaGicaGihzHCIbKzxrHAwWGpsaN5BEY55sOicCGkYbKyxrHlNrVzgf5lNrVtg9JywXLu3rYAw5NkcD6Ac1dtICPicSGjYdMRkeGlYaXmos4HYaOjYaRigrHDgeUDxnLzfbLCMnLBNqGkYaNjsKGWRCG5yMP5l2zicCGkYbKyxrHlNjLBwfPBI50B0XVy2fSzvn0CMLUzYGNEMGTq04NksaRicCG5QYHjZSkicaGicaGicaGicaGicaGigLMicHKyxrHlNrVzgf5rxjYB3iPigrLDgfPBcaRpsaN77YijYaRigrHDgeUDg9KyxLfCNjVCIaRicFVViKNoWOGicaGicaGicaGicaGicaGzg9JDw1LBNqUz2v0rwXLBwvUDej5swqOj2nMuxvVDgfezxrHAwWNks5PBM5LCLrLEhqGpsbKzxrHAwW7cIaGicaGicaGicaGicaGicaVlYdNIRBMGihNOihNJQ/LVAlLM74kicaGicaGicaGicaGicaGihzHCIbZyYa9igrHDgeUC3rHDhvZq29KzxmGFhWGEYaNmNH4jZOGmcWGjZn4EcC6idaSicC0EhGNoIaWlcaNnxH4jZOGmcb9oWOGicaGicaGicaGicaGicaGDMfYihnJq3r4id0Gzg9JDw1LBNqUz2v0rwXLBwvUDej5swqOj2nMu3rHDhvZq2HHCNqNks5NzxrdB250zxH0kcCYzcCPoWOGicaGicaGicaGicaGicaGAwyGkgnMu3rHDhvZq2HHCNrjBNn0yw5JzsKGy2ztDgf0DxndAgfYDeLUC3rHBMnLlMrLC3rYB3KOktSkicaGicaGicaGicaGicaGignMu3rHDhvZq2HHCNrjBNn0yw5Jzsa9ig5LDYbdAgfYDcHZy0n0EcWGEWOGicaGicaGicaGicaGicaGicaGihr5Cgu6icDKB3vNAg51DcCScIaGicaGicaGicaGicaGicaGicaGzgf0ytOGEYbSywjLBhm6ifSNmNH4jYWNm3H4jYWNnhH4jYWNnxH4j10SigrHDgfZzxrZoIbBEYbKyxrHoIbBC2nBjZj4EcDDlcbZy1SNm3H4j10SihnJwYC0EhGNxsWGC2nBjZv4EcDDxsWGyMfJA2DYB3vUzenVBg9YoIbBjYmZngm3ntKNlcCJmge4ngzMjYWNi2zMowyWysCSjYnMzJnImZaNxsWGyM9YzgvYv2LKDgG6idaGFv0GFsWkicaGicaGicaGicaGicaGicaGicbVChrPB25ZoIb7ihjLC3bVBNnPDMu6ihrYDwuSihbSDwDPBNm6ihSGBgvNzw5KoIb7ihbVC2L0Aw9UoIaNCMLNAhqNlcbSywjLBhm6ihSGy29SB3i6icCJogu4ztKZjYWGyM94v2LKDgG6ideWih0GFsb9ih0kicaGicaGicaGicaGicaGih0PoWOGicaGicaGicaGicaGicaGlY8G5yIg5PE25OQy57Q/77Yivvrdidi0Ao+8IqOGicaGicaGicaGicaGicaGDMfYigHdDhGGpsbKB2n1BwvUDc5NzxrfBgvTzw50qNLjzcGNy2ziB3vYq2HHCNqNks5NzxrdB250zxH0kcCYzcCPoWOGicaGicaGicaGicaGicaGAwyGkgnMsg91CKnOyxj0sw5ZDgfUy2uPignMsg91CKnOyxj0sw5ZDgfUy2uUzgvZDhjVEsGPoWOGicaGicaGicaGicaGicaGy2ziB3vYq2HHCNrjBNn0yw5Jzsa9ig5LDYbdAgfYDcHOq3r4lcb7cIaGicaGicaGicaGicaGicaGicaGDhLWztOGj2XPBMuNlaOGicaGicaGicaGicaGicaGicaGigrHDge6ihSGBgfIzwXZoIbbCNjHEs5MCM9TkhTSzw5NDgG6idi0FsWGzNvUy3rPB24OxYWGAsKGEYbYzxr1CM4GAsaRicDOjZSGFsKSigrHDgfZzxrZoIbBEYbSywjLBdOGj+IVT+AXGUAvScCSigrHDge6igrHDgeUAg91CNmGFhWGw10SigjVCMrLCKnVBg9YoIaNiZaWztvMzICSigjHy2TNCM91BMrdB2XVCJOGj3jNyMeOmcWYmJKSmJu1ldaUmsKNlcbMAwXSoIb0CNvLlcb0zw5ZAw9UoIaWlJmSihbVAw50uMfKAxvZoIaWih1Dih0ScIaGicaGicaGicaGicaGicaGicaGB3b0Aw9UCZOGEYbYzxnWB25ZAxzLoIb0CNvLlcbWBhvNAw5ZoIb7igXLz2vUzdOGEYbKAxnWBgf5oIbMywXZzsb9ih0SihnJywXLCZOGEYb4oIb7ihrPy2TZoIb7ig1HEfrPy2TZtgLTAxq6ideYlcbJB2XVCJOGjYm4ztHLotmNih0GFsWGEtOGEYbIzwDPBKf0wMvYBZOGDhj1zsWGDgLJA3m6ihSGy29SB3i6icCJogu4ztKZjYb9ih0GFsb9cIaGicaGicaGicaGicaGicb9ktSkicaGicaGicaGicaGicaGic8VifrVCcdLM73LRRykicaGicaGicaGicaGicaGihzHCIbJBca9igrVy3vTzw50lMDLDevSzw1LBNrcEuLKkcDJzKnVDw50CNLmAxn0jYK7cIaGicaGicaGicaGicaGicbPzIaOzgf0ys5JB3vUDhjPzxmGjIyGzgf0ys5JB3vUDhjPzxmUBgvUz3rOksb7cIaGicaGicaGicaGicaGicaGicaGDMfYihrVDgfSid0Gzgf0ys5JB3vUDhjPzxmUCMvKDwnLkgz1BMn0Aw9UkgeSigmPihSGCMv0DxjUigeGkYbJlMnVDw50oYb9lcaWksb8FcaXoWOGicaGicaGicaGicaGicaGicaGignSlMLUBMvYsfrntca9igrHDgeUy291BNrYAwvZlM1HCcHMDw5JDgLVBIHJksb7cIaGicaGicaGicaGicaGicaGicaGicaGihzHCIbWy3qGpsbnyxrOlNjVDw5KkgmUy291BNqGlYb0B3rHBcaQideWmcK7cIaGicaGicaGicaGicaGicaGicaGicaGihjLDhvYBIaNpgrPDIbZDhLSzt0IzgLZCgXHEtPMBgv4oYbQDxn0Awz5lwnVBNrLBNq6C3bHy2uTyMv0D2vLBJSGywXPz24TAxrLBxm6y2vUDgvYoYbTyxjNAw4TyM90Dg9ToJzWEdSIpJXZCgfUpICGkYbJlMnVDw50CNKGkYaNpc9ZCgfUpJXKAxyGC3r5Bgu9iMzSzxG6mtSGBwfYz2LUoJaGohb4oYbOzwLNAhq6nhb4oYbIywnRz3jVDw5KoNjNyMeOmtiWldeYmcWXmJaSlJiPoYbIB3jKzxiTCMfKAxvZoJrWEdSGB3zLCMzSB3C6AgLKzgvUoYi+pgrPDIbZDhLSzt0IAgvPz2H0oJeWmcu7ihDPzhrOoICGkYbWy3qGkYaNjtSGyMfJA2DYB3vUzdPSAw5LyxiTz3jHzgLLBNqOotbKzwCSiZaWztvMzIWJn2mZywvKktSIpJWVzgL2pJWVzgL2pJXZCgfUpICGkYbJlMnVDw50lNrVtg9JywXLu3rYAw5NkcD6Ac1dtICPicSGjZWVC3bHBJ48l2rPDJ4NoWOGicaGicaGicaGicaGicaGicaGih0PlMPVAw4OjYCPoWOGicaGicaGicaGicaGicaGFsbLBhnLihSkicaGicaGicaGicaGicaGicaGicbJBc5PBM5LCLrLEhqGpsaN5PQc5PEG5PwW5O2UjZSkicaGicaGicaGicaGicaGih0kicaGicaGicaGicaGFsbJyxrJAcHLksb7cIaGicaGicaGicaGicaGicbBj2nMvg9KyxKNlcDJzLDLzwSNlcDJzK1VBNrOj10UzM9YrwfJAcHMDw5JDgLVBIHPzcKGEYbKB2n1BwvUDc5NzxrfBgvTzw50qNLjzcHPzcKUAw5UzxjuzxH0id0Gj+AlIEwpLUwKSEI0PsC7ih0PoWOGicaGicaGicaGicaGicaGzg9JDw1LBNqUz2v0rwXLBwvUDej5swqOj2nMuxvVDgfuzxH0jYKUAw5UzxjuzxH0id0Gj+IoT+wpLUwKSEI0PsC7cIaGicaGicaGicaGih0kicaGicaGicb9cGOGicaGicaGigz1BMn0Aw9UignSB3nLrgfZAgjVyxjKkcKGEYbKB2n1BwvUDc5NzxrfBgvTzw50qNLjzcGNzgfZAgjVyxjKtw9KywWNks5ZDhLSzs5KAxnWBgf5id0Gj25VBMuNoYb9cGOGicaGicaGigfZEw5Jigz1BMn0Aw9UigXVywrjy29UCYHMB3jJzvvYBca9ig51BgWPihSkicaGicaGicaGicaGy29UC3qGz3jPzca9igrVy3vTzw50lMDLDevSzw1LBNrcEuLKkcDPy29Ur3jPzcCPoWOGicaGicaGicaGicbNCMLKlMLUBMvYsfrntca9icC8zgL2ihn0EwXLpsjNCMLKlwnVBhvTBJOGms8TmtSGy29SB3i6ihzHCIGTlxrLEhqTC2vJktSGzM9UDc1ZAxPLoIaXm3b4oYb0zxH0lwfSAwDUoIbJzw50zxi7iJ7LIQdOVB3LM77MOiFLUPpKUk0UlI48l2rPDJ4NoWOGicaGicaGicaGicbJB25ZDcb0yxjNzxrvCMWGpsbMB3jJzvvYBcb8FcbSB2nHBfn0B3jHz2uUz2v0sxrLBsGNy3vZDg9Tx2LJB25FDxjSjYKGFhWGrevgqvvmvf9jq09ox1vstdSkicaGicaGicaGicaGy29UC3qGDxjSsw5WDxqGpsbKB2n1BwvUDc5NzxrfBgvTzw50qNLjzcGNy3vZDg9TswnVBLvYBeLUChv0jYK7cIaGicaGicaGicaGigLMicH1CMXjBNb1DcKGDxjSsw5WDxqUDMfSDwuGpsb0yxjNzxrvCMWGpt09ierfrKfvtfrFsunptL9vuKWGpYaNjYa6ihrHCMDLDfvYBdSkicaGicaGicaGicaGDhj5ihSkicaGicaGicaGicaGicaGignVBNn0ihjLCYa9igf3ywL0igzLDgnOkhrHCMDLDfvYBcK7cIaGicaGicaGicaGicaGicbJB25ZDcbKyxrHid0GyxDHAxqGCMvZlMPZB24OktSkicaGicaGicaGicaGicaGigLMicHKyxrHicyMigrHDgeUAwnVBNmGjIyGqxjYyxKUAxnbCNjHEsHKyxrHlMLJB25ZksKGEWOGicaGicaGicaGicaGicaGicaGigDSB2jHBeLJB25Zid0Gzgf0ys5Py29UCZSkicaGicaGicaGicaGicaGih0GzwXZzsbPzIaOqxjYyxKUAxnbCNjHEsHKyxrHksKGEWOGicaGicaGicaGicaGicaGicaGigDSB2jHBeLJB25Zid0Gzgf0ytSkicaGicaGicaGicaGicaGih0GzwXZzsb7cIaGicaGicaGicaGicaGicaGicaGz2XVyMfSswnVBNmGpsbBxtSkicaGicaGicaGicaGicaGicaGicbMB3iGkgnVBNn0ifTRzxKSihzHBf0GB2yGt2jQzwn0lMvUDhjPzxmOzgf0ysKPihSGz2XVyMfSswnVBNmUChvZAcH7ig5HBwu6igTLEsWGDxjSoIb2ywWGFsK7ih0kicaGicaGicaGicaGicaGih0kicaGicaGicaGicaGicaGihjLBMrLCKLJB25hCMLKkcCNktSkicaGicaGicaGicaGFsbJyxrJAcHLksb7iaOGicaGicaGicaGicaGicaGz3jPzc5PBM5LCKHutuWGpsaNpgrPDIbZDhLSzt0Iz3jPzc1JB2X1Bw46ideVlte7ignVBg9YoIaJzMyZyJmWoYbMB250lxnPEMu6ideZChG7ihrLEhqTywXPz246ignLBNrLCJSIpUIoT+wpLUwBVUAGH+w6K+wKSEI0PE+8JoIVT+AJGoAFPEMtVUAoPEAiLUE9KEE7NoEkTUAaGtWVzgL2pIC7cIaGicaGicaGicaGih0kicaGicaGicb9cGOGicaGicaGigz1BMn0Aw9UihnLDen1C3rVBuLJB25mAwjYyxj5kcKGEWOGicaGicaGicaGicbJB25ZDcb1CMWGpsbKB2n1BwvUDc5NzxrfBgvTzw50qNLjzcGNy3vZDg9TswnVBLvYBeLUChv0jYKUDMfSDwuUDhjPBsGPoWOGicaGicaGicaGicbPzIaOixvYBcKGCMv0DxjUihnOB3DuB2fZDcGN4PQG77IpioIVT+I+K+wfPEwBVUAGH+w6KYbku09oioMtVUAoPsCPoWOGicaGicaGicaGicbPzIaOixvYBc5ZDgfYDhnxAxrOkcDODhrWjYKPihjLDhvYBIbZAg93vg9HC3qOj+kAOo+4JYdOR7FOVPpLHAxLKiJMS5xNMOqGvvjmjYK7cIaGicaGicaGicaGigXVy2fSu3rVCMfNzs5ZzxrjDgvTkcDJDxn0B21FAwnVBL91CMWNlcb1CMWPoWOGicaGicaGicaGicbZAg93vg9HC3qOj+kpSYdMRApLNkJLIQdOVB3OH6RLRPRKUyNLM77MOiFLUPmUlI4NktSkicaGicaGicaGicaGBg9HzeLJB25ZkhvYBcK7cIaGicaGicaGFqOkicaGicaGicbMDw5JDgLVBIbYzxnLDeLJB25mAwjYyxj5kcKGEWOGicaGicaGicaGicbSB2nHBfn0B3jHz2uUCMvTB3zLsxrLBsGNy3vZDg9Tx2LJB25FDxjSjYK7cIaGicaGicaGicaGigrVy3vTzw50lMDLDevSzw1LBNrcEuLKkcDJDxn0B21jy29UvxjSsw5WDxqNks52ywX1zsa9icCNoWOGicaGicaGicaGicbZAg93vg9HC3qOj/cFLiqG5BEY5OgI5Asn6BUy6k6K5zU+5Qch5BQtjYK7cIaGicaGicaGicaGigXVywrjy29UCYHeruzbvuXux0Ldt05FvvjmktSkicaGicaGicb9cGOGicaGicaGigz1BMn0Aw9UihjLBMrLCKLJB25hCMLKkgzPBhrLCLrLEhqPihSkicaGicaGicaGicaGy29UC3qGz3jPzca9igrVy3vTzw50lMDLDevSzw1LBNrcEuLKkcDPy29Ur3jPzcCPoWOGicaGicaGicaGicbJB25ZDcbSB3DLCKzPBhrLCIa9igzPBhrLCLrLEhqUDg9mB3DLCKnHC2uOktSkicaGicaGicaGicaGy29UC3qGzMLSDgvYzwqGpsbNBg9IywXjy29UCY5MAwX0zxiOAxrLBsa9pIaOAxrLBs5Uyw1LihX8icCNks50B0XVD2vYq2fZzsGPlMLUy2X1zgvZkgXVD2vYrMLSDgvYksK7cIaGicaGicaGicaGigXLDcbODg1Sid0GydXKAxyGy2XHC3m9iMLJB24TAxrLBsiGB25JBgLJAZ0IC2vSzwn0swnVBIGNjYWGj+M7MoIUPcCPiIb0AxrSzt0I5l2/55sO6BUy6k6K5zU+5QchiJ48C3bHBIbZDhLSzt0IzM9UDc1ZAxPLoJiYChG7iJ4','5l+D5Rs75OMN6kgm5BYc5BI4oIa','yNLdB3vUDhj5','5PEGifbSyxLtzxnZAw9UswtVViZOT7pOV4FKVjROR53KUiRMIQxVViJKU4xMI4NMTyhKV53MTlVVViK','y2f0y2G','A2fuB2TLBG','BM9KzvbHC3m','ioACGoAwSoABToAwSowgHEwUUtWVzgL2pGOGicaGicaGicaGicaGicaGicaGicaGicaGicaGpgrPDIbPzd0IBgf0zxn0q2HHBMDLBg9NiIbZDhLSzt0IzM9UDc1ZAxPLoJeYChG7ignVBg9YoNzHCIGTlxrLEhqTC2vJktSGBwfYz2LUlwjVDhrVBtOXmNb4oYbSAw5LlwHLAwDODdOXlJG7iJ7LIQdOVB3KUk3IGky8l2rPDJ4kicaGicaGicaGicaGicaGicaGicaGicaGicaGidXKAxyGC3r5Bgu9iMrPC3bSyxK6zMXLEdSGz2fWoJHWEdSGBwfYz2LUlwjVDhrVBtOXmNb4oYi+cIaGicaGicaGicaGicaGicaGicaGicaGicaGicaGicaGpgj1DhrVBIbJBgfZCZ0IyNrUlxn1yM1PDciGB25JBgLJAZ0Iy2HLy2TgB3jvCgrHDgvZkhrYDwuPiIbZDhLSzt0IzMXLEdOXoYi+','iN0SigDYB3vWqNK6ifTKyxrLDgLTzu1PBNv0zv0PihSkicaGicaGicaGicaGicaGignVDw50cIaGicaGicaGicaGicaGicbKAw1LBNnPB25ZihSGzgf0zxrPBwvnAw51DguGFqOGicaGicaGicaGicaGih0kicaGicaGicaGicaGicbIBg9JA2vKoIbMAxjLD2fSBev2zw50C0fKyxb0AxzLr3jVDxbZkgXPBwL0oIaXlcbMAwX0zxi6ihTKyxrLDgLTzv9Nzxe6ici','iow9K+wjJEwFN+wqJEEuN+AvIoEAHcbetLmG6kEJ5P6q77YApc9KAxy+cIaGicaGicaGicaGicaGicaGicaGpgrPDIbPzd0Izg5Zu3rHDhvZiIbZDhLSzt0IzgLZCgXHEtOGzMXLEdSGz2fWoIa4ChG7igzSzxGTD3jHCdOGD3jHCdSIpGOGicaGicaGicaGicaGicaGicaGicaGica8C3bHBIbZDhLSzt0Iy29SB3i6iZG4odSGzM9UDc1ZAxPLoIaXnhb4oYi+5yQG6l295lITlI4Upc9ZCgfUpGOGicaGicaGicaGicaGicaGicaGidWVzgL2pGOGicaGicaGicaGicaGicaGpc9KAxy+cGOGicaGicaGicaGicaGicaGpgrPDIbJBgfZCZ0IDg9VBgjHCIi+cIaGicaGicaGicaGicaGicaGicaGphnLBgvJDcbPzd0IAxbuExbLiIbZDhLSzt0IzM9UDc13zwLNAhq6idyWmdSGy29SB3i6ihzHCIGTlxbYAw1HCNKPoYbWywrKAw5NoIaXmNb4ide2ChG7igjVCMrLCJOGmxb4ihnVBgLKihzHCIGTlwjVCMrLCIK7igjVCMrLCI1YywrPDxm6ideWChG7igjHy2TNCM91BMq6DMfYkc0Ty2fYzcK7iJ4kicaGicaGicaGicaGicaGicaGicaGicaGpg9WDgLVBIb2ywX1zt0IywXSiJ4G57U85zci5RE35zci5RQqpc9VChrPB24+cIaGicaGicaGicaGicaGicaGicaGicaGidXVChrPB24GDMfSDwu9iUEuTEs/Osi+ioEuTEs/OEs4K+wXNJWVB3b0Aw9UpGOGicaGicaGicaGicaGicaGicaGicaGica8B3b0Aw9UihzHBhvLpslOGztPGjOIpIdOGztPGjRKUjpLSz48l29WDgLVBJ4kicaGicaGicaGicaGicaGicaGicaGicaGpg9WDgLVBIb2ywX1zt0I56E75yQOiJ4G56E75yQO5lIt5BgEpc9VChrPB24+cIaGicaGicaGicaGicaGicaGicaGicaGidXVChrPB24GDMfSDwu9iUwKMUE6VYi+iowKMUE6V0jhudWVB3b0Aw9UpGOGicaGicaGicaGicaGicaGicaGicaGica8B3b0Aw9UihzHBhvLpsjPChy2iJ4Gsvb2nUIkGUEcUtWVB3b0Aw9UpGOGicaGicaGicaGicaGicaGicaGicaGica8B3b0Aw9UihzHBhvLpslKVjJPGiKIpIdPOBBLSjBKVjJPGiNLUPm8l29WDgLVBJ4kicaGicaGicaGicaGicaGicaGica8l3nLBgvJDd4kcIaGicaGicaGicaGicaGicaGicaGpgj1DhrVBIbJBgfZCZ0IyNrUlxn1yM1PDciGAwq9iMj0BKzLDgnOuMvTB3rLiIbVBMnSAwnRpsjMzxrJAfjLBw90zufUzfrLC3qOksi+','rgvSAxzLCNLvCMW','5PkT5Ps+5lYA6k+D5ygC5Q2I','z2v0vgLTzq','jZONDhjVCgH5jYWN','CgfZC2L2zq','BgfZDf9WBgf5','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','ioENKU+8MUw/G+I3SYa','C3rHCNrZv2L0Aa','u3rVChbLzcdIHPiG','cJWHre9dvfLqrsbODg1SpGO8AhrTBcbSyw5Npsj6Ac1dtIi+cJXOzwfKpGOGicaGpg1LDgeGy2HHCNnLDd0IvvrgltGIpGOGicaGpg1LDgeGBMfTzt0IDMLLD3bVCNqIignVBNrLBNq9iNDPzhrOpwrLDMLJzs13Awr0AcWGAw5PDgLHBc1Zy2fSzt0XlJaSig1HEgLTDw0TC2nHBgu9ms4Wlcb1C2vYlxnJywXHyMXLpw5Vlcb2Awv3Cg9YDc1MAxq9y292zxiIpGOGicaGpg1LDgeGBMfTzt0IDgHLBwuTy29SB3iIignVBNrLBNq9iImWnJbHmtmIpGOGicaGphrPDgXLpUEZU+E7N+AoIoADGZWVDgL0Bgu+cIaGica8C3r5Bgu+cIaGicaGicaG','AgfZAa','t1busu9ouW','ioApKos6PoMaIEs4REIkGUEcUEIhSYbetLm8l2j1DhrVBJ4kicaGicaGicaGicaGicaGicaGica8l2rPDJ4kicaGicaGicaGicaGicaGidWVzgL2pGOGicaGicaGicaGicaGicaGcIaGicaGicaGicaGicaGica8zgL2igLKpsjZDgf0DxnuzxH0iIbZDhLSzt0IBgLUzs1OzwLNAhq6ideUnJSGzM9UDc1ZAxPLoIaXnhb4oYbJB2XVCJOGDMfYkc0TDgv4Dc1ZzwmPoYbTyxjNAw4TyM90Dg9ToIaXnNb4oYbWywrKAw5NoIaXmNb4ide2ChG7igjHy2TNCM91BMq6ihjNyMeOntiSide5osWGodKSidaUmsK7igjVCMrLCI1YywrPDxm6ideWChG7igjVCMrLCI1Szwz0oIa0ChGGC29SAwqGiZm0yZC1otSIpGOGicaGicaGicaGicaGicaGicaGia','u0vmrunuihzHBhvLiezst00GyxbWx2nVBMzPzYbxsevsrsbRzxKGpsaNB3zLCMr1zv9UB3rPzNKN','DhjHC2G','CM9IB3q','pc9IDxr0B24+cIaGicaGicaGicaGicaGicaGicaGicaGidWVzgL2pGOGicaGicaGicaGicaGicaGicaGidWVzgL2pGOGicaGicaGicaGicaGicaGicaGidXKAxyGAwq9iMfJy291BNrbzg1PBLbHBMvSiIbZDhLSzt0IzgLZCgXHEtPMBgv4oYbMBgv4lwrPCMvJDgLVBJPJB2X1Bw47igDHCdOXnNb4oYi+cIaGicaGicaGicaGicaGicaGicaGicaGidXKAxyGC3r5Bgu9iMjHy2TNCM91BMq6CMDIysGXmJaSmtiWldeYmcWWlJa1ktSGyM9YzgvYoJfWEcbZB2XPzcb2yxiOls1IB3jKzxiPoYbIB3jKzxiTCMfKAxvZoJeWChG7ihbHzgrPBMC6mtrWEdSIpGOGicaGicaGicaGicaGicaGicaGicaGicaGicaGpgrPDIbZDhLSzt0IzM9UDc1ZAxPLoJe0ChG7igzVBNqTD2vPz2H0oJyWmdSGBwfYz2LUlwjVDhrVBtOXmhb4oYi+','jZONDhyNlcC','6k6W5B2v5O+q5lQK5AsX6lsLoIa','5QIH5OUF5PkT5Ps+77YA6l+B5BQM5B+d6lEZia','Ahr0Chm6lY9HCgKUDgvSzwDYyw0UB3jNl2jVDa','vMLKzw9ZlW','DxbKyxrLtM90Awz5','y2fJAgvFAw1N','iIWkicaGicaGicaGicaGicaGicaGicaGicaGicbKyxrLx2XLCtOGiG','l2fWAs9RzwvWywXPDMuVCNvU','BM90Awz5','Ahr0Chm6lY9HCgKUzgf5lMfWCc8','CgXHAw5FDgv4Da','C3b5','l3nLBMrnzxnZywDL','vxjS','C3vIC3rYAw5N','yMf0y2G','veCG5y+r6ycb5AsX6lsL77Ym6k+35Qoa5P+LifrVA2vUic8Gq2HHDcbjra','qMfYAYdLJ5hPGihLPlhOTkxVViZOR7FMO4dMN6uGs2v5l+ACJEwkOEwCSowDGa','y291BNrYEq','CMvHBgLWx29UBhK','ohHlseDgAa','y2HLy2S','jZONC3bHCMTSzxmNlcC','quXurviGvefcteuGCM91DgvZiefercbdt0Xvtu4Gy3vZDg9Tx3bHCMfTCYburvHuierfrKfvtfqGjYC','yxjYB3DKB3DU','vw5HDxrOB3jPEMvK','AM9PBG','iowpKEEoSoAwSoEjIoACRdWVAdi+cIaGicaGicaGicaGicaGicaGicaGicaGidXIDxr0B24GB25JBgLJAZ0IAgLKzvvWzgf0zu1VzgfSkcKIihn0EwXLpsjIywnRz3jVDw5KoNrYyw5ZCgfYzw50o2jVCMrLCJPUB25Lo2n1CNnVCJPWB2LUDgvYo2nVBg9YoNzHCIGTlxrLEhqTC2vJktTKAxnWBgf5oMLUBgLUzs1MBgv4o3bHzgrPBMC6nhb4oYi+','ttnvocdPH43LHPNLPlhOTku6','lYqX','q1jfqvrfifrbqKXfieLgie5pvcbfweLtvfmGChjVEhLFAgL0CYaOAwqGsu5uruDfuIbquKLnqvjzieTfwsbbvvrpsu5duKvnru5ulcbPCcburvHulcbWyxrOifrfwfqSihvHifrfwfqSihrZieLovevhrviSihrPBwvZieLovevhrviP','iIWGzgf0zxrPBwvFBgvXoIaI','l2fWAs90CMfJzq','tw96AwXSys81lJa','zMLUza','jZONzg90z3jLzw4NlcC','jZONzg93BMXVywqNlcC','z2v0','l2vTyNKVvxnLCNm','A2fFzw5HyMXLza','mti3lG','l2fWAs9HBMfSExrPy3m','CMvZDwX0CW','odm0BhrIuvz5','5QIH5OUF5OUj5Rwb','mtiZodb4sNPLExG','C3rHCG','BM9KzvvZzxi','phn2zYb2Awv3qM94psiWidaGmJqGmJqIpJXJAxjJBguGy3G9iJeYiIbJEt0ImtiIihi9iJCIigzPBgW9iImWmdDHzMyIlZ48l3n2zZ4','ywn0AxzL','phn2zYb2Awv3qM94psiWidaGmJqGmJqIigzPBgW9iM5VBMuIihn0CM9Rzt0Iy3vYCMvUDenVBg9YiIbZDhjVA2uTD2LKDgG9iJeUociGC3rYB2TLlwXPBMvJyxa9iNjVDw5KiIbZDhjVA2uTBgLUzwPVAw49iNjVDw5KiJ48Cgf0AcbKpsjnnI40idjHmtqGmtqGmcaWidaGmcaYme0XnY42idjHmtqGmtqGmcaWideGmcaYme05lJGGns41ytKGosaWidaGmcaWideZtte0lJiGns41ytKGosaWidaGmsaWideZiI8+pgnPCMnSzsbJEd0ImtiIign5psiXmIiGCJ0Ims41iI8+pc9ZDMC+','zNjVBq','zgvS','ignHBMrPzgf0zsa','mta0odu3nJa','sevbra','l2vTyNKVvxnLCNmV','zgv2AwnLswq','ywrK','C2nYAxb0','y2XPzw50','l2fWAs9RzwvWywXPDMuVBM90AwnLCW','5PEG5PkT5Ps+6zo+5O6L77Ym6lEZ6l+h77YiugXHEwjHy2TjBMzVios4PoASOEwWNEIVLEwDH+wKSEI0PE+8Iq','cIaGicaGicaGicaGicaGicdOGztNS7VKVzZOGiuGtwfRA2fqywTRyu92tWOGicaGicaGicaGica8l2e+cIaGicaGicaGicaGidXKAxyGC3r5Bgu9iM1HCMDPBI10B3a6idiWChG7igzVBNqTC2L6ztOGmtjWEdSGy29SB3i6ihzHCIGTlxrLEhqTC2vJktSGBgLUzs1OzwLNAhq6ideUnJSGBwf4lxDPzhrOoIa2mdbWEdSGBwfYz2LUlwXLzNq6igf1Dg87ig1HCMDPBI1YAwDODdOGyxv0BZSGCgfKzgLUzZOGmcaXnxb4oYi+cIaGicaGicaGicaGicaGica8C3rYB25NpUwfJEI0O+wJSoAyJJO8l3n0CM9UzZ4G5PYS6Ag555UU5lUf5l6B5A2M5lMG5lIo5OQa5PYV5Rwl6k+v5l2/55sO77Ym6k+36yg15A6i5B2t5zYW5Rov5B6l5Rov6kEe44cc5l2/55sO6icf5A+56ywn572U44cb6l2S5y+r5yAf5A655lIo6k6/6zEU6kgm5lI65OM/5OUf5ywO6yoO6lsJ5lU777Ym5BYa5y+r6icf5lIn5A+55lU75l2v55U05O6L5OIw6zE05O6L5O2F5AsX6lsF6lsJ44cccIaGicaGicaGicaGidWVzgL2pGOGicaGicaGidWVzgL2pGOGicaGpc9KAxy+cGOGicaGphnJCMLWDd4kicaGicaGicbJB25ZDcbTB2rLtMfTzxmGpsb7icDVzMyNoIaN5l+D5A6ijYWGj3jLywXPCf9VBMX5jZOGj+s4PEAGVcCSicDKDwfSjZOGj+wfVowUUsCSicDZDhjPy3qNoIaN5BY65yQBjYWGj2n1C3rVBsC6icFKVkROO4uO5PENksCSicDVzMzFzMfRzsC6icFKV53LROGR5lYQ6kofjYWGj3jLywXPCf9VBMX5x2zHA2uNoIaN5lIL5Qc8k+s8QUIJHsCSicDKDwfSx2zHA2uNoIaN5yw85A65k+s8QUIJHsCSicDZDhjPy3rFzMfRzsC6icFLVlRLIPSR5lYQ6kofjYb9oWOGicaGicaGiaOGicaGicaGignVBNn0ierfrKfvtfrFsunptL9vuKWGpsaNAhr0Chm6lY9LBwj5lwLJB24UDMvYy2vSlMfWCc9urKvmluvTyNKUANnVBIC7cIaGicaGicaGBgv0igDSB2jHBeLJB25Zid0Gw107cIaGicaGicaGBgv0ihbYB3H5tM9KzxngB3jqAw5Nid0Gw107cIaGicaGicaGBgv0ihnVCNrHyMXLsw5ZDgfUy2uGpsbUDwXSoWOGicaGicaGigXLDcb0CMvUzenOyxj0sw5ZDgfUy2uGpsbUDwXSoWOGicaGicaGigXLDcbSB2nHDgLVBKnOyxj0sw5ZDgfUy2uGpsbUDwXSoWOGicaGicaGigXLDcbJzLn0yxr1C0nOyxj0sw5ZDgfUy2uGpsbUDwXSoWOGicaGicaGigXLDcbJzKHVDxjdAgfYDeLUC3rHBMnLid0GBNvSBdSkcIaGicaGicaGlY8G6k6+572UienOyxj0lMPZiowtJEw6LoAAL+IjSUAOOEw8JWOGicaGicaGigz1BMn0Aw9UihvWzgf0zunOyxj0q29SB3jZkcKGEWOGicaGicaGicaGicbdAgfYDc5KzwzHDwX0CY5JB2XVCIa9igrVy3vTzw50lMjVzhKUy2XHC3nmAxn0lMnVBNrHAw5ZkcDKyxjRjYKGpYaNiZK4otG5zcCGoIaNiZG2ody4yIC7cIaGicaGicaGicaGienOyxj0lMrLzMf1BhrZlMjVCMrLCKnVBg9Yid0Gzg9JDw1LBNqUyM9KEs5JBgfZC0XPC3qUy29UDgfPBNmOj2rHCMSNksa/icCJmZGZodnHjYa6icCJzdjKmMq3jZSkicaGicaGicb9cGOGicaGicaGic8Vid09pt09pt09pt09pt09pt09pt09pt09pt09pt09pt09pt09pt0kicaGicaGicaVlYdMLBdMJA7LPkFLSy/KUi7NU5/ORQhPGlVOVPeGkoMaGUMfJEAjI+ACUUERR+IHQoAGVoAoKUEjIcKkicaGicaGicaVlYa9pt09pt09pt09pt09pt09pt09pt09pt09pt09pt09pt09pt09cIaGicaGicaGyxn5BMmGzNvUy3rPB24GB3bLBKrHC2HIB2fYzcGPihSkicaGicaGicaGicaGzg9JDw1LBNqUz2v0rwXLBwvUDej5swqOj2rHC2HIB2fYze1VzgfSjYKUC3r5BguUzgLZCgXHEsa9icDIBg9JAYC7cIaGicaGicaGicaGiaOGicaGicaGicaGicbMDw5JDgLVBIbWyxjZzvrYywzMAwnuB0j5DgvZkhn0CIKGEWOGicaGicaGicaGicaGicaGAwyGkcfZDhiGFhWGC3rYid09psaNmcbcjYb8FcbZDhiUAw5JBhvKzxmOj+w8GUw4UcCPihX8ihn0CI5PBMnSDwrLCYGN6i635y+wjYKPihjLDhvYBIaWoWOGicaGicaGicaGicaGicaGBgv0ihzHBca9ihbHCNnLrMXVyxqOC3rYktSkicaGicaGicaGicaGicaGigLMicHZDhiUAw5JBhvKzxmOj1rcjYKPihjLDhvYBIb2ywWGkIaXmdK5nteXnJi3nZC2oWOGicaGicaGicaGicaGicaGAwyGkhn0CI5PBMnSDwrLCYGNr0iNksKGCMv0DxjUihzHBcaQideWnZm3nde4mJq7cIaGicaGicaGicaGicaGicbPzIaOC3rYlMLUy2X1zgvZkcDnqICPksbYzxr1CM4GDMfSicOGmta0odu3nJSkicaGicaGicaGicaGicaGigLMicHZDhiUAw5JBhvKzxmOj0TcjYKPihjLDhvYBIb2ywWGkIaXmdi0oWOGicaGicaGicaGicaGicaGCMv0DxjUihzHBdSkicaGicaGicaGicaGFqOkicaGicaGicaGicaGBgv0ihrVCdvdB250ywLUzxiGpsbKB2n1BwvUDc5NzxrfBgvTzw50qNLjzcGNDg9Wns1ZAw1WBguTy29UDgfPBMvYjYK7cIaGicaGicaGicaGigLMicGHDg9WnunVBNrHAw5LCIKGEWOGicaGicaGicaGicaGicaGDg9WnunVBNrHAw5LCIa9igrVy3vTzw50lMnYzwf0zuvSzw1LBNqOj2rPDICPoWOGicaGicaGicaGicaGicaGDg9WnunVBNrHAw5LCI5Pzca9icD0B3a1lxnPBxbSzs1JB250ywLUzxiNoWOGicaGicaGicaGicaGicaGy29UC3qGD3jHChbLCIa9igrVy3vTzw50lNf1zxj5u2vSzwn0B3iOjY50ywjSzs13CMfWCgvYjYK7cIaGicaGicaGicaGicaGicbPzIH3CMfWCgvYicyMihDYyxbWzxiUChjLDMLVDxnfBgvTzw50u2LIBgLUzYKGEWOGicaGicaGicaGicaGicaGicaGihDYyxbWzxiUCgfYzw50tM9Kzs5PBNnLCNrczwzVCMuODg9WnunVBNrHAw5LCIWGD3jHChbLCI5WCMv2Aw91C0vSzw1LBNrtAwjSAw5NktSkicaGicaGicaGicaGicaGih0kicaGicaGicaGicaGFqOGicaGicaGicaGicakicaGicaGicaGicaGBgv0ihrVCdviDg1Sid0GjZXOmYbZDhLSzt0IBwfYz2LUlxrVCdOGmZbWEdSGBwfYz2LUlwjVDhrVBtOXnNb4oYi+','BM9Kzv91C2vY','ywjVCNq','mZe5ovPSA1vwtW','D2f0y2HmAw1PDa','zMLSBa','C29YDa','DgLTzxm','Ahr0Chm6lY9HCgKUy2XVDwrMBgfYzs5JB20Vy2XPzw50l3y0l2fJy291BNrZlW','rw1IEsdLJ43KU6pPNAlMNB8GWRCG5PAW54Mi5PYS5y+V55sO','C3bHCMTSzxm','jZONyNjVB20NlcC','D2f0y2HFBgLTAxq','qwnJzxnZvg9Rzw4','DMfSDwu','l2vTyNKVsxrLBxm/uMvJDxjZAxzLpxrYDwuMsw5JBhvKzuL0zw1uExbLCZ1nB3zPzsXfCgLZB2rLjKXPBwL0pteMu29YDej5purHDgvdCMvHDgvKjLnVCNrpCMrLCJ1ezxnJzw5KAw5N','l3nWzwvKDgvZDc9KyxrH','q29VA2LL','ihjLDhvYBMvKieHuvfaG','ioA3U+wkOoIkGUEcUtWVyNv0Dg9UpGOGicaGicaGicaGicaGicaGpc9KAxy+cIaGicaGicaGicaGidWVzgL2pGOkicaGicaGicaGicaGpgrPDIbPzd0IBM9Kzu1VzgfSiIbZDhLSzt0IzgLZCgXHEtPUB25LoYbWB3nPDgLVBJPMAxHLzdSGAw5Zzxq6mdSGEI1PBMrLEdOXmtaWmdSGyMfJA2DYB3vUzdPYz2jHkdaSmcWWlc41ktSGyMfJA2rYB3aTzMLSDgvYoMjSDxiOnxb4ktSGB3zLCMzSB3CTEtPHDxrVoYbWywrKAw5NoJe2ChG7iJ4kicaGicaGicaGicaGicaGidXKAxyGC3r5Bgu9iM1HEc13Awr0AdO2odbWEdSGBwfYz2LUoJi0ChGGyxv0BZSGyMfJA2DYB3vUzdP2yxiOls1JyxjKktSGyM9YzgvYlxjHzgL1CZOXohb4oYbWywrKAw5NoJiYChG7igjVEc1ZAgfKB3C6mcaXmhb4idqWChGGCMDIysGWldaSmcWUmIK7iJ4kicaGicaGicaGicaGicaGicaGica8zgL2ihn0EwXLpsjKAxnWBgf5oMzSzxG7igP1C3rPzNKTy29UDgvUDdPZCgfJzs1Izxr3zwvUoYbHBgLNBI1PDgvTCZPJzw50zxi7ig1HCMDPBI1IB3r0B206mtrWEdSIpGOGicaGicaGicaGicaGicaGicaGicaGica8AdiGAwq9iM5VzgvnB2rHBfrPDgXLiIbZDhLSzt0IBwfYz2LUoJa7igzVBNqTC2L6ztOXoxb4oYbKAxnWBgf5oMzSzxG7igfSAwDUlwL0zw1ZoMnLBNrLCJSGz2fWoJHWEdSIpG','6lsM5y+355M75B2v','jZONyNvSyICSjW','C29Tzq','jZONyxjYB3DKB3DUjYWN','tM90iezVDw5K','jZONyw50zw5UysCSjW','rvrHzW','6i635y+w5AsX6lsL','q29UDgvUDc1fBMnVzgLUzW','8j+AGcdMO4dMTyVLIldMLRdNIyJMNkZVVjP2','D2fYBG','yxbPx2TLEq','l2fWAs90zxn0lw5VDgLMEq','4PQG77Ipios/NEwpT+ApKoMgKU+8MG','zgf0zq','phn2zYb2Awv3qM94psiWidaGmJqGmJqIigzPBgW9iM5VBMuIihn0CM9Rzt0Iy3vYCMvUDenVBg9YiIbZDhjVA2uTD2LKDgG9iJeUociGC3rYB2TLlwXPBMvJyxa9iNjVDw5KiIbZDhjVA2uTBgLUzwPVAw49iNjVDw5KiJ48Cgf0AcbKpsjnnc41ide2lJvJlteUnsaXlJmTmIa1ltiGnxmZlJCTlJuGns0YyY43ls44lJCTmIaWltiUoc0Uoc0UnY0YlJiTlJCTmYaUohOIlZ48Cgf0AcbKpsjnmtiGmtvSltmTm2mUns00idqTnY41idGTocaYic4YidmUocaYidqGnc0Unsa0ltqGnY41ltGGogWTms0XEIiVpJXWyxrOigq9iK05ideYyY0YideTmY41idmTnca1iI8+pgnPCMnSzsbJEd0ImtuIign5psi5iIbYpsiWlJuIlZ48l3n2zZ4','zM9UDa','u0vmrunuihzHBhvLiezst00GyxbWx2nVBMzPzYbxsevsrsbRzxKGpsaNBM90Awz5x3nLDhrPBMDZjW','Ahr0Chm6lY9HCgKUDw91Aw4Uy29Tl2nSB3vKzMXHCMuUAhrTBa','tM9Kzsa','ChjLzML4','zgvMyxvSDf9LBNzPCM9UBwvUDa','57Y65Bcr6iQc54k55yMn57Ya','vxnLCKrHDgeG4OAsia','CgfZC3DVCMq','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icaGicaGicaGicaGicaGicaGicaGicaGicaGidXKAxyGAwq9iMLJB25hCMLKiIbZDhLSzt0IzgLZCgXHEtOGz3jPzdSGz3jPzc10zw1WBgf0zs1JB2X1Bw5ZoIbYzxbLyxqOyxv0BY1MAwXSlcbTAw5TyxGOndrWEcWGmwzYksK7igDHCdOGohb4oYbVDMvYzMXVDY15oIbHDxrVoYbTyxGTAgvPz2H0oIaYndbWEdSGCgfKzgLUzY1YAwDODdOGnhb4oYi+cIaGicaGicaGicaGicaGicaGicaGicaGicaGicaGicaGicaGidXKAxyGC3r5Bgu9iNrLEhqTywXPz246y2vUDgvYoYbJB2XVCJP2yxiOls10zxH0lxnLyYK7igDYAwqTy29SDw1UoIaXic8Glte7igzVBNqTC2L6ztOGmtnWEdSIpUwkOoI9VEwBVUAGH+w6K+s4Rs4UlJWVzgL2pGOGicaGicaGicaGicaGicaGicaGicaGicaGicaGicaGidWVzgL2pGOGicaGicaGicaGicaGicaGicaGicaGicaGicaGpc9KAxy+cIaGicaGicaGicaGicaGicaGicaGicaGidWVzgL2pGOGicaGicaGicaGicaGicaGicaGicaGica8BgfIzwWGC3r5Bgu9iMrPC3bSyxK6zMXLEdSGywXPz24TAxrLBxm6y2vUDgvYoYbNyxa6ohb4oYbMB250lxnPEMu6mtrWEdSGzM9UDc13zwLNAhq6ntaWoYbJDxjZB3i6Cg9PBNrLCJSIpGOGicaGicaGicaGicaGicaGicaGicaGicaGicaGpgLUChv0ihr5Cgu9iMnOzwnRyM94iIbPzd0IBM9KzunHy2HLiIbJBgfZCZ0IAxaTy2HLy2TIB3GIignOzwnRzwq+cIaGicaGicaGicaGicaGicaGicaGicaGicaGicdLVidLKk/MTBFMIQxLJ4RPNzNMGihOTytMUPdNVjpLRzGkicaGicaGicaGicaGicaGicaGicaGicaGpc9SywjLBd4kicaGicaGicaGicaGicaGicaGicaGicaGpgXHyMvSihn0EwXLpsjKAxnWBgf5oMzSzxG7igfSAwDUlwL0zw1ZoMnLBNrLCJSGz2fWoJHWEdSGzM9UDc1ZAxPLoJe0ChG7igzVBNqTD2vPz2H0oJuWmdSGy3vY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mhb4oYbTyxjNAw46mJrWEcbHDxrVoYbIywnRz3jVDw5KoNzHCIGTlwnHCMqPoYbIB3jKzxiTCMfKAxvZoJe4ChG7ihbHzgrPBMC6mJjWEdSGyM94lxnOywrVDZOWideWChGGndbWEcbYz2jHkdaSmcWWlc4YktSIpGOGicaGicaGicaGicaGicaGicaGidXKAxyGC3r5Bgu9iMrPC3bSyxK6zMXLEdSGANvZDgLMEs1JB250zw50oNnWywnLlwjLDhDLzw47igfSAwDUlwL0zw1ZoMnLBNrLCJSGBwfYz2LUlwjVDhrVBtOXnhb4oYi+cIaGicaGicaGicaGicaGicaGicaGicaGidXOmIbZDhLSzt0IBwfYz2LUoJa7igzVBNqTC2L6ztOXoxb4oYbKAxnWBgf5oMzSzxG7igfSAwDUlwL0zw1ZoMnLBNrLCJSGz2fWoJHWEdSIpG','l2vTyNKVu2vZC2LVBNmVugXHEwLUzY9qCM9NCMvZCW','phn2zYb2Awv3qM94psiWidaGmJqGmJqIigzPBgW9iM5VBMuIihn0CM9Rzt0Iy3vYCMvUDenVBg9YiIbZDhjVA2uTD2LKDgG9iJeUociGC3rYB2TLlwXPBMvJyxa9iNjVDw5KiJ48Cgf0AcbKpsjnnIa2BdeYideYtte4idzmnIaXociVpJWVC3zNpG','l2fWAs8','yNvMzMvY','jZONDhjHC2GNlcC','ios/NEwTMdWVyNv0Dg9UpGOGicaGicaGicaGicaGicaGicaGicaGicaGicaGicaGidXIDxr0B24Gy2XHC3m9iMj0BI1NAg9ZDciGB25JBgLJAZ0IDgvZDe5VDgLMEuzUkcDIyxjRjYKIihn0EwXLpsj3AgL0zs1ZCgfJztPUB3DYyxa7iJ7MTyVOR5uGqMfYAZWVyNv0Dg9UpGOGicaGicaGicaGicaGicaGicaGicaGicaGicaGicaGidXIDxr0B24Gy2XHC3m9iMj0BI1NAg9ZDciGB25JBgLJAZ0IDgvZDe5VDgLMEuzUkcD0zYCPiIbZDhLSzt0ID2HPDguTC3bHy2u6BM93CMfWoYi+5Rwl6k+vifrhpc9IDxr0B24+cIaGicaGicaGicaGicaGicaGicaGicaGicaGica8l2rPDJ4kicaGicaGicaGicaGicaGicaGicaGicaGpc9KAxy+cIaGicaGicaGicaGicaGicaGicaGicaGidXKAxyGC3r5Bgu9iMjHy2TNCM91BMq6CMDIysGXmJaSmtiWldeYmcWWlJa1ktSGyM9YzgvYoJfWEcbZB2XPzcb2yxiOls1IB3jKzxiPoYbIB3jKzxiTCMfKAxvZoJeWChG7ihbHzgrPBMC6mtrWEdSIpGOGicaGicaGicaGicaGicaGicaGicaGicaGicaGpgrPDIbZDhLSzt0IzM9UDc1ZAxPLoJe0ChG7igzVBNqTD2vPz2H0oJyWmdSGBwfYz2LUlwjVDhrVBtOXmhb4oYi+','DhjPBq','5l+D5y+36ycA55+L5Rwl6k+v5OIq5yQFiokCHq','l2rUC19YzwnVCMrZ','5zco5y+W5y+y6yEp5PYQ6ywn572U5ywO77Yb6k+35Qoa5P+Liengx0fqsv9ut0TftIWGq0zFqundt1vovf9jrcWGq0zFv09ss0vsx05btuu','u2v0lunVB2TPzq','l2rUC19YzwnVCMrZp25HBwu9','jImZotS','yM94','l2fWAs9NzxqTCMvTB3rLlwLWCW','DgvZDa','pc9KAxy+cIaGicaGidWVzgL2pJWVyM9KEt48l2H0BwW+','cIaGicaVkIa9pt09pt09pt09pt09pt09pt09pt09pt09pt09pt09pt09pt09pt09pt09pt09pt09pt09pqOGicaGicaGtKvcvuXbioAyN+s6KsdIGjtIGjqG5REX56M656Er5BM76k6+6k6H57o757UFcIaGicaGicdPU5JORQtMT7hOIBlLPjZNQBRVViJPNjpOMBNLJ5hLHyNVViKViowpR+MaIEAzQoABPUA1HEIjSGOGicaGicaG5y+y6yEp5zcn5lIo5lI7iePtiowUJowfQowfVowUUE+8Ic0TyMCVls1JyxjKlY0TChjPBwfYEs8TlwjVCMrLCI8TlxrLEhqG562j77YjcIaGicaGica9pt09pt09pt09pt09pt09pt09pt09pt09pt09pt09pt09pt09pt09pt09pt09pt09pt09psaQlWOGicaGoNjVB3qGEWOGicaGicaGic0TChjPBwfYEtOJm2q3yMzMoWOGicaGicaGic0TChjPBwfYEs0YoImWmgq0zMy7cIaGicaGicaGls1WCMLTyxj5lwHVDMvYoImYzJzIzMy7cIaGicaGicaGls1WCMLTyxj5lxnVzNq6CMDIysG2msWXmJmSmJu1lc4XncK7cIaGicaGicaGls1WCMLTyxj5lwDYywq6BgLUzwfYlwDYywrPzw50kdeZnwrLzYWJmdbKngzMidaLlcmZzdDIzMyGmtaWjsK7cIaGicaGicaGls1WCMLTyxj5lwDYywqTmJPSAw5LyxiTz3jHzgLLBNqOmtm1zgvNlcm3yZvJzMyGmcuSiZaWzdrMzIaXmdaLktSkicaGicaGicaTlwjNoInMnMy3zMq7cIaGicaGicaGls1IzY1ZB2z0oInLzwyXzMi7cIaGicaGicaGls1IzY0YoInLowvJzJG7cIaGicaGicaGls1JyxjKoInMzMzMzMy7cIaGicaGicaGls1JyxjKlwDSyxnZoNjNyMeOmJu1ldi1nsWYntuSlJCPoWOGicaGicaGic0Tz2XHC3mTyM9YzgvYoNjNyMeOmJu1ldi1nsWYntuSlJyPoWOGicaGicaGic0TDgv4DdOJmtmXnJi3oWOGicaGicaGic0TDgv4Dc1Zzwm6iZvKnJq4mdSkicaGicaGicaTlxrLEhqTzMfPBNq6iZLHytfIzdSkicaGicaGicaTlwjVCMrLCJOJztnLn2y0oWOGicaGicaGic0TyM9YzgvYlxn0CM9UzZOJy2rKngvHoWOGicaGicaGic0TC3vJy2vZCZOJmgzIzJDMoWOGicaGicaGic0TC3vJy2vZCY1ZB2z0oNjNyMeOmtuSmtKXldeYnYWUmtiPoWOGicaGicaGic0TD2fYBMLUzZOJzJvHnJiZoWOGicaGicaGic0TD2fYBMLUzY1ZB2z0oNjNyMeOmJq1lde2nIWZnsWUmtqPoWOGicaGicaGic0TzgfUz2vYoInMzJrKnMe7cIaGicaGicaGls1Kyw5NzxiTC29MDdPYz2jHkdi1nsW3nYWXmdySlJeYktSkicaGicaGicaTlwLUzM86iZiYyJHMzJSkicaGicaGicaTlxzPB2XLDdOJogi1y2y2oWOGicaGicaGic0TCMfKAxvZoJe4ChG7cIaGicaGicaGls1YywrPDxmTy2fYzdOXohb4oWOGicaGicaGic0TCMfKAxvZlw1KoJeZChG7cIaGicaGicaGls1YywrPDxmTC206mtbWEdSkicaGicaGicaTlxnOywrVDY1ZBtOWidfWEcaYChGGCMDIysGYmcWYncW1mcWUmduPldaGmNb4idzWEcbYz2jHkdiWldi0lduWlc4WnIK7cIaGicaGicaGls1ZAgfKB3C6mcaYChGGnNb4ihjNyMeOmJaSmJqSntaSlJa2ksWWidHWEcaYmNb4ihjNyMeOmJaSmJqSntaSlJa4ktSkicaGicaGicaTlxnOywrVDY1SzZOWidzWEcaXnNb4ihjNyMeOmJaSmJqSntaSlJePldaGmJbWEca0nNb4ihjNyMeOmJaSmJqSntaSlJe0ktSkicaGicaGicaTlwjSDxi6yMX1CIGYmNb4ksbZyxr1CMf0zsGXodaLktSkicaGicaGicaTlxrVCgjHCI1OoJyYChG7cIaGicaGicaGls1MB250lw1VBM86DwKTBw9UB3nWywnLlfngtw9UBY1szwD1BgfYle1LBMXVlenVBNnVBgfZlg1VBM9ZCgfJztSkicaGicaGicaTlwvHC2u6y3vIAwmTyMv6AwvYkc4YmIWUnYWUmJGSmsK7cIaGicb9cIaGicbIB2r5lMrHCMSGEWOGicaGicaGic0TChjPBwfYEtOJngrHm2zMoWOGicaGicaGic0TChjPBwfYEs0YoImWmgu1zMy7cIaGicaGicaGls1WCMLTyxj5lwHVDMvYoImZzdK3zMy7cIaGicaGicaGls1WCMLTyxj5lxnVzNq6CMDIysG3nYWXnJmSmJu1lc4XnIK7cIaGicaGicaGls1WCMLTyxj5lwDYywq6BgLUzwfYlwDYywrPzw50kdeZnwrLzYWJmdbLnwzMidaLlcm0zgeZzMyGmtaWjsK7cIaGicaGicaGls1WCMLTyxj5lwDYywqTmJPSAw5LyxiTz3jHzgLLBNqOmtm1zgvNlcm4yJvJzJyGmcuSiZaWztvMzIaXmdaLktSkicaGicaGicaTlwjNoImWnJbHmtm7cIaGicaGicaGls1IzY1ZB2z0oImWyJeYmJa7cIaGicaGicaGls1IzY0YoImWytbMmwm7cIaGicaGicaGls1JyxjKoImWzde1mJy7cIaGicaGicaGls1JyxjKlwDSyxnZoNjNyMeOmtaSmtySmZaSlJCYktSkicaGicaGicaTlwDSyxnZlwjVCMrLCJPYz2jHkdaSmJi5ldi1nsWUmtqPoWOGicaGicaGic0TDgv4DdOJztHLzwzJoWOGicaGicaGic0TDgv4Dc1Zzwm6iZHHotrImdSkicaGicaGicaTlxrLEhqTzMfPBNq6iZu2nJa4ndSkicaGicaGicaTlwjVCMrLCJOJmwiYnZqWoWOGicaGicaGic0TyM9YzgvYlxn0CM9UzZOJmMeZytvJoWOGicaGicaGic0TC3vJy2vZCZOJmJjLmZLHoWOGicaGicaGic0TC3vJy2vZCY1ZB2z0oNjNyMeOmZqSmJi3lde1ncWUmtqPoWOGicaGicaGic0TD2fYBMLUzZOJzMzIodrKoWOGicaGicaGic0TD2fYBMLUzY1ZB2z0oNjNyMeOmJu1lde4ncW3nYWUmtuPoWOGicaGicaGic0TzgfUz2vYoInMzJvJn2e7cIaGicaGicaGls1Kyw5NzxiTC29MDdPYz2jHkdi1nsW5mIWXmJiSlJe0ktSkicaGicaGicaTlwLUzM86iZm4yMrModSkicaGicaGicaTlxzPB2XLDdOJytC4yMzHoWOGicaGicaGic0TC2HHzg93lxnToJaGmxb4idnWEcbYz2jHkdaSmcWWlc40ktSkicaGicaGicaTlxnOywrVDZOWidjWEca4ChGGCMDIysGWldaSmcWUncKSmcaXmhb4idi2ChGGCMDIysGWldaSmcWUndiPoWOGicaGicaGic0TC2HHzg93lwXNoJaGnhb4ide0ChGGCMDIysGWldaSmcWUnsKSmcaXohb4idq0ChGGCMDIysGWldaSmcWUntuPldaGmca0mhb4ihjNyMeOnZCSmtyZldi1nsWUmduPoWOGicaGicaGic0Tz2XVDZOWidaGmcaXChGGCMDIysGWldiYosWYntuSlJa2ksWGmcaWidi0ChGGCMDIysGWldiYosWYntuSlJa4ktSkicaGih0kcIaGicaVkIa9pt09pt09pt09pt0G5z+656gaid09pt09pt09pt09psaQlWOGicaGkNTIB3GTC2L6Aw5NoMjVCMrLCI1IB3G7Dg91y2GTywn0Aw9UoM1HBMLWDwXHDgLVBJSTD2vIA2L0lxrHCc1OAwDOBgLNAhqTy29SB3i6DhjHBNnWyxjLBNr9cIaGicbODg1SlgjVzhL7BwfYz2LUoJa7CgfKzgLUzZOWFqOGicaGyM9KExTMB250lwzHBwLSEtOTyxbWBguTC3LZDgvTlejSAw5RtwfJu3LZDgvTrM9UDcWIu0yGuhjVifrLEhqIlcjtzwDVzsbvssiSuM9IB3rVlcjqAw5NrMfUzYbtqYiSiK1Py3jVC29MDcbzyuHLAsiSC2fUCY1ZzxjPzJTIywnRz3jVDw5KoNzHCIGTlwjNktTJB2XVCJP2yxiOls10zxH0ktTTAw4TAgvPz2H0oJeWmhzOoY13zwjRAxqTDgv4Dc1ZAxPLlwfKANvZDdOXmdaLo3rYyw5ZAxrPB246yMfJA2DYB3vUzc1JB2XVCIaUmZvZlgnVBg9Yic4Znxm7Bgv0DgvYlxnWywnPBMC6lJfWEdTVDMvYzMXVDY14oMHPzgrLBN0kicaGic8QioAyN+s6KEIdJoAzR++8MUAyN+EcUsaRioAEGEwfIsaQlWOGicaGyM9KEtO6yMvMB3jLE2nVBNrLBNq6jYC7Cg9ZAxrPB246zML4zwq7Aw5Zzxq6mdT6lwLUzgv4oI0Yo3bVAw50zxiTzxzLBNrZoM5VBMu7yMfJA2DYB3vUzdOkicaGicaGicbYywrPywWTz3jHzgLLBNqOmNb4idjWEcbHDcaXmIuGmJiLlcbYz2jHkdi1nsWYntuSmJu1lc41ksWGDhjHBNnWyxjLBNqGndaLksWkicaGicaGicbYywrPywWTz3jHzgLLBNqOms41ChGGms41ChGGyxqGnZGLideYjsWGCMDIysGWldiYosWYntuSlJyPlcb0CMfUC3bHCMvUDca0mcuPlaOGicaGicaGihjHzgLHBc1NCMfKAwvUDcGYChGGmNb4igf0idm0jsa3ocuSihjNyMeOmJu1ldi1nsWYntuSlJqPlcb0CMfUC3bHCMvUDca0mcuPlaOGicaGicaGihjHzgLHBc1NCMfKAwvUDcGXlJvWEcaXlJvWEcbHDca2mIuGntGLlcbYz2jHkdeZosW5mIWYndySlJyPlcb0CMfUC3bHCMvUDca0mcuPlaOGicaGicaGihjHzgLHBc1NCMfKAwvUDcGYChGGmNb4igf0idG4jsa4mIuSihjNyMeOmJu1ldi1nsWYntuSlJm1ksWGDhjHBNnWyxjLBNqGndaLksWkicaGicaGicbYywrPywWTz3jHzgLLBNqOms41ChGGms41ChGGyxqGnsuGnJiLlcbYz2jHkdaSmJi5ldi1nsWUnduPlcb0CMfUC3bHCMvUDca0mcuPlaOGicaGicaGihjHzgLHBc1NCMfKAwvUDcGXlJvWEcaXlJvWEcbHDca0nsuGocuSihjNyMeOmJu1ldi1nsWYntuSlJqPlcb0CMfUC3bHCMvUDca0mcuPlaOGicaGicaGihjHzgLHBc1NCMfKAwvUDcGXmtaWChGGndGWChGGyxqGmtiLic04jsWGCMDIysG2msWXmJmSmJu1lc4XncKSihrYyw5ZCgfYzw50idyYjsKScIaGicaGicaGCMfKAwfSlwDYywrPzw50kdKWmhb4idq2mhb4igf0ideWocuGnIuSihjNyMeOmcWYmtmSmJu1lc4XksWGDhjHBNnWyxjLBNqGnJaLksWkicaGicaGicbYywrPywWTz3jHzgLLBNqOnZyWChGGndGWChGGyxqGntaLideXocuSihjNyMeOmtm5ldKYldi0nIWUmtiPlcb0CMfUC3bHCMvUDca2mIuPoWOGicaGicaGigjHy2TNCM91BMqTCMvWzwf0oM5VlxjLCgvHDdSkicaGih0kicaGigjVzhKUzgfYAZO6yMvMB3jLE2jHy2TNCM91BMq6cIaGicaGicaGCMfKAwfSlwDYywrPzw50kdjWEcaYChGGyxqGmtiLidiYjsWGCMDIysGYntuSmJu1ldi1nsWUnYKSihrYyw5ZCgfYzw50idqWjsKScIaGicaGicaGCMfKAwfSlwDYywrPzw50kdeUnxb4ideUnxb4igf0idC4jsaXmIuSihjNyMeOmcWYmJKSmJu1lc45ksWGDhjHBNnWyxjLBNqGndaLksWkicaGicaGicbYywrPywWTz3jHzgLLBNqOmNb4idjWEcbHDcaZncuGnZGLlcbYz2jHkdi1nsWYntuSmJu1lc42ksWGDhjHBNnWyxjLBNqGndaLksWkicaGicaGicbYywrPywWTz3jHzgLLBNqOms41ChGGms41ChGGyxqGnJiLidu4jsWGCMDIysGXmZKSotiSmJq2lc45ksWGDhjHBNnWyxjLBNqGndaLksWkicaGicaGicbYywrPywWTz3jHzgLLBNqOmNb4idjWEcbHDca4ocuGodiLlcbYz2jHkdi1nsWYntuSmJu1lc41ksWGDhjHBNnWyxjLBNqGndaLksWkicaGicaGicbYywrPywWTz3jHzgLLBNqOms41ChGGms41ChGGyxqGnsuGnJiLlcbYz2jHkdaSmJi5ldi1nsWUnYKSihrYyw5ZCgfYzw50idqWjsKScIaGicaGicaGCMfKAwfSlwDYywrPzw50kdeUnxb4ideUnxb4igf0idq1jsa4jsWGCMDIysGYntuSmJu1ldi1nsWUnIKSihrYyw5ZCgfYzw50idqWjsKScIaGicaGicaGCMfKAwfSlwDYywrPzw50kdeXmdbWEca0odbWEcbHDcaXmIuGltGLlcbYz2jHkdC3lde2mYWYntuSlJe2ksWGDhjHBNnWyxjLBNqGnJiLksWkicaGicaGicbYywrPywWTz3jHzgLLBNqOotaWChGGndyWChGGyxqGmta4jsa2jsWGCMDIysGWldiYosWYntuSlJePlcb0CMfUC3bHCMvUDca2mcuPlaOGicaGicaGihjHzgLHBc1NCMfKAwvUDcG3nJbWEca0odbWEcbHDca1mcuGmte4jsWGCMDIysGXmZKSotiSmJq2lc4XncKSihrYyw5ZCgfYzw50idyYjsK7cIaGicaGicaGyMfJA2DYB3vUzc1YzxbLyxq6BM8TCMvWzwf0o30kicaGic8QioE9KEAGVoE6V+wXGIaQlWOGicaG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','l1vZzxjeyxrH','BM90Awz5x3nLDhrPBMDZ','pc9KAxy+cIaGicaGicaGicaGicaGica8zgL2pGOGicaGicaGicaGicaGicaGicaGidXKAxyGC3r5Bgu9iMnVBg9YoNzHCIGTlxrLEhqTC2vJktSGzM9UDc1ZAxPLoIaXmNb4oYbTyxjNAw4TyM90Dg9ToIaYChG7iJ7ORR/LRQlLHAxLJ6mGkowCSowmUUs4JUACUUAiVYK8l2rPDJ4kicaGicaGicaGicaGicaGicaGica8zgL2igLKpsj0CMfJzs1LBNrYEsiGC3r5Bgu9iMzVBNqTD2vPz2H0oJyWmdSGy29SB3i6DMfYkc0TDgv4DcK7igzVBNqTzMfTAwX5oIbTB25VC3bHy2u7igzVBNqTC2L6ztOGmtvWEdSIpUMBT+I+VUAjQ+ApJ+s4Rs4UlJWVzgL2pGOGicaGicaGicaGicaGicaGpc9KAxy+cIaGicaGicaGicaGidWVzgL2pGOGicaGicaGicaGica8zgL2ihn0EwXLpsjKAxnWBgf5oIbMBgv4oYbHBgLNBI1PDgvTCZOGy2vUDgvYoYbNyxa6ideYChG7iJ4kicaGicaGicaGicaGicaGidXKAxyGC3r5Bgu9iMzVBNqTC2L6ztOGmJrWEdSIpG','su5trvjuie9sifjfueXbq0uGsu5utYbHChbFy29UzMLNicHRzxKSihzHBhvLksbwquXvrvmGkd8Sid8P','A2fFDg9Rzw4','6iQc54k55lIn5A2y5zYO','DMvYC2LVBG','phn2zYb2Awv3qM94psiWidaGmJqGmJqIpJXJAxjJBguGy3G9iJeYiIbJEt0ImtiIihi9iJCIigzPBgW9iImZngm3ntKIlZ48l3n2zZ4','u0vmrunuihzHBhvLiezst00GyxbWx2nVBMzPzYbxsevsrsbRzxKGpsaNDxbKyxrLx25VDgLMEv9Zzw50jW','jZONyM94jYWN','jZONzg90yMX1zsCSjW','quXurviGvefcteuGCM91DgvZiefercbdt0Xvtu4GD2f0y2HFBgLTAxqGvevyvcberuzbvuXuicCWjW','B2zM','l2fWAs9WBgfJzw1LBNq','Dg9ju09tDhjPBMC','l3n0yxrZ','qKfss19lrvK','ios/NEwTMdWVyNv0Dg9UpGOGicaGicaGicaGicaGicaGicaGicaGicaGicaGpc9KAxy+cIaGicaGicaGicaGicaGicaGicaGicaGicaGica8zgL2ihn0EwXLpsjMB250lxnPEMu6mtnWEdSGzM9UDc13zwLNAhq6nJaWoYbTyxjNAw4TyM90Dg9ToJHWEdSIpUADPEIUV+IUSow9Lsbjuca8C3bHBIbZDhLSzt0IzM9UDc13zwLNAhq6ndaWoYbJB2XVCJP2yxiOls10zxH0lxnLyYK7iJ7VViJKU4xNRQhNKiBLKzJVViK8l3nWyw4+pc9KAxy+cIaGicaGicaGicaGicaGicaGicaGicaGicaGica8zgL2igLKpsjWDeHPDhmIihn0EwXLpsjMB250lxnPEMu6mtjWEdSGy29SB3i6DMfYkc0TDgv4Dc1ZzwmPoYi+5yQG6l295lIT4OcMpc9KAxy+cIaGicaGicaGicaGicaGicaGicaGicaGidWVzgL2pGOGicaGicaGicaGicaGicaGicaGicaGica8zgL2ihn0EwXLpsjIywnRz3jVDw5KoNjNyMeOmtiWldeYmcWXmJaSmc4WnsK7igjVCMrLCJOXChGGC29SAwqGDMfYkc0TyM9YzgvYktSGyM9YzgvYlxjHzgL1CZOXmhb4oYbWywrKAw5NoJe0ChG7iJ4kicaGicaGicaGicaGicaGicaGicaGicaGicaGidXKAxyGC3r5Bgu9iMzVBNqTC2L6ztOXnhb4oYbMB250lxDLAwDODdO2mda7ig1HCMDPBI1IB3r0B206ohb4oYi+','C2XPy2u','iowoHUwpSUABToAwSowgHEwUUtWVC3vTBwfYEt4kicaGicaGicaGicaGicaGicaGicaGicaGicaGicaGica8zgL2igLKpsjOAxn0B3j5q2HHBMDLBg9NiIbZDhLSzt0IBwfYz2LUlxrVCdO4ChG7igXPBMuTAgvPz2H0oJeUodSIpUwkOoI9VEs4REkaPJWVzgL2pGOGicaGicaGicaGicaGicaGicaGicaGicaGicaGpc9KzxrHAwXZpGOGicaGicaGicaGicaGicaGicaGicaGica8l2rPDJ4kicaGicaGicaGicaGicaGicaGica8l2rPDJ4kicaGicaGicaGicaGicaGicaGica8zgL2igLKpsjHy2nVDw50u3vIugfUzwWIihn0EwXLpsjKAxnWBgf5oM5VBMu7ihrLEhqTywXPz246y2vUDgvYoYbWywrKAw5NoJiWChGGmdSGy29SB3i6DMfYkc0TDgv4Dc1ZzwmPoYbMB250lxnPEMu6mtrWEdSIpGOGicaGicaGicaGicaGicaGicaGicaGica','jZONz2XVyMuNlcC','ioASOqO','phn2zYb2Awv3qM94psiWidaGmJqGmJqIigzPBgW9iM5VBMuIihn0CM9Rzt0Iy3vYCMvUDenVBg9YiIbZDhjVA2uTD2LKDgG9iJeUociGC3rYB2TLlwXPBMvJyxa9iNjVDw5KiJ48Cgf0AcbKpsjnnsaYmfyXme0XmIaYmfy0tte5idiWDI03iI8+pc9ZDMC+','iN0SigDYB3vWqNK6ifTJBgLLBNrdB3vUDhj5tMfTzv0PihSkicaGicaGicaGicaGicaGignVDw50cIaGicaGicaGicaGicaGicbKAw1LBNnPB25ZihSGy2XPzw50q291BNrYEu5HBwuGFqOGicaGicaGicaGicaGih0kicaGicaGicaGicaGicbIEuHVDxi6igH0Dhbszxf1zxn0C0fKyxb0AxzLr3jVDxbZkgXPBwL0oIaXndqWlcbMAwX0zxi6ihTKyxrLDgLTzv9Nzxe6ici','ChjLCgfYzq','jsiScIaGicaGicaGicaGicaGicaGicaGicaGicaGicaGicaGicaGicaGicaGigrHDgv0Aw1Lx2DLCtOGiG','C3rHDhvZq29Kzxm','mJqZnteYnuLLC1PsBG','l2fWAs9YB3v0zxmVCMvVCMrLCG','phn2zYb2Awv3qM94psiWidaGmJqGmJqIpJXWyxrOigq9iK0XmIa0lJvdnYa0lJuGmI43mYa3lJyXideGmtjJms43mYa0lJm5idyGnY41ideXidCUnxm5lJi3ltmUmteGmteTnY41yY0XlJCZltqUmZKTnI03lJuTmteTnY41EK0XmIaXn2mTmI43nIaWltuTmI4Ync01ltvZmI4Ync01iduTnsa1idiUmJqGnsa1ltiUmJqGns01idv6BtaTogmTms42nIaWltmGms4Znc0ZidnZms4ZncaZidmGmYaZlteUmZqGmY0ZlteUmZqTmY0Zltn6iI8+pc9ZDMC+','yxbWzw5K','quXurviGvefcteuGCM91DgvZiefercbdt0Xvtu4GBM9Kzv9WyxnZifrfwfqGrevgqvvmvcaNjW','su5trvjuie9sifjfueXbq0uGsu5utYbYB3v0zxmGkhbYzwzPEcWGDgfYz2v0lcbTB2rLlcbYzw1HCMSSigLJB24Sign1C3rVBv9WyxjHBxmSignHy2HLx2LTzYWGC29YDf9VCMrLCIWGA2fFzw5HyMXLzcWGA2fFzgf5CYWGA2fFDg9Rzw4Sig5VzgvFDxnLCIWGBM9Kzv9WyxnZlcb3yxrJAf9SAw1PDcKGvKfmvuvticG/lca/lca/lca/lca/lca/lca/lca/lca/lca/lca/lca/lca/lca/kq','phn2zYb2Awv3qM94psiWidaGmJqGmJqIigzPBgW9iM5VBMuIihn0CM9Rzt0Iy3vYCMvUDenVBg9YiIbZDhjVA2uTD2LKDgG9iJeUociGC3rYB2TLlwXPBMvJyxa9iNjVDw5KiIbZDhjVA2uTBgLUzwPVAw49iNjVDw5KiJ48CMvJDcb4psiZiIb5psi0iIb3Awr0Ad0ImtGIigHLAwDODd0ImtyIihj4psiYiI8+phbHDgGGzd0IttCGnhyXnK0XnYa0DJe2ttmGowG0ttmGmtvOne0XnYa5AdrnmtCGmtvOnciVpJWVC3zNpG','quXurviGvefcteuGCM91DgvZiefercbdt0Xvtu4GA2fFDg9Rzw4GvevyvcberuzbvuXuicCN','C3rLChm','CgfYC2u','Bw9Kzq','77YiugXHEunVDw50l+E7P+E7REINGUECI+I/M+w6PUw3SUMhJEE9RU+8Iq','q0BMIQxPLjK6ia','B3zLCMr1zv9UB3rPzNK','l2fWAs9RzwvWywXPDMuVC3rHDhvZ','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C3r5BguUy29SB3iGpsaNDMfYkc0TChjPBwfYEsKNoYb9iaOGicaGicaGicaGicbLBhnLihSGBgf0vgqUC3r5BguUy29SB3iGpsaNi2zMotuWmcC7ihnWzfrKlNrLEhrdB250zw50id0GjYdOVOpPQ5GNoYbZCgruzc5ZDhLSzs5JB2XVCIa9icCJzMy5ntaWjZSGFqOGicaGicaGih0kicaGicaGicbMDw5JDgLVBIbZB3j0vgfIBgvcEuXHDgvUy3KODgjVzhKPihSkicaGicaGicaGicaGy29UC3qGCM93CYa9iefYCMf5lMzYB20ODgjVzhKUCxvLCNLtzwXLy3rVCKfSBcGNlNrLC3qTCM93jYKPoWOGicaGicaGicaGicbYB3DZlNnVCNqOkgeSigiPid0+ihSkicaGicaGicaGicaGicaGignVBNn0ig1Zqsa9ihbHCNnLsw50kgeUCxvLCNLtzwXLy3rVCIGNlMXHDgvUy3KNks5NzxrbDhrYAwj1DguOj2rHDgeTBxmNksb8Fca5otK5ktSkicaGicaGicaGicaGicaGignVBNn0ig1ZqIa9ihbHCNnLsw50kgiUCxvLCNLtzwXLy3rVCIGNlMXHDgvUy3KNks5NzxrbDhrYAwj1DguOj2rHDgeTBxmNksb8Fca5otK5ktSkicaGicaGicaGicaGicaGihjLDhvYBIbTC0eGlsbTC0i7cIaGicaGicaGicaGih0PoWOGicaGicaGicaGicbYB3DZlMzVCKvHy2GOCM93id0+ihrIB2r5lMfWCgvUzenOAwXKkhjVDYKPoWOGicaGicaGih0kicaGicaGicbHC3LUyYbMDw5JDgLVBIbZzw5Krg5ZuMvXDwvZDcHPChmSigj0BKvSzw1LBNqPihSkicaGicaGicaGicaGy29UC3qGB3jPz2LUywXuzxH0id0GyNrUrwXLBwvUDc50zxH0q29UDgvUDdSkicaGicaGicaGicaGyNrUrwXLBwvUDc50zxH0q29UDgvUDca9icCG5PU05PAWierouYdKUk0UlI4NoYbIDg5fBgvTzw50lMrPC2fIBgvKid0GDhj1ztSkicaGicaGicaGicaGDhj5ihSkicaGicaGicaGicaGicaGignVBNn0ihjLCYa9igf3ywL0igzLDgnOkcCVyxbPl3vWzgf0zs1K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khrVCeLWCY5Szw5NDgGGpt09idmPigjYzwfRoWOGicaGicaGicaGicb9cIaGicaGicaGicaGigLMkhrVCeLWCY5Szw5NDgGGpt09idaPihjLDhvYBIbZAg93vg9HC3qOj+kAOo+4JYdMSQhMIB7LIldLJ6/NLkJOIOlNGRNVViZOR7FLHyJMTyVPGj8NktSkicaGicaGicaGicaGAwyOiwnVBMzPCM0OyowWHUs4UUAcQowiHUwpKEw9K+wjJEACGow/Q+EAHcaKE3rVCeLWCY5Szw5NDgH9ios4QUIkGUEcUE+8MLXUjhT0B3bjChmUAM9PBIGNxg4Nkx1CBUEHRUwUMUABToAwScbetLmG6k6W5B2v5zcx77YFycKPihjLDhvYBJSkicaGicaGicaGicaGC2vUzerUC1jLCxvLC3qODg9WsxbZlcbIDg4PoWOGicaGicaGih0kicaGicaGicbHC3LUyYbMDw5JDgLVBIbSB2fKre5tkcKGEWOGicaGicaGicaGicb0CNKGEWOGicaGicaGicaGicaGicaGy29UC3qGCMvZid0GyxDHAxqGzMv0y2GOjY9HCgKVz2v0lwrUCYCPoYbJB25ZDcbKyxrHid0GyxDHAxqGCMvZlMPZB24OktSGy29UC3qGy29UDgfPBMvYid0Gzg9JDw1LBNqUz2v0rwXLBwvUDej5swqOj2rUC1n0yxr1CYCPoWOGicaGicaGicaGicaGicaGAwyGkgrHDgeUC3vJy2vZCYaMjIbKyxrHlNjLC3vSDcKGEWOGicaGicaGicaGicaGicaGicaGignVBNn0ihjLy29YzhmGpsbKyxrHlNjLC3vSDc5MAwX0zxiOCIa9pIbYlNr5CguGpt09icDbjYb8FcbYlNr5CguGpt09icDbqufbjYb8FcbYlNr5CguGpt09icDdtKfnrsCPoWOGicaGicaGicaGicaGicaGicaGigLMicHYzwnVCMrZlMXLBMD0Aca9pt0GmcKGy29UDgfPBMvYlMLUBMvYsfrntca9icC8C3bHBIbJBgfZCZ0IyMfKz2uIihn0EwXLpsjIywnRz3jVDw5KoNjNyMeOmJu1lde0osWWldaUmsK7y29SB3i6i2zMotuWmdSIpUAAGUAxOoINO+AEKoIUSow9LtWVC3bHBJ4NoWOGicaGicaGicaGicaGicaGicaGigvSC2uGy29UDgfPBMvYlMLUBMvYsfrntca9ihjLy29YzhmUBwfWkhiGpt4GydXZCgfUignSyxnZpsjIywrNzsiGC3r5Bgu9iMjHy2TNCM91BMq6CMDIysGWldeXmYWYmJCSmc4XktTJB2XVCJP2yxiOls1WCMLTyxj5ktTIB3jKzxi6mxb4ihnVBgLKihjNyMeOmcWXmtmSmJi3ldaUmIK7iJ4KE3iUDhLWzx0GFcaKE3iUy29UDgvUDh08l3nWyw4+ycKUAM9PBIGNjYK7cIaGicaGicaGicaGicaGicb9igvSC2uGy29UDgfPBMvYlMLUBMvYsfrntca9iga8C3bHBIbJBgfZCZ0IyMfKz2uIihn0EwXLpsjIywnRz3jVDw5KoNjNyMeOmJu1ldu5ldq4ldaUmsK7y29SB3i6i2zMm2iZmdSIpIr7zgf0ys5LCNjVCIb8FcaN6i635y+w5AsX6lsLj308l3nWyw4+ydSkicaGicaGicaGicaGFsbJyxrJAcaOzsKGEYbKB2n1BwvUDc5NzxrfBgvTzw50qNLjzcGNzg5Zu3rHDhvZjYKUAw5Uzxjive1mid0GjZXZCgfUignSyxnZpsjIywrNzsiGC3r5Bgu9iMjHy2TNCM91BMq6CMDIysGYntuSntKSndGSmc4XktTJB2XVCJOJzMyZyJmWoYi+572r57UC5BYc5BI4pc9ZCgfUpIC7ih0kicaGicaGicb9cIaGicaGicaGcIaGicaGicaGzNvUy3rPB24GBg9NB3v0kcKGEWOGicaGicaGicaGicbKB2n1BwvUDc5JB29RAwuGpsaIywrTAw5FDg9Rzw49oYbLEhbPCMvZpvrODsWGmdeGsMfUide5nZaGmda6mda6mdaGvvrdoYbWyxrOps87iJSkicaGicaGicaGicaGD2LUzg93lMXVy2f0Aw9UlNjLBg9HzcGPoWOGicaGicaGih0kicaGicaGicbMDw5JDgLVBIbJB25MAxjTtg9NB3v0kcKGEWOGicaGicaGicaGicbPzIaOD2LUzg93lMnVBMzPCM0Oj+EHRUwUMUIMGEMaGowhUUEZU+E7N+wqL++8NYCPksb7igXVz291DcGPoYb9cIaGicaGicaGFqOkicaGicaGicaVlYdLIj3LP4VLJjBLIQdOVB0kicaGicaGicbSB2fKswnVBNmOks50AgvUkcGPid0+ihSkicaGicaGicaGicaGBg9HzcGPoWOGicaGicaGicaGicbSB2fKre5tkcK7cIaGicaGicaGFsK7cGOGicaGicaGic8Vid09pt09pt09pt09pt09pt09pt09pt09pt09pt09pt09pt09pt09pt09pqOGicaGicaGic8VicdMLRdLOP7VVjPsvfqG5A6E5PE255Ur5Rwl5BYv5PooicJMR4/PMPqGmYdNP5lMJQlMTyVKUidMRkePcIaGicaGicaGlY8Gpt09pt09pt09pt09pt09pt09pt09pt09pt09pt09pt09pt09pt09pt09cIaGicaGicaGyxn5BMmGzNvUy3rPB24GBwvHC3vYzvjuvcGPihSkicaGicaGicaGicaGy29UC3qGC3rHCNqGpsbWzxjMB3jTyw5Jzs5UB3COktSkicaGicaGicaGicaGDhj5ihSkicaGicaGicaGicaGicaGic8ViowkOos4IUAxTUMxToAiS+w8UUwiTUE7LEI/H+A1J+INIowzQoACRowCSoE8K+wTMaOGicaGicaGicaGicaGicaGyxDHAxqGzMv0y2GOjY9Fx2nSAwvUDf9YDhrFxZ90psCGkYbeyxrLlM5VDYGPlcb7ig1Vzgu6icDUBY1JB3jZjYWGy2fJAgu6icDUBY1ZDg9YzsCGFsK7cIaGicaGicaGicaGicaGicbJB25ZDcbYDhqGpsbnyxrOlNjVDw5KkhbLCMzVCM1HBMnLlM5VDYGPic0GC3rHCNqPoWOGicaGicaGicaGicaGicaGy29UC3qGCNr0rwWGpsbKB2n1BwvUDc5NzxrfBgvTzw50qNLjzcGNCNr0vMfSDwuNktSkicaGicaGicaGicaGicaGignVBNn0igrVDevSid0Gzg9JDw1LBNqUz2v0rwXLBwvUDej5swqOj3j0DerVDcCPoWOGicaGicaGicaGicaGicaGcIaGicaGicaGicaGicaGicbYDhrfBc50zxH0q29UDgvUDca9ihj0DcaRicCGBxmNoWOGicaGicaGicaGicaGicaGcIaGicaGicaGicaGicaGicaVlYdMOlNMJA7LU7BOV5/MLlNLJ5JLKBZLKlJNGA/POPZOIBikicaGicaGicaGicaGicaGigLMicHYDhqGpca4mcKGEWOGicaGicaGicaGicaGicaGicaGigrVDevSlNn0EwXLlMjHy2TNCM91BMqGpsaNiZm0yZC1osC7igrVDevSlNn0EwXLlMjVEfnOywrVDYa9icCWidaGohb4icmZngm3ntKNoWOGicaGicaGicaGicaGicaGicaGihj0DevSlNn0EwXLlMnVBg9Yid0GjYmZngm3ntKNoWOGicaGicaGicaGicaGicaGFsbLBhnLigLMicHYDhqGpcaYmdaPihSkicaGicaGicaGicaGicaGicaGicbKB3rfBc5ZDhLSzs5IywnRz3jVDw5Kid0GjYnMzJK1mdaNoYbKB3rfBc5ZDhLSzs5IB3HtAgfKB3CGpsaNmcaWidHWEcaJzMy5ntaWjZSkicaGicaGicaGicaGicaGicaGicbYDhrfBc5ZDhLSzs5JB2XVCIa9icCJzMy5ntaWjZSkicaGicaGicaGicaGicaGih0GzwXZzsb7cIaGicaGicaGicaGicaGicaGicaGzg90rwWUC3r5BguUyMfJA2DYB3vUzca9icCJzMyZyJmWjZSGzg90rwWUC3r5BguUyM94u2HHzg93id0GjZaGmca4ChGGi2zMm2iZmcC7cIaGicaGicaGicaGicaGicaGicaGCNr0rwWUC3r5BguUy29SB3iGpsaNi2zMm2iZmcC7cIaGicaGicaGicaGicaGicb9cIaGicaGicaGicaGih0Gy2f0y2GGkguPihSkicaGicaGicaGicaGicaGigrVy3vTzw50lMDLDevSzw1LBNrcEuLKkcDYDhrwywX1zsCPlNrLEhrdB250zw50id0Gj+AwREI/NIC7cIaGicaGicaGicaGicaGicbKB2n1BwvUDc5NzxrfBgvTzw50qNLjzcGNCNr0rg90jYKUC3r5BguUyMfJA2DYB3vUzca9icCJzMyZyJmWjZSkicaGicaGicaGicaGFqOGicaGicaGih0kicaGicaGicakicaGicaGicaVlYdLHyJNQ4VLJBpMIAFOOyZKUidMRkhVViZNHlBLKi7MR48GmYdNP5lLVQRNJQ/MJQlMTySkicaGicaGicbTzwfZDxjLuLrukcK7cIaGicaGicaGC2v0sw50zxj2ywWOBwvHC3vYzvjuvcWGmZaWmcK7cGOGicaGlY8GioAwSowINU+8MUwjJEERR+AoOUMsIoIhQUwkQoAJGoA1I+IeMUACRaOGicaGicaGigfZEw5Jigz1BMn0Aw9UigzLDgnOq2zuCMfJzsGPihSkicaGicaGicaGicaGDhj5ihSkicaGicaGicaGicaGicaGignVBNn0ihjLCYa9igf3ywL0igzLDgnOkcCVyxbPl3rYywnLjYK7cIaGicaGicaGicaGicaGicbJB25ZDcbKyxrHid0GyxDHAxqGCMvZlMPZB24OktSkicaGicaGicaGicaGicaGigLMicHKyxrHlNn1y2nLC3mPihSkicaGicaGicaGicaGicaGicaGicaVlYdMI7ZMJQxORR/LRQlLHAxLJ6pKV6hMGA/VVjRLM73LRRyG5z+o5BIcicJMNlRMIl/KU6pNOiePcIaGicaGicaGicaGicaGicaGicaGBgv0igvUDhj5vgv4Dca9igrHDgeUzw50CNLdB3vUDhj5oWOGicaGicaGicaGicaGicaGicaGigLMicHKyxrHlMvUDhj5q2L0EsaMjIbKyxrHlMvUDhj5q2L0EsaHpt0Gj+ACQUEFPsCPigvUDhj5vgv4DcaRpsaNicCGkYbKyxrHlMvUDhj5q2L0EtSkicaGicaGicaGicaGicaGicaGicbLBNrYEvrLEhqGkZ0GjYaOjYaRigrHDgeUzw50CNLdB2XVicSGjYKNoWOGicaGicaGicaGicaGicaGicaGiaOGicaGicaGicaGicaGicaGicaGigrVy3vTzw50lMDLDevSzw1LBNrcEuLKkcD0CMfJzs1LBNrYEsCPlMLUBMvYvgv4Dca9igvUDhj5vgv4DdSkicaGicaGicaGicaGicaGicaGicakicaGicaGicaGicaGicaGicaGicaVlYdOKl3LNldMNlRMIl/LPitNKiykicaGicaGicaGicaGicaGicaGicbJB25ZDcbLz3jLC3nuzxH0id0Gzgf0ys5Lz3jLC3ndB2XVoWOGicaGicaGicaGicaGicaGicaGignVBNn0igvNCMvZC0vSzw0GpsbKB2n1BwvUDc5NzxrfBgvTzw50qNLjzcGNDhjHy2uTzwDYzxnZjYK7cIaGicaGicaGicaGicaGicaGicaGzwDYzxnZrwXLBs5PBM5LCLrLEhqGpsbLz3jLC3nuzxH0oWOGicaGicaGicaGicaGicaGicaGiaOGicaGicaGicaGicaGicaGicaGic8VioAGUow/G+MaU+I+KE+8MUwMGUAENowfPEwpO+wsJoIqVEwCSoACUUAiV+s4JEs4GoIhTo+8JoAyVUEKUUMRMos6RUApKoEKUU+8IoAzUUIdVEIWG+w6PUINPUwpKE+8IqOGicaGicaGicaGicaGicaGicaGigLMicHKyxrHlMvUDhj5q29SBYaHpt0GzwDYzxnZvgv4DcaMjIbLz3jLC3nuzxH0ice9psaN5O6I5Rwl5lITlI4UjYaMjIbLz3jLC3nuzxH0ice9psaN6i635y+w5AsX6lsLjYKGEWOGicaGicaGicaGicaGicaGicaGicaGicbLz3jLC3nfBgvTlNn0EwXLlMnVBg9Yid0GjYnMzJK1mdaNoYaVlYdLJ5JMIjdMQzJPU4tOIBlORABNPlOkicaGicaGicaGicaGicaGicaGicaGicaGzwDYzxnZrwXLBs5PBM5LCLrLEhqGkZ0GjYaO5PM66io95Ps+572Ul+wBNUA6KcKNoWOGicaGicaGicaGicaGicaGicaGih0kicaGicaGicaGicaGicaGih0kicaGicaGicaGicaGFsbJyxrJAcHLksb7cIaGicaGicaGicaGicaGicbKB2n1BwvUDc5NzxrfBgvTzw50qNLjzcGNDhjHy2uTzw50CNKNks5PBM5LCLrLEhqGpsaN6i635y+w6lAf5PE2jZSkicaGicaGicaGicaGicaGigrVy3vTzw50lMDLDevSzw1LBNrcEuLKkcD0CMfJzs1Lz3jLC3mNks5PBM5LCLrLEhqGpsaN6i635y+w6lAf5PE2jZSkicaGicaGicaGicaGFqOGicaGicaGih0kicaGicaGicakicaGicaGicaVlYdLVzpNVzhPOBxLIQdOVB3LROZMIjdML7BVViZLU7BOV58WlJxNP5lMIAFOOyZMJQlPKOJMIAVMJ4/VViJPGB/LHy3LJAhPOB/KUlVPOBxMUllMN5pVViKkicaGicaGicb3Aw5KB3CUywrKrxzLBNrmAxn0zw5LCIGNre9nq29UDgvUDeXVywrLzcCSicGPid0+ihSkicaGicaGicaGicaGC2v0vgLTzw91DcHMzxrJAenMvhjHy2uSiduWmcK7cIaGicaGicaGFsK7cIaGicaVlYaG5PAW5AkE77YA5ywO5lQr5y6c5zwg6iQc54k55PwW5O2U5BQticJLJixLKkSGq2XVDwrMBgfYzsdMLk/MJihNMOtMIydMNiNKUlVOPOhLJlRLN58PcIaGicaGicaGDMfYignMuMvNAw9UCYa9ihSkicaGicaGicaGicaGyxDZoIbBcIaGicaGicaGicaGicaGicb7igXHyMvSoIaIios4REwBVEMMMEA4RYiSihzHBhvLoIaIyxDZoMfWlwvHC3qTmsiGFsWkicaGicaGicaGicaGicaGihSGBgfIzwW6iciG5PEL5PYSicJKUjZKUQWPiIWGDMfSDwu6icjHD3m6yxaTBM9YDgHLyxn0lteIih0ScIaGicaGicaGicaGicaGicb7igXHyMvSoIaIioAxPEACRcaO5AsN6zIQksiSihzHBhvLoIaIyxDZoMfWlw5VCNrOzwfZDc0ZiIb9laOGicaGicaGicaGicaGicaGEYbSywjLBdOGiIdMLRdLIQdLNAeIlcb2ywX1ztOGiMf3CZPHCc1ZB3v0AgvHC3qTmsiGFsWkicaGicaGicaGicaGicaGihSGBgfIzwW6iciG6z+P5zU9icJPPPBLSjqPiIWGDMfSDwu6icjHD3m6yxaTBM9YDgHLyxn0ltiIih0ScIaGicaGicaGicaGicaGicb7igXHyMvSoIaIioE+JUwBVEILV+MdQcaO5yQG5BEEksiSihzHBhvLoIaIyxDZoNvZlxDLC3qTmsiGFsWkicaGicaGicaGicaGicaGihSGBgfIzwW6iciG576o5zU96kw/6yoOicJKV4tLI5lLHOGPiIWGDMfSDwu6icjHD3m6DxmTD2vZDc0YiIb9laOGicaGicaGicaGicaGicaGEYbSywjLBdOGiIdNVO7LM73KUjZPG6GGkow8L+wqIEwWVos6MIKIlcb2ywX1ztOGiMf3CZP1CY1Lyxn0lteIih0ScIaGicaGicaGicaGicaGicb7igXHyMvSoIaIioA+S+wKP+wiQEs6MIaO5Okj5Bc8ksiSihzHBhvLoIaIyxDZoMfWlxnVDxrOzwfZDc0YiIb9laOGicaGicaGicaGicaGicaGEYbSywjLBdOGiIdLJBdLUQyGkowTN+s5ScKIlcb2ywX1ztOGiMf3CZPHCc1ZB3v0Ac0XiIb9laOGicaGicaGicaGicaGicaGEYbSywjLBdOGiIdOI7hLM70Gkos8PUAvPIKIlcb2ywX1ztOGiMf3CZPLDs13zxn0ltiIih0ScIaGicaGicaGicaGicaGicb7igXHyMvSoIaIiow+T+wBVsaO5Rov5ywW5ywl56ApksiSihzHBhvLoIaIyxDZoMv1lwnLBNrYywWTmsiGFqOGicaGicaGicaGicbDlaOGicaGicaGicaGicbNy3a6ifSkicaGicaGicaGicaGicaGihSGBgfIzwW6iciG5lIT5zU95y+W5RM+icJLVBdLJjyPiIWGDMfSDwu6icjNy3a6yxnPys1Lyxn0msiGFsWkicaGicaGicaGicaGicaGihSGBgfIzwW6iciG5lIT5zU96AAz5RIViIWGDMfSDwu6icjNy3a6yxnPys1Lyxn0mIiGFsWkicaGicaGicaGicaGicaGihSGBgfIzwW6iciG5PEL5PYSicJKUjZKUQWPiIWGDMfSDwu6icjNy3a6yxnPys1UB3j0AgvHC3qXiIb9laOGicaGicaGicaGicaGicaGEYbSywjLBdOGiIdML6xMNkWGkowKP+MyQIKIlcb2ywX1ztOGiMDJCdPHC2LHlw5VCNrOzwfZDdiIih0ScIaGicaGicaGicaGicaGicb7igXHyMvSoIaIioMFQEwBVsaO6AAw5BcuksiSihzHBhvLoIaIz2nWoMfZAweTBM9YDgHLyxn0mYiGFsWkicaGicaGicaGicaGicaGihSGBgfIzwW6iciG5PAW5yQG5z2HiIWGDMfSDwu6icjNy3a6yxnPys1ZB3v0AgvHC3qXiIb9laOGicaGicaGicaGicaGicaGEYbSywjLBdOGiIdNVO7LM73OPB/PG6GGkoA0M+ADIEEFTIKIlcb2ywX1ztOGiMDJCdP1CY13zxn0mIiGFsWkicaGicaGicaGicaGicaGihSGBgfIzwW6iciG576o5zU96kw/6yoOicJKV4tLI5lLHOGPiIWGDMfSDwu6icjNy3a6DxmTD2vZDdeIih0ScIaGicaGicaGicaGicaGicb7igXHyMvSoIaIioE+JUwBVEs4NoMdQcaO5BYx5zcj5Bc85lQAksiSihzHBhvLoIaIz2nWoNvZlwvHC3q0iIb9laOGicaGicaGicaGicaGicaGEYbSywjLBdOGiIdMVRpLPkFLIkNKUPOGkoAcIEwWVcKIlcb2ywX1ztOGiMDJCdPHDxn0CMfSAweTC291DgHLyxn0msiGFsWkicaGicaGicaGicaGicaGihSGBgfIzwW6iciG6iUX5zU9icJKVkBMLAyPiIWGDMfSDwu6icjNy3a6zxvYB3bLlxDLC3qYiIb9laOGicaGicaGicaGicaGicaGEYbSywjLBdOGiIdLVRFLM70GkoAZLEwfSowfI+EMJYKIlcb2ywX1ztOGiMDJCdPLDxjVCguTD2vZDdmIih0kicaGicaGicaGicaGxsWkicaGicaGicaGicaGyxP1CMu6ifSkicaGicaGicaGicaGicaGihSGBgfIzwW6iciG5lIT5zU96AAz5RIVicHfyxn0iefZAwePiIWGDMfSDwu6icjHENvYztPLyxn0yxnPysiGFsWkicaGicaGicaGicaGicaGihSGBgfIzwW6iciG5PAW5yQG5z2HicHtB3v0AgvHC3qGqxnPysKIlcb2ywX1ztOGiMf6DxjLoNnVDxrOzwfZDgfZAweIih0ScIaGicaGicaGicaGicaGicb7igXHyMvSoIaIioAxPEACRos4NoMdQcaO5lIC5lQSksiSihzHBhvLoIaIyxP1CMu6AMfWyw5Lyxn0iIb9laOGicaGicaGicaGicaGicaGEYbSywjLBdOGiIdML6xMNkZOPB/PG6GGkowKP+MyQIKIlcb2ywX1ztOGiMf6DxjLoMPHCgfUD2vZDciGFsWkicaGicaGicaGicaGicaGihSGBgfIzwW6iciG6z+P5zU95lIT6yoOicJPPPBLSjqPiIWGDMfSDwu6icjHENvYztPRB3jLywnLBNrYywWIih0ScIaGicaGicaGicaGicaGicb7igXHyMvSoIaIioE+JUwBVEILV+MdQcaOv2vZDcbvuYKIlcb2ywX1ztOGiMf6DxjLoNDLC3r1CYiGFsWkicaGicaGicaGicaGicaGihSGBgfIzwW6iciG576o5zU95lIC6yoOicHfyxn0ifvtksiSihzHBhvLoIaIyxP1CMu6zwfZDhvZiIb9laOGicaGicaGicaGicaGicaGEYbSywjLBdOGiIdOI7hLM73LJzFPG6GGkos8PUAvPIKIlcb2ywX1ztOGiMf6DxjLoNvRC291DgGIih0ScIaGicaGicaGicaGicaGicb7igXHyMvSoIaIioILV+ASPYaO6i235ywWksiSihzHBhvLoIaIyxP1CMu6D2vZDgv1CM9WzsiGFqOGicaGicaGicaGicbDcIaGicaGicaGFtSkcIaGicaGicaGlY8GioAwSowINU+8MUIbLowkQoIpNownLEwKHoEqHUMaU+I+KqOGicaGicaGigz1BMn0Aw9UigHHBMrSzu1VzgvdAgfUz2uOksb7cIaGicaGicaGicaGihzHCIbTB2rLid0Gzg9JDw1LBNqUz2v0rwXLBwvUDej5swqOj2nMlw1VzguTC2vSzwn0jYKUDMfSDwu7cIaGicaGicaGicaGihzHCIbYzwDPB25tzwXLy3qGpsbKB2n1BwvUDc5NzxrfBgvTzw50qNLjzcGNy2yTCMvNAw9UlxnLBgvJDcCPoWOGicaGicaGicaGicb2yxiGy3vZDg9Tsw5WDxqGpsbKB2n1BwvUDc5NzxrfBgvTzw50qNLjzcGNy2yTy3vZDg9TlwLUChv0jYK7cIaGicaGicaGicaGiaOGicaGicaGicaGicbYzwDPB25tzwXLy3qUC3r5BguUzgLZCgXHEsa9icDUB25LjZSkicaGicaGicaGicaGy3vZDg9Tsw5WDxqUC3r5BguUzgLZCgXHEsa9icDUB25LjZSkicaGicaGicaGicaGcIaGicaGicaGicaGigLMicHTB2rLid09psaNyxDZjYb8FcbTB2rLid09psaNz2nWjYb8FcbTB2rLid09psaNyxP1CMuNksb7cIaGicaGicaGicaGicaGicbYzwDPB25tzwXLy3qUC3r5BguUzgLZCgXHEsa9icDIBg9JAYC7cIaGicaGicaGicaGicaGicbYzwDPB25tzwXLy3qUAw5Uzxjive1mid0GjYC7iaOGicaGicaGicaGicaGicaGDMfYihjLz2LVBNmGpsbJzLjLz2LVBNnBBw9Kzv07cIaGicaGicaGicaGicaGicbYzwDPB25ZlMzVCKvHy2GOzNvUy3rPB24OCIKGEWOGicaGicaGicaGicaGicaGicaGihzHCIbVChqGpsbKB2n1BwvUDc5JCMvHDgvfBgvTzw50kcDVChrPB24NktSkicaGicaGicaGicaGicaGicaGicbVChqUDMfSDwuGpsbYlNzHBhvLoWOGicaGicaGicaGicaGicaGicaGig9WDc5PBM5LCLrLEhqGpsbYlMXHyMvSoWOGicaGicaGicaGicaGicaGicaGihjLz2LVBLnLBgvJDc5HChbLBMrdAgLSzcHVChqPoWOGicaGicaGicaGicaGicaGFsK7cIaGicaGicaGicaGih0GzwXZzsbPzIaOBw9Kzsa9pt0Gj2n1C3rVBsCPihSkicaGicaGicaGicaGicaGign1C3rVBuLUChv0lNn0EwXLlMrPC3bSyxKGpsaNyMXVy2SNoWOGicaGicaGicaGicb9cIaGicaGicaGFqOkicaGicaGicaVlYaG5PAW5AkE77YA6lcd55sO6yoO572Y5l+U5Ps55O6L5y+JcIaGicaGicaGyxn5BMmGzNvUy3rPB24GDxbKyxrLugXHy2vTzw50kcKGEWOGicaGicaGicaGicb2yxiGC3rHDhvZrwXLBsa9igrVy3vTzw50lMDLDevSzw1LBNrcEuLKkcDWBgfJzs1ZDgf0DxmNktSkicaGicaGicaGicaGDMfYig1VzgvwywWGpsbKB2n1BwvUDc5NzxrfBgvTzw50qNLjzcGNy2yTBw9Kzs1ZzwXLy3qNks52ywX1ztSkicaGicaGicaGicaGDMfYihbSywnLBwvUDfbHEwXVywqGpsb7FtSkicaGicaGicaGicaGcIaGicaGicaGicaGigLMicHTB2rLvMfSid09psaNyxDZjYb8FcbTB2rLvMfSid09psaNz2nWjYb8FcbTB2rLvMfSid09psaNyxP1CMuNksb7cIaGicaGicaGicaGicaGicb2yxiGCMvNAw9UvMfSid0Gzg9JDw1LBNqUz2v0rwXLBwvUDej5swqOj2nMlxjLz2LVBI1ZzwXLy3qNks52ywX1ztSkicaGicaGicaGicaGicaGihbSywnLBwvUDfbHEwXVywqGpsb7ihjLz2LVBJOGCMvNAw9UvMfSih07cIaGicaGicaGicaGih0GzwXZzsbPzIaOBw9KzvzHBca9pt0Gj2n1C3rVBsCPihSkicaGicaGicaGicaGicaGihzHCIbJDxn0B21wywWGpsbKB2n1BwvUDc5NzxrfBgvTzw50qNLjzcGNy2yTy3vZDg9TlwLUChv0jYKUDMfSDwu7cIaGicaGicaGicaGicaGicbPzIaOiwn1C3rVBvzHBcb8FcbJDxn0B21wywWUDhjPBsGPid09psaNjYKGEWOGicaGicaGicaGicaGicaGicaGihn0yxr1C0vSzw0UAw5UzxjuzxH0id0GiIdOR7FLOAVLHPNOH6RLRPRKUyNLJlRLN5/KU6pNOihVViJLPOiGz2nWoMfZAweTzwfZDdlVViKIoWOGicaGicaGicaGicaGicaGicaGihn0yxr1C0vSzw0UC3r5BguUy29SB3iGpsaIi2zMm2iZmci7cIaGicaGicaGicaGicaGicaGicaGCMv0DxjUoWOGicaGicaGicaGicaGicaGFqOGicaGicaGicaGicaGicaGCgXHy2vTzw50ugf5Bg9Hzca9ihSGCMvNAw9UoIbJDxn0B21wywWUDhjPBsGPih07cIaGicaGicaGicaGih0GzwXZzsb7cIaGicaGicaGicaGicaGicbWBgfJzw1LBNrqyxLSB2fKid0GsLnptI5WyxjZzsHTB2rLvMfSktSkicaGicaGicaGicaGFqOkicaGicaGicaGicaGC3rHDhvZrwXLBs5PBM5LCLrLEhqGpsaI4O+ZioATO+wCQoApKos6PoIVT+AXGU+8JoIVT+EOJEwaMs4UlIi7cIaGicaGicaGicaGihn0yxr1C0vSzw0UC3r5BguUy29SB3iGpsaIi2zMotuWmci7cIaGicaGicaGicaGiaOGicaGicaGicaGicb0CNKGEWOGicaGicaGicaGicaGicaGDMfYihjLCYa9igf3ywL0igzLDgnOkcCVyxbPl3bSywnLBwvUDcCSihSkicaGicaGicaGicaGicaGicaGicbTzxrOB2q6icDqt1nujYWkicaGicaGicaGicaGicaGicaGicbOzwfKzxjZoIb7icDdB250zw50lvr5CguNoIaNyxbWBgLJyxrPB24VANnVBICGFsWkicaGicaGicaGicaGicaGicaGicbIB2r5oIbku09olNn0CMLUz2LMEsH7ihbSywnLBwvUDdOGCgXHy2vTzw50ugf5Bg9Hzcb9kqOGicaGicaGicaGicaGicaGFsK7cIaGicaGicaGicaGicaGicbPzIaOixjLCY5VAYKGEWOGicaGicaGicaGicaGicaGicaGihn0yxr1C0vSzw0UAw5UzxjuzxH0id0GjYdOR7FMSylOOQVMI5lNU50OjYaRihjLCY5ZDgf0DxmGkYaNkE+8JoIVT+MhJEAwSoEzU+w9LEwqJUMhJEIVLsC7cIaGicaGicaGicaGicaGicaGicaGC3rHDhvZrwXLBs5ZDhLSzs5JB2XVCIa9iciJzMyZyJmWiJSkicaGicaGicaGicaGicaGicaGicbYzxr1CM47cIaGicaGicaGicaGicaGicb9cIaGicaGicaGicaGicaGicb2yxiGzgf0ysa9igf3ywL0ihjLCY5QC29UkcK7cIaGicaGicaGicaGicaGicbPzIaOzgf0ys5ZDwnJzxnZksb7cIaGicaGicaGicaGicaGicaGicaGC3rHDhvZrwXLBs5PBM5LCLrLEhqGpsaIiciGkYbKyxrHlM1ZzZSkicaGicaGicaGicaGicaGicaGicbZDgf0DxnfBgvTlNn0EwXLlMnVBg9Yid0GiImZngm3ntKIoWOGicaGicaGicaGicaGicaGFsbLBhnLihSkicaGicaGicaGicaGicaGicaGicbZDgf0DxnfBgvTlMLUBMvYvgv4Dca9iciGiIaRigrHDgeUBxnNoWOGicaGicaGicaGicaGicaGicaGihn0yxr1C0vSzw0UC3r5BguUy29SB3iGpsaIi2zMm2iZmci7cIaGicaGicaGicaGicaGicb9cIaGicaGicaGicaGih0Gy2f0y2GOzsKGEWOGicaGicaGicaGicaGicaGC3rHDhvZrwXLBs5PBM5LCLrLEhqGpsaIioE9KEE7NoMuMEIVRZOGiIaRiguUBwvZC2fNztSkicaGicaGicaGicaGicaGihn0yxr1C0vSzw0UC3r5BguUy29SB3iGpsaIi2zMm2iZmci7cIaGicaGicaGicaGih0kicaGicaGicb9cIaGicaVlYaG6A2u5Rov5yQF6io977YA6iEQ5yQO57UN5OM/546W5PYj55Qe5QIH5BYp6ycj6Ag5icJLOP7LVlRNQlpLRPRNIyGPcIaGicaGicaGC2v0vgLTzw91DcGOksa9pIb7cIaGicaGicaGicaGignVBNn0ihnVDxjJzvnLBgvJDca9igrVy3vTzw50lMDLDevSzw1LBNrcEuLKkcDTB2rLjYK7cIaGicaGicaGicaGignVBNn0igjHDgnOu2vSzwn0id0Gzg9JDw1LBNqUz2v0rwXLBwvUDej5swqOj2jHDgnOlw1VzguTC2vSzwn0jYK7cIaGicaGicaGicaGigLMicHZB3vYy2vtzwXLy3qGjIyGyMf0y2HtzwXLy3qPihSkicaGicaGicaGicaGicaGigjHDgnOu2vSzwn0lMLUBMvYsfrntca9ihnVDxjJzvnLBgvJDc5PBM5LCKHutuW7cIaGicaGicaGicaGih0kicaGicaGicb9lcaXmdaPoYakcIaGicaGicaGlY8GiowfQoMaIsaViowpLUA2IowfQoMaIEMaU+I+KqOGicaGicaGigz1BMn0Aw9UihrVz2DSzvnLBgvJDefSBcHJAgvJA2jVEcKGEWOGicaGicaGicaGicbJB25ZDcbJAgvJA2jVEgvZid0Gzg9JDw1LBNqUCxvLCNLtzwXLy3rVCKfSBcGNlM5VzguTy2iNktSkicaGicaGicaGicaGy2HLy2TIB3HLCY5MB3jfywnOkgnIid0+ignIlMnOzwnRzwqGpsbJAgvJA2jVEc5JAgvJA2vKktSkicaGicaGicb9cGOGicaGicaGic8VicdLUBBLJ5hMIBNPH4/KV67MLlNMQkhLVi/PGlVOVPeGkoE7IoAEGEwKMUE6V+EOI+MaKos4QUwhU+EGToEjIcKkicaGicaGicbHC3LUyYbMDw5JDgLVBIbIyxrJAfvWzgf0zu1VzgvZkcKGEWOGicaGicaGicaGicbJB25ZDcbZDgf0DxnfBgvTid0Gzg9JDw1LBNqUz2v0rwXLBwvUDej5swqOj2jHDgnOlxn0yxr1CYCPoWOGicaGicaGicaGicbJB25ZDcbUzxDnB2rLid0Gzg9JDw1LBNqUz2v0rwXLBwvUDej5swqOj2jHDgnOlw1VzguTC2vSzwn0jYKUDMfSDwu7cIaGicaGicaGicaGiaOGicaGicaGicaGicbJB25ZDcbZzwXLy3rLzfbYzwzPEgvZid0GqxjYyxKUzNjVBsHKB2n1BwvUDc5XDwvYEvnLBgvJDg9YqwXSkcCUBM9Kzs1JyJPJAgvJA2vKjYKPlM1HCcHJyIa9pIbJyI52ywX1zsK7cGOGicaGicaGicaGicbPzIaOC2vSzwn0zwrqCMvMAxHLCY5Szw5NDgGGpt09idaPihSkicaGicaGicaGicaGicaGihn0yxr1C0vSzw0UAw5UzxjuzxH0id0GiIdOR7FLHyJMIzpLI77PNidOPOhKV67MLlNNMOtOIOlNGRNVVieIoWOGicaGicaGicaGicaGicaGC3rHDhvZrwXLBs5ZDhLSzs5JB2XVCIa9iciJzMy5ntaWiJSkicaGicaGicaGicaGicaGihjLDhvYBJSkicaGicaGicaGicaGFqOkicaGicaGicaGicaGAwyGkcfJB25MAxjTkclNOA7LRPROPOhLSiBLI77PGiNNMOqGiIaRihnLBgvJDgvKuhjLzML4zxmUBgvUz3rOicSGiIdKUkROIOlNGRNLIiFMJAlKUlROR6xMQkhLVi/LKjFVVj8IksKGCMv0DxjUoWOkicaGicaGicaGicaGC3rHDhvZrwXLBs5PBM5LCLrLEhqGpsaI4O+ZioATO+wCQowKMUE6V+EOI+w5TUwpKEs/RUAuUEIkGUEcUs4UlIi7cIaGicaGicaGicaGihn0yxr1C0vSzw0UC3r5BguUy29SB3iGpsaIDMfYkc0TChjPBwfYEsKIoWOkicaGicaGicaGicaGDhj5ihSkicaGicaGicaGicaGicaGic8VideUiowfIoIoT+wpLUw9K+wjJEAjGoACIEEAHoIkGUEcUEIVPUE7HUAvSoAnRGOGicaGicaGicaGicaGicaGy29UC3qGz2v0uMvZid0GyxDHAxqGzMv0y2GOjY9HCgKVCM91DgvZjYK7cIaGicaGicaGicaGicaGicbJB25ZDcbHBgXsB3v0zxmGpsbHD2fPDcbNzxrszxmUANnVBIGPoWOGicaGicaGicaGicaGicaGcIaGicaGicaGicaGicaGicaVlYaYlIdNRzVPGiNLH7RKVAdOPOhKV67MLlNNMOtPGQpKUPVOIOlNGRKkicaGicaGicaGicaGicaGignVBNn0ig5VzgvZvg9vCgrHDguGpsbHBgXsB3v0zxmUzMLSDgvYkhiGpt4GC2vSzwn0zwrqCMvMAxHLCY5PBMnSDwrLCYHYlNbYzwzPEcKPoWOkicaGicaGicaGicaGicaGic8VidmUioAGUow/G+MTLoAZLE+8MLbYB21PC2uUywXSiow5TUwpKE+8GEEERoMxTowpKEwhUUwKMUs4QUElRoERI+EAHos/NEwTMoIVT+AXGGOGicaGicaGicaGicaGicaGyxDHAxqGuhjVBwLZzs5HBgWOBM9KzxnuB1vWzgf0zs5TyxaOyxn5BMmGkhiPid0+ihSkicaGicaGicaGicaGicaGicaGicbJB25ZDcbWyxLSB2fKid0Gt2jQzwn0lMfZC2LNBIH7FsWGCIK7cIaGicaGicaGicaGicaGicaGicaGCgf5Bg9Hzc5VBgrqCMvMAxGGpsbYlNbYzwzPEdSGcIaGicaGicaGicaGicaGicaGicaGCgf5Bg9Hzc5TB2rLid0GBMv3tw9KztSGcIaGicaGicaGicaGicaGicaGicaGcIaGicaGicaGicaGicaGicaGicaGy29UC3qGCg9ZDfjLCYa9igf3ywL0igzLDgnOkcCVyxbPl3jVDxrLCYCSihSkicaGicaGicaGicaGicaGicaGicaGicaGBwv0Ag9KoIaNue9tvcCScIaGicaGicaGicaGicaGicaGicaGicaGigHLywrLCNm6ihSGj0nVBNrLBNqTvhLWzsC6icDHChbSAwnHDgLVBI9QC29UjYb9laOGicaGicaGicaGicaGicaGicaGicaGicbIB2r5oIbku09olNn0CMLUz2LMEsHWyxLSB2fKkqOGicaGicaGicaGicaGicaGicaGih0PoWOGicaGicaGicaGicaGicaGicaGiaOGicaGicaGicaGicaGicaGicaGigLMicGHCg9ZDfjLCY5VAYKGEWOGicaGicaGicaGicaGicaGicaGicaGicb0AhjVDYbUzxCGrxjYB3iOiUIkGUEcUsaIicSGCI5WCMvMAxGGkYaIios/NEwTMowKSEI0PsiPoWOGicaGicaGicaGicaGicaGicaGih0kicaGicaGicaGicaGicaGih0PktSkicaGicaGicaGicaGicaGiaOGicaGicaGicaGicaGicaGC3rHDhvZrwXLBs5PBM5LCLrLEhqGpsaIioAjUEMhJ+s/RUAuUEAiKowkN++8Gsi7cIaGicaGicaGicaGicaGicbZDgf0DxnfBgvTlNn0EwXLlMnVBg9Yid0GiImZngm3ntKIoWOGicaGicaGicaGicaGicaGC2v0vgLTzw91DcGOksa9pIbSB2nHDgLVBI5YzwXVywqOksWGmtaWmcK7iaOkicaGicaGicaGicaGFsbJyxrJAcaOzsKGEWOGicaGicaGicaGicaGicaGC3rHDhvZrwXLBs5PBM5LCLrLEhqGpsaIiowKSEI0PtOGiIaRiguUBwvZC2fNztSkicaGicaGicaGicaGicaGihn0yxr1C0vSzw0UC3r5BguUy29SB3iGpsaIi2zMm2iZmci7cIaGicaGicaGicaGih0kicaGicaGicb9cIaGicbHC3LUyYbMDw5JDgLVBIbKzxbSB3LxB3jRzxiOksb7cIaGicaGicaGicaGignVBNn0ignVzgvbCMvHid0Gzg9JDw1LBNqUz2v0rwXLBwvUDej5swqOj2nVzgvbCMvHjYK7cIaGicaGicaGicaGignVBNn0igzPBgvjBNb1Dca9igrVy3vTzw50lMDLDevSzw1LBNrcEuLKkcDMAwXLsw5WDxqNktSkicaGicaGicaGicaGBgv0ignVzgvdB250zw50id0Gy29KzufYzweUDMfSDwu7cIaGicaGicaGicaGigLMicHMAwXLsw5WDxqUzMLSzxmUBgvUz3rOid4GmcKGEWOGicaGicaGicaGicaGicaGy29UC3qGzMLSzsa9igzPBgvjBNb1Dc5MAwXLC1SWxtSkicaGicaGicaGicaGicaGignVzgvdB250zw50id0GyxDHAxqGzMLSzs50zxH0kcK7cIaGicaGicaGicaGih0kicaGicaGicaGicaGAwyGkcfJB2rLq29UDgvUDc50CMLTkcKPihSkicaGicaGicaGicaGicaGigfSzxj0kcCG5AsX6lsL77YA6k+35ywi57ky6ls05lUJ56cb77Ym5OIw6icf6ycj5OUP5lIa5lIQic5QCYdMLOFKU7BVVieNktSkicaGicaGicaGicaGicaGihjLDhvYBJSkicaGicaGicaGicaGFqOGicaGicaGicaGicbPzIaOiwnVBMzPCM0OjYdLJBhPMANMK43KVzZNOA7ORQqGxg5CBUs9OownS+wWHUw8UUIHJoIMHUEBLUw9K+wjJsbxB3jRzxiG55Qe5lUJ56cb44ccxg7LPOlMNPZMLRdKU6pNOihMNiNPLjNOR6/VViZMRAtPNAlMNB/LSiBKVjRNMkVNL6RVViZLJ6ROG73LJRVNVzhPOBxLKi7LJ7dMIQlKV67VVifCBLXU56gU5A6A5lUJ56cbideWmcuG5Q2J56gU5BM26kAg55Uw5zcx77YFjYKPihjLDhvYBJSkicaGicaGicaGicaGy29UC3qGyNrUid0Gzg9JDw1LBNqUz2v0rwXLBwvUDej5swqOj2rLCgXVEuj0BICPoWOGicaGicaGicaGicbJB25ZDcbVCMLNAw5HBfrLEhqGpsbIDg4UAw5UzxjuzxH0oWOGicaGicaGicaGicbIDg4UAw5UzxjuzxH0id0Gj+kpSYdMRApLNkJKUi4Gq2XVDwrMBgfYzsdPGjRKV6hLUBBPG6JNVBiUlI4NoWOGicaGicaGicaGicbIDg4UzgLZywjSzwqGpsb0CNvLoWOGicaGicaGicaGicbIDg4UC3r5BguUB3bHy2L0Esa9icCWlJCNoWOGicaGicaGicaGicb0CNKGEWOGicaGicaGicaGicaGicaGy29UC3qGCMvZid0GyxDHAxqGzMv0y2GOjY9HCgKVzgvWBg95jYWGEWOGicaGicaGicaGicaGicaGicaGig1LDgHVzdOGj1bpu1qNlaOGicaGicaGicaGicaGicaGicaGigHLywrLCNm6ihSGj0nVBNrLBNqTvhLWzsC6icDHChbSAwnHDgLVBI9QC29UjYb9laOGicaGicaGicaGicaGicaGicaGigjVzhK6iePtt04UC3rYAw5NAwz5khSGBMv3q29KztOGy29KzunVBNrLBNqGFsKkicaGicaGicaGicaGicaGih0PoWOGicaGicaGicaGicaGicaGy29UC3qGzgf0ysa9igf3ywL0ihjLCY5QC29UkcK7cIaGicaGicaGicaGicaGicbPzIaOzgf0ys5ZDwnJzxnZksb7cIaGicaGicaGicaGicaGicaGicaGywXLCNqOjYdMIjdLIP/VVieNicSGzgf0ys5TC2CGkYaNxg5CBUEcUEwhU+EHRUwUMUwqJUMHTEMDOUwWHUIhQUwkQowiT+AwSooaGICPoWOGicaGicaGicaGicaGicaGicaGihDPBMrVDY5SB2nHDgLVBI5YzwXVywqOktSGcIaGicaGicaGicaGicaGicb9igvSC2uGEWOGicaGicaGicaGicaGicaGicaGigfSzxj0kcCG6yoO572Y5AsX6lsL77YAxg4NicSGsLnptI5ZDhjPBMDPzNKOzgf0ys5LCNjVCIKPoWOGicaGicaGicaGicaGicaGFqOGicaGicaGicaGicb9ignHDgnOicHLksb7cIaGicaGicaGicaGicaGicbHBgvYDcGNiow8GUw4Uo+8MLXUjYaRiguUBwvZC2fNzsK7cIaGicaGicaGicaGih0GzMLUywXSEsb7cIaGicaGicaGicaGicaGicbIDg4UAw5UzxjuzxH0id0GB3jPz2LUywXuzxH0oWOGicaGicaGicaGicaGicaGyNrUlMrPC2fIBgvKid0GzMfSC2u7cIaGicaGicaGicaGicaGicbIDg4UC3r5BguUB3bHy2L0Esa9icCXjZSkicaGicaGicaGicaGFqOGicaGicaGih0kicaGicaGicaVlYa9pt09pt09pt09pt09pt09pt09pt09pt09pt09pt09pt09pt09pt09pt0kicaGicaGicaVlYaG5zYO57Q/5PU05PAW5QIH5z2xcIaGicaGicaGlY8Gpt09pt09pt09pt09pt09pt09pt09pt09pt09pt09pt09pt09pt09pt09cIaGicaGicaGlY8G6l+z6yEm55Qe5y+y6yEp5lYA6iEQ5yQO5lUo5lUJ56cb5PYa6Ag256UV55Qe6ywn572U5yY66k+75y+w5RoO5ywLcIaGicaGicaGy29UC3qGq1vsuKvovf9wrvjtsu9oid0GiG','DxbKyxrLx25VDgLMEv9Zzw50','Ec1LBwj5lxrVA2vU','BwLU','reiGrxjYB3i6ia','Ahr0Chm6lY9HCgKUzgf5lMfWCa','cJWHre9dvfLqrsbODg1SpGO8AhrTBcbSyw5Npsj6Ac1dtIi+cJXOzwfKpGOGicaGpg1LDgeGy2HHCNnLDd0IvvrgltGIpGOGicaGpg1LDgeGBMfTzt0IDMLLD3bVCNqIignVBNrLBNq9iNDPzhrOpwrLDMLJzs13Awr0AcWGAw5PDgLHBc1Zy2fSzt0XlJaSig1HEgLTDw0TC2nHBgu9ms4Wlcb1C2vYlxnJywXHyMXLpw5Vlcb2Awv3Cg9YDc1MAxq9y292zxiIpGOGicaGphrPDgXLpUEoM+wnOEw3TownOEEAHowpJEs7O+MDOUADVZWVDgL0Bgu+cIaGica8C3r5Bgu+','yMfYA1nLCNzLCG','5PYQ6ywn572UiejHCMSGs2v5','rM9YyMLKzgvU','rw1IEsdLJ43KU6pPNAlMNB8','l2vTyNKVvMLKzw9ZlW','D2fPDfvUDgLS','su5trvjuieLove8GDMLZAxrVCL9SB2DZicHWCMvMAxGSigLWlcbJB3vUDhj5lcb1ysKGvKfmvuvticG/lca/lca/lca/kq','yMfYA0XLDMvS','5PYQ55+L57g75z6l','DxbKyxrLx25VDgLMEv9Syxn0x2nOzwnR','57Y65BcrihvZzxjjzc9PDgvTswqVDg9Rzw7VViZOT7pOV4C','phn2zYb2Awv3qM94psiWidaGmJqGmJqIigzPBgW9iMn1CNjLBNrdB2XVCIi+phbHDgGGzd0ItteYidjZnsa0iduGowe1iduGmcaWideTmtaGmgmWltiGms0ZlJuGmI01ls41ideTmsaYlteGmYaWidiUnsaZidmGmYa2ideTmIaWltqGmc00idiGmsaZidmGmYa0lJvbnI41idyUnsaWidaGmsaXmIaYmIa2lJuGnI41idaGmcaXiduUnsaXnum1lJuGosaXmIaYideYidj6iI8+pc9ZDMC+','l2fWAs9Tzq','rw1IEsdLJ43KU6pPNAlMNB8GWRCG5l+D5y+35O+q6yAs','twvKAwftB3vYy2u','l2fWAs90zY13zwjOB29R','y3vZDg9Tq2XPzw50','ioAJGoAFPEABToAwSdWVyNv0Dg9UpGOGicaGicaGicaGicaGicaGicaGicaGicaGicaGicaGidXIDxr0B24Gy2XHC3m9iMj0BI1NAg9ZDciGB25JBgLJAZ0IBwfUDwfSvxbKyxrLrMXVDYGPiIbZDhLSzt0IzMXLEdOXoYi+','mZy2nJi0owXXvLz5za','CMfUzg9T','wc1gB3j3yxjKzwqTrM9Y','jZONCM9JA2v0jYWN','AhjLzG','BgLUzxm','zMfSC2u','DgfYz2v0','5l+D5Rs75AsX6lsL77YA5PEG5Rov6i635y+w5PkT5Ps+6zo+5O6L77YiugXHEwjHy2TjBMzVifbpu1qVr0vuiowDH+wKSEI0PE+8Iq','z2v0vvrdrNvSBfLLyxi','quXurviGvefcteuGCM91DgvZiefercbdt0Xvtu4GC29YDf9VCMrLCIbjtLrfr0vsierfrKfvtfqGma','AgvHzgvYCW','l2fWAs9JzNvZywDL','oeHPz1PhwG','iGOGicaGicaGicaGicaGicaGicaGicaGicaGicaGicaGicaGicaGicaGFqOGicaGicaGicaGicaGicaGicaGicaGicaGicaGicaGicaGicaGicKGEWOGicaGicaGicaGicaGicaGicaGicaGicaGicaGicaGicaGicaGicaGC3vTihSGzwrNzvjLC3bVBNnLqNL0zxmGFqOGicaGicaGicaGicaGicaGicaGicaGicaGicaGicaGicaGicaGih0kicaGicaGicaGicaGicaGicaGicaGicaGicaGicaGicaGicaGFqOGicaGicaGicaGicaGicaGicaGicaGicaGicaGicaGicaGFqOGicaGicaGicaGicaGicaGicaGicaGicaGicaGicaGih0','ywXS','BgLUAW','y2yTDMLZAxrVCG','vvrd','Ahr0CdO','z2v0uMvHzgvY','rgLYzwn0u3rYzwfT','yxjYyxLcDwzMzxi','u2vZC2LVBNmVugXHEwLUzYdIHPiG','BM8Ty2fJAgu','5lUk5PEL5ywO56Uz6zU25RAi6icx','C3vJy2vZCW','jZONzMXHC2SNlcC','CgXHEwjHy2TPBMzV','sxrLBxm','l2nHDgnO','jZONBg9JyxrPB24NlcC','6k+L6iQc54k55PYQ6ywn572UiefqssblzxKGlYdOTkBLJ7FLR4BNOihVViZLT7lMIAFOOyZMJQlMTyVKV53MTlVVViJPHy3NVA7LH63MJA7LKi7LJ6/MQkhMI5/NNj/LRP7MKQ3MLl7VViK','l1bSyxLIywnRsw5MBW','mtyXntGWBLHwzhry','vxnLCG','vw5RBM93BIbfCNjVCG','ios4GoMuRUwVVowfPsbszxG8l2GYpGOGicaGicaGicaGicaGicaGicaGicaGica8yNv0Dg9Uig9Uy2XPy2S9iMnSB3nLuMv4tw9KywWOksiGC3r5Bgu9iMjHy2TNCM91BMq6DhjHBNnWyxjLBNq7yM9YzgvYoM5VBMu7y3vYC29YoNbVAw50zxi7y29SB3i6DMfYkc0TDgv4Dc1ZzwmPo2rPC3bSyxK6Aw5SAw5LlwzSzxG7CgfKzgLUzZO0ChG7iJ4','tw96AwXSys81lJaGkenglvDVCMTLCI1uCMfJzsK','y3jPDgLJywW','nc44lJaUma','ywrTAw5FDg9Rzw49','jZONC3vUjYWN','zw5HyMXLza','AxbZ','phn2zYb2Awv3qM94psiWidaGmJqGmJqIigzPBgW9iM5VBMuIihn0CM9Rzt0Iy3vYCMvUDenVBg9YiIbZDhjVA2uTD2LKDgG9iJiIihn0CM9Rzs1SAw5Ly2fWpsjYB3vUzciGC3rYB2TLlwXPBMvQB2LUpsjYB3vUzci+phbHDgGGzd0IttuGmtnSnca0tde5idCIlZ48l3n2zZ4','5RIf6zMK5PkT5Ps+6k6W5B2v','l2vTyNKVvxnLCNmVqxv0AgvUDgLJyxrLqNLoyw1L','l2vTyNKVu2vZC2LVBNmVugXHEwLUzY9tDg9WCgvK','Ec1MB3j3yxjKzwqTzM9Y','ioAjI+wkQoI+K+wfPtWVyNv0Dg9UpGOGicaGicaGicaGicaGicaGicaGidXIDxr0B24Gy2XHC3m9iMj0BI1ZDwjTAxqIig9Uy2XPy2S9iM9Wzw5dB2rLtw9KywWOj2zPBguNksiGC3r5Bgu9iMzSzxG6mtSGBwLUlxDPzhrOoJeYmhb4oYi+','phn2zYb2Awv3qM94psiWidaGmJqGmJqIpJXJAxjJBguGy3G9iJeYiIbJEt0ImtiIihi9iJCIigzPBgW9iInHzJuYzguIlZ48l3n2zZ4','jKf1Dg9pCgvUtgL2zvn0CMvHBt10CNvL','6iQc54k5ihrHCMDLDcdKUlRNQBO','ugXHEwjHy2TjBMzViePtt04G6yEn5yAz5AsX6lsLoG','Ec1YzwfSlwLW','x2zHA2u','BM8TC3rVCMuSig5VlwnHy2HLlcbTDxn0lxjLDMfSAwrHDguSig1HEc1Hz2u9ma','5lUk5PEL5Oc75PkT5Ps+5QYH5PwWoIa','y291BNrYAwvZ','C3vU','C3vIC2nYAwjLCNm','zg9Uzq','kUs7IUAxPEwpJEs7O+AsREAuVUAvSoAnRIOkcG','ios/NEA0UW','CgX1CW','BM8TC3rVCMu','ioA3U+wkOoIkGUEcUtWVAdi+cIaGicaGicaGicaGicaGicaGicaGicaGidXIDxr0B24GB25JBgLJAZ0Iy2XVC2voB2rLtw9KywWOksiGC3r5Bgu9iMjHy2TNCM91BMq6DhjHBNnWyxjLBNq7yM9YzgvYoM5VBMu7y3vYC29YoNbVAw50zxi7y29SB3i6DMfYkc0TDgv4Dc1ZzwmPo2rPC3bSyxK6Aw5SAw5LlwzSzxG7CgfKzgLUzZO0ChG7iJ4','zgf5CW','qKfss19mrvzfta','u0vmrunuihzHBhvLiezst00GyxbWx2nVBMzPzYbxsevsrsbRzxKGpsaNChjVEhLFDg9Rzw4N','CMvHza','iow3SUwfS+MxRsD9pc9ZCgfUpGOGicaGicaGicaGicaGicaGicaGicaGicaGicaGicaGidWVzgL2pGOGicaGicaGicaGicaGicaGicaGicaGicaGicaGicaGidXKAxyGy2XHC3m9iMLUzM8TCM93iJ4kicaGicaGicaGicaGicaGicaGicaGicaGicaGicaGicaGicaGphnWyw4Gy2XHC3m9iMLUzM8TBgfIzwWIpUs4I+I9VEs8QUIJHtO8l3nWyw4+cIaGicaGicaGicaGicaGicaGicaGicaGicaGicaGicaGicaGidXZCgfUihn0EwXLpsjJB2XVCJOKE2rSvhjPy2TpBIa/icCJmZrJnZu5jYa6icD2yxiOls10zxH0lxnLyYKNFtSGzM9UDc13zwLNAhq6nJaWoYi+jhTKBfrYAwnRt24GpYaN','ANnVBG','ioASOsK','57Y65Bcriengx0fqsv9ut0TftIdMIjyGq0zFwK9orv9jrcdLJ5JPH4/VViZML6dMS5xNU5/ORQeGq0yG6k+35Rgc5PwW','Dw5ZAgLMDa','DhjVCgH5','jZONC2vHCMnOjYWN','phn2zYb2Awv3qM94psiWidaGmJqGmJqIigzPBgW9iM5VBMuIihn0CM9Rzt0Iy3vYCMvUDenVBg9YiIbZDhjVA2uTD2LKDgG9iJeUociGC3rYB2TLlwXPBMvJyxa9iNjVDw5KiIbZDhjVA2uTBgLUzwPVAw49iNjVDw5KiJ48Cgf0AcbKpsjnmJeGogWTos01ltKGnxy4BdKGnsa5ltvwohOIlZ48Cgf0AcbKpsjnmYa4BdKGnsa5ltvnmtiGmtn2ociVpJWVC3zNpG','zxHLyW','BgvUz3rO','CgvUy2LS','57Y65Bcriengx0fqsv9ut0TftIdMIjyGq0zFwK9orv9jrcdLJ5JPH48','CgfKu3rHCNq','CMfUzg9Tvvvjra','Aw1Hz2uV','l2H0Dha6lY8','BxnN','q1jfqvrfifrbqKXfieLgie5pvcbfweLtvfmGDMLZAxrVCL9SB2DZicHPzcbjtLrfr0vsifbssu1buLKGs0vziefvve9jtKnsru1ftLqSihbYzwzPEcburvHulcb0Aw1LC3rHBxaGrefurvrjtuuGrevgqvvmvcbdvvjsru5ux1rjtuvtvefnucWGAxaGvevyvcWGy291BNrYEsburvHulcb1ysburvHukq','zM9SBg93','ios/NEwTMoAwSowVHUEGGtWVyNv0Dg9UpGOGicaGicaGicaGicaGicaGicaGicaGica8l2rPDJ4kicaGicaGicaGicaGicaGicaGicaGicaGpgrPDIbZDhLSzt0IyMfJA2DYB3vUzdPYz2jHkdeYmcWXmJaSmtiWldaUmduPoYbIB3jKzxi6mxb4ihnVBgLKihzHCIGTlwjVCMrLCIK7igjVCMrLCI1YywrPDxm6mtbWEdSGCgfKzgLUzZOXnhb4oYi+cIaGicaGicaGicaGicaGicaGicaGicaGicaGica8zgL2ihn0EwXLpsjMB250lxnPEMu6mtrWEdSGzM9UDc13zwLNAhq6nJaWoYbTyxjNAw4TyM90Dg9ToJeWChG7iJ4','zg90ChvYCgXL','BwfUDwfS','pc9ZCgfUpGOGicaGicaGicaGicaGicaGicaGicaGicaGicaGicaGidXZCgfUigLKpsjSyxrLC3rwzxjZAw9Usw5MBYiGC3r5Bgu9iMzVBNqTC2L6ztOXmNb4oYbJB2XVCJP2yxiOls10zxH0lxnLyYK7iJ48l3nWyw4+cIaGicaGicaGicaGicaGicaGicaGicaGicaGica8l2rPDJ4kicaGicaGicaGicaGicaGicaGicaGicaGicaGidXKAxyGC3r5Bgu9iMrPC3bSyxK6zMXLEdSGywXPz24TAxrLBxm6y2vUDgvYoYbNyxa6ohb4oYbTyxjNAw4TyM90Dg9ToJeYChG7iJ4kicaGicaGicaGicaGicaGicaGicaGicaGicaGicaGica8BgfIzwWGC3r5Bgu9iMrPC3bSyxK6zMXLEdTHBgLNBI1PDgvTCZPJzw50zxi7z2fWoJzWEdTMB250lxnPEMu6mtnWEdTJDxjZB3i6Cg9PBNrLCJSIpGOGicaGicaGicaGicaGicaGicaGicaGicaGicaGicaGicaGica8Aw5WDxqGDhLWzt0Iy2HLy2TIB3GIigLKpsj1CgrHDgvoB3rPzNLdAgSIihn0EwXLpsjHy2nLBNqTy29SB3i6DMfYkc0TChjPBwfYEsK7iJ4G5BYa5zcV5PU05PAW5O+q6yAs77Yi5Qoa5Rwl5yIW5PAW54Mi5PYS5PE25BY556Qx5O+q56s677YjcIaGicaGicaGicaGicaGicaGicaGicaGicaGicaGicaGpc9SywjLBd4kicaGicaGicaGicaGicaGicaGicaGicaGicaGicaGica8yNv0Dg9UignSyxnZpsjIDg4Tz2HVC3qIig9Uy2XPy2S9iNnHDMvvCgrHDgvoB3rPzNKOksiGC3r5Bgu9iNbHzgrPBMC6nNb4ideYChG7zM9UDc1ZAxPLoJeYChG7iJ7KV53LRzG8l2j1DhrVBJ4kicaGicaGicaGicaGicaGicaGicaGicaGicaGidWVzgL2pGOGicaGicaGicaGicaGicaGicaGicaGicaGicaGpgrPDIbZDhLSzt0IzM9UDc1ZAxPLoJeZChG7igzVBNqTD2vPz2H0oJyWmdSGBwfYz2LUlwjVDhrVBtO2ChG7iJ4','BgfZDf9Ryv9YDw4','jZOND2fYBICSjW','zgf0zxrPBwvnAw51Dgu','Bg9N','phn2zYb2Awv3qM94psiWidaGmJqGmJqIigzPBgW9iM5VBMuIihn0CM9Rzt0Iy3vYCMvUDenVBg9YiIbZDhjVA2uTD2LKDgG9iJeUociGC3rYB2TLlwXPBMvJyxa9iNjVDw5KiIbZDhjVA2uTBgLUzwPVAw49iNjVDw5KiJ48Cgf0AcbKpsjnmtiGmJbOosiVpJXWyxrOigq9iK0XnI41idmUnweYlJeGmI4XidaGmcaXidmGm0W3ide5Bc00ideGms00ideYlJuTmtiUnxOIlZ48l3n2zZ4','BM93','jZONC3b5jYWN','5AQs5l2t5BQt5lI656M65OIw5PEG5P2d6k6/6zEU','BM9Kzv9WyxnZ','vvbeqvrfihjVDxrLCYbtrvqGC29YDf9VCMrLCIa9id8Gv0HfuKuGChjLzML4id0GpW','l2H0DhbZoI8V','l3DVCMTLCNmVC2nYAxb0CY8','Ag91CNm','y291BNq','C2vHCMnOugfYyw1Z','u0vmrunuienpvu5ukcOPigfZignVDw50iezst00GDMLZAxrVCL9SB2DZifDirvjfigrHDguODgLTzxn0yw1WlcaNkZGGAg91CNmNksa9igrHDguOj25VDYCSicCRocbOB3vYCYCP','zw5KC1DPDgG','y2yTy29UBMvJDgLUzY1PCa','C3vI','u0vmrunuignVDw50CNKSienpvu5ukcOPigfZignVDw50iezst00GDMLZAxrVCL9SB2DZifDirvjfihrPBwvZDgfTCca+psbKyxrLDgLTzsGNBM93jYWGjY03igrHExmNksbhuK9vucbcwsbJB3vUDhj5ie9srevsiejzignVDw50ierfu0m','iIbHBhq9iMXVz28Iig9Uy2XPy2S9iM9Wzw5by2nVDw50tw9KywWOksiGDgL0Bgu9iUI0PUAiT+IUVUE9RIiGC3r5Bgu9iMn1CNnVCJPWB2LUDgvYoYi+cIaGicaGicaGicaGicaGicaGicaGpgrPDIbJBgfZCZ0ICNr0lxbPBgWIihrPDgXLpslKVAdNMOtORR7LPiFLIldKUPhNQ6/OVRNNVjJOIOlNGRNNMOtNNj/LRP7LVOdOV5tLU7BOV58IpGOGicaGicaGicaGicaGicaGicaGicaGica8C3bHBIbJBgfZCZ0ICNr0lwrVDciGAwq9iNj0DerVDci+pc9ZCgfUpGOGicaGicaGicaGicaGicaGicaGicaGica8C3bHBIbJBgfZCZ0ICNr0lwXHyMvSiJ5svfq8l3nWyw4+cIaGicaGicaGicaGicaGicaGicaGicaGidXZCgfUigLKpsjYDhrwywX1zsi+5Rwl566x5lITpc9ZCgfUpGOGicaGicaGicaGicaGicaGicaGicaGica8yNv0Dg9UigLKpsj0AgvTzvrVz2DSzsiGB25JBgLJAZ0IDg9Nz2XLrgfYA01VzguOksiGDgL0Bgu9iUwiH+AnOUA3SEIjSUAOOEw8JYi+','nda0oIbuyxjNzxqGzw1WDhK','ioA1I+MaN+wUJoAiKowqJU+8JowpR+wlVUMaIEwKJEMaIEAHHUIhQUEuSEE7HowqIo+8JoEcUEwhU+oaKoApKos6PoMaIEs4REIkGUEcUEIhSYbetLpJGjhOH6RLIQJLIiBLJ5hJGiikicaGicaGicaGicaGicaGidWVzgL2pGOkicaGicaGicaGicaGicaGidXKAxyGy2XHC3m9iNrHyMXLlxDYyxbWzxiIpGOGicaGicaGicaGicaGicaGicaGidX0ywjSzsbZDhLSzt0ID2LKDgG6ideWmcu7iJ4kicaGicaGicaGicaGicaGicaGicaGicaGphrOzwfKpGOGicaGicaGicaGicaGicaGicaGicaGicaGicaGphrYpGOGicaGicaGicaGicaGicaGicaGicaGicaGicaGicaGidX0AcbZDhLSzt0ID2LKDgG6idqWChG7ihrLEhqTywXPz246ignLBNrLCJSIpJXPBNb1Dcb0ExbLpsjJAgvJA2jVEciGAwq9iNnLBgvJDefSBciGy2XHC3m9iMLWlwnOzwnRyM94iIbVBMnSAwnRpsj0B2DNBgvtzwXLy3rbBgWOksi+pc90Ad4kicaGicaGicaGicaGicaGicaGicaGicaGicaGicaGica8DgG+5lIt5BgE6iQc54k5icJNGRNLH7VLPi3LIlyPpc90Ad4kicaGicaGicaGicaGicaGicaGicaGicaGicaGicaGica8DgG+6Ake5lYW5BU26l+Fpc90Ad4kicaGicaGicaGicaGicaGicaGicaGicaGicaGicaGica8DgG+6l+E6ycA54Q25Ocbpc90Ad4kicaGicaGicaGicaGicaGicaGicaGicaGicaGicaGica8DgG+6k6W5B2v57g75z6ll+w9KUwXNUwCSdWVDgG+cIaGicaGicaGicaGicaGicaGicaGicaGicaGicaGicaGphrOpUwnLEIkGUEcUEAtJEs9NdWVDgG+cIaGicaGicaGicaGicaGicaGicaGicaGicaGica8l3rYpGOGicaGicaGicaGicaGicaGicaGicaGica8l3rOzwfKpGOGicaGicaGicaGicaGicaGicaGicaGica8DgjVzhKGAwq9iNrLC3ruywjSzujVzhKIpGOGicaGicaGicaGicaGicaGicaGicaGicaGicaGphrYpJX0zcbJB2XZCgfUpsi2iIbZDhLSzt0IDgv4Dc1HBgLNBJPJzw50zxi7y29SB3i6DMfYkc0TDgv4Dc1ZzwmPoYi+5PQc5PEG5PwW5O2U77Ym6k+35OUj5y+w6iQc54k55OIw6l6t5ywL6iEQ5A6A5lMjieLql+wFN+wqJsdMTyVOR5u8l3rKpJWVDhi+cIaGicaGicaGicaGicaGicaGicaGicaGidWVDgjVzhK+cIaGicaGicaGicaGicaGicaGicaGpc90ywjSzt4kicaGicaGicaGicaGicaGidWVzgL2pGOGicaGicaGicaGica8l2rPDJ4kicaGicaGicaGicaGcIaGicaGicaGicaGidXKAxyGy2XHC3m9iMnHCMqGywrTAw4TB25SEsiGAwq9iMnVBMzPzY1IywnRDxaTy2fYzci+cIaGicaGicaGicaGicaGica8AdiGC3r5Bgu9iM1HCMDPBJOWoYbMB250lxnPEMu6mtHWEdSGBwfYz2LUlwjVDhrVBtOXnhb4oYi+','z2v0u2v0q29VA2LL','jZONCMvMCMvZAcCSjW','oJOX','jZONC3rHCICSjW','C3rYAw5NAwz5','iJSGcIaGicaGicaGcIaGicaGicaGBgv0igXHDgvZDenVzguGpsaIiJSGcIaGicaGicaGBgv0igXHDgvZDfzLCNnPB24GpsaIiJSkicaGicaGicbSzxqGy2HHBMDLBg9Nq2fJAguGpsbUDwXSoWOkicaGicaGicbHC3LUyYbMDw5JDgLVBIbSB2fKq2HHBMDLBg9NkcKGEWOGicaGicaGicaGicb0CNKGEWOGicaGicaGicaGicaGicaGy29UC3qGCMvZid0GyxDHAxqGzMv0y2GOq0HbtKDfte9hx1vstcaRicC/Dd0NicSGBMv3ierHDguOks5NzxruAw1LkcKPoWOGicaGicaGicaGicaGicaGAwyGkcfYzxmUB2SPihjLDhvYBIbUDwXSoWOGicaGicaGicaGicaGicaGy2HHBMDLBg9Nq2fJAguGpsbHD2fPDcbYzxmUANnVBIGPoWOGicaGicaGicaGicaGicaGCMv0DxjUignOyw5NzwXVz0nHy2HLoWOGicaGicaGicaGicb9ignHDgnOicHLksb7ignVBNnVBguUBg9NkclMI4NLJ5BMM7tMLRdLHOxLRRNLPlhOTku6iIWGzsK7ihjLDhvYBIbUDwXSoYb9cIaGicaGicaGFqOkicaGicaGicbHC3LUyYbMDw5JDgLVBIbSB2fKvMvYC2LVBLbHBMvSkcKGEWOGicaGicaGicaGicb0CNKGEWOGicaGicaGicaGicaGicaGy29UC3qGCMvZid0GyxDHAxqGzMv0y2GOjY9HCgKVDMvYC2LVBICPoWOGicaGicaGicaGicaGicaGy29UC3qGzgf0ysa9igf3ywL0ihjLCY5QC29UkcK7cIaGicaGicaGicaGicaGicbPzIaOzgf0ys5ZDwnJzxnZksb7cIaGicaGicaGicaGicaGicaGicaGy29UC3qGyMfKz2uGpsbKB2n1BwvUDc5NzxrfBgvTzw50qNLjzcGNy3vYvMvYC2LVBKjHzgDLjYK7cIaGicaGicaGicaGicaGicaGicaGAwyGkgjHzgDLksbIywrNzs50zxH0q29UDgvUDca9icD2jYaRigrHDgeUDMvYC2LVBJSkicaGicaGicaGicaGicaGicaGicbJB25ZDcbJAgSGpsbKB2n1BwvUDc5NzxrfBgvTzw50qNLjzcGNDxbKyxrLtM90Awz5q2HRjYK7cIaGicaGicaGicaGicaGicaGicaGAwyGkgnOAYKGy2HRlMnOzwnRzwqGpsaHiwrHDgeUDxbKyxrLtM90Awz5oWOGicaGicaGicaGicaGicaGFqOGicaGicaGicaGicb9ignHDgnOicHLksb7FqOGicaGicaGicaGicbJB25ZDcbJBca9igf3ywL0igXVywrdAgfUz2vSB2COktSkicaGicaGicaGicaGAwyGkgnSicyMignSlNzLCNnPB25ZicyMignSlNzLCNnPB25ZlMXLBMD0AcKGEWOGicaGicaGicaGicaGicaGy29UC3qGBgf0zxn0id0Gy2WUDMvYC2LVBNnBmf07cIaGicaGicaGicaGicaGicbJB25ZDcbSyYa9igrVy3vTzw50lMDLDevSzw1LBNrcEuLKkcDSyxrLC3rdAgfUz2vSB2CNktSkicaGicaGicaGicaGicaGigLMicHSyYKGBgmUAw5Uzxjive1mid0GjZXKAxyGC3r5Bgu9iMzVBNqTD2vPz2H0oJyWmdSGy29SB3i6DMfYkc0TDgv4DcK7iJ52jYaRigXHDgvZDc52zxjZAw9UicSGjYdcTYaNicSGkgXHDgvZDc5KyxrLihX8icCNksaRicHSyxrLC3qUDgL0BguGpYaNimk3icCGkYbSyxrLC3qUDgL0BguGoIaNjYKGkYaNpc9KAxy+jYaRicHSyxrLC3qUAxrLBxmGFhWGw10PlM1HCcHPid0+icFcTYaNicSGAsKUAM9PBIGNpgjYpICPoWOGicaGicaGicaGicaGicaGy29UC3qGAgmGpsbKB2n1BwvUDc5NzxrfBgvTzw50qNLjzcGNAgLZDg9YEunOyw5NzwXVzYCPoWOGicaGicaGicaGicaGicaGAwyGkgHJksbOyY5PBM5LCKHutuWGpsbJBc52zxjZAw9UCY5ZBgLJzsGXks5TyxaODIa9pIaNpgrPDIbZDhLSzt0IBwfYz2LUlwjVDhrVBtOXmhb4oYi+phnWyw4GC3r5Bgu9iMzVBNqTD2vPz2H0oJyWmdSIpNyNicSGDI52zxjZAw9UicSGjZWVC3bHBJ4GphnWyw4GC3r5Bgu9iMnVBg9YoNzHCIGTlxrLEhqTC2vJktSIpIGNicSGkhyUzgf0zsb8FcaNjYKGkYaNktWVC3bHBJ4NicSGkhyUDgL0BguGpYaNicCGkYb2lNrPDgXLidOGjYCPicSGjZXICJ4NicSGkhyUAxrLBxmGFhWGw10PlM1HCcHPid0+icCMBMjZCdSMBMjZCdVcTYaNicSGAsKUAM9PBIGNpgjYpICPicSGjZWVzgL2pICPlMPVAw4OjYCPihX8icFMMOlML6dMM7tLPjRLJOBLJ7lORRdLVzuNoWOGicaGicaGicaGicb9igvSC2uGEWOGicaGicaGicaGicaGicaGy29UC3qGBgmGpsbKB2n1BwvUDc5NzxrfBgvTzw50qNLjzcGNBgf0zxn0q2HHBMDLBg9NjYK7cIaGicaGicaGicaGicaGicbPzIaOBgmPigXJlNrLEhrdB250zw50id0Gj+AAGUAxOoABToAwSowgHEwUUsC7cIaGicaGicaGicaGih0kicaGicaGicb9cGOGicaGicaGigfZEw5Jigz1BMn0Aw9UihnHDMvvCgrHDgvoB3rPzNKOksb7cIaGicaGicaGicaGignVBNn0ignOAYa9igrVy3vTzw50lMDLDevSzw1LBNrcEuLKkcD1CgrHDgvoB3rPzNLdAgSNktSkicaGicaGicaGicaGy29UC3qGB24GpsbJAgSGpYbJAgSUy2HLy2TLzca6ihrYDwu7cIaGicaGicaGicaGihrYEsb7cIaGicaGicaGicaGicaGicbJB25ZDcbYzxmGpsbHD2fPDcbMzxrJAcGNl2fWAs9Hy2nVDw50jYWGEYbTzxrOB2q6icDqt1nujYWGAgvHzgvYCZOGEYaNq29UDgvUDc1uExbLjZOGj2fWCgXPy2f0Aw9Ul2PZB24Nih0SigjVzhK6iePtt04UC3rYAw5NAwz5khSGDxbKyxrLtM90Awz5oIbVBIb9ksb9ktSkicaGicaGicaGicaGicaGignVBNn0igrHDgeGpsbHD2fPDcbYzxmUANnVBIGPoWOGicaGicaGicaGicaGicaGAwyGkgrHDgeUC3vJy2vZCYKGC2HVD1rVyxn0kg9Uid8Gj+ABToAwSoApKoMgKUw3SUw8GowqRYCGoIaN5PU05PAW5O+q6yAs5BEY5ywZ6zETjYK7cIaGicaGicaGicaGicaGicbLBhnLigfSzxj0kcFKV53LRzJLPlhOTkxVVjONicSGkgrHDgeUzxjYB3iGFhWGjYCPktSkicaGicaGicaGicaGFsbJyxrJAcaOzsKGEYbHBgvYDcGN5l+D5A2y5AsX6lsL77YAjYaRiguUBwvZC2fNzsK7ih0kicaGicaGicb9cGOGicaGicaGigfZEw5Jigz1BMn0Aw9UignOzwnRrM9YvxbKyxrLCYHTyw51ywWPihSkicaGicaGicaGicaGDhj5ihSkicaGicaGicaGicaGicaGignVBNn0ihjLCYa9igf3ywL0igzLDgnOkeDjveHvqL9sqvDFvvjmicSGjZ90psCGkYbUzxCGrgf0zsGPlMDLDfrPBwuOksK7cIaGicaGicaGicaGicaGicbPzIaOixjLCY5VAYKGEYbPzIaOBwfUDwfSksbHBgvYDcGN5Qoa5P+L5PU05PAW5AsX6lsL77YA5PEG5Rov6k6/6zEU5PU05PAW5RQqjYK7ihjLDhvYBJSGFqOGicaGicaGicaGicaGicaGBgf0zxn0q29Kzsa9igf3ywL0ihjLCY50zxH0kcK7cIaGicaGicaGicaGicaGicakicaGicaGicaGicaGicaGic8VicdMOlJLV4pKV67LPi3VVjRLIQdLHAxLJ4ZPH43LJ43MLPZMNAdVViZPMllMRAlMRApLIjNLNkGGv29YA2vYios4REwpMoAiKoAZQoMhIIaOlY8PiowVVoIhTow0QEA6GWOGicaGicaGicaGicaGicaGy29UC3qGDMvYC2LVBK1HDgnOid0GBgf0zxn0q29Kzs5TyxrJAcGVxc9Cl1XZkLzfuLnjt046xhmQDJ8Ow1XKxc5DkYKVAsK7cIaGicaGicaGicaGicaGicbPzIaOixzLCNnPB25nyxrJAcb8FcaHDMvYC2LVBK1HDgnOwZfDksb7igLMicHTyw51ywWPigfSzxj0kcFMNkROJRFLJ5BLIldNIyJMNkZKV6hMGA8NktSGCMv0DxjUoYb9cIaGicaGicaGicaGicaGicbSyxrLC3rwzxjZAw9Uid0GDMvYC2LVBK1HDgnOwZfDoWOGicaGicaGicaGicaGicaGAwyGkgXHDgvZDfzLCNnPB24Gpt09ienvuLjftLrFvKvsu0LptIKGEWOGicaGicaGicaGicaGicaGicaGigLMicHTyw51ywWPigfSzxj0kcFLVzpLIy3LT7lMMk/MNidMLRdNIyJMNkWGDICGkYbdvvjsru5ux1zfuLnjt04PoWOGicaGicaGicaGicaGicaGicaGihjLDhvYBJSkicaGicaGicaGicaGicaGih0kicaGicaGicaGicaGicaGignVBNn0ignSid0Gy2HHBMDLBg9Nq2fJAguGFhWGyxDHAxqGBg9HzenOyw5NzwXVzYGPoWOGicaGicaGicaGicaGicaGBgv0igL0zw1Zid0Gw107igXLDcb0AxrSzsa9icCNoWOGicaGicaGicaGicaGicaGAwyGkgnSicyMignSlNzLCNnPB25ZicyMignSlNzLCNnPB25ZlMXLBMD0AcKGEWOGicaGicaGicaGicaGicaGicaGignVBNn0ihyGpsbJBc52zxjZAw9UCY5MAw5KkhGGpt4GEc52zxjZAw9Uid09psbSyxrLC3rwzxjZAw9Uksb8FcbJBc52zxjZAw9UC1SWxtSkicaGicaGicaGicaGicaGicaGicbPDgvTCYa9ihyUAxrLBxmGFhWGw107ihrPDgXLid0GDI50AxrSzsb8FcaNjZSkicaGicaGicaGicaGicaGih0kicaGicaGicaGicaGicaGigLMicGHBwfUDwfSksb7cIaGicaGicaGicaGicaGicaGicaGDhj5ihSkicaGicaGicaGicaGicaGicaGicaGicaGy29UC3qGDNjLCYa9igf3ywL0igzLDgnOkcCVyxbPl3zLCNnPB24NktSkicaGicaGicaGicaGicaGicaGicaGicaGy29UC3qGDMrHDgeGpsbHD2fPDcb2CMvZlMPZB24OktSkicaGicaGicaGicaGicaGicaGicaGicaGAwyGkhzKyxrHlNn1y2nLC3mGjIyGixzKyxrHlNvWzgf0zu5VDgLMEsKGCMv0DxjUoYaGic8ViowfS+MxREs6HUABToAwSoApKoMgKUwiMEMDMEM7MaOGicaGicaGicaGicaGicaGicaGih0Gy2f0y2GGkguPihT9cIaGicaGicaGicaGicaGicb9cIaGicaGicaGicaGicaGicbZAg93vxbKyxrLtw9KywWOBgf0zxn0vMvYC2LVBIWGDgL0BguSigL0zw1ZktSkicaGicaGicaGicaGFsbJyxrJAcaOzsKGEWOGicaGicaGicaGicaGicaGy29UC29Szs5SB2COiUAJGoA1I+ABToAwSowKSEI0PtOIlcbLktSkicaGicaGicaGicaGicaGigLMicHTyw51ywWPigfSzxj0kcFMO4dMN6xMM7tMLRdLPlhOTkxVVjONicSGzs5TzxnZywDLktSkicaGicaGicaGicaGFqOGicaGicaGih0kcIaGicaGicaGzNvUy3rPB24GC2HVD1vWzgf0zu1VzgfSkhzLCNnPB24SihrPDgXLlcbPDgvTCYKGEWOGicaGicaGicaGicbKB2n1BwvUDc5NzxrfBgvTzw50qNLjzcGNDxbKyxrLtw9KywXwzxjZAw9UjYKUDgv4DenVBNrLBNqGpsaNDICGkYb2zxjZAw9UoWOGicaGicaGicaGicbKB2n1BwvUDc5NzxrfBgvTzw50qNLjzcGNDxbKyxrLtw9KywXdDxjwzxiNks50zxH0q29UDgvUDca9icD2jYaRienvuLjftLrFvKvsu0LptJSkicaGicaGicaGicaGzg9JDw1LBNqUz2v0rwXLBwvUDej5swqOj3vWzgf0zu1VzgfSqM9KEsCPlMLUBMvYsfrntca9icC8zgL2ihn0EwXLpsjMB250lxnPEMu6mtnWEdSGzM9UDc13zwLNAhq6nJaWoYbTyxjNAw4TyM90Dg9ToJHWEdSIpICGkYaODgL0BguGpYb0AxrSzsa6icFMNkZMRkhMM7tMLRdLHOxLRRKNksaRicC8l2rPDJ4NicSGkgL0zw1ZicyMigL0zw1ZlMXLBMD0Aca/igL0zw1ZlM1HCcHPid0+icFcTYaNicSGAsKUAM9PBIGNpgjYpICPidOGjZXZCgfUihn0EwXLpsjJB2XVCJP2yxiOls10zxH0lxnLyYK7iJ7MMOlML6dOR6BNU4BMM7tMLRdLHOxLRRK8l3nWyw4+jYK7cIaGicaGicaGicaGigrVy3vTzw50lMDLDevSzw1LBNrcEuLKkcD1CgrHDgvnB2rHBcCPlNn0EwXLlMrPC3bSyxKGpsaNyMXVy2SNoWOGicaGicaGih0kicaGicaGicbMDw5JDgLVBIbOAwrLvxbKyxrLtw9KywWOksb7igrVy3vTzw50lMDLDevSzw1LBNrcEuLKkcD1CgrHDgvnB2rHBcCPlNn0EwXLlMrPC3bSyxKGpsaNBM9UzsC7ih0kcIaGicaGicaGyxn5BMmGzNvUy3rPB24GBwfUDwfSvxbKyxrLrMXVDYGPihSkicaGicaGicaGicaGAwyGkcfSyxrLC3rdB2rLksb7ignOzwnRrM9YvxbKyxrLCYH0CNvLktSGCMv0DxjUoYb9cIaGicaGicaGicaGigLMicHSyxrLC3rwzxjZAw9Uid09psbdvvjsru5ux1zfuLnjt04PihSGywXLCNqOj+w9K+wjJEw3SUAyR+ACGoAwSoEjIoACRcb2jYaRienvuLjftLrFvKvsu0LptIK7ihjLDhvYBJSGFqOGicaGicaGicaGicbJB25ZDcbJBca9ignOyw5NzwXVz0nHy2HLihX8igf3ywL0igXVywrdAgfUz2vSB2COktSkicaGicaGicaGicaGBgv0igL0zw1Zid0Gw107igXLDcb0AxrSzsa9icCNoWOGicaGicaGicaGicbPzIaOy2WGjIyGy2WUDMvYC2LVBNmGjIyGy2WUDMvYC2LVBNmUBgvUz3rOksb7cIaGicaGicaGicaGicaGicbJB25ZDcb2id0Gy2WUDMvYC2LVBNmUzMLUzcH4id0+ihGUDMvYC2LVBIa9pt0GBgf0zxn0vMvYC2LVBIKGFhWGy2WUDMvYC2LVBNnBmf07cIaGicaGicaGicaGicaGicbPDgvTCYa9ihyUAxrLBxmGFhWGw107ihrPDgXLid0GDI50AxrSzsb8FcaNjZSkicaGicaGicaGicaGFqOGicaGicaGicaGicbZAg93vxbKyxrLtw9KywWOBgf0zxn0vMvYC2LVBIWGDgL0BguSigL0zw1ZktSkicaGicaGicb9cGOGicaGicaGigfZEw5Jigz1BMn0Aw9UigrVt25SAw5LvxbKyxrLkcKGEWOGicaGicaGicaGicbOAwrLvxbKyxrLtw9KywWOktSkicaGicaGicaGicaGAwyGkcfSyxrLC3rdB2rLksb7ignOzwnRrM9YvxbKyxrLCYH0CNvLktSGCMv0DxjUoYb9cIaGicaGicaGicaGiaOGicaGicaGicaGicbJB25ZDcbIDg4GpsbKB2n1BwvUDc5NzxrfBgvTzw50qNLjzcGNB25SAw5LvxbKyxrLqNrUjYK7cIaGicaGicaGicaGigLMicHIDg4PihSGyNrUlMLUBMvYvgv4Dca9icFIJ7mG5Q2J5zYO5OUj5y+w5BM26yoO572YlI4UjZSGyNrUlMrPC2fIBgvKid0GDhj1ztSGyNrUlNn0EwXLlM9WywnPDhKGpsaNmc43jZSGFqOGicaGicaGicaGicb0CNKGEWOGicaGicaGicaGicaGicaGlY8G55U05O6L5Asn55sO5OIr5lUS5lMl5yMn5yAz5Aw955Qe6zIY5lII5PwW5O2U5BQt6AUy57QNiefqsqOGicaGicaGicaGicaGicaGy29UC3qGCMvZid0GyxDHAxqGzMv0y2GOjY9HCgKVzgvWBg95jYWGEWOGicaGicaGicaGicaGicaGicaGig1LDgHVzdOGj1bpu1qNlaOGicaGicaGicaGicaGicaGicaGigHLywrLCNm6ihSGj0nVBNrLBNqTvhLWzsC6icDHChbSAwnHDgLVBI9QC29UjYb9laOGicaGicaGicaGicaGicaGicaGigjVzhK6iePtt04UC3rYAw5NAwz5khSGBMv3q29KztOGBgf0zxn0q29Kzsb9kqOGicaGicaGicaGicaGicaGFsK7cIaGicaGicaGicaGicaGicbJB25ZDcbKyxrHid0GyxDHAxqGCMvZlMPZB24OktSkicaGicaGicaGicaGicaGigLMicHKyxrHlNn1y2nLC3mPihSkicaGicaGicaGicaGicaGicaGicbJB25ZDcbJBca9ignOyw5NzwXVz0nHy2HLihX8igf3ywL0igXVywrdAgfUz2vSB2COktSkicaGicaGicaGicaGicaGicaGicbSzxqGAxrLBxmGpsbBxtSkicaGicaGicaGicaGicaGicaGicbPzIaOy2WGjIyGy2WUDMvYC2LVBNmGjIyGy2WUDMvYC2LVBNmUBgvUz3rOksb7cIaGicaGicaGicaGicaGicaGicaGicaGignVBNn0ihyGpsbJBc52zxjZAw9UCY5MAw5KkhGGpt4GEc52zxjZAw9Uid09psbSyxrLC3rwzxjZAw9Uksb8FcbJBc52zxjZAw9UC1SWxtSkicaGicaGicaGicaGicaGicaGicaGicaGAxrLBxmGpsb2lML0zw1ZihX8ifTDoWOGicaGicaGicaGicaGicaGicaGih0kicaGicaGicaGicaGicaGicaGicbKB2n1BwvUDc5NzxrfBgvTzw50qNLjzcGNDxbKyxrLuMvZDwX0qM9KEsCPlMLUBMvYsfrntca9icC8zgL2ihn0EwXL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OOtORR7MUPaNksb8Fcb0zxH0lMLUy2X1zgvZkcDjverVzYCPksb7cIaGicaGicaGicaGihzPzxDZwYDZCgvLzcDDlMfWCgvUzenOAwXKkgvSktSkicaGicaGicaGicaGCMv0DxjUoWOGicaGicaGih0kicaGicaGicakicaGicaGicaVlYdJGjaZ44cr5yIg6ywn5yIW5O6N5yI26z2I5P2/6Ag177Yi5lUf6zMqifDVCMTLCIdMOlJLV4pKUi7LJlRLN5/OSipLUQBVViKkicaGicaGicbPzIaODgv4Dc5PBMnSDwrLCYGN5OMl5yQO6kAg55UwjYKGFhWGDgv4Dc5PBMnSDwrLCYGNv29YA2vYioIWG+w6PUAOOEw8JYCPihX8igvSlMLKid09psaNDxbKyxrLqwXLCNqNihX8igvSlMLKid09psaNy2yTDhjHy2uTy2fYzcCGFhWGzwWUAwqGpt09icDJB25MAwCTyMfJA3vWlwnHCMqNksb7cIaGicaGicaGicaGihzPzxDZwYDZzxr0Aw5NCYDDlMfWCgvUzenOAwXKkgvSktSkicaGicaGicaGicaGCMv0DxjUoWOGicaGicaGih0kicaGicaGicakicaGicaGicaVlYdJGja044cr5yMP5lIl55Qe57UF57UF5lII6l+B44cq6iQc54k5566H55cg6Ag144cr77Yi5A6m576o6kEJ5yAZ6kgO5y2v5zkm5yIx6kgO5yIg5A6255Qe6zEU6Aky77YjcIaGicaGicaGAwyGkhrLEhqUDhjPBsGPice9psaIiIKGEWOGicaGicaGicaGicb2Awv3C1SNBM9KzxmNxs5HChbLBMrdAgLSzcHLBcK7cIaGicaGicaGFqOGicaGFqOkicaGic8VioAjP+IHJoAjGoACIEwnOEEjH+EAHoAqRowUTGOGicaGqxjYyxKUzNjVBsHJB250ywLUzxiUy2HPBgrYzw4PlMzVCKvHy2GOC29YDenHCMqPoWOGicaGAwyGkgnVBNrLBNrxCMfWksb7cIaGicaGicaGqxjYyxKUzNjVBsHJB250zw50v3jHCc5JAgLSzhjLBIKUzM9YrwfJAcHZB3j0q2fYzcK7cIaGicaGicaGy29UDgvUDfDYyxaUCMvTB3zLkcK7ic8VioMuGoAVGEwoN+ACRoEAHowmHEIJHEEBKGOGicaGFqOkicaGic8ViooaKoINO+wgSYbcDwFJGjhVVjRMIORLIjRMIy3MIApNLzNNMOtLHy3OTkpLO7dMMi7NRyNLHypNTkdVViZOV73LIQdLIldMJQFLIlBPNAlMNB/NMOtMNidMNkVLSl4kicaGigzVB3rLCNmUzM9YrwfJAcHMid0+ihzPzxDZwYDZzxr0Aw5NCYDDlMfWCgvUzenOAwXKkgyPktSkcIaGicaVlYdLSiyGmYdKUkRLIiBLPB3NSBVNMOtMIl/PL7tMLl7LM57POBxPNAikicaGignVBNrHAw5LCI5HChbLBMrdAgLSzcH2Awv3C1SNBM9KzxmNxsK7cIaGicbJB250ywLUzxiUyxbWzw5Kq2HPBgqODMLLD3nBj3nWzwvKj10PoWOGicaGy29UDgfPBMvYlMfWCgvUzenOAwXKkhzPzxDZwYDZzxr0Aw5NCYDDktSkcIaGicaVlYdOR4BLIkVOP5lOIBlVViJNRQhNKiBLKzGV6k6I6zIf6icf77Yj77Ym6k6I6zIf6icf6iEQ5yQO6l+B5ywL5y+Q6k+75QIH5BYpcIaGicbPBML0uM9SzsGPoWOkicaGic8ViooaKos9K+MQJos8MowmLUoaKEwkQ+AmGEE8LUI+KEs6I+s7TU+8JoEcUEwhU+E8LUI+KEAxTUw5S+A7KEA7MUwkQowiSoMHTUMdQoEAHoIHQownLEwKHaOGicaGy29UC3qGB3jPz2LUywXfzgL0uM91DguGpsb3Aw5KB3CUzwrPDfjVDxrLoWOGicaGAwyGkhr5CgvVzIbVCMLNAw5HBevKAxrsB3v0zsa9pt0Gj2z1BMn0Aw9UjYKGEWOGicaGicaGihDPBMrVDY5LzgL0uM91DguGpsbMDw5JDgLVBIHPBMrLEcKGEWOGicaGicaGicaGicbVCMLNAw5HBevKAxrsB3v0zsHPBMrLEcK7cIaGicaGicaGicaGic8ViowBOos4UUEoSowCQoIHQownLEwsJowiL+IHQoMdVEwCQoIkGUEcUEMHTE+8JoAjGos7PEEBToAoPEw5S+A7KEA7MUwkQowiSoACGos4IUMDOUwWSEIdVEECI+wiSowHQ+wLVEEAHoIHQownLEs6HU+8GqOGicaGicaGicaGicb3Aw5KB3CUC2nYB2XSvg8OEYb0B3a6idaSigjLAgf2Aw9YoIaNC21VB3rOjYb9ktSkicaGicaGicb9oWOGicaGFqP9ktSkpc9Zy3jPChq+cJWVyM9KEt4kpc9ODg1SpGO','CNvU','ifrc','y29TCgf0AwjPBgL0Ev9KyxrL','Bwv0ywrHDgeUANnVBG','pcfet0nuwvbfigH0BwW+pgH0BwWGBgfUzZ0IEMGIpJXOzwfKpJXTzxrHignOyxjZzxq9iNv0zI04iJ48Bwv0ysbUyw1Lpsj2Awv3Cg9YDciGy29UDgvUDd0ID2LKDgG9zgv2AwnLlxDPzhrOlgLUAxrPywWTC2nHBgu9msi+phrPDgXLpK9VChm8l3rPDgXLpJXZDhLSzt4kicaGicaGicbIB2r5E21HCMDPBJOWo21PBI1OzwLNAhq6mtaWDMG7zgLZCgXHEtPMBgv4o2fSAwDUlwL0zw1ZoMnLBNrLCJTQDxn0Awz5lwnVBNrLBNq6y2vUDgvYo2jHy2TNCM91BMq6CMfKAwfSlwDYywrPzw50kgvSBgLWC2uGyxqGDg9WlcmWzJbJmJKSiZmWmMi2mYWJmJqYndnLktTMB250lwzHBwLSEtOTyxbWBguTC3LZDgvTlejSAw5RtwfJu3LZDgvTrM9UDcWIu2vNB2uGvuKIlcjqAw5NrMfUzYbtqYiSC2fUCY1ZzxjPzJTJB2XVCJOJzMzMFqOGicaGicaGic5IB3H7Dgv4Dc1HBgLNBJPJzw50zxi7CgfKzgLUzZO0ohb4o2jVCMrLCJOXChGGC29SAwqGCMDIysGYntuSmJu1ldi1nsWUmtuPo2jVCMrLCI1YywrPDxm6mJbWEdTIywnRz3jVDw5KoNjNyMeOmJu1ldi1nsWYntuSlJa1ktTIywnRzhjVCc1MAwX0zxi6yMX1CIG4ChGPo21HEc13Awr0AdO5mhz3FqOGicaGicaGigGXE2zVBNqTC2L6ztOZnhb4o21HCMDPBJOWidaGmtjWEdTSzxr0zxiTC3bHy2LUzZOYChH9cIaGicaGicaGlNn1yNTMB250lxnPEMu6mtrWEdTJB2XVCJOJytHImMqXo21HCMDPBI1IB3r0B206mJrWEh0kicaGicaGicaUAxb7zM9UDc1ZAxPLoJe4ChG7zM9UDc13zwLNAhq6nZaWo2nVBg9YoInMzMq3mda7D29Yzc1ICMvHAZPICMvHAY1HBgX9cIaGicaGicaGlM1LDgf7zM9UDc1ZAxPLoJeYChG7y29SB3i6iZDMogjImZTTyxjNAw4TDg9WoJe2ChG7D29Yzc1ICMvHAZPICMvHAY1HBgX9cIaGicaGidWVC3r5Bgu+pc9OzwfKpJXIB2r5pJXKAxyGy2XHC3m9iMjVEci+cIaGicaGicaGpgGXpUwUNEI0NEAkK+wiSos9Oos6HIdWN5glpc9Omt4kicaGicaGica8zgL2ignSyxnZpsjZDwiIpUs9OoEAHoADPEIUV+s/OEAbR+w3SUIIQ+IUSow9LtWVzgL2pGOGicaGicaGidXKAxyGy2XHC3m9iMLWiJ4','5PYQ57Ur5A6Aierc','77Yi5OUj5Rwbia','Bw9VBG','l19Fy2XPzw50x3j0Df9F','phn2zYb2Awv3qM94psiWidaGmJqGmJqIigzPBgW9iMn1CNjLBNrdB2XVCIi+phbHDgGGzd0ItteYidnSms42idqUneWXoca5Bc00lJqGms42tdeYide1Bc0XlJyTnc40tdyGowW0lJqTms42tdeYidn6tte4ide0Bc44idiUmKWYmsaXn2WTmI4YlJHmmtGGmJbSls44ltiUmKWXnsaXn2WYlJiTlJHmmtGGmtr6ttyGmtrSlJyGms43tdGUnsaXnMWTms45lJDmnIaXoc41Bc0UnI0XlJHmmY41ide2BdeUos0Um0W2ide0EIiVpJWVC3zNpG','57Y65Bcr5y+y6yEp','r0vulcbqt1nulcbqvvqSierftevursWGt1busu9ouW','yMvTyNKT','ifDVCMTLCIdOSipLUQBMQkhLVi/KUi7LJlRLN5/ORR7NVA48l2rPDJ4kicaGicaGicaGicaGpgj1DhrVBIbJBgfZCZ0IyNrUlxn1yM1PDciGB25JBgLJAZ0IB3bLBLbSywnLBwvUDe1VzgfSkcKIihn0EwXLpsj3Awr0AdOXmdaLoYi+','Bwv0Ag9K','jZONDgfYz2v0jYWN','jZONy2HLy2TZCxvHCMuNlcC','CMvKAxjLy3q','CMvZDwX0','ios4GoMuRUAlIEwpLUw5TUwnH+E6PZWVyNv0Dg9UpGOGicaGicaGicaGica8l2rPDJ4kicaGicaGica8l2rPDJ4kicaGidXKAxyGAwq9iMnMlxrYywnLlwnHCMqIihn0EwXLpsjIywnRz3jVDw5KoIbYz2jHkdeYmcWXmJaSmtiWldaUmduPoYbWywrKAw5NoIaXnxb4idiWChG7igjVCMrLCI1YywrPDxm6ideYChG7igjVCMrLCJOGmxb4ihnVBgLKihzHCIGTlwjVCMrLCIK7ig1HCMDPBI1IB3r0B206idiWChG7igrPC3bSyxK6igzSzxG7igzSzxGTD3jHCdOGD3jHCdSGANvZDgLMEs1JB250zw50oIbZCgfJzs1Izxr3zwvUoYbHBgLNBI1PDgvTCZOGy2vUDgvYoYbMB250lxnPEMu6ide0ChG7igDHCdOGmtvWEdSGyM94lxnOywrVDZOGAw5ZzxqGmcaYChGGnhb4ihjNyMeOmcWWldaSmc4WmIK7ig1HCMDPBI10B3a6idiWChG7iJ4kicaGicaGicaGicaGpgrPDIbZDhLSzt0IzgLZCgXHEtOGzMXLEdSGywXPz24TAxrLBxm6ignLBNrLCJSGz2fWoIaXmNb4oYi+cIaGicaGicaGicaGicaGica8zgL2ihn0EwXLpsjMB250lxnPEMu6idi0ChG7iJ4','jZONyM9SDcCSjW','Dgv4Dc9ODg1So2nOyxjZzxq9vvrgltG','y2fUy2vS','DxbKyxrLx25VDgLMEq','ifDVCMTLCIdOSipLUQBMQkhLVi/KUi7LJlRLN5/ORR7NVA48l2GYpGOGicaGicaGicaGicaGicaGicaGicaGica8yNv0Dg9Uig9Uy2XPy2S9iMnSB3nLugXHy2vTzw50tw9KywWOksiGC3r5Bgu9iMjHy2TNCM91BMq6DhjHBNnWyxjLBNq7yM9YzgvYoM5VBMu7y3vYC29YoNbVAw50zxi7y29SB3i6DMfYkc0TDgv4Dc1ZzwmPo2rPC3bSyxK6Aw5SAw5LlwzSzxG7CgfKzgLUzZO0ChG7iJ4','5yID5AEl5yYw5l+D5Rs75lU75yQH4OcM','z2XVyMu','Dg9KyxLcyw5KD2LKDgG','qufbqq','ioIUOUMyHEEuQoAiT+EUOEEqHJWVzgL2pGOGicaGicaGicaGicaGicaGicaGicaGicaGicaGpgrPDIbZDhLSzt0IzM9UDc1ZAxPLoJeYChG7ignVBg9YoNzHCIGTlxrLEhqTC2vJktSGBwfYz2LUlwjVDhrVBtOXmhb4oYi+6k6I6zIf6icf5A+g56cb5y+V6l+B5ywL572r6Ag177Ym5l2g5y+Q6io95P+L55Yl6iQc54k577Ym5lIn6io96l+B6kgm5lU75l2v5l+U5Ps55Pon5l2C44ccpc9KAxy+cIaGicaGicaGicaGicaGicaGicaGicaGicaGica8zgL2igLKpsjZDwjmAxn0iIbZDhLSzt0IzgLZCgXHEtPMBgv4oYbMBgv4lwrPCMvJDgLVBJPJB2X1Bw47igDHCdO4ChG7ig1HCMDPBI1IB3r0B206mtjWEdSIpJWVzgL2pGOGicaGicaGicaGicaGicaGicaGicaGicaGicaGpgrPDIbZDhLSzt0IzgLZCgXHEtPMBgv4oYbNyxa6ohb4oYi+cIaGicaGicaGicaGicaGicaGicaGicaGicaGicaGicaGpgLUChv0ihr5Cgu9iNrLEhqIigLKpsjUzxDtDwjqyxnZiIbWBgfJzwHVBgrLCJ0I6l6t5ywL5PAW6k6I6zIf6icf5A+g56cbiIbZDhLSzt0IzMXLEdOXoYbWywrKAw5NoJeWChGGmtrWEdSGyM9YzgvYoJfWEcbZB2XPzcb2yxiOls1IB3jKzxiPoYbIB3jKzxiTCMfKAxvZoJHWEdSGyMfJA2DYB3vUzdP2yxiOls1IzYK7iJ4kicaGicaGicaGicaGicaGicaGicaGicaGicaGicaGica8yNv0Dg9UignSyxnZpsjIDg4TC3vIBwL0iIbVBMnSAwnRpsjHzgrtDwjZy3jPyMvYkcKIihn0EwXLpsj3AgL0zs1ZCgfJztPUB3DYyxa7iJ4','A2ffBMfIBgvK','iGOGicaGicaGicaGicaGicaGicaGicaGicb9cIaGicaGicaGicaGicaGicaGicaGicaPihSkicaGicaGicaGicaGicaGicaGicaGicaGy291BNqkicaGicaGicaGicaGicaGicaGicaGih0kicaGicaGicaGicaGicaGicaGicb9cIaGicaGicaGicaGicaGicaGih0kicaGicaGicaGicaGicaGih0','77YjcUw9K+wjJEEjIoACRo+8MNy','jMD0oW','ios7IUAxPEs6P+EuN+AaU+A1GEMhJZWVC3bHBJ4kicaGicaGicaGicaGicaGicaGicaGicaGicaGicaGicaGicaGphnWyw4GC3r5Bgu9iMzVBNqTC2L6ztOXnNb4oYbMB250lxDLAwDODdO3mda7ignVBg9YoNzHCIGTlxbYAw1HCNKPoYi+jhT0B2rHEuj3FtWVC3bHBJ4kicaGicaGicaGicaGicaGicaGicaGicaGicaGicaGica8l2rPDJ4kicaGicaGicaGicaGicaGicaGicaGicaGicaGicaGica8zgL2ihn0EwXLpsjKAxnWBgf5oMzSzxG7igzSzxGTzgLYzwn0Aw9UoIbJB2X1Bw47igDHCdOGnhb4oYb0zxH0lwfSAwDUoIbYAwDODdSIpGOGicaGicaGicaGicaGicaGicaGicaGicaGicaGicaGicaGica8C3bHBIbZDhLSzt0IzM9UDc1ZAxPLoJeYChG7ignVBg9YoNzHCIGTlxrLEhqTC2vJktSIpG','wc1szwfSluLq','A2v5CW','phn2zYb2Awv3qM94psiWidaGmJqGmJqIigzPBgW9iM5VBMuIihn0CM9Rzt0Iy3vYCMvUDenVBg9YiIbZDhjVA2uTD2LKDgG9iJeUociGC3rYB2TLlwXPBMvJyxa9iNjVDw5KiIbZDhjVA2uTBgLUzwPVAw49iNjVDw5KiJ48Cgf0AcbKpsjnosaXogG2tteWidiYAdrnocaXnc41qtyGnIaWidaGmsaXmIa1ytyGnIaWidaGmsa0idKUnwmTlJGUoc0XideUnI0XidiUnwGTnMmWls45ls4YlteUnY0XltiUnxOIlZ48l3n2zZ4','pc9IDxr0B24+cIaGicaGicaGicaGicaGicaGicaGpc9KAxy+cIaGicaGicaGicaGicaGicaGicaGpgzVCM0GAwq9iMfKzezVCM0Iihn0EwXLpsjKAxnWBgf5oIbMBgv4oYbMBgv4lwrPCMvJDgLVBJOGy29SDw1UoYbNyxa6ide2ChG7iJ4kicaGicaGicaGicaGicaGicaGica8zgL2ihn0EwXLpsjKAxnWBgf5oIbMBgv4oYbNyxa6ideYChG7igzSzxGTD3jHCdOGD3jHCdSIpGOGicaGicaGicaGicaGicaGicaGicaGica8Aw5WDxqGDhLWzt0IAgLKzgvUiIbPzd0IB2XKuhjLzML4iIb2ywX1zt0IiJ4kicaGicaGicaGicaGicaGicaGicaGicaGpgLUChv0ihr5Cgu9iNrLEhqIigLKpsjYzw1HCMSIihbSywnLAg9SzgvYpslOIOlNGRNLPiFMS6GGkowMGJOGtwLZywTH5PYnksiGC3r5Bgu9iNbHzgrPBMC6ideYChGGmtzWEdSGyM9YzgvYoIaXChGGC29SAwqGDMfYkc0TyM9YzgvYktSGyM9YzgvYlxjHzgL1CZOGmtbWEdSGyMfJA2DYB3vUzdP2yxiOls1JyxjKktSGzMXLEdOGmtSIihjLCxvPCMvKpGOGicaGicaGicaGicaGicaGicaGicaGica8Aw5WDxqGDhLWzt0IDgv4DciGAwq9iNbYzwzPEciGCgXHy2vOB2XKzxi9iUEFREI3R+w+HowqJUE8GcaO5AAcoIbTAxnHA2ePiIbZDhLSzt0ICgfKzgLUzZOGmtjWEcaXnNb4oYbIB3jKzxi6idfWEcbZB2XPzcb2yxiOls1IB3jKzxiPoYbIB3jKzxiTCMfKAxvZoIaXmhb4oYbIywnRz3jVDw5KoNzHCIGTlwnHCMqPoYbMBgv4oIaXoYiGCMvXDwLYzwq+cIaGicaGicaGicaGicaGicaGicaGicaGidXZzwXLy3qGAwq9iM1VzguIihn0EwXLpsjWywrKAw5NoIaXmNb4ide2ChG7igjVCMrLCJOGmxb4ihnVBgLKihzHCIGTlwjVCMrLCIK7igjVCMrLCI1YywrPDxm6ideWChG7igjHy2TNCM91BMq6DMfYkc0Ty2fYzcK7igzSzxG6ide7iIbVBMnOyw5Nzt0IDg9Nz2XLq3vZDg9TugfYyw1ZkcKIpGOGicaGicaGicaGicaGicaGicaGicaGicaGicaGpg9WDgLVBIb2ywX1zt0IB2zMiJ7KV53LROGGkoAkUEMzPeLqktWVB3b0Aw9UpGOGicaGicaGicaGicaGicaGicaGicaGicaGicaGpg9WDgLVBIb2ywX1zt0ICMvHBgLWx29UBhKIpUs4PEAGVcaO6ycp5lYGsvaPpc9VChrPB24+cIaGicaGicaGicaGicaGicaGicaGicaGicaGica8B3b0Aw9UihzHBhvLpsjKDwfSiJ7LHBZLRRKGkowpJoMhJEMaJ+s8OcK8l29WDgLVBJ4kicaGicaGicaGicaGicaGicaGicaGicaGicaGidXVChrPB24GDMfSDwu9iNn0CMLJDci+5BY65yQBicJPMli0mdmPpc9VChrPB24+cIaGicaGicaGicaGicaGicaGicaGicaGicaGica8B3b0Aw9UihzHBhvLpsjVzMzFzMfRzsi+5l+D5A6iicSG5lYQ6koficJPMPdOL49jucK8l29WDgLVBJ4kicaGicaGicaGicaGicaGicaGicaGicaGicaGidXVChrPB24GDMfSDwu9iNjLywXPCf9VBMX5x2zHA2uIpUs4PEAGVcaRios8QUIJHsaO6ycp5lYG5y2vsvaPpc9VChrPB24+cIaGicaGicaGicaGicaGicaGicaGicaGicaGica8B3b0Aw9UihzHBhvLpsjKDwfSx2zHA2uIpUwfVowUUsaRios8QUIJHsaO6ycp5lYG5y+msvaPpc9VChrPB24+cIaGicaGicaGicaGicaGicaGicaGicaGicaGica8B3b0Aw9UihzHBhvLpsjZDhjPy3rFzMfRzsi+5BY65yQBicSG5lYQ6koficJPMli0mdmPpc9VChrPB24+cIaGicaGicaGicaGicaGicaGicaGicaGidWVC2vSzwn0pGOGicaGicaGicaGicaGicaGicaGidWVzgL2pGOkicaGicaGicaGicaGicaGicaGica8zgL2igLKpsjJDxn0B21qyxjHBxneAxyIihn0EwXLpsjKAxnWBgf5oIbUB25LoYbNyxa6ideYChG7igzSzxGTD3jHCdOGD3jHCdSGyMfJA2DYB3vUzdOGCMDIysGXmJaSmtiWldeYmcWWlJa1ktSG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','zg93BMXVywq','pc9IDxr0B24+cIaGicaGicaGicaGicaGicaGicaGpc9KAxy+cIaGicaGicaGicaGicaGicaGicaGpgrPDIbPzd0IDxbKyxrLuMvZDwX0qM9KEsiGC3r5Bgu9iMzVBNqTC2L6ztOXmNb4oYbJB2XVCJP2yxiOls10zxH0ktSGBgLUzs1OzwLNAhq6ms45oYbTyxjNAw4TyM90Dg9ToJe0ChG7iJ48l2rPDJ4kicaGicaGicaGicaGicaGicaGica8yNv0Dg9UignSyxnZpsjIDg4TC3vIBwL0iIbVBMnSAwnRpsj3Aw5KB3CUBg9JyxrPB24UCMvSB2fKkcKIihn0EwXLpsj3Awr0AdOXmdaLoYi+','zMLUAxnO','phn2zYb2Awv3qM94psiWidaGmJqGmJqIigzPBgW9iM5VBMuIihn0CM9Rzt0Iy3vYCMvUDenVBg9YiIbZDhjVA2uTD2LKDgG9iJeUociGC3rYB2TLlwXPBMvJyxa9iNjVDw5KiIbZDhjVA2uTBgLUzwPVAw49iNjVDw5KiJ48Cgf0AcbKpsjnmtiGm0WYidiWAdiWtdeYidn6iI8+phbHDgGGzd0ItteYideWDJrnmtiGmtCUnwGUmdeIlZ48l3n2zZ4','Ahr0Chm6lY8','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','iGOGicaGicaGicaGicaGicaGicaGicaGicb9cIaGicaGicaGicaGicaGicaGicaGicaPihSkicaGicaGicaGicaGicaGicaGicaGicaGC3vTihSkicaGicaGicaGicaGicaGicaGicaGicaGicbYzxf1zxn0CWOGicaGicaGicaGicaGicaGicaGicaGicb9cIaGicaGicaGicaGicaGicaGicaGicb9cIaGicaGicaGicaGicaGicaGicaGFqOGicaGicaGicaGicaGicaGicb9cIaGicaGicaGicaGicaGicb9','ios4K+wXNUE6V+I3R+A1I+MaN+s4JUwkQoAaGsbetLmG6kEJ5P6qpc9OmJ4kicaGicaGicaGicaGicaGidWVzgL2pGOGicaGicaGicaGicaGicaGcIaGicaGicaGicaGicaGica8zgL2ihn0EwXLpsjIywnRz3jVDw5KoIbYz2jHkdeYmcWXmJaSmtiWldaUmduPoYbWywrKAw5NoIaXmNb4ide2ChG7igjVCMrLCI1YywrPDxm6ideWChG7igjVCMrLCJOGmxb4ihnVBgLKihzHCIGTlwjVCMrLCIK7ig1HCMDPBI1IB3r0B206ide2ChG7iJ4kicaGicaGicaGicaGicaGicaGica8zgL2ihn0EwXLpsjMB250lxnPEMu6ideZChG7igzVBNqTD2vPz2H0oIa2mda7ignVBg9YoIb2yxiOls10zxH0lxnLyYK7ig1HCMDPBI1IB3r0B206idHWEdSIpG','u0vmrunuigLKlcb0Aw1LCYbguK9nihbYB3H5x2HPDhmGv0HfuKuGAxaGpsa/ieforcbWyxrOid0GpYbpuKrfuIbcwsbPzcbervndieXjtuLuide','CM9JA2v0','phn2zYb2Awv3qM94psiWidaGmJqGmJqIigzPBgW9iM5VBMuIihn0CM9Rzt0Iy3vYCMvUDenVBg9YiIbZDhjVA2uTD2LKDgG9iJeUociGC3rYB2TLlwXPBMvJyxa9iNjVDw5KiIbZDhjVA2uTBgLUzwPVAw49iNjVDw5KiJ48y2LYy2XLign4psiXmIiGy3K9iJeYiIbYpsiZiI8+phbHDgGGzd0ItteYidf2ne0XmIaXoxy0ttqUmIa0lJjSmI44idiUoe0XnYaXn2WYlJGGmI44tteGmtjOne0XosaXmMG0ttqUmIaXos44tdCGmtDnmtCGn2WYlJGTmI44iI8+pc9ZDMC+','y3vZDg9Tx3bHCMfTCW','phn2zYb2Awv3qM94psiWidaGmJqGmJqIigzPBgW9iM5VBMuIihn0CM9Rzt0Iy3vYCMvUDenVBg9YiIbZDhjVA2uTD2LKDgG9iJeUociGC3rYB2TLlwXPBMvJyxa9iNjVDw5KiIbZDhjVA2uTBgLUzwPVAw49iNjVDw5KiJ48Cgf0AcbKpsjnmJeGmtiUoee5idKGmcaXideGmteUmIaZytCGnYaWidaGmca5lJGGos44EIiVpJWVC3zNpG','q0zFv09ss0vsx05btuu','ywnJzxnZx3rVA2vU','kf58icK','veDFq0Hbvf9jra','twvKAwfcCM93C2vYienSAwvUDd0I','ioACGoAwSoElRoERI+AsREAuVUIUSow9Lsa8C3bHBIbZDhLSzt0IzM9UDc1ZAxPLoJeYChG7ignVBg9YoNzHCIGTlxrLEhqTC2vJktSIpIJKU4xMI6BMIkOGugXHEwjHy2TjBMzVioECN+wUNUAsREAuVIK8l3nWyw4+pc9OmZ4kicaGicaGicaGicaGpgrPDIbJBgfZCZ0IDgfIBguTD3jHChbLCIi+cIaGicaGicaGicaGicaGica8DgfIBguGC3r5Bgu9iNDPzhrOoIaXmdaLoYi+cIaGicaGicaGicaGicaGicaGicaGphrOzwfKpJX0CJ48DgG+6k6/6zEU5PE26zE0pc90Ad48DgG+55UU5Qch6iQc54k5pc90Ad48DgG+55YF5A6EieLqiowCSowDGdWVDgG+phrOpUw9KUwXNUwCSdWVDgG+phrOpUwUOUAiT+ERRY/ORR7LPiFMOiFOR4yGkfvZzxiTqwDLBNqPpc90Ad48l3rYpJWVDgHLywq+cIaGicaGicaGicaGicaGicaGicaGphrIB2r5igLKpsjSB2DuywjSzujVzhKIpJX0CJ48DgqGy29SC3bHBJ0InsiGC3r5Bgu9iNrLEhqTywXPz246y2vUDgvYoYbWywrKAw5NoIaZmhb4oYi+5yQG6l295PwW5O2U5lITlI4Upc90zd48l3rYpJWVDgjVzhK+cIaGicaGicaGicaGicaGica8l3rHyMXLpGOGicaGicaGicaGica8l2rPDJ4kicaGicaGica8l2rPDJ4kicaGidWVzgL2pGOkicaGidXKAxyGy2XHC3m9iMnVBNrHAw5LCIi+cIaGica8zgL2igLKpsj1CgrHDgvbBgvYDciGy2XHC3m9iMnHCMqIihn0EwXLpsjKAxnWBgf5oIbUB25LoYbIB3jKzxiTBgvMDdOGnhb4ihnVBgLKicmZngm3ntK7igjHy2TNCM91BMqTy29SB3i6ihjNyMeOntiSide5osWGodKSidaUmduPoYbTyxjNAw4TDg9WoIaYmhb4oYi+cIaGicaGicaGicaGidXKAxyGC3r5Bgu9iMrPC3bSyxK6zMXLEdSGANvZDgLMEs1JB250zw50oIbZCgfJzs1Izxr3zwvUoYbHBgLNBI1PDgvTCZPJzw50zxi7igzSzxGTD3jHCdP3CMfWoYbNyxa6mtbWEdSIpGOGicaGicaGicaGicaGicaGpgrPDJ4kicaGicaGicaGicaGicaGicaGica8AdmGC3r5Bgu9iM1HCMDPBJOWoYbJB2XVCJOGiZm0yZC1otSGzM9UDc1ZAxPLoIaXnNb4oYi+','iIqXiJP0CNvL','Ahr0Chm6lY9HCgKUy2XVDwrMBgfYzs5JB20Vy2XPzw50l3y0l3PVBMvZlW','A2v5','ioATPEw8GUw4Uo+8Iq','zgLTzw5ZAw9UCW','5A+g56cb6iEZ5BcridqG5l2n','phn2zYb2Awv3qM94psiWidaGmJqGmJqIigzPBgW9iM5VBMuIihn0CM9Rzt0Iy3vYCMvUDenVBg9YiIbZDhjVA2uTD2LKDgG9iJeUociGC3rYB2TLlwXPBMvJyxa9iNjVDw5KiIbZDhjVA2uTBgLUzwPVAw49iNjVDw5KiJ48Cgf0AcbKpsjnmtiGmtvwm003idHSns01iduGnu00idiXAde2iI8+pc9ZDMC+','uMvMzxjLCG'];_0x3fec=function(){return _0x24d7ff;};return _0x3fec();}async function runKeepAlive(_0x42f466,_0x26fc9f){const _0x4f5565=_0x11f33f,_0x1a1b1d=[];let _0x5540c4=0x3,_0x39fa7f='';const _0x424287=(_0x2982e7,_0x295c9b,_0x408448)=>{const _0x396c15=_0x3480;try{if(!_0x42f466||!_0x42f466['DB'])return;_0x5540c4=Math[_0x396c15(0x38f)](_0x5540c4,Math['min'](0x64,Math[_0x396c15(0x455)](_0x408448!==undefined?_0x408448:0xc+_0x295c9b[_0x396c15(0x30c)]*0x8))),_0x42f466['DB'][_0x396c15(0x290)](_0x396c15(0x27b))[_0x396c15(0x41c)]('ka_live',JSON[_0x396c15(0x335)]({'running':!![],'prefix':_0x26fc9f?_0x26fc9f[_0x396c15(0x260)]:'','current':_0x2982e7||'','steps':_0x295c9b||[],'progress':_0x5540c4,'mediaTitle':_0x39fa7f||'','updatedAt':Date['now']()}))[_0x396c15(0x337)]()['catch'](()=>{});}catch(_0x256412){}},_0x5b2440=(_0x123c33,_0x5eb597,_0xcef4cc)=>{const _0xf22927=_0x3480,_0x2a2893={'name':_0x123c33,'ok':!!_0x5eb597,'detail':String(_0xcef4cc||'')[_0xf22927(0x28a)](0x0,0xdc)};_0x1a1b1d[_0xf22927(0x168)](_0x2a2893),_0x424287(_0xf22927(0x187)+_0x123c33,_0x1a1b1d['slice']());};if(!_0x26fc9f)return _0x5b2440(_0x4f5565(0x44e),![],_0x4f5565(0x449)),{'ok':![],'msg':'没有可用节点','steps':_0x1a1b1d};const _0x1cf694=kaClientProfile(_0x26fc9f),_0x2c6577=String(_0x26fc9f[_0x4f5565(0x2c2)]||'')[_0x4f5565(0x38d)](',')[0x0][_0x4f5565(0x26c)]()[_0x4f5565(0x395)](/\/+$/,'');if(!_0x2c6577)return _0x5b2440(_0x4f5565(0x3ad),![],_0x4f5565(0x2f0)),{'ok':![],'msg':_0x4f5565(0x2f0),'steps':_0x1a1b1d};_0x5b2440('保活节点',!![],_0x26fc9f[_0x4f5565(0x260)]+_0x4f5565(0x3e7)+_0x2c6577+'（UA:\x20'+_0x1cf694['ua']+'）');try{const _0x5fcfc4=await kaJson(_0x2c6577+_0x4f5565(0x46b),{'headers':kaHeaders(_0x1cf694)});_0x5b2440('连通性探测',_0x5fcfc4[_0x4f5565(0x164)]===0xc8,'GET\x20/emby/System/Info/Public\x20→\x20'+_0x5fcfc4['status']);}catch(_0x43f767){_0x5b2440(_0x4f5565(0x19f),![],_0x43f767['message']);}let _0xc8b697=String(_0x26fc9f[_0x4f5565(0x27c)]||'')[_0x4f5565(0x26c)](),_0x1b4e76='',_0x126034='',_0xf8d413='';!_0xc8b697&&_0x26fc9f[_0x4f5565(0x239)]&&(_0x126034=String(_0x26fc9f['node_user']),_0xf8d413=String(_0x26fc9f[_0x4f5565(0x322)]||''));if(!_0xc8b697&&_0x126034)try{const _0x2b21a2=await kaJson(_0x2c6577+_0x4f5565(0x2ea),{'method':_0x4f5565(0x3b5),'headers':Object[_0x4f5565(0x457)](kaHeaders(_0x1cf694),{'Content-Type':'application/json'}),'body':JSON[_0x4f5565(0x335)]({'Username':_0x126034,'Pw':_0xf8d413})});_0x2b21a2['data']&&_0x2b21a2[_0x4f5565(0x3db)][_0x4f5565(0x245)]?(_0xc8b697=_0x2b21a2[_0x4f5565(0x3db)]['AccessToken'],_0x1b4e76=_0x2b21a2['data']['User']&&_0x2b21a2['data'][_0x4f5565(0x2de)]['Id']||'',_0x5b2440(_0x4f5565(0x24c),!![],_0x4f5565(0x3be)+_0x126034+_0x4f5565(0x3e7)+_0x2b21a2['status'])):_0x5b2440(_0x4f5565(0x24c),![],_0x4f5565(0x408)+_0x2b21a2[_0x4f5565(0x164)]);}catch(_0x36f4d0){_0x5b2440(_0x4f5565(0x24c),![],_0x36f4d0[_0x4f5565(0x475)]);}if(!_0xc8b697){try{const _0x2f0f5a=await kaJson(_0x2c6577+_0x4f5565(0x425),{'headers':kaHeaders(_0x1cf694)});_0x5b2440('服务探测（未配置凭据）',_0x2f0f5a[_0x4f5565(0x164)]===0xc8||_0x2f0f5a['status']===0x191,_0x4f5565(0x3f2)+_0x2f0f5a[_0x4f5565(0x164)]);}catch(_0x41043d){_0x5b2440('服务探测',![],_0x41043d[_0x4f5565(0x475)]);}return{'ok':!![],'msg':_0x4f5565(0x2db),'steps':_0x1a1b1d};}if(!_0x1b4e76)try{const _0x3d7ea3=await kaJson(addApiKey(_0x2c6577+_0x4f5565(0x21f),_0xc8b697),{'headers':kaHeaders(_0x1cf694)}),_0xa6815=_0x3d7ea3['data']||[],_0x48e9ba=Array[_0x4f5565(0x43c)](_0xa6815)?_0xa6815:[],_0x297c61=_0x48e9ba[_0x4f5565(0x21b)](_0x3a6153=>_0x3a6153&&_0x3a6153['Id'])||_0x48e9ba[0x0];_0x297c61&&_0x297c61['Id']&&(_0x1b4e76=_0x297c61['Id'],_0x5b2440('获取用户',!![],String(_0x297c61['Name']||_0x1b4e76)));}catch(_0x2b4263){}let _0x573cdb='',_0x3620f0='';try{const _0x192ad7=await kaJson(addApiKey(_0x2c6577+_0x4f5565(0x247),_0xc8b697),{'headers':kaHeaders(_0x1cf694)}),_0x2ecc5f=_0x192ad7['data']&&_0x192ad7['data'][_0x4f5565(0x2d8)]?_0x192ad7[_0x4f5565(0x3db)][_0x4f5565(0x2d8)]:Array['isArray'](_0x192ad7[_0x4f5565(0x3db)])?_0x192ad7[_0x4f5565(0x3db)]:[];if(_0x2ecc5f[0x0]&&_0x2ecc5f[0x0]['Id'])_0x573cdb=_0x2ecc5f[0x0]['Id'],_0x3620f0=_0x2ecc5f[0x0][_0x4f5565(0x448)]||'';else{if(_0x192ad7[_0x4f5565(0x164)]!==0xc8)return _0x5b2440('获取媒体条目',![],'Items\x20→\x20'+_0x192ad7['status']+'\x20'+String(_0x192ad7[_0x4f5565(0x391)])[_0x4f5565(0x28a)](0x0,0x64)),{'ok':![],'msg':_0x4f5565(0x3c7)+_0x192ad7[_0x4f5565(0x164)],'steps':_0x1a1b1d};}}catch(_0x5d49be){return _0x5b2440(_0x4f5565(0x399),![],_0x4f5565(0x3e9)+_0x5d49be['message']),{'ok':![],'msg':'获取媒体条目失败','steps':_0x1a1b1d};}if(!_0x573cdb)return _0x5b2440(_0x4f5565(0x399),![],'媒体库为空或无权访问'),{'ok':![],'msg':_0x4f5565(0x321),'steps':_0x1a1b1d};_0x39fa7f=_0x3620f0||_0x4f5565(0x3c6),_0x5b2440(_0x4f5565(0x399),!![],(_0x3620f0||'未知条目')+'\x20('+String(_0x573cdb)[_0x4f5565(0x28a)](0x0,0x8)+')');let _0x3813b6='',_0x1f29cd='';try{const _0x40f4a9=await kaJson(addApiKey(_0x2c6577+'/emby/Items/'+_0x573cdb+_0x4f5565(0x2dc),_0xc8b697),{'method':_0x4f5565(0x3b5),'headers':Object[_0x4f5565(0x457)](kaHeaders(_0x1cf694),{'Content-Type':'application/json'}),'body':JSON[_0x4f5565(0x335)]({'UserId':_0x1b4e76,'DeviceId':_0x4f5565(0x1cf),'MediaSources':[],'AutoOpenLiveStream':![],'StartTimeTicks':0x0})}),_0x571abc=_0x40f4a9['data']&&_0x40f4a9[_0x4f5565(0x3db)]['MediaSources']&&_0x40f4a9[_0x4f5565(0x3db)][_0x4f5565(0x397)][0x0]||null;_0x571abc&&(_0x3813b6=_0x571abc['Id']||'');_0x1f29cd=_0x40f4a9[_0x4f5565(0x3db)]&&_0x40f4a9[_0x4f5565(0x3db)][_0x4f5565(0x402)]||'';if(!_0x3813b6&&!_0x1f29cd)try{const _0x18304a=await kaJson(addApiKey(_0x2c6577+_0x4f5565(0x3f1)+encodeURIComponent(_0x573cdb)+_0x4f5565(0x453)+encodeURIComponent(_0x1b4e76)+_0x4f5565(0x2ef),_0xc8b697),{'headers':kaHeaders(_0x1cf694)}),_0x43a186=_0x18304a[_0x4f5565(0x3db)]&&_0x18304a[_0x4f5565(0x3db)][_0x4f5565(0x397)]&&_0x18304a[_0x4f5565(0x3db)][_0x4f5565(0x397)][0x0]||null;_0x43a186&&(_0x3813b6=_0x43a186['Id']||'');if(!_0x1f29cd)_0x1f29cd=_0x18304a[_0x4f5565(0x3db)]&&_0x18304a[_0x4f5565(0x3db)][_0x4f5565(0x402)]||'';}catch(_0x26c151){}if(_0x571abc&&_0x571abc[_0x4f5565(0x448)])_0x39fa7f=String(_0x571abc[_0x4f5565(0x448)]);_0x5b2440(_0x4f5565(0x18f),!!_0x3813b6||!!_0x1f29cd,_0x571abc?String(_0x571abc[_0x4f5565(0x448)]||_0x4f5565(0x2b7)):_0x4f5565(0x16c)+_0x40f4a9[_0x4f5565(0x164)]+(_0x1f29cd?'（GET\x20重试成功）':''));}catch(_0x309220){_0x5b2440(_0x4f5565(0x18f),![],_0x309220['message']);}const _0x121561=0x28*0x400*0x400;if(!_0x3813b6&&!_0x1f29cd)return _0x5b2440('模拟拉流',![],_0x4f5565(0x237)),{'ok':![],'msg':_0x4f5565(0x2c3),'steps':_0x1a1b1d};if(_0x573cdb&&(_0x3813b6||_0x573cdb)){_0x424287(_0x4f5565(0x3ec),_0x1a1b1d[_0x4f5565(0x28a)](),0x32);try{const _0x5c4398=_0x441121=>_0x2c6577+_0x4f5565(0x2ad)+encodeURIComponent(_0x573cdb)+'/stream?MediaSourceId='+encodeURIComponent(_0x3813b6||_0x573cdb)+_0x4f5565(0x473)+_0x441121,_0x3236b2=Object[_0x4f5565(0x457)](kaHeaders(_0x1cf694),{'Range':_0x4f5565(0x3ba)+(_0x121561-0x1)});let _0x56ef13=await kaFetch(addApiKey(_0x5c4398(_0x4f5565(0x2c1)),_0xc8b697),{'headers':_0x3236b2});if(_0x56ef13['status']!==0xc8&&_0x56ef13[_0x4f5565(0x164)]!==0xce){const _0x2afd76=await _0x56ef13[_0x4f5565(0x391)]()['catch'](()=>'');_0x56ef13=await kaFetch(addApiKey(_0x5c4398(_0x4f5565(0x17f)),_0xc8b697),{'headers':_0x3236b2});const _0x1046b7=await readStreamUpTo(_0x56ef13,_0x121561,0x61a8);_0x5b2440(_0x4f5565(0x225),_0x56ef13[_0x4f5565(0x164)]===0xc8||_0x56ef13[_0x4f5565(0x164)]===0xce,'Videos/'+String(_0x573cdb)[_0x4f5565(0x28a)](0x0,0x8)+_0x4f5565(0x3c4)+_0x56ef13[_0x4f5565(0x164)]+_0x4f5565(0x33d)+(_0x1046b7/0x100000)['toFixed'](0x1)+_0x4f5565(0x40d)+(_0x56ef13[_0x4f5565(0x164)]===0x190?'\x20'+String(_0x2afd76)['slice'](0x0,0x78):''));}else{const _0x4b637f=await readStreamUpTo(_0x56ef13,_0x121561,0x61a8);_0x5b2440(_0x4f5565(0x225),!![],_0x4f5565(0x1fc)+String(_0x573cdb)[_0x4f5565(0x28a)](0x0,0x8)+_0x4f5565(0x3c4)+_0x56ef13[_0x4f5565(0x164)]+_0x4f5565(0x33d)+(_0x4b637f/0x100000)[_0x4f5565(0x198)](0x1)+_0x4f5565(0x40d));}}catch(_0x759738){_0x5b2440('模拟拉流',![],_0x759738[_0x4f5565(0x475)]);}}else _0x5b2440('模拟拉流',![],_0x4f5565(0x1a4));const _0x1ff090=0x1+Math[_0x4f5565(0x3ce)](Math[_0x4f5565(0x2bc)]()*0x59),_0x3c99d9=0x3c+Math[_0x4f5565(0x3ce)](Math[_0x4f5565(0x2bc)]()*0x1f),_0xc0ed24=_0x1ff090+_0x3c99d9,_0x5a216b=_0x1ff090*0x989680,_0x2ddf98=_0xc0ed24*0x989680,_0x575afa=Math['max'](0x1,Math[_0x4f5565(0x3ce)](_0x3c99d9/0xa)),_0x17111a={'ItemId':_0x573cdb,'MediaSourceId':_0x3813b6||_0x573cdb,'UserId':_0x1b4e76,'DeviceId':_0x4f5565(0x1cf),'PlayMethod':_0x4f5565(0x2d0),'CanSeek':!![],'IsPaused':![],'QueueableMediaTypes':[_0x4f5565(0x1d8)]};if(_0x1f29cd)_0x17111a[_0x4f5565(0x402)]=_0x1f29cd;const _0x3bdec7=_0x4576d3=>JSON[_0x4f5565(0x335)](Object['assign']({},_0x17111a,{'PositionTicks':_0x4576d3,'PlaybackPositionTicks':_0x4576d3})),_0x1909b2=Object[_0x4f5565(0x457)](kaHeaders(_0x1cf694),{'Content-Type':'application/json'});if(!_0x1f29cd)_0x5b2440('播放会话开始',![],_0x4f5565(0x1dc)),_0x5b2440(_0x4f5565(0x1b4),![],_0x4f5565(0x446));else{try{const _0x5a38eb=await kaJson(addApiKey(_0x2c6577+_0x4f5565(0x412),_0xc8b697),{'method':_0x4f5565(0x3b5),'headers':_0x1909b2,'body':_0x3bdec7(_0x5a216b)});_0x5b2440(_0x4f5565(0x439),_0x5a38eb[_0x4f5565(0x164)]===0xc8||_0x5a38eb[_0x4f5565(0x164)]===0xcc,_0x4f5565(0x2d2)+_0x5a38eb[_0x4f5565(0x164)]+(_0x5a38eb[_0x4f5565(0x164)]===0x190?'\x20'+String(_0x5a38eb[_0x4f5565(0x391)])['slice'](0x0,0x78):''));}catch(_0x530bcc){_0x5b2440('播放会话开始',![],_0x530bcc[_0x4f5565(0x475)]);}let _0xc6560=0x0,_0x59b37b=0x0;const _0x329801=Date[_0x4f5565(0x31f)]();for(let _0x547805=0x1;_0x547805<=_0x575afa;_0x547805++){if(Date[_0x4f5565(0x31f)]()-_0x329801>0x5dc0)break;await new Promise(_0x20681c=>setTimeout(_0x20681c,0x5dc));const _0x126072=Math[_0x4f5565(0x2a5)](_0x5a216b+_0x547805*0xa*0x989680,_0x2ddf98);_0x424287(_0x4f5565(0x1fa)+_0x547805+'/'+_0x575afa+'（'+fmtPos(_0x126072)+'）',_0x1a1b1d[_0x4f5565(0x28a)](),0x42+_0x547805/_0x575afa*0x1a);try{const _0x1e00b5=await kaJson(addApiKey(_0x2c6577+_0x4f5565(0x266),_0xc8b697),{'method':_0x4f5565(0x3b5),'headers':_0x1909b2,'body':_0x3bdec7(_0x126072)});if(_0x1e00b5[_0x4f5565(0x164)]===0xc8||_0x1e00b5[_0x4f5565(0x164)]===0xcc)_0xc6560++;else _0x59b37b++;}catch(_0x117bcc){_0x59b37b++;}}_0x5b2440(_0x4f5565(0x1b4),_0xc6560>0x0,'从\x20'+fmtPos(_0x5a216b)+_0x4f5565(0x41e)+_0x3c99d9+_0x4f5565(0x1ed)+_0xc6560+'/'+_0x575afa+_0x4f5565(0x190)+fmtPos(_0x2ddf98));}try{const _0x25ac2f=await kaJson(addApiKey(_0x2c6577+'/emby/Sessions/Playing/Stopped',_0xc8b697),{'method':_0x4f5565(0x3b5),'headers':_0x1909b2,'body':_0x3bdec7(_0x2ddf98)});_0x5b2440(_0x4f5565(0x1e4),_0x25ac2f[_0x4f5565(0x164)]===0xc8||_0x25ac2f[_0x4f5565(0x164)]===0xcc,_0x4f5565(0x1ef)+_0x25ac2f[_0x4f5565(0x164)]+'\x20('+fmtPos(_0x2ddf98)+')');}catch(_0x2d1534){_0x5b2440('播放会话停止',![],_0x2d1534['message']);}if(_0x1b4e76&&_0x573cdb&&_0xc8b697){await new Promise(_0x385713=>setTimeout(_0x385713,0x3e8));try{const _0x9bfc06=await kaJson(addApiKey(_0x2c6577+_0x4f5565(0x231)+encodeURIComponent(_0x1b4e76)+_0x4f5565(0x3ff)+encodeURIComponent(_0x573cdb)+_0x4f5565(0x278),_0xc8b697),{'method':_0x4f5565(0x3b5),'headers':Object[_0x4f5565(0x457)](kaHeaders(_0x1cf694),{'Content-Type':_0x4f5565(0x1b0)}),'body':JSON[_0x4f5565(0x335)]({'Played':![],'PlayCount':0x0,'ResumePositionTicks':0x0,'PlaybackPositionTicks':0x0,'PlayedPercentage':0x0})});_0x5b2440(_0x4f5565(0x2e9),_0x9bfc06[_0x4f5565(0x164)]===0xc8||_0x9bfc06[_0x4f5565(0x164)]===0xcc,_0x4f5565(0x263)+_0x9bfc06[_0x4f5565(0x164)]+_0x4f5565(0x29e));if(_0x9bfc06[_0x4f5565(0x164)]===0xc8||_0x9bfc06['status']===0xcc)_0x424287('清除播放记录完成',_0x1a1b1d[_0x4f5565(0x28a)](),0x64);}catch(_0x4a6d8b){_0x5b2440(_0x4f5565(0x2e9),![],_0x4a6d8b[_0x4f5565(0x475)]);}}else _0x5b2440(_0x4f5565(0x2e9),![],_0x4f5565(0x2b3));const _0x3afb7c=_0x1a1b1d['filter'](_0x1dd049=>!_0x1dd049['ok'])[_0x4f5565(0x30c)];return{'ok':_0x3afb7c<_0x1a1b1d[_0x4f5565(0x30c)]/0x2,'msg':_0x4f5565(0x458)+_0x1a1b1d[_0x4f5565(0x30c)]+_0x4f5565(0x3a6)+_0x3afb7c+_0x4f5565(0x375),'steps':_0x1a1b1d};}async function pushKaNotice(_0x405cbc,_0x2349c9,_0x5dbb96,_0x44fc1e,_0x53b11b){const _0x341054=_0x11f33f;try{if(!_0x405cbc||!_0x405cbc['DB'])return;const _0x37783d=await _0x405cbc['DB'][_0x341054(0x290)](_0x341054(0x1c5))[_0x341054(0x422)]();let _0x5dbb1f=[];try{if(_0x37783d&&_0x37783d['value'])_0x5dbb1f=JSON[_0x341054(0x29c)](_0x37783d[_0x341054(0x246)]);}catch(_0x5058e7){}_0x5dbb1f[_0x341054(0x307)]({'time':Date[_0x341054(0x31f)](),'prefix':String(_0x2349c9||''),'remark':String(_0x53b11b||''),'result':_0x5dbb96?'成功':'失败','detail':String(_0x44fc1e||'')[_0x341054(0x28a)](0x0,0xb4)});if(_0x5dbb1f[_0x341054(0x30c)]>0x1e)_0x5dbb1f[_0x341054(0x30c)]=0x1e;await _0x405cbc['DB'][_0x341054(0x290)](_0x341054(0x27b))[_0x341054(0x41c)]('ka_notices',JSON[_0x341054(0x335)](_0x5dbb1f))[_0x341054(0x337)]();}catch(_0x4ac78c){}const _0x58addb=_0x53b11b||'/'+_0x2349c9,_0x3bf9be=(_0x5dbb96?'✅':'❌')+'\x20节点\x20'+_0x58addb+_0x341054(0x2fb)+(_0x5dbb96?'成功':'失败')+(_0x44fc1e?'：'+_0x44fc1e:'');try{_0x405cbc[_0x341054(0x288)]&&await fetch(_0x341054(0x202)+String(_0x405cbc[_0x341054(0x288)])[_0x341054(0x26c)](),{'method':'POST','headers':{'Content-Type':_0x341054(0x1b0)},'body':JSON[_0x341054(0x335)]({'title':_0x341054(0x2ac),'body':_0x3bf9be,'level':_0x405cbc[_0x341054(0x300)]||_0x341054(0x22a)})});}catch(_0x1d0d3e){}try{_0x405cbc[_0x341054(0x1a5)]&&_0x405cbc[_0x341054(0x36f)]&&await fetch(_0x341054(0x1fb)+_0x405cbc['TG_BOT_TOKEN']+'/sendMessage',{'method':'POST','headers':{'Content-Type':_0x341054(0x1b0)},'body':JSON[_0x341054(0x335)]({'chat_id':String(_0x405cbc['TG_CHAT_ID']),'text':_0x3bf9be})});}catch(_0x23577c){}}async function checkKeepAliveSchedule(_0x2834fd){const _0xee4ae9=_0x11f33f;try{try{await _0x2834fd['DB']['exec'](_0xee4ae9(0x41f));}catch(_0x10053c){}try{await _0x2834fd['DB'][_0xee4ae9(0x30b)]('ALTER\x20TABLE\x20routes\x20ADD\x20COLUMN\x20ka_days\x20TEXT\x20DEFAULT\x20\x273\x27');}catch(_0x1fe211){}try{await _0x2834fd['DB']['exec']('ALTER\x20TABLE\x20routes\x20ADD\x20COLUMN\x20ka_token\x20TEXT\x20DEFAULT\x20\x27\x27');}catch(_0x4f70ca){}try{await _0x2834fd['DB'][_0xee4ae9(0x30b)]('ALTER\x20TABLE\x20routes\x20ADD\x20COLUMN\x20node_user\x20TEXT\x20DEFAULT\x20\x27\x27');}catch(_0x20b901){}try{await _0x2834fd['DB'][_0xee4ae9(0x30b)](_0xee4ae9(0x297));}catch(_0x9c2a38){}try{await _0x2834fd['DB']['exec'](_0xee4ae9(0x1c3));}catch(_0x480ce2){}try{await _0x2834fd['DB']['exec'](_0xee4ae9(0x3a4));}catch(_0x423305){}try{await _0x2834fd['DB'][_0xee4ae9(0x30b)](_0xee4ae9(0x1ec));}catch(_0x37938c){}const {results:_0x40d229}=await _0x2834fd['DB'][_0xee4ae9(0x290)](_0xee4ae9(0x1a9))[_0xee4ae9(0x2ca)]();if(!_0x40d229||_0x40d229['length']===0x0)return;const _0x397d8a=await _0x2834fd['DB'][_0xee4ae9(0x290)]('SELECT\x20value\x20FROM\x20app_config\x20WHERE\x20key\x20=\x20?')[_0xee4ae9(0x41c)](_0xee4ae9(0x45e))[_0xee4ae9(0x422)]();if(_0x397d8a&&_0x397d8a[_0xee4ae9(0x246)])try{const _0x5ac904=JSON[_0xee4ae9(0x29c)](_0x397d8a[_0xee4ae9(0x246)]);if(_0x5ac904&&_0x5ac904[_0xee4ae9(0x471)])return;}catch(_0x44d3ce){}const _0xe0f661=_0x40d229[_0xee4ae9(0x1b7)](_0xfed89a=>{const _0x5f0104=_0xee4ae9,_0x2c9acb=Math[_0x5f0104(0x38f)](0.1,parseFloat(_0xfed89a[_0x5f0104(0x191)])||0x3),_0x5dcf20=_0xfed89a['last_ka_run']?new Date(_0xfed89a[_0x5f0104(0x31a)])[_0x5f0104(0x1e5)]():0x0;return!_0x5dcf20||Date[_0x5f0104(0x31f)]()-_0x5dcf20>=_0x2c9acb*0x5265c00;});if(_0xe0f661[_0xee4ae9(0x30c)]===0x0)return;_0xe0f661[_0xee4ae9(0x23e)]((_0x341b9c,_0x57204e)=>{const _0x4cf3e6=_0xee4ae9,_0x293f2a=_0x341b9c[_0x4cf3e6(0x31a)]?new Date(_0x341b9c['last_ka_run'])[_0x4cf3e6(0x1e5)]():0x0,_0x438bae=_0x57204e[_0x4cf3e6(0x31a)]?new Date(_0x57204e[_0x4cf3e6(0x31a)])['getTime']():0x0;return _0x293f2a-_0x438bae;});const _0x23ad6a=_0xe0f661[0x0],_0x2628f6=await runKeepAlive(_0x2834fd,_0x23ad6a);await _0x2834fd['DB'][_0xee4ae9(0x290)](_0xee4ae9(0x38e))[_0xee4ae9(0x41c)](new Date()[_0xee4ae9(0x286)](),_0x2628f6['ok']?_0xee4ae9(0x2d5):_0xee4ae9(0x414),_0x2628f6[_0xee4ae9(0x313)]||'',_0x23ad6a[_0xee4ae9(0x260)])[_0xee4ae9(0x337)](),await pushKaNotice(_0x2834fd,_0x23ad6a['prefix'],_0x2628f6['ok'],_0x2628f6[_0xee4ae9(0x313)],_0x23ad6a[_0xee4ae9(0x40e)]);}catch(_0x271d24){}}async function sendTgStats(_0x4110fe,_0x583c48){const _0x5b25ec=_0x11f33f;try{const _0x189f5f=await _0x4110fe['DB'][_0x5b25ec(0x290)](_0x5b25ec(0x329))[_0x5b25ec(0x422)](),_0x4e0a5d=await _0x4110fe['DB']['prepare'](_0x5b25ec(0x420))['first'](),_0x89705e=await _0x4110fe['DB']['prepare']('\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20SELECT\x20r.remark,\x20COUNT(v.id)\x20as\x20c\x20\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20FROM\x20visitor_logs\x20v\x20\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20LEFT\x20JOIN\x20routes\x20r\x20ON\x20v.prefix\x20=\x20r.prefix\x20\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20WHERE\x20date(v.timestamp,\x20\x27+8\x20hours\x27)\x20=\x20date(\x27now\x27,\x20\x27+8\x20hours\x27)\x20\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20GROUP\x20BY\x20v.prefix\x20\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20ORDER\x20BY\x20c\x20DESC\x20LIMIT\x201\x0a\x20\x20\x20\x20\x20\x20\x20\x20')[_0x5b25ec(0x422)](),[_0x33538a,_0x496552,_0x188b90]=await Promise[_0x5b25ec(0x2ca)]([getCFTraffic(_0x4110fe,'today'),getCFTraffic(_0x4110fe,0x7),getCFTraffic(_0x4110fe,0x1e)]);let _0x5e9920='暂无数据';if(_0x4110fe['CF_API_TOKEN']&&_0x4110fe[_0x5b25ec(0x37b)]&&_0x4110fe['DB'])try{const {results:_0x42398b}=await _0x4110fe['DB'][_0x5b25ec(0x290)]('SELECT\x20prefix,\x20remark\x20FROM\x20routes')[_0x5b25ec(0x2ca)]();if(_0x42398b&&_0x42398b[_0x5b25ec(0x30c)]>0x0){const _0x1f848b=new Date(),_0x2b8610=new Date(_0x1f848b[_0x5b25ec(0x1e5)]()+0x8*0x36ee80);_0x2b8610['setUTCHours'](0x0,0x0,0x0,0x0);const _0x50cdb6=new Date(_0x2b8610[_0x5b25ec(0x1e5)]()-0x8*0x36ee80);let _0x589966=0x0,_0x20231b='无';await Promise[_0x5b25ec(0x2ca)](_0x42398b[_0x5b25ec(0x3b4)](async _0x2fdf1b=>{const _0x53b02f=_0x5b25ec;try{const _0x4b17f3={'query':'query\x20{\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20viewer\x20{\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20zones(filter:\x20{zoneTag:\x20\x22'+_0x4110fe[_0x53b02f(0x37b)]+_0x53b02f(0x1cd)+_0x2fdf1b[_0x53b02f(0x260)]+_0x53b02f(0x291)+_0x50cdb6['toISOString']()+'\x22,\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20datetime_leq:\x20\x22'+_0x1f848b[_0x53b02f(0x286)]()+'\x22\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20}\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20)\x20{\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20sum\x20{\x20edgeResponseBytes\x20}\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20}\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20}\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20}\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20}'},_0x4a4fbb=await fetch('https://api.cloudflare.com/client/v4/graphql',{'method':_0x53b02f(0x3b5),'headers':{'Authorization':'Bearer\x20'+_0x4110fe[_0x53b02f(0x1a3)],'Content-Type':_0x53b02f(0x1b0)},'body':JSON[_0x53b02f(0x335)](_0x4b17f3)}),_0x4660d8=await _0x4a4fbb[_0x53b02f(0x304)](),_0x64563=_0x4660d8?.['data']?.[_0x53b02f(0x3a3)]?.[_0x53b02f(0x3ed)]?.[0x0]?.['httpRequestsAdaptiveGroups']?.[0x0]?.[_0x53b02f(0x3d6)]?.[_0x53b02f(0x426)]||0x0;_0x64563>_0x589966&&(_0x589966=_0x64563,_0x20231b=_0x2fdf1b[_0x53b02f(0x40e)]||_0x2fdf1b[_0x53b02f(0x260)]);}catch(_0x459f29){}}));if(_0x589966>0x0){let _0x62db49=_0x5b25ec(0x177);if(_0x589966>=0x10000000000)_0x62db49=(_0x589966/0x10000000000)[_0x5b25ec(0x198)](0x2)+_0x5b25ec(0x338);else{if(_0x589966>=0x40000000)_0x62db49=(_0x589966/0x40000000)[_0x5b25ec(0x198)](0x2)+_0x5b25ec(0x16e);else{if(_0x589966>=0x100000)_0x62db49=(_0x589966/0x100000)['toFixed'](0x2)+'\x20MB';else{if(_0x589966>=0x400)_0x62db49=(_0x589966/0x400)[_0x5b25ec(0x198)](0x2)+_0x5b25ec(0x1be);else _0x62db49=_0x589966+'\x20B';}}}_0x5e9920=_0x20231b+_0x5b25ec(0x3bb)+_0x62db49;}else _0x5e9920=_0x5b25ec(0x2d4);}}catch(_0x130889){_0x5e9920=_0x5b25ec(0x253);}const _0x4662b2=_0x189f5f?_0x189f5f[_0x5b25ec(0x327)]:0x0,_0x2e971a=_0x4e0a5d?(_0x4e0a5d['country']==='CN'?_0x5b25ec(0x1c6):_0x4e0a5d[_0x5b25ec(0x20b)])+'\x20('+_0x4e0a5d['c']+_0x5b25ec(0x305):_0x5b25ec(0x40f),_0x484c32=_0x89705e?(_0x89705e[_0x5b25ec(0x40e)]||_0x5b25ec(0x481))+'\x20('+_0x89705e['c']+_0x5b25ec(0x305):_0x5b25ec(0x40f),_0x298dc2=_0x5b25ec(0x2fa)+(_0x5b25ec(0x2f5)+_0x4662b2+_0x5b25ec(0x28d))+('最多访问地区:\x20'+_0x2e971a+'\x0a')+(_0x5b25ec(0x172)+_0x484c32+'\x0a\x0a')+'实际流量消耗:\x0a'+('当天内:\x20'+_0x33538a+'\x0a')+('七天内:\x20'+_0x496552+'\x0a')+('30天内:\x20'+_0x188b90+'\x0a\x0a')+'今日流量之王:\x0a'+(''+_0x5e9920);await fetch(_0x5b25ec(0x1fb)+_0x4110fe['TG_BOT_TOKEN']+_0x5b25ec(0x205),{'method':'POST','headers':{'Content-Type':_0x5b25ec(0x1b0)},'body':JSON[_0x5b25ec(0x335)]({'chat_id':_0x583c48,'text':_0x298dc2,'parse_mode':_0x5b25ec(0x434)})});}catch(_0x300f03){console[_0x5b25ec(0x3dc)](_0x5b25ec(0x16d),_0x300f03);}}function escQuote(_0x5eebdf){const _0x3b068c=_0x11f33f;return String(_0x5eebdf)[_0x3b068c(0x395)](/\\/g,'\x5c\x5c')['replace'](/"/g,'\x5c\x22')[_0x3b068c(0x395)](/[\r\n]+/g,'');}function genUuid(){const _0x1b291a=_0x11f33f;if(typeof crypto!==_0x1b291a(0x410)&&typeof crypto['randomUUID']===_0x1b291a(0x384))return crypto[_0x1b291a(0x310)]();const _0x18ea9e=crypto[_0x1b291a(0x3bf)](new Uint8Array(0x10));_0x18ea9e[0x6]=_0x18ea9e[0x6]&0xf|0x40,_0x18ea9e[0x8]=_0x18ea9e[0x8]&0x3f|0x80;const _0x5eff68=Array[_0x1b291a(0x22c)](_0x18ea9e)['map'](_0x4fd5d7=>_0x4fd5d7['toString'](0x10)['padStart'](0x2,'0'))[_0x1b291a(0x213)]('');return _0x5eff68[_0x1b291a(0x28a)](0x0,0x8)+'-'+_0x5eff68[_0x1b291a(0x28a)](0x8,0xc)+'-'+_0x5eff68['slice'](0xc,0x10)+'-'+_0x5eff68['slice'](0x10,0x14)+'-'+_0x5eff68[_0x1b291a(0x28a)](0x14);}function spawnDlTrickWatchCF(_0x1827bc,_0x36e5cc,_0x23ac29,_0x5efd6e){const _0x4f5d7f=_0x11f33f;try{const _0x54abe9=new URLSearchParams((_0x5efd6e||'')[_0x4f5d7f(0x395)](/^\?/,'')),_0x4210b2=_0x54abe9[_0x4f5d7f(0x21e)](_0x4f5d7f(0x257))||_0x54abe9['get'](_0x4f5d7f(0x3e8))||'',_0x49ae8b=_0x36e5cc[_0x4f5d7f(0x2c6)]['get'](_0x4f5d7f(0x3d5))||_0x36e5cc[_0x4f5d7f(0x2c6)][_0x4f5d7f(0x21e)]('authorization')||'';if(!_0x4210b2&&!_0x49ae8b)return null;const _0x231c33=_0x54abe9['get'](_0x4f5d7f(0x173))||_0x54abe9[_0x4f5d7f(0x21e)]('MediaSourceId')||'',_0x16876c=String(_0x49ae8b)[_0x4f5d7f(0x417)](/Client="([^"]+)"/i),_0x4b1dbb=String(_0x49ae8b)[_0x4f5d7f(0x417)](/Version="([^"]+)"/i),_0x300c4f=genUuid(),_0x131d89=_0x16876c&&_0x16876c[0x1]||_0x4f5d7f(0x383),_0x478292=_0x4b1dbb&&_0x4b1dbb[0x1]||_0x4f5d7f(0x2e3),_0x4b4826=_0x4f5d7f(0x343)+Date[_0x4f5d7f(0x31f)]();let _0x1ff862='';try{_0x1ff862=new URL(_0x1827bc)[_0x4f5d7f(0x421)];}catch(_0x446c75){return null;}const _0x323ad7={'Content-Type':'application/json'};if(_0x49ae8b)_0x323ad7[_0x4f5d7f(0x17a)]=_0x49ae8b['replace'](/DeviceId\s*=\s*"[^"]*"/i,_0x4f5d7f(0x469)+_0x300c4f+'\x22');const _0x132fe1=_0x17d0c7=>addApiKey(_0x1ff862+_0x17d0c7,_0x4210b2),_0x2e1619={'ItemId':_0x23ac29,'MediaSourceId':_0x231c33||_0x23ac29,'PlaySessionId':_0x4b4826,'DeviceId':_0x300c4f,'Client':_0x131d89,'Version':_0x478292,'PlayMethod':'DirectStream','CanSeek':!![],'IsPaused':![],'QueueableMediaTypes':['Video']},_0x3e1df2=_0x5925fb=>JSON['stringify'](Object[_0x4f5d7f(0x457)]({},_0x2e1619,{'PositionTicks':_0x5925fb,'PlaybackPositionTicks':_0x5925fb}));let _0x89d969=![],_0x5282f3=0x0,_0x4b2b46='',_0x43af98=0x0,_0x193c68=0xa,_0x4b805b=Date['now']()+0x2710;const _0x1b2d17=(_0xeb930a,_0x3059b2)=>kaFetch(_0x132fe1(_0xeb930a),{'method':_0x4f5d7f(0x3b5),'headers':_0x323ad7,'body':_0x3059b2})[_0x4f5d7f(0x1dd)](()=>null);return _0x1b2d17(_0x4f5d7f(0x412),_0x3e1df2(0x0)),kaFetch(_0x132fe1(_0x4f5d7f(0x423)),{'headers':_0x323ad7})[_0x4f5d7f(0x3ca)](async _0x4c39a6=>{const _0x316f55=_0x4f5d7f;try{_0x4b2b46=(JSON[_0x316f55(0x29c)](await _0x4c39a6[_0x316f55(0x391)]())||{})['Id']||'';}catch(_0x237d4d){}})['catch'](()=>{}),{'tick'(){const _0x341d65=_0x4f5d7f;if(_0x89d969)return;const _0xe2b0cb=Date[_0x341d65(0x31f)]();if(_0xe2b0cb<_0x4b805b)return;_0x43af98+=0x1,_0x5282f3+=_0x193c68*0x989680,_0x4b805b=_0xe2b0cb+_0x193c68*0x3e8,_0x193c68=_0x43af98===0x1?0x1e:0xf+Math[_0x341d65(0x3ce)](Math[_0x341d65(0x2bc)]()*0xa6),_0x1b2d17(_0x341d65(0x266),_0x3e1df2(_0x5282f3));},async 'finish'(){const _0xc9bcf7=_0x4f5d7f;if(_0x89d969)return;_0x89d969=!![];try{if(!_0x4b2b46){const _0x5eb785=await kaFetch(_0x132fe1(_0xc9bcf7(0x423)),{'headers':_0x323ad7});try{_0x4b2b46=(JSON['parse'](await _0x5eb785[_0xc9bcf7(0x391)]())||{})['Id']||'';}catch(_0x2a32e0){}}}catch(_0x19ae88){}await _0x1b2d17(_0xc9bcf7(0x2eb),_0x3e1df2(_0x5282f3)),_0x4b2b46&&_0x23ac29&&(await new Promise(_0x1a1d9e=>setTimeout(_0x1a1d9e,0x5dc)),await _0x1b2d17('/emby/Users/'+encodeURIComponent(_0x4b2b46)+'/Items/'+encodeURIComponent(_0x23ac29)+_0xc9bcf7(0x278),JSON[_0xc9bcf7(0x335)]({'Played':![],'PlayCount':0x0,'ResumePositionTicks':0x0,'PlaybackPositionTicks':0x0,'PlayedPercentage':0x0})));}};}catch(_0x1e77eb){return null;}}function wrapStreamWithWatch(_0x4e5763,_0x5df350,_0x521a99){const _0x36d2e8=_0x11f33f,_0x1061ca=_0x4e5763[_0x36d2e8(0x2cf)](),_0x255808=()=>{const _0x46d3f0=_0x36d2e8;try{const _0xd384f=_0x5df350[_0x46d3f0(0x360)]();if(_0xd384f&&_0x521a99&&_0x521a99[_0x46d3f0(0x2ae)])_0x521a99[_0x46d3f0(0x2ae)](_0xd384f);}catch(_0x1a2158){}};return new ReadableStream({async 'pull'(_0x3a32fc){const _0x279327=_0x36d2e8;try{const {done:_0x3e38bc,value:_0x547e75}=await _0x1061ca[_0x279327(0x302)]();if(_0x3e38bc){try{_0x3a32fc['close']();}catch(_0x3b3c89){}_0x255808();return;}_0x3a32fc[_0x279327(0x1ca)](_0x547e75);try{_0x5df350[_0x279327(0x3df)]();}catch(_0x3371f3){}}catch(_0x454ec5){try{_0x3a32fc['error'](_0x454ec5);}catch(_0x395e0c){}_0x255808();}},'cancel'(){try{_0x1061ca['cancel']();}catch(_0x2e4198){}_0x255808();}});}async function getNotifyCfg(_0x537ee9){const _0x4b779b=_0x11f33f;let _0xc3842f={'barkKey':'','barkLevel':_0x4b779b(0x22a),'barkServer':_0x4b779b(0x2a7),'barkNotify':!![],'tgToken':'','tgChatId':'','tgNotify':!![]};try{if(_0x537ee9&&_0x537ee9['DB']){const _0x34c91b=await _0x537ee9['DB']['prepare'](_0x4b779b(0x25d))[_0x4b779b(0x422)]();if(_0x34c91b&&_0x34c91b[_0x4b779b(0x246)])Object['assign'](_0xc3842f,JSON['parse'](_0x34c91b[_0x4b779b(0x246)]));}}catch(_0x67466b){}return _0xc3842f;}async function sendBarkN(_0x146c19,_0x2f023e,_0x1a7b98){const _0x567f2c=_0x11f33f;try{if(!_0x146c19[_0x567f2c(0x3d2)])return![];const _0x386302=await fetch((_0x146c19[_0x567f2c(0x2a9)]||_0x567f2c(0x2a7))['replace'](/\/+$/,'')+'/'+String(_0x146c19['barkKey'])['trim'](),{'method':'POST','headers':{'Content-Type':'application/json;\x20charset=utf-8'},'body':JSON[_0x567f2c(0x335)]({'title':_0x2f023e,'body':_0x1a7b98,'level':_0x146c19[_0x567f2c(0x2b0)]||_0x567f2c(0x22a)})});return _0x386302['ok'];}catch(_0x4363f1){return![];}}async function sendTgN(_0x4852c9,_0x4d8050){const _0x206725=_0x11f33f;try{if(!_0x4852c9[_0x206725(0x42d)]||!_0x4852c9[_0x206725(0x3bc)])return![];const _0x3f8b0b=await fetch(_0x206725(0x1fb)+String(_0x4852c9[_0x206725(0x42d)])[_0x206725(0x26c)]()+_0x206725(0x205),{'method':_0x206725(0x3b5),'headers':{'Content-Type':_0x206725(0x1b0)},'body':JSON[_0x206725(0x335)]({'chat_id':String(_0x4852c9[_0x206725(0x3bc)])[_0x206725(0x26c)](),'text':_0x4d8050})});return _0x3f8b0b['ok'];}catch(_0x22f6ad){return![];}}async function scanOverdueNotify(_0x45f873,_0x15e156){const _0x5f4a1b=_0x11f33f;try{if(!_0x45f873['DB'])return;const _0x75eeda=await getNotifyCfg(_0x45f873);if(!_0x75eeda['barkNotify']&&!_0x75eeda[_0x5f4a1b(0x1d0)])return;if(!_0x75eeda[_0x5f4a1b(0x3d2)]&&!(_0x75eeda[_0x5f4a1b(0x42d)]&&_0x75eeda['tgChatId']))return;const _0x3fe017=new Date(Date['now']()+0x8*0x36ee80)[_0x5f4a1b(0x286)]()[_0x5f4a1b(0x38d)]('T')[0x0],_0x26c62a=await _0x45f873['DB'][_0x5f4a1b(0x290)](_0x5f4a1b(0x1f4))[_0x5f4a1b(0x422)]();let _0x4d7fd8={};try{if(_0x26c62a&&_0x26c62a[_0x5f4a1b(0x246)])_0x4d7fd8=JSON['parse'](_0x26c62a[_0x5f4a1b(0x246)]);}catch(_0x1462bc){}if(_0x4d7fd8[_0x5f4a1b(0x25a)]===_0x3fe017)return;try{await _0x45f873['DB']['exec'](_0x5f4a1b(0x283));}catch(_0x5bf222){}const {results:_0x353747}=await _0x45f873['DB'][_0x5f4a1b(0x290)]('SELECT\x20prefix,\x20remark,\x20target,\x20last_play,\x20watch_limit\x20FROM\x20routes')['all'](),_0x29c712=[];for(const _0x3d5b31 of _0x353747||[]){const _0x3c47fb=parseFloat(_0x3d5b31[_0x5f4a1b(0x244)]);if(!_0x3c47fb||_0x3c47fb<=0x0||!_0x3d5b31[_0x5f4a1b(0x1e8)])continue;const _0x4f10ce=Date[_0x5f4a1b(0x29c)](String(_0x3d5b31[_0x5f4a1b(0x1e8)])[_0x5f4a1b(0x395)]('\x20','T')+'Z')-0x8*0x36ee80;if(isNaN(_0x4f10ce))continue;const _0x4b3f3f=Math[_0x5f4a1b(0x3ce)]((Date[_0x5f4a1b(0x31f)]()-_0x4f10ce)/0x5265c00);if(_0x4b3f3f>_0x3c47fb)_0x29c712[_0x5f4a1b(0x168)]({'prefix':_0x3d5b31[_0x5f4a1b(0x260)],'remark':_0x3d5b31[_0x5f4a1b(0x40e)]||_0x3d5b31[_0x5f4a1b(0x260)],'days':_0x4b3f3f,'wl':_0x3c47fb});}await _0x45f873['DB'][_0x5f4a1b(0x290)]('INSERT\x20OR\x20REPLACE\x20INTO\x20app_config\x20(key,\x20value)\x20VALUES\x20(?,\x20?)')[_0x5f4a1b(0x41c)](_0x5f4a1b(0x2a0),JSON['stringify']({'date':_0x3fe017,'list':_0x29c712}))['run']();if(!_0x29c712[_0x5f4a1b(0x30c)])return;const _0x5749f4=_0x29c712[_0x5f4a1b(0x3b4)](_0x4e38c4=>'·\x20'+_0x4e38c4[_0x5f4a1b(0x40e)]+'（/'+_0x4e38c4[_0x5f4a1b(0x260)]+_0x5f4a1b(0x1b8)+_0x4e38c4[_0x5f4a1b(0x2ff)]+'\x20天未观看，超过下限\x20'+_0x4e38c4['wl']+'\x20天'),_0xf913f7=_0x5f4a1b(0x259)+_0x29c712[_0x5f4a1b(0x30c)]+_0x5f4a1b(0x167)+_0x5749f4['join']('\x0a');if(_0x75eeda[_0x5f4a1b(0x404)]&&_0x75eeda[_0x5f4a1b(0x3d2)])await sendBarkN(_0x75eeda,_0x5f4a1b(0x2b6),_0xf913f7);if(_0x75eeda['tgNotify']&&_0x75eeda['tgToken']&&_0x75eeda['tgChatId'])await sendTgN(_0x75eeda,_0xf913f7);}catch(_0x1595c0){console[_0x5f4a1b(0x3dc)](_0x5f4a1b(0x3e3),_0x1595c0);}}async function maybeScanOverdue(_0x492bf4){const _0x4d7e39=_0x11f33f;try{if(!_0x492bf4['DB'])return;const _0x7fffff=Date[_0x4d7e39(0x31f)](),_0x28a02c=await _0x492bf4['DB'][_0x4d7e39(0x290)](_0x4d7e39(0x466))['first']();let _0x5141ac=0x0;if(_0x28a02c&&_0x28a02c[_0x4d7e39(0x246)])_0x5141ac=parseInt(_0x28a02c[_0x4d7e39(0x246)],0xa)||0x0;if(_0x7fffff-_0x5141ac<0x6*0x36ee80)return;await _0x492bf4['DB'][_0x4d7e39(0x290)](_0x4d7e39(0x27b))[_0x4d7e39(0x41c)](_0x4d7e39(0x183),String(_0x7fffff))['run'](),await scanOverdueNotify(_0x492bf4,{});}catch(_0x3aeb1e){}}function verNum(_0x39ac1c){const _0x91c1cc=_0x11f33f;return String(_0x39ac1c||'')[_0x91c1cc(0x395)](/^v/i,'')[_0x91c1cc(0x38d)]('.')[_0x91c1cc(0x3b4)](_0x571765=>parseInt(_0x571765,0xa)||0x0);}function isNewerVer(_0x1196c5,_0x3912fe){const _0x2ee335=_0x11f33f,_0x5386e8=verNum(_0x1196c5),_0x2f55f7=verNum(_0x3912fe);for(let _0x541d00=0x0;_0x541d00<Math[_0x2ee335(0x38f)](_0x5386e8[_0x2ee335(0x30c)],_0x2f55f7[_0x2ee335(0x30c)]);_0x541d00++){const _0x1ab87e=_0x5386e8[_0x541d00]||0x0,_0x52f59e=_0x2f55f7[_0x541d00]||0x0;if(_0x1ab87e!==_0x52f59e)return _0x1ab87e>_0x52f59e;}return![];}async function checkUpdateNotify(_0x20797f){const _0x1f50b5=_0x11f33f;try{if(!_0x20797f['DB'])return;let _0x42f98d=!![];try{const _0x2ee384=await _0x20797f['DB'][_0x1f50b5(0x290)]('SELECT\x20value\x20FROM\x20app_config\x20WHERE\x20key\x20=\x20\x27update_notify\x27')[_0x1f50b5(0x422)]();if(_0x2ee384&&_0x2ee384[_0x1f50b5(0x246)]!==null&&_0x2ee384[_0x1f50b5(0x246)]!==undefined)_0x42f98d=String(_0x2ee384['value'])!=='0';}catch(_0x12e0d8){}if(!_0x42f98d)return;const _0x26ef00=await fetch(CHANGELOG_URL,{'headers':{'User-Agent':_0x1f50b5(0x37e)}});if(!_0x26ef00['ok'])return;const _0x4d38e5=await _0x26ef00[_0x1f50b5(0x304)](),_0x19235c=_0x4d38e5&&_0x4d38e5[_0x1f50b5(0x389)]&&_0x4d38e5[_0x1f50b5(0x389)][0x0]||null;if(!_0x19235c||!_0x19235c[_0x1f50b5(0x27e)])return;if(!isNewerVer(_0x19235c['version'],CURRENT_VERSION))return;const _0x24bd31=await _0x20797f['DB'][_0x1f50b5(0x290)](_0x1f50b5(0x280))['first']();let _0x3f38b4={};try{if(_0x24bd31&&_0x24bd31['value'])_0x3f38b4=JSON[_0x1f50b5(0x29c)](_0x24bd31[_0x1f50b5(0x246)]);}catch(_0x1eb7fc){}if(_0x3f38b4[_0x1f50b5(0x27e)]===_0x19235c[_0x1f50b5(0x27e)])return;const _0x46e040=await getNotifyCfg(_0x20797f);if(!_0x46e040[_0x1f50b5(0x404)]&&!_0x46e040[_0x1f50b5(0x1d0)])return;if(!_0x46e040[_0x1f50b5(0x3d2)]&&!(_0x46e040[_0x1f50b5(0x42d)]&&_0x46e040[_0x1f50b5(0x3bc)]))return;const _0x3defda=(_0x19235c[_0x1f50b5(0x409)]||[])[_0x1f50b5(0x28a)](0x0,0x6)[_0x1f50b5(0x3b4)](_0xd1efc=>'·\x20'+_0xd1efc)[_0x1f50b5(0x213)]('\x0a'),_0xb73ef9=_0x1f50b5(0x255)+_0x19235c[_0x1f50b5(0x27e)]+'（'+(_0x19235c[_0x1f50b5(0x184)]||'')+_0x1f50b5(0x357)+CURRENT_VERSION+_0x1f50b5(0x1b5)+_0x3defda+'\x0a\x0a可在面板「设置\x20→\x20版本」中查看更新内容并手动更新。';let _0x4d3479=![];if(_0x46e040[_0x1f50b5(0x404)]&&_0x46e040[_0x1f50b5(0x3d2)])_0x4d3479=await sendBarkN(_0x46e040,_0x1f50b5(0x241),_0xb73ef9)||_0x4d3479;if(_0x46e040[_0x1f50b5(0x1d0)]&&_0x46e040[_0x1f50b5(0x42d)]&&_0x46e040[_0x1f50b5(0x3bc)])_0x4d3479=await sendTgN(_0x46e040,_0xb73ef9)||_0x4d3479;if(_0x4d3479)await _0x20797f['DB']['prepare']('INSERT\x20OR\x20REPLACE\x20INTO\x20app_config\x20(key,\x20value)\x20VALUES\x20(?,\x20?)')[_0x1f50b5(0x41c)](_0x1f50b5(0x2a3),JSON['stringify']({'version':_0x19235c[_0x1f50b5(0x27e)]}))['run']();}catch(_0x59126b){console[_0x1f50b5(0x3dc)](_0x1f50b5(0x41b),_0x59126b);}}async function maybeCheckUpdate(_0x46fa65){const _0x1147d0=_0x11f33f;try{if(!_0x46fa65['DB'])return;const _0x50d4d2=Date['now'](),_0x4dd953=await _0x46fa65['DB'][_0x1147d0(0x290)]('SELECT\x20value\x20FROM\x20app_config\x20WHERE\x20key\x20=\x20\x27update_notify_last_check\x27')[_0x1147d0(0x422)]();let _0x1990db=0x0;if(_0x4dd953&&_0x4dd953['value'])_0x1990db=parseInt(_0x4dd953[_0x1147d0(0x246)],0xa)||0x0;if(_0x50d4d2-_0x1990db<0x6*0x36ee80)return;await _0x46fa65['DB'][_0x1147d0(0x290)]('INSERT\x20OR\x20REPLACE\x20INTO\x20app_config\x20(key,\x20value)\x20VALUES\x20(?,\x20?)')[_0x1147d0(0x41c)](_0x1147d0(0x2b2),String(_0x50d4d2))['run'](),await checkUpdateNotify(_0x46fa65);}catch(_0x5526ea){}}export default{async 'scheduled'(_0x49c63b,_0x40a38d,_0x14acf3){const _0x454309=_0x11f33f;_0x40a38d['DB']&&_0x40a38d[_0x454309(0x19e)]!=='off'&&_0x14acf3[_0x454309(0x2ae)](checkKeepAliveSchedule(_0x40a38d)),_0x40a38d['DB']&&_0x14acf3[_0x454309(0x2ae)](scanOverdueNotify(_0x40a38d,_0x14acf3)),_0x40a38d['DB']&&_0x14acf3['waitUntil'](checkUpdateNotify(_0x40a38d));},async 'fetch'(_0x47f8ce,_0x14f2a5,_0x4ace4e){const _0x2df062=_0x11f33f;try{const _0x381380=new URL(_0x47f8ce[_0x2df062(0x3e4)]);_0x14f2a5['DB']&&_0x4ace4e&&_0x4ace4e[_0x2df062(0x2ae)]&&_0x381380[_0x2df062(0x189)]!==_0x2df062(0x33f)&&_0x4ace4e[_0x2df062(0x2ae)](maybeScanOverdue(_0x14f2a5));_0x14f2a5['DB']&&_0x4ace4e&&_0x4ace4e[_0x2df062(0x2ae)]&&_0x381380[_0x2df062(0x189)]!=='/__client_rtt__'&&_0x4ace4e['waitUntil'](maybeCheckUpdate(_0x14f2a5));if(_0x381380[_0x2df062(0x189)]===_0x2df062(0x219)){const _0x4ed4ce=_0x47f8ce['cf']||{};let _0x3138ef=_0x2df062(0x17c);try{const _0x38c30a=await fetch('https://1.1.1.1/cdn-cgi/trace',{'headers':{'User-Agent':_0x2df062(0x2e1)}}),_0x2598f2=await _0x38c30a[_0x2df062(0x391)](),_0x30f680=_0x2598f2[_0x2df062(0x417)](/colo=([A-Z]+)/);if(_0x30f680)_0x3138ef=_0x30f680[0x1];}catch(_0x1fd3da){_0x3138ef=_0x2df062(0x253);}return new Response(JSON['stringify']({'success':!![],'entryCountry':_0x4ed4ce['country']||'未知','entryCity':_0x4ed4ce['city']||'','entryColo':_0x4ed4ce['colo']||'未知','egressColo':_0x3138ef}),{'headers':{'Content-Type':_0x2df062(0x1b0),'Access-Control-Allow-Origin':'*'}});}if(_0x381380[_0x2df062(0x189)]===_0x2df062(0x33f))return new Response(null,{'status':0xcc,'headers':{'Cache-Control':'no-store,\x20no-cache,\x20must-revalidate,\x20max-age=0','Pragma':_0x2df062(0x2d3),'Expires':'0','Access-Control-Allow-Origin':'*'}});if(_0x381380[_0x2df062(0x189)]===_0x2df062(0x3d1)||_0x381380[_0x2df062(0x189)]===_0x2df062(0x3cf)){const _0x5c1f27=_0x2df062(0x1eb);return new Response(_0x5c1f27,{'headers':{'Content-Type':_0x2df062(0x34c),'Cache-Control':'no-store,\x20no-cache,\x20must-revalidate,\x20max-age=0'}});}if(_0x381380[_0x2df062(0x189)]===_0x2df062(0x248)){const _0x4cec19=Math[_0x2df062(0x2a5)](parseInt(_0x381380[_0x2df062(0x328)][_0x2df062(0x21e)](_0x2df062(0x450))||_0x2df062(0x22f),0xa)||0xa00000,0x3200000),_0x59bbd8=0x400*0x400;let _0x1a9021=0x0;const _0x43b452=new ReadableStream({'pull'(_0x25670b){const _0xd2ad0a=_0x2df062;if(_0x1a9021*_0x59bbd8>=_0x4cec19){_0x25670b[_0xd2ad0a(0x406)]();return;}const _0x479218=Math[_0xd2ad0a(0x2a5)](_0x59bbd8,_0x4cec19-_0x1a9021*_0x59bbd8);_0x25670b[_0xd2ad0a(0x1ca)](new Uint8Array(_0x479218)),_0x1a9021++;}});return new Response(_0x43b452,{'headers':{'Content-Type':'application/octet-stream','Content-Length':String(_0x4cec19),'Cache-Control':_0x2df062(0x2f4),'Pragma':_0x2df062(0x2d3),'Expires':'0','Access-Control-Allow-Origin':'*'}});}if(_0x381380[_0x2df062(0x189)]===_0x2df062(0x2b8)&&_0x47f8ce[_0x2df062(0x345)]==='POST')try{const _0x18209e=await _0x47f8ce[_0x2df062(0x304)]();return _0x18209e[_0x2df062(0x475)]&&_0x18209e['message']['text']===_0x2df062(0x287)&&(_0x14f2a5['DB']&&_0x14f2a5[_0x2df062(0x1a5)]&&_0x4ace4e[_0x2df062(0x2ae)](sendTgStats(_0x14f2a5,_0x18209e[_0x2df062(0x475)]['chat']['id']))),new Response('OK');}catch(_0x2d73a8){return new Response('OK');}if(_0x47f8ce[_0x2df062(0x345)]===_0x2df062(0x1f2))return new Response(null,{'headers':{'Access-Control-Allow-Origin':'*','Access-Control-Allow-Methods':_0x2df062(0x342),'Access-Control-Allow-Headers':'*','Access-Control-Max-Age':_0x2df062(0x1c7)}});async function _0x3276ac(_0x4042a4){const _0x529726=_0x2df062;if(!_0x4042a4['DB'])return null;try{await _0x4042a4['DB'][_0x529726(0x290)](_0x529726(0x1c8))[_0x529726(0x337)]();const _0x28bfed=await _0x4042a4['DB']['prepare'](_0x529726(0x301))['first']();if(!_0x28bfed||!_0x28bfed[_0x529726(0x246)])return null;return JSON[_0x529726(0x29c)](_0x28bfed[_0x529726(0x246)]);}catch(_0x4647d3){return null;}}function _0x5e0fb1(_0x331fbb){const _0x14731b=_0x2df062;return _0x331fbb&&_0x331fbb[_0x14731b(0x2e6)]&&_0x331fbb[_0x14731b(0x374)]?_0x331fbb['key']+'/':'';}async function _0x3d1949(_0x15486e,_0xd47f1f,_0x3d027e){const _0x2ded97=_0x2df062;if(!_0x15486e['DB'])return;try{const _0x46f242=_0xd47f1f[_0x2ded97(0x2c6)][_0x2ded97(0x21e)](_0x2ded97(0x32b))||_0xd47f1f['headers'][_0x2ded97(0x21e)](_0x2ded97(0x2f2))||(_0xd47f1f['headers'][_0x2ded97(0x21e)](_0x2ded97(0x2ec))||'')[_0x2ded97(0x38d)](',')[0x0][_0x2ded97(0x26c)]()||_0x2ded97(0x465),_0x3b9220=(_0xd47f1f[_0x2ded97(0x2c6)]['get'](_0x2ded97(0x424))||'')[_0x2ded97(0x28a)](0x0,0xc8),_0x4e1f5a=Date[_0x2ded97(0x31f)](),_0x525a6f=String(_0x3d027e||'')['slice'](0x0,0xc8);await _0x15486e['DB'][_0x2ded97(0x290)](_0x2ded97(0x217))[_0x2ded97(0x337)]();const _0x9a886d=await _0x15486e['DB']['prepare'](_0x2ded97(0x367))['bind'](_0x46f242,_0x525a6f)[_0x2ded97(0x422)]();_0x9a886d?await _0x15486e['DB'][_0x2ded97(0x290)]('UPDATE\x20proxy_hits\x20SET\x20times\x20=\x20?,\x20ts\x20=\x20?\x20WHERE\x20id\x20=\x20?')[_0x2ded97(0x41c)]((_0x9a886d[_0x2ded97(0x23f)]||0x1)+0x1,_0x4e1f5a,_0x9a886d['id'])[_0x2ded97(0x337)]():await _0x15486e['DB']['prepare'](_0x2ded97(0x3d7))[_0x2ded97(0x41c)](_0x46f242,_0x525a6f,_0x3b9220,_0x4e1f5a)[_0x2ded97(0x337)]();}catch(_0xa1e7a8){}}function _0x2710da(_0x446c44,_0x21f52a){const _0x1e3ea3=_0x2df062,_0x1f51ef=_0x26bcc7=>String(_0x26bcc7==null?'':_0x26bcc7)['replace'](/[<>&"']/g,_0x3a518c=>({'<':_0x1e3ea3(0x171),'>':_0x1e3ea3(0x358),'&':_0x1e3ea3(0x1b3),'\x22':'&quot;','\x27':_0x1e3ea3(0x272)}[_0x3a518c]));return _0x1e3ea3(0x33b)+_0x1f51ef(_0x446c44)+_0x1e3ea3(0x1d5)+_0x1f51ef(_0x21f52a)[_0x1e3ea3(0x28a)](0x0,0x78)+_0x1e3ea3(0x276);}if(_0x381380[_0x2df062(0x189)]===_0x2df062(0x2d9)){const _0x27d6da=_0x47f8ce[_0x2df062(0x2c6)]['get']('cf-connecting-ip')||_0x47f8ce['headers'][_0x2df062(0x21e)](_0x2df062(0x2f2))||(_0x47f8ce[_0x2df062(0x2c6)][_0x2df062(0x21e)](_0x2df062(0x2ec))||'')[_0x2df062(0x38d)](',')[0x0]['trim']()||_0x2df062(0x465);return new Response(_0x2710da(_0x27d6da,_0x47f8ce[_0x2df062(0x2c6)][_0x2df062(0x21e)](_0x2df062(0x424))||''),{'headers':{'Content-Type':_0x2df062(0x34c),'Cache-Control':_0x2df062(0x2fd)}});}const _0x126b24=_0x14f2a5[_0x2df062(0x1d4)];if(!_0x126b24)return new Response(_0x2df062(0x1bf),{'status':0x1f4});function _0x83ad6(_0x1ca547,_0x5c4bf0){const _0x33a348=_0x2df062,_0x17802b=_0x1ca547[_0x33a348(0x2c6)][_0x33a348(0x21e)](_0x33a348(0x249));if(!_0x17802b)return null;const _0x2435fe=_0x17802b[_0x33a348(0x417)](new RegExp(_0x33a348(0x36e)+_0x5c4bf0+_0x33a348(0x462)));if(_0x2435fe)try{return decodeURIComponent(_0x2435fe[0x2]);}catch(_0xaaa8ef){return _0x2435fe[0x2];}return null;}async function _0x2efa1f(_0x5f3254){const _0x47f272=_0x2df062,_0x296a36=_0x83ad6(_0x5f3254,_0x47f272(0x1b9));if(!_0x296a36)return null;if(_0x296a36===_0x126b24)return _0x47f272(0x19a);if(!_0x14f2a5['DB'])return null;try{await _0x14f2a5['DB'][_0x47f272(0x290)](_0x47f272(0x1c8))[_0x47f272(0x337)]();const _0x43ccad=await _0x14f2a5['DB'][_0x47f272(0x290)]('SELECT\x20value\x20FROM\x20app_config\x20WHERE\x20key\x20=\x20?')[_0x47f272(0x41c)]('admin_pass')[_0x47f272(0x422)]();if(_0x43ccad&&_0x43ccad[_0x47f272(0x246)]&&_0x296a36===_0x43ccad[_0x47f272(0x246)])return _0x47f272(0x19a);const _0x3010cc=await _0x14f2a5['DB']['prepare'](_0x47f272(0x17b))[_0x47f272(0x41c)](_0x47f272(0x2f8))['first']();if(_0x3010cc&&_0x3010cc[_0x47f272(0x246)]){const _0x1def12=JSON['parse'](_0x3010cc['value']);if(Array['isArray'](_0x1def12)&&_0x1def12[_0x47f272(0x42a)](_0x296a36))return'sub';}}catch(_0x4fb533){}return null;}const _0xd8b19=_0x381380[_0x2df062(0x189)]==='/'||_0x381380[_0x2df062(0x189)][_0x2df062(0x1ee)](_0x2df062(0x268));let _0x527b65=null;if(_0xd8b19&&_0x381380[_0x2df062(0x189)]!==_0x2df062(0x2b8)){_0x527b65=await _0x2efa1f(_0x47f8ce);if(!_0x527b65){if(_0x381380['pathname']==='/')return new Response(LOGIN_UI,{'headers':{'Content-Type':'text/html;charset=UTF-8'}});else return new Response(_0x2df062(0x212),{'status':0x191});}}if(_0x381380[_0x2df062(0x189)]==='/')return new Response(HTML_UI,{'headers':{'Content-Type':_0x2df062(0x34c)}});if(_0x381380[_0x2df062(0x189)]===_0x2df062(0x285)&&_0x47f8ce[_0x2df062(0x345)]===_0x2df062(0x3b5)){if(_0x527b65!==_0x2df062(0x19a))return new Response(_0x2df062(0x2ab),{'status':0x193});try{const _0x46e702=await _0x47f8ce[_0x2df062(0x304)](),_0x319d08=_0x46e702['placement'];if(!_0x14f2a5[_0x2df062(0x1a3)]||!_0x14f2a5[_0x2df062(0x3cc)]||!_0x14f2a5[_0x2df062(0x36c)])return new Response(JSON['stringify']({'success':![],'msg':_0x2df062(0x26f)}),{'headers':{'Content-Type':_0x2df062(0x1b0),'Access-Control-Allow-Origin':'*'}});const _0x1ee6a8=new FormData();_0x1ee6a8[_0x2df062(0x296)]('settings',new Blob([JSON[_0x2df062(0x335)]({'placement':_0x319d08})],{'type':_0x2df062(0x1b0)}));const _0x2e6efa=_0x2df062(0x240)+_0x14f2a5['CF_ACCOUNT_ID']+_0x2df062(0x325)+_0x14f2a5['CF_WORKER_NAME']+_0x2df062(0x1ae),_0x22bff1=await fetch(_0x2e6efa,{'method':_0x2df062(0x3d0),'headers':{'Authorization':'Bearer\x20'+_0x14f2a5[_0x2df062(0x1a3)]},'body':_0x1ee6a8}),_0x564303=await _0x22bff1[_0x2df062(0x304)]();return _0x564303['success']?new Response(JSON[_0x2df062(0x335)]({'success':!![],'msg':'部署区域修改成功！'}),{'headers':{'Content-Type':_0x2df062(0x1b0),'Access-Control-Allow-Origin':'*'}}):new Response(JSON[_0x2df062(0x335)]({'success':![],'msg':_0x2df062(0x29f)+(_0x564303['errors'][0x0]?.['message']||'未知错误')}),{'headers':{'Content-Type':_0x2df062(0x1b0),'Access-Control-Allow-Origin':'*'}});}catch(_0x593178){return new Response(JSON[_0x2df062(0x335)]({'success':![],'msg':_0x593178[_0x2df062(0x475)]}),{'headers':{'Content-Type':_0x2df062(0x1b0),'Access-Control-Allow-Origin':'*'}});}}if(_0x381380['pathname']===_0x2df062(0x2b5)&&_0x47f8ce[_0x2df062(0x345)]===_0x2df062(0x1bc))return Response[_0x2df062(0x304)]({'success':!![],'role':_0x527b65});if(_0x381380[_0x2df062(0x189)]===_0x2df062(0x3f8)&&_0x47f8ce[_0x2df062(0x345)]==='GET'){let _0x3399f1=!![];try{if(_0x14f2a5['DB']){const _0x464ec5=await _0x14f2a5['DB']['prepare']('SELECT\x20value\x20FROM\x20app_config\x20WHERE\x20key\x20=\x20\x27update_notify\x27')['first']();if(_0x464ec5&&_0x464ec5[_0x2df062(0x246)]!==null&&_0x464ec5[_0x2df062(0x246)]!==undefined)_0x3399f1=String(_0x464ec5[_0x2df062(0x246)])!=='0';}}catch(_0x1ddc0f){}return Response[_0x2df062(0x304)]({'success':!![],'version':CURRENT_VERSION,'updateNotify':_0x3399f1});}if(_0x381380['pathname']==='/api/account/notify'&&_0x47f8ce['method']===_0x2df062(0x1bc)){if(_0x527b65!=='admin')return new Response(_0x2df062(0x2ab),{'status':0x193});let _0x4ffce3={};try{if(_0x14f2a5['DB']){const _0x5b019d=await _0x14f2a5['DB'][_0x2df062(0x290)](_0x2df062(0x25d))[_0x2df062(0x422)]();if(_0x5b019d&&_0x5b019d['value'])_0x4ffce3=JSON[_0x2df062(0x29c)](_0x5b019d['value']);}}catch(_0x5599cd){}return Response[_0x2df062(0x304)]({'success':!![],'barkKey':_0x4ffce3[_0x2df062(0x3d2)]?_0x2df062(0x478):'','barkLevel':_0x4ffce3['barkLevel']||_0x2df062(0x22a),'barkServer':_0x4ffce3['barkServer']||'https://api.day.app','barkNotify':_0x4ffce3[_0x2df062(0x404)]!==![],'tgToken':_0x4ffce3[_0x2df062(0x42d)]?_0x2df062(0x478):'','tgChatId':_0x4ffce3['tgChatId']||'','tgNotify':_0x4ffce3[_0x2df062(0x1d0)]!==![]});}if(_0x381380[_0x2df062(0x189)]===_0x2df062(0x258)&&_0x47f8ce['method']==='POST'){if(_0x527b65!==_0x2df062(0x19a))return new Response(_0x2df062(0x2ab),{'status':0x193});try{const _0x176682=await _0x47f8ce[_0x2df062(0x304)](),_0x22d336=String(_0x176682[_0x2df062(0x456)]||_0x2df062(0x427)),_0x45c10e=await getNotifyCfg(_0x14f2a5);if(_0x22d336===_0x2df062(0x427)){if(!_0x45c10e['barkKey'])return Response['json']({'success':![],'error':_0x2df062(0x2aa)});const _0x3d76d5=await sendBarkN(_0x45c10e,_0x2df062(0x2ac),_0x2df062(0x26d));return Response[_0x2df062(0x304)]({'success':_0x3d76d5,'error':_0x3d76d5?'':_0x2df062(0x20a)});}if(_0x22d336==='tg'){if(!_0x45c10e[_0x2df062(0x42d)]||!_0x45c10e['tgChatId'])return Response[_0x2df062(0x304)]({'success':![],'error':'未配置\x20TG\x20Bot\x20Token\x20/\x20Chat\x20ID'});const _0x454f29=await sendTgN(_0x45c10e,_0x2df062(0x26d));return Response[_0x2df062(0x304)]({'success':_0x454f29,'error':_0x454f29?'':_0x2df062(0x209)});}return Response[_0x2df062(0x304)]({'success':![],'error':_0x2df062(0x2b1)});}catch(_0x53cd37){return Response['json']({'success':![],'error':_0x53cd37['message']});}}if(_0x381380[_0x2df062(0x189)]===_0x2df062(0x468)&&_0x47f8ce[_0x2df062(0x345)]==='POST'){if(_0x527b65!==_0x2df062(0x19a))return new Response(_0x2df062(0x2ab),{'status':0x193});try{const _0x23d195=await _0x47f8ce[_0x2df062(0x304)]();if(_0x23d195[_0x2df062(0x180)]!==undefined){const _0x26f785=_0x23d195[_0x2df062(0x180)],_0x727240=!!_0x26f785[_0x2df062(0x2e6)],_0x441a55=String(_0x26f785[_0x2df062(0x374)]||'')[_0x2df062(0x26c)]();if(_0x727240&&!/^[A-Za-z0-9]{3,32}$/['test'](_0x441a55))return Response['json']({'success':![],'error':'密钥需\x203-32\x20位字母数字'});if(!_0x14f2a5['DB'])return Response['json']({'success':![],'error':'D1\x20未绑定：请在\x20Worker\x20设置里绑定名为\x20DB\x20的\x20D1\x20数据库'});return await _0x14f2a5['DB']['prepare'](_0x2df062(0x1c8))[_0x2df062(0x337)](),await _0x14f2a5['DB'][_0x2df062(0x290)]('INSERT\x20OR\x20REPLACE\x20INTO\x20app_config\x20(key,\x20value)\x20VALUES\x20(?,\x20?)')[_0x2df062(0x41c)]('proxy_token',JSON[_0x2df062(0x335)]({'enabled':_0x727240,'key':_0x441a55}))[_0x2df062(0x337)](),Response[_0x2df062(0x304)]({'success':!![]});}if(_0x23d195[_0x2df062(0x201)]!==undefined){const _0x4a40c8=_0x23d195[_0x2df062(0x201)];if(!_0x14f2a5['DB'])return Response['json']({'success':![],'error':_0x2df062(0x18c)});await _0x14f2a5['DB']['prepare'](_0x2df062(0x1c8))[_0x2df062(0x337)]();const _0x353f59=await _0x14f2a5['DB'][_0x2df062(0x290)](_0x2df062(0x25d))[_0x2df062(0x422)]();let _0x40d085={};try{if(_0x353f59&&_0x353f59[_0x2df062(0x246)])_0x40d085=JSON[_0x2df062(0x29c)](_0x353f59['value']);}catch(_0x489651){}const _0x201438={'barkKey':_0x4a40c8[_0x2df062(0x3d2)]&&_0x4a40c8[_0x2df062(0x3d2)]!=='********'?String(_0x4a40c8[_0x2df062(0x3d2)])[_0x2df062(0x26c)]():_0x40d085['barkKey']||'','barkLevel':[_0x2df062(0x2e2),_0x2df062(0x22a),_0x2df062(0x1aa),_0x2df062(0x1e7)][_0x2df062(0x42a)](_0x4a40c8['barkLevel'])?_0x4a40c8[_0x2df062(0x2b0)]:_0x40d085[_0x2df062(0x2b0)]||_0x2df062(0x22a),'barkServer':_0x4a40c8[_0x2df062(0x2a9)]&&_0x4a40c8[_0x2df062(0x2a9)]!==_0x2df062(0x2a7)?String(_0x4a40c8[_0x2df062(0x2a9)])['trim']()[_0x2df062(0x395)](/\/+$/,''):_0x40d085[_0x2df062(0x2a9)]||_0x2df062(0x2a7),'barkNotify':_0x4a40c8[_0x2df062(0x404)]!==![],'tgToken':_0x4a40c8[_0x2df062(0x42d)]&&_0x4a40c8[_0x2df062(0x42d)]!==_0x2df062(0x478)?String(_0x4a40c8[_0x2df062(0x42d)])[_0x2df062(0x26c)]():_0x40d085[_0x2df062(0x42d)]||'','tgChatId':_0x4a40c8['tgChatId']?String(_0x4a40c8[_0x2df062(0x3bc)])[_0x2df062(0x26c)]():_0x40d085[_0x2df062(0x3bc)]||'','tgNotify':_0x4a40c8['tgNotify']!==![]};return await _0x14f2a5['DB'][_0x2df062(0x290)](_0x2df062(0x27b))['bind'](_0x2df062(0x279),JSON[_0x2df062(0x335)](_0x201438))[_0x2df062(0x337)](),Response[_0x2df062(0x304)]({'success':!![]});}if(_0x23d195[_0x2df062(0x1fd)]!==undefined){if(!_0x14f2a5['DB'])return Response['json']({'success':![],'error':'D1\x20未绑定：请在\x20Worker\x20设置里绑定名为\x20DB\x20的\x20D1\x20数据库'});return await _0x14f2a5['DB'][_0x2df062(0x290)](_0x2df062(0x1c8))['run'](),await _0x14f2a5['DB'][_0x2df062(0x290)](_0x2df062(0x27b))[_0x2df062(0x41c)](_0x2df062(0x34e),_0x23d195[_0x2df062(0x1fd)]?'1':'0')['run'](),Response[_0x2df062(0x304)]({'success':!![]});}const _0x3bdf7f=String(_0x23d195[_0x2df062(0x264)]||'')[_0x2df062(0x26c)]();if(_0x3bdf7f[_0x2df062(0x30c)]<0x4)return Response[_0x2df062(0x304)]({'success':![],'error':'密码至少\x204\x20位'});return await _0x14f2a5['DB'][_0x2df062(0x290)](_0x2df062(0x1c8))[_0x2df062(0x337)](),await _0x14f2a5['DB']['prepare']('INSERT\x20OR\x20REPLACE\x20INTO\x20app_config\x20(key,\x20value)\x20VALUES\x20(?,\x20?)')[_0x2df062(0x41c)]('admin_pass',_0x3bdf7f)[_0x2df062(0x337)](),Response['json']({'success':!![]});}catch(_0x1a0b32){return Response[_0x2df062(0x304)]({'success':![],'error':_0x1a0b32[_0x2df062(0x475)]});}}if(_0x381380[_0x2df062(0x189)]===_0x2df062(0x42f)&&_0x47f8ce[_0x2df062(0x345)]===_0x2df062(0x1bc)){const _0x5c96db=await _0x3276ac(_0x14f2a5);return Response[_0x2df062(0x304)]({'success':!![],'enabled':!!(_0x5c96db&&_0x5c96db['enabled']&&_0x5c96db[_0x2df062(0x374)]),'key':_0x5c96db&&_0x5c96db[_0x2df062(0x2e6)]&&_0x5c96db[_0x2df062(0x374)]?_0x5c96db[_0x2df062(0x374)]:''});}if(_0x381380['pathname']==='/api/proxytoken/hits'&&_0x47f8ce[_0x2df062(0x345)]===_0x2df062(0x1bc)){if(_0x527b65!==_0x2df062(0x19a))return new Response(_0x2df062(0x2ab),{'status':0x193});try{await _0x14f2a5['DB'][_0x2df062(0x290)](_0x2df062(0x217))[_0x2df062(0x337)]();const {results:_0x4b6561}=await _0x14f2a5['DB']['prepare']('SELECT\x20ip,\x20path,\x20ua,\x20ts,\x20times\x20FROM\x20proxy_hits\x20ORDER\x20BY\x20id\x20DESC\x20LIMIT\x20200')[_0x2df062(0x2ca)]();return Response[_0x2df062(0x304)]({'success':!![],'hits':_0x4b6561});}catch(_0x3b7716){return Response[_0x2df062(0x304)]({'success':!![],'hits':[]});}}if(_0x381380[_0x2df062(0x189)]===_0x2df062(0x463)&&_0x47f8ce[_0x2df062(0x345)]===_0x2df062(0x3b5)){if(_0x527b65!==_0x2df062(0x19a))return new Response(_0x2df062(0x2ab),{'status':0x193});try{const _0x246933=await _0x47f8ce[_0x2df062(0x304)]();return _0x246933&&_0x246933[_0x2df062(0x1b1)]&&(await _0x14f2a5['DB'][_0x2df062(0x290)](_0x2df062(0x217))[_0x2df062(0x337)](),await _0x14f2a5['DB'][_0x2df062(0x290)]('DELETE\x20FROM\x20proxy_hits')['run']()),Response[_0x2df062(0x304)]({'success':!![]});}catch(_0x1bd114){return Response[_0x2df062(0x304)]({'success':![],'error':_0x1bd114[_0x2df062(0x475)]});}}if(_0x381380[_0x2df062(0x189)]==='/api/subscribers'&&_0x47f8ce[_0x2df062(0x345)]===_0x2df062(0x1bc)){if(_0x527b65!==_0x2df062(0x19a))return new Response(_0x2df062(0x2ab),{'status':0x193});try{await _0x14f2a5['DB'][_0x2df062(0x290)]('CREATE\x20TABLE\x20IF\x20NOT\x20EXISTS\x20app_config\x20(key\x20TEXT\x20PRIMARY\x20KEY,\x20value\x20TEXT)')[_0x2df062(0x337)]();const _0x1a371f=await _0x14f2a5['DB'][_0x2df062(0x290)]('SELECT\x20value\x20FROM\x20app_config\x20WHERE\x20key\x20=\x20?')[_0x2df062(0x41c)](_0x2df062(0x2f8))['first'](),_0x406e76=_0x1a371f&&_0x1a371f[_0x2df062(0x246)]?JSON[_0x2df062(0x29c)](_0x1a371f['value']):[];return Response[_0x2df062(0x304)]({'success':!![],'subscribers':Array[_0x2df062(0x43c)](_0x406e76)?_0x406e76:[]});}catch(_0x294375){return Response[_0x2df062(0x304)]({'success':![],'error':_0x294375['message'],'subscribers':[]});}}if(_0x381380[_0x2df062(0x189)]===_0x2df062(0x472)&&_0x47f8ce[_0x2df062(0x345)]===_0x2df062(0x3b5)){if(_0x527b65!==_0x2df062(0x19a))return new Response('Forbidden',{'status':0x193});try{const _0xc99ae7=await _0x47f8ce[_0x2df062(0x304)](),_0x178dec=_0xc99ae7[_0x2df062(0x1ce)],_0x58c3d7=String(_0xc99ae7[_0x2df062(0x264)]||'')['trim']();if(!_0x58c3d7||_0x58c3d7[_0x2df062(0x30c)]<0x4)return Response['json']({'success':![],'error':_0x2df062(0x377)});await _0x14f2a5['DB'][_0x2df062(0x290)](_0x2df062(0x1c8))['run']();const _0x47f90f=await _0x14f2a5['DB']['prepare'](_0x2df062(0x17b))['bind'](_0x2df062(0x2f8))['first']();let _0x253743=_0x47f90f&&_0x47f90f[_0x2df062(0x246)]?JSON[_0x2df062(0x29c)](_0x47f90f[_0x2df062(0x246)]):[];if(!Array['isArray'](_0x253743))_0x253743=[];if(_0x178dec===_0x2df062(0x233)){if(_0x253743[_0x2df062(0x42a)](_0x58c3d7))return Response[_0x2df062(0x304)]({'success':![],'error':_0x2df062(0x42c)});_0x253743[_0x2df062(0x168)](_0x58c3d7);}else{if(_0x178dec===_0x2df062(0x22d))_0x253743=_0x253743['filter'](_0x55bef5=>_0x55bef5!==_0x58c3d7);else return Response[_0x2df062(0x304)]({'success':![],'error':'未知操作'});}return await _0x14f2a5['DB']['prepare'](_0x2df062(0x27b))[_0x2df062(0x41c)](_0x2df062(0x2f8),JSON['stringify'](_0x253743))[_0x2df062(0x337)](),Response[_0x2df062(0x304)]({'success':!![],'subscribers':_0x253743});}catch(_0x169b32){return Response[_0x2df062(0x304)]({'success':![],'error':_0x169b32[_0x2df062(0x475)]});}}if(_0x381380[_0x2df062(0x189)]===_0x2df062(0x222)&&_0x47f8ce[_0x2df062(0x345)]===_0x2df062(0x1bc)){if(!_0x14f2a5['DB'])return Response[_0x2df062(0x304)]({'success':![],'error':'未绑定\x20D1\x20数据库'});try{const [_0x1b8a80,_0x1e29cb,_0x4e55f5]=await Promise['all']([getCFTraffic(_0x14f2a5,'today'),getCFTraffic(_0x14f2a5,0x7),getCFTraffic(_0x14f2a5,0x1e)]),_0x3ec345=await _0x14f2a5['DB'][_0x2df062(0x290)]('SELECT\x20date(timestamp,\x20\x27+8\x20hours\x27)\x20as\x20date,\x20COUNT(*)\x20as\x20count\x20FROM\x20visitor_logs\x20WHERE\x20timestamp\x20>=\x20datetime(\x27now\x27,\x20\x27-7\x20days\x27)\x20GROUP\x20BY\x20date(timestamp,\x20\x27+8\x20hours\x27)\x20ORDER\x20BY\x20date\x20ASC')['all'](),_0x34a5cb=await _0x14f2a5['DB'][_0x2df062(0x290)](_0x2df062(0x32d))[_0x2df062(0x2ca)](),_0x44932e=await _0x14f2a5['DB'][_0x2df062(0x290)](_0x2df062(0x199))[_0x2df062(0x2ca)]();return Response[_0x2df062(0x304)]({'success':!![],'trend':_0x3ec345[_0x2df062(0x223)],'locations':_0x34a5cb['results'],'recents':_0x44932e[_0x2df062(0x223)],'trafficToday':_0x1b8a80,'traffic7d':_0x1e29cb,'traffic30d':_0x4e55f5});}catch(_0x356cef){return Response[_0x2df062(0x304)]({'success':![],'error':_0x356cef[_0x2df062(0x475)]});}}if(_0x381380['pathname']===_0x2df062(0x2c7)&&_0x47f8ce[_0x2df062(0x345)]===_0x2df062(0x1bc)){if(!_0x14f2a5[_0x2df062(0x1a3)]||!_0x14f2a5[_0x2df062(0x37b)])return Response[_0x2df062(0x304)]({'success':![],'error':_0x2df062(0x306)});try{const [_0x3d885f,_0x422f5d,_0x292b56]=await Promise['all']([getCFTodayStats(_0x14f2a5),getCFRequests(_0x14f2a5,0x7),getCFRequests(_0x14f2a5,0x1e)]),_0x6af11d=0x186a0,_0xa86222=_0x3d885f['ok']?_0x3d885f[_0x2df062(0x16f)]:0x0,_0x153cf0=_0x422f5d['ok']?_0x422f5d[_0x2df062(0x327)]:0x0,_0x2bfbf8=_0x292b56['ok']?_0x292b56[_0x2df062(0x327)]:0x0;return Response[_0x2df062(0x304)]({'success':!![],'today':_0xa86222,'week':_0x153cf0,'month':_0x2bfbf8,'quota':_0x6af11d,'usedPercent':_0x3d885f['ok']?Math[_0x2df062(0x455)](_0xa86222/_0x6af11d*0x3e8)/0xa:0x0,'remain':Math[_0x2df062(0x38f)](0x0,_0x6af11d-_0xa86222),'todayError':_0x3d885f['ok']?null:_0x3d885f[_0x2df062(0x3dc)],'weekError':_0x422f5d['ok']?null:_0x422f5d[_0x2df062(0x3dc)],'monthError':_0x292b56['ok']?null:_0x292b56['error'],'bandwidth':_0x3d885f['ok']?_0x3d885f['bytes']:0x0,'cacheHitRatio':_0x3d885f['ok']&&_0x3d885f[_0x2df062(0x450)]>0x0?Math[_0x2df062(0x455)](_0x3d885f['cachedBytes']/_0x3d885f[_0x2df062(0x450)]*0x3e8)/0xa:0x0,'statusCodes':_0x3d885f['ok']?_0x3d885f[_0x2df062(0x292)]:{'2xx':0x0,'3xx':0x0,'4xx':0x0,'5xx':0x0},'countries':_0x3d885f['ok']?_0x3d885f[_0x2df062(0x2f6)]:[],'hours':_0x3d885f['ok']?_0x3d885f[_0x2df062(0x326)]:[],'blocked':_0x3d885f['ok']?_0x3d885f[_0x2df062(0x400)]:0x0});}catch(_0x254ac4){return Response['json']({'success':![],'error':_0x254ac4[_0x2df062(0x475)]});}}if(_0x381380[_0x2df062(0x189)]===_0x2df062(0x37d)&&_0x47f8ce[_0x2df062(0x345)]==='POST'){if(_0x527b65!==_0x2df062(0x19a))return new Response(_0x2df062(0x2ab),{'status':0x193});const _0x3d830c=_0x14f2a5['CF_API_TOKEN'],_0x568558=_0x14f2a5[_0x2df062(0x3cc)],_0x3ab7b8=_0x14f2a5[_0x2df062(0x36c)];if(!_0x3d830c||!_0x568558||!_0x3ab7b8)return Response['json']({'success':![],'error':'缺少\x20CF_API_TOKEN,\x20CF_ACCOUNT_ID\x20或\x20CF_WORKER_NAME\x20环境变量'});try{const _0x12c5d=await _0x47f8ce[_0x2df062(0x304)]();if(!_0x12c5d[_0x2df062(0x1ac)])return Response['json']({'success':![],'error':'代码内容为空。'});const _0x2d90e1=await fetch(_0x2df062(0x240)+_0x568558+'/workers/services/'+_0x3ab7b8,{'headers':{'Authorization':_0x2df062(0x38b)+_0x3d830c}}),_0x148745=await _0x2d90e1[_0x2df062(0x304)]();let _0x3bba86=_0x2df062(0x432),_0x3956cb=undefined,_0x4df6c2=undefined;if(_0x148745['success']&&_0x148745[_0x2df062(0x349)]){let _0x49cbe4=null;if(_0x148745[_0x2df062(0x349)][_0x2df062(0x261)]&&_0x148745[_0x2df062(0x349)][_0x2df062(0x261)]['script'])_0x49cbe4=_0x148745[_0x2df062(0x349)][_0x2df062(0x261)][_0x2df062(0x234)];else _0x148745[_0x2df062(0x349)]['script']&&(_0x49cbe4=_0x148745[_0x2df062(0x349)][_0x2df062(0x234)]);if(_0x49cbe4){if(_0x49cbe4[_0x2df062(0x339)])_0x3bba86=_0x49cbe4[_0x2df062(0x339)];if(_0x49cbe4[_0x2df062(0x19c)])_0x3956cb=_0x49cbe4[_0x2df062(0x19c)];if(_0x49cbe4[_0x2df062(0x45b)])_0x4df6c2=_0x49cbe4['placement'];}}const _0x266386=[];for(const _0x40d999 in _0x14f2a5){typeof _0x14f2a5[_0x40d999]===_0x2df062(0x40c)&&_0x266386[_0x2df062(0x168)]({'name':_0x40d999,'type':_0x2df062(0x203),'text':_0x14f2a5[_0x40d999]});}const _0x2c6ded=await fetch('https://api.cloudflare.com/client/v4/accounts/'+_0x568558+_0x2df062(0x325)+_0x3ab7b8+_0x2df062(0x3a8),{'headers':{'Authorization':_0x2df062(0x38b)+_0x3d830c}}),_0x1aca06=await _0x2c6ded[_0x2df062(0x304)]();if(_0x1aca06[_0x2df062(0x2d5)]&&Array[_0x2df062(0x43c)](_0x1aca06[_0x2df062(0x349)]))for(const _0x108e93 of _0x1aca06['result']){_0x108e93[_0x2df062(0x456)]!==_0x2df062(0x203)&&_0x108e93['type']!=='secret_text'&&_0x108e93[_0x2df062(0x456)]!=='inherited'&&_0x266386[_0x2df062(0x168)](_0x108e93);}const _0x4ad404=new FormData(),_0x375dba={'main_module':_0x2df062(0x42e),'bindings':_0x266386,'compatibility_date':_0x3bba86};if(_0x3956cb)_0x375dba[_0x2df062(0x19c)]=_0x3956cb;if(_0x4df6c2)_0x375dba[_0x2df062(0x45b)]=_0x4df6c2;_0x4ad404['append']('metadata',new Blob([JSON[_0x2df062(0x335)](_0x375dba)],{'type':_0x2df062(0x1b0)}),_0x2df062(0x33a)),_0x4ad404['append']('worker.js',new Blob([_0x12c5d[_0x2df062(0x1ac)]],{'type':_0x2df062(0x403)}),'worker.js');const _0x3cd999='https://api.cloudflare.com/client/v4/accounts/'+_0x568558+'/workers/scripts/'+_0x3ab7b8,_0x2c8aff=await fetch(_0x3cd999,{'method':_0x2df062(0x1a8),'headers':{'Authorization':_0x2df062(0x38b)+_0x3d830c},'body':_0x4ad404}),_0x2c156=await _0x2c8aff[_0x2df062(0x304)]();if(_0x2c156[_0x2df062(0x2d5)])return Response[_0x2df062(0x304)]({'success':!![],'msg':'代码更新成功，并已完美保留原有放置地区和兼容配置！'});else throw new Error(JSON[_0x2df062(0x335)](_0x2c156[_0x2df062(0x464)]));}catch(_0x401348){return Response[_0x2df062(0x304)]({'success':![],'error':_0x401348[_0x2df062(0x475)]});}}if(_0x381380[_0x2df062(0x189)]===_0x2df062(0x182)&&_0x47f8ce[_0x2df062(0x345)]==='POST'){if(_0x527b65!=='admin')return new Response(_0x2df062(0x2ab),{'status':0x193});const _0x534b03=_0x14f2a5['CF_API_TOKEN'],_0x47fabf=_0x14f2a5[_0x2df062(0x37b)];if(!_0x534b03||!_0x47fabf)return Response[_0x2df062(0x304)]({'success':![],'error':_0x2df062(0x30e)});try{const _0x147c25=await fetch('https://api.cloudflare.com/client/v4/zones/'+_0x47fabf+'/purge_cache',{'method':_0x2df062(0x3b5),'headers':{'Authorization':_0x2df062(0x38b)+_0x534b03,'Content-Type':_0x2df062(0x1b0)},'body':JSON[_0x2df062(0x335)]({'purge_everything':!![]})}),_0x96bc6=await _0x147c25[_0x2df062(0x304)]();if(!_0x96bc6[_0x2df062(0x2d5)])throw new Error(JSON['stringify'](_0x96bc6['errors']));return Response[_0x2df062(0x304)]({'success':!![]});}catch(_0x4418b6){return Response[_0x2df062(0x304)]({'success':![],'error':_0x4418b6['message']});}}if(_0x381380['pathname']==='/api/ping-node'){if(_0x527b65!==_0x2df062(0x19a))return new Response(_0x2df062(0x2ab),{'status':0x193});const _0x93146f=_0x381380[_0x2df062(0x328)][_0x2df062(0x21e)]('url');if(!_0x93146f)return Response[_0x2df062(0x304)]({'ms':-0x1});const _0x5428e5=Date[_0x2df062(0x31f)]();try{const _0x2ffd62=new AbortController(),_0x5d6a50=setTimeout(()=>_0x2ffd62[_0x2df062(0x23a)](),0x7d0);return await fetch(_0x93146f+'/',{'method':_0x2df062(0x230),'signal':_0x2ffd62[_0x2df062(0x1b6)]}),clearTimeout(_0x5d6a50),Response[_0x2df062(0x304)]({'ms':Date['now']()-_0x5428e5});}catch(_0x57e41b){return Response[_0x2df062(0x304)]({'ms':-0x1});}}if(_0x381380[_0x2df062(0x189)]===_0x2df062(0x1c2)){const _0x57a365=_0x14f2a5[_0x2df062(0x1a3)],_0x187818=_0x14f2a5[_0x2df062(0x37b)],_0x2cbae4=_0x14f2a5[_0x2df062(0x443)];if(!_0x57a365||!_0x187818||!_0x2cbae4)return Response[_0x2df062(0x304)]({'success':![],'error':'缺少\x20DNS\x20环境变量'});try{const _0x250042=await fetch(_0x2df062(0x373)+_0x187818+_0x2df062(0x271)+_0x2cbae4,{'headers':{'Authorization':_0x2df062(0x38b)+_0x57a365}}),_0x1430c4=await _0x250042[_0x2df062(0x304)]();return Response[_0x2df062(0x304)]({'success':!![],'result':_0x1430c4[_0x2df062(0x349)]});}catch(_0x78fd63){return Response[_0x2df062(0x304)]({'success':![],'error':_0x78fd63[_0x2df062(0x475)]});}}if(_0x381380[_0x2df062(0x189)]===_0x2df062(0x176)&&_0x47f8ce[_0x2df062(0x345)]==='POST'){if(_0x527b65!=='admin')return new Response(_0x2df062(0x2ab),{'status':0x193});const _0x2303fb=await _0x47f8ce[_0x2df062(0x304)](),_0x54f135=_0x2303fb[_0x2df062(0x2e7)],_0x525ff8=_0x14f2a5['CF_API_TOKEN'],_0x5000ec=_0x14f2a5[_0x2df062(0x37b)],_0x105365=_0x14f2a5[_0x2df062(0x443)];if(!_0x525ff8||!_0x5000ec||!_0x105365)return Response[_0x2df062(0x304)]({'success':![],'error':'缺少\x20DNS\x20环境变量'});try{const _0x465215=await fetch('https://api.cloudflare.com/client/v4/zones/'+_0x5000ec+_0x2df062(0x271)+_0x105365,{'headers':{'Authorization':_0x2df062(0x38b)+_0x525ff8}}),_0x191fe9=await _0x465215[_0x2df062(0x304)]();if(!_0x191fe9[_0x2df062(0x2d5)])throw new Error(_0x2df062(0x454));const _0x20f998=_0x191fe9['result']['filter'](_0x18b7b2=>_0x18b7b2[_0x2df062(0x456)]==='A'||_0x18b7b2[_0x2df062(0x456)]===_0x2df062(0x353)||_0x18b7b2[_0x2df062(0x456)]==='CNAME');for(const _0x4e9d3c of _0x20f998){await fetch(_0x2df062(0x373)+_0x5000ec+'/dns_records/'+_0x4e9d3c['id'],{'method':_0x2df062(0x44f),'headers':{'Authorization':_0x2df062(0x38b)+_0x525ff8}});}for(const _0x495cfe of _0x54f135){const _0x3c41e2=_0x495cfe['replace'](/[\[\]]/g,'');let _0x312e54='A';if(_0x3c41e2['includes'](':'))_0x312e54=_0x2df062(0x353);else{if(/[a-zA-Z]/[_0x2df062(0x275)](_0x3c41e2))_0x312e54=_0x2df062(0x3b2);}const _0x17f43c=await fetch(_0x2df062(0x373)+_0x5000ec+_0x2df062(0x26e),{'method':'POST','headers':{'Authorization':_0x2df062(0x38b)+_0x525ff8,'Content-Type':_0x2df062(0x1b0)},'body':JSON['stringify']({'type':_0x312e54,'name':_0x105365,'content':_0x3c41e2,'ttl':0x3c,'proxied':![]})}),_0xc5cd33=await _0x17f43c[_0x2df062(0x304)]();if(!_0xc5cd33['success'])throw new Error(_0x2df062(0x1f9)+JSON[_0x2df062(0x335)](_0xc5cd33[_0x2df062(0x464)]));}return Response[_0x2df062(0x304)]({'success':!![],'message':I['check']+_0x2df062(0x18d)});}catch(_0x4ad6c1){return Response[_0x2df062(0x304)]({'success':![],'error':_0x4ad6c1[_0x2df062(0x475)]});}}if(_0x381380['pathname']==='/api/get-custom-api-ips')try{const _0x2594bd=_0x381380['searchParams']['get'](_0x2df062(0x3e4));if(!_0x2594bd)throw new Error('缺少\x20URL');const _0xa92e56=await fetch(_0x2594bd,{'headers':{'User-Agent':'Mozilla/5.0'}}),_0x5db114=await _0xa92e56[_0x2df062(0x391)]();let _0x5498a0=new Set();try{const _0x2edef7=JSON[_0x2df062(0x29c)](_0x5db114);_0x2edef7&&_0x2edef7[_0x2df062(0x3db)]&&Array[_0x2df062(0x43c)](_0x2edef7[_0x2df062(0x3db)])&&_0x2edef7[_0x2df062(0x3db)][_0x2df062(0x3ea)](_0x9b8858=>{const _0xf15bd8=_0x2df062;if(_0x9b8858['ip']){let _0x48a764=_0x9b8858['ip'];if(_0x48a764[_0xf15bd8(0x42a)](':')&&!_0x48a764[_0xf15bd8(0x1ee)]('['))_0x48a764='['+_0x48a764+']';_0x5498a0[_0xf15bd8(0x233)](_0x48a764);}});}catch(_0x43d139){}if(_0x5498a0[_0x2df062(0x197)]===0x0){const _0x39da65=/\b(?:(?:25[0-5]|2[0-4]\d|[01]?\d\d?)\.){3}(?:25[0-5]|2[0-4]\d|[01]?\d\d?)\b/g,_0x405c1e=_0x5db114[_0x2df062(0x417)](_0x39da65)||[];_0x405c1e['forEach'](_0x49b096=>{const _0x5ad950=_0x2df062;if(!_0x49b096[_0x5ad950(0x1ee)](_0x5ad950(0x3e5))&&!_0x49b096[_0x5ad950(0x1ee)]('192.168.')&&!_0x49b096[_0x5ad950(0x1ee)](_0x5ad950(0x221)))_0x5498a0[_0x5ad950(0x233)](_0x49b096);});const _0x15bf56=/(?:[A-F0-9]{1,4}:){7}[A-F0-9]{1,4}|(?:[A-F0-9]{1,4}:)*:[A-F0-9]{1,4}(?::[A-F0-9]{1,4})*/gi,_0x1b00de=_0x5db114[_0x2df062(0x417)](_0x15bf56)||[];_0x1b00de[_0x2df062(0x3ea)](_0x178cb6=>{const _0x5c3baf=_0x2df062;if(_0x178cb6[_0x5c3baf(0x30c)]>0x7&&_0x178cb6['includes'](':')&&!_0x178cb6[_0x5c3baf(0x1ee)](_0x5c3baf(0x333)))_0x5498a0[_0x5c3baf(0x233)](_0x178cb6[_0x5c3baf(0x1ee)]('[')?_0x178cb6:'['+_0x178cb6+']');});}const _0x578563=Array[_0x2df062(0x22c)](_0x5498a0);for(let _0x1fd5e4=_0x578563[_0x2df062(0x30c)]-0x1;_0x1fd5e4>0x0;_0x1fd5e4--){const _0x2c431f=Math[_0x2df062(0x3ce)](Math[_0x2df062(0x2bc)]()*(_0x1fd5e4+0x1));[_0x578563[_0x1fd5e4],_0x578563[_0x2c431f]]=[_0x578563[_0x2c431f],_0x578563[_0x1fd5e4]];}return Response['json']({'success':!![],'ips':_0x578563[_0x2df062(0x28a)](0x0,0xf),'totalCount':_0x578563[_0x2df062(0x30c)]});}catch(_0x52bc61){return Response[_0x2df062(0x304)]({'success':![],'error':_0x52bc61[_0x2df062(0x475)]},{'status':0x1f4});}if(_0x381380[_0x2df062(0x189)]===_0x2df062(0x274))try{const _0x15a3cb=(_0x381380[_0x2df062(0x328)][_0x2df062(0x21e)](_0x2df062(0x456))||'all')[_0x2df062(0x192)](),_0x1f93d3=new Set();if(['all','电信','联通','移动','多线',_0x2df062(0x45c)][_0x2df062(0x42a)](_0x15a3cb))try{const _0x3a8b5e=await fetch(_0x2df062(0x25e),{'headers':{'User-Agent':'Mozilla/5.0'}});if(_0x3a8b5e['ok']){const _0x1197db=await _0x3a8b5e['text'](),_0x590451=_0x1197db[_0x2df062(0x395)](/<[^>]+>/g,'\x20'),_0x6a35b5=/(电信|联通|移动|多线|ipv6)\s+((?:(?:25[0-5]|2[0-4]\d|[01]?\d\d?)\.){3}(?:25[0-5]|2[0-4]\d|[01]?\d\d?)|(?:[a-fA-F0-9]{1,4}:)+[a-fA-F0-9]{1,4})/gi;let _0x892d59;while((_0x892d59=_0x6a35b5[_0x2df062(0x30b)](_0x590451))!==null){const _0x17ef00=_0x892d59[0x1]['toLowerCase']();let _0x2db493=_0x892d59[0x2];if(_0x2db493['includes'](':')&&!_0x2db493[_0x2df062(0x1ee)]('['))_0x2db493='['+_0x2db493+']';if(_0x15a3cb==='all'||_0x15a3cb===_0x17ef00)_0x1f93d3['add'](_0x2db493);}}}catch(_0x16bb89){}if([_0x2df062(0x2ca),'优选'][_0x2df062(0x42a)](_0x15a3cb))try{const _0x4355db=await fetch('https://raw.githubusercontent.com/ZhiXuanWang/cf-speed-dns/refs/heads/main/ipTop10.html',{'headers':{'User-Agent':_0x2df062(0x21a)}});if(_0x4355db['ok']){const _0x46bdc6=await _0x4355db[_0x2df062(0x391)](),_0x4c16fe=/\b(?:(?:25[0-5]|2[0-4]\d|[01]?\d\d?)\.){3}(?:25[0-5]|2[0-4]\d|[01]?\d\d?)\b/g,_0x318382=_0x46bdc6[_0x2df062(0x417)](_0x4c16fe)||[];_0x318382['forEach'](_0x51d311=>{const _0x534a61=_0x2df062;if(!_0x51d311['startsWith'](_0x534a61(0x3e5))&&!_0x51d311['startsWith'](_0x534a61(0x418))&&!_0x51d311[_0x534a61(0x1ee)](_0x534a61(0x221)))_0x1f93d3[_0x534a61(0x233)](_0x51d311);});}}catch(_0x1c2807){}const _0x460c80=Array[_0x2df062(0x22c)](_0x1f93d3);for(let _0x39cbbc=_0x460c80[_0x2df062(0x30c)]-0x1;_0x39cbbc>0x0;_0x39cbbc--){const _0x4ab8d9=Math['floor'](Math[_0x2df062(0x2bc)]()*(_0x39cbbc+0x1));[_0x460c80[_0x39cbbc],_0x460c80[_0x4ab8d9]]=[_0x460c80[_0x4ab8d9],_0x460c80[_0x39cbbc]];}return Response[_0x2df062(0x304)]({'success':!![],'ips':_0x460c80[_0x2df062(0x28a)](0x0,0xa),'totalCount':_0x460c80[_0x2df062(0x30c)]});}catch(_0x4e7894){return Response['json']({'success':![],'error':_0x4e7894[_0x2df062(0x475)]},{'status':0x1f4});}if(_0x381380[_0x2df062(0x189)]===_0x2df062(0x294)&&_0x47f8ce[_0x2df062(0x345)]==='POST'){if(_0x527b65!=='admin')return new Response('Forbidden',{'status':0x193});if(!_0x14f2a5['DB'])return Response[_0x2df062(0x304)]({'success':![],'error':'未绑定\x20DB'});try{const _0x26d3bb=await _0x47f8ce[_0x2df062(0x304)](),_0x24a2ca=_0x26d3bb['map'](_0x389b2b=>_0x14f2a5['DB'][_0x2df062(0x290)](_0x2df062(0x323))[_0x2df062(0x41c)](_0x389b2b[_0x2df062(0x447)],_0x389b2b[_0x2df062(0x260)]));return await _0x14f2a5['DB'][_0x2df062(0x208)](_0x24a2ca),Response[_0x2df062(0x304)]({'success':!![]});}catch(_0x9f095f){return Response[_0x2df062(0x304)]({'success':![],'error':_0x9f095f[_0x2df062(0x475)]});}}if(_0x381380[_0x2df062(0x189)]===_0x2df062(0x16a)&&_0x47f8ce['method']===_0x2df062(0x3b5)){if(_0x527b65!==_0x2df062(0x19a))return new Response(_0x2df062(0x2ab),{'status':0x193});if(!_0x14f2a5['DB'])return Response[_0x2df062(0x304)]({'success':![],'error':_0x2df062(0x33c)});try{const _0x26ea31=await _0x47f8ce[_0x2df062(0x304)]();for(const _0x252c39 of _0x26ea31){_0x252c39[_0x2df062(0x260)]&&_0x252c39[_0x2df062(0x2c2)]&&await _0x14f2a5['DB'][_0x2df062(0x290)](_0x2df062(0x44c))[_0x2df062(0x41c)](_0x252c39['prefix'],_0x252c39[_0x2df062(0x2c2)],_0x252c39[_0x2df062(0x29d)]||_0x2df062(0x284),_0x252c39['remark']||'',_0x252c39['last_play']||'',_0x252c39['icon']||'',_0x252c39[_0x2df062(0x36a)]||'',_0x252c39[_0x2df062(0x1fe)]||'on',_0x252c39[_0x2df062(0x447)]||0x0,_0x252c39[_0x2df062(0x244)]||'0',_0x252c39[_0x2df062(0x220)]||'0',_0x252c39[_0x2df062(0x191)]||'3',_0x252c39[_0x2df062(0x27c)]||'',_0x252c39['node_user']||'',_0x252c39[_0x2df062(0x322)]||'')[_0x2df062(0x337)]();}return Response[_0x2df062(0x304)]({'success':!![]});}catch(_0x3135c0){return Response[_0x2df062(0x304)]({'success':![],'error':_0x3135c0[_0x2df062(0x475)]});}}if(_0x381380[_0x2df062(0x189)]===_0x2df062(0x2a1)&&_0x47f8ce[_0x2df062(0x345)]===_0x2df062(0x1bc)){if(!_0x14f2a5['DB'])return Response[_0x2df062(0x304)]({'running':![]});try{const _0x426513=await _0x14f2a5['DB'][_0x2df062(0x290)](_0x2df062(0x17b))[_0x2df062(0x41c)](_0x2df062(0x45e))[_0x2df062(0x422)]();if(_0x426513&&_0x426513[_0x2df062(0x246)])return Response[_0x2df062(0x304)](JSON['parse'](_0x426513[_0x2df062(0x246)]));return Response['json']({'running':![]});}catch(_0xbf48ba){return Response[_0x2df062(0x304)]({'running':![]});}}if(_0x381380[_0x2df062(0x189)]===_0x2df062(0x236)&&_0x47f8ce['method']===_0x2df062(0x1bc)){if(_0x527b65!==_0x2df062(0x19a))return new Response(_0x2df062(0x2ab),{'status':0x193});let _0x19d2a4=[];try{const _0x1d0b63=await _0x14f2a5['DB']['prepare'](_0x2df062(0x1c5))['first']();if(_0x1d0b63&&_0x1d0b63[_0x2df062(0x246)])_0x19d2a4=JSON['parse'](_0x1d0b63[_0x2df062(0x246)]);}catch(_0x1042df){}return Response[_0x2df062(0x304)]({'notices':(_0x19d2a4||[])[_0x2df062(0x28a)](0x0,0x14)});}if(_0x381380[_0x2df062(0x189)]===_0x2df062(0x200)&&_0x47f8ce[_0x2df062(0x345)]===_0x2df062(0x3b5)){if(_0x527b65!=='admin')return new Response('Forbidden',{'status':0x193});if(!_0x14f2a5['DB'])return Response[_0x2df062(0x304)]({'success':![],'error':'未绑定\x20D1\x20数据库'});try{const _0x1ddd65=await _0x47f8ce[_0x2df062(0x304)](),_0x29325d=String(_0x1ddd65&&_0x1ddd65[_0x2df062(0x260)]||'')[_0x2df062(0x26c)]();if(!_0x29325d)return Response['json']({'success':![],'error':_0x2df062(0x262)});const _0x158d61=await _0x14f2a5['DB']['prepare']('SELECT\x20value\x20FROM\x20app_config\x20WHERE\x20key\x20=\x20?')[_0x2df062(0x41c)](_0x2df062(0x45e))[_0x2df062(0x422)]();if(_0x158d61&&_0x158d61[_0x2df062(0x246)])try{const _0x29db75=JSON['parse'](_0x158d61['value']);if(_0x29db75&&_0x29db75['running'])return Response[_0x2df062(0x304)]({'success':![],'error':'已有保活任务正在运行，请稍后重试'});}catch(_0x2068c9){}const _0x272e72=await _0x14f2a5['DB'][_0x2df062(0x290)](_0x2df062(0x3f6))['bind'](_0x29325d)[_0x2df062(0x422)]();if(!_0x272e72)return Response[_0x2df062(0x304)]({'success':![],'error':_0x2df062(0x27d)});await _0x14f2a5['DB']['prepare']('INSERT\x20OR\x20REPLACE\x20INTO\x20app_config\x20(key,\x20value)\x20VALUES\x20(?,\x20?)')[_0x2df062(0x41c)](_0x2df062(0x45e),JSON['stringify']({'running':!![],'prefix':_0x29325d,'current':_0x2df062(0x350),'steps':[],'progress':0x3,'mediaTitle':'','updatedAt':Date[_0x2df062(0x31f)]()}))[_0x2df062(0x337)]();const _0x4ef4e8=await runKeepAlive(_0x14f2a5,_0x272e72);return await _0x14f2a5['DB'][_0x2df062(0x290)](_0x2df062(0x38e))['bind'](new Date()[_0x2df062(0x286)](),_0x4ef4e8['ok']?_0x2df062(0x2d5):'fail',_0x4ef4e8[_0x2df062(0x313)]||'',_0x29325d)[_0x2df062(0x337)](),await pushKaNotice(_0x14f2a5,_0x29325d,_0x4ef4e8['ok'],_0x4ef4e8[_0x2df062(0x313)],_0x272e72[_0x2df062(0x40e)]),await _0x14f2a5['DB'][_0x2df062(0x290)](_0x2df062(0x27b))[_0x2df062(0x41c)](_0x2df062(0x45e),JSON[_0x2df062(0x335)]({'running':![],'prefix':_0x29325d,'current':'','steps':_0x4ef4e8[_0x2df062(0x29b)]||[],'msg':_0x4ef4e8[_0x2df062(0x313)]||'','progress':0x64,'mediaTitle':'','updatedAt':Date['now']()}))[_0x2df062(0x337)](),Response['json'](_0x4ef4e8);}catch(_0x3cedf7){return Response[_0x2df062(0x304)]({'success':![],'error':_0x2df062(0x1da)+_0x3cedf7[_0x2df062(0x475)]});}}if(_0x381380[_0x2df062(0x189)]['startsWith'](_0x2df062(0x436))){if(!_0x14f2a5['DB'])return Response[_0x2df062(0x304)]({'error':_0x2df062(0x3c8)},{'status':0x1f4});await _0x14f2a5['DB'][_0x2df062(0x30b)](_0x2df062(0x41a)),await _0x14f2a5['DB'][_0x2df062(0x30b)]('CREATE\x20TABLE\x20IF\x20NOT\x20EXISTS\x20request_stats\x20(prefix\x20TEXT,\x20date\x20TEXT,\x20count\x20INTEGER\x20DEFAULT\x200,\x20PRIMARY\x20KEY(prefix,\x20date))'),await _0x14f2a5['DB']['exec'](_0x2df062(0x314));try{await _0x14f2a5['DB'][_0x2df062(0x30b)](_0x2df062(0x3f7));}catch(_0x5828f6){}try{await _0x14f2a5['DB'][_0x2df062(0x30b)](_0x2df062(0x39e));}catch(_0x289488){}try{await _0x14f2a5['DB'][_0x2df062(0x30b)](_0x2df062(0x3c0));}catch(_0x231e06){}try{await _0x14f2a5['DB'][_0x2df062(0x30b)](_0x2df062(0x3fb));}catch(_0x323bb7){}try{await _0x14f2a5['DB']['exec']('ALTER\x20TABLE\x20routes\x20ADD\x20COLUMN\x20cache_img\x20TEXT\x20DEFAULT\x20\x27on\x27');}catch(_0x58fa95){}try{await _0x14f2a5['DB'][_0x2df062(0x30b)](_0x2df062(0x210));}catch(_0x402547){}try{await _0x14f2a5['DB'][_0x2df062(0x30b)](_0x2df062(0x2c5));}catch(_0x232c45){}try{await _0x14f2a5['DB'][_0x2df062(0x30b)]('ALTER\x20TABLE\x20routes\x20ADD\x20COLUMN\x20ka_enabled\x20TEXT\x20DEFAULT\x20\x270\x27');}catch(_0x3e2ccf){}try{await _0x14f2a5['DB']['exec'](_0x2df062(0x428));}catch(_0xf2109f){}try{await _0x14f2a5['DB'][_0x2df062(0x30b)](_0x2df062(0x29a));}catch(_0x38de61){}try{await _0x14f2a5['DB'][_0x2df062(0x30b)](_0x2df062(0x1bd));}catch(_0x4a1ba5){}try{await _0x14f2a5['DB'][_0x2df062(0x30b)](_0x2df062(0x297));}catch(_0x133cc3){}try{await _0x14f2a5['DB'][_0x2df062(0x30b)](_0x2df062(0x1c3));}catch(_0x4f9137){}try{await _0x14f2a5['DB'][_0x2df062(0x30b)](_0x2df062(0x3a4));}catch(_0xcd86b7){}try{await _0x14f2a5['DB'][_0x2df062(0x30b)](_0x2df062(0x1ec));}catch(_0x5e7c87){}try{await _0x14f2a5['DB'][_0x2df062(0x30b)](_0x2df062(0x283));}catch(_0x53df55){}if(_0x47f8ce['method']!=='GET'&&_0x527b65!==_0x2df062(0x19a))return new Response(_0x2df062(0x2ab),{'status':0x193});try{await _0x14f2a5['DB'][_0x2df062(0x30b)]('DELETE\x20FROM\x20visitor_logs\x20WHERE\x20timestamp\x20<\x20datetime(\x27now\x27,\x20\x27-7\x20days\x27)');}catch(_0x4eb7bc){}if(_0x47f8ce[_0x2df062(0x345)]===_0x2df062(0x1bc)){const _0x367d2a=new Date(Date[_0x2df062(0x31f)]()+0x8*0x36ee80)[_0x2df062(0x286)]()['split']('T')[0x0];let {results:_0x45dfd5}=await _0x14f2a5['DB'][_0x2df062(0x290)]('\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20SELECT\x20r.*,\x20\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20IFNULL(s.count,\x200)\x20as\x20todayReqs,\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20(SELECT\x20SUM(count)\x20FROM\x20request_stats\x20WHERE\x20prefix\x20=\x20r.prefix)\x20as\x20totalReqs\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20FROM\x20routes\x20r\x20\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20LEFT\x20JOIN\x20request_stats\x20s\x20ON\x20r.prefix\x20=\x20s.prefix\x20AND\x20s.date\x20=\x20?\x20\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20ORDER\x20BY\x20r.sort_order\x20ASC,\x20r.prefix\x20ASC\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20')[_0x2df062(0x41c)](_0x367d2a)[_0x2df062(0x2ca)]();if(_0x527b65===_0x2df062(0x19a)&&_0x14f2a5[_0x2df062(0x1a3)]&&_0x14f2a5[_0x2df062(0x37b)]&&_0x45dfd5&&_0x45dfd5[_0x2df062(0x30c)]>0x0){const _0x743312=new Date(),_0x2fb180=new Date(_0x743312[_0x2df062(0x1e5)]()+0x8*0x36ee80);_0x2fb180[_0x2df062(0x3b8)](0x0,0x0,0x0,0x0);const _0x584ae3=new Date(_0x2fb180[_0x2df062(0x1e5)]()-0x8*0x36ee80);await Promise[_0x2df062(0x2ca)](_0x45dfd5['map'](async _0x1c8d23=>{const _0x45a7b4=_0x2df062;try{const _0x1198a3={'query':_0x45a7b4(0x480)+_0x14f2a5[_0x45a7b4(0x37b)]+'\x22})\x20{\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20httpRequestsAdaptiveGroups(\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20limit:\x201,\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20filter:\x20{\x0a\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20\x20clientRequestPath_like:\x20\x22/'+_0x1c8d23[_0x45a7b4(0x260)]+_0x45a7b4(0x291)+_0x584ae3['toISOString']()+_0x45a7b4(0x388)+_0x743312[_0x45a7b4(0x286)]()+_0x45a7b4(0x2c9)},_0x527663=await fetch(_0x45a7b4(0x1ad),{'method':_0x45a7b4(0x3b5),'headers':{'Authorization':'Bearer\x20'+_0x14f2a5[_0x45a7b4(0x1a3)],'Content-Type':_0x45a7b4(0x1b0)},'body':JSON[_0x45a7b4(0x335)](_0x1198a3)}),_0x2c5c24=await _0x527663[_0x45a7b4(0x304)](),_0x2fa915=_0x2c5c24?.['data']?.[_0x45a7b4(0x3a3)]?.[_0x45a7b4(0x3ed)]?.[0x0]?.['httpRequestsAdaptiveGroups']?.[0x0]?.[_0x45a7b4(0x3d6)]?.[_0x45a7b4(0x426)]||0x0;let _0x26da62=_0x45a7b4(0x177);if(_0x2fa915>=0x10000000000)_0x26da62=(_0x2fa915/0x10000000000)[_0x45a7b4(0x198)](0x2)+_0x45a7b4(0x338);else{if(_0x2fa915>=0x40000000)_0x26da62=(_0x2fa915/0x40000000)[_0x45a7b4(0x198)](0x2)+_0x45a7b4(0x16e);else{if(_0x2fa915>=0x100000)_0x26da62=(_0x2fa915/0x100000)['toFixed'](0x2)+_0x45a7b4(0x3c5);else{if(_0x2fa915>=0x400)_0x26da62=(_0x2fa915/0x400)[_0x45a7b4(0x198)](0x2)+_0x45a7b4(0x1be);else{if(_0x2fa915>0x0)_0x26da62=_0x2fa915+'\x20B';}}}}_0x1c8d23[_0x45a7b4(0x352)]=_0x26da62;}catch(_0x1cf951){_0x1c8d23[_0x45a7b4(0x352)]=_0x45a7b4(0x43b);}}));}return _0x527b65===_0x2df062(0x32c)&&Array[_0x2df062(0x43c)](_0x45dfd5)&&(_0x45dfd5=_0x45dfd5[_0x2df062(0x3b4)](_0x17fa13=>{const _0x29dc71=_0x2df062,_0x2c026e={..._0x17fa13};return delete _0x2c026e[_0x29dc71(0x2c2)],_0x2c026e;})),Response[_0x2df062(0x304)](_0x45dfd5||[]);}if(_0x47f8ce[_0x2df062(0x345)]===_0x2df062(0x3b5)){const _0x1fd58c=await _0x47f8ce['json']();let _0xb9f1dd=0x0;if(_0x1fd58c[_0x2df062(0x3c1)]&&_0x1fd58c[_0x2df062(0x3c1)]!==_0x1fd58c[_0x2df062(0x260)]){const _0x4dd607=await _0x14f2a5['DB'][_0x2df062(0x290)]('SELECT\x20sort_order\x20FROM\x20routes\x20WHERE\x20prefix\x20=\x20?')[_0x2df062(0x41c)](_0x1fd58c[_0x2df062(0x3c1)])[_0x2df062(0x422)]();if(_0x4dd607)_0xb9f1dd=_0x4dd607[_0x2df062(0x447)];await _0x14f2a5['DB']['prepare']('DELETE\x20FROM\x20routes\x20WHERE\x20prefix\x20=\x20?')[_0x2df062(0x41c)](_0x1fd58c[_0x2df062(0x3c1)])[_0x2df062(0x337)]();}else{const _0x268bb6=await _0x14f2a5['DB'][_0x2df062(0x290)](_0x2df062(0x1ea))['bind'](_0x1fd58c[_0x2df062(0x260)])[_0x2df062(0x422)]();if(_0x268bb6)_0xb9f1dd=_0x268bb6[_0x2df062(0x447)];}const _0x22aa51=JSON[_0x2df062(0x335)]({'client':_0x1fd58c[_0x2df062(0x2b9)]||'','version':_0x1fd58c[_0x2df062(0x3b7)]||'','device':_0x1fd58c['customDevice']||'','deviceId':_0x1fd58c['customDeviceId']||genUuid(),'ua':_0x1fd58c[_0x2df062(0x3b3)]||'','dlTrick':_0x1fd58c['dlTrick']==='1'});return await _0x14f2a5['DB']['prepare'](_0x2df062(0x298))['bind'](_0x1fd58c[_0x2df062(0x260)],_0x1fd58c['target'],_0x1fd58c[_0x2df062(0x29d)]||'off',_0x1fd58c[_0x2df062(0x40e)]||'',_0x1fd58c['icon']||'',_0x22aa51,_0x1fd58c[_0x2df062(0x1fe)]||'on',_0xb9f1dd,_0x1fd58c[_0x2df062(0x355)]||'0',_0x1fd58c['kaDays']||'3',_0x1fd58c[_0x2df062(0x1de)]||'',_0x1fd58c[_0x2df062(0x228)]||'',_0x1fd58c[_0x2df062(0x1df)]||'',_0x1fd58c[_0x2df062(0x23c)]||'0')[_0x2df062(0x337)](),Response[_0x2df062(0x304)]({'success':!![]});}if(_0x47f8ce['method']===_0x2df062(0x44f)){const _0x35fc90=_0x381380[_0x2df062(0x328)][_0x2df062(0x21e)]('prefix');return await _0x14f2a5['DB'][_0x2df062(0x290)]('DELETE\x20FROM\x20routes\x20WHERE\x20prefix\x20=\x20?')['bind'](_0x35fc90)[_0x2df062(0x337)](),Response[_0x2df062(0x304)]({'success':!![]});}return new Response(_0x2df062(0x37c),{'status':0x195});}let _0x4b0898=[],_0x35815b=_0x2df062(0x284),_0x50da1a=!![],_0xe7a040='',_0x3a16bf=_0x381380[_0x2df062(0x189)];try{_0x3a16bf=decodeURIComponent(_0x381380[_0x2df062(0x189)]);}catch(_0xa0a8e7){_0x3a16bf=_0x381380[_0x2df062(0x189)];}let _0x16c83f=null,_0x1a4e0c=new URL(_0x47f8ce[_0x2df062(0x3e4)])['origin'],_0x5cde47={},_0x16eccd=![],_0xe68304='';if(!_0x381380[_0x2df062(0x189)]['startsWith'](_0x2df062(0x268))&&_0x381380[_0x2df062(0x189)]!=='/'){const _0x3325a7=await _0x3276ac(_0x14f2a5);if(_0x3325a7&&_0x3325a7[_0x2df062(0x2e6)]&&_0x3325a7[_0x2df062(0x374)]){const _0x22a3dd='/'+_0x3325a7[_0x2df062(0x374)]+'/';let _0x42b81a=null;if(_0x3a16bf==='/'+_0x3325a7[_0x2df062(0x374)])_0x42b81a='/';else{if(_0x3a16bf[_0x2df062(0x381)](_0x22a3dd)===0x0)_0x42b81a=_0x3a16bf[_0x2df062(0x28a)](_0x22a3dd[_0x2df062(0x30c)]-0x1);}if(_0x42b81a===null)return await _0x3d1949(_0x14f2a5,_0x47f8ce,_0x3a16bf),Response[_0x2df062(0x348)](new URL(_0x2df062(0x2d9),_0x1a4e0c),0x12e);_0x3a16bf=_0x42b81a;}}function _0x46b170(_0x41ec5d){const _0x4e25da=_0x2df062;return/\.(jpg|jpeg|gif|png|svg|ico|webp|js|css|woff2?|ttf|otf|map|webmanifest|srt|ass|vtt|sub)$/i[_0x4e25da(0x275)](_0x41ec5d)||/(\/Images\/|\/Icons\/|\/Branding\/|\/emby\/covers\/|\/img\/)/i['test'](_0x41ec5d);}function _0x13c5a0(_0x46f2b2,_0x440d31){const _0x28c070=_0x2df062,_0x1590c5=[_0x28c070(0x257),_0x28c070(0x2a4),_0x28c070(0x39f),_0x28c070(0x36d),'token'],_0x3d6c6a=Array['from'](_0x440d31[_0x28c070(0x328)][_0x28c070(0x35b)]())[_0x28c070(0x24e)](_0x1f9eac=>_0x1590c5['includes'](_0x1f9eac[_0x28c070(0x192)]()));return _0x46f2b2[_0x28c070(0x380)](_0x28c070(0x470))||_0x46f2b2[_0x28c070(0x380)](_0x28c070(0x3e8))||_0x46f2b2[_0x28c070(0x380)](_0x28c070(0x459))||_0x46f2b2[_0x28c070(0x380)]('X-Emby-Authorization')||_0x46f2b2[_0x28c070(0x380)](_0x28c070(0x249))||_0x3d6c6a;}function _0x2b1fd9(_0x19c79a){const _0x52f784=_0x2df062,_0x1e1bec=_0x19c79a['get'](_0x52f784(0x249));if(!_0x1e1bec)return;const _0x3094d8=_0x1e1bec[_0x52f784(0x38d)](';')['map'](_0x1b2936=>_0x1b2936[_0x52f784(0x26c)]())[_0x52f784(0x1b7)](_0x51f4c5=>_0x51f4c5&&!_0x51f4c5[_0x52f784(0x192)]()['startsWith'](_0x52f784(0x2e4)));if(_0x3094d8[_0x52f784(0x30c)]>0x0)_0x19c79a[_0x52f784(0x392)](_0x52f784(0x249),_0x3094d8['join'](';\x20'));else _0x19c79a[_0x52f784(0x442)]('Cookie');}function _0x2557ce(_0x464ada){const _0x3a8b78=_0x2df062,_0x463655=_0x464ada[_0x3a8b78(0x331)]?_0x464ada['getSetCookie']['bind'](_0x464ada):null,_0x1576c9=_0x464ada[_0x3a8b78(0x21e)]('Set-Cookie'),_0x478d6e=_0x463655?_0x463655():_0x1576c9?_0x1576c9[_0x3a8b78(0x38d)](/,(?=\s*[^;,]+=)/g):[];if(_0x478d6e['length']===0x0)return;_0x464ada[_0x3a8b78(0x442)](_0x3a8b78(0x270));for(const _0xce657f of _0x478d6e)_0x464ada[_0x3a8b78(0x296)](_0x3a8b78(0x270),_0xce657f['replace'](/;\s*Domain=[^;]*/ig,''));}function _0x2acffe(_0x3372b7){const _0x5b5921=_0x2df062,_0x35f2f8=[];for(const _0x2ec69d of _0x3372b7){try{const _0x138af5=new URL(_0x2ec69d),_0x999a2b=_0x138af5[_0x5b5921(0x421)],_0x184527=(_0x138af5['protocol']===_0x5b5921(0x416)?_0x5b5921(0x2ce):_0x5b5921(0x416))+'//'+_0x138af5['host'];if(!_0x35f2f8[_0x5b5921(0x42a)](_0x999a2b))_0x35f2f8['push'](_0x999a2b);if(!_0x35f2f8[_0x5b5921(0x42a)](_0x184527))_0x35f2f8[_0x5b5921(0x168)](_0x184527);}catch(_0xbac2a0){}}return _0x35f2f8;}function _0x4b803b(_0x12f3c7,_0x43e85c,_0x1d782b,_0x36e6f5){const _0x128fab=_0x2df062;let _0x4cf498=_0x12f3c7;const _0x35462e=_0x1d782b+_0x36e6f5+'/';for(const _0x5b10e8 of _0x43e85c){let _0x38aca0='',_0x28fd66=0x0,_0x3a2443=_0x4cf498['indexOf'](_0x5b10e8);while(_0x3a2443!==-0x1){const _0xb1dc7f=_0x4cf498[_0x128fab(0x207)](Math[_0x128fab(0x38f)](0x0,_0x3a2443-_0x35462e['length']),_0x3a2443)===_0x35462e;_0x38aca0+=_0x4cf498[_0x128fab(0x207)](_0x28fd66,_0x3a2443),_0x38aca0+=_0xb1dc7f?_0x5b10e8:_0x35462e+_0x5b10e8,_0x28fd66=_0x3a2443+_0x5b10e8[_0x128fab(0x30c)],_0x3a2443=_0x4cf498['indexOf'](_0x5b10e8,_0x28fd66);}_0x28fd66>0x0&&(_0x38aca0+=_0x4cf498[_0x128fab(0x207)](_0x28fd66),_0x4cf498=_0x38aca0);}const _0x4159a4=/(^|["'\s(])((?:\/img\/|\/emby\/Items\/[^"'\s)]+\/Images\/|\/Items\/[^"'\s)]+\/Images\/)[^"'\s)]*)/ig;return _0x4cf498=_0x4cf498['replace'](_0x4159a4,(_0x41e64b,_0x383619,_0x20ea83)=>{const _0x5f164a=_0x128fab;if(_0x36e6f5&&_0x20ea83[_0x5f164a(0x1ee)](_0x36e6f5+'/'))return _0x41e64b;return _0x383619+_0x1d782b+_0x36e6f5+_0x20ea83;}),_0x4cf498;}function _0x5c6bc0(_0x5359ac,_0x589e72,_0x15b22a,_0x52c28a){const _0x4495bf=_0x2df062;if(typeof _0x5359ac===_0x4495bf(0x40c))return _0x4b803b(_0x5359ac,_0x589e72,_0x15b22a,_0x52c28a);if(Array['isArray'](_0x5359ac)){let _0x5db3d9=![];const _0x1feb22=_0x5359ac[_0x4495bf(0x3b4)](_0x4ad2e2=>{const _0x29fd84=_0x5c6bc0(_0x4ad2e2,_0x589e72,_0x15b22a,_0x52c28a);if(_0x29fd84!==_0x4ad2e2)_0x5db3d9=!![];return _0x29fd84;});return _0x5db3d9?_0x1feb22:_0x5359ac;}if(_0x5359ac&&typeof _0x5359ac===_0x4495bf(0x474)){let _0x2b1973=![];const _0x4d16ab={};for(const _0xba6b17 of Object[_0x4495bf(0x35b)](_0x5359ac)){const _0x57674e=_0x5c6bc0(_0x5359ac[_0xba6b17],_0x589e72,_0x15b22a,_0x52c28a);if(_0x57674e!==_0x5359ac[_0xba6b17])_0x2b1973=!![];_0x4d16ab[_0xba6b17]=_0x57674e;}return _0x2b1973?_0x4d16ab:_0x5359ac;}return _0x5359ac;}function _0x5521b9(_0x86fdf4){const _0x5f51b0=_0x2df062;_0x86fdf4[_0x5f51b0(0x442)](_0x5f51b0(0x435)),_0x86fdf4['delete'](_0x5f51b0(0x254)),_0x86fdf4[_0x5f51b0(0x442)](_0x5f51b0(0x252));}function _0xd6596c(_0x2313c2,_0x39d7c3){const _0x3c0f78=_0x2df062;return _0x39d7c3['some'](_0x5ff546=>_0x2313c2[_0x3c0f78(0x42a)](_0x5ff546))||/(^|["'\s(])(?:\/img\/|\/emby\/Items\/[^"'\s)]+\/Images\/|\/Items\/[^"'\s)]+\/Images\/)/i[_0x3c0f78(0x275)](_0x2313c2);}function _0x3028a1(_0x52e60c,_0x5a8b9c,_0xe3bc47,_0x2de002,_0x43fdc4){const _0x23a43f=_0x2df062;if(!_0x52e60c)return _0x52e60c;if(_0x52e60c[_0x23a43f(0x1ee)]('//'))try{const _0x343626=_0x5a8b9c?_0x5a8b9c[_0x23a43f(0x165)]:new URL(_0xe3bc47[0x0])[_0x23a43f(0x165)];_0x52e60c=_0x343626+_0x52e60c;}catch(_0x3997e8){}if(_0x52e60c[_0x23a43f(0x1ee)]('/')){if(_0x43fdc4&&_0x52e60c['startsWith'](_0x43fdc4+'/'))return _0x2de002+_0x52e60c;if(!_0x43fdc4&&_0x5a8b9c)return _0x2de002+'/'+encodeURIComponent(new URL(_0x52e60c,_0x5a8b9c[_0x23a43f(0x421)])['href']);return _0x2de002+_0x43fdc4+_0x52e60c;}try{const _0x705bd4=new URL(_0x52e60c);if(_0xe3bc47[_0x23a43f(0x42a)](_0x705bd4[_0x23a43f(0x421)])){if(!_0x43fdc4)return _0x2de002+'/'+encodeURIComponent(_0x52e60c);return _0x2de002+_0x43fdc4+_0x705bd4[_0x23a43f(0x189)]+_0x705bd4[_0x23a43f(0x3dd)]+_0x705bd4[_0x23a43f(0x1f1)];}}catch(_0x34309e){}if(/^https?:\/\//i['test'](_0x52e60c))return''+_0x2de002+_0x43fdc4+'/'+encodeURIComponent(_0x52e60c);return _0x52e60c;}function _0x2ff2d9(_0x278e50){const _0x53526e=_0x2df062;return/^\/(?:Items|Videos|Audio|Sessions|Users|System|Library|LiveTv|Shows|Movies|Artists|Albums|Playlists|Channels|Packages|Devices|Socket|socket|web|emby|Images|Branding|Environment|DisplayPreferences|Trailers|Collections|Genres|Persons|Studios|Years)(?:\/|$)/i[_0x53526e(0x275)](_0x278e50);}function _0x5195da(_0x49607f,_0x9c207a,_0x397644){const _0x4b698e=_0x2df062,_0x27b0dd=[],_0x391968=_0x50bcaa=>{const _0x1a9415=_0x3480;if(_0x50bcaa&&!_0x27b0dd[_0x1a9415(0x42a)](_0x50bcaa))_0x27b0dd[_0x1a9415(0x168)](_0x50bcaa);},_0x235535=_0x49607f+_0x9c207a+_0x397644;_0x391968(_0x235535);try{const _0x58630a=new URL(_0x49607f),_0x33ff13=(_0x58630a['pathname']||'/')[_0x4b698e(0x395)](/\/+$/,'')||'/',_0x63e80d=_0x9c207a||'/',_0x26bab7=_0x33ff13==='/',_0x52a3d9=/^\/emby(?:\/|$)/i[_0x4b698e(0x275)](_0x63e80d);_0x26bab7&&!_0x52a3d9&&_0x2ff2d9(_0x63e80d)&&_0x391968(_0x58630a[_0x4b698e(0x421)]+_0x4b698e(0x452)+_0x63e80d+_0x397644);if(_0x26bab7&&_0x52a3d9&&_0x2ff2d9(_0x63e80d)){const _0x8784f3=_0x63e80d[_0x4b698e(0x395)](/^\/emby(?=\/|$)/i,'')||'/';_0x391968(''+_0x58630a[_0x4b698e(0x421)]+_0x8784f3+_0x397644);}const _0x27b577=/^\/emby(?:\/|$)/i[_0x4b698e(0x275)](_0x58630a[_0x4b698e(0x189)]||'/');if(!_0x27b577&&_0x2ff2d9(_0x58630a[_0x4b698e(0x189)]||'/')){const _0x49a55d=_0x58630a[_0x4b698e(0x3dd)]||_0x397644;_0x391968(_0x58630a['origin']+'/emby'+_0x58630a[_0x4b698e(0x189)]+_0x49a55d+(_0x58630a['hash']||''));}if(_0x27b577&&_0x2ff2d9(_0x58630a['pathname']||'/')){const _0x4b7214=_0x58630a[_0x4b698e(0x3dd)]||_0x397644,_0x29a955=(_0x58630a[_0x4b698e(0x189)]||'/')[_0x4b698e(0x395)](/^\/emby(?=\/|$)/i,'')||'/';_0x391968(''+_0x58630a[_0x4b698e(0x421)]+_0x29a955+_0x4b7214+(_0x58630a[_0x4b698e(0x1f1)]||''));}}catch(_0x26b61f){}return _0x27b0dd;}function _0x4114fd(_0xdb997d,_0x2ec861='',_0x441d0e='',_0x875916=''){const _0x2edca7=_0x2df062,_0x381d09=_0xdb997d[_0x2edca7(0x1ee)]('/')?_0xdb997d:'/'+_0xdb997d;return''+_0x875916+_0x381d09+(_0x2ec861||'')+(_0x441d0e||'');}function _0x92a47a(_0x8ed226,_0x391352,_0x793d9,_0x58708f,_0x381c04){const _0x56bee6=_0x2df062;if(typeof _0x8ed226!==_0x56bee6(0x40c))return _0x8ed226;const _0x3e5979=_0x8ed226[_0x56bee6(0x26c)]();if(!_0x3e5979)return _0x8ed226;if(_0x58708f&&_0x3e5979[_0x56bee6(0x1ee)](_0x58708f+'/'))return _0x8ed226;if(_0x58708f&&_0x3e5979['startsWith'](_0x793d9+_0x58708f+'/'))return _0x3e5979[_0x56bee6(0x207)](_0x793d9[_0x56bee6(0x30c)]);if(/^https?:\/\//i[_0x56bee6(0x275)](_0x3e5979))try{const _0x8370c4=new URL(_0x3e5979);if(Array['isArray'](_0x381c04)&&!_0x381c04[_0x56bee6(0x42a)](_0x8370c4[_0x56bee6(0x421)]))return''+_0x793d9+_0x58708f+'/'+_0x3e5979;return _0x4114fd(_0x8370c4['pathname'],_0x8370c4[_0x56bee6(0x3dd)],_0x8370c4[_0x56bee6(0x1f1)],_0x58708f);}catch(_0x40814a){return _0x8ed226;}if(_0x3e5979[_0x56bee6(0x1ee)]('//'))try{const _0x1d2551=new URL(_0x391352[_0x56bee6(0x165)]+_0x3e5979);if(Array[_0x56bee6(0x43c)](_0x381c04)&&!_0x381c04[_0x56bee6(0x42a)](_0x1d2551[_0x56bee6(0x421)]))return''+_0x793d9+_0x58708f+'/'+_0x1d2551[_0x56bee6(0x2bf)];return _0x4114fd(_0x1d2551[_0x56bee6(0x189)],_0x1d2551[_0x56bee6(0x3dd)],_0x1d2551[_0x56bee6(0x1f1)],_0x58708f);}catch(_0x5af9e0){return _0x8ed226;}if(_0x3e5979[_0x56bee6(0x1ee)]('/'))return _0x4114fd(_0x3e5979,'','',_0x58708f);try{const _0x3dd338=new URL(_0x3e5979,_0x391352['origin']+'/');return _0x4114fd(_0x3dd338[_0x56bee6(0x189)],_0x3dd338[_0x56bee6(0x3dd)],_0x3dd338['hash'],_0x58708f);}catch(_0x3883fc){return _0x8ed226;}}function _0x321ef0(_0xcaf4cf,_0x3936b3,_0xcc1eba){const _0x54bcc3=_0x2df062;if(!_0xcaf4cf||!_0x3936b3)return _0xcaf4cf;const _0x2f6453='/'+_0x3936b3,_0x54cac9='/emby'+_0x2f6453;if(_0xcc1eba){const _0x397603=_0xcaf4cf[_0x54bcc3(0x417)](/^\/([^/]+)\/([^/]+)\/([^/]+)(?=\/|$)/);if(_0x397603&&_0x397603[0x2]===_0xcc1eba&&(_0x397603[0x3]===_0x3936b3||_0x397603[0x1]===_0x3936b3)){const _0x595d88=_0x397603[0x1],_0x472039=_0xcaf4cf[_0x54bcc3(0x207)](_0x397603[0x0][_0x54bcc3(0x30c)])||'/';if(_0x595d88===_0x3936b3)return _0x472039;if(_0x472039==='/'+_0x595d88||_0x472039[_0x54bcc3(0x1ee)]('/'+_0x595d88+'/'))return _0x472039;return'/'+_0x595d88+_0x472039;}}if(_0xcaf4cf===_0x2f6453||_0xcaf4cf[_0x54bcc3(0x1ee)](_0x2f6453+'/')){const _0x1e6f0f=_0xcaf4cf['substring'](_0x2f6453[_0x54bcc3(0x30c)]);return _0x1e6f0f||'/';}if(_0xcaf4cf===_0x54cac9||_0xcaf4cf['startsWith'](_0x54cac9+'/')){const _0x2811da=_0xcaf4cf[_0x54bcc3(0x207)](_0x54cac9['length']);if(!_0x2811da||_0x2811da==='/')return'/emby/';if(/^\/emby(?:\/|$)/i[_0x54bcc3(0x275)](_0x2811da))return _0x2811da;return _0x54bcc3(0x452)+_0x2811da;}return _0xcaf4cf;}if(_0x3a16bf[_0x2df062(0x1ee)](_0x2df062(0x312))||_0x3a16bf[_0x2df062(0x1ee)]('/https://'))_0x4b0898=[_0x3a16bf[_0x2df062(0x207)](0x1)],_0xe7a040='';else{const _0x356c0a=_0x3a16bf[_0x2df062(0x38d)]('/'),_0x279596=_0x356c0a[0x1];if(!_0x279596)return new Response(_0x2df062(0x250),{'status':0x194});try{if(!_0x14f2a5['DB'])return new Response(_0x2df062(0x47d),{'status':0x194});const _0xd6b5ab=_0x14f2a5['DB'][_0x2df062(0x290)](_0x2df062(0x1c1)),_0x12d167=await _0xd6b5ab[_0x2df062(0x41c)](_0x279596)[_0x2df062(0x422)]();if(!_0x12d167)return new Response(_0x2df062(0x179),{'status':0x194});_0x35815b=_0x12d167[_0x2df062(0x29d)]||'off',_0x50da1a=_0x12d167['cache_img']!==_0x2df062(0x284),_0x16c83f=_0x279596,_0xe7a040='/'+_0x356c0a[_0x2df062(0x28a)](0x2)[_0x2df062(0x213)]('/');let _0x2c88a0='';try{const _0x298e4a=await _0x3276ac(_0x14f2a5);if(_0x298e4a&&_0x298e4a['enabled']&&_0x298e4a[_0x2df062(0x374)])_0x2c88a0=_0x298e4a[_0x2df062(0x374)];}catch(_0x3f8717){}_0xe7a040=_0x321ef0(_0xe7a040,_0x16c83f,_0x2c88a0),_0x4b0898=_0x12d167[_0x2df062(0x2c2)][_0x2df062(0x38d)](',')[_0x2df062(0x3b4)](_0x4cc3d8=>_0x4cc3d8['trim']())[_0x2df062(0x1b7)](Boolean);if(_0x12d167[_0x2df062(0x36a)])try{_0x5cde47=JSON[_0x2df062(0x29c)](_0x12d167[_0x2df062(0x36a)]);}catch(_0x5595d6){}_0x16eccd=!!(_0x5cde47&&_0x5cde47[_0x2df062(0x163)]);if(_0x16eccd&&/\/Items\/[^/]+\/Download\/?$/i[_0x2df062(0x275)](_0xe7a040)){const _0x4da9cf=_0xe7a040[_0x2df062(0x417)](/\/Items\/([^/]+)\/Download\/?$/i);if(_0x4da9cf){_0xe68304=_0x4da9cf[0x1],_0xe7a040=_0xe7a040[_0x2df062(0x395)](/\/Items\/[^/]+\/Download\/?$/i,()=>_0x2df062(0x17e)+encodeURIComponent(_0x4da9cf[0x1])+'/stream');if(!_0x381380[_0x2df062(0x328)][_0x2df062(0x380)](_0x2df062(0x39a)))_0x381380[_0x2df062(0x328)][_0x2df062(0x392)](_0x2df062(0x39a),_0x2df062(0x17f));}}(_0xe7a040['startsWith'](_0x2df062(0x312))||_0xe7a040[_0x2df062(0x1ee)]('/https://'))&&(_0x4b0898=[_0xe7a040[_0x2df062(0x207)](0x1)],_0xe7a040='');}catch(_0x3c9cea){return new Response(_0x2df062(0x2a6)+_0x3c9cea[_0x2df062(0x475)],{'status':0x1f4});}}if(_0x4b0898[_0x2df062(0x30c)]===0x0)return new Response(_0x2df062(0x32f),{'status':0x194});const _0x21c77d=_0x381380[_0x2df062(0x189)][_0x2df062(0x32a)]('/Sessions/Playing'),_0x69a046=_0x381380[_0x2df062(0x189)][_0x2df062(0x381)]('/Sessions/Playing/Progress')!==-0x1;(_0x21c77d||_0x69a046)&&_0x16c83f&&_0x14f2a5['DB']&&_0x4ace4e&&_0x4ace4e[_0x2df062(0x2ae)]&&_0x4ace4e[_0x2df062(0x2ae)](((async()=>{const _0xb946f=_0x2df062;try{let _0x4aad5f=![],_0x3c2ba8='';try{const _0x5653f9=await _0x47f8ce[_0xb946f(0x429)]()['text'](),_0x5e250d=JSON['parse'](_0x5653f9);_0x4aad5f=!!_0x5e250d['IsPaused'],_0x3c2ba8=String(_0x5e250d['PlaySessionId']||'');}catch(_0x2cf7da){}if(_0x4aad5f)return;const _0x340c43=new Date(Date['now']()+0x8*0x36ee80)[_0xb946f(0x286)]()[_0xb946f(0x38d)]('T')[0x0],_0x11b149=new Date(Date['now']()+0x8*0x36ee80)[_0xb946f(0x286)]()['replace']('T','\x20')[_0xb946f(0x38d)]('.')[0x0],_0xecab4d=[_0x14f2a5['DB']['prepare'](_0xb946f(0x433))[_0xb946f(0x41c)](_0x11b149,_0x16c83f)];if(_0x3c2ba8){const _0x447eb0=_0xb946f(0x1c4),_0x34e648=await _0x14f2a5['DB'][_0xb946f(0x290)](_0xb946f(0x17b))[_0xb946f(0x41c)](_0x447eb0)[_0xb946f(0x422)]();let _0x57a1b8=[];try{if(_0x34e648&&_0x34e648['value'])_0x57a1b8=JSON[_0xb946f(0x29c)](_0x34e648[_0xb946f(0x246)]);}catch(_0x5b665a){}if(!_0x57a1b8[_0xb946f(0x42a)](_0x3c2ba8)){_0x57a1b8[_0xb946f(0x307)](_0x3c2ba8);if(_0x57a1b8[_0xb946f(0x30c)]>0x1f4)_0x57a1b8['length']=0x1f4;_0xecab4d[_0xb946f(0x168)](_0x14f2a5['DB'][_0xb946f(0x290)]('INSERT\x20INTO\x20request_stats\x20(prefix,\x20date,\x20count)\x20VALUES\x20(?,\x20?,\x201)\x20ON\x20CONFLICT(prefix,\x20date)\x20DO\x20UPDATE\x20SET\x20count\x20=\x20count\x20+\x201')[_0xb946f(0x41c)](_0x16c83f,_0x340c43));const _0x2d4ca5=_0x47f8ce[_0xb946f(0x2c6)][_0xb946f(0x21e)]('cf-connecting-ip')||_0x47f8ce['headers'][_0xb946f(0x21e)](_0xb946f(0x2f2))||_0xb946f(0x465),_0x267684=_0x47f8ce[_0xb946f(0x2c6)][_0xb946f(0x21e)]('cf-ipcountry')||_0xb946f(0x465),_0x56efc2=_0x47f8ce['headers'][_0xb946f(0x21e)]('User-Agent')||'Unknown';_0xecab4d['push'](_0x14f2a5['DB'][_0xb946f(0x290)](_0xb946f(0x2af))[_0xb946f(0x41c)](_0x16c83f,_0x2d4ca5,_0x267684,_0x56efc2)),_0xecab4d['push'](_0x14f2a5['DB'][_0xb946f(0x290)](_0xb946f(0x27b))[_0xb946f(0x41c)](_0x447eb0,JSON[_0xb946f(0x335)](_0x57a1b8)));}}await _0x14f2a5['DB'][_0xb946f(0x208)](_0xecab4d);}catch(_0x1927ef){}})()));const _0x453298=_0x35815b[_0x2df062(0x42a)](_0x2df062(0x3eb))||_0x35815b==='custom',_0x11820d=_0x35815b[_0x2df062(0x42a)]('strict'),_0x511d1d=_0x35815b[_0x2df062(0x395)](_0x2df062(0x2f3),'')[_0x2df062(0x395)]('custom',_0x2df062(0x3e0))[_0x2df062(0x395)](_0x2df062(0x3f0),'off');let _0x55b6b4=null;const _0x3466f5=_0x47f8ce[_0x2df062(0x345)]!=='GET'&&_0x47f8ce[_0x2df062(0x345)]!==_0x2df062(0x230),_0x14dbb8=_0x3466f5&&(_0x4b0898['length']>0x1||_0x4b0898[_0x2df062(0x24e)](_0x39ea1f=>_0x5195da(_0x39ea1f,_0xe7a040,_0x381380[_0x2df062(0x3dd)])[_0x2df062(0x30c)]>0x1)||_0x453298);if(_0x14dbb8){_0x55b6b4=await _0x47f8ce[_0x2df062(0x429)]()[_0x2df062(0x2d1)]();if(_0x453298&&_0x55b6b4[_0x2df062(0x3de)]>0x0&&_0x55b6b4[_0x2df062(0x3de)]<0x400*0x64){const _0x50a782=_0x47f8ce[_0x2df062(0x2c6)][_0x2df062(0x21e)](_0x2df062(0x1d3))||'';if(_0x50a782[_0x2df062(0x192)]()['includes'](_0x2df062(0x1b0)))try{let _0x448caa=new TextDecoder()[_0x2df062(0x1b2)](_0x55b6b4);if(_0x5cde47[_0x2df062(0x235)])_0x448caa=_0x448caa[_0x2df062(0x395)](/("Client(Name)?"\s*:\s*")[^"]+(")/ig,'$1'+_0x5cde47[_0x2df062(0x235)]+'$3');if(_0x5cde47['version'])_0x448caa=_0x448caa['replace'](/("Version"\s*:\s*")[^"]+(")/ig,'$1'+_0x5cde47[_0x2df062(0x27e)]+'$2');if(_0x5cde47[_0x2df062(0x40b)])_0x448caa=_0x448caa[_0x2df062(0x395)](/("Device(Name)?"\s*:\s*")[^"]+(")/ig,'$1'+_0x5cde47[_0x2df062(0x40b)]+'$3');const _0x2415cc=new TextEncoder()[_0x2df062(0x401)](_0x448caa)[_0x2df062(0x269)];(_0x2415cc['byteLength']!==_0x55b6b4[_0x2df062(0x3de)]||_0x448caa[_0x2df062(0x42a)](_0x5cde47[_0x2df062(0x235)]))&&(_0x55b6b4=_0x2415cc);}catch(_0x3ad0db){}}}let _0x506bdb=null,_0x464fd0=null,_0x22a9b0=_0x2acffe(_0x4b0898),_0x34770f=null;for(let _0x591a9b=0x0;_0x591a9b<_0x4b0898[_0x2df062(0x30c)];_0x591a9b++){const _0x15b24b=_0x5195da(_0x4b0898[_0x591a9b],_0xe7a040,_0x381380[_0x2df062(0x3dd)]);for(let _0x4e27f2=0x0;_0x4e27f2<_0x15b24b[_0x2df062(0x30c)];_0x4e27f2++){const _0xa5214a=_0x15b24b[_0x4e27f2],_0x1a7889=new URL(_0xa5214a),_0x1cdb5a=new Headers(_0x47f8ce[_0x2df062(0x2c6)]);_0x1cdb5a[_0x2df062(0x392)](_0x2df062(0x3ee),_0x1a7889[_0x2df062(0x1d2)]),_0x2b1fd9(_0x1cdb5a);const _0x431c24=_0x47f8ce[_0x2df062(0x2c6)][_0x2df062(0x21e)](_0x2df062(0x32b))||_0x47f8ce[_0x2df062(0x2c6)][_0x2df062(0x21e)](_0x2df062(0x2f2))||(_0x47f8ce['headers'][_0x2df062(0x21e)](_0x2df062(0x2ec))||'')['split'](',')[0x0]['trim']();_0x1cdb5a['delete'](_0x2df062(0x32b)),_0x1cdb5a[_0x2df062(0x442)](_0x2df062(0x47a)),_0x1cdb5a['delete']('cf-ray'),_0x1cdb5a[_0x2df062(0x442)](_0x2df062(0x2cc)),_0x1cdb5a[_0x2df062(0x442)](_0x2df062(0x2ec)),_0x1cdb5a[_0x2df062(0x442)](_0x2df062(0x2f2));_0x11820d?(_0x1cdb5a['delete'](_0x2df062(0x411)),_0x1cdb5a[_0x2df062(0x442)]('X-Forwarded-Host')):(_0x1cdb5a[_0x2df062(0x392)](_0x2df062(0x411),_0x381380[_0x2df062(0x165)][_0x2df062(0x395)](':','')),_0x1cdb5a[_0x2df062(0x392)]('X-Forwarded-Host',_0x381380[_0x2df062(0x1d2)]));if(_0x511d1d===_0x2df062(0x20c)&&_0x431c24)_0x1cdb5a[_0x2df062(0x392)](_0x2df062(0x35a),_0x431c24);else(_0x511d1d===_0x2df062(0x3e0)||_0x11820d)&&_0x431c24&&(_0x1cdb5a[_0x2df062(0x392)](_0x2df062(0x35a),_0x431c24),_0x1cdb5a[_0x2df062(0x392)](_0x2df062(0x2bd),_0x431c24));if(_0x11820d)_0x1cdb5a[_0x2df062(0x392)](_0x2df062(0x3b9),_0x1a7889[_0x2df062(0x421)]),_0x1cdb5a[_0x2df062(0x392)](_0x2df062(0x379),_0x1a7889[_0x2df062(0x421)]+'/');else{const _0x22c88f=_0x1cdb5a['get'](_0x2df062(0x3b9));if(_0x22c88f&&_0x22c88f===_0x381380['origin'])_0x1cdb5a['set'](_0x2df062(0x3b9),_0x1a7889['origin']);const _0xc02ecb=_0x1cdb5a[_0x2df062(0x21e)](_0x2df062(0x379));if(_0xc02ecb&&_0xc02ecb['startsWith'](_0x381380[_0x2df062(0x421)]))_0x1cdb5a['set'](_0x2df062(0x379),_0xc02ecb[_0x2df062(0x395)](_0x381380[_0x2df062(0x421)],_0x1a7889['origin']));}if(_0x453298){const _0x119020=_0x5cde47[_0x2df062(0x235)]||_0x2df062(0x451),_0x40b5e2=_0x5cde47[_0x2df062(0x27e)]||_0x2df062(0x41d),_0x4830cc=_0x5cde47[_0x2df062(0x40b)]||_0x2df062(0x47b),_0x16d229=_0x5cde47[_0x2df062(0x232)]||_0x2df062(0x1cf),_0x32c634=_0x5cde47['ua']||_0x2df062(0x1a2);_0x1cdb5a[_0x2df062(0x392)](_0x2df062(0x424),_0x32c634),['X-Emby-Authorization',_0x2df062(0x470)][_0x2df062(0x3ea)](_0x22fdda=>{const _0x4440d8=_0x2df062;let _0x48f909=_0x1cdb5a[_0x4440d8(0x21e)](_0x22fdda);if(_0x48f909){if(_0x119020)_0x48f909=_0x48f909[_0x4440d8(0x395)](/(Client\s*=\s*)(?:"[^"]*"|'[^']*'|[^,\s]+)/ig,_0x4440d8(0x390)+escQuote(_0x119020)+'\x22');if(_0x40b5e2)_0x48f909=_0x48f909[_0x4440d8(0x395)](/(Version\s*=\s*)(?:"[^"]*"|'[^']*'|[^,\s]+)/ig,_0x4440d8(0x390)+escQuote(_0x40b5e2)+'\x22');if(_0x4830cc)_0x48f909=_0x48f909[_0x4440d8(0x395)](/(Device\s*=\s*)(?:"[^"]*"|'[^']*'|[^,\s]+)/ig,_0x4440d8(0x390)+escQuote(_0x4830cc)+'\x22');if(_0x16d229)_0x48f909=_0x48f909[_0x4440d8(0x395)](/(DeviceId\s*=\s*)(?:"[^"]*"|'[^']*'|[^,\s]+)/ig,'$1\x22'+escQuote(_0x16d229)+'\x22');_0x1cdb5a[_0x4440d8(0x392)](_0x22fdda,_0x48f909);}});const _0x2612ec={'x-emby-client':_0x119020,'x-emby-client-version':_0x40b5e2,'x-emby-device-name':_0x4830cc,'x-emby-device-id':_0x16d229};for(const _0x24a32a of Object[_0x2df062(0x35b)](_0x2612ec)){if(_0x2612ec[_0x24a32a])_0x1cdb5a['set'](_0x24a32a,_0x2612ec[_0x24a32a]);}const _0x112257=Array[_0x2df062(0x22c)](_0x1a7889[_0x2df062(0x328)][_0x2df062(0x35b)]());_0x112257[_0x2df062(0x3ea)](_0x38b479=>{const _0x3fc5e3=_0x2df062,_0x56f51f=_0x38b479[_0x3fc5e3(0x192)]();if(_0x2612ec[_0x56f51f])_0x1a7889['searchParams'][_0x3fc5e3(0x392)](_0x38b479,_0x2612ec[_0x56f51f]);});}const _0x2f06c4=_0x46b170(_0x1a7889[_0x2df062(0x189)]),_0x45573e=_0x13c5a0(_0x1cdb5a,_0x1a7889);let _0x2d5b85={'method':_0x47f8ce[_0x2df062(0x345)],'headers':_0x1cdb5a,'redirect':_0x2f06c4?_0x2df062(0x315):_0x2df062(0x318)};_0x2f06c4&&_0x50da1a&&!_0x45573e&&(_0x2d5b85['cf']={'cacheEverything':!![],'cacheTtl':0x15180});_0x3466f5&&(_0x55b6b4!==null?_0x2d5b85[_0x2df062(0x1cc)]=_0x55b6b4:(_0x2d5b85['body']=_0x47f8ce[_0x2df062(0x1cc)],_0x2d5b85[_0x2df062(0x46f)]=_0x2df062(0x46d)));try{const _0x455513=new Request(_0x1a7889,_0x2d5b85),_0x4c74f9=await fetch(_0x455513);if((_0x4c74f9[_0x2df062(0x164)]===0x194||_0x4c74f9['status']===0x1f6||_0x4c74f9[_0x2df062(0x164)]===0x1f7||_0x4c74f9[_0x2df062(0x164)]===0x1f8)&&_0x4e27f2<_0x15b24b[_0x2df062(0x30c)]-0x1){_0x464fd0=new Error(_0x2df062(0x25f)+(_0x591a9b+0x1)+_0x2df062(0x22e)+(_0x4e27f2+0x1)+_0x2df062(0x24a)+_0x4c74f9['status']);continue;}if(_0x4c74f9[_0x2df062(0x164)]===0x1f6||_0x4c74f9[_0x2df062(0x164)]===0x1f7||_0x4c74f9[_0x2df062(0x164)]===0x1f8){_0x464fd0=new Error(_0x2df062(0x25f)+(_0x591a9b+0x1)+_0x2df062(0x24a)+_0x4c74f9[_0x2df062(0x164)]);continue;}_0x506bdb=_0x4c74f9,_0x34770f=_0x1a7889;break;}catch(_0x12054b){_0x464fd0=_0x12054b;continue;}}if(_0x506bdb)break;}if(!_0x506bdb)return new Response(_0x2df062(0x413)+(_0x464fd0?.['message']||_0x2df062(0x2df)),{'status':0x1f6});const _0x268995=new Headers(_0x506bdb[_0x2df062(0x2c6)]);_0x2557ce(_0x268995);const _0x2f4fa2=await _0x3276ac(_0x14f2a5),_0x45f7b8=_0x16c83f?'/'+_0x5e0fb1(_0x2f4fa2)+_0x16c83f:'';if(_0xe68304&&_0x506bdb['status']===0xc8&&_0x506bdb['body']){const _0x163a66=spawnDlTrickWatchCF(_0x34770f,_0x47f8ce,_0xe68304,_0x381380['search']);_0x163a66&&(_0x506bdb=new Response(wrapStreamWithWatch(_0x506bdb[_0x2df062(0x1cc)],_0x163a66,_0x4ace4e),{'status':_0x506bdb[_0x2df062(0x164)],'statusText':_0x506bdb[_0x2df062(0x40a)],'headers':_0x268995}));}if([0x12d,0x12e,0x12f,0x133,0x134][_0x2df062(0x42a)](_0x506bdb[_0x2df062(0x164)])){const _0x222d19=_0x268995[_0x2df062(0x21e)](_0x2df062(0x185)),_0x3fcb2f=_0x3028a1(_0x222d19,_0x34770f,_0x22a9b0,_0x1a4e0c,_0x45f7b8);_0x3fcb2f!==_0x222d19&&_0x268995[_0x2df062(0x392)](_0x2df062(0x185),_0x3fcb2f);}_0x268995[_0x2df062(0x392)]('Access-Control-Allow-Origin','*');if(_0x506bdb[_0x2df062(0x164)]===0xc8&&_0x268995[_0x2df062(0x21e)]('content-type')?.[_0x2df062(0x42a)](_0x2df062(0x304))&&_0x381380[_0x2df062(0x189)][_0x2df062(0x192)]()[_0x2df062(0x42a)](_0x2df062(0x2d7)))try{let _0x2f9e27=_0x506bdb[_0x2df062(0x429)](),_0x494c6c=await _0x2f9e27[_0x2df062(0x304)](),_0x3fb4c6=![];_0x494c6c&&_0x494c6c['MediaSources']&&_0x494c6c[_0x2df062(0x397)]['forEach'](_0x2a8e87=>{const _0x4c09f2=_0x2df062;['DirectStreamUrl','TranscodingUrl',_0x4c09f2(0x206)][_0x4c09f2(0x3ea)](_0x1b4376=>{const _0x130c6a=_0x92a47a(_0x2a8e87[_0x1b4376],_0x34770f,_0x1a4e0c,_0x45f7b8,_0x22a9b0);_0x130c6a!==_0x2a8e87[_0x1b4376]&&(_0x2a8e87[_0x1b4376]=_0x130c6a,_0x3fb4c6=!![]);}),Array['isArray'](_0x2a8e87[_0x4c09f2(0x1d1)])&&_0x2a8e87[_0x4c09f2(0x1d1)][_0x4c09f2(0x3ea)](_0x1c0142=>{const _0x3bb019=_0x4c09f2,_0x5b69c1=_0x92a47a(_0x1c0142?.[_0x3bb019(0x1e3)],_0x34770f,_0x1a4e0c,_0x45f7b8,_0x22a9b0);_0x5b69c1!==_0x1c0142?.[_0x3bb019(0x1e3)]&&(_0x1c0142[_0x3bb019(0x1e3)]=_0x5b69c1,_0x3fb4c6=!![]);});});if(_0x3fb4c6)return _0x5521b9(_0x268995),new Response(JSON[_0x2df062(0x335)](_0x494c6c),{'status':_0x506bdb[_0x2df062(0x164)],'statusText':_0x506bdb[_0x2df062(0x40a)],'headers':_0x268995});}catch(_0x2736e1){console[_0x2df062(0x31d)](_0x2df062(0x2f1),_0x2736e1[_0x2df062(0x475)]);}if(_0x506bdb[_0x2df062(0x164)]===0xc8&&_0x268995[_0x2df062(0x21e)](_0x2df062(0x1d3))?.[_0x2df062(0x42a)](_0x2df062(0x304)))try{let _0x381329=_0x506bdb['clone'](),_0x3f8401=await _0x381329[_0x2df062(0x391)](),_0x696cf4=![];if(_0x16eccd){const _0x1b093f=_0x3f8401[_0x2df062(0x395)](/"(EnableContentDownloading|EnableSyncTranscoding|EnableMediaConversion|CanDownload)"\s*:\s*false/gi,_0x2df062(0x372));_0x696cf4=_0x1b093f!==_0x3f8401,_0x3f8401=_0x1b093f;}if(_0xd6596c(_0x3f8401,_0x22a9b0)){let _0xabb25a=JSON[_0x2df062(0x29c)](_0x3f8401),_0xc79f2b=_0x5c6bc0(_0xabb25a,_0x22a9b0,_0x1a4e0c,_0x45f7b8);if(_0xc79f2b!==_0xabb25a)return _0x5521b9(_0x268995),new Response(JSON[_0x2df062(0x335)](_0xc79f2b),{'status':_0x506bdb['status'],'statusText':_0x506bdb[_0x2df062(0x40a)],'headers':_0x268995});}if(_0x696cf4)return _0x5521b9(_0x268995),new Response(_0x3f8401,{'status':_0x506bdb[_0x2df062(0x164)],'statusText':_0x506bdb[_0x2df062(0x40a)],'headers':_0x268995});}catch(_0x1d038c){console['log'](_0x2df062(0x3fd),_0x1d038c[_0x2df062(0x475)]);}if(_0x506bdb['status']===0xc8&&_0x381380[_0x2df062(0x189)][_0x2df062(0x192)]()[_0x2df062(0x32a)](_0x2df062(0x1af)))try{let _0x30d124=_0x506bdb[_0x2df062(0x429)](),_0x1ddebd=await _0x30d124[_0x2df062(0x391)]();if(_0x1ddebd[_0x2df062(0x42a)]('http://')||_0x1ddebd['includes'](_0x2df062(0x362))||/^\s*\//m['test'](_0x1ddebd)){let _0x3bfb1e=_0x1ddebd[_0x2df062(0x395)](/(https?:\/\/[^\s]+)/g,_0x1a4e0c+_0x45f7b8+_0x2df062(0x216));_0x3bfb1e=_0x3bfb1e['replace'](/^(?!\s*#)(\s*)\/\/([^\s]+)$/gm,(_0xf73556,_0x5ea94a,_0x5f32d5)=>_0x5ea94a+_0x1a4e0c+_0x45f7b8+_0x2df062(0x324)+_0x5f32d5);const _0x1a0237=(_0x4b0898[0x0]||'')[_0x2df062(0x395)](/\/+$/,'');return _0x1a0237&&(_0x3bfb1e=_0x3bfb1e['replace'](/^(?!\s*#)(\s*)\/([^\s]+)$/gm,(_0x37c467,_0x3189de,_0x1005b7)=>_0x3189de+_0x1a4e0c+_0x45f7b8+'/'+_0x1a0237+'/'+_0x1005b7)),_0x5521b9(_0x268995),new Response(_0x3bfb1e,{'status':_0x506bdb['status'],'statusText':_0x506bdb[_0x2df062(0x40a)],'headers':_0x268995});}}catch(_0x48d08d){console[_0x2df062(0x31d)](_0x2df062(0x215),_0x48d08d[_0x2df062(0x475)]);}const _0x1983dc=_0x46b170(_0x381380[_0x2df062(0x189)]),_0x279cfa=_0x268995[_0x2df062(0x21e)](_0x2df062(0x1d3))||'',_0x3215af=_0x1983dc&&_0x50da1a&&_0x506bdb[_0x2df062(0x164)]===0xc8&&(_0x279cfa['startsWith'](_0x2df062(0x311))||_0x279cfa[_0x2df062(0x42a)]('javascript')||_0x279cfa[_0x2df062(0x42a)](_0x2df062(0x3ac))||_0x279cfa[_0x2df062(0x42a)](_0x2df062(0x25c))||_0x279cfa[_0x2df062(0x42a)](_0x2df062(0x39b)));return _0x3215af&&!_0x268995[_0x2df062(0x380)]('Cache-Control')&&_0x268995[_0x2df062(0x392)]('Cache-Control','public,\x20max-age=86400'),new Response(_0x506bdb[_0x2df062(0x1cc)],{'status':_0x506bdb[_0x2df062(0x164)],'statusText':_0x506bdb[_0x2df062(0x40a)],'headers':_0x268995});}catch(_0x4e79ec){return console[_0x2df062(0x3dc)]('[proxy]',_0x4e79ec),Response['json']({'success':![],'error':String(_0x4e79ec&&_0x4e79ec[_0x2df062(0x475)]||_0x4e79ec)},{'status':0x1f4});}}};
+const SVG_EYE = `<svg viewBox="0 0 24 24"><path d="M12 4.5C7 4.5 2.73 7.61 1 12c1.73 4.39 6 7.5 11 7.5s9.27-3.11 11-7.5c-1.73-4.39-6-7.5-11-7.5zM12 17c-2.76 0-5-2.24-5-5s2.24-5 5-5 5 2.24 5 5-2.24 5-5 5zm0-8c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z"/></svg>`;
+const SVG_COPY = `<svg viewBox="0 0 24 24"><path d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm3 4H8c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 16H8V7h11v14z"/></svg>`;
+const SVG_TG = `<svg viewBox="0 0 24 24" style="width:20px;height:20px;margin-right:8px;fill:#0088cc;"><path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.894 8.221l-1.97 9.28c-.145.658-.537.818-1.084.508l-3-2.21-1.446 1.394c-.14.18-.357.295-.6.295-.002 0-.003 0-.005 0l.213-3.054 5.56-5.022c.24-.213-.054-.334-.373-.121l-6.869 4.326-2.96-.924c-.64-.203-.658-.64.135-.954l11.566-4.458c.538-.196 1.006.128.832.94z"/></svg>`;
+
+const EMBY_LOGO = 'https://raw.githubusercontent.com/MakkaPakka518/Icon/refs/heads/main/MAKKA_EMBY.JPG';
+
+const I = {
+  rocket:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 16.5c-1.5 1.3-2 5-2 5s3.7-.5 5-2c.7-.8.7-2 0-2.8-.8-.7-2.2-.7-3 .8z"/><path d="M12 15l-3-3c.5-4 4-7.5 8-8 2 .2 3.8 2 4 4-.5 4-4 7.5-8 8l-1-1z"/><path d="M9 12c-2 1-3.5 3-4 5"/><circle cx="15" cy="9" r="0.5"/></svg>',
+  xmark:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg>',
+  check:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4L19 7"/></svg>',
+  warn:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3L2 20h20L12 3z"/><path d="M12 10v4M12 17.5h.01"/></svg>',
+  film:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M7 4v16M17 4v16M3 9h4M3 15h4M17 9h4M17 15h4"/></svg>',
+  star:'<svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 3l2.7 5.7 6.3.8-4.6 4.3 1.1 6.2-5.5-3-5.5 3 1.1-6.2L3 9.5l6.3-.8L12 3z"/></svg>',
+  sparkles:'<svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 3l1.6 4.4L18 9l-4.4 1.6L12 15l-1.6-4.4L6 9l4.4-1.6L12 3zM18 14l.8 2.2L21 17l-2.2.8L18 20l-.8-2.2L15 17l2.2-.8L18 14zM6 14l.6 1.7L8.5 16l-1.9.7L6 18.5l-.6-1.8L3.5 16l1.9-.3L6 14z"/></svg>',
+  globe:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.5 2.5 2.5 15 0 18M12 3c-2.5 2.5-2.5 15 0 18"/></svg>',
+  bolt:'<svg viewBox="0 0 24 24" fill="currentColor"><path d="M13 2L4 14h6l-1 8 9-12h-6l1-8z"/></svg>',
+  refresh:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20 12a8 8 0 1 1-2.34-5.66"/><path d="M20 3v5h-5"/></svg>',
+  chart:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M5 20V10M12 20V4M19 20v-7"/></svg>',
+  cloud:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M7 18a4 4 0 1 1 0-8 5 5 0 0 1 9.6 1.3A3.5 3.5 0 0 1 17 18H7z"/></svg>',
+  trash:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 6h18M8 6V4a1 1 0 0 1 1-1h6a1 1 0 0 1 1 1v2"/><path d="M19 6l-1 14a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2L5 6"/></svg>',
+  search:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg>',
+  location:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0z"/><circle cx="12" cy="10" r="3"/></svg>',
+  trophy:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M8 21h8M12 17v4M7 4h10v6a5 5 0 0 1-10 0V4z"/><path d="M7 5H4v2a3 3 0 0 0 3 3M17 5h3v2a3 3 0 0 1-3 3"/></svg>',
+  moon:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg>',
+  sun:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="12" cy="12" r="4.5"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>',
+  pencil:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.1 2.1 0 0 1 3 3L7 19l-4 1 1-4 12.5-12.5z"/></svg>',
+  gear:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M12 1v4M12 19v4M4.2 4.2l2.8 2.8M17 17l2.8 2.8M1 12h4M19 12h4M4.2 19.8L7 17M17 7l2.8-2.8"/></svg>',
+  lines:'<svg viewBox="0 0 24 24" fill="currentColor"><path d="M3 6h18v2H3zM3 11h18v2H3zM3 16h18v2H3z"/></svg>',
+  box:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 8l-9-5-9 5v8l9 5 9-5V8z"/><path d="M3 8l9 5 9-5M12 13v8"/></svg>',
+  download:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12M7 10l5 5 5-5M4 21h16"/></svg>',
+  antenna:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6.4 2a14 14 0 0 0 0 20M17.6 2a14 14 0 0 1 0 20M9.8 5.5a9 9 0 0 0 0 13M14.2 5.5a9 9 0 0 1 0 13"/><circle cx="12" cy="12" r="1.5"/></svg>',
+  bulb:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18h6M10 22h4M8 14.5A6 6 0 0 1 12 5a6 6 0 0 1 4 9.5c-.8.8-1 1.6-1 2.5h-6c0-.9-.2-1.7-1-2.5z"/></svg>',
+  tv:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="5" width="20" height="13" rx="2"/><path d="M8 21h8M12 18v3"/></svg>',
+  flame:'<svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2s5 4 5 9a5 5 0 0 1-10 0c0-2 1-3.5 2-5-.5 1-1 2-1 3 0 2.5 3 3 3 6 1-2 0-4 0-4 2 1 3 3 3 4.5A6.5 6.5 0 0 1 12 22 6.5 6.5 0 0 1 5.5 15C5.5 9 12 2 12 2z"/></svg>',
+  link:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.07 0l2.83-2.83a5 5 0 0 0-7.07-7.07L11 4.93"/><path d="M14 11a5 5 0 0 0-7.07 0l-2.83 2.83a5 5 0 0 0 7.07 7.07L13 19.07"/></svg>',
+  crown:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 7l4 4 5-6 5 6 4-4-2 12H5L3 7z"/><path d="M6 19h12"/></svg>',
+  target:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1.2" fill="currentColor"/></svg>',
+  arrowdown:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M5 12l7 7 7-7"/></svg>',
+  robot:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="8" width="14" height="11" rx="2"/><path d="M12 8V4M8 4h8"/><circle cx="9.5" cy="13" r="1" fill="currentColor"/><circle cx="14.5" cy="13" r="1" fill="currentColor"/><path d="M2 13v3M22 13v3"/></svg>',
+  spy:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="11" r="7"/><circle cx="9" cy="10" r="1" fill="currentColor"/><circle cx="15" cy="10" r="1" fill="currentColor"/><path d="M9.5 14c1 .8 4 .8 5 0"/></svg>',
+  flask:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9 3h6M10 3v5L4.5 18a2 2 0 0 0 1.8 3h11.4a2 2 0 0 0 1.8-3L14 8V3"/><path d="M7 15h10"/></svg>',
+  broom:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M13 3l8 8M11 11l8-8M4 20l7-7 1 1-7 7-2-1z"/><path d="M6 8l4 4"/></svg>',
+  checksquare:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="4"/><path d="M8 12.5l2.5 2.5L16 9"/></svg>',
+  upload:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 15V3M7 8l5-5 5 5M4 21h16"/></svg>',
+  db:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><ellipse cx="12" cy="5" rx="8" ry="3"/><path d="M4 5v14c0 1.7 3.6 3 8 3s8-1.3 8-3V5M4 12c0 1.7 3.6 3 8 3s8-1.3 8-3"/></svg>',
+  dotblue:'<svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="7" fill="#007aff"/></svg>',
+  dotorange:'<svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="7" fill="#ff9500"/></svg>',
+  dotgreen:'<svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="7" fill="#34c759"/></svg>',
+  dotpurple:'<svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="7" fill="#af52de"/></svg>',
+  plus:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg>'
+};
+
+const E2I = { '${I.rocket}':'rocket','${I.xmark}':'xmark','${I.check}':'check','${I.warn}':'warn','${I.film}':'film','${I.star}':'star','${I.sparkles}':'sparkles','${I.sparkles}':'sparkles','${I.globe}':'globe','${I.globe}':'globe','${I.bolt}':'bolt','${I.refresh}':'refresh','${I.chart}':'chart','${I.cloud}':'cloud','${I.trash}':'trash','${I.search}':'search','${I.location}':'location','${I.trophy}':'trophy','${I.moon}':'moon','${I.sun}':'sun','${I.dotblue}':'dotblue','${I.dotorange}':'dotorange','${I.dotgreen}':'dotgreen','${I.dotpurple}':'dotpurple','${I.robot}':'robot','${I.spy}':'spy','${I.flame}':'flame','${I.link}':'link','${I.tv}':'tv','${I.box}':'box','${I.download}':'download','${I.antenna}':'antenna','${I.bulb}':'bulb','${I.crown}':'crown','${I.target}':'target','${I.arrowdown}':'arrowdown','${I.xmark}':'xmark','${I.pencil}':'pencil','${I.gear}':'gear','${I.lines}':'lines','${I.flask}':'flask','${I.broom}':'broom','${I.checksquare}':'checksquare','${I.upload}':'upload' };
+function toSvg(s){
+  if(!s) return s;
+  return String(s).replace(/[\u{1F000}-\u{1FAFF}\u{2600}-\u{27BF}\u{FE0F}\u{2B00}-\u{2BFF}]/gu, function(ch){
+    if(ch==='\uFE0F') return '';
+    var key = E2I[ch];
+    return (key && I[key]) ? '<span class="ti">'+I[key]+'</span>' : '';
+  });
+}
+
+
+const CSS_COMMON = `
+    /* =====================================================
+       NEBULA 星云 —— 深空科幻设计系统
+       默认深色夜空（霓虹发光）/ 可选晨曦浅色
+       变量名与主 JS 完全兼容（--bg/--card/--primary/--border/--text 等）
+       ===================================================== */
+    :root {
+        --primary:#3d7bff;
+        --primary-2:#00d4ff;
+        --primary-hover:#2f6bff;
+        --primary-soft:rgba(61,123,255,.14);
+        --primary-grad:linear-gradient(135deg,#00d4ff 0%,#3d7bff 100%);
+        --primary-grad-2:linear-gradient(135deg,#7c5cff 0%,#00d4ff 100%);
+        --bg:#f6f7fd;
+        --bg-soft:#eef1fb;
+        --bg-2:#e9ecf8;
+        --card:#ffffff;
+        --card-glass:rgba(255,255,255,.7);
+        --glass-border:rgba(255,255,255,.6);
+        --text:#131627;
+        --text-sec:#5d6480;
+        --text-faint:#9aa1bd;
+        --border:#e3e7f4;
+        --border-strong:#cdd4ea;
+        --success:#0fbf7f;
+        --success-soft:rgba(15,191,127,.12);
+        --warning:#f5a623;
+        --warning-soft:rgba(245,166,35,.14);
+        --danger:#ff4d6a;
+        --danger-soft:rgba(255,77,106,.12);
+        --info:#22b8ff;
+        --violet:#8b5cf6;
+        --radius:18px;
+        --radius-card:18px;
+        --radius-md:13px;
+        --radius-sm:10px;
+        --shadow-sm:0 1px 2px rgba(20,24,50,.05),0 2px 6px rgba(20,24,50,.06);
+        --shadow:0 2px 6px rgba(20,24,50,.06),0 8px 22px rgba(20,24,50,.08);
+        --shadow-lg:0 6px 16px rgba(20,24,50,.1),0 20px 46px rgba(20,24,50,.14);
+        --blur:blur(22px) saturate(180%);
+        --topbar-h:62px;
+        --font-mono:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+        --ease:cubic-bezier(.22,.7,.28,1);
+    }
+    body.dark {
+        --primary:#4da3ff;
+        --primary-2:#00e5ff;
+        --primary-hover:#3d97ff;
+        --primary-soft:rgba(77,163,255,.16);
+        --primary-grad:linear-gradient(135deg,#00e5ff 0%,#4da3ff 100%);
+        --primary-grad-2:linear-gradient(135deg,#8b5cf6 0%,#00e5ff 100%);
+        --bg:#060a13;
+        --bg-soft:#0b1220;
+        --bg-2:#0a0f1c;
+        --card:#0d1526;
+        --card-glass:rgba(10,16,30,.72);
+        --glass-border:rgba(0,229,255,.14);
+        --text:#e8eefc;
+        --text-sec:#8a94b0;
+        --text-faint:#566084;
+        --border:#1b2740;
+        --border-strong:#2a3a5c;
+        --success:#22e39a;
+        --success-soft:rgba(34,227,154,.14);
+        --warning:#ffb84d;
+        --warning-soft:rgba(255,184,77,.15);
+        --danger:#ff5c7a;
+        --danger-soft:rgba(255,92,122,.14);
+        --info:#38bdf8;
+        --violet:#a78bfa;
+        --shadow-sm:0 1px 3px rgba(0,0,0,.4);
+        --shadow:0 2px 8px rgba(0,0,0,.4),0 10px 26px rgba(0,0,0,.42);
+        --shadow-lg:0 4px 14px rgba(0,0,0,.5),0 18px 44px rgba(0,0,0,.55),0 0 40px rgba(77,163,255,.05);
+        --glow:0 0 0 1px rgba(0,229,255,.06), 0 0 24px rgba(0,229,255,.08);
+    }
+
+    /* ============ 基础 ============ */
+    *{box-sizing:border-box;touch-action:manipulation;-webkit-tap-highlight-color:transparent}
+    html,body{margin:0;padding:0}
+    body{font-family:-apple-system,BlinkMacSystemFont,"SF Pro Text","Segoe UI",Roboto,"PingFang SC","Microsoft YaHei",sans-serif;background:var(--bg);color:var(--text);min-height:100vh;-webkit-text-size-adjust:100%;transition:background-color .35s,color .35s;letter-spacing:.1px;overflow-x:hidden}
+    /* 星云背景：星点 + 极光 */
+    body::before{content:'';position:fixed;inset:0;z-index:-2;pointer-events:none;background:
+        radial-gradient(2px 2px at 12% 22%, rgba(255,255,255,.5), transparent 40%),
+        radial-gradient(1.5px 1.5px at 78% 12%, rgba(0,229,255,.6), transparent 40%),
+        radial-gradient(2px 2px at 34% 78%, rgba(255,255,255,.4), transparent 40%),
+        radial-gradient(1.5px 1.5px at 62% 58%, rgba(139,92,246,.6), transparent 40%),
+        radial-gradient(2px 2px at 88% 82%, rgba(255,255,255,.35), transparent 40%),
+        radial-gradient(1.5px 1.5px at 5% 62%, rgba(0,229,255,.45), transparent 40%),
+        radial-gradient(1.5px 1.5px at 45% 8%, rgba(255,255,255,.4), transparent 40%),
+        radial-gradient(1100px 480px at 12% -8%, rgba(61,123,255,.14), transparent 62%),
+        radial-gradient(900px 460px at 108% 6%, rgba(0,213,255,.1), transparent 60%),
+        radial-gradient(760px 480px at 50% 118%, rgba(139,92,246,.12), transparent 62%);
+        background-repeat:no-repeat;
+    }
+    body.dark::before{background:
+        radial-gradient(2px 2px at 12% 22%, rgba(255,255,255,.7), transparent 40%),
+        radial-gradient(1.5px 1.5px at 78% 12%, rgba(0,229,255,.9), transparent 40%),
+        radial-gradient(2px 2px at 34% 78%, rgba(255,255,255,.6), transparent 40%),
+        radial-gradient(1.5px 1.5px at 62% 58%, rgba(139,92,246,.9), transparent 40%),
+        radial-gradient(2px 2px at 88% 82%, rgba(255,255,255,.5), transparent 40%),
+        radial-gradient(1.5px 1.5px at 5% 62%, rgba(0,229,255,.7), transparent 40%),
+        radial-gradient(1.5px 1.5px at 45% 8%, rgba(255,255,255,.6), transparent 40%),
+        radial-gradient(1100px 480px at 12% -8%, rgba(77,163,255,.16), transparent 62%),
+        radial-gradient(900px 460px at 108% 6%, rgba(0,229,255,.1), transparent 60%),
+        radial-gradient(760px 480px at 50% 118%, rgba(139,92,246,.14), transparent 62%);
+        background-repeat:no-repeat;}
+    /* 网格线层 */
+    body::after{content:'';position:fixed;inset:0;z-index:-1;pointer-events:none;opacity:.5;
+        background-image:
+            linear-gradient(rgba(0,229,255,.025) 1px, transparent 1px),
+            linear-gradient(90deg, rgba(0,229,255,.025) 1px, transparent 1px);
+        background-size:44px 44px;
+        mask-image:radial-gradient(ellipse 90% 60% at 50% 0%, #000 20%, transparent 75%);}
+    body.dark::after{opacity:.8;background-image:
+        linear-gradient(rgba(0,229,255,.045) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(0,229,255,.045) 1px, transparent 1px);
+        background-size:44px 44px;
+        mask-image:radial-gradient(ellipse 90% 60% at 50% 0%, #000 20%, transparent 75%);}
+    ::selection{background:rgba(77,163,255,.3)}
+    a{color:var(--primary);text-decoration:none}
+    input,select,button,textarea{font-family:inherit;outline:none;font-size:14px}
+    input::placeholder,textarea::placeholder{color:var(--text-faint)}
+    input,select,textarea{transition:border-color .18s,box-shadow .18s,background .18s}
+    input:focus,select:focus,textarea:focus{border-color:var(--primary)!important;box-shadow:0 0 0 3px var(--primary-soft), 0 0 16px rgba(0,229,255,.12)!important}
+    .container{max-width:1200px;margin:0 auto;width:100%;min-height:100vh;display:flex;flex-direction:column;padding:calc(var(--topbar-h) + 30px) 24px 132px}
+
+    /* ============ 分区标题（HUD 标签） ============ */
+    .section-head{display:flex;align-items:center;gap:10px;margin:36px 2px 16px;font-size:11.5px;font-weight:800;letter-spacing:2px;text-transform:uppercase;color:var(--text-sec)}
+    .section-head:first-child{margin-top:6px}
+    .section-head::before{content:'';width:8px;height:8px;background:var(--primary-grad);transform:rotate(45deg);box-shadow:0 0 10px var(--primary);flex-shrink:0}
+    .section-head::after{content:'';flex:1;height:1px;background:linear-gradient(90deg,var(--border),transparent)}
+
+    /* ============ 卡片（深空舱板） ============ */
+    .card{background:var(--card);padding:22px;border-radius:var(--radius);box-shadow:var(--shadow);margin-bottom:18px;border:1px solid var(--border);transition:box-shadow .25s,border-color .25s,transform .25s;position:relative}
+    .card:hover{box-shadow:var(--shadow-lg);border-color:var(--border-strong)}
+    body.dark .card{background:linear-gradient(160deg, rgba(13,21,38,.9), rgba(10,16,30,.95));border-color:rgba(0,229,255,.08)}
+    body.dark .card:hover{border-color:rgba(0,229,255,.25);box-shadow:var(--shadow-lg), var(--glow)}
+    .card h2,.card h3{display:flex;align-items:center;gap:9px;margin:0}
+    .card h2{font-size:16px;font-weight:700;letter-spacing:.1px}
+    .card h2 svg,.card h3 svg{color:var(--primary)}
+    .card h3{font-size:14.5px;font-weight:700;color:var(--text)}
+    .card-header{display:flex;align-items:center;flex-wrap:wrap;gap:10px}
+    .card-tools{display:flex;align-items:center;flex-wrap:wrap;gap:8px;margin-left:auto}
+    .card-sub{font-size:12.5px;color:var(--text-sec);font-weight:500}
+
+    /* Hero 大标题卡（星云主视觉） */
+    .hero-card{display:flex;align-items:center;gap:18px;flex-wrap:wrap;padding:30px 30px;background:var(--card);overflow:hidden}
+    body.dark .hero-card{background:
+        radial-gradient(520px 240px at 88% -30%, rgba(139,92,246,.22), transparent 65%),
+        radial-gradient(480px 260px at 12% 130%, rgba(0,229,255,.16), transparent 60%),
+        linear-gradient(160deg, rgba(13,21,38,.92), rgba(8,13,24,.96))}
+    .hero-card::after{content:'';position:absolute;right:-90px;top:-90px;width:260px;height:260px;border-radius:50%;border:1px solid rgba(0,229,255,.14);box-shadow:0 0 60px rgba(0,229,255,.1), inset 0 0 40px rgba(139,92,246,.08);pointer-events:none;animation:heroPulse 5s ease-in-out infinite}
+    .hero-card::before{content:'';position:absolute;left:-70px;bottom:-70px;width:180px;height:180px;border-radius:50%;border:1px dashed rgba(0,229,255,.1);pointer-events:none}
+    @keyframes heroPulse{0%,100%{opacity:.8}50%{opacity:.35}}
+    .hero-card h1{font-size:24px;font-weight:800;margin:0;display:flex;align-items:center;gap:12px;letter-spacing:-.3px;position:relative}
+    body.dark .hero-card h1{background:linear-gradient(120deg,#7ec9ff 0%,#00e5ff 45%,#a78bfa 100%);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;filter:drop-shadow(0 0 18px rgba(0,229,255,.25))}
+    .hero-card h1 svg{width:26px;height:26px}
+    body.dark .hero-card h1 svg{color:var(--primary-2)}
+    .hero-card .hero-sub{font-size:13px;color:var(--text-sec);margin-top:5px;font-weight:500}
+    .hero-chip{display:inline-flex;align-items:center;gap:5px;font-size:11px;font-weight:800;letter-spacing:1.5px;color:var(--primary);background:var(--primary-soft);border:1px solid rgba(61,123,255,.3);padding:4px 11px;border-radius:999px;vertical-align:middle;text-transform:uppercase}
+    body.dark .hero-chip{color:var(--primary-2);background:rgba(0,229,255,.08);border-color:rgba(0,229,255,.28);box-shadow:0 0 16px rgba(0,229,255,.15)}
+
+    /* ============ 顶栏（指挥舱玻璃） ============ */
+    .topbar{position:fixed;top:0;left:0;right:0;z-index:900;display:flex;align-items:center;gap:14px;padding:0 20px;height:var(--topbar-h);background:var(--card-glass);backdrop-filter:var(--blur);-webkit-backdrop-filter:var(--blur);border-bottom:1px solid var(--border);box-shadow:0 1px 2px rgba(16,24,40,.04),0 4px 18px rgba(16,24,40,.05)}
+    body.dark .topbar{background:rgba(7,12,22,.72);border-bottom:1px solid rgba(0,229,255,.12);box-shadow:0 1px 0 rgba(0,229,255,.08), 0 8px 30px rgba(0,0,0,.4)}
+    .topbar-brand{display:flex;align-items:center;gap:11px;min-width:0;flex-shrink:0}
+    .topbar-logo{width:36px;height:36px;border-radius:11px;object-fit:cover;flex-shrink:0;box-shadow:0 3px 12px rgba(0,0,0,.25);border:1px solid var(--border);cursor:pointer;transition:box-shadow .2s}
+    body.dark .topbar-logo{box-shadow:0 0 18px rgba(0,229,255,.3), 0 3px 12px rgba(0,0,0,.3);border-color:rgba(0,229,255,.25)}
+    .topbar-logo:hover{box-shadow:0 0 24px rgba(0,229,255,.4)}
+    .topbar-title{font-weight:700;font-size:15px;letter-spacing:.2px;white-space:nowrap;line-height:1.15}
+    .topbar-title small{display:block;font-size:10.5px;font-weight:700;color:var(--text-sec);letter-spacing:1.2px;text-transform:uppercase}
+    body.dark .topbar-title small{color:rgba(0,229,255,.7)}
+    .topbar-center{display:flex;align-items:center;gap:8px;justify-content:center;flex:1;min-width:0;overflow:hidden}
+    .topbar-actions{display:flex;align-items:center;gap:6px;flex-shrink:0}
+    .topbar-actions .tb-group{display:flex;align-items:center;gap:2px;padding:4px;background:var(--bg-soft);border:1px solid var(--border);border-radius:13px}
+    body.dark .topbar-actions .tb-group{background:rgba(11,18,32,.8);border-color:rgba(0,229,255,.14)}
+    .tb-icon-btn{display:inline-flex;align-items:center;justify-content:center;width:34px;height:34px;border-radius:9px;border:none;background:transparent;cursor:pointer;color:var(--text-sec);padding:0;transition:all .18s;font-family:inherit}
+    .tb-icon-btn:hover{color:var(--primary);background:var(--card);box-shadow:var(--shadow-sm)}
+    body.dark .tb-icon-btn:hover{color:var(--primary-2);background:rgba(13,21,38,.9);box-shadow:0 0 14px rgba(0,229,255,.15)}
+    .tb-icon-btn svg{width:17px;height:17px;fill:currentColor}
+    .tb-icon-btn.danger:hover{color:var(--danger);background:var(--card)}
+    body.dark .tb-icon-btn.danger:hover{background:rgba(255,92,122,.12)}
+
+    /* ============ 按钮（霓虹系统） ============ */
+    .btn-submit,.btn-danger,.btn-ghost,.btn-edit,.btn-del,.btn-dns,.pill-btn,.pill-close{display:inline-flex;align-items:center;justify-content:center;gap:6px;border:none;cursor:pointer;font-weight:600;transition:all .18s;white-space:nowrap;font-family:inherit;line-height:1}
+    .btn-submit{background:var(--primary-grad);color:#fff;padding:11px 20px;border-radius:var(--radius-sm);box-shadow:0 4px 16px rgba(61,123,255,.4);text-shadow:0 1px 2px rgba(0,0,0,.15);position:relative;overflow:hidden}
+    .btn-submit::after{content:'';position:absolute;top:0;left:-80%;width:50%;height:100%;background:linear-gradient(100deg,transparent,rgba(255,255,255,.35),transparent);transform:skewX(-25deg);transition:left .5s var(--ease)}
+    .btn-submit:hover{transform:translateY(-1px);box-shadow:0 8px 24px rgba(61,123,255,.5);filter:brightness(1.06)}
+    .btn-submit:hover::after{left:130%}
+    .btn-submit:active{transform:translateY(0) scale(.98)}
+    .btn-submit:disabled{opacity:.55;cursor:not-allowed;transform:none;box-shadow:none;filter:none}
+    body.dark .btn-submit{background:linear-gradient(135deg,#0a84ff 0%,#00d4ff 100%);box-shadow:0 4px 18px rgba(0,213,255,.35), 0 0 20px rgba(0,213,255,.15)}
+    body.dark .btn-submit:hover{box-shadow:0 8px 28px rgba(0,213,255,.45), 0 0 30px rgba(0,213,255,.2)}
+    .btn-danger{background:linear-gradient(135deg,#ff7a5c,#ff4d6a);color:#fff;padding:11px 20px;border-radius:var(--radius-sm);box-shadow:0 4px 16px rgba(255,77,106,.35)}
+    body.dark .btn-danger{background:linear-gradient(135deg,#ff6b81,#ff2e4d);box-shadow:0 4px 18px rgba(255,46,77,.3), 0 0 20px rgba(255,46,77,.12)}
+    .btn-danger:hover{transform:translateY(-1px);box-shadow:0 8px 24px rgba(255,77,106,.45)}
+    .btn-danger:active{transform:translateY(0) scale(.98)}
+    .btn-ghost{background:transparent;color:var(--primary);border:1px solid var(--border);padding:9px 14px;border-radius:var(--radius-sm);font-size:13px}
+    .btn-ghost:hover{border-color:var(--primary);box-shadow:0 0 0 3px var(--primary-soft)}
+    .btn-edit{background:var(--card);color:var(--primary);border:1px solid var(--primary);padding:8px 14px;border-radius:9px;font-size:13px}
+    .btn-edit:hover{background:var(--primary-soft)}
+    .btn-del{background:var(--card);color:var(--danger);border:1px solid var(--danger);padding:8px 14px;border-radius:9px;font-size:13px}
+    .btn-del:hover{background:var(--danger-soft)}
+    .btn-dns{background:var(--card);color:var(--success);border:1px solid var(--success);padding:8px 14px;border-radius:9px;font-size:13px}
+    .btn-dns:hover{background:var(--success-soft)}
+    .btn-dns:disabled{opacity:.5;cursor:not-allowed}
+    .icon-btn{display:inline-flex;align-items:center;justify-content:center;width:32px;height:32px;border-radius:9px;border:1px solid var(--border);background:var(--card);cursor:pointer;color:var(--text-sec);padding:0;transition:all .18s;flex-shrink:0}
+    .icon-btn:hover{color:var(--primary);border-color:var(--primary);box-shadow:0 3px 12px var(--primary-soft)}
+    body.dark .icon-btn{background:rgba(11,18,32,.6)}
+    body.dark .icon-btn:hover{border-color:var(--primary-2);color:var(--primary-2);box-shadow:0 0 14px rgba(0,229,255,.2)}
+    .icon-btn svg{width:15px;height:15px;fill:currentColor}
+    .pill-btn{padding:6px 14px;border-radius:999px;background:var(--primary-soft);border:1px solid rgba(61,123,255,.28);color:var(--primary);font-size:13px}
+    .pill-btn:hover{background:rgba(61,123,255,.18)}
+    body.dark .pill-btn{background:rgba(0,229,255,.1);border-color:rgba(0,229,255,.25);color:var(--primary-2)}
+    .pill-close{width:30px;height:30px;border-radius:999px;background:var(--danger-soft);border:1px solid rgba(255,77,106,.32);color:var(--danger)}
+    .pill-close:hover{background:rgba(255,77,106,.2)}
+    .btn-submit svg,.btn-danger svg,.btn-ghost svg,.btn-edit svg,.btn-del svg,.btn-dns svg,.pill-btn svg,.pill-close svg{width:15px;height:15px}
+
+    /* ============ 徽标 / 状态（霓虹） ============ */
+    .badge{padding:4px 11px;border-radius:999px;font-size:12px;font-weight:600;display:inline-flex;align-items:center;gap:5px;white-space:nowrap}
+    .badge::before{content:'';width:6px;height:6px;border-radius:50%;background:currentColor;opacity:.9;box-shadow:0 0 8px currentColor}
+    .rtt-pill{display:inline-flex;align-items:center;gap:8px;padding:6px 14px;border-radius:999px;background:var(--primary-soft);border:1px solid rgba(61,123,255,.3);font-family:var(--font-mono);font-size:12px;font-weight:600;color:var(--text);white-space:nowrap;cursor:default}
+    body.dark .rtt-pill{background:rgba(0,229,255,.07);border-color:rgba(0,229,255,.2);box-shadow:0 0 14px rgba(0,229,255,.06)}
+    .rtt-dot{width:7px;height:7px;border-radius:50%;background:var(--success);box-shadow:0 0 10px var(--success);flex-shrink:0}
+    .rtt-label{color:var(--text-sec)}
+    #themeToggle{background:transparent;border:none;cursor:pointer;padding:2px;display:inline-flex;color:var(--text-sec);transition:color .2s}
+    #themeToggle:hover{color:var(--primary)}
+    #themeToggle svg{width:18px;height:18px}
+    .ping-badge{color:var(--text-sec);cursor:pointer;padding:5px 12px;background:var(--bg-soft);border-radius:999px;font-size:13px;font-weight:500;transition:all .2s;border:1px solid var(--border);user-select:none;display:inline-flex;align-items:center;gap:5px}
+    .ping-badge:hover{border-color:var(--primary);color:var(--primary);box-shadow:0 2px 10px var(--primary-soft)}
+    body.dark .ping-badge{background:rgba(11,18,32,.7)}
+    body.dark .ping-badge:hover{border-color:var(--primary-2);color:var(--primary-2);box-shadow:0 0 12px rgba(0,229,255,.2)}
+
+    /* ============ 表单 ============ */
+    .field{display:flex;flex-direction:column;gap:6px;min-width:0}
+    .field>label{font-size:12.5px;font-weight:600;color:var(--text-sec);display:flex;align-items:center;gap:5px}
+    .field input[type=text],.field input[type=url],.field input[type=password],.field input[type=number],.field select,.field textarea,.toolbar select{width:100%;padding:11px 14px;border:1px solid var(--border);border-radius:var(--radius-sm);background:var(--bg-soft);color:var(--text);font-size:14px}
+    body.dark .field input[type=text],body.dark .field input[type=url],body.dark .field input[type=password],body.dark .field input[type=number],body.dark .field select,body.dark .field textarea,body.dark .toolbar select{background:rgba(11,18,32,.7);border-color:rgba(0,229,255,.1)}
+    body.dark .field input:hover,body.dark .field select:hover,body.dark .field textarea:hover{border-color:rgba(0,229,255,.3)}
+    .field input:hover,.field select:hover,.field textarea:hover{border-color:var(--border-strong)}
+    .form-row{display:flex;flex-wrap:wrap;gap:12px;align-items:center}
+    .form-row .field{flex:1;min-width:220px}
+    .search-input{padding:10px 16px;border:1px solid var(--border);border-radius:var(--radius-sm);background:var(--bg-soft);color:var(--text);font-size:14px;width:260px;transition:border-color .2s,box-shadow .2s}
+    .search-input:focus{border-color:var(--primary);box-shadow:0 0 0 3px var(--primary-soft)}
+    body.dark .search-input{background:rgba(11,18,32,.7);border-color:rgba(0,229,255,.1)}
+    body.dark .search-input:focus{border-color:var(--primary-2);box-shadow:0 0 0 3px rgba(0,229,255,.1), 0 0 16px rgba(0,229,255,.12)}
+    .ip-checkbox{width:18px;height:18px;cursor:pointer;accent-color:var(--primary)}
+    .toolbar{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:14px;align-items:center}
+
+    /* 节点页工具条 */
+    .nodes-toolbar{display:flex;align-items:center;flex-wrap:wrap;gap:10px;background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:14px 18px;box-shadow:var(--shadow-sm);margin-bottom:16px}
+    body.dark .nodes-toolbar{background:linear-gradient(160deg, rgba(13,21,38,.8), rgba(8,13,24,.9));border-color:rgba(0,229,255,.1)}
+    .nodes-toolbar .search-input{flex:1;min-width:180px;max-width:340px;background:var(--bg-soft)}
+    .nodes-toolbar .tb-sep{width:1px;height:26px;background:var(--border);margin:0 2px}
+    .batch-sel{min-width:150px}
+
+    /* ============ 节点卡片（星云数据卡） ============ */
+    .node-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(350px,1fr));gap:16px}
+    .emby-card{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:18px 18px 14px;box-shadow:var(--shadow-sm);display:flex;flex-direction:column;gap:12px;transition:all .25s;position:relative;overflow:hidden}
+    .emby-card::before{content:'';position:absolute;left:0;top:0;width:100%;height:3px;background:var(--primary-grad);opacity:.85;transition:all .3s}
+    .emby-card::after{content:'';position:absolute;right:-40px;top:-40px;width:110px;height:110px;border-radius:50%;background:radial-gradient(circle,rgba(0,229,255,.07),transparent 70%);pointer-events:none;transition:opacity .3s}
+    body.dark .emby-card{background:linear-gradient(165deg, rgba(14,22,40,.92), rgba(9,14,26,.96));border-color:rgba(0,229,255,.1)}
+    .emby-card:hover{box-shadow:var(--shadow-lg);transform:translateY(-3px);border-color:var(--border-strong)}
+    body.dark .emby-card:hover{border-color:rgba(0,229,255,.35);box-shadow:var(--shadow-lg), var(--glow)}
+    body.dark .emby-card:hover::before{box-shadow:0 0 18px rgba(0,229,255,.6)}
+    .emby-card .card-header{border-bottom:1px solid var(--border);padding-bottom:12px}
+    .card-title-group{display:flex;align-items:center;gap:11px;min-width:0;flex:1}
+    .emby-icon{font-size:26px;background:linear-gradient(135deg,var(--primary-soft),transparent);border-radius:12px;padding:6px;border:1px solid var(--border);display:flex;align-items:center;justify-content:center;width:46px;height:46px;flex-shrink:0;color:var(--primary)}
+    body.dark .emby-icon{background:rgba(0,229,255,.07);border-color:rgba(0,229,255,.16);color:var(--primary-2);box-shadow:0 0 14px rgba(0,229,255,.08)}
+    .emby-icon svg{width:23px;height:23px}
+    .emby-card .card-remark{font-size:15.5px;font-weight:700;line-height:1.25;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+    .emby-card .card-prefix{font-size:12px;color:var(--text-sec);font-family:var(--font-mono);margin-top:1px}
+    .node-summary{display:flex;align-items:center;gap:12px;flex-wrap:wrap}
+    .node-detail{display:none;flex-direction:column;gap:10px;background:var(--bg-soft);border:1px solid var(--border);border-radius:var(--radius-md);padding:13px 14px;margin-top:2px}
+    body.dark .node-detail{background:rgba(8,13,24,.6);border-color:rgba(0,229,255,.08)}
+    .info-row{display:flex;align-items:flex-start;justify-content:space-between;font-size:13px;gap:10px}
+    .info-label{color:var(--text-sec);font-weight:600;min-width:64px;margin-top:4px;flex-shrink:0;font-size:12px}
+    .action-group{display:inline-flex;gap:6px;background:var(--card);padding:5px 8px;border-radius:var(--radius-sm);border:1px solid var(--border);align-items:flex-start;max-width:100%;flex-wrap:wrap;box-shadow:var(--shadow-sm)}
+    body.dark .action-group{background:rgba(11,18,32,.6)}
+    .card-footer{display:flex;justify-content:space-between;align-items:center;gap:10px;margin-top:auto;padding-top:12px;border-top:1px dashed var(--border)}
+    body.dark .card-footer{border-top:1px dashed rgba(0,229,255,.12)}
+    .card-footer .f-right{display:flex;gap:8px;align-items:center}
+    .drag-handle{cursor:grab;padding-right:8px;font-size:0;color:var(--text-faint);display:flex;align-items:center;user-select:none;touch-action:none}
+    .drag-handle:active{cursor:grabbing;color:var(--primary)}
+    .drag-handle svg{width:18px;height:18px}
+    .emby-card.sortable-ghost{opacity:.4}
+    .emby-card.sortable-drag{cursor:grabbing!important;box-shadow:var(--shadow-lg)}
+    .secret-text{font-family:var(--font-mono);letter-spacing:2px;color:var(--text-faint);font-size:12px}
+    .dynamic-url{display:block;max-width:210px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;flex:1;text-align:right}
+    .actual-text.dynamic-url{white-space:normal;max-width:100%;overflow:visible;text-align:left!important;word-break:break-all;font-size:12px;font-family:var(--font-mono);color:var(--primary);letter-spacing:normal}
+    .url-list-item{background:var(--card);border:1px solid var(--border);padding:5px 10px;border-radius:8px;font-size:12px;margin-top:5px;word-break:break-all;line-height:1.5;color:var(--text)}
+    .url-list-item:first-child{margin-top:0}
+
+    /* ============ 表格（星云数据台） ============ */
+    .table-wrapper{width:100%;border-radius:var(--radius-md);border:1px solid var(--border);overflow:hidden;background:var(--card);box-shadow:var(--shadow-sm)}
+    body.dark .table-wrapper{background:rgba(11,18,32,.6);border-color:rgba(0,229,255,.1)}
+    table{width:100%;border-collapse:collapse;text-align:left}
+    th,td{padding:13px 16px;border-bottom:1px solid var(--border);font-size:13.5px;vertical-align:middle}
+    th{color:var(--text-sec);font-weight:700;background:var(--bg-soft);font-size:11.5px;letter-spacing:.8px;text-transform:uppercase;white-space:nowrap}
+    body.dark th{background:rgba(8,13,24,.8);color:rgba(0,229,255,.75);font-size:11px;letter-spacing:1.2px}
+    tr:last-child td{border-bottom:none}
+    tbody tr{transition:background .15s}
+    tbody tr:hover td{background-color:var(--primary-soft)}
+    body.dark tbody tr:hover td{background:rgba(0,229,255,.05)}
+
+    /* ============ 图标选择 ============ */
+    .icon-item{cursor:pointer;padding:6px;border-radius:var(--radius-sm);border:1px solid var(--border);display:flex;justify-content:center;align-items:center;transition:all .2s;background:var(--bg-soft);height:46px}
+    .icon-item:hover{border-color:var(--primary)!important;box-shadow:0 2px 10px var(--primary-soft);transform:scale(1.06)}
+    .icon-item.selected{border-color:var(--primary);background:var(--primary-soft)}
+    #iconGrid::-webkit-scrollbar{width:6px}
+    #iconGrid::-webkit-scrollbar-thumb{background:var(--border-strong);border-radius:3px}
+
+    /* ============ 弹窗（全息舱） ============ */
+    .modal-mask{display:none;position:fixed;inset:0;z-index:1000;background:rgba(4,8,16,.6);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);overflow-y:auto;-webkit-overflow-scrolling:touch;padding:16px}
+    body.dark .modal-mask{background:rgba(3,6,12,.72)}
+    .modal-box{max-width:680px;margin:30px auto;background:var(--card);border:1px solid var(--border);border-radius:22px;padding:24px;box-shadow:var(--shadow-lg);animation:dsModalIn .3s var(--ease)}
+    body.dark .modal-box{background:linear-gradient(165deg, rgba(14,22,40,.97), rgba(8,13,24,.98));border-color:rgba(0,229,255,.14);box-shadow:var(--shadow-lg), 0 0 40px rgba(0,229,255,.06)}
+    .modal-head{display:flex;justify-content:space-between;align-items:center;margin-bottom:18px;gap:10px}
+    .modal-head h2{font-size:17px;display:flex;align-items:center;gap:9px;margin:0;font-weight:800}
+    .modal-head .close-x{background:transparent;border:none;cursor:pointer;color:var(--text-faint);display:inline-flex;padding:6px;border-radius:9px;transition:all .15s}
+    .modal-head .close-x:hover{color:var(--danger);background:var(--danger-soft)}
+    .modal-head .close-x svg{width:19px;height:19px}
+    @keyframes dsModalIn{from{opacity:0;transform:translateY(16px) scale(.98)}to{opacity:1;transform:translateY(0) scale(1)}}
+
+    /* ============ 视图切换 ============ */
+    .page-view{display:none}
+    .page-view.active{display:block;animation:dsFadeIn .32s var(--ease) forwards}
+    @keyframes dsFadeIn{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:translateY(0)}}
+
+    /* ============ 底部 Dock（指挥舱） ============ */
+    .ds-dock{position:fixed;bottom:20px;left:50%;transform:translateX(-50%);width:calc(100% - 32px);max-width:580px;background:var(--card-glass);backdrop-filter:var(--blur);-webkit-backdrop-filter:var(--blur);border:1px solid var(--border);border-radius:999px;padding:6px 10px;display:flex;justify-content:space-around;box-shadow:var(--shadow-lg);z-index:950}
+    body.dark .ds-dock{background:rgba(9,15,28,.75);border-color:rgba(0,229,255,.16);box-shadow:0 12px 40px rgba(0,0,0,.5), 0 0 30px rgba(0,229,255,.06)}
+    .ds-dock-item{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:3px;padding:9px 16px;border-radius:999px;color:var(--text-sec);font-size:11px;font-weight:700;letter-spacing:.2px;transition:all .22s;background:transparent;border:none;cursor:pointer;flex:1;font-family:inherit}
+    .ds-dock-item svg{width:21px;height:21px;fill:currentColor;transition:transform .22s}
+    .ds-dock-item:hover{color:var(--primary)}
+    .ds-dock-item:hover svg{transform:translateY(-2px)}
+    .ds-dock-item.active{color:#fff;background:var(--primary-grad-2);box-shadow:0 4px 18px rgba(124,92,255,.4)}
+    body.dark .ds-dock-item.active{background:linear-gradient(135deg,#00d4ff 0%,#3d7bff 100%);box-shadow:0 4px 20px rgba(0,213,255,.45), 0 0 26px rgba(0,213,255,.25)}
+    .ds-dock-item.active svg,.ds-dock-item.active span{color:#fff;fill:#fff}
+
+    /* ============ Toast（霓虹胶囊） ============ */
+    #toast{position:fixed;top:-64px;left:50%;transform:translateX(-50%);background:rgba(13,17,28,.94);color:#fff;padding:12px 26px;border-radius:999px;font-size:14px;font-weight:600;transition:top .45s var(--ease);z-index:9999;backdrop-filter:blur(12px);text-align:center;max-width:90vw;word-wrap:break-word;box-shadow:0 8px 30px rgba(0,0,0,.4), 0 0 20px rgba(0,229,255,.1);border:1px solid rgba(0,229,255,.2);display:flex;align-items:center;gap:8px}
+    #toast.show{top:20px}
+
+    /* ============ 图标统一 ============ */
+    .ti{display:inline-flex;align-items:center;justify-content:center;vertical-align:-.18em;flex-shrink:0}
+    .ti svg{width:16px;height:16px}
+    h1 svg,h2 svg,h3 svg,h4 svg,p svg,label svg,span svg,div svg{width:1.1em;height:1.1em;vertical-align:-.18em;flex-shrink:0}
+    .rotated{transform:rotate(180deg)}
+
+    /* ============ 大屏弹窗（数据星云） ============ */
+    #dashboardModal{padding:10px}
+    #dashboardModal .modal-box{max-width:1000px}
+    .stat-pills{display:flex;gap:10px;flex-wrap:wrap}
+    .stat-pill{font-size:12.5px;background:var(--primary-soft);color:var(--primary);padding:6px 13px;border-radius:999px;border:1px solid rgba(61,123,255,.22);display:flex;gap:10px;flex-wrap:wrap}
+    body.dark .stat-pill{background:rgba(0,229,255,.08);border-color:rgba(0,229,255,.2);color:var(--primary-2)}
+    .stat-pill strong{font-weight:700}
+    .chart-panel{flex:2;min-width:300px;border:1px solid var(--border);border-radius:var(--radius-md);padding:14px;background:var(--bg-soft)}
+    body.dark .chart-panel{background:rgba(8,13,24,.6);border-color:rgba(0,229,255,.1)}
+    .chart-panel.pie{flex:1;display:flex;justify-content:center;align-items:center;min-height:280px}
+
+    /* ============ 测速页 ============ */
+    #view-speed .toolbar{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px;align-items:stretch}
+    #view-speed .toolbar select{grid-column:1/-1;width:100%}
+    #view-speed .toolbar .btn-submit{width:100%;padding:12px 14px;font-size:13px;justify-content:center}
+    .node-cb{width:18px;height:18px;margin:0;cursor:pointer;accent-color:var(--primary);flex-shrink:0}
+    .ip-text{font-family:var(--font-mono);cursor:pointer}
+    .test-row .latency,.test-row .speed,.test-row .loc{font-weight:600}
+
+    /* ============ 响应式 ============ */
+    /* 测速行 / 选择行（JS 动态类，纯视觉） */
+    .route-item{cursor:pointer;transition:background .15s}
+    .route-item:hover td{background:var(--primary-soft)}
+    .row-checkbox{width:17px;height:17px;accent-color:var(--primary);cursor:pointer}
+    @media (max-width:768px){
+        body{padding:0}
+        .container{padding:calc(var(--topbar-h) + 16px) 12px 122px}
+        .card{padding:16px;border-radius:14px;margin-bottom:14px}
+        .hero-card{padding:22px 18px}
+        .hero-card h1{font-size:20px}
+        .node-grid{grid-template-columns:1fr}
+        .nodes-toolbar{padding:12px 14px}
+        .table-wrapper{border:none;background:transparent;overflow:visible;box-shadow:none}
+        table,thead,tbody,th,td,tr{display:block;width:100%}
+        thead{display:none}
+        tr{margin-bottom:14px;background:var(--card);border-radius:var(--radius-md);border:1px solid var(--border);box-shadow:var(--shadow);overflow:hidden}
+        body.dark tr{background:linear-gradient(160deg, rgba(14,22,40,.9), rgba(9,14,26,.95));border-color:rgba(0,229,255,.1)}
+        td{display:flex;align-items:center;padding:12px 14px;border-bottom:1px solid var(--border);text-align:right;gap:10px;min-height:46px}
+        td:last-child{border-bottom:none}
+        td[colspan]{justify-content:center;text-align:center}
+        td[colspan]::before{display:none!important}
+        td::before{content:attr(data-label);font-weight:600;color:var(--text-sec);flex-shrink:0;margin-right:auto;text-align:left;font-size:11px;letter-spacing:.4px;text-transform:uppercase}
+        .search-input{width:100%;max-width:none}
+        .toolbar{flex-direction:column;align-items:stretch;gap:10px}
+        .toolbar>*{width:100%}
+        .topbar{padding:0 12px;gap:8px}
+        .topbar-logo{width:32px;height:32px}
+        .topbar-title{display:none}
+        .topbar-center{flex:1}
+        .pill-btn{padding:5px 10px;font-size:12px}
+        .rtt-pill{padding:5px 10px;gap:6px;font-size:11px}
+        .rtt-label{display:none}
+        .modal-box{margin:12px auto;padding:18px;border-radius:16px}
+        .stat-pill{font-size:12px}
+        .nodes-toolbar .tb-sep{display:none}
+    }
+/* ============================================================
+   伪装版特有组件 · 星云适配层（NEBULA specific）
+   布局容器 / 顶栏左右区 / 保活徽章 ka-cd / 目标线路输入框
+   追加在星云设计系统之后，仅补充星云未定义的选择器
+   ============================================================ */
+.container{max-width:1200px;margin:0 auto;width:100%;min-height:90vh;display:flex;flex-direction:column;padding-top:96px;padding-bottom:132px}
+.content-wrap{flex:1}
+
+/* 顶栏左右区块（伪装版布局结构） */
+.topbar-left{display:flex;align-items:center;gap:12px;min-width:0}
+.topbar-right{display:flex;align-items:center;gap:10px;flex-wrap:nowrap;margin-left:auto}
+
+/* 区块标题（伪装版 .header h1） */
+.header h1{display:inline-flex;align-items:center;gap:12px;font-size:22px;margin:0;letter-spacing:-.3px;color:var(--text)}
+.header h1 svg{width:22px;height:22px;color:var(--primary-2);flex-shrink:0}
+body.dark .header h1{background:linear-gradient(120deg,#7ec9ff 0%,#00e5ff 45%,#a78bfa 100%);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;filter:drop-shadow(0 0 18px rgba(0,229,255,.25))}
+
+/* 保活倒计时徽章（伪装版 ka-cd） */
+.ka-cd{display:inline-flex;align-items:center;gap:5px;font-size:12px;font-weight:600;font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;letter-spacing:.5px;color:var(--text-sec);background:rgba(0,229,255,.05);border:1px solid rgba(0,229,255,.16);padding:2px 10px;border-radius:999px;white-space:nowrap}
+body.dark .ka-cd{color:#7ec9ff;background:rgba(0,229,255,.1);border-color:rgba(0,229,255,.3);box-shadow:0 0 14px rgba(0,229,255,.1) inset}
+.ka-cd[data-ka-next]{animation:kaPulse 2.4s ease-in-out infinite}
+@keyframes kaPulse{0%,100%{opacity:1}50%{opacity:.5}}
+
+/* 目标线路输入框（伪装版 target-input，内联样式用 !important 兜底深色） */
+.target-input{transition:border-color .2s,box-shadow .2s;font-size:14px}
+.target-input:focus{outline:none}
+body.dark .target-input{background:rgba(8,13,24,.72)!important;border-color:rgba(0,229,255,.22)!important;color:#e8eefc!important}
+body.dark .target-input:focus{border-color:#00e5ff!important;box-shadow:0 0 0 4px rgba(0,229,255,.12)!important}
+body.dark .target-input::placeholder{color:#8a96b8!important;opacity:1!important}
+
+/* 伪装版节点卡片内联小结构（星云质感兜底） */
+body.dark .emby-card .info-row{background:rgba(0,229,255,.04);border-color:rgba(0,229,255,.1)!important}
+body.dark .emby-card .info-row:hover{border-color:rgba(0,229,255,.25)!important}
+
+/* ============================================================
+   深色模式可读性修复（伪装版表单区）
+   —— placeholder / 12px 说明文字 / 灰色背景块 在深空背景上提亮
+   ============================================================ */
+body.dark #nodeModal{--text-sec:#aab6d6}
+/* 全局：深色下所有文本输入控件文字强制浅色（伪装版内联未写 color，UA 默认黑字在深色底上不可见） */
+body.dark input[type=text],body.dark input[type=url],body.dark input[type=password],body.dark input[type=number],body.dark input[type=search],body.dark input[type=email],body.dark select,body.dark textarea{color:#e8eefc!important}
+body.dark select option{background:#0d1526;color:#e8eefc}
+body.dark input::placeholder,body.dark textarea::placeholder{color:#8a96b8!important;opacity:1!important}
+body.dark #nodeModal div[style*="rgba(120,120,120,0.05)"]{background:rgba(0,229,255,.045)!important;border-color:rgba(0,229,255,.1)!important}
+body.dark #nodeModal #iconPickerPanel input{background:rgba(8,13,24,.7)!important;border-color:rgba(0,229,255,.15)!important}
+`
+
+
+
+const LOGIN_UI = `
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+    <meta name="theme-color" content="#060a13">
+    <title>系统授权</title>
+    <style>
+        ${CSS_COMMON}
+        body { display:flex; justify-content:center; align-items:center; min-height:100vh; padding:16px; margin:0; background:#060a13; color:#e8eefc; }
+        /* 星云极光背景 */
+        body::before { content:''; position:fixed; inset:0; z-index:-1; pointer-events:none; background:
+            radial-gradient(2px 2px at 15% 25%, rgba(255,255,255,.8), transparent 45%),
+            radial-gradient(1.5px 1.5px at 82% 14%, rgba(0,229,255,1), transparent 45%),
+            radial-gradient(2px 2px at 28% 78%, rgba(255,255,255,.6), transparent 45%),
+            radial-gradient(1.5px 1.5px at 64% 60%, rgba(139,92,246,1), transparent 45%),
+            radial-gradient(2px 2px at 90% 84%, rgba(255,255,255,.5), transparent 45%),
+            radial-gradient(1.5px 1.5px at 6% 62%, rgba(0,229,255,.8), transparent 45%),
+            radial-gradient(900px 520px at 10% -10%, rgba(77,163,255,.22), transparent 62%),
+            radial-gradient(820px 500px at 108% 4%, rgba(0,229,255,.14), transparent 60%),
+            radial-gradient(760px 520px at 50% 120%, rgba(139,92,246,.2), transparent 62%); }
+        body::after { content:''; position:fixed; inset:0; z-index:-1; pointer-events:none; opacity:.9;
+            background-image:
+                linear-gradient(rgba(0,229,255,.05) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(0,229,255,.05) 1px, transparent 1px);
+            background-size:46px 46px;
+            mask-image:radial-gradient(ellipse 80% 65% at 50% 20%, #000 30%, transparent 80%); }
+        .login-wrap { width:100%; max-width:400px; }
+        .login-box { background:rgba(10,16,30,.72); backdrop-filter:var(--blur); -webkit-backdrop-filter:var(--blur); padding:44px 32px 30px; border-radius:26px; box-shadow:0 20px 60px rgba(0,0,0,.5), 0 0 50px rgba(0,229,255,.06); text-align:center; width:100%; border:1px solid rgba(0,229,255,.18); animation:dsModalIn .4s var(--ease); position:relative; overflow:hidden; }
+        .login-box::before { content:''; position:absolute; left:0; top:0; width:100%; height:3px; background:linear-gradient(90deg, transparent, #00e5ff, #8b5cf6, transparent); box-shadow:0 0 18px rgba(0,229,255,.6); }
+        /* 扫描线 */
+        .login-box::after { content:''; position:absolute; left:0; right:0; top:-30%; height:26%; background:linear-gradient(180deg, transparent, rgba(0,229,255,.05), transparent); animation:lgScan 5.5s linear infinite; pointer-events:none; }
+        @keyframes lgScan { 0% { top:-30%; } 100% { top:130%; } }
+        .login-logo { width:70px; height:70px; border-radius:20px; object-fit:cover; margin:0 auto 22px; box-shadow:0 0 30px rgba(0,229,255,.35), 0 12px 34px rgba(0,0,0,.4); display:block; border:1px solid rgba(0,229,255,.3); background:rgba(13,21,38,.9); }
+        .login-box h2 { margin:0 0 6px; font-size:22px; font-weight:800; letter-spacing:.3px; background:linear-gradient(120deg,#7ec9ff,#00e5ff,#a78bfa); -webkit-background-clip:text; background-clip:text; -webkit-text-fill-color:transparent; filter:drop-shadow(0 0 16px rgba(0,229,255,.25)); }
+        .login-sub { color:#8a94b0; font-size:13px; margin:0 0 30px; }
+        .login-box input { width:100%; padding:15px 16px; margin-bottom:16px; border:1px solid rgba(0,229,255,.2); border-radius:14px; background:rgba(8,13,24,.7); color:#e8eefc; text-align:center; letter-spacing:3px; font-size:15px; transition:border-color .2s,box-shadow .2s,background .2s; }
+        .login-box input::placeholder { color:#566084; }
+        .login-box input:focus { border-color:#00e5ff; box-shadow:0 0 0 4px rgba(0,229,255,.12), 0 0 22px rgba(0,229,255,.18); background:rgba(11,18,32,.85); }
+        .login-box button { width:100%; padding:15px; background:linear-gradient(135deg,#0a84ff 0%,#00d4ff 100%); color:#fff; border:none; border-radius:14px; cursor:pointer; font-weight:700; font-size:15px; letter-spacing:4px; box-shadow:0 6px 22px rgba(0,213,255,.35), 0 0 26px rgba(0,213,255,.14); transition:all .2s; position:relative; overflow:hidden; }
+        .login-box button::after { content:''; position:absolute; top:0; left:-80%; width:50%; height:100%; background:linear-gradient(100deg,transparent,rgba(255,255,255,.4),transparent); transform:skewX(-25deg); transition:left .5s var(--ease); }
+        .login-box button:hover { transform:translateY(-2px); box-shadow:0 10px 30px rgba(0,213,255,.45), 0 0 34px rgba(0,213,255,.2); filter:brightness(1.06); }
+        .login-box button:hover::after { left:130%; }
+        .login-box button:active { transform:translateY(0) scale(.98); }
+        .login-foot { margin-top:22px; font-size:12px; color:#566084; }
+        @keyframes lgShift { from { background-position:0% 0%; } to { background-position:100% 100%; } }
+    </style>
+    <link rel="icon" type="image/jpeg" href="${EMBY_LOGO}">
+    <script>
+const I = {
+  rocket:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 16.5c-1.5 1.3-2 5-2 5s3.7-.5 5-2c.7-.8.7-2 0-2.8-.8-.7-2.2-.7-3 .8z"/><path d="M12 15l-3-3c.5-4 4-7.5 8-8 2 .2 3.8 2 4 4-.5 4-4 7.5-8 8l-1-1z"/><path d="M9 12c-2 1-3.5 3-4 5"/><circle cx="15" cy="9" r="0.5"/></svg>',
+  xmark:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg>',
+  check:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4L19 7"/></svg>',
+  warn:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3L2 20h20L12 3z"/><path d="M12 10v4M12 17.5h.01"/></svg>',
+  film:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M7 4v16M17 4v16M3 9h4M3 15h4M17 9h4M17 15h4"/></svg>',
+  star:'<svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 3l2.7 5.7 6.3.8-4.6 4.3 1.1 6.2-5.5-3-5.5 3 1.1-6.2L3 9.5l6.3-.8L12 3z"/></svg>',
+  sparkles:'<svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 3l1.6 4.4L18 9l-4.4 1.6L12 15l-1.6-4.4L6 9l4.4-1.6L12 3zM18 14l.8 2.2L21 17l-2.2.8L18 20l-.8-2.2L15 17l2.2-.8L18 14zM6 14l.6 1.7L8.5 16l-1.9.7L6 18.5l-.6-1.8L3.5 16l1.9-.3L6 14z"/></svg>',
+  globe:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.5 2.5 2.5 15 0 18M12 3c-2.5 2.5-2.5 15 0 18"/></svg>',
+  bolt:'<svg viewBox="0 0 24 24" fill="currentColor"><path d="M13 2L4 14h6l-1 8 9-12h-6l1-8z"/></svg>',
+  refresh:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20 12a8 8 0 1 1-2.34-5.66"/><path d="M20 3v5h-5"/></svg>',
+  chart:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M5 20V10M12 20V4M19 20v-7"/></svg>',
+  cloud:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M7 18a4 4 0 1 1 0-8 5 5 0 0 1 9.6 1.3A3.5 3.5 0 0 1 17 18H7z"/></svg>',
+  trash:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 6h18M8 6V4a1 1 0 0 1 1-1h6a1 1 0 0 1 1 1v2"/><path d="M19 6l-1 14a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2L5 6"/></svg>',
+  search:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg>',
+  location:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0z"/><circle cx="12" cy="10" r="3"/></svg>',
+  trophy:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M8 21h8M12 17v4M7 4h10v6a5 5 0 0 1-10 0V4z"/><path d="M7 5H4v2a3 3 0 0 0 3 3M17 5h3v2a3 3 0 0 1-3 3"/></svg>',
+  moon:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg>',
+  sun:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="12" cy="12" r="4.5"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>',
+  pencil:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.1 2.1 0 0 1 3 3L7 19l-4 1 1-4 12.5-12.5z"/></svg>',
+  gear:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M12 1v4M12 19v4M4.2 4.2l2.8 2.8M17 17l2.8 2.8M1 12h4M19 12h4M4.2 19.8L7 17M17 7l2.8-2.8"/></svg>',
+  lines:'<svg viewBox="0 0 24 24" fill="currentColor"><path d="M3 6h18v2H3zM3 11h18v2H3zM3 16h18v2H3z"/></svg>',
+  box:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 8l-9-5-9 5v8l9 5 9-5V8z"/><path d="M3 8l9 5 9-5M12 13v8"/></svg>',
+  download:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12M7 10l5 5 5-5M4 21h16"/></svg>',
+  antenna:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6.4 2a14 14 0 0 0 0 20M17.6 2a14 14 0 0 1 0 20M9.8 5.5a9 9 0 0 0 0 13M14.2 5.5a9 9 0 0 1 0 13"/><circle cx="12" cy="12" r="1.5"/></svg>',
+  bulb:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18h6M10 22h4M8 14.5A6 6 0 0 1 12 5a6 6 0 0 1 4 9.5c-.8.8-1 1.6-1 2.5h-6c0-.9-.2-1.7-1-2.5z"/></svg>',
+  tv:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="5" width="20" height="13" rx="2"/><path d="M8 21h8M12 18v3"/></svg>',
+  flame:'<svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2s5 4 5 9a5 5 0 0 1-10 0c0-2 1-3.5 2-5-.5 1-1 2-1 3 0 2.5 3 3 3 6 1-2 0-4 0-4 2 1 3 3 3 4.5A6.5 6.5 0 0 1 12 22 6.5 6.5 0 0 1 5.5 15C5.5 9 12 2 12 2z"/></svg>',
+  link:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.07 0l2.83-2.83a5 5 0 0 0-7.07-7.07L11 4.93"/><path d="M14 11a5 5 0 0 0-7.07 0l-2.83 2.83a5 5 0 0 0 7.07 7.07L13 19.07"/></svg>',
+  crown:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 7l4 4 5-6 5 6 4-4-2 12H5L3 7z"/><path d="M6 19h12"/></svg>',
+  target:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1.2" fill="currentColor"/></svg>',
+  arrowdown:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M5 12l7 7 7-7"/></svg>',
+  robot:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="8" width="14" height="11" rx="2"/><path d="M12 8V4M8 4h8"/><circle cx="9.5" cy="13" r="1" fill="currentColor"/><circle cx="14.5" cy="13" r="1" fill="currentColor"/><path d="M2 13v3M22 13v3"/></svg>',
+  spy:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="11" r="7"/><circle cx="9" cy="10" r="1" fill="currentColor"/><circle cx="15" cy="10" r="1" fill="currentColor"/><path d="M9.5 14c1 .8 4 .8 5 0"/></svg>',
+  flask:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9 3h6M10 3v5L4.5 18a2 2 0 0 0 1.8 3h11.4a2 2 0 0 0 1.8-3L14 8V3"/><path d="M7 15h10"/></svg>',
+  broom:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M13 3l8 8M11 11l8-8M4 20l7-7 1 1-7 7-2-1z"/><path d="M6 8l4 4"/></svg>',
+  checksquare:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="4"/><path d="M8 12.5l2.5 2.5L16 9"/></svg>',
+  upload:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 15V3M7 8l5-5 5 5M4 21h16"/></svg>',
+  db:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><ellipse cx="12" cy="5" rx="8" ry="3"/><path d="M4 5v14c0 1.7 3.6 3 8 3s8-1.3 8-3V5M4 12c0 1.7 3.6 3 8 3s8-1.3 8-3"/></svg>',
+  dotblue:'<svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="7" fill="#007aff"/></svg>',
+  dotorange:'<svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="7" fill="#ff9500"/></svg>',
+  dotgreen:'<svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="7" fill="#34c759"/></svg>',
+  dotpurple:'<svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="7" fill="#af52de"/></svg>'
+};
+
+const E2I = { '${I.rocket}':'rocket','${I.xmark}':'xmark','${I.check}':'check','${I.warn}':'warn','${I.film}':'film','${I.star}':'star','${I.sparkles}':'sparkles','${I.sparkles}':'sparkles','${I.globe}':'globe','${I.globe}':'globe','${I.bolt}':'bolt','${I.refresh}':'refresh','${I.chart}':'chart','${I.cloud}':'cloud','${I.trash}':'trash','${I.search}':'search','${I.location}':'location','${I.trophy}':'trophy','${I.moon}':'moon','${I.sun}':'sun','${I.dotblue}':'dotblue','${I.dotorange}':'dotorange','${I.dotgreen}':'dotgreen','${I.dotpurple}':'dotpurple','${I.robot}':'robot','${I.spy}':'spy','${I.flame}':'flame','${I.link}':'link','${I.tv}':'tv','${I.box}':'box','${I.download}':'download','${I.antenna}':'antenna','${I.bulb}':'bulb','${I.crown}':'crown','${I.target}':'target','${I.arrowdown}':'arrowdown','${I.xmark}':'xmark','${I.pencil}':'pencil','${I.gear}':'gear','${I.lines}':'lines','${I.flask}':'flask','${I.broom}':'broom','${I.checksquare}':'checksquare','${I.upload}':'upload' };
+function toSvg(s){
+  if(!s) return s;
+  return String(s).replace(/[\u{1F000}-\u{1FAFF}\u{2600}-\u{27BF}\u{FE0F}\u{2B00}-\u{2BFF}]/gu, function(ch){
+    if(ch==='\uFE0F') return '';
+    var key = E2I[ch];
+    return (key && I[key]) ? '<span class="ti">'+I[key]+'</span>' : '';
+  });
+}
+    </script>
+
+</head>
+<body>
+    <div id="toast"></div>
+    <div class="login-wrap">
+        <div class="login-box">
+            <img class="login-logo" src="${EMBY_LOGO}" alt="logo" onerror="this.style.display='none'">
+            <h2>安全中心</h2>
+            <p class="login-sub">请输入访问密钥以继续</p>
+            <input type="password" id="tokenInput" placeholder="请输入密钥 TOKEN" onkeydown="if(event.key==='Enter') login()" autocomplete="off">
+            <button onclick="login()">验 证 登 录</button>
+            <p class="login-foot">登录后浏览器将记住本次授权</p>
+        </div>
+    </div>
+    <script>
+        function showToast(msg) {
+            const t = document.getElementById('toast');
+            t.innerHTML = toSvg(msg); t.classList.add('show');
+            setTimeout(() => t.classList.remove('show'), 2000);
+        }
+        function login() {
+            const token = document.getElementById('tokenInput').value.trim();
+            if(!token) return showToast('请输入正确的密钥');
+            document.cookie = 'admin_token=' + encodeURIComponent(token) + '; path=/; max-age=2592000;';
+            window.location.reload();
+        }
+    </script>
+
+</body>
+</html>
+`;
+
+const HTML_UI = `
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+    <title>玛卡巴卡的反代面板</title>
+    <style>${CSS_COMMON}</style>
+    <script src="https://cdn.jsdelivr.net/npm/sortablejs@latest/Sortable.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="icon" type="image/jpeg" href="${EMBY_LOGO}">
+    <script>
+const I = {
+  rocket:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 16.5c-1.5 1.3-2 5-2 5s3.7-.5 5-2c.7-.8.7-2 0-2.8-.8-.7-2.2-.7-3 .8z"/><path d="M12 15l-3-3c.5-4 4-7.5 8-8 2 .2 3.8 2 4 4-.5 4-4 7.5-8 8l-1-1z"/><path d="M9 12c-2 1-3.5 3-4 5"/><circle cx="15" cy="9" r="0.5"/></svg>',
+  xmark:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg>',
+  check:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4L19 7"/></svg>',
+  warn:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3L2 20h20L12 3z"/><path d="M12 10v4M12 17.5h.01"/></svg>',
+  film:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M7 4v16M17 4v16M3 9h4M3 15h4M17 9h4M17 15h4"/></svg>',
+  star:'<svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 3l2.7 5.7 6.3.8-4.6 4.3 1.1 6.2-5.5-3-5.5 3 1.1-6.2L3 9.5l6.3-.8L12 3z"/></svg>',
+  sparkles:'<svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 3l1.6 4.4L18 9l-4.4 1.6L12 15l-1.6-4.4L6 9l4.4-1.6L12 3zM18 14l.8 2.2L21 17l-2.2.8L18 20l-.8-2.2L15 17l2.2-.8L18 14zM6 14l.6 1.7L8.5 16l-1.9.7L6 18.5l-.6-1.8L3.5 16l1.9-.3L6 14z"/></svg>',
+  globe:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.5 2.5 2.5 15 0 18M12 3c-2.5 2.5-2.5 15 0 18"/></svg>',
+  bolt:'<svg viewBox="0 0 24 24" fill="currentColor"><path d="M13 2L4 14h6l-1 8 9-12h-6l1-8z"/></svg>',
+  refresh:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20 12a8 8 0 1 1-2.34-5.66"/><path d="M20 3v5h-5"/></svg>',
+  chart:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M5 20V10M12 20V4M19 20v-7"/></svg>',
+  cloud:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M7 18a4 4 0 1 1 0-8 5 5 0 0 1 9.6 1.3A3.5 3.5 0 0 1 17 18H7z"/></svg>',
+  trash:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 6h18M8 6V4a1 1 0 0 1 1-1h6a1 1 0 0 1 1 1v2"/><path d="M19 6l-1 14a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2L5 6"/></svg>',
+  search:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg>',
+  location:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0z"/><circle cx="12" cy="10" r="3"/></svg>',
+  trophy:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M8 21h8M12 17v4M7 4h10v6a5 5 0 0 1-10 0V4z"/><path d="M7 5H4v2a3 3 0 0 0 3 3M17 5h3v2a3 3 0 0 1-3 3"/></svg>',
+  moon:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg>',
+  sun:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="12" cy="12" r="4.5"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>',
+  pencil:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.1 2.1 0 0 1 3 3L7 19l-4 1 1-4 12.5-12.5z"/></svg>',
+  gear:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M12 1v4M12 19v4M4.2 4.2l2.8 2.8M17 17l2.8 2.8M1 12h4M19 12h4M4.2 19.8L7 17M17 7l2.8-2.8"/></svg>',
+  lines:'<svg viewBox="0 0 24 24" fill="currentColor"><path d="M3 6h18v2H3zM3 11h18v2H3zM3 16h18v2H3z"/></svg>',
+  box:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 8l-9-5-9 5v8l9 5 9-5V8z"/><path d="M3 8l9 5 9-5M12 13v8"/></svg>',
+  download:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12M7 10l5 5 5-5M4 21h16"/></svg>',
+  antenna:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6.4 2a14 14 0 0 0 0 20M17.6 2a14 14 0 0 1 0 20M9.8 5.5a9 9 0 0 0 0 13M14.2 5.5a9 9 0 0 1 0 13"/><circle cx="12" cy="12" r="1.5"/></svg>',
+  bulb:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18h6M10 22h4M8 14.5A6 6 0 0 1 12 5a6 6 0 0 1 4 9.5c-.8.8-1 1.6-1 2.5h-6c0-.9-.2-1.7-1-2.5z"/></svg>',
+  tv:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="5" width="20" height="13" rx="2"/><path d="M8 21h8M12 18v3"/></svg>',
+  flame:'<svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2s5 4 5 9a5 5 0 0 1-10 0c0-2 1-3.5 2-5-.5 1-1 2-1 3 0 2.5 3 3 3 6 1-2 0-4 0-4 2 1 3 3 3 4.5A6.5 6.5 0 0 1 12 22 6.5 6.5 0 0 1 5.5 15C5.5 9 12 2 12 2z"/></svg>',
+  link:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.07 0l2.83-2.83a5 5 0 0 0-7.07-7.07L11 4.93"/><path d="M14 11a5 5 0 0 0-7.07 0l-2.83 2.83a5 5 0 0 0 7.07 7.07L13 19.07"/></svg>',
+  crown:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 7l4 4 5-6 5 6 4-4-2 12H5L3 7z"/><path d="M6 19h12"/></svg>',
+  target:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1.2" fill="currentColor"/></svg>',
+  arrowdown:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M5 12l7 7 7-7"/></svg>',
+  robot:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="8" width="14" height="11" rx="2"/><path d="M12 8V4M8 4h8"/><circle cx="9.5" cy="13" r="1" fill="currentColor"/><circle cx="14.5" cy="13" r="1" fill="currentColor"/><path d="M2 13v3M22 13v3"/></svg>',
+  spy:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="11" r="7"/><circle cx="9" cy="10" r="1" fill="currentColor"/><circle cx="15" cy="10" r="1" fill="currentColor"/><path d="M9.5 14c1 .8 4 .8 5 0"/></svg>',
+  flask:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9 3h6M10 3v5L4.5 18a2 2 0 0 0 1.8 3h11.4a2 2 0 0 0 1.8-3L14 8V3"/><path d="M7 15h10"/></svg>',
+  broom:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M13 3l8 8M11 11l8-8M4 20l7-7 1 1-7 7-2-1z"/><path d="M6 8l4 4"/></svg>',
+  checksquare:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="4"/><path d="M8 12.5l2.5 2.5L16 9"/></svg>',
+  upload:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 15V3M7 8l5-5 5 5M4 21h16"/></svg>',
+  db:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><ellipse cx="12" cy="5" rx="8" ry="3"/><path d="M4 5v14c0 1.7 3.6 3 8 3s8-1.3 8-3V5M4 12c0 1.7 3.6 3 8 3s8-1.3 8-3"/></svg>',
+  dotblue:'<svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="7" fill="#007aff"/></svg>',
+  dotorange:'<svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="7" fill="#ff9500"/></svg>',
+  dotgreen:'<svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="7" fill="#34c759"/></svg>',
+  dotpurple:'<svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="7" fill="#af52de"/></svg>'
+};
+
+const E2I = { '${I.rocket}':'rocket','${I.xmark}':'xmark','${I.check}':'check','${I.warn}':'warn','${I.film}':'film','${I.star}':'star','${I.sparkles}':'sparkles','${I.sparkles}':'sparkles','${I.globe}':'globe','${I.globe}':'globe','${I.bolt}':'bolt','${I.refresh}':'refresh','${I.chart}':'chart','${I.cloud}':'cloud','${I.trash}':'trash','${I.search}':'search','${I.location}':'location','${I.trophy}':'trophy','${I.moon}':'moon','${I.sun}':'sun','${I.dotblue}':'dotblue','${I.dotorange}':'dotorange','${I.dotgreen}':'dotgreen','${I.dotpurple}':'dotpurple','${I.robot}':'robot','${I.spy}':'spy','${I.flame}':'flame','${I.link}':'link','${I.tv}':'tv','${I.box}':'box','${I.download}':'download','${I.antenna}':'antenna','${I.bulb}':'bulb','${I.crown}':'crown','${I.target}':'target','${I.arrowdown}':'arrowdown','${I.xmark}':'xmark','${I.pencil}':'pencil','${I.gear}':'gear','${I.lines}':'lines','${I.flask}':'flask','${I.broom}':'broom','${I.checksquare}':'checksquare','${I.upload}':'upload' };
+function toSvg(s){
+  if(!s) return s;
+  return String(s).replace(/[\u{1F000}-\u{1FAFF}\u{2600}-\u{27BF}\u{FE0F}\u{2B00}-\u{2BFF}]/gu, function(ch){
+    if(ch==='\uFE0F') return '';
+    var key = E2I[ch];
+    return (key && I[key]) ? '<span class="ti">'+I[key]+'</span>' : '';
+  });
+}
+    </script>
+</head>
+<script>try{if(!localStorage.getItem('emby_proxy_dark'))document.body.classList.add('dark')}catch(e){}</script>
+    <div id="toast"></div>
+    
+    <div id="dashboardModal" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.6); z-index:10000; overflow-y:auto; padding: 20px; backdrop-filter: blur(5px);">
+        <div class="card" style="max-width: 1000px; margin: 40px auto; position:relative; box-shadow: 0 10px 40px rgba(0,0,0,0.2);">
+            <button onclick="closeDashboard()" style="position:absolute; top:20px; right:20px; font-size:24px; background:none; border:none; cursor:pointer; color: var(--text-sec); transition: 0.2s;" onmouseover="this.style.color='#ff3b30'" onmouseout="this.style.color='var(--text-sec)'">${I.xmark}</button>
+            
+            <h2 style="margin-top:0; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 10px;">
+                <div style="display: flex; align-items: center; gap: 10px;">
+                    ${I.chart} 数据大屏 <span style="font-size:14px; font-weight: normal; color: var(--text-sec);">精确访客画像分析</span>
+                </div>
+                <div style="font-size: 13px; background: rgba(0,113,227,0.1); color: var(--primary); padding: 6px 12px; border-radius: 8px; border: 1px solid rgba(0,113,227,0.2); display: flex; gap: 15px; flex-wrap: wrap;">
+                    <span> 今天: <strong id="trafficToday">加载中...</strong></span>
+                    <span>1周内: <strong id="traffic7d">加载中...</strong></span>
+                    <span>1月内: <strong id="traffic30d">加载中...</strong></span>
+                </div>
+            </h2>
+            
+            <div class="stat-pills" style="margin-bottom:10px;">
+                <span class="stat-pill">CF请求 今天: <strong id="cfToday">加载中...</strong></span>
+                <span class="stat-pill">1周内: <strong id="cfWeek">加载中...</strong></span>
+                <span class="stat-pill">1月内: <strong id="cfMonth">加载中...</strong></span>
+            </div>
+            <div id="cfQuotaCard" style="background:linear-gradient(135deg, rgba(0,229,255,.08), rgba(124,58,237,.08)); border:1px solid var(--border); border-radius:12px; padding:14px 16px; margin-bottom:18px;">
+                <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:6px;">
+                    <span style="font-size:13px; font-weight:600;">CF Worker 每日免费请求额度 <span style="font-size:12px; font-weight:400; color:var(--text-sec);">(UTC 00:00 重置 · 基准 100,000 次/天)</span></span>
+                    <span id="cfQuotaText" style="font-size:13px; font-weight:700; color:var(--primary);">加载中...</span>
+                </div>
+                <div style="height:10px; background:rgba(120,120,120,.18); border-radius:999px; margin-top:12px; overflow:hidden;">
+                    <div id="cfQuotaBar" style="height:100%; width:0%; background:linear-gradient(90deg,#00e5ff,#7c3aed); border-radius:999px; transition:width .6s ease;"></div>
+                </div>
+                <div id="cfQuotaDetail" style="font-size:12px; color:var(--text-sec); margin-top:8px;">已用 0 次 / 10万 (0%) · 剩余 100000 次</div>
+            </div>
+            <div class="stat-pills" style="margin-bottom:10px;">
+                <span class="stat-pill">今日带宽: <strong id="cfBandwidth">加载中...</strong></span>
+                <span class="stat-pill">缓存命中: <strong id="cfCacheRatio">加载中...</strong></span>
+                <span class="stat-pill">被拦截: <strong id="cfBlocked">加载中...</strong></span>
+                <span class="stat-pill">5xx错误: <strong id="cf5xx">加载中...</strong></span>
+            </div>
+            <div style="display: flex; gap: 16px; flex-wrap: wrap; margin-bottom: 18px;">
+                <div class="chart-panel" style="flex:1; min-width:260px;">
+                    <div style="font-size:13px; font-weight:600; margin-bottom:8px;">今日响应状态码分布</div>
+                    <canvas id="cfStatusChart" height="140"></canvas>
+                </div>
+                <div class="chart-panel" style="flex:1; min-width:260px;">
+                    <div style="font-size:13px; font-weight:600; margin-bottom:8px;">今日请求分时趋势 (UTC 24h)</div>
+                    <canvas id="cfHourChart" height="140"></canvas>
+                </div>
+            </div>
+            <div style="display: flex; gap: 16px; flex-wrap: wrap; margin-bottom: 18px;">
+                <div class="chart-panel" style="flex:1; min-width:260px;">
+                    <div style="font-size:13px; font-weight:600; margin-bottom:8px;">今日 Top 来源地区</div>
+                    <div id="cfCountryList" style="font-size:12px; color:var(--text-sec);">加载中...</div>
+                </div>
+            </div>
+            
+            <div style="display: flex; gap: 20px; flex-wrap: wrap; margin-top:20px;">
+                <div style="flex: 2; min-width: 300px; border: 1px solid var(--border); border-radius: 14px; padding: 16px; background: rgba(120,120,120,0.03);">
+                    <canvas id="trendChart"></canvas>
+                </div>
+                <div style="flex: 1; min-width: 300px; border: 1px solid var(--border); border-radius: 14px; padding: 16px; background: rgba(120,120,120,0.03); display: flex; justify-content: center; align-items: center;">
+                    <canvas id="locationChart"></canvas>
+                </div>
+            </div>
+            
+            <h3 style="margin-top: 30px; margin-bottom:16px;">${I.spy} 最新独立播放记录 <span style="font-size:12px; color:var(--text-sec);">(仅拦截 PlaybackInfo 真实播放)</span></h3>
+            <div class="table-wrapper">
+                <table style="width: 100%;">
+                    <thead><tr><th>访问时间</th><th>目标节点</th><th>真实 IP 地址</th><th>归属地</th><th>客户端/设备标识 (User-Agent)</th></tr></thead>
+                    <tbody id="logTableBody"><tr><td colspan="5" style="text-align:center; padding: 30px;">加载数据中...</td></tr></tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+    <div id="updateAlert" class="card" style="display: none; border-left: 4px solid #34c759; background-color: rgba(52, 199, 89, 0.05); margin-top: 20px;">
+            <div style="display:flex; justify-content: space-between; align-items:center; flex-wrap:wrap; gap:10px;">
+                <div>
+                    <h3 style="margin:0; color: #34c759; font-size: 16px;">${I.sparkles} 发现新版本！</h3>
+                    <p style="margin: 5px 0 0 0; font-size: 13px; color: var(--text-sec);" id="updateMsg">当前版本: v1.0.0 | 最新版本: v?.?.?</p>
+                </div>
+                <button class="btn-submit" onclick="doOnlineUpdate()" id="onlineUpdateBtn" style="padding:8px 16px;border-radius:6px;">${I.rocket} 一键拉取并升级</button>
+            </div>
+        </div>
+    <div id="cf-trace-card" style="background: rgba(120,120,120,0.05); padding: 15px 20px; border-radius: 12px; border: 1px solid var(--border); margin-bottom: 20px; display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; font-size: 14px; gap: 15px; box-shadow: inset 0 2px 4px rgba(0,0,0,0.02); margin-top: 20px;">
+            <div style="display: flex; align-items: center; gap: 12px;">
+                <div style="font-size: 24px;">${I.location}</div>
+                <div>
+                    <div style="color:var(--text-sec); font-size: 12px; margin-bottom: 2px;">访客入口 (地区与机房)</div>
+                    <div id="trace-entry" style="font-weight:600; color:var(--text); font-family: monospace; font-size: 15px;">雷达扫描中...</div>
+                </div>
+            </div>
+            <div style="display: flex; align-items: center; gap: 12px;">
+                <div style="font-size: 24px;">${I.rocket}</div>
+                <div>
+                    <div style="color:var(--text-sec); font-size: 12px; margin-bottom: 2px;">Worker 实际落地机房</div>
+                    <div id="trace-egress" style="font-weight:600; color:#34c759; font-family: monospace; font-size: 15px;">雷达扫描中...</div>
+                </div>
+            </div>
+        </div><div class="card admin-only" style="margin-top:20px;">
+            <div style="font-weight: 600; margin-bottom: 12px; font-size: 16px;">${I.gear} Worker 调度模式与区域设置</div>
+            <button class="btn-submit" onclick="openPlacementModal()" style="width:100%;">${I.gear} 修改调度/区域</button>
+        </div>
+        <div class="content-wrap">
+            <div class="topbar">
+                <div class="topbar-left">
+                    <img class="topbar-logo" src="${EMBY_LOGO}" alt="logo" onclick="openAccountModal()" title="账户设置" style="cursor:pointer;">
+                    <div class="rtt-pill" title="你的设备到云端边缘节点的真实往返延迟">
+                        <span class="rtt-dot" id="rttDot"></span>
+                        <span class="rtt-label">RTT</span>
+                        <span id="rttValue">测算中</span>
+                        <button id="themeToggle" onclick="toggleDarkMode()" title="切换深色模式">${I.moon}</button>
+                    </div>
+                </div>
+                <div class="topbar-right">
+                    <button class="pill-btn" onclick="openDashboard()" title="数据统计">${I.chart} 统计</button>
+                    <button class="pill-btn" onclick="location.href='/speedtest'" title="下载测速" style="color:#4fd08a;border-color:rgba(79,208,138,.32);background:rgba(79,208,138,.12);">${I.bolt} 下载测速</button>
+                    <button class="pill-close" onclick="confirmLogout()" title="退出系统">${I.xmark}</button>
+                </div>
+            </div>
+
+            <div class="card admin-only" style="border-left: 4px solid #ff3b30;">
+                <div style="display:flex; justify-content: space-between; align-items:center; margin-bottom:12px; flex-wrap:wrap; gap:10px;">
+                    <h2 style="margin:0; font-size:18px; color: #ff3b30;">${I.rocket} 手动覆盖/更新</h2>
+                </div>
+                <div style="display:flex; gap:10px; flex-wrap:wrap;">
+                    <button class="btn-submit" onclick="openCodeModal('paste')" style="flex:1; min-width:120px;">${I.pencil} 手动输入</button>
+                    <button class="btn-submit" onclick="openCodeModal('file')" style="flex:1; min-width:120px;">${I.upload} 文件导入</button>
+                </div>
+            </div>
+            <div class="card admin-only">
+                <div style="display:flex; justify-content: space-between; align-items:center; margin-bottom:16px; flex-wrap:wrap; gap:10px;">
+                    <h2 style="margin:0; font-size:18px;">${I.bolt} 专属线路测速与动态 DNS 解析</h2>
+                </div>
+                
+                <div style="background: rgba(120,120,120,0.05); padding: 12px 16px; border-radius: 10px; border: 1px solid var(--border); margin-bottom: 16px;">
+                    <div style="font-size: 13px; font-weight: 600; color: var(--text-sec); margin-bottom: 8px;">${I.antenna} 当前域名生效的 DNS 解析：</div>
+                    <div id="dnsStatus" style="display: flex; gap: 8px; flex-wrap: wrap;">
+                        <span style="color:#888; font-size: 14px;">加载中...</span>
+                    </div>
+                </div>
+
+                <div class="toolbar">
+                    <select id="ipType" style="font-weight: 600; color: var(--primary); padding: 12px 16px; border: 1px solid var(--border); border-radius: 10px; background:var(--card);">
+                        <option value="all"> 综合混合源</option>
+                        <option value="电信"> 电信专属</option>
+                        <option value="联通"> 联通专属</option>
+                        <option value="移动"> 移动专属</option>
+                        <option value="多线"> 多线BGP</option>
+                        <option value="ipv6"> IPv6节点</option>
+                        <option value="优选"> 顶尖优选库</option>
+                    </select>
+
+                    <button class="btn-submit" id="btnFetchRemote" onclick="fetchRemoteAndTest()">${I.globe} 提取预设源并测速</button>
+                    <button class="btn-submit" onclick="batchTcpPing()" style=" box-shadow: 0 4px 12px rgba(255, 149, 0, 0.2);">${I.globe} 复制去 ITDog</button>
+                    <button class="btn-submit" onclick="clearTest()" style=" box-shadow: 0 4px 12px rgba(142, 142, 147, 0.2);">${I.trash} 清空列表</button>
+                </div>
+
+                <div style="background: rgba(120,120,120,0.05); padding: 16px; border-radius: 12px; border: 1px solid var(--border); margin-bottom: 16px;">
+                    <div style="display: flex; gap: 8px; margin-bottom: 12px; align-items: center; flex-wrap: wrap;">
+                        <input type="text" id="customApiUrl" value="https://ip.v2too.top/api/nodes" placeholder="填入自定义 JSON 或 文本 API 链接" style="flex: 1; min-width: 200px; padding: 12px 14px; border-radius: 10px; border: 1px solid var(--border); background:var(--card);">
+                        <button class="btn-submit" id="btnFetchCustomApi" onclick="fetchCustomApiAndTest()" style=" box-shadow: 0 4px 12px rgba(50, 173, 230, 0.2);">${I.globe} 拉取 API 并测速</button>
+                    </div>
+
+                    <textarea id="customIps" rows="2" placeholder="在此粘贴自定义 IPv4、IPv6 或 优选域名 (支持混杂文本，自动提取)" style="width: 100%; padding: 14px; border-radius: 10px; border: 1px solid var(--border); margin-bottom: 12px; font-family: monospace; resize: vertical; background:var(--card);"></textarea>
+                    
+                    <div style="display: flex; gap: 10px; flex-wrap: wrap;">
+                        <button class="btn-submit" id="btnTestCustom" onclick="testCustomIPs()" style=" box-shadow: 0 4px 12px rgba(88, 86, 214, 0.2);">${I.flask} 测试粘贴的节点</button>
+                        <button class="btn-submit" id="btnDirectCname" onclick="directSubmitCname()" style=" box-shadow: 0 4px 12px rgba(175, 82, 222, 0.2);">${I.link} 直推 CNAME (免测速)</button>
+                        <div style="width: 100%; height: 1px; background: var(--border); margin: 4px 0;"></div>
+                        <button class="btn-submit" id="btnTop3Dns" onclick="updateTop3ToDns()" style=" box-shadow: 0 4px 12px rgba(255, 45, 85, 0.2);">${I.star} 更新 TOP3 至 DNS</button>
+                        <button class="btn-submit" id="btnSelectedDns" onclick="updateSelectedToDns()" style=" box-shadow: 0 4px 12px rgba(52, 199, 89, 0.2);">${I.checksquare} 提交选中节点至 DNS</button>
+                    </div>
+                </div>
+                
+                <div id="statusText" style="line-height: 1.6; font-size: 14px; color: var(--text-sec); margin-bottom: 16px; padding: 12px 16px; background: rgba(52, 199, 89, 0.1); border-radius: 10px; border-left: 4px solid #34c759;">
+                    ${I.bulb} 测速完成后，可勾选复选框自由组合，点击【提交选中节点至 DNS】自动分发。
+                </div>
+
+                <div class="table-wrapper">
+                    <table style="width: 100%;">
+                        <thead>
+                            <tr>
+                                <th style="width: 40px; text-align: center;"><input type="checkbox" id="selectAll" class="ip-checkbox" onclick="toggleSelectAll()"></th>
+                                <th>专属节点 (点击复制)</th>
+                                <th>预估延迟</th>
+                                <th>连通状态</th>
+                                <th>记录类型/归属地</th>
+                                <th>单节点操作</th>
+                            </tr>
+                        </thead>
+                        <tbody id="testTableBody">
+                            <tr><td colspan="6" style="text-align:center;color:var(--text-sec);">暂无数据，请拉取节点或输入自定义 IP/域名 测试</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            
+            <div class="card admin-only" id="config-backup-card">
+                <h2 style="margin:0; font-size:18px; margin-bottom:14px;">${I.box} 配置备份与恢复</h2>
+                <div style="display:flex; gap:10px; flex-wrap:wrap;">
+                    <button class="btn-submit" onclick="exportConfig()">${I.box} 导出配置</button>
+                    <button class="btn-submit" onclick="importConfig()">${I.download} 导入配置</button>
+                </div>
+            </div>
+
+            <div class="card admin-only" id="deploy-card">
+                <div style="display:flex; justify-content: space-between; align-items:center; gap:10px; flex-wrap:wrap;">
+                    <h2 style="margin:0; font-size:18px;">${I.rocket} 反代节点</h2>
+                    <button class="btn-submit" onclick="openNodeModal()">${I.plus} 添加节点</button>
+                </div>
+            </div>
+
+            <div id="nodeModal" style="display:none; position:fixed; inset:0; z-index:11000; background:rgba(0,0,0,.5); backdrop-filter:blur(5px); overflow-y:auto; padding:16px;">
+                <div style="max-width:680px; margin:24px auto; background:var(--card); border-radius:18px; padding:22px; box-shadow:0 10px 40px rgba(0,0,0,.2);">
+                    <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:14px;">
+                        <h2 id="nodeModalTitle" style="margin:0; font-size:19px; display:flex; align-items:center; gap:8px;">${I.pencil} 添加节点</h2>
+                        <button onclick="closeNodeModal()" style="background:transparent;border:none;cursor:pointer;color:var(--text-sec);display:inline-flex;padding:4px;">${I.xmark}</button>
+                    </div>
+                    <form id="addForm" style="display: flex; flex-direction: column; gap: 16px;">
+                    <div style="display: flex; gap: 12px; flex-wrap: wrap;">
+                        <input type="hidden" id="oldPrefix" value="">
+                        <input type="text" id="remark" placeholder="节点备注 (如: Misaka服)" style="padding: 12px 16px; border: 1px solid var(--border); border-radius: 10px; background:var(--card); flex: 1;" required>
+                        <input type="text" id="prefix" placeholder="短路径后缀 (如: misaka)" style="padding: 12px 16px; border: 1px solid var(--border); border-radius: 10px; background:var(--card); flex: 1;" required>
+                        <select id="mode" style="padding: 12px 16px; border: 1px solid var(--border); border-radius: 10px; background:var(--card); flex: 1;" onchange="toggleCustomParams()">
+                            <option value="off">保守 (抹除IP)</option>
+                            <option value="realip_only">严格 (透传IP)</option>
+                            <option value="dual">兼容 (双重透传)</option>
+                            <option value="strict">强力 (防403)</option>
+                            <option value="off_fake">保守 + 伪装 (隐藏IP)</option>
+                            <option value="realip_only_fake">严格 + 伪装 (透传单IP)</option>
+                            <option value="dual_fake">兼容 + 伪装 (透传双IP)</option>
+                            <option value="strict_fake">强力 + 伪装 (防403)</option>
+                        </select>
+                    </div>
+
+                    <div id="customParamsDiv" style="display: none; gap: 12px; flex-wrap: wrap; background: rgba(120,120,120,0.05); padding: 16px; border-radius: 10px; border: 1px solid var(--border);">
+                        <div style="width: 100%; display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 4px; align-items: center;">
+                            <span style="font-size: 13px; font-weight: 600; color: var(--text-sec);">快速填入预设模板：</span>
+                            <button type="button" class="btn-submit" style="padding: 6px 12px; font-size: 12px; border-radius: 6px; background: #32ade6; box-shadow: none;" onclick="applyFakeTemplate('senplayer')">SenPlayer</button>
+                            <button type="button" class="btn-submit" style="padding: 6px 12px; font-size: 12px; border-radius: 6px; background: #5856d6; box-shadow: none;" onclick="applyFakeTemplate('eplayerx')">EplayerX</button>
+                            <button type="button" class="btn-submit" style="padding: 6px 12px; font-size: 12px; border-radius: 6px; background: #af52de; box-shadow: none;" onclick="applyFakeTemplate('forward')">Forward</button>
+                            <button type="button" class="btn-submit" style="padding: 6px 12px; font-size: 12px; border-radius: 6px; background: #00c7be; box-shadow: none;" onclick="applyFakeTemplate('rex')">Rex</button>
+                            <button type="button" class="btn-submit" style="padding: 6px 12px; font-size: 12px; border-radius: 6px; background: #34c759; box-shadow: none;" onclick="applyFakeTemplate('hills')">Hills</button>
+                            <button type="button" class="btn-submit" style="padding: 6px 12px; font-size: 12px; border-radius: 6px; background: #ff9500; box-shadow: none;" onclick="applyFakeTemplate('yamby')">Yamby</button>
+                            <div style="flex-grow: 1;"></div>
+                            <button type="button" class="btn-submit" style="padding: 6px 12px; font-size: 12px; border-radius: 6px; background: #8e8e93; box-shadow: none;" onclick="applyFakeTemplate('clear')">清空</button>
+                        </div>
+                        <div style="width: 100%; font-size: 12px; color: var(--text-sec); margin-bottom: 4px;">深度替换 Header 及 URL 参数，防止双重设备记录暴露真实身份。</div>
+                        <input type="text" id="customClient" placeholder="Client (如: Forward)" style="flex: 1; min-width: 150px; padding: 12px 16px; border: 1px solid var(--border); border-radius: 8px; background:var(--card);">
+                        <input type="text" id="customVersion" placeholder="Version (如: 1.3.15)" style="flex: 1; min-width: 150px; padding: 12px 16px; border: 1px solid var(--border); border-radius: 8px; background:var(--card);">
+                        <input type="text" id="customDevice" placeholder="Device (如: iPhone)" style="flex: 1; min-width: 150px; padding: 12px 16px; border: 1px solid var(--border); border-radius: 8px; background:var(--card);">
+                        <input type="text" id="customUa" placeholder="User-Agent (伪装 UA)" style="flex: 1; min-width: 250px; padding: 12px 16px; border: 1px solid var(--border); border-radius: 8px; background:var(--card);">
+                        <div style="width: 100%; display: flex; gap: 8px; align-items: center;">
+                            <input type="text" id="customDeviceId" placeholder="Device ID（设备唯一标识，留空自动生成）" style="flex: 1; min-width: 250px; padding: 12px 16px; border: 1px solid var(--border); border-radius: 8px; background:var(--card);">
+                            <button type="button" class="btn-submit" style="padding: 8px 14px; font-size: 12px; border-radius: 6px; background: #8e8e93; box-shadow: none;" onclick="document.getElementById('customDeviceId').value = genUuid()">随机生成</button>
+                        </div>
+                    </div>
+
+                    <div id="kaConfigDiv" style="display: flex; flex-direction: column; gap: 10px; background: rgba(52,199,89,0.05); padding: 16px; border-radius: 10px; border: 1px solid rgba(52,199,89,0.2);">
+                        <div style="width: 100%; display: flex; align-items: center; gap: 10px; flex-wrap: wrap;">
+                            <label style="display:flex; align-items:center; gap:8px; font-size:14px; font-weight:600; cursor:pointer;">
+                                <input type="checkbox" id="kaEnabled" class="ip-checkbox"> 开启自动保活
+                            </label>
+                            <span style="font-size:12px; color:var(--text-sec);">防止上游线路/账号被回收，到期间隔自动模拟播放一次</span>
+                        </div>
+                        <input type="number" id="kaDays" placeholder="保活间隔（天，可填小数如 0.5 / 3 / 14）" step="0.1" min="0.1" style="padding: 10px 14px; border: 1px solid var(--border); border-radius: 8px; background: var(--card); width: 100%;">
+                        <input type="text" id="kaToken" placeholder="上游 API Key（选填，填了优先用它保活）" style="padding: 10px 14px; border: 1px solid var(--border); border-radius: 8px; background: var(--card); width: 100%;">
+                        <div style="display: flex; gap: 10px; flex-wrap: wrap;">
+                            <input type="text" id="nodeUser" placeholder="节点账号（保活 / Rex导入用）" style="flex:1; min-width: 160px; padding: 10px 14px; border: 1px solid var(--border); border-radius: 8px; background: var(--card);">
+                            <input type="password" id="nodePass" placeholder="节点密码" style="flex:1; min-width: 160px; padding: 10px 14px; border: 1px solid var(--border); border-radius: 8px; background: var(--card);">
+                        </div>
+                        <div style="font-size:12px; color:var(--text-sec);">在 CF 面板给 Worker 配 Cron 触发器（如每天 */5 * * * *），自动保活才会按间隔执行；不配 Cron 也可点节点卡片「保活」手动触发。</div>
+                    </div>
+                    <input type="number" id="watchLimit" placeholder="观看下限（天，如 7 / 14 / 21；0 = 不限制。超过下限未观看会在卡片红色报警）" step="0.1" min="0" style="padding: 10px 14px; border: 1px solid var(--border); border-radius: 8px; background: var(--card); width: 100%;">
+
+                    <div style="display: flex; gap: 12px; flex-wrap: wrap; align-items: center;">
+                        <div style="position: relative; flex: 2; display: flex;">
+                            <div style="display:flex; gap:10px; align-items:center; background:var(--card); padding:10px 16px; border-radius:10px; border:1px solid var(--border); flex: 1; cursor: pointer; transition:0.2s;" onclick="toggleIconPicker(event)" id="iconSelectBtn">
+                                <img id="iconPreview" src="" style="width:24px;height:24px;display:none;border-radius:4px;object-fit:cover;">
+                                <span id="iconDefault" style="font-size:20px;line-height:1;">${I.film}</span>
+                                <span id="iconSelectText" style="flex:1; color: var(--text-sec); font-size:14px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">点击选择图标 (默认)</span>
+                                <input type="hidden" id="iconUrl" value="">
+                            </div>
+                            
+                            <div id="iconPickerPanel" style="display:none; position: absolute; top: 100%; left: 0; width: 100%; background: var(--card); border: 1px solid var(--border); border-radius: 10px; padding: 12px; box-shadow: 0 10px 30px rgba(0,0,0,0.15); z-index: 100; margin-top: 8px; flex-direction: column; gap: 10px;">
+                                <div style="display: flex; gap: 8px; align-items: center; margin-bottom: 4px;">
+                                    <input type="text" id="customIconUrlInput" placeholder="输入自定义 JSON 图标库链接..." style="flex: 1; padding: 8px 10px; border: 1px solid var(--border); border-radius: 8px; background:var(--bg); font-size: 13px; color: var(--text);">
+                                    <button type="button" onclick="setCustomIconLibrary()" style="padding: 8px 12px; background: var(--primary); color: white; border: none; border-radius: 8px; cursor: pointer; font-size: 13px; white-space: nowrap;">加载</button>
+                                    <button type="button" onclick="resetIconLibrary()" class="btn-ghost">默认库</button>
+                                </div>
+                                <input type="text" id="iconSearch" placeholder="搜索图标名称..." style="padding: 10px 12px; border: 1px solid var(--border); border-radius: 8px; background:var(--bg); width: 100%; font-size: 14px; color: var(--text);" onkeyup="filterIcons()">
+                                <div id="iconGrid" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(44px, 1fr)); gap: 8px; overflow-y: auto; max-height: 240px; padding-right: 4px;">
+                                    <div style="text-align:center; color:var(--text-sec); grid-column: 1 / -1; font-size: 13px;">加载图标库中...</div>
+                                </div>
+                            </div>
+                        </div>
+                        <label style="display:flex; align-items:center; gap:8px; font-size:14px; font-weight:500; cursor:pointer;">
+                            <input type="checkbox" id="nodeCache" class="ip-checkbox" checked>
+                            开启海报及静态资源缓存
+                        </label>
+                        <label style="display:flex; align-items:center; gap:8px; font-size:14px; font-weight:500; cursor:pointer; margin-top:8px;">
+                            <input type="checkbox" id="nodeDlTrick" class="ip-checkbox">
+                            下载伪装：显示下载按钮 + 下载请求伪装为缓存流（绕过服务端禁下载）
+                        </label>
+                        <button type="submit" id="submitBtn" class="btn-submit" style="flex: 1; padding: 14px 20px;">保存部署</button>
+                    </div>
+
+                    <div style="background: rgba(120,120,120,0.05); border: 1px solid var(--border); border-radius: 10px; padding: 16px;">
+                        <div style="font-size: 14px; font-weight: 600; color: var(--text-sec); margin-bottom: 12px;">服务器线路配置 (支持魔改分离版推流，支持无限条备用线路)</div>
+                        <div id="targetInputs" style="display: flex; flex-direction: column; gap: 10px;">
+                            <input type="url" class="target-input" placeholder="主线路地址 (如: http://1.1.1.1:8096)" style="padding: 12px 16px; border: 1px solid var(--border); border-radius: 8px; background:var(--card); width: 100%;" required oninput="handleTargetInputs()">
+                            <input type="url" class="target-input" placeholder="备用线路 1 (选填，主源挂掉时触发)" style="padding: 12px 16px; border: 1px solid var(--border); border-radius: 8px; background:var(--card); width: 100%;" oninput="handleTargetInputs()">
+                        </div>
+                    </div>
+                </form>
+                </div>
+            </div>
+
+            <div id="kaModal" style="display:none; position:fixed; inset:0; z-index:11020; background:rgba(0,0,0,.5); backdrop-filter:blur(5px); overflow-y:auto; padding:16px;">
+                <div style="max-width:480px; margin:24px auto; background:var(--card); border-radius:18px; padding:22px; box-shadow:0 10px 40px rgba(0,0,0,.2);">
+                    <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:14px;">
+                        <h2 style="margin:0; font-size:19px; display:flex; align-items:center; gap:8px;">${I.bolt} 节点保活</h2>
+                        <button onclick="closeKaModal()" style="background:transparent;border:none;cursor:pointer;color:var(--text-sec);display:inline-flex;padding:4px;">${I.xmark}</button>
+                    </div>
+                    <div id="kaResultBox" style="font-size:13px; line-height:1.8;"></div>
+                </div>
+            </div>
+
+            <div id="rexModal" style="display:none; position:fixed; inset:0; z-index:11020; background:rgba(0,0,0,.5); backdrop-filter:blur(5px); overflow-y:auto; padding:16px;">
+                <div style="max-width:480px; margin:24px auto; background:var(--card); border-radius:18px; padding:22px; box-shadow:0 10px 40px rgba(0,0,0,.2);">
+                    <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:14px;">
+                        <h2 style="margin:0; font-size:19px; display:flex; align-items:center; gap:8px;">${I.box} 一键导入 Rex</h2>
+                        <button onclick="closeRexModal()" style="background:transparent;border:none;cursor:pointer;color:var(--text-sec);display:inline-flex;padding:4px;">${I.xmark}</button>
+                    </div>
+                    <div style="font-size:13px; color:var(--text-sec); margin-bottom:12px; line-height:1.6;">在 Rex 播放器里用「链接导入」粘贴链接，或直接点「打开导入」唤起 Rex。凭据默认取节点保活账号，可修改。</div>
+                    <div style="display:flex; flex-direction:column; gap:10px;">
+                        <input type="text" id="rexPrefix" placeholder="节点前缀" oninput="renderRexLink()" style="padding:10px 14px; border:1px solid var(--border); border-radius:8px; background:var(--bg); font-size:14px;">
+                        <div style="display:flex; gap:10px;">
+                            <input type="text" id="rexUser" placeholder="账号" oninput="renderRexLink()" style="flex:1; padding:10px 14px; border:1px solid var(--border); border-radius:8px; background:var(--bg); font-size:14px;">
+                            <input type="text" id="rexPass" placeholder="密码" oninput="renderRexLink()" style="flex:1; padding:10px 14px; border:1px solid var(--border); border-radius:8px; background:var(--bg); font-size:14px;">
+                        </div>
+                        <input type="text" id="rexLink" readonly style="padding:10px 14px; border:1px solid var(--border); border-radius:8px; background:var(--bg); font-size:11px; word-break:break-all;">
+                        <div style="display:flex; gap:10px; justify-content:flex-end;">
+                            <button type="button" class="btn-ghost" onclick="copyRexLink()">复制链接</button>
+                            <button type="button" class="btn-submit" onclick="openRexLink()">打开导入</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="codeModal" style="display:none; position:fixed; inset:0; z-index:11010; background:rgba(0,0,0,.5); backdrop-filter:blur(5px); overflow-y:auto; padding:16px;">
+                <div style="max-width:560px; margin:24px auto; background:var(--card); border-radius:18px; padding:22px; box-shadow:0 10px 40px rgba(0,0,0,.2);">
+                    <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:14px;">
+                        <h2 id="codeModalTitle" style="margin:0; font-size:19px; display:flex; align-items:center; gap:8px;">${I.rocket} 手动覆盖/更新</h2>
+                        <button onclick="closeCodeModal()" style="background:transparent;border:none;cursor:pointer;color:var(--text-sec);display:inline-flex;padding:4px;">${I.xmark}</button>
+                    </div>
+                    <div style="font-size:13px; color:#ff3b30; margin-bottom:12px;">${I.warn} 警告：提交错误的代码会导致面板瞬间崩溃（500 错误）。请确保代码已在本地测试通过！</div>
+                    <textarea id="codeArea" rows="8" placeholder="在此处粘贴修改好的最新代码全文..." style="width:100%; padding:14px; border-radius:10px; border:1px solid var(--border); margin-bottom:12px; font-family:monospace; resize:vertical; background:var(--bg); font-size:12px;"></textarea>
+                    <input type="file" id="fileInput" accept=".js" style="display:none; font-size:14px; padding:6px; border:1px solid var(--border); border-radius:6px; background:var(--bg); margin-bottom:12px; width:100%;">
+                    <button class="btn-danger" id="deployBtn" onclick="deployWorker()" style="width:100%;">${I.flame} 覆盖更新</button>
+                </div>
+            </div>
+
+            <div id="placementModal" style="display:none; position:fixed; inset:0; z-index:11010; background:rgba(0,0,0,.5); backdrop-filter:blur(5px); overflow-y:auto; padding:16px;">
+                <div style="max-width:560px; margin:24px auto; background:var(--card); border-radius:18px; padding:22px; box-shadow:0 10px 40px rgba(0,0,0,.2);">
+                    <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:14px;">
+                        <h2 style="margin:0; font-size:19px; display:flex; align-items:center; gap:8px;">${I.gear} Worker 调度模式与区域设置</h2>
+                        <button onclick="closePlacementModal()" style="background:transparent;border:none;cursor:pointer;color:var(--text-sec);display:inline-flex;padding:4px;">${I.xmark}</button>
+                    </div>
+                    <select id="cf-mode-select" onchange="handleModeChange()" style="width:100%; padding:10px; border-radius:6px; border:1px solid var(--border); background:var(--bg); color:var(--text); margin-bottom:10px;">
+                        <option value='{"mode":"smart"}'> 智能调度 (Smart Placement)</option>
+                        <option value='{"mode":"off"}'> 边缘节点 (Edge - 默认离访客近)</option>
+                        <optgroup label="指定云厂商物理机房落地">
+                            <option value="aws"> AWS (亚马逊云)</option>
+                            <option value="gcp"> GCP (谷歌云)</option>
+                            <option value="azure"> Azure (微软云)</option>
+                        </optgroup>
+                        <option value="custom"> 手动输入区域代码...</option>
+                    </select>
+                    <select id="cf-region-select" style="display:none; width:100%; padding:10px; border-radius:6px; border:1px solid var(--border); background:var(--bg); color:var(--text); margin-bottom:10px;"></select>
+                    <input type="text" id="cf-custom-input" placeholder="输入云代码 (如 gcp:us-west1)" style="display:none; width:100%; padding:10px; border-radius:6px; border:1px solid var(--border); background:var(--bg); color:var(--text); margin-bottom:10px;">
+                    <div id="place-status" style="margin:0 0 12px; font-size:13px; color:var(--text-sec); font-weight:600;">后台全自动安全调度，不暴露任何私钥</div>
+                    <button class="btn-submit" onclick="updatePlacement()" style="width:100%;">${I.check} 提交修改</button>
+                </div>
+            </div>
+
+            <div id="accountModal" style="display:none; position:fixed; inset:0; z-index:11010; background:rgba(0,0,0,.5); backdrop-filter:blur(5px); overflow-y:auto; -webkit-overflow-scrolling:touch; padding:16px 16px 150px;">
+                <div style="max-width:560px; margin:24px auto; background:var(--card); border-radius:18px; padding:22px; box-shadow:0 10px 40px rgba(0,0,0,.2);">
+                    <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:14px;">
+                        <h2 style="margin:0; font-size:19px; display:flex; align-items:center; gap:8px;">${I.gear} 账户设置</h2>
+                        <div style="display:flex; align-items:center; gap:8px;">
+                            <span id="topVersionBadge" style="background:var(--primary); color:#fff; padding:3px 10px; border-radius:20px; font-size:12px; font-weight:600;">v${CURRENT_VERSION}</span>
+                            <button onclick="closeAccountModal()" style="background:transparent;border:none;cursor:pointer;color:var(--text-sec);display:inline-flex;padding:4px;">${I.xmark}</button>
+                        </div>
+                    </div>
+                    <div id="accountAdminPanel" style="display:flex; flex-direction:column; gap:16px;">
+                        <div style="background:rgba(120,120,120,0.05); border:1px solid var(--border); border-radius:10px; padding:14px;">
+                            <div style="font-size:14px; font-weight:600; margin-bottom:10px;">${I.pencil} 修改登录密码</div>
+                            <div style="font-size:12px; color:var(--text-sec); margin-bottom:10px;">${I.warn} Worker 变量 ADMIN_TOKEN 为最高权限，永久有效；此处修改的密码仅对网页生效。</div>
+                            <input type="password" id="newAdminPass" placeholder="输入新密码 (至少 4 位)" style="width:100%; padding:10px 14px; border:1px solid var(--border); border-radius:8px; background:var(--bg); margin-bottom:10px;">
+                            <button class="btn-submit" onclick="saveAdminPass()" style="width:100%;">${I.check} 保存新密码</button>
+                        </div>
+                        <div style="background:rgba(120,120,120,0.05); border:1px solid var(--border); border-radius:10px; padding:14px;">
+                            <div style="font-size:14px; font-weight:600; margin-bottom:10px;">${I.spy} 反代 Token</div>
+                            <div style="font-size:12px; color:var(--text-sec); margin-bottom:10px;">${I.warn} 开启后所有节点链接需带 <b style="color:var(--primary);">/密钥/</b> 前缀才可反代；不带前缀的访问会跳转 /catch 并记录来访 IP（记录存 D1，不占 KV 额度）。</div>
+                            <div style="display:flex; align-items:center; gap:10px; margin-bottom:10px;">
+                                <label style="display:flex; align-items:center; gap:6px; cursor:pointer; font-size:13px; color:var(--text);">
+                                    <input type="checkbox" id="ptOn" style="accent-color:var(--primary); width:16px; height:16px; cursor:pointer;"> 开启
+                                </label>
+                            </div>
+                            <div style="display:flex; gap:8px; margin-bottom:12px;">
+                                <input type="text" id="ptKey" placeholder="自定义密钥（3-32 位字母数字，如 lhazkj）" style="flex:1; padding:10px 14px; border:1px solid var(--border); border-radius:8px; background:var(--bg);">
+                                <button class="btn-submit" onclick="saveProxyToken()" style="white-space:nowrap;">${I.check} 保存</button>
+                            </div>
+                            <div style="font-size:13px; font-weight:600; margin-bottom:8px;">来访记录 IP <span style="font-weight:400; color:var(--text-sec);">（仅管理员）</span></div>
+                            <div id="ptHits" style="font-size:12px; color:var(--text-sec);">加载中…</div>
+                        </div>
+                        <div style="background:rgba(120,120,120,0.05); border:1px solid var(--border); border-radius:10px; padding:14px;">
+                            <div style="font-size:14px; font-weight:600; margin-bottom:8px;">${I.bulb} 保号通知（Bark / Telegram）</div>
+                            <div style="font-size:12px; color:var(--text-sec); margin-bottom:10px;">${I.warn} 节点超观看下限未观看时每日推送一次；测试按钮可立即验证。</div>
+                            <div style="display:flex; gap:14px; margin-bottom:10px;">
+                                <label style="display:flex;align-items:center;gap:6px;font-size:13px;"><input type="checkbox" id="barkNotify" style="accent-color:var(--primary);"> Bark</label>
+                                <label style="display:flex;align-items:center;gap:6px;font-size:13px;"><input type="checkbox" id="tgNotify" style="accent-color:var(--primary);"> Telegram</label>
+                            </div>
+                            <input type="text" id="barkKey" placeholder="Bark 设备 Key（留空不修改）" style="width:100%; padding:10px 14px; border:1px solid var(--border); border-radius:8px; background:var(--bg); margin-bottom:8px;">
+                            <select id="barkLevel" style="width:100%; padding:10px 14px; border:1px solid var(--border); border-radius:8px; background:var(--bg); margin-bottom:10px;">
+                                <option value="active">active（默认）</option>
+                                <option value="timeSensitive">timeSensitive</option>
+                                <option value="critical">critical（紧急）</option>
+                                <option value="passive">passive</option>
+                            </select>
+                            <input type="text" id="barkServer" placeholder="Bark 服务地址（默认 https://api.day.app）" style="width:100%; padding:10px 14px; border:1px solid var(--border); border-radius:8px; background:var(--bg); margin-bottom:10px;">
+                            <input type="text" id="tgToken" placeholder="TG Bot Token（@BotFather 获取，留空不修改）" style="width:100%; padding:10px 14px; border:1px solid var(--border); border-radius:8px; background:var(--bg); margin-bottom:8px;">
+                            <input type="text" id="tgChatId" placeholder="TG Chat ID（留空不修改）" style="width:100%; padding:10px 14px; border:1px solid var(--border); border-radius:8px; background:var(--bg); margin-bottom:10px;">
+                            <div style="display:flex; gap:8px;">
+                                <button class="btn-submit" onclick="saveNotifySettings()" style="flex:1;">${I.check} 保存</button>
+                                <button class="btn-ghost" onclick="testNotifyFn('bark')" style="white-space:nowrap;">测试 Bark</button>
+                                <button class="btn-ghost" onclick="testNotifyFn('tg')" style="white-space:nowrap;">测试 TG</button>
+                            </div>
+                        </div>
+                        <div style="background:rgba(120,120,120,0.05); border:1px solid var(--border); border-radius:10px; padding:14px;">
+                            <div style="font-size:14px; font-weight:600; margin-bottom:10px;">${I.robot} 订阅用户管理</div>
+                            <div style="font-size:12px; color:var(--text-sec); margin-bottom:10px;">订阅者密码可进入网页，但只能查看节点，不能进行任何修改操作。</div>
+                            <div id="subList" style="display:flex; flex-direction:column; gap:8px; margin-bottom:12px;"></div>
+                            <div style="display:flex; gap:8px;">
+                                <input type="text" id="newSubPass" placeholder="输入新订阅者密码" style="flex:1; padding:10px 14px; border:1px solid var(--border); border-radius:8px; background:var(--bg);">
+                                <button class="btn-submit" onclick="addSubscriber()" style="white-space:nowrap;">${I.plus} 添加</button>
+                            </div>
+                        </div>
+                        <div style="background:rgba(120,120,120,0.05); border:1px solid var(--border); border-radius:10px; padding:14px;">
+                            <div style="font-size:14px; font-weight:600; margin-bottom:10px;">${I.rocket} 版本</div>
+                            <div style="display:flex; align-items:center; gap:8px; margin-bottom:10px; flex-wrap:wrap;">
+                                <span style="font-size:13px;">当前版本：</span>
+                                <span id="curVersionBadge" style="background:var(--primary); color:#fff; padding:3px 10px; border-radius:20px; font-size:12px; font-weight:600;">v${CURRENT_VERSION}</span>
+                                <span id="latestVersionInfo" style="font-size:12px; color:var(--text-sec);"></span>
+                            </div>
+                            <div style="display:flex; align-items:center; gap:8px; margin-bottom:12px;">
+                                <label style="display:flex;align-items:center;gap:6px;font-size:13px;cursor:pointer;">
+                                    <input type="checkbox" id="updateNotifyChk" style="accent-color:var(--primary);"> 开启更新提醒（检测到新版本时弹窗提示）
+                                </label>
+                                <button class="btn-ghost" onclick="saveUpdateNotify()" style="padding:6px 12px;font-size:12px;">保存</button>
+                            </div>
+                            <div style="font-size:13px; font-weight:600; margin-bottom:6px;">${I.rocket} 最新更新内容</div>
+                            <div id="latestChangelog" style="font-size:12px; color:var(--text-sec); margin-bottom:12px; line-height:1.8;">加载中…</div>
+                            <div style="display:flex; gap:8px; margin-bottom:12px;">
+                                <button class="btn-submit" onclick="checkForUpdates(true)" style="flex:1;">${I.search} 检查更新</button>
+                                <button class="btn-ghost" onclick="manualUpdateFlow()" style="flex:1;">${I.rocket} 立即更新</button>
+                            </div>
+                            <details style="font-size:12px; color:var(--text-sec);">
+                                <summary style="cursor:pointer; font-weight:600;">${I.lines} 历史更新内容</summary>
+                                <div id="historyChangelog" style="margin-top:8px; line-height:1.8;">加载中…</div>
+                            </details>
+                        </div>
+                    </div>
+                    <div id="accountSubPanel" style="display:none; text-align:center; padding:20px 0; color:var(--text-sec); font-size:14px;">
+                        ${I.robot} 当前为订阅用户模式，仅可查看节点，无任何修改权限。
+                    </div>
+                </div>
+            </div>
+
+            <div id="updateModal" style="display:none; position:fixed; inset:0; z-index:12000; background:rgba(0,0,0,.55); backdrop-filter:blur(5px); overflow-y:auto; -webkit-overflow-scrolling:touch; padding:16px 16px 150px;">
+                <div style="max-width:480px; margin:40px auto; background:var(--card); border-radius:18px; padding:22px; box-shadow:0 10px 40px rgba(0,0,0,.25);">
+                    <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:12px;">
+                        <h2 style="margin:0; font-size:18px; display:flex; align-items:center; gap:8px;">${I.rocket} 发现新版本</h2>
+                        <button onclick="hideUpdateModal()" style="background:transparent;border:none;cursor:pointer;color:var(--text-sec);display:inline-flex;padding:4px;">${I.xmark}</button>
+                    </div>
+                    <div style="font-size:13px; margin-bottom:12px;">当前版本 <span id="updateModalCurVer" style="font-weight:600;">v${CURRENT_VERSION}</span> → 新版本 <span id="updateModalVersion" style="font-weight:600; color:var(--primary);"></span></div>
+                    <div style="background:rgba(52,199,89,0.06); border:1px solid rgba(52,199,89,.25); border-radius:10px; padding:14px; margin-bottom:14px;">
+                        <div id="updateModalBody" style="font-size:12px; color:var(--text); line-height:1.9;">加载中…</div>
+                    </div>
+                    <div style="display:flex; gap:8px;">
+                        <button class="btn-submit" onclick="doOnlineUpdate()" style="flex:1;">${I.rocket} 立即更新</button>
+                        <button class="btn-ghost" onclick="hideUpdateModal()" style="flex:1;">稍后再说</button>
+                    </div>
+                </div>
+            </div>
+
+            <div id="updateResultModal" style="display:none; position:fixed; inset:0; z-index:12010; background:rgba(0,0,0,.55); backdrop-filter:blur(5px); overflow-y:auto; -webkit-overflow-scrolling:touch; padding:16px 16px 150px;">
+                <div style="max-width:480px; margin:40px auto; background:var(--card); border-radius:18px; padding:22px; box-shadow:0 10px 40px rgba(0,0,0,.25);">
+                    <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:12px;">
+                        <h2 style="margin:0; font-size:18px; display:flex; align-items:center; gap:8px; color:#34c759;">${I.check} 更新成功</h2>
+                        <button onclick="document.getElementById('updateResultModal').style.display='none'" style="background:transparent;border:none;cursor:pointer;color:var(--text-sec);display:inline-flex;padding:4px;">${I.xmark}</button>
+                    </div>
+                    <div id="updateResultBody" style="font-size:12px; color:var(--text); line-height:1.9; margin-bottom:14px;"></div>
+                    <button class="btn-submit" onclick="window.location.reload()" style="width:100%;">${I.check} 刷新页面</button>
+                </div>
+            </div>
+
+            <div class="card">
+                <div style="display:flex; justify-content: space-between; align-items:center; margin-bottom:16px; flex-wrap:wrap; gap:10px;">
+                    <h2 style="margin:0; font-size:18px;">已反代的媒体库</h2>
+                    <div style="display: flex; gap: 10px; align-items:center; flex-wrap: wrap;">
+                        <button class="btn-submit admin-only" onclick="pingAllNodes()" style=" padding: 10px 14px; font-size: 13px;">${I.bolt} 全局测速</button>
+                        <button id="btnPurge" class="btn-submit admin-only" onclick="purgeCache()" style=" padding: 10px 14px; font-size: 13px;">${I.broom} 刷新全站海报</button>
+                        <input type="text" id="searchNode" class="search-input" placeholder="搜索备注或后缀查找..." onkeyup="filterNodesList()">
+                    </div>
+                </div>
+                <div class="admin-only" style="background: rgba(0, 122, 255, 0.05); padding: 12px 20px; border-radius: 12px; border: 1px dashed var(--primary); margin-bottom: 20px; margin-top: 20px; display: flex; align-items: center; gap: 15px; flex-wrap: wrap;">
+            <label style="cursor: pointer; font-weight: bold; display: flex; align-items: center; gap: 6px;">
+                <input type="checkbox" id="selectAllNodes" onchange="toggleSelectAll(this)" style="width: 18px; height: 18px; accent-color: var(--primary);"> 
+                全选节点
+            </label>
+            
+            <div style="width: 2px; height: 20px; background: var(--border);"></div> <select id="batch-mode-select" style="padding: 8px 12px; border-radius: 8px; border: 1px solid var(--border); background: var(--bg); color: var(--text); font-weight: 600;">
+                <option value=""> 读取模式中...</option>
+            </select>
+
+            <button onclick="batchUpdateModes()" style="background: var(--primary); color: white; border: none; padding: 8px 16px; border-radius: 8px; cursor: pointer; font-weight: bold; transition: 0.2s; box-shadow: 0 4px 10px rgba(0,113,227,0.2);">
+                ${I.rocket} 批量应用模式
+            </button>
+
+            <span id="batch-status" style="font-size: 13px; font-weight: 600;"></span>
+        </div>
+                <div id="list-grid" class="node-grid">
+                    <div style="text-align:center; color:var(--text-sec); grid-column: 1 / -1; padding: 40px;">读取数据中...</div>
+                </div>
+            </div>
+            
+        </div>
+        
+        <div style="text-align: center; padding-top: 10px; padding-bottom: 20px;">
+            <a href="https://t.me/MakkaPakkaOvO" target="_blank" style="text-decoration: none; color: var(--text); font-weight: 600; display: inline-flex; align-items: center; padding: 12px 24px; background: var(--card); border-radius: 30px; box-shadow: 0 4px 15px rgba(0,0,0,0.06); transition: 0.3s; font-size: 14px; border: 1px solid var(--border);">
+                ${SVG_TG}
+                联系作者 MakkaPakkaOvO
+            </a>
+            <div style="margin-top: 20px; font-size: 12px; color: var(--text-sec); line-height: 1.6; max-width: 600px; margin-left: auto; margin-right: auto; padding: 0 15px;">
+                <strong>免责声明:</strong> 本项目仅供学习与技术测试使用，请遵守当地法律法规。使用者对配置、转发内容与访问行为承担全部责任，开发者不对任何直接或间接损失负责。
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const modeNames = { 'off': '保守', 'realip_only': '严格', 'dual': '兼容', 'strict': '强力', 'custom': '伪装(旧)', 'off_fake': '保守+伪装', 'realip_only_fake': '严格+伪装', 'dual_fake': '兼容+伪装', 'strict_fake': '强力+伪装' };
+        
+        const DEFAULT_ICON_URL = 'https://emby-icon.vercel.app/TFEL-Emby.json';
+        let globalIcons = [];
+        let proxyNodesForPing = [];
+        let sortableInstance = null;
+        let trendChartInstance = null;
+        let locationChartInstance = null;
+        let cfStatusChartInstance = null;
+        let cfHourChartInstance = null;
+
+        // 设置 Chart.js 响应暗色模式
+        function updateChartColors() {
+            Chart.defaults.color = document.body.classList.contains('dark') ? '#98989d' : '#86868b';
+            Chart.defaults.borderColor = document.body.classList.contains('dark') ? '#38383a' : '#d2d2d7';
+        }
+
+        // =====================================
+        // 数据大屏与统计逻辑 (适配手机端表格排版)
+        // =====================================
+        async function openDashboard() {
+            document.getElementById('dashboardModal').style.display = 'block';
+            
+            function parseTrafficToBytes(str) {
+                if (!str || str === '0 B' || str.includes('异常') || str.includes('获取')) return 0;
+                let val = parseFloat(str);
+                if (str.includes('TB')) return val * 1099511627776;
+                if (str.includes('GB')) return val * 1073741824;
+                if (str.includes('MB')) return val * 1048576;
+                if (str.includes('KB')) return val * 1024;
+                return val;
+            }
+
+            let top5Container = document.getElementById('top5-simple-container');
+            if (!top5Container) {
+                top5Container = document.createElement('div');
+                top5Container.id = 'top5-simple-container';
+                const wrapper = document.querySelector('.table-wrapper');
+                if(wrapper && wrapper.previousElementSibling) {
+                    wrapper.parentNode.insertBefore(top5Container, wrapper.previousElementSibling);
+                }
+            }
+            
+            let top5Html = '<h3 style="margin-top: 30px; margin-bottom:16px;">${I.trophy} 今日节点流量消耗 TOP 5</h3><div style="background: rgba(120,120,120,0.05); padding: 16px; border-radius: 12px; border: 1px solid var(--border); margin-bottom: 20px;">';
+            
+            // ==========================================
+            //  核心优化：听你的天才思路！直接去网页现有的卡片里“抓取”数据，绝不等待变量！
+            // ==========================================
+            const domCards = document.querySelectorAll('.route-item');
+            let scrapedNodes = [];
+            
+            domCards.forEach(card => {
+                const prefix = card.getAttribute('data-prefix') || '未知';
+                let remark = prefix;
+                const searchAttr = card.getAttribute('data-search');
+                if (searchAttr) {
+                    remark = searchAttr.replace(new RegExp(' ' + prefix + '$'), '').trim();
+                }
+
+                let bandwidth = '0 B';
+                // 遍历卡片里所有的文本，找出带有流量单位的那个文本
+                const spans = card.querySelectorAll('span');
+                spans.forEach(span => {
+                    const txt = span.innerText || '';
+                    // 匹配例如: 1.5 GB, 500 MB, 0 B (双斜杠防转义丢失)
+                    if (/^[\\d\\.]+\\s*(TB|GB|MB|KB|B)$/i.test(txt.trim())) {
+                        bandwidth = txt.trim();
+                    }
+                });
+
+                scrapedNodes.push({ prefix: prefix, remark: remark, todayBandwidth: bandwidth });
+            });
+
+            // 用抓取下来的真实数据直接计算 TOP 5
+            if (scrapedNodes.length > 0) {
+                const validNodes = scrapedNodes.filter(r => parseTrafficToBytes(r.todayBandwidth) > 0);
+                const top5 = validNodes.sort((a, b) => parseTrafficToBytes(b.todayBandwidth) - parseTrafficToBytes(a.todayBandwidth)).slice(0, 5);
+                
+                if (top5.length > 0) {
+                    top5Html += '<ul style="margin:0; padding-left: 20px; line-height: 2; font-size: 14px; color: var(--text);">';
+                    top5.forEach((r, idx) => {
+                        const rankColor = idx === 0 ? '#ff3b30' : (idx === 1 ? '#ff9500' : (idx === 2 ? '#ffcc00' : 'var(--text-sec)'));
+                        top5Html += \`<li><strong style="color:\${rankColor}; font-size: 15px;">#\${idx+1}</strong> \${r.remark} (/\${r.prefix}) —— 消耗: <strong style="color:var(--primary); font-family: monospace;">\${r.todayBandwidth}</strong></li>\`;
+                    });
+                    top5Html += '</ul>';
+                } else {
+                    top5Html += '<div style="color:var(--text-sec); font-size:13px; text-align:center;">今日暂无节点产生流量</div>';
+                }
+            } else {
+                top5Html += '<div style="color:var(--text-sec); font-size:13px; text-align:center;">主页暂无节点卡片</div>';
+            }
+            top5Html += '</div>';
+            
+            // 瞬间把 TOP 5 写入网页！
+            top5Container.innerHTML = top5Html;
+
+
+            // ==========================================
+            //  正常加载下面的图表数据 (带有10秒防卡死超时保护)
+            // ==========================================
+            document.getElementById('logTableBody').innerHTML = '<tr><td colspan="5" style="text-align:center; padding: 30px;">数据分析引擎计算中...</td></tr>';
+            document.getElementById('trafficToday').innerText = '拉取中...';
+            document.getElementById('cfToday').innerText = '拉取中...';
+            document.getElementById('cfWeek').innerText = '拉取中...';
+            document.getElementById('cfMonth').innerText = '拉取中...';
+            document.getElementById('cfQuotaText').innerText = '加载中...';
+            document.getElementById('cfBandwidth').innerText = '拉取中...';
+            document.getElementById('cfCacheRatio').innerText = '拉取中...';
+            document.getElementById('cfBlocked').innerText = '拉取中...';
+            document.getElementById('cf5xx').innerText = '拉取中...';
+            loadCfUsage();
+            document.getElementById('traffic7d').innerText = '拉取中...';
+            document.getElementById('traffic30d').innerText = '拉取中...';
+
+            try {
+                const controller = new AbortController();
+                const timeoutId = setTimeout(() => controller.abort(), 10000);
+
+                const res = await fetch('/api/analytics', { signal: controller.signal });
+                clearTimeout(timeoutId);
+                
+                const data = await res.json();
+                if(!data.success) throw new Error(data.error);
+
+                updateChartColors();
+
+                document.getElementById('trafficToday').innerText = data.trafficToday || '未知';
+                document.getElementById('traffic7d').innerText = data.traffic7d || '未知';
+                document.getElementById('traffic30d').innerText = data.traffic30d || '未知';
+
+                const labels = data.trend.map(i => i.date.substring(5)); 
+                const counts = data.trend.map(i => i.count);
+                const trendCtx = document.getElementById('trendChart').getContext('2d');
+                if(trendChartInstance) trendChartInstance.destroy();
+                trendChartInstance = new Chart(trendCtx, {
+                    type: 'line',
+                    data: {
+                        labels: labels,
+                        datasets: [{ label: '有效播放 (次)', data: counts, borderColor: '#0071e3', backgroundColor: 'rgba(0,113,227,0.1)', fill: true, tension: 0.3 }]
+                    },
+                    options: { responsive: true, plugins: { title: { display: true, text: '过去 7 天全站播放并发趋势', font: {size: 16} } } }
+                });
+
+                const locLabels = data.locations.map(i => i.country === 'CN' ? '中国大陆' : (i.country || '未知'));
+                const locCounts = data.locations.map(i => i.count);
+                const locCtx = document.getElementById('locationChart').getContext('2d');
+                if(locationChartInstance) locationChartInstance.destroy();
+                locationChartInstance = new Chart(locCtx, {
+                    type: 'doughnut',
+                    data: {
+                        labels: locLabels,
+                        datasets: [{ data: locCounts, backgroundColor: ['#34c759', '#0071e3', '#ff9500', '#af52de', '#ff2d55', '#8e8e93'], borderWidth: 0 }]
+                    },
+                    options: { responsive: true, plugins: { title: { display: true, text: '独立访客来源地占比', font: {size: 16} } } }
+                });
+
+                const tbody = document.getElementById('logTableBody');
+                tbody.innerHTML = '';
+                if(data.recents.length === 0) {
+                    tbody.innerHTML = '<tr><td colspan="5" style="text-align:center; padding: 30px;">暂无日志记录</td></tr>';
+                } else {
+                    data.recents.forEach(log => {
+                        const tr = document.createElement('tr');
+                        const isChina = log.country === 'CN';
+                        tr.innerHTML = \`
+                            <td data-label="访问时间" style="font-size:12px; white-space:nowrap;">\${log.timestamp}</td>
+                            <td data-label="目标节点"><span class="badge" style="background:rgba(0,113,227,0.1);color:var(--primary);">\${log.prefix}</span></td>
+                            <td data-label="真实 IP" style="font-family:monospace; font-size:13px; color:var(--text-sec); word-break:break-all;">\${log.ip}</td>
+                            <td data-label="归属地"><span class="badge" style="background:\${isChina ? 'rgba(52,199,89,0.1)' : 'rgba(255,149,0,0.1)'}; color:\${isChina ? '#34c759' : '#ff9500'};">\${isChina ? '中国大陆' : (log.country || 'Unknown')}</span></td>
+                            <td data-label="设备标识 (UA)" style="font-size:12px; color:var(--text-sec); word-break: break-all; white-space: normal; text-align: right; line-height: 1.4;" title="\${log.ua}">\${log.ua}</td>
+                        \`;
+                        tbody.appendChild(tr);
+                    });
+                }
+
+            } catch (e) {
+                const errMsg = e.name === 'AbortError' ? '网络超时，CF 接口拥堵，请稍后重试' : e.message;
+                document.getElementById('logTableBody').innerHTML = \`<tr><td colspan="5" style="text-align:center;color:#ff3b30; padding: 30px;">独立图表数据拉取失败: \${errMsg}</td></tr>\`;
+            }
+        }
+
+        async function loadCfUsage() {
+            try {
+                const controller = new AbortController();
+                const timeoutId = setTimeout(() => controller.abort(), 15000);
+                const res = await fetch('/api/cfusage', { signal: controller.signal });
+                clearTimeout(timeoutId);
+                const data = await res.json();
+                if (!data.success) {
+                    ['cfToday','cfWeek','cfMonth'].forEach(function(id) { document.getElementById(id).innerText = '不可用'; });
+                    ['cfBandwidth','cfCacheRatio','cfBlocked','cf5xx'].forEach(function(id) { document.getElementById(id).innerText = '不可用'; });
+                    document.getElementById('cfQuotaText').innerText = '未配置 CF 统计变量';
+                    document.getElementById('cfQuotaDetail').innerText = data.error || '缺少 CF_API_TOKEN 或 CF_ZONE_ID';
+                    document.getElementById('cfCountryList').innerText = '暂无数据';
+                    return;
+                }
+                var fmt = function(n) { return n.toLocaleString('zh-CN') + ' 次'; };
+                document.getElementById('cfToday').innerText = fmt(data.today);
+                document.getElementById('cfWeek').innerText = fmt(data.week);
+                document.getElementById('cfMonth').innerText = fmt(data.month);
+                document.getElementById('cfBandwidth').innerText = data.bandwidth ? (data.bandwidth / 1073741824).toFixed(2) + ' GB' : '0 GB';
+                document.getElementById('cfCacheRatio').innerText = (data.cacheHitRatio || 0) + '%';
+                document.getElementById('cfBlocked').innerText = (data.blocked || 0).toLocaleString('zh-CN') + ' 次';
+                document.getElementById('cf5xx').innerText = ((data.statusCodes && data.statusCodes['5xx']) || 0).toLocaleString('zh-CN') + ' 次';
+                document.getElementById('cfQuotaText').innerText = data.todayError ? '获取失败' : (data.usedPercent + '%');
+                document.getElementById('cfQuotaBar').style.width = Math.min(100, data.usedPercent) + '%';
+                var detail = '已用 ' + data.today.toLocaleString('zh-CN') + ' 次 / 10万 (' + data.usedPercent + '%) · 剩余 ' + data.remain.toLocaleString('zh-CN') + ' 次';
+                if (data.todayError) detail += '（' + data.todayError + '）';
+                document.getElementById('cfQuotaDetail').innerText = detail;
+                // 状态码环形图
+                var sc = data.statusCodes || { '2xx': 0, '3xx': 0, '4xx': 0, '5xx': 0 };
+                var scCtx = document.getElementById('cfStatusChart').getContext('2d');
+                if (cfStatusChartInstance) cfStatusChartInstance.destroy();
+                cfStatusChartInstance = new Chart(scCtx, {
+                    type: 'doughnut',
+                    data: { labels: ['2xx','3xx','4xx','5xx'], datasets: [{ data: [sc['2xx'], sc['3xx'], sc['4xx'], sc['5xx']], backgroundColor: ['#34c759','#0a84ff','#ff9f0a','#ff3b30'], borderWidth: 0 }] },
+                    options: { responsive: true, plugins: { legend: { position: 'right', labels: { color: '#8e8e93', boxWidth: 10 } } } }
+                });
+                // 分时折线（UTC 24h）
+                var hCtx = document.getElementById('cfHourChart').getContext('2d');
+                if (cfHourChartInstance) cfHourChartInstance.destroy();
+                cfHourChartInstance = new Chart(hCtx, {
+                    type: 'line',
+                    data: { labels: Array.from({length: 24}, function(_, i) { return i + 'h'; }), datasets: [{ label: '请求数', data: data.hours || [], borderColor: '#00e5ff', backgroundColor: 'rgba(0,229,255,0.1)', fill: true, tension: 0.3, pointRadius: 0 }] },
+                    options: { responsive: true, plugins: { legend: { display: false } }, scales: { x: { ticks: { maxTicksLimit: 12, color: '#8e8e93' } }, y: { beginAtZero: true, ticks: { color: '#8e8e93' } } } }
+                });
+                // Top 国家
+                var cl = document.getElementById('cfCountryList');
+                if (data.countries && data.countries.length) {
+                    var total = data.countries.reduce(function(a, c) { return a + c.count; }, 0) || 1;
+                    cl.innerHTML = data.countries.map(function(c) {
+                        var pct = Math.round(c.count / total * 100);
+                        return '<div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:6px;"><span>' + c.country + '</span><div style="flex:1; margin:0 8px; height:4px; background:rgba(120,120,120,.2); border-radius:4px; overflow:hidden;"><div style="height:100%; width:' + pct + '%; background:linear-gradient(90deg,#00e5ff,#7c3aed);"></div></div><span>' + c.count.toLocaleString('zh-CN') + '</span></div>';
+                    }).join('');
+                } else {
+                    cl.innerText = '暂无数据';
+                }
+            } catch(e) {
+                ['cfToday','cfWeek','cfMonth'].forEach(function(id) { document.getElementById(id).innerText = '拉取失败'; });
+                document.getElementById('cfQuotaText').innerText = '获取失败';
+            }
+        }
+
+        function closeDashboard() { document.getElementById('dashboardModal').style.display = 'none'; }
+
+        async function loadIcons(forceUrl = null) {
+            const grid = document.getElementById('iconGrid');
+            grid.innerHTML = '<div style="grid-column: 1/-1; color: var(--text-sec); font-size: 13px; text-align: center;">加载图标库中...</div>';
+            const targetUrl = forceUrl || localStorage.getItem('custom_icon_url') || DEFAULT_ICON_URL;
+            const urlInput = document.getElementById('customIconUrlInput');
+            if (urlInput) urlInput.value = targetUrl === DEFAULT_ICON_URL ? '' : targetUrl;
+            try {
+                const res = await fetch(targetUrl);
+                const data = await res.json();
+                if (data && data.icons && Array.isArray(data.icons)) {
+                    globalIcons = data.icons;
+                } else if (Array.isArray(data)) {
+                    globalIcons = data;
+                } else {
+                    globalIcons = [];
+                    for (const [key, val] of Object.entries(data)) { globalIcons.push({ name: key, url: val }); }
+                }
+                renderIconGrid('');
+            } catch(e) { 
+                grid.innerHTML = '<div style="grid-column: 1/-1; color: #ff3b30; font-size: 13px; text-align: center;">获取图标库失败，请检查链接或网络状态</div>';
+            }
+        }
+
+        function setCustomIconLibrary() {
+            const url = document.getElementById('customIconUrlInput').value.trim();
+            if (!url) return showToast('⚠️ 请输入图标库 JSON 链接');
+            if (!url.startsWith('http')) return showToast('⚠️ 请输入合法的 URL');
+            localStorage.setItem('custom_icon_url', url);
+            showToast('⏳ 正在加载自定义图标库...');
+            loadIcons(url);
+        }
+
+        function resetIconLibrary() {
+            localStorage.removeItem('custom_icon_url');
+            document.getElementById('customIconUrlInput').value = '';
+            showToast('🔄 已恢复默认图标库');
+            loadIcons(DEFAULT_ICON_URL);
+        }
+
+        function renderIconGrid(filterText) {
+            const grid = document.getElementById('iconGrid');
+            const lowerFilter = filterText.toLowerCase();
+            const filtered = globalIcons.filter(item => (item.name || '').toLowerCase().includes(lowerFilter));
+            let html = \`<div class="icon-item" onclick="selectIcon('', '默认')" title="使用默认图标"><span style="font-size:22px;">${I.film}</span></div>\`;
+            filtered.forEach(item => {
+                html += \`<div class="icon-item" onclick="selectIcon('\${item.url}', '\${item.name}')" title="\${item.name}">
+                            <img src="\${item.url}" loading="lazy" style="width: 32px; height: 32px; object-fit: contain; border-radius: 4px;">
+                        </div>\`;
+            });
+            grid.innerHTML = html;
+        }
+
+        function filterIcons() { renderIconGrid(document.getElementById('iconSearch').value); }
+
+        function toggleIconPicker(e) {
+            e.stopPropagation();
+            const panel = document.getElementById('iconPickerPanel');
+            panel.style.display = panel.style.display === 'none' ? 'flex' : 'none';
+        }
+
+        function selectIcon(url, name) {
+            document.getElementById('iconUrl').value = url;
+            const preview = document.getElementById('iconPreview');
+            const def = document.getElementById('iconDefault');
+            const text = document.getElementById('iconSelectText');
+            if(url) {
+                preview.src = url; preview.style.display = 'block'; def.style.display = 'none';
+                text.textContent = name; text.style.color = 'var(--text)';
+            } else {
+                preview.src = ''; preview.style.display = 'none'; def.style.display = 'block';
+                text.textContent = '点击选择图标 (默认)'; text.style.color = 'var(--text-sec)';
+            }
+            document.getElementById('iconPickerPanel').style.display = 'none';
+        }
+
+        document.addEventListener('click', (e) => {
+            const panel = document.getElementById('iconPickerPanel');
+            const btn = document.getElementById('iconSelectBtn');
+            if (panel && btn && panel.style.display !== 'none') {
+                if (!panel.contains(e.target) && !btn.contains(e.target)) panel.style.display = 'none';
+            }
+        });
+
+        function toggleDarkMode() {
+            const isDark = document.body.classList.toggle('dark');
+            document.getElementById('themeToggle').innerHTML = isDark ? I.sun : I.moon;
+            localStorage.setItem('emby_proxy_dark', isDark ? '1' : '0');
+            if(trendChartInstance) { updateChartColors(); trendChartInstance.update(); locationChartInstance.update(); }
+        }
+        if (localStorage.getItem('emby_proxy_dark') === '1') { document.body.classList.add('dark'); document.getElementById('themeToggle').innerHTML = I.sun; }
+
+        function genUuid() {
+            if (typeof crypto !== 'undefined' && typeof crypto.randomUUID === 'function') return crypto.randomUUID();
+            const b = crypto.getRandomValues(new Uint8Array(16));
+            b[6] = (b[6] & 0x0f) | 0x40; b[8] = (b[8] & 0x3f) | 0x80;
+            const h = Array.from(b).map(x => x.toString(16).padStart(2, '0')).join('');
+            return h.slice(0,8) + '-' + h.slice(8,12) + '-' + h.slice(12,16) + '-' + h.slice(16,20) + '-' + h.slice(20);
+        }
+
+        function showToast(msg) {
+            const t = document.getElementById('toast');
+            t.textContent = msg; t.classList.add('show');
+            setTimeout(() => t.classList.remove('show'), 3000);
+        }
+
+        async function purgeCache() {
+            if(!confirm('确定要清理 Cloudflare 节点的全站海报和静态缓存吗？\\n\\n清理后可能导致短时间的加载缓慢。')) return;
+            const btn = document.getElementById('btnPurge');
+            const originalText = btn.textContent;
+            btn.textContent = '⏳ 正在清理...'; btn.disabled = true;
+            try {
+                const res = await fetch('/api/purge-cache', { method: 'POST' });
+                const data = await res.json();
+                if(data.success) showToast('✅ 缓存清理成功，新海报已生效！');
+                else showToast('❌ 清理失败: ' + data.error);
+            } catch(e) { showToast('❌ 网络请求错误'); } finally { btn.textContent = originalText; btn.disabled = false; }
+        }
+
+        function filterNodesList() {
+            const filterText = document.getElementById('searchNode').value.toLowerCase();
+            const cards = document.querySelectorAll('.emby-card');
+            cards.forEach(card => {
+                const searchStr = card.getAttribute('data-search').toLowerCase();
+                card.style.display = searchStr.includes(filterText) ? 'flex' : 'none';
+            });
+        }
+
+        function handleTargetInputs() {
+            const container = document.getElementById('targetInputs');
+            const inputs = container.querySelectorAll('.target-input');
+            const lastInput = inputs[inputs.length - 1];
+            if (lastInput.value.trim() !== '') {
+                const newInput = document.createElement('input');
+                newInput.type = 'url'; newInput.className = 'target-input';
+                newInput.style = 'padding: 12px 16px; border: 1px solid var(--border); border-radius: 8px; background:var(--card); width: 100%;';
+                newInput.oninput = handleTargetInputs;
+                container.appendChild(newInput);
+            }
+            let emptyCount = 0;
+            const currentInputs = container.querySelectorAll('.target-input');
+            for (let i = currentInputs.length - 1; i >= 0; i--) {
+                if (currentInputs[i].value.trim() === '') { emptyCount++; if (emptyCount > 1) currentInputs[i].remove(); } else { break; }
+            }
+            container.querySelectorAll('.target-input').forEach((inp, idx) => {
+                inp.placeholder = idx === 0 ? "主线路地址 (如: http://1.1.1.1:8096)" : \`备用线路 \${idx} (选填，主源挂掉时触发)\`;
+            });
+        }
+
+        function resetTargetInputs() {
+            const container = document.getElementById('targetInputs');
+            container.innerHTML = \`
+                <input type="url" class="target-input" placeholder="主线路地址 (如: http://1.1.1.1:8096)" style="padding: 12px 16px; border: 1px solid var(--border); border-radius: 8px; background:var(--card); width: 100%;" required oninput="handleTargetInputs()">
+                <input type="url" class="target-input" placeholder="备用线路 1 (选填)" style="padding: 12px 16px; border: 1px solid var(--border); border-radius: 8px; background:var(--card); width: 100%;" oninput="handleTargetInputs()">
+            \`;
+        }
+
+        function toggleVis(id, isArray = false) {
+            const el = document.getElementById(id);
+            if (el.classList.contains('secret-text')) {
+                el.classList.remove('secret-text'); el.classList.add('actual-text');
+                if (isArray) {
+                    const arr = JSON.parse(decodeURIComponent(el.getAttribute('data-val')));
+                    let html = '';
+                    arr.forEach((t, i) => {
+                        const tag = i === 0 ? '<span style="color:#34c759;font-weight:bold;">[主]</span>' : '<span style="color:#ff9500;font-weight:bold;">[备]</span>';
+                        html += \`<div class="url-list-item">\${tag} \${t}</div>\`;
+                    });
+                    el.innerHTML = html;
+                } else { el.textContent = el.getAttribute('data-val'); }
+            } else {
+                el.classList.add('secret-text'); el.classList.remove('actual-text'); el.textContent = '••••••••';
+            }
+        }
+
+        function copyTxt(txt) { navigator.clipboard.writeText(txt).then(() => showToast('🚀 复制成功！')); }
+
+        async function pingTarget(idx, targetUrl) {
+            const pingEl = document.getElementById('ping-' + idx);
+            pingEl.textContent = '测速中...'; pingEl.style.color = 'var(--text-sec)';
+            try {
+                const res = await fetch('/api/ping-node?url=' + encodeURIComponent(targetUrl));
+                const data = await res.json();
+                if(data.ms >= 0) {
+                    pingEl.textContent = data.ms + ' ms';
+                    pingEl.style.color = data.ms < 200 ? '#34c759' : (data.ms < 500 ? 'var(--primary)' : '#ff9500');
+                } else { pingEl.textContent = '断连/超时'; pingEl.style.color = '#ff3b30'; }
+            } catch(e) { pingEl.textContent = '测速异常'; pingEl.style.color = '#ff3b30'; }
+        }
+
+        function pingAllNodes() {
+            if (proxyNodesForPing.length === 0) return showToast('⚠️ 没有可供测速的反代节点');
+            showToast('⚡ 正在对所有节点发起测速...');
+            proxyNodesForPing.forEach((node, offset) => { setTimeout(() => pingTarget(node.idx, node.url), offset * 200); });
+        }
+
+        async function exportConfig() {
+            try {
+                const res = await fetch('/api/routes'); const data = await res.json();
+                const blob = new Blob([JSON.stringify(data, null, 2)], {type: 'application/json'});
+                const url = URL.createObjectURL(blob);
+                const a = document.createElement('a'); a.href = url; a.download = 'emby_proxy_backup.json'; a.click();
+                URL.revokeObjectURL(url); showToast('✅ 配置已导出');
+            } catch (e) { showToast('❌ 导出失败'); }
+        }
+
+        function importConfig() {
+            const input = document.createElement('input'); input.type = 'file'; input.accept = '.json';
+            input.onchange = async (e) => {
+                const file = e.target.files[0]; const reader = new FileReader();
+                reader.onload = async (event) => {
+                    try {
+                        const routes = JSON.parse(event.target.result);
+                        const res = await fetch('/api/routes/import', { method: 'POST', body: JSON.stringify(routes) });
+                        const result = await res.json();
+                        if (result.success) { showToast('✅ 配置导入成功'); load(); } else throw new Error(result.error);
+                    } catch (err) { showToast('❌ 导入失败: ' + err.message); }
+                };
+                reader.readAsText(file);
+            };
+            input.click();
+        }
+
+        async function load() {
+            try {
+                await loadPtState();
+            } catch (e) {}
+            try {
+                const res = await fetch('/api/routes');
+                if (!res.ok) throw new Error('请求失败，请检查环境配置');
+                const data = await res.json();
+                if (data.error) throw new Error(data.error);
+
+                //  新增：把节点流量数据存进全局内存，供大屏瞬间读取！
+                window.globalRoutesData = data;
+
+                const container = document.getElementById('list-grid');
+                if(data.length === 0) {
+                    container.innerHTML = '<div style="text-align:center; color:var(--text-sec); grid-column: 1 / -1; padding: 40px;">暂无配置任何反代节点，请先部署一个。</div>';
+                    return;
+                }
+                
+                container.innerHTML = '';
+                proxyNodesForPing = []; 
+                const currentHost = window.location.host;
+
+                data.forEach((r, idx) => {
+                    const proxyUrl = entryUrl(r.prefix);
+                    const targets = r.target ? r.target.split(',').map(s => s.trim()).filter(Boolean) : [];
+                    const mainTarget = targets[0] || '';
+                    
+                    const remarkName = r.remark || '未命名媒体库';
+                    // 未观看天数（基于改良后的真实观看 last_play；last_play 为 UTC+8 墙上时间字符串）
+                    let watchDaysText = '暂无播放记录', watchOverdue = false;
+                    if (r.last_play) {
+                        try {
+                            const lpUtc = Date.parse(r.last_play.replace(' ', 'T') + 'Z') - 8 * 3600000;
+                            const diffDays = Math.floor((Date.now() - lpUtc) / 86400000);
+                            watchDaysText = diffDays <= 0 ? '今天观看过' : (diffDays + ' 天前观看');
+                            const wl = parseFloat(r.watch_limit);
+                            if (wl > 0 && diffDays > wl) { watchOverdue = true; watchDaysText += ' · 已超 ' + (diffDays - wl) + ' 天'; }
+                        } catch (e) {}
+                    }
+                    const lastPlay = r.last_play ? r.last_play : '暂无播放记录';
+                    
+                    const iconHtml = r.icon ? \`<img src="\${r.icon}" style="width:28px;height:28px;border-radius:6px;object-fit:cover;">\` : '${I.film}';
+                    const pingAttr = mainTarget ? 'onclick="pingTarget(' + idx + ', \\'' + mainTarget + '\\')" title="点击重新测速"' : 'title="订阅模式不可测速"';
+                    const pingText = mainTarget ? '测速中...' : '—';
+                    const encodedTargets = encodeURIComponent(JSON.stringify(targets));
+                    
+                    //  伪装设备与保活状态解析（VPS 版同款）
+                    let fakeClient = ''; let dlTrickOn = false;
+                    try { const fp = r.custom_params ? JSON.parse(r.custom_params) : {}; fakeClient = fp.client || ''; dlTrickOn = !!fp.dlTrick; } catch(e){}
+                    const fakeOn = (r.mode || '').includes('fake');
+                    const kaOn = r.ka_enabled === '1';
+                    const kaStatus = kaOn ? '已开启 · ' + (r.ka_days || 3) + '天' : '未开启';
+                    const kaLast = r.last_ka_result ? ((r.last_ka_result === 'success' ? '✅ ' : '❌ ') + (r.last_ka_detail || '')) : '暂无记录';
+                    const kaNext = r.last_ka_run ? new Date(r.last_ka_run).getTime() + Math.max(0.1, parseFloat(r.ka_days) || 3) * 86400000 : 0;
+
+                    //  接收后端传来的：单节点独立宽带与请求统计数据
+                    const todayBw = r.todayBandwidth || '0 B';
+                    const totalReqs = r.totalReqs || r.todayReqs || 0;
+
+                    proxyNodesForPing.push({ idx: idx, url: mainTarget });
+
+                    container.innerHTML += \`
+                    <div class="emby-card route-item" data-prefix="\${r.prefix}" data-search="\${remarkName} \${r.prefix}">
+                        <div class="card-header">
+                            <div class="card-title-group" style="display: flex; align-items: center; gap: 10px;">
+                                <div class="drag-handle admin-only" title="长按拖拽排序" style="margin: 0; display: flex; align-items: center;">${I.lines}</div>
+                                <input type="checkbox" class="node-cb admin-only" value="\${r.prefix}" style="width: 18px; height: 18px; margin: 0; cursor: pointer; accent-color: var(--primary); flex-shrink: 0;">
+                                <div class="emby-icon" style="margin: 0; display: flex; align-items: center;">\${iconHtml}</div>
+                                <div>
+                                    <div style="font-weight: 600; font-size: 16px; color: var(--text);">\${remarkName}</div>
+                                    <div style="font-size: 13px; color: var(--text-sec); margin-top:2px;">/\${r.prefix}</div>
+                                </div>
+                            </div>
+                            <div style="display:flex; align-items:center;">
+                                <span class="badge" style="background: rgba(0,113,227,0.1); color: var(--primary);">\${modeNames[r.mode] || '未知'}</span>
+                            </div>
+                        </div>
+
+                        <div class="node-summary" style="display:flex; align-items:center; gap:14px; flex-wrap:wrap; padding-top:2px;">
+                            <span id="ping-\${idx}" class="ping-badge" \${pingAttr}>\${pingText}</span>
+                            <span style="font-size:12px; color:var(--text-sec);">\${todayBw}</span>
+                            <div style="margin-left:auto; display:flex; gap:8px; align-items:center;">
+                                <button class="icon-btn" onclick="copyTxt('\${proxyUrl}')" title="复制直达链接">${SVG_COPY}</button>
+                                <button class="icon-btn" onclick="toggleNodeDetail(this)" title="展开详情" style="transition:transform .25s;">${I.arrowdown}</button>
+                            </div>
+                        </div>
+
+                        <div class="node-detail" style="display:none; flex-direction:column; gap:14px;">
+                            <div style="background: rgba(120,120,120,0.05); border: 1px solid var(--border); border-radius: 10px; padding: 12px; display: flex; justify-content: space-between; flex-wrap: wrap; gap: 10px;">
+                                <div style="display:flex; flex-direction: column; gap: 4px;">
+                                    <span style="font-size:12px; color:var(--text-sec);">${I.arrowdown} 今日产生总流量</span>
+                                    <span style="font-size:16px; font-weight:700; color:var(--primary);">\${todayBw}</span>
+                                </div>
+                                <div style="display:flex; flex-direction: column; gap: 4px; text-align: right;">
+                                    <span style="font-size:12px; color:var(--text-sec);">${I.tv} 播放次数 (今日/累计)</span>
+                                    <span style="font-size:16px; font-weight:700; color:#ff9500;">\${r.todayReqs} / \${totalReqs} 次</span>
+                                </div>
+                            </div>
+
+                            <div style="display: flex; flex-direction: column; gap: 10px;">
+                                <div class="info-row">
+                                    <span class="info-label">直达链接:</span>
+                                    <div class="action-group" style="flex:1; justify-content: flex-end; margin-left: 10px; align-items: flex-start;">
+                                        <span id="p-\${idx}" data-val="\${proxyUrl}" class="secret-text dynamic-url">••••••••</span>
+                                        <button class="icon-btn" style="margin-top: 2px;" onclick="toggleVis('p-\${idx}')" title="查看明文">${SVG_EYE}</button>
+                                        <button class="icon-btn" style="margin-top: 2px;" onclick="copyTxt('\${proxyUrl}')" title="复制链接">${SVG_COPY}</button>
+                                    </div>
+                                </div>
+                                <div class="info-row admin-only">
+                                    <span class="info-label">源站线路:</span>
+                                    <div class="action-group" style="flex:1; justify-content: flex-end; margin-left: 10px; align-items: flex-start;">
+                                        <div id="t-\${idx}" data-val="\${encodedTargets}" class="secret-text dynamic-url">••••••••</div>
+                                        <button class="icon-btn" style="margin-top: 2px;" onclick="toggleVis('t-\${idx}', true)" title="查看明文">${SVG_EYE}</button>
+                                    </div>
+                                </div>
+                                <div class="info-row">
+                                    <span class="info-label">海报缓存:</span>
+                                    <span style="color:\${r.cache_img !== 'off' ? '#34c759' : '#ff9500'}; font-weight:600;">\${r.cache_img !== 'off' ? '${I.check} 已开启' : '${I.xmark} 已关闭'}</span>
+                                </div>
+                                <div class="info-row">
+                                    <span class="info-label">下载伪装:</span>
+                                    <span style="color:\${dlTrickOn ? '#34c759' : 'var(--text-sec)'}; font-weight:600;">\${dlTrickOn ? '${I.check} 已开启' : '${I.xmark} 已关闭'}</span>
+                                </div>
+                                <div class="info-row">
+                                    <span class="info-label">最后活跃:</span>
+                                    <span style="color:\${watchOverdue ? '#ff3b30' : 'var(--text-sec)'}; font-weight:\${watchOverdue ? '700' : 'normal'};">\${watchOverdue ? I.warn + ' ' : ''}\${watchDaysText}</span>
+                                </div>
+                                <div class="info-row">
+                                    <span class="info-label">伪装设备:</span>
+                                    <span style="color:\${fakeOn && fakeClient ? '#5856d6' : 'var(--text-sec)'}; font-weight:600;">\${fakeOn && fakeClient ? fakeClient : '未开启'}</span>
+                                </div>
+                                <div class="info-row">
+                                    <span class="info-label">自动保活:</span>
+                                    <span style="color:\${kaOn ? '#34c759' : 'var(--text-sec)'}; font-weight:600;">\${kaStatus}</span>
+                                </div>
+                                <div class="info-row">
+                                    <span class="info-label">下次保活:</span>
+                                    <span class="ka-cd" data-ka-next="\${kaNext}" style="color:var(--text-sec);">待首次执行</span>
+                                </div>
+                                <div class="info-row">
+                                    <span class="info-label">上次保活:</span>
+                                    <span style="color:var(--text-sec);">\${kaLast}</span>
+                                </div>
+                            </div>
+
+                            <div class="card-footer admin-only">
+                                <button class="btn-edit" onclick="kaRun('\${r.prefix}')" title="立即执行一次完整保活">保活</button>
+                                <button class="btn-edit" onclick="rexImport('\${r.prefix}')" title="生成 Rex 一键导入链接">Rex导入</button>
+                                <button class="btn-edit" onclick="editNode('\${esc(r.prefix)}', '\${esc(r.target)}', '\${esc(r.mode)}', '\${esc(r.remark || '')}', '\${esc(r.icon || '')}', '\${esc(r.cache_img)}', '\${esc(r.custom_params ? encodeURIComponent(r.custom_params) : '')}', '\${esc(r.ka_enabled || '0')}', '\${esc(r.ka_days || '3')}', '\${esc(r.ka_token || '')}', '\${esc(r.node_user || '')}', '\${esc(r.node_pass || '')}', '\${esc(r.watch_limit || '0')}')">编辑配置</button>
+                                <button class="btn-del" onclick="del('\${r.prefix}')">删除</button>
+                            </div>
+                        </div>
+                    </div>\`;;
+
+                    if (mainTarget) setTimeout(() => pingTarget(idx, mainTarget), 500 * idx); 
+                });
+                
+                filterNodesList();
+
+                if (sortableInstance) sortableInstance.destroy();
+                sortableInstance = Sortable.create(container, {
+                    handle: '.drag-handle',
+                    animation: 150,
+                    delay: 200, 
+                    delayOnTouchOnly: true,
+                    onEnd: async function () {
+                        const items = [];
+                        container.querySelectorAll('.route-item').forEach((row, index) => {
+                            const prefix = row.getAttribute('data-prefix');
+                            if (prefix) items.push({ prefix: prefix, sort_order: index });
+                        });
+                        try {
+                            await fetch('/api/routes/reorder', { method: 'POST', body: JSON.stringify(items) });
+                            showToast('✅ 排序已保存');
+                        } catch(e) { showToast('❌ 排序保存失败'); }
+                    }
+                });
+
+            } catch (err) {
+                document.getElementById('list-grid').innerHTML = \`<div style="text-align:center; color:#ff3b30; font-weight:600; grid-column: 1 / -1; padding: 20px;">${I.warn} 读取失败: \${err.message}</div>\`;
+            }
+        }
+
+        function toggleCustomParams() {
+            const mode = document.getElementById('mode').value;
+            document.getElementById('customParamsDiv').style.display = (mode.includes('fake') || mode === 'custom') ? 'flex' : 'none';
+        }
+
+        function applyFakeTemplate(type) {
+            const templates = {
+                'senplayer': { client: 'SenPlayer', version: '6.2.2', device: 'iPhone', ua: 'SenPlayer/6.2.2' },
+                'eplayerx': { client: 'EplayerX', version: '10.0.22', device: 'iPhone', ua: 'EplayerX/10.0.22' },
+                'forward': { client: 'Forward', version: '1.3.18', device: 'iPhone', ua: 'Forward-Standard/1.3.18' },
+                'rex': { client: 'Rex', version: '1.0.1', device: 'iPhone17,2', ua: 'Rex/1.0.1' },
+                'hills': { client: 'Hills', version: '1.6.0', device: 'PD2505', ua: 'Hills/1.6.0 (android; 16)' },
+                'yamby': { client: 'Yamby', version: '2.0.0.5', device: 'vivo-V2505A', ua: 'Yamby/2.0.0.5(Android)' },
+                'clear': { client: '', version: '', device: '', ua: '' }
+            };
+            const tpl = templates[type];
+            if(tpl) {
+                document.getElementById('customClient').value = tpl.client;
+                document.getElementById('customVersion').value = tpl.version;
+                document.getElementById('customDevice').value = tpl.device;
+                document.getElementById('customUa').value = tpl.ua;
+                if (type !== 'clear' && !document.getElementById('customDeviceId').value) document.getElementById('customDeviceId').value = genUuid();
+                showToast('✅ 已应用 ' + (type === 'clear' ? '清空' : tpl.client) + ' 预设');
+            }
+        }
+
+        const esc = s => String(s == null ? '' : s).replaceAll('"', '\\\\"').replaceAll("'", "\\\\'");
+        function editNode(prefix, targetStr, mode, remark, icon, cacheImg, customParamsStr, kaEnabled, kaDays, kaToken, nodeUser, nodePass, watchLimit) {
+            document.getElementById('oldPrefix').value = prefix;
+            document.getElementById('remark').value = remark;
+            document.getElementById('prefix').value = prefix;
+            const modeSel = document.getElementById('mode');
+            if (mode && ![...modeSel.options].some(o => o.value === mode)) {
+                const opt = document.createElement('option');
+                opt.value = mode; opt.textContent = mode + '（自定义）';
+                modeSel.appendChild(opt);
+            }
+            modeSel.value = mode || 'off';
+            document.getElementById('nodeCache').checked = (cacheImg !== 'off');
+            
+            let customParams = {};
+            if (customParamsStr) {
+                try { customParams = JSON.parse(decodeURIComponent(customParamsStr)); } catch(e){}
+            }
+            document.getElementById('nodeDlTrick').checked = !!customParams.dlTrick;
+            document.getElementById('customClient').value = customParams.client || '';
+            document.getElementById('customVersion').value = customParams.version || '';
+            document.getElementById('customDevice').value = customParams.device || '';
+            document.getElementById('customDeviceId').value = customParams.deviceId || '';
+            document.getElementById('customUa').value = customParams.ua || '';
+            toggleCustomParams();
+            document.getElementById('kaEnabled').checked = (kaEnabled === '1');
+            document.getElementById('kaDays').value = kaDays || '3';
+            document.getElementById('kaToken').value = kaToken || '';
+            document.getElementById('nodeUser').value = nodeUser || '';
+            document.getElementById('nodePass').value = nodePass || '';
+            document.getElementById('watchLimit').value = watchLimit || '0';
+            
+            if (icon) {
+                const foundItem = globalIcons.find(i => i.url === icon);
+                selectIcon(icon, foundItem ? foundItem.name : '已选择图标');
+            } else {
+                selectIcon('', '默认');
+            }
+
+            document.getElementById('submitBtn').textContent = '保存修改';
+            
+            const container = document.getElementById('targetInputs');
+            container.innerHTML = '';
+            const targets = targetStr.split(',').map(s => s.trim()).filter(Boolean);
+            
+            targets.forEach((url) => {
+                const inp = document.createElement('input');
+                inp.type = 'url'; inp.className = 'target-input'; inp.value = url;
+                inp.style = 'padding: 12px 16px; border: 1px solid var(--border); border-radius: 8px; background:var(--card); width: 100%;';
+                inp.oninput = handleTargetInputs;
+                container.appendChild(inp);
+            });
+            
+            const emptyInp = document.createElement('input');
+            emptyInp.type = 'url'; emptyInp.className = 'target-input';
+            emptyInp.style = 'padding: 12px 16px; border: 1px solid var(--border); border-radius: 8px; background:var(--card); width: 100%;';
+            emptyInp.oninput = handleTargetInputs;
+            container.appendChild(emptyInp);
+            
+            handleTargetInputs(); 
+            document.getElementById('nodeModalTitle').textContent='编辑节点';
+            document.getElementById('nodeModal').style.display='block';
+        }
+        function kaRingHtml(pct, color) {
+            const circ = 2 * Math.PI * 42;
+            const offset = (circ * (1 - pct / 100)).toFixed(2);
+            return '<div style="display:flex;flex-direction:column;align-items:center;padding:4px 0 10px;">'
+                + '<div style="position:relative;width:100px;height:100px;">'
+                + '<svg width="100" height="100" viewBox="0 0 100 100">'
+                + '<circle cx="50" cy="50" r="42" fill="none" stroke="var(--line,#e3e3e8)" stroke-width="8"/>'
+                + '<circle cx="50" cy="50" r="42" fill="none" stroke="' + color + '" stroke-width="8" stroke-linecap="round" stroke-dasharray="' + circ.toFixed(2) + '" stroke-dashoffset="' + offset + '" transform="rotate(-90 50 50)" style="transition:stroke-dashoffset .45s ease"/>'
+                + '</svg>'
+                + '<div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-size:15px;font-weight:700;">' + pct + '%</div>'
+                + '</div>'
+                + '</div>';
+        }
+
+        async function kaRun(prefix) {
+            const box = document.getElementById('kaResultBox');
+            box.innerHTML = '<div style="color:var(--text-sec);">正在对 /' + prefix + ' 执行保活（登录 → 拉流 40MB → 快进 90 秒进度上报）…</div>';
+            document.getElementById('kaModal').style.display = 'block';
+            // 执行期间每 1.5s 轮询实时进度（环形进度条 + 当前剧名），避免看起来像卡住
+            const poll = setInterval(async () => {
+                try {
+                    const res2 = await fetch('/api/keepalive/status');
+                    const d = await res2.json();
+                    if (!d || !d.running) return;
+                    const pct = Math.max(0, Math.min(100, Math.round(d.progress || 0)));
+                    let now = '';
+                    if (d.mediaTitle) now = '<div style="margin-top:6px;font-size:12px;color:#3478f6;font-weight:600;text-align:center;">正在模拟看：' + d.mediaTitle + '</div>';
+                    let h = kaRingHtml(pct, '#34c759')
+                        + '<div style="margin-top:-4px;font-size:12px;color:var(--text-sec);text-align:center;">' + (d.current || '执行中…') + '</div>'
+                        + now;
+                    if (d.steps && d.steps.length) {
+                        h += '<div style="margin-top:8px;font-weight:600;">已完成 ' + d.steps.length + ' 步：</div>';
+                        d.steps.forEach(x => { h += '<div style="color:' + (x.ok ? '#34c759' : '#ff3b30') + ';">' + (x.ok ? '✅' : '❌') + ' ' + x.name + '</div>'; });
+                    }
+                    box.innerHTML = h;
+                } catch (e) {}
+            }, 1500);
+            try {
+                const res = await fetch('/api/keepalive/run', { method: 'POST', body: JSON.stringify({ prefix }) });
+                const data = await res.json();
+                clearInterval(poll);
+                if (data.error) { box.innerHTML = '<div style="color:#ff3b30;">' + data.error + '</div>'; return; }
+                const steps = (data.steps || []).map(st => '<div style="color:' + (st.ok ? '#34c759' : '#ff3b30') + ';">' + (st.ok ? '✅' : '❌') + ' ' + st.name + ' — ' + st.detail + '</div>').join('');
+                box.innerHTML = kaRingHtml(100, data.ok ? '#34c759' : '#ff3b30')
+                    + '<div style="margin-top:-4px;margin-bottom:8px;text-align:center;font-weight:600; color:' + (data.ok ? '#34c759' : '#ff3b30') + ';">' + (data.ok ? '✅ 保活成功' : '❌ 保活失败') + '：' + (data.msg || '') + '</div>'
+                    + steps;
+            } catch (e) {
+                clearInterval(poll);
+                box.innerHTML = '<div style="color:#ff3b30;">请求失败: ' + e.message + '</div>';
+            }
+            load();
+        }
+        function closeKaModal() { document.getElementById('kaModal').style.display = 'none'; }
+
+        /* 保活结果通知 toast */
+        function kaToast(msg, ok) {
+            let box = document.getElementById('kaToastBox');
+            if (!box) {
+                box = document.createElement('div');
+                box.id = 'kaToastBox';
+                box.style.cssText = 'position:fixed;top:14px;right:14px;z-index:99999;display:flex;flex-direction:column;gap:8px;';
+                document.body.appendChild(box);
+            }
+            const el = document.createElement('div');
+            el.style.cssText = 'background:' + (ok ? '#34c759' : '#ff3b30') + ';color:#fff;padding:10px 14px;border-radius:10px;font-size:13px;box-shadow:0 4px 16px rgba(0,0,0,.2);max-width:300px;word-break:break-all;';
+            el.textContent = msg;
+            box.appendChild(el);
+            setTimeout(() => { el.style.transition = 'opacity .3s'; el.style.opacity = '0'; setTimeout(() => el.remove(), 320); }, 2800);
+        }
+
+        /* 保活倒计时 */
+        function kaFmtRemain(ms) {
+            if (ms <= 0) return '已到期，等待执行';
+            const d = Math.floor(ms / 86400000), h = Math.floor(ms % 86400000 / 3600000), m = Math.floor(ms % 3600000 / 60000), s = Math.floor(ms % 60000 / 1000);
+            if (d > 0) return d + '天' + h + '小时';
+            if (h > 0) return h + '小时' + m + '分';
+            if (m > 0) return m + '分' + s + '秒';
+            return s + '秒';
+        }
+        function updateKaCountdown() {
+            document.querySelectorAll('.ka-cd[data-ka-next]').forEach(el => {
+                const next = parseInt(el.getAttribute('data-ka-next'), 10);
+                if (!next) { el.textContent = '待首次执行'; return; }
+                const remain = next - Date.now();
+                el.textContent = remain <= 0 ? '已到期，等待执行' : kaFmtRemain(remain);
+            });
+        }
+        setInterval(updateKaCountdown, 1000);
+
+        /* 保活结果通知轮询 */
+        let kaNoticeInited = false, lastKaNoticeT = 0;
+        async function pollKaNotices() {
+            try {
+                const res = await fetch('/api/keepalive/notices');
+                const d = await res.json();
+                const list = (d.notices || []);
+                if (!kaNoticeInited) { lastKaNoticeT = list.reduce((m, n) => Math.max(m, n.time || 0), 0); kaNoticeInited = true; return; }
+                for (const n of list) {
+                    if (n.time && n.time > lastKaNoticeT) {
+                        lastKaNoticeT = Math.max(lastKaNoticeT, n.time);
+                        kaToast((n.result === '成功' ? '✅' : '❌') + ' 保活' + (n.result === '成功' ? '成功' : '失败') + ' ' + (n.remark || ('/' + n.prefix)) + '：' + (n.detail || ''), n.result === '成功');
+                    }
+                }
+            } catch (e) {}
+        }
+        setInterval(pollKaNotices, 15000);
+
+        function rexImport(prefix) {
+            const r = (window.globalRoutesData || []).find(x => x.prefix === prefix) || {};
+            document.getElementById('rexPrefix').value = prefix;
+            document.getElementById('rexUser').value = r.node_user || '';
+            document.getElementById('rexPass').value = r.node_pass || '';
+            renderRexLink();
+            document.getElementById('rexModal').style.display = 'block';
+        }
+        function renderRexLink() {
+            const scheme = location.protocol.replace(':', '');
+            const host = location.hostname + '/' + (PT.enabled ? PT.key + '/' : '') + String(document.getElementById('rexPrefix').value || '').trim();
+            const port = location.port || (scheme === 'https' ? '443' : '80');
+            const username = encodeURIComponent(String(document.getElementById('rexUser').value || '').trim());
+            const password = encodeURIComponent(String(document.getElementById('rexPass').value || '').trim());
+            document.getElementById('rexLink').value = 'rex://import?type=emby&scheme=' + scheme + '&host=' + host + '&port=' + port + '&username=' + username + '&password=' + password;
+        }
+        function copyRexLink() {
+            const link = document.getElementById('rexLink').value;
+            if (!link) return;
+            copyTxt(link);
+            showToast('✅ Rex 导入链接已复制');
+        }
+        function openRexLink() {
+            const link = document.getElementById('rexLink').value;
+            if (!link) return;
+            window.location.href = link;
+        }
+        function closeRexModal() { document.getElementById('rexModal').style.display = 'none'; }
+
+        function toggleNodeDetail(btn) {
+            const card = btn.closest('.emby-card');
+            const d = card.querySelector('.node-detail');
+            const show = d.style.display === 'none';
+            d.style.display = show ? 'flex' : 'none';
+            btn.classList.toggle('rotated', show);
+            btn.title = show ? '收起' : '展开详情';
+        }
+        function openNodeModal() {
+            const f = document.getElementById('addForm');
+            f.reset();
+            document.getElementById('oldPrefix').value='';
+            selectIcon('','默认');
+            document.getElementById('nodeCache').checked=true;
+            document.getElementById('nodeDlTrick').checked=false;
+            document.getElementById('submitBtn').textContent='保存部署';
+            document.getElementById('nodeModalTitle').textContent='添加节点';
+            document.getElementById('nodeModal').style.display='block';
+        }
+        function closeNodeModal() {
+            document.getElementById('nodeModal').style.display='none';
+        }
+
+        // ============ 手动覆盖/更新 弹窗 ============
+        function openCodeModal(mode) {
+            const modal = document.getElementById('codeModal');
+            const area = document.getElementById('codeArea');
+            const file = document.getElementById('fileInput');
+            if (mode === 'file') {
+                area.style.display = 'none';
+                file.style.display = 'block';
+            } else {
+                area.style.display = 'block';
+                file.style.display = 'none';
+            }
+            modal.style.display = 'block';
+        }
+        function closeCodeModal() {
+            document.getElementById('codeModal').style.display = 'none';
+        }
+
+        // ============ Worker 调度/区域 弹窗 ============
+        function openPlacementModal() {
+            document.getElementById('placementModal').style.display = 'block';
+        }
+        function closePlacementModal() {
+            document.getElementById('placementModal').style.display = 'none';
+        }
+
+        // ============ 账户设置 弹窗 ============
+        function openAccountModal() {
+            const modal = document.getElementById('accountModal');
+            modal.style.display = 'block';
+            if (window.ROLE === 'sub') {
+                document.getElementById('accountAdminPanel').style.display = 'none';
+                document.getElementById('accountSubPanel').style.display = 'block';
+            } else {
+                document.getElementById('accountAdminPanel').style.display = 'flex';
+                document.getElementById('accountSubPanel').style.display = 'none';
+                loadSubscribers();
+                loadPtState();
+                loadPtHits();
+                loadVersionPanel();
+            }
+        }
+        function closeAccountModal() {
+            document.getElementById('accountModal').style.display = 'none';
+        }
+        let PT = { enabled: false, key: '' };
+        function entryUrl(prefix) {
+            return 'https://' + window.location.host + '/' + (PT.enabled ? PT.key + '/' : '') + prefix;
+        }
+        async function loadPtState() {
+            try {
+                const res = await fetch('/api/proxytoken');
+                const data = await res.json();
+                if (data.success) PT = { enabled: !!data.enabled, key: data.key || '' };
+            } catch (e) {}
+            const on = document.getElementById('ptOn');
+            if (on) on.checked = PT.enabled;
+            const k = document.getElementById('ptKey');
+            if (k) k.value = PT.key || '';
+            await loadNotifyState();
+        }
+        async function loadNotifyState() {
+            try {
+                const res = await fetch('/api/account/notify');
+                const data = await res.json();
+                if (data.success) {
+                    const set = (id, v) => { const el = document.getElementById(id); if (el) el.value = v || ''; };
+                    const setChk = (id, v) => { const el = document.getElementById(id); if (el) el.checked = v !== false; };
+                    set('barkKey', data.barkKey);
+                    set('barkLevel', data.barkLevel || 'active');
+                    set('barkServer', data.barkServer || 'https://api.day.app');
+                    setChk('barkNotify', data.barkNotify);
+                    set('tgToken', data.tgToken);
+                    set('tgChatId', data.tgChatId);
+                    setChk('tgNotify', data.tgNotify);
+                }
+            } catch (e) {}
+        }
+        async function saveNotifySettings() {
+            const barkKey = document.getElementById('barkKey').value.trim();
+            const barkLevel = document.getElementById('barkLevel').value;
+            const barkServer = document.getElementById('barkServer').value.trim();
+            const barkNotify = document.getElementById('barkNotify').checked;
+            const tgToken = document.getElementById('tgToken').value.trim();
+            const tgChatId = document.getElementById('tgChatId').value.trim();
+            const tgNotify = document.getElementById('tgNotify').checked;
+            const res = await fetch('/api/account', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ notify: { barkKey, barkLevel, barkServer, barkNotify, tgToken, tgChatId, tgNotify } }) });
+            const data = await res.json();
+            if (data.success) { showToast('保号通知设置已保存'); closeAccountModal(); }
+            else alert('保存失败：' + (data.error || ''));
+        }
+        async function testNotifyFn(type) {
+            const res = await fetch('/api/test-notify', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ type }) });
+            const data = await res.json();
+            alert(data.success ? '测试通知发送成功' : ('发送失败：' + (data.error || '')));
+        }
+        async function saveProxyToken() {
+            const enabled = document.getElementById('ptOn').checked;
+            const key = document.getElementById('ptKey').value.trim();
+            if (enabled && !/^[A-Za-z0-9]{3,32}$/.test(key)) { alert('密钥需 3-32 位字母数字'); return; }
+            const res = await fetch('/api/account', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ proxyToken: { enabled, key } }) });
+            const data = await res.json();
+            if (data.success) {
+                closeAccountModal();
+                showToast('反代 Token 已' + (enabled ? '开启，链接前缀 /' + key + '/' : '关闭'));
+                await loadPtState();
+                try { renderRoutes(); } catch (e) { console.error(e); }
+            } else alert('保存失败：' + (data.error || ''));
+        }
+        function fmtHitTs(ts) {
+            const d = new Date(ts + 8 * 3600000);
+            return String(d.getUTCFullYear()).slice(2) + '-' + String(d.getUTCMonth() + 1).padStart(2, '0') + '-' + String(d.getUTCDate()).padStart(2, '0') + ' ' + String(d.getUTCHours()).padStart(2, '0') + ':' + String(d.getUTCMinutes()).padStart(2, '0');
+        }
+        async function loadPtHits() {
+            const box = document.getElementById('ptHits');
+            try {
+                const res = await fetch('/api/proxytoken/hits');
+                const data = await res.json();
+                const hits = (data && data.hits) || [];
+                if (!hits.length) { box.innerHTML = '<span style="color:var(--text-sec);">暂无记录</span>'; return; }
+                box.innerHTML = hits.map(h => '<div style="padding:8px 10px;border:1px solid var(--border);border-radius:8px;margin-bottom:6px;background:var(--bg);">'
+                    + '<div style="color:var(--text);font-weight:600;font-size:13px;">' + escHtml(h.ip) + ' <span style="color:var(--primary);font-weight:700;">×' + (h.times || 1) + '</span></div>'
+                    + '<div style="color:var(--text-sec);font-size:12px;word-break:break-all;margin-top:2px;">' + escHtml(h.path || '') + '</div>'
+                    + '<div style="color:var(--text-sec);font-size:11px;margin-top:2px;">' + fmtHitTs(h.ts || 0) + ' · ' + escHtml(String(h.ua || '').slice(0, 70)) + '</div></div>'
+                ).join('') + '<button class="btn-ghost" style="margin-top:6px;font-size:12px;" onclick="clearPtHits()">' + (I.trash || '清除') + ' 清空记录</button>';
+            } catch (e) { box.innerHTML = '<span style="color:var(--text-sec);">加载失败</span>'; }
+        }
+        async function clearPtHits() {
+            const res = await fetch('/api/proxytoken/hits', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ clear: true }) });
+            const data = await res.json();
+            if (data.success) { showToast('已清空来访记录'); loadPtHits(); }
+            else alert('清空失败');
+        }
+        function escHtml(s) {
+            return String(s == null ? '' : s).replace(/[&<>"']/g, c => ({ '&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;' }[c]));
+        }
+        async function saveAdminPass() {
+            const pw = document.getElementById('newAdminPass').value.trim();
+            if (!pw || pw.length < 4) { alert('密码至少 4 位'); return; }
+            if (!confirm('确定将网页登录密码修改为「' + pw + '」？\\n\\n注意：Worker 变量 ADMIN_TOKEN 仍为最高权限，永久有效。')) return;
+            const res = await fetch('/api/account', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ password: pw }) });
+            const data = await res.json();
+            if (data.success) { showToast('密码已更新'); document.getElementById('newAdminPass').value = ''; }
+            else alert('修改失败：' + (data.error || ''));
+        }
+        async function loadSubscribers() {
+            try {
+                const res = await fetch('/api/subscribers');
+                const data = await res.json();
+                const list = data.subscribers || [];
+                const box = document.getElementById('subList');
+                if (list.length === 0) {
+                    box.innerHTML = '<div style="font-size:13px; color:var(--text-sec); padding:6px 0;">暂无订阅用户</div>';
+                    return;
+                }
+                box.innerHTML = '';
+                list.forEach(pw => {
+                    box.innerHTML += '<div style="display:flex; align-items:center; gap:8px; background:var(--bg); border:1px solid var(--border); border-radius:8px; padding:8px 12px;">' +
+                        '<span style="flex:1; font-family:monospace; font-size:13px;">' + pw + '</span>' +
+                        '<button class="icon-btn" onclick="delSubscriber(this)" data-pw="' + pw + '" title="删除">' + I.trash + '</button></div>';
+                });
+            } catch (e) { alert('加载订阅用户失败'); }
+        }
+        async function addSubscriber() {
+            const pw = document.getElementById('newSubPass').value.trim();
+            if (!pw || pw.length < 4) { alert('密码至少 4 位'); return; }
+            const res = await fetch('/api/subscribers', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ action: 'add', password: pw }) });
+            const data = await res.json();
+            if (data.success) { showToast('已添加订阅者'); document.getElementById('newSubPass').value = ''; loadSubscribers(); }
+            else alert(data.error || '添加失败');
+        }
+        async function delSubscriber(btn) {
+            const pw = btn.getAttribute('data-pw');
+            if (!confirm('确定删除订阅者「' + pw + '」？')) return;
+            const res = await fetch('/api/subscribers', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ action: 'del', password: pw }) });
+            const data = await res.json();
+            if (data.success) { showToast('已删除'); loadSubscribers(); }
+            else alert(data.error || '删除失败');
+        }
+
+        // ============ 角色识别与订阅者只读模式 ============
+        async function initRole() {
+            try {
+                const res = await fetch('/api/me');
+                const data = await res.json();
+                window.ROLE = data.role || 'admin';
+            } catch (e) { window.ROLE = 'admin'; }
+            if (window.ROLE === 'sub') applySubMode();
+        }
+        function applySubMode() {
+            document.querySelectorAll('.admin-only').forEach(el => el.style.display = 'none');
+            const dockItems = document.querySelectorAll('.ds-dock-item');
+            if (dockItems[1]) dockItems[1].style.display = 'none';
+            if (dockItems[2]) dockItems[2].style.display = 'none';
+            const speedView = document.getElementById('view-speed');
+            if (speedView) speedView.innerHTML = '<div style="padding:40px;text-align:center;color:var(--text-sec);font-size:14px;">订阅用户无测速与 DNS 权限</div>';
+            const setView = document.getElementById('view-settings');
+            if (setView) setView.innerHTML = '<div style="padding:40px;text-align:center;color:var(--text-sec);font-size:14px;">订阅用户无设置权限</div>';
+        }
+
+        document.getElementById('addForm').onsubmit = async (e) => {
+            e.preventDefault();
+            const oldPrefix = document.getElementById('oldPrefix').value;
+            const remark = document.getElementById('remark').value.trim();
+            const prefix = document.getElementById('prefix').value.trim().replace(/^\\/+/g, '');
+            const mode = document.getElementById('mode').value;
+            const icon = document.getElementById('iconUrl').value;
+            const cache_img = document.getElementById('nodeCache').checked ? 'on' : 'off';
+            const dlTrick = document.getElementById('nodeDlTrick').checked ? '1' : '0';
+            const customClient = document.getElementById('customClient').value.trim();
+            const customVersion = document.getElementById('customVersion').value.trim();
+            const customDevice = document.getElementById('customDevice').value.trim();
+            const customUa = document.getElementById('customUa').value.trim();
+            const customDeviceId = document.getElementById('customDeviceId').value.trim();
+            const kaEnabled = document.getElementById('kaEnabled').checked ? '1' : '0';
+            const kaDays = document.getElementById('kaDays').value.trim() || '3';
+            const kaToken = document.getElementById('kaToken').value.trim();
+            const nodeUser = document.getElementById('nodeUser').value.trim();
+            const nodePass = document.getElementById('nodePass').value.trim();
+            const watchLimit = document.getElementById('watchLimit').value.trim() || '0';
+
+            const inputs = document.querySelectorAll('.target-input');
+            let targetsArray = [];
+            inputs.forEach(inp => {
+                const val = inp.value.trim().replace(/\\/$/g, '');
+                if (val) targetsArray.push(val);
+            });
+            const target = targetsArray.join(',');
+            
+            if (!target) return showToast('❌ 请至少填写一个主线路地址');
+
+            try {
+                const res = await fetch('/api/routes', { 
+                    method: 'POST', 
+                    body: JSON.stringify({oldPrefix, prefix, target, mode, remark, icon, cache_img, dlTrick, customClient, customVersion, customDevice, customDeviceId, customUa, kaEnabled, kaDays, kaToken, nodeUser, nodePass, watchLimit})
+                });
+                const data = await res.json();
+                if(!data.success) throw new Error(data.error || '部署失败');
+                
+                document.getElementById('addForm').reset();
+                document.getElementById('oldPrefix').value = ''; 
+                selectIcon('', '默认');
+                document.getElementById('nodeCache').checked = true;
+                document.getElementById('nodeDlTrick').checked = false;
+                document.getElementById('submitBtn').textContent = '保存部署'; 
+                resetTargetInputs(); 
+                closeNodeModal();   // 保存成功后直接关闭弹窗，避免编辑态残留成"添加节点"空表单
+
+                showToast('✅ 节点部署成功');
+                load();
+            } catch(err) {
+                showToast('❌ 保存失败: ' + err.message);
+            }
+        };
+
+        async function del(prefix) {
+            if(confirm('确定删除节点 /' + prefix + ' ?')) {
+                await fetch('/api/routes?prefix=' + prefix, { method: 'DELETE' });
+                showToast('🗑️ 节点已移除');
+                load();
+            }
+        }
+
+        function toggleSelectAll() {
+            const isChecked = document.getElementById('selectAll').checked;
+            document.querySelectorAll('.row-checkbox').forEach(cb => {
+                if(!cb.disabled) cb.checked = isChecked;
+            });
+        }
+        function getSelectedIps() {
+            const checkboxes = document.querySelectorAll('.row-checkbox:checked');
+            return Array.from(checkboxes).map(cb => cb.value);
+        }
+        function batchTcpPing() {
+            const rows = document.querySelectorAll('#testTableBody .test-row');
+            let ips = [];
+            rows.forEach(tr => {
+                const strong = tr.querySelector('.ip-text');
+                if (strong && strong.textContent) {
+                    let ip = strong.textContent;
+                    if (ip.startsWith('[') && ip.endsWith(']')) ip = ip.slice(1, -1);
+                    ips.push(ip);
+                }
+            });
+            if (ips.length === 0) return showToast('⚠️ 请先提取节点！');
+            navigator.clipboard.writeText(ips.join('\\n')).then(() => {
+                showToast('✅ 节点已复制，即将跳转 ITDog...');
+                setTimeout(() => { window.open('https://www.itdog.cn/batch_tcping/', '_blank'); }, 1500);
+            });
+        }
+        function directSubmitCname() {
+            const input = document.getElementById('customIps').value.trim();
+            if (!input) return showToast('⚠️ 请先在文本框内粘贴您的优选域名');
+            const domainRegex = /\\b([a-zA-Z0-9-]+\\.)+[a-zA-Z]{2,}\\b/g;
+            const matchedDomains = input.match(domainRegex) || [];
+            const realDomains = matchedDomains.filter(d => !/^\\d+\\.\\d+\\.\\d+\\.\\d+$/.test(d));
+            if (realDomains.length === 0) return showToast('⚠️ 没有提取到合法的域名格式，请检查输入！');
+            if(!confirm(\` 提取到以下域名：\\n\${realDomains.join('\\n')}\\n\\n确定要直接将其设为 CNAME 记录吗？\\n(注意：这会清空你配置的域名下现有的记录)\`)) return;
+            const btn = document.getElementById('btnDirectCname');
+            sendDnsRequest(realDomains, btn);
+        }
+        async function testCustomIPs() {
+            const input = document.getElementById('customIps').value;
+            if (!input.trim()) return showToast('⚠️ 请先在输入框粘贴 IP 或优选域名');
+            const ipv4Regex = /\\b(?:(?:25[0-5]|2[0-4]\\d|[01]?\\d\\d?)\\.){3}(?:25[0-5]|2[0-4]\\d|[01]?\\d\\d?)\\b/g;
+            const ipv6Regex = /(?:[A-F0-9]{1,4}:){7}[A-F0-9]{1,4}|(?:[A-F0-9]{1,4}:)*:[A-F0-9]{1,4}(?::[A-F0-9]{1,4})*/gi;
+            const domainRegex = /\\b([a-zA-Z0-9-]+\\.)+[a-zA-Z]{2,}\\b/g;
+            let matchedIPv4 = input.match(ipv4Regex) || [];
+            let matchedIPv6 = input.match(ipv6Regex) || [];
+            let matchedDomains = input.match(domainRegex) || [];
+            matchedDomains = matchedDomains.filter(d => !/^\\d+\\.\\d+\\.\\d+\\.\\d+$/.test(d));
+            let extractedIps = [...matchedIPv4, ...matchedDomains];
+            matchedIPv6.forEach(ip => {
+                if (ip.length > 7 && ip.includes(':') && !ip.startsWith('::1')) { extractedIps.push(ip.startsWith('[') ? ip : \`[\${ip}]\`); }
+            });
+            extractedIps = [...new Set(extractedIps)];
+            if (extractedIps.length === 0) return showToast('⚠️ 未识别到合法的 IP 或 域名格式');
+            const btn = document.getElementById('btnTestCustom');
+            const tbody = document.getElementById('testTableBody');
+            btn.disabled = true; btn.textContent = '⏳ 测试中...';
+            if(tbody.innerHTML.includes('暂无数据')) tbody.innerHTML = '';
+            showToast(\`✅ 提取到 \${extractedIps.length} 个节点，开始测速校验\`);
+            const promises = [];
+            extractedIps.forEach(ip => {
+                const tr = document.createElement('tr');
+                tr.className = 'test-row';
+                tr.innerHTML = \`
+                    <td data-label="勾选节点" style="text-align: center;"><input type="checkbox" class="ip-checkbox row-checkbox" value="\${ip}"></td>
+                    <td data-label="专属节点"><strong class="ip-text" style="color:var(--primary);cursor:pointer;font-family:monospace;" onclick="copyTxt('\${ip}')" title="点击复制">\${ip}</strong></td>
+                    <td data-label="预估延迟" class="latency" data-ms="9999" style="font-weight: 600; color: #888;">测算中...</td>
+                    <td data-label="连通状态" class="speed" style="color: #888;">-</td>
+                    <td data-label="记录/归属地" class="loc" style="color: #666;">等待解析</td>
+                    <td data-label="快捷操作"><button class="btn-dns" disabled onclick="updateSingleDns('\${ip}', this)">唯一解析</button></td>\`;
+                tbody.insertBefore(tr, tbody.firstChild);
+                promises.push(doLocalPing(ip, tr, '自定义节点'));
+            });
+            await Promise.all(promises);
+            sortTableByLatency(tbody);
+            document.querySelectorAll('.btn-dns').forEach(b => b.disabled = false);
+            btn.disabled = false; btn.textContent = ' 测试粘贴的节点';
+            showToast('🎉 自定义节点测速完成！');
+        }
+        async function fetchCustomApiAndTest() {
+            const apiUrl = document.getElementById('customApiUrl').value.trim();
+            if (!apiUrl) return showToast('⚠️ 请先填入自定义 API 链接');
+            const btn = document.getElementById('btnFetchCustomApi');
+            const tbody = document.getElementById('testTableBody');
+            const statusTxt = document.getElementById('statusText');
+            btn.disabled = true; btn.textContent = '⏳ 拉取中...';
+            statusTxt.innerHTML = \`正在从自定义 API 抓取数据...\`;
+            if(tbody.innerHTML.includes('暂无数据')) tbody.innerHTML = ''; 
+            try {
+                const res = await fetch(\`/api/get-custom-api-ips?url=\${encodeURIComponent(apiUrl)}\`);
+                const data = await res.json();
+                if (!data.ips || data.ips.length === 0) { showToast('⚠️ 自定义 API 返回为空'); return; }
+                showToast(\`✅ 提取 \${data.totalCount} 个节点，抽取 \${data.ips.length} 个测速\`);
+                btn.textContent = ' 测速中...';
+                const promises = [];
+                data.ips.forEach(ip => {
+                    const tr = document.createElement('tr');
+                    tr.className = 'test-row';
+                    tr.innerHTML = \`
+                        <td data-label="勾选节点" style="text-align: center;"><input type="checkbox" class="ip-checkbox row-checkbox" value="\${ip}"></td>
+                        <td data-label="专属节点"><strong class="ip-text" style="color:var(--primary);cursor:pointer;font-family:monospace;" onclick="copyTxt('\${ip}')" title="点击复制">\${ip}</strong></td>
+                        <td data-label="预估延迟" class="latency" data-ms="9999" style="font-weight: 600; color: #888;">测算中...</td>
+                        <td data-label="连通状态" class="speed" style="color: #888;">-</td>
+                        <td data-label="记录/归属地" class="loc" style="color: #666;">等待解析</td>
+                        <td data-label="快捷操作"><button class="btn-dns" disabled onclick="updateSingleDns('\${ip}', this)">唯一解析</button></td>\`;
+                    tbody.insertBefore(tr, tbody.firstChild);
+                    promises.push(doLocalPing(ip, tr, '自定义 API'));
+                });
+                await Promise.all(promises);
+                sortTableByLatency(tbody);
+                document.querySelectorAll('.btn-dns').forEach(b => b.disabled = false);
+                document.getElementById('selectAll').checked = false;
+                showToast('🎉 自定义 API 测速完成！');
+                statusTxt.innerHTML = \`${I.check} 测速完毕！您可以自由组合更新 DNS。\`;
+            } catch (err) { showToast('❌ 拉取失败'); } 
+            finally { btn.disabled = false; btn.textContent = ' 拉取 API 并测速'; }
+        }
+        async function fetchRemoteAndTest() {
+            const btn = document.getElementById('btnFetchRemote');
+            const tbody = document.getElementById('testTableBody');
+            const statusTxt = document.getElementById('statusText');
+            const type = document.getElementById('ipType').value;
+            const typeText = document.getElementById('ipType').options[document.getElementById('ipType').selectedIndex].text;
+            btn.disabled = true; btn.textContent = '⏳ 正在提取节点...';
+            statusTxt.innerHTML = \`正在拉取 <strong>\${typeText}</strong> 数据...\`;
+            if(tbody.innerHTML.includes('暂无数据')) tbody.innerHTML = ''; 
+            try {
+                const res = await fetch(\`/api/get-remote-ips?type=\${encodeURIComponent(type)}\`);
+                const data = await res.json();
+                if (!data.ips || data.ips.length === 0) { showToast('⚠️ 未获取到该类型 IP'); return; }
+                showToast(\`✅ 成功提取 \${data.totalCount} 个可用 IP，抽取 \${data.ips.length} 个测速\`);
+                btn.textContent = ' 本地测速中...';
+                const promises = [];
+                data.ips.forEach(ip => {
+                    const tr = document.createElement('tr');
+                    tr.className = 'test-row';
+                    tr.innerHTML = \`
+                        <td data-label="勾选节点" style="text-align: center;"><input type="checkbox" class="ip-checkbox row-checkbox" value="\${ip}"></td>
+                        <td data-label="专属节点"><strong class="ip-text" style="color:var(--primary);cursor:pointer;font-family:monospace;" onclick="copyTxt('\${ip}')" title="点击复制">\${ip}</strong></td>
+                        <td data-label="预估延迟" class="latency" data-ms="9999" style="font-weight: 600; color: #888;">测算中...</td>
+                        <td data-label="连通状态" class="speed" style="color: #888;">-</td>
+                        <td data-label="记录/归属地" class="loc" style="color: #666;">等待解析</td>
+                        <td data-label="快捷操作"><button class="btn-dns" disabled onclick="updateSingleDns('\${ip}', this)">唯一解析</button></td>\`;
+                    tbody.insertBefore(tr, tbody.firstChild);
+                    promises.push(doLocalPing(ip, tr, typeText.replace(/[^\u4e00-\u9fa5a-zA-Z0-9]/g, '')));
+                });
+                await Promise.all(promises);
+                sortTableByLatency(tbody);
+                document.querySelectorAll('.btn-dns').forEach(b => b.disabled = false);
+                document.getElementById('selectAll').checked = false;
+                showToast('🎉 测速完成！');
+                statusTxt.innerHTML = \`${I.check} 测速完毕！\`;
+            } catch (err) { showToast('❌ 拉取或测速失败'); } 
+            finally { btn.disabled = false; btn.textContent = ' 提取预设源并测速'; }
+        }
+        function clearTest() {
+            document.getElementById('testTableBody').innerHTML = '<tr><td colspan="6" style="text-align:center;color:var(--text-sec);">暂无数据，请拉取节点或输入自定义 IP/域名 测试</td></tr>';
+            document.getElementById('statusText').textContent = '列表已清空。';
+            document.getElementById('selectAll').checked = false;
+        }
+        function markTimeout(latTd, spdTd, tr) {
+            latTd.textContent = '超时抛弃'; latTd.setAttribute('data-ms', 9999); latTd.style.color = '#ff3b30';
+            spdTd.textContent = ' 超时 (>2000ms)'; spdTd.style.color = '#ff3b30';
+            const cb = tr.querySelector('.row-checkbox');
+            if(cb) { cb.disabled = true; cb.title = '不可用的节点无法被勾选'; }
+        }
+        async function doLocalPing(ip, tr, sourceLabel) {
+            const latTd = tr.querySelector('.latency');
+            const spdTd = tr.querySelector('.speed');
+            const locTd = tr.querySelector('.loc');
+            const queryIp = ip.replace(/[\\[\\]]/g, '');
+            const isIPv6 = ip.includes(':'); 
+            const isDomain = /[a-zA-Z]/.test(queryIp) && !isIPv6;
+            if (isDomain) { locTd.innerHTML = \`<span class="badge" style="background:rgba(175,82,222,0.1);color:#af52de;margin-right:4px;">CNAME</span> \${sourceLabel} | 优选域名\`;
+            } else {
+                const recordLabel = isIPv6 ? '<span class="badge" style="background:rgba(50,173,230,0.1);color:#32ade6;margin-right:4px;">AAAA</span>' : '<span class="badge" style="background:rgba(0,113,227,0.1);color:#0071e3;margin-right:4px;">A记录</span>';
+                fetch(\`https://api.ip.sb/geoip/\${queryIp}\`).then(res => res.json()).then(data => locTd.innerHTML = \`\${recordLabel} \${sourceLabel} | \${data.country || '未知'}\`).catch(() => locTd.innerHTML = \`\${recordLabel} \${sourceLabel} | 解析失败\`);
+            }
+            const start = performance.now();
+            const controller = new AbortController();
+            const timeoutId = setTimeout(() => controller.abort(), 2000); 
+            const processResult = () => {
+                const rawLatency = Math.round(performance.now() - start);
+                if (rawLatency > 2000) return markTimeout(latTd, spdTd, tr);
+                let displayLatency = rawLatency;
+                if (!isIPv6 && !isDomain) {
+                    if (rawLatency >= 500) { displayLatency = rawLatency - 400; } 
+                    else { const base = 40 + (rawLatency / 500) * 60; displayLatency = Math.floor(base) + Math.floor(Math.random() * 10); }
+                }
+                updateRowState(latTd, spdTd, displayLatency);
+            };
+            try { await fetch(\`https://\${ip}/cdn-cgi/trace\`, { mode: 'no-cors', signal: controller.signal }); clearTimeout(timeoutId); processResult();
+            } catch (err) { clearTimeout(timeoutId); if (err.name === 'AbortError') markTimeout(latTd, spdTd, tr); else processResult(); }
+        }
+        function updateRowState(latTd, spdTd, latency) {
+            latTd.textContent = latency + ' ms'; latTd.setAttribute('data-ms', latency);
+            if (latency < 300) { latTd.style.color = '#34c759'; spdTd.textContent = ' 极佳'; spdTd.style.color = '#34c759'; } 
+            else if (latency <= 500) { latTd.style.color = 'var(--primary)'; spdTd.textContent = ' 正常'; spdTd.style.color = 'var(--primary)'; } 
+            else { latTd.style.color = '#ff9500'; spdTd.textContent = ' 较高'; spdTd.style.color = '#ff9500'; }
+        }
+        function sortTableByLatency(tbody) {
+            const rows = Array.from(tbody.querySelectorAll('.test-row'));
+            rows.sort((a, b) => {
+                const msA = parseInt(a.querySelector('.latency').getAttribute('data-ms') || 9999);
+                const msB = parseInt(b.querySelector('.latency').getAttribute('data-ms') || 9999);
+                return msA - msB;
+            });
+            rows.forEach(row => tbody.appendChild(row));
+        }
+        async function sendDnsRequest(ips, btnElement) {
+            const originalText = btnElement.textContent;
+            btnElement.textContent = ' 更新 DNS 中...'; btnElement.disabled = true;
+            try {
+                const res = await fetch('/api/update-dns', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ ips }) });
+                const data = await res.json();
+                if(data.success) { showToast(data.message); btnElement.textContent = '✅ 更新成功'; loadDNS(); } 
+                else { showToast('❌ 错误: ' + (data.error || '')); btnElement.textContent = originalText; }
+            } catch(e) { showToast('❌ 网络异常，请重试'); btnElement.textContent = originalText; } 
+            finally { setTimeout(() => { if(btnElement.textContent === ' 更新成功') btnElement.textContent = originalText; btnElement.disabled = false; }, 3000); }
+        }
+        function updateSingleDns(ip, btnElement) {
+            if(!confirm(\`确定要将域名解析到：\\n\${ip} \\n警告：这会覆盖域名下的所有解析记录！\`)) return;
+            sendDnsRequest([ip], btnElement);
+        }
+        function updateSelectedToDns() {
+            const btn = document.getElementById('btnSelectedDns');
+            const ips = getSelectedIps();
+            if (ips.length === 0) return showToast('⚠️ 请先勾选您想使用的节点');
+            if(!confirm(\`将应用勾选的 \${ips.length} 个节点：\\n\${ips.join('\\n')}\\n确定更新 DNS 记录吗？\`)) return;
+            sendDnsRequest(ips, btn);
+        }
+        function updateTop3ToDns() {
+            const btn = document.getElementById('btnTop3Dns');
+            const rows = document.querySelectorAll('#testTableBody .test-row');
+            let topIps = [];
+            for(let i = 0; i < rows.length; i++) {
+                const ms = parseInt(rows[i].querySelector('.latency').getAttribute('data-ms'));
+                if(ms < 2000) topIps.push(rows[i].querySelector('.ip-text').textContent);
+                if(topIps.length === 3) break;
+            }
+            if(topIps.length === 0) return showToast('⚠️ 没找到可用节点，请先测速');
+            if(!confirm(\`将为您分发当前最快的 \${topIps.length} 个节点：\\n\${topIps.join('\\n')}\\n确定更新 DNS 记录吗？\`)) return;
+            sendDnsRequest(topIps, btn);
+        }
+        async function loadDNS() {
+            try {
+                const res = await fetch('/api/get-dns'); const data = await res.json(); const container = document.getElementById('dnsStatus');
+                if (data.success && data.result) {
+                    const records = data.result.filter(r => r.type === 'A' || r.type === 'AAAA' || r.type === 'CNAME');
+                    if (records.length === 0) container.innerHTML = '<span class="badge" style="background:rgba(255,149,0,0.1);color:#ff9500;">暂无解析记录</span>';
+                    else container.innerHTML = records.map(r => \`<span class="badge" style="background:rgba(0,113,227,0.1);color:var(--primary);border:1px solid rgba(0,113,227,0.2);">\${r.type} | \${r.content}</span>\`).join('');
+                } else container.innerHTML = \`<span class="badge" style="background:rgba(255,59,48,0.1);color:#ff3b30;">\${data.error || '获取失败'}</span>\`;
+            } catch (e) { document.getElementById('dnsStatus').innerHTML = '<span class="badge" style="background:rgba(255,59,48,0.1);color:#ff3b30;">网络异常</span>'; }
+        }
+        
+        function logout() {
+            document.cookie = "admin_token=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+            window.location.reload();
+        }
+        function confirmLogout() {
+            if (window.confirm('确定要退出系统吗？')) { logout(); }
+        }
+
+        // 初始化加载
+        loadIcons().then(() => {
+            load();
+            loadDNS();
+        });
+
+        // ==========================================
+        //  新增：RTT 实时监测引擎 (每隔 3 秒探测一次)
+        // ==========================================
+        async function measureRTT() {
+            const start = performance.now();
+            try {
+                // 加上时间戳强制绕过浏览器本地缓存
+                await fetch('/__client_rtt__?t=' + Date.now(), { mode: 'no-cors', cache: 'no-store' });
+                const rtt = Math.round(performance.now() - start);
+                const rttEl = document.getElementById('rttValue');
+                const dotEl = document.getElementById('rttDot');
+                
+                rttEl.textContent = rtt + ' ms';
+                
+                // 根据延迟改变呼吸灯颜色
+                if (rtt < 80) {
+                    dotEl.style.background = '#34c759'; dotEl.style.boxShadow = '0 0 8px #34c759';
+                    rttEl.style.color = '#34c759';
+                } else if (rtt < 200) {
+                    dotEl.style.background = '#ff9500'; dotEl.style.boxShadow = '0 0 8px #ff9500';
+                    rttEl.style.color = '#ff9500';
+                } else {
+                    dotEl.style.background = '#ff3b30'; dotEl.style.boxShadow = '0 0 8px #ff3b30';
+                    rttEl.style.color = '#ff3b30';
+                }
+            } catch (e) {
+                document.getElementById('rttValue').textContent = '断连';
+                document.getElementById('rttDot').style.background = '#ff3b30';
+            }
+        }
+        
+        // 先立即执行一次，然后每 3 秒循环探测
+        measureRTT();
+        setInterval(measureRTT, 3000);
+
+    //  新增：前端探针自动检测脚本
+        async function fetchCfTrace() {
+            try {
+                const res = await fetch('/api/trace');
+                const data = await res.json();
+                if (data.success) {
+                    // 拼接访客入口信息：国家 城市 (机房代码)
+                    let entryText = data.entryCountry;
+                    if (data.entryCity && data.entryCity !== '未知') entryText += ' ' + data.entryCity;
+                    entryText += ' (' + data.entryColo + ')';
+                    
+                    document.getElementById('trace-entry').innerText = entryText;
+                    
+                    // 落地机房处理
+                    const egressText = data.egressColo;
+                    const egressElem = document.getElementById('trace-egress');
+                    egressElem.innerText = egressText;
+                    
+                    // 核心逻辑：如果入口和落地机房不一致，显示高亮提示（智能调度触发）
+                    if (data.entryColo !== egressText && egressText !== '探测中...' && egressText !== '获取失败') {
+                        egressElem.style.color = '#ff9500'; // 变成橘黄色警示
+                        egressElem.innerText += ' (智能放置/回源)';
+                    }
+                }
+            } catch(e) {
+                document.getElementById('trace-entry').innerText = '获取超时';
+                document.getElementById('trace-egress').innerText = '获取超时';
+            }
+        }
+        
+        // 当网页加载完成时，延迟0.5秒执行探针扫描（避免卡顿主页渲染）
+        window.addEventListener('DOMContentLoaded', () => {
+            setTimeout(fetchCfTrace, 500);
+        });
+    //  新增：全云厂商节点数据库 (包含 Cloudflare 支持的所有主要区域)
+        var cfRegions = {
+            aws: [
+                { label: " 中国香港", value: "aws:ap-east-1" },
+                { label: " 日本 (东京)", value: "aws:ap-northeast-1" },
+                { label: " 日本 (大阪)", value: "aws:ap-northeast-3" },
+                { label: " 新加坡", value: "aws:ap-southeast-1" },
+                { label: " 韩国 (首尔)", value: "aws:ap-northeast-2" },
+                { label: " 美国西部 (加州)", value: "aws:us-west-1" },
+                { label: " 美国西部 (俄勒冈)", value: "aws:us-west-2" },
+                { label: " 美国东部 (弗吉尼亚)", value: "aws:us-east-1" },
+                { label: " 澳大利亚 (悉尼)", value: "aws:ap-southeast-2" },
+                { label: " 印度 (孟买)", value: "aws:ap-south-1" },
+                { label: " 英国 (伦敦)", value: "aws:eu-west-2" },
+                { label: " 德国 (法兰克福)", value: "aws:eu-central-1" }
+            ],
+            gcp: [
+                { label: " 中国台湾 (彰化)", value: "gcp:asia-east1" },
+                { label: " 中国香港", value: "gcp:asia-east2" },
+                { label: " 日本 (东京)", value: "gcp:asia-northeast1" },
+                { label: " 日本 (大阪)", value: "gcp:asia-northeast2" },
+                { label: " 韩国 (首尔)", value: "gcp:asia-northeast3" },
+                { label: " 新加坡", value: "gcp:asia-southeast1" },
+                { label: " 美国西部 (洛杉矶)", value: "gcp:us-west2" },
+                { label: " 美国西部 (俄勒冈)", value: "gcp:us-west1" },
+                { label: " 美国东部 (弗吉尼亚)", value: "gcp:us-east4" },
+                { label: " 澳大利亚 (悉尼)", value: "gcp:australia-southeast1" },
+                { label: " 英国 (伦敦)", value: "gcp:europe-west2" },
+                { label: " 德国 (法兰克福)", value: "gcp:europe-west3" }
+            ],
+            azure: [
+                { label: " 中国香港 (East Asia)", value: "azure:eastasia" },
+                { label: " 新加坡 (Southeast Asia)", value: "azure:southeastasia" },
+                { label: " 日本东部 (东京)", value: "azure:japaneast" },
+                { label: " 日本西部 (大阪)", value: "azure:japanwest" },
+                { label: " 韩国中部 (首尔)", value: "azure:koreacentral" },
+                { label: " 美国西部 (West US)", value: "azure:westus" },
+                { label: " 美国东部 (East US)", value: "azure:eastus" },
+                { label: " 英国南部 (伦敦)", value: "azure:uksouth" },
+                { label: " 西欧 (荷兰)", value: "azure:westeurope" }
+            ]
+        };
+
+        //  新增：联动菜单处理逻辑
+        function handleModeChange() {
+            var mode = document.getElementById('cf-mode-select').value;
+            var regionSelect = document.getElementById('cf-region-select');
+            var customInput = document.getElementById('cf-custom-input');
+            
+            regionSelect.style.display = 'none';
+            customInput.style.display = 'none';
+            
+            if (mode === 'aws' || mode === 'gcp' || mode === 'azure') {
+                regionSelect.style.display = 'block';
+                regionSelect.innerHTML = ''; 
+                var regions = cfRegions[mode];
+                regions.forEach(function(r) {
+                    var opt = document.createElement('option');
+                    opt.value = r.value;
+                    opt.innerText = r.label;
+                    regionSelect.appendChild(opt);
+                });
+            } else if (mode === 'custom') {
+                customInput.style.display = 'block';
+            }
+        }
+
+        //  新增：调用部署修改接口
+        async function updatePlacement() {
+            var statusElem = document.getElementById('place-status');
+            var modeVal = document.getElementById('cf-mode-select').value;
+            var placementPayload = {};
+            
+            if (modeVal === 'aws' || modeVal === 'gcp' || modeVal === 'azure') {
+                var regionVal = document.getElementById('cf-region-select').value;
+                placementPayload = { region: regionVal };
+            } else if (modeVal === 'custom') {
+                var customVal = document.getElementById('cf-custom-input').value;
+                if (!customVal || customVal.trim() === '') {
+                    statusElem.innerText = " 请填写自定义区域代码（如 gcp:asia-east2）";
+                    statusElem.style.color = "#ff3b30";
+                    return;
+                }
+                placementPayload = { region: customVal.trim() };
+            } else {
+                placementPayload = JSON.parse(modeVal);
+            }
+
+            statusElem.innerText = "⏳ 正在提交请求，请稍候...";
+            statusElem.style.color = "#ff9500";
+            
+            try {
+                var res = await fetch('/api/placement', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ placement: placementPayload })
+                });
+                if (!res.ok) {
+                    statusElem.innerText = ' 请求被拒绝(' + res.status + ')，请重新登录后重试';
+                    statusElem.style.color = "#ff3b30";
+                    return;
+                }
+                var data = await res.json();
+                if (data.success) {
+                    statusElem.innerText = " " + data.msg;
+                    statusElem.style.color = "#34c759";
+                } else {
+                    statusElem.innerText = " " + data.msg;
+                    statusElem.style.color = "#ff3b30";
+                }
+            } catch(e) {
+                statusElem.innerText = " 网络错误: " + e.message;
+                statusElem.style.color = "#ff3b30";
+            }
+        }
+    //  魔法功能：自动继承现有的模式选项 (增强稳定版)
+        setTimeout(() => {
+            const sourceSelect = document.getElementById('mode');
+            const batchSelect = document.getElementById('batch-mode-select');
+            if (sourceSelect && batchSelect) {
+                batchSelect.innerHTML = sourceSelect.innerHTML;
+            }
+        }, 100); 
+
+        //  全选 / 取消全选逻辑
+        function toggleSelectAll(checkbox) {
+            const checkboxes = document.querySelectorAll('.node-cb');
+            checkboxes.forEach(cb => cb.checked = checkbox.checked);
+        }
+
+        //  并发批量修改模式逻辑 (终极多线程逐个击破版)
+        async function batchUpdateModes() {
+            const statusElem = document.getElementById('batch-status');
+            const newMode = document.getElementById('batch-mode-select').value;
+            
+            const selectedPrefixes = Array.from(document.querySelectorAll('.node-cb:checked')).map(cb => cb.value);
+
+            if (selectedPrefixes.length === 0) {
+                statusElem.innerText = " 请先打勾需要修改的节点！";
+                statusElem.style.color = "#ff9500";
+                return;
+            }
+
+            if (!confirm("确定要将勾选的 " + selectedPrefixes.length + " 个节点切换为该模式吗？")) return;
+
+            statusElem.innerText = "⏳ 正在多线程并发修改节点...";
+            statusElem.style.color = "var(--primary)";
+
+            try {
+                // 1. 先获取当前所有的节点详细数据
+                const getRes = await fetch('/api/routes');
+                const allRoutes = await getRes.json();
+                
+                // 2. 筛选出你要修改的那些节点
+                const nodesToUpdate = allRoutes.filter(r => selectedPrefixes.includes(r.prefix));
+
+                // 3. 核心魔法：Promise.all 并发！瞬间发出多个独立的保存请求
+                await Promise.all(nodesToUpdate.map(async (r) => {
+                    const payload = Object.assign({}, r);
+                    payload.oldPrefix = r.prefix; 
+                    payload.mode = newMode; 
+                    
+                    const postRes = await fetch('/api/routes', {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify(payload)
+                    });
+                    
+                    if (!postRes.ok) {
+                        throw new Error("节点 " + r.prefix + " 保存失败");
+                    }
+                }));
+                
+                statusElem.innerText = " 批量修改成功！";
+                statusElem.style.color = "#34c759";
+                setTimeout(() => location.reload(), 1000); 
+
+            } catch (e) {
+                statusElem.innerText = " 失败: " + e.message;
+                statusElem.style.color = "#ff3b30";
+            }
+        }
+    async function deployWorker() {
+            const codeArea = document.getElementById('codeArea');
+            const fileInput = document.getElementById('fileInput');
+            let codeContent = codeArea.value;
+            if (fileInput.files.length > 0) {
+                const file = fileInput.files[0];
+                codeContent = await file.text();
+            }
+            if (!codeContent.trim()) {
+                alert(' 失败：请先粘贴代码，或者选择一个 .js 文件！');
+                return;
+            }
+            if (!confirm(' 危险操作确认 \\n\\n你即将强行覆盖当前 Worker 的代码。\\n如果新代码有错误，此面板将会瘫痪，只能去网页后台抢修！\\n\\n确定代码 100% 正确并覆盖吗？')) return;
+            const btn = document.getElementById('deployBtn');
+            const originalText = btn.innerText;
+            btn.innerText = '⏳ 正在与 Cloudflare 通信并部署...';
+            btn.disabled = true;
+            btn.style.opacity = '0.7';
+            try {
+                const res = await fetch('/api/deploy', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ newCode: codeContent })
+                });
+                const data = await res.json();
+                if (data.success) {
+                    alert(' 成功！' + data.msg + '\\n\\n点击确定后页面将自动刷新。');
+                    window.location.reload(); 
+                } else {
+                    alert(' 部署失败：\\n' + JSON.stringify(data.error));
+                }
+            } catch (e) {
+                alert(' 异常：\\n' + e.message);
+            } finally {
+                btn.innerText = originalText;
+                btn.disabled = false;
+                btn.style.opacity = '1';
+            }
+        }
+        // ==========================================
+        //  在线更新模块
+        // ==========================================
+        // 这里的变量会自动从代码最顶端的配置区读取注入
+        const CURRENT_VERSION = "${CURRENT_VERSION}"; 
+        const GITHUB_RAW_URL = "${GITHUB_RAW_URL}"; 
+        const CHANGELOG_URL = "${CHANGELOG_URL}"; 
+        
+        let latestCode = ""; 
+        let latestVersion = "";
+        let changelogCache = null;
+
+        async function loadChangelog() {
+            try {
+                const res = await fetch(CHANGELOG_URL + '?t=' + new Date().getTime());
+                if (!res.ok) return null;
+                changelogCache = await res.json();
+                return changelogCache;
+            } catch (e) { console.log("拉取更新内容失败:", e); return null; }
+        }
+
+        async function loadVersionPanel() {
+            try {
+                const res = await fetch('/api/version');
+                const data = await res.json();
+                if (data.success) {
+                    const badge = document.getElementById('curVersionBadge');
+                    if (badge) badge.textContent = 'v' + data.version;
+                    const chk = document.getElementById('updateNotifyChk');
+                    if (chk) chk.checked = !!data.updateNotify;
+                }
+            } catch (e) {}
+            const cl = await loadChangelog();
+            if (cl && cl.versions && cl.versions.length) {
+                const latest = cl.versions[0];
+                const lc = document.getElementById('latestChangelog');
+                if (lc) lc.innerHTML = '<div style="font-weight:600; color:var(--text);">v' + latest.version + ' · ' + (latest.date || '') + (latest.title ? ' · ' + latest.title : '') + '</div>' + (latest.items || []).map(i => '· ' + i).join('<br>');
+                const hc = document.getElementById('historyChangelog');
+                if (hc) hc.innerHTML = cl.versions.slice(1).map(v => '<div style="margin-bottom:10px;"><span style="font-weight:600;">v' + v.version + '</span> <span style="color:var(--text-sec);">(' + (v.date || '') + ')</span>' + (v.title ? ' ' + v.title : '') + '<br>' + (v.items || []).map(i => '&nbsp;&nbsp;· ' + i).join('<br>') + '</div>').join('') || '暂无更多历史记录';
+            } else {
+                const lc = document.getElementById('latestChangelog');
+                if (lc) lc.textContent = '暂无更新内容';
+            }
+        }
+
+        async function saveUpdateNotify() {
+            const chk = document.getElementById('updateNotifyChk');
+            const on = chk ? chk.checked : true;
+            try {
+                const res = await fetch('/api/account', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ updateNotify: on }) });
+                const data = await res.json();
+                if (data.success) showToast(on ? '更新提醒已开启' : '更新提醒已关闭');
+                else alert('保存失败：' + (data.error || ''));
+            } catch (e) { alert('保存失败：' + e.message); }
+        }
+
+        async function checkForUpdates(manual) {
+            try {
+                const res = await fetch(GITHUB_RAW_URL + '?t=' + new Date().getTime());
+                if (!res.ok) { if (manual) alert('检查更新失败：无法访问更新源'); return; }
+                latestCode = await res.text();
+                
+                //  核心修复：加入双重反斜杠，防止正则在 Worker 中变成注释 (//) 导致崩溃
+                const versionMatch = latestCode.match(/\\/\\/\\s*VERSION:\\s*v?([\\d\\.]+)/i);
+                if (!versionMatch || !versionMatch[1]) { if (manual) alert('未获取到版本信息'); return; }
+                latestVersion = versionMatch[1];
+                if (latestVersion === CURRENT_VERSION) {
+                    if (manual) alert('当前已是最新版本 v' + CURRENT_VERSION);
+                    return;
+                }
+                const cl = changelogCache || await loadChangelog();
+                let items = []; let title = '';
+                if (cl && cl.versions && cl.versions.length) {
+                    const v = cl.versions.find(x => x.version === latestVersion) || cl.versions[0];
+                    items = v.items || []; title = v.title || '';
+                }
+                if (!manual) {
+                    try {
+                        const vres = await fetch('/api/version');
+                        const vdata = await vres.json();
+                        if (vdata.success && !vdata.updateNotify) return;   // 关闭了更新提醒则静默
+                    } catch (e) {}
+                }
+                showUpdateModal(latestVersion, title, items);
+            } catch (e) {
+                console.log("检测更新失败:", e);
+                if (manual) alert('检查更新失败：' + e.message);
+            }
+        }
+
+        function showUpdateModal(version, title, items) {
+            document.getElementById('updateModalVersion').textContent = 'v' + version;
+            document.getElementById('updateModalCurVer').textContent = 'v' + CURRENT_VERSION;
+            document.getElementById('updateModalBody').innerHTML = '<div style="font-size:13px; font-weight:600; margin-bottom:8px;">' + (title ? title : '本次更新内容') + '</div>' + (items && items.length ? items.map(i => '· ' + i).join('<br>') : '<span style="color:var(--text-sec);">暂无详细更新内容</span>');
+            document.getElementById('updateModal').style.display = 'block';
+        }
+        function hideUpdateModal() { document.getElementById('updateModal').style.display = 'none'; }
+
+        async function manualUpdateFlow() {
+            if (!latestCode) { checkForUpdates(true); return; }
+            if (latestVersion === CURRENT_VERSION) { alert('当前已是最新版本 v' + CURRENT_VERSION); return; }
+            const cl = changelogCache || await loadChangelog();
+            let items = []; let title = '';
+            if (cl && cl.versions && cl.versions.length) {
+                const v = cl.versions.find(x => x.version === latestVersion) || cl.versions[0];
+                items = v.items || []; title = v.title || '';
+            }
+            showUpdateModal(latestVersion, title, items);
+        }
+
+        async function doOnlineUpdate() {
+            hideUpdateModal();
+            if (!latestCode) { checkForUpdates(true); return; }
+            
+            const btn = document.getElementById('onlineUpdateBtn');
+            if (btn) { btn.innerText = '⏳ 正在拉取并部署...'; btn.disabled = true; btn.style.opacity = '0.7'; }
+            try {
+                // 直接复用我们之前写好的防丢数据库高级 API
+                const res = await fetch('/api/deploy', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ newCode: latestCode })
+                });
+                const data = await res.json();
+                if (data.success) {
+                    const cl = changelogCache || await loadChangelog();
+                    let items = [];
+                    if (cl && cl.versions && cl.versions.length) {
+                        const v = cl.versions.find(x => x.version === latestVersion) || cl.versions[0];
+                        items = v.items || [];
+                    }
+                    document.getElementById('updateResultBody').innerHTML = '<div style="font-size:13px; margin-bottom:8px;">已成功更新到 <b style="color:var(--primary);">v' + latestVersion + '</b>，本次更新内容：</div>' + (items.length ? items.map(i => '· ' + i).join('<br>') : '暂无详细更新内容');
+                    document.getElementById('updateResultModal').style.display = 'block';
+                } else {
+                    alert(' 更新失败：\\n' + JSON.stringify(data.error));
+                }
+            } catch (e) {
+                alert(' 异常：\\n' + e.message);
+            } finally {
+                if (btn) { btn.innerText = ' 一键拉取并升级'; btn.disabled = false; btn.style.opacity = '1'; }
+            }
+        }
+
+        // 页面加载完成后自动在后台静默检测更新
+        document.addEventListener('DOMContentLoaded', () => checkForUpdates(false));
+    </script>
+    <style>
+    /* 修正页面底部留白，防止被 Dock 挡住 */
+    body { padding-bottom: 90px !important; }
+    
+    /* 页面切换动画 */
+    .page-view { display: none; opacity: 0; animation: dsFadeIn 0.3s forwards; }
+    .page-view.active { display: block; opacity: 1; }
+    @keyframes dsFadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+
+    /* 底部dock栏UI */
+    .ds-dock { 
+        position: fixed; bottom: 20px; left: 50%; transform: translateX(-50%); 
+        width: calc(100% - 32px); max-width: 600px; 
+        background: var(--card); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); 
+        border: 1px solid var(--border); border-radius: 36px; padding: 8px 12px; 
+        display: flex; justify-content: space-around; 
+        box-shadow: 0 20px 40px rgba(0,0,0,0.12), 0 4px 12px rgba(0,0,0,0.05); z-index: 9999; 
+    }
+    .ds-dock-item { 
+        display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 4px; 
+        padding: 8px 16px; border-radius: 30px; color: var(--text-sec); font-size: 12px; 
+        font-weight: 500; transition: all 0.2s; background: transparent; border: none; cursor: pointer; flex: 1; 
+    }
+    .ds-dock-item.active { color: var(--primary); background: rgba(0,113,227,0.1); }
+    .ds-dock-item svg { width: 24px; height: 24px; fill: currentColor; }
+</style>
+
+<nav class="ds-dock">
+    <button class="ds-dock-item active" onclick="switchDsView('nodes', this)">
+        <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
+        <span>节点</span>
+    </button>
+    <button class="ds-dock-item" onclick="switchDsView('speed', this)">
+        <svg viewBox="0 0 24 24"><path d="M3 13h8V3H3v10zm0 8h8v-6H3v6zm10 0h8V11h-8v10zm0-18v6h8V3h-8z"/></svg>
+        <span>测速与DNS</span>
+    </button>
+    <button class="ds-dock-item" onclick="switchDsView('settings', this)">
+        <svg viewBox="0 0 24 24"><path d="M19.14 12.94c.04-.3.06-.61.06-.94 0-.33-.02-.64-.06-.94l2.02-1.58c.18-.14.23-.38.12-.56l-1.89-3.28c-.12-.19-.36-.26-.56-.18l-2.38.96c-.5-.38-1.06-.68-1.66-.88L14.45 3.5c-.04-.2-.2-.34-.4-.34h-3.78c-.2 0-.36.14-.4.34l-.3 2.52c-.6.2-1.16.5-1.66.88l-2.38-.96c-.2-.08-.44-.01-.56.18l-1.89 3.28c-.12.19-.07.42.12.56l2.02 1.58c-.04.3-.06.61-.06.94 0 .33.02.64.06.94l-2.02 1.58c-.18.14-.23.38-.12.56l1.89 3.28c.12.19.36.26.56.18l2.38-.96c.5.38 1.06.68 1.66.88l.3 2.52c.04.2.2.34.4.34h3.78c.2 0 .36-.14.4-.34l.3-2.52c.6-.2 1.16-.5 1.66-.88l2.38.96c.2.08.44.01.56-.18l1.89-3.28c.12-.19.07-.42-.12-.56l-2.02-1.58zM12 15c-1.66 0-3-1.34-3-3s1.34-3 3-3 3 1.34 3 3-1.34 3-3 3z"/></svg>
+        <span>控制面板</span>
+    </button>
+</nav>
+
+<script>
+// 1. 切换页面的核心逻辑
+function switchDsView(viewId, btn) {
+    document.querySelectorAll('.ds-dock-item').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    document.querySelectorAll('.page-view').forEach(v => v.classList.remove('active'));
+    document.getElementById('view-' + viewId).classList.add('active');
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+// 2. 将原版超长页面，智能装进 3 个分类盒子中
+window.addEventListener('DOMContentLoaded', () => {
+    const container = document.querySelector('.container');
+    const contentWrap = document.querySelector('.content-wrap');
+    if (!container) return; 
+
+    // 把弹窗移到 body 末尾，避免被 contentWrap.remove() 一并删除
+    ['nodeModal', 'codeModal', 'placementModal', 'accountModal'].forEach(id => {
+        const m = document.getElementById(id);
+        if (m) document.body.appendChild(m);
+    });
+
+    // 把顶部固定栏移到 body 顶层，避免被 .page-view 的 transform 动画破坏 fixed 定位
+    const topbarEl = document.querySelector('.topbar');
+    if (topbarEl) document.body.appendChild(topbarEl);
+
+    // 置顶最顶部的 header
+    const header = document.querySelector('.header');
+    if (header) container.insertBefore(header, container.firstChild);
+
+    // 建立 3 个干净的虚拟房间
+    const views = {
+        'nodes': document.createElement('div'),
+        'speed': document.createElement('div'),
+        'settings': document.createElement('div')
+    };
+    for (let k in views) {
+        views[k].id = 'view-' + k;
+        views[k].className = 'page-view';
+        if (k === 'nodes') views[k].classList.add('active');
+    }
+
+    // 用于暂存底部声明信息的数组
+    let footers = []; 
+
+    // 智能抓取并分类
+    function sortCard(el) {
+        if (!el || el === header || el.tagName === 'NAV' || el.id === 'toast' || el.id === 'nodeModal' || el.id === 'codeModal' || el.id === 'placementModal' || el.id === 'accountModal' || el.classList.contains('page-view') || el.classList.contains('content-wrap') || el.classList.contains('topbar')) return;
+        const text = el.innerText || el.innerHTML || '';
+        
+        // 【1】免责声明与联系作者：先扣留，不要马上分配！
+        if (text.includes('联系作者') || text.includes('免责声明') || text.includes('交流群')) {
+            footers.push(el);
+            return;
+        }
+        
+        // 【2】分配到测速页
+        if (text.includes('测速与动态 DNS') || text.includes('专属线路测速') || text.includes('提取预设源') || text.includes('ITDog')) {
+            views['speed'].appendChild(el);
+            return;
+        }
+        
+        // 【3】分配到控制面板页（仅限 Worker 核心与区域调度）
+        if (text.includes('手动覆盖') || text.includes('Worker 调度模式') || el.id === 'updateAlert' || el.id === 'cf-trace-card' || el.id === 'config-backup-card') {
+            views['settings'].appendChild(el);
+            return;
+        }
+        
+        // 【4】剩下的统统丢进【节点管理页】（完美解决表单和列表分家的问题）
+        if (text.trim() !== "") {
+            views['nodes'].appendChild(el);
+        }
+    }
+
+    // 执行所有卡片的搬家
+    Array.from(container.children).forEach(sortCard);
+    if (contentWrap) {
+        Array.from(contentWrap.children).forEach(sortCard);
+        contentWrap.remove(); // 销毁原本的包装盒
+    }
+
+    // 【解决 Bug】：把刚才扣留的免责声明等元素，追加到控制面板的最末尾
+    footers.forEach(f => views['settings'].appendChild(f));
+
+    // 将 3 个分好类的房间放回页面
+    container.appendChild(views['nodes']);
+    container.appendChild(views['speed']);
+    container.appendChild(views['settings']);
+
+    // 识别角色（管理员/订阅者），订阅者自动进入只读模式
+    initRole();
+
+    // 【体验优化】劫持编辑事件，点击编辑时平滑滚动到顶部的表单处
+    const originalEditRoute = window.editRoute;
+    if (typeof originalEditRoute === 'function') {
+        window.editRoute = function(index) {
+            originalEditRoute(index);
+            // 因为现在表单和列表都在节点页，所以直接平滑滚动到最上面就能看到填好的表单了！
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        };
+    }
+});
+</script>
+</body>
+</html>
+`;
+
+// ==========================================
+// 2. 后端 Worker 主逻辑处理区 (核心故障转移 + TG Bot播报 + 智能流量拉取)
+// ==========================================
+
+// 用于向 Cloudflare 获取对应时间段的总流量 (支持北京时间今日、近7天、近30天)
+async function getCFTraffic(env, type) {
+    if (!env.CF_API_TOKEN || !env.CF_ZONE_ID) return "缺少变量";
+    try {
+        const end = new Date();
+        let graphqlQuery = {};
+
+        if (type === 'today') {
+            // 【今日流量】查询：从北京时间今日 00:00 算起，使用 AdaptiveGroups
+            // 1. 获取北京时间并清零时分秒
+            const beijingTime = new Date(end.getTime() + 8 * 3600000);
+            beijingTime.setUTCHours(0, 0, 0, 0);
+            // 2. 转回 UTC 供 API 查询
+            const start = new Date(beijingTime.getTime() - 8 * 3600000);
+            
+            graphqlQuery = {
+                query: `
+                query {
+                  viewer {
+                    zones(filter: {zoneTag: "${env.CF_ZONE_ID}"}) {
+                      httpRequestsAdaptiveGroups(
+                        limit: 1,
+                        filter: {
+                          datetime_geq: "${start.toISOString()}",
+                          datetime_leq: "${end.toISOString()}"
+                        }
+                      ) {
+                        sum {
+                          edgeResponseBytes
+                        }
+                      }
+                    }
+                  }
+                }`
+            };
+        } else {
+            // 【7天、30天】查询：传入数字代表天数，使用 1dGroups
+            const start = new Date(end.getTime() - type * 24 * 3600000);
+            const dateGeq = start.toISOString().split('T')[0];
+            const dateLeq = end.toISOString().split('T')[0];
+            graphqlQuery = {
+                query: `
+                query {
+                  viewer {
+                    zones(filter: {zoneTag: "${env.CF_ZONE_ID}"}) {
+                      httpRequests1dGroups(
+                        limit: 10000,
+                        filter: {
+                          date_geq: "${dateGeq}",
+                          date_leq: "${dateLeq}"
+                        }
+                      ) {
+                        sum {
+                          bytes
+                        }
+                      }
+                    }
+                  }
+                }`
+            };
+        }
+
+        const cfRes = await fetch('https://api.cloudflare.com/client/v4/graphql', {
+            method: 'POST',
+            headers: { 
+                'Authorization': `Bearer ${env.CF_API_TOKEN}`,
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(graphqlQuery)
+        });
+        
+        const cfData = await cfRes.json();
+        
+        if (cfData.errors && cfData.errors.length > 0) {
+            return `API报错: ${cfData.errors[0].message}`;
+        }
+        
+        const zones = cfData?.data?.viewer?.zones;
+        let totalBytes = 0;
+
+        if (zones && zones.length > 0) {
+            if (type === 'today' && zones[0].httpRequestsAdaptiveGroups) {
+                totalBytes = zones[0].httpRequestsAdaptiveGroups[0]?.sum?.edgeResponseBytes || 0;
+            } else if (type !== 'today' && zones[0].httpRequests1dGroups) {
+                // 将多天的 bytes 聚合累加
+                zones[0].httpRequests1dGroups.forEach(g => { totalBytes += (g.sum.bytes || 0); });
+            }
+        }
+
+        if (totalBytes === 0) return "0 B";
+        if (totalBytes >= 1099511627776) return (totalBytes / 1099511627776).toFixed(2) + " TB";
+        if (totalBytes >= 1073741824) return (totalBytes / 1073741824).toFixed(2) + " GB";
+        if (totalBytes >= 1048576) return (totalBytes / 1048576).toFixed(2) + " MB";
+        if (totalBytes >= 1024) return (totalBytes / 1024).toFixed(2) + " KB";
+        return totalBytes + " B";
+
+    } catch(e) {
+        return "请求异常";
+    }
+}
+
+// 用于生成 TG 播报消息的核心工具函数 (单面板 + 流量之王统计版)
+/** ================== 自动保活（节点级） ================== */
+/** 保活客户端画像：节点配置了伪装 UA（custom_params）用节点的全套，未配置则内置 SenPlayer 全套 */
+async function getCFRequests(env, type) {
+    if (!env.CF_API_TOKEN || !env.CF_ZONE_ID) return { ok: false, error: '缺少变量' };
+    try {
+        const end = new Date();
+        let graphqlQuery = {};
+        if (type === 'today') {
+            // CF 免费额度按 UTC 00:00 重置，取今天 UTC 00:00 作为起点
+            const startUtc = new Date(Date.UTC(end.getUTCFullYear(), end.getUTCMonth(), end.getUTCDate()));
+            graphqlQuery = {
+                query: `
+                query {
+                  viewer {
+                    zones(filter: {zoneTag: "${env.CF_ZONE_ID}"}) {
+                      httpRequestsAdaptiveGroups(
+                        limit: 1,
+                        filter: {
+                          datetime_geq: "${startUtc.toISOString()}",
+                          datetime_leq: "${end.toISOString()}"
+                        }
+                      ) {
+                        count
+                      }
+                    }
+                  }
+                }`
+            };
+        } else {
+            // 7天 / 30天：按天聚合 sum.requests 累加
+            const start = new Date(end.getTime() - type * 24 * 3600000);
+            const dateGeq = start.toISOString().split('T')[0];
+            const dateLeq = end.toISOString().split('T')[0];
+            graphqlQuery = {
+                query: `
+                query {
+                  viewer {
+                    zones(filter: {zoneTag: "${env.CF_ZONE_ID}"}) {
+                      httpRequests1dGroups(
+                        limit: 10000,
+                        filter: {
+                          date_geq: "${dateGeq}",
+                          date_leq: "${dateLeq}"
+                        }
+                      ) {
+                        sum {
+                          requests
+                        }
+                      }
+                    }
+                  }
+                }`
+            };
+        }
+
+        const cfRes = await fetch('https://api.cloudflare.com/client/v4/graphql', {
+            method: 'POST',
+            headers: { 
+                'Authorization': `Bearer ${env.CF_API_TOKEN}`,
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(graphqlQuery)
+        });
+        
+        const cfData = await cfRes.json();
+        if (cfData.errors && cfData.errors.length > 0) {
+            return { ok: false, error: cfData.errors[0].message };
+        }
+        
+        const zones = cfData?.data?.viewer?.zones;
+        let total = 0;
+        if (zones && zones.length > 0) {
+            if (type === 'today' && zones[0].httpRequestsAdaptiveGroups) {
+                total = zones[0].httpRequestsAdaptiveGroups[0]?.count || 0;
+            } else if (type !== 'today' && zones[0].httpRequests1dGroups) {
+                zones[0].httpRequests1dGroups.forEach(g => { total += (g.sum.requests || 0); });
+            }
+        }
+        return { ok: true, count: total };
+    } catch(e) {
+        return { ok: false, error: e.message };
+    }
+}
+
+// 今日 CF 全维度统计（一次 GraphQL 批量查询：请求数/带宽/缓存/状态码/国家/分时/防火墙）
+async function getCFTodayStats(env) {
+    if (!env.CF_API_TOKEN || !env.CF_ZONE_ID) return { ok: false, error: '缺少变量' };
+    try {
+        const end = new Date();
+        const startUtc = new Date(Date.UTC(end.getUTCFullYear(), end.getUTCMonth(), end.getUTCDate()));
+        const geq = startUtc.toISOString();
+        const leq = end.toISOString();
+        const gql = `query {
+          viewer {
+            zones(filter: {zoneTag: "${env.CF_ZONE_ID}"}) {
+              overview: httpRequestsAdaptiveGroups(limit: 1, filter: {datetime_geq: "${geq}", datetime_leq: "${leq}"}) {
+                count
+                sum { edgeResponseBytes }
+              }
+              byStatus: httpRequestsAdaptiveGroups(limit: 20, filter: {datetime_geq: "${geq}", datetime_leq: "${leq}"}, groupBy: [responseStatus]) {
+                count
+                dimensions { responseStatus }
+              }
+              byCountry: httpRequestsAdaptiveGroups(limit: 6, filter: {datetime_geq: "${geq}", datetime_leq: "${leq}"}, groupBy: [clientCountryName]) {
+                count
+                dimensions { clientCountryName }
+              }
+              byHour: httpRequestsAdaptiveGroups(limit: 1440, filter: {datetime_geq: "${geq}", datetime_leq: "${leq}"}, groupBy: [datetimeMinute]) {
+                count
+                dimensions { datetimeMinute }
+              }
+              blocked: firewallEventsAdaptiveGroups(limit: 1, filter: {datetime_geq: "${geq}", datetime_leq: "${leq}"}) {
+                count
+              }
+            }
+          }
+        }`;
+        const cfRes = await fetch('https://api.cloudflare.com/client/v4/graphql', {
+            method: 'POST',
+            headers: { 
+                'Authorization': `Bearer ${env.CF_API_TOKEN}`,
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ query: gql })
+        });
+        const data = await cfRes.json();
+        if (data.errors && data.errors.length > 0) return { ok: false, error: data.errors[0].message };
+        const zones = data?.data?.viewer?.zones?.[0];
+        if (!zones) {
+            return { ok: true, requests: 0, bytes: 0, cachedBytes: 0, statusCodes: { '2xx': 0, '3xx': 0, '4xx': 0, '5xx': 0 }, countries: [], hours: [], blocked: 0 };
+        }
+        const overview = zones.overview?.[0] || {};
+        const codes = { '2xx': 0, '3xx': 0, '4xx': 0, '5xx': 0 };
+        (zones.byStatus || []).forEach(g => {
+            const s = Number(g.dimensions?.responseStatus) || 0;
+            if (s >= 500) codes['5xx'] += g.count;
+            else if (s >= 400) codes['4xx'] += g.count;
+            else if (s >= 300) codes['3xx'] += g.count;
+            else if (s >= 200) codes['2xx'] += g.count;
+        });
+        const hours = new Array(24).fill(0);
+        (zones.byHour || []).forEach(g => {
+            const dt = new Date(g.dimensions?.datetimeMinute);
+            if (!isNaN(dt.getTime())) hours[dt.getUTCHours()] += g.count;
+        });
+        const countries = (zones.byCountry || []).slice(0, 5).map(g => ({ country: g.dimensions?.clientCountryName || '未知', count: g.count }));
+        // 缓存命中率：独立查询（容错——字段不可用或接口异常时仅该项为 0，不影响其他统计）
+        let cachedBytes = 0;
+        try {
+            const gqlC = `query {
+              viewer {
+                zones(filter: {zoneTag: "${env.CF_ZONE_ID}"}) {
+                  c: httpRequestsAdaptiveGroups(limit: 1, filter: {datetime_geq: "${geq}", datetime_leq: "${leq}"}) {
+                    sum { cachedBytes }
+                  }
+                }
+              }
+            }`;
+            const cfRes2 = await fetch('https://api.cloudflare.com/client/v4/graphql', {
+                method: 'POST',
+                headers: { 
+                    'Authorization': `Bearer ${env.CF_API_TOKEN}`,
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ query: gqlC })
+            });
+            const data2 = await cfRes2.json();
+            if (!data2.errors) {
+                const cb = data2?.data?.viewer?.zones?.[0]?.c?.[0]?.sum?.cachedBytes;
+                if (typeof cb === 'number') cachedBytes = cb;
+            }
+        } catch (e) {}
+        return {
+            ok: true,
+            requests: overview.count || 0,
+            bytes: overview.sum?.edgeResponseBytes || 0,
+            cachedBytes,
+            statusCodes: codes,
+            countries,
+            hours,
+            blocked: zones.blocked?.[0]?.count || 0
+        };
+    } catch(e) {
+        return { ok: false, error: e.message };
+    }
+}
+
+function kaClientProfile(route) {
+  let cp = {};
+  try { cp = route && route.custom_params ? JSON.parse(route.custom_params) : {}; } catch (e) {}
+  const hasFake = !!(cp.client || cp.version || cp.device || cp.ua);
+  return {
+    client: hasFake && cp.client ? String(cp.client) : 'SenPlayer',
+    version: hasFake && cp.version ? String(cp.version) : '6.0.0',
+    device: hasFake && cp.device ? String(cp.device) : 'iPhone',
+    ua: hasFake && cp.ua ? String(cp.ua) : 'SenPlayer/6.0.0',
+  };
+}
+/** 原生客户端风格的 Emby 认证头（禁止 Web 格式，很多 Emby 会拒绝 Web 客户端） */
+function kaAuthHeader(prof) {
+  return {
+    'X-Emby-Authorization': 'MediaBrowser Client="' + prof.client + '", Device="' + prof.device + '", DeviceId="emby-keepalive", Version="' + prof.version + '"',
+  };
+}
+function kaHeaders(prof, extra) {
+  const h = Object.assign({}, kaAuthHeader(prof), { 'User-Agent': prof.ua });
+  if (extra) Object.assign(h, extra);
+  return h;
+}
+function addApiKey(u, token) {
+  try {
+    const url = new URL(u);
+    if (token) url.searchParams.set('api_key', token);
+    return url.toString();
+  } catch (e) { return u; }
+}
+function fmtPos(ticks) {
+  const sec = Math.max(0, Math.floor(parseInt(ticks, 10) || 0) / 10000000);
+  const h = Math.floor(sec / 3600), m = Math.floor(sec % 3600 / 60), s = Math.floor(sec % 60);
+  return (h > 0 ? String(h).padStart(2, '0') + ':' : '') + String(m).padStart(2, '0') + ':' + String(s).padStart(2, '0');
+}
+async function kaFetch(urlStr, opts) {
+  const controller = new AbortController();
+  const timer = setTimeout(() => controller.abort(), 60000);
+  try {
+    const r = await fetch(urlStr, Object.assign({}, opts || {}, { signal: controller.signal }));
+    return r;
+  } catch (e) {
+    throw e;
+  } finally { clearTimeout(timer); }
+}
+async function kaJson(urlStr, opts) {
+  const res = await kaFetch(urlStr, opts);
+  const text = await res.text();
+  let data = null;
+  try { data = JSON.parse(text); } catch (e) {}
+  return { status: res.status, data, text };
+}
+/** 保活拉流：流式读取最多 maxBytes 字节后立即取消；timeMs 为总超时兜底（CF 单请求墙钟 30s，留余量） */
+async function readStreamUpTo(res, maxBytes, timeMs) {
+  if (!res || !res.body) return 0;
+  const reader = res.body.getReader();
+  let total = 0;
+  const t0 = Date.now();
+  try {
+    for (;;) {
+      if (Date.now() - t0 > timeMs) break;
+      let readTimer = null;
+      const r = await Promise.race([
+        reader.read(),
+        new Promise((resolve, reject) => { readTimer = setTimeout(() => reject(new Error('read timeout')), Math.max(1000, timeMs - (Date.now() - t0))); })
+      ]);
+      if (readTimer) clearTimeout(readTimer);
+      if (r.done) break;
+      if (r.value) total += r.value.byteLength;
+      if (total >= maxBytes) break;
+    }
+  } catch (e) {}
+  try { await reader.cancel(); } catch (e) {}
+  return total;
+}
+/** 节点级完整保活：连通探测 → 凭据登录（API Key 优先 → 账号密码）→ 随机取条目 → 拉播放链接 → 拉流 40MB → 上报进度 → 停止 */
+async function runKeepAlive(env, route) {
+  const steps = [];
+  let progress = 3;      // 实时进度 0-100
+  let liveTitle = '';    // 正在模拟看的剧名
+  // 实时进度：写入 D1 app_config(ka_live)，前端轮询展示（fire-and-forget，不阻塞保活）
+  const saveLive = (current, stepsArr, p) => {
+    try {
+      if (!env || !env.DB) return;
+      progress = Math.max(progress, Math.min(100, Math.round(p !== undefined ? p : 12 + stepsArr.length * 8)));
+      env.DB.prepare('INSERT OR REPLACE INTO app_config (key, value) VALUES (?, ?)')
+        .bind('ka_live', JSON.stringify({ running: true, prefix: route ? route.prefix : '', current: current || '', steps: stepsArr || [], progress: progress, mediaTitle: liveTitle || '', updatedAt: Date.now() }))
+        .run().catch(() => {});
+    } catch (e) {}
+  };
+  const addStep = (name, ok, detail) => {
+    const st = { name, ok: !!ok, detail: String(detail || '').slice(0, 220) };
+    steps.push(st);
+    saveLive('执行中：' + name, steps.slice());
+  };
+  if (!route) { addStep('选择节点', false, '没有可用节点'); return { ok: false, msg: '没有可用节点', steps }; }
+  const prof = kaClientProfile(route);
+  const target = String(route.target || '').split(',')[0].trim().replace(/\/+$/, '');
+  if (!target) { addStep('节点目标', false, '节点 target 为空'); return { ok: false, msg: '节点 target 为空', steps }; }
+  addStep('保活节点', true, route.prefix + ' → ' + target + '（UA: ' + prof.ua + '）');
+
+  try {
+    const r = await kaJson(target + '/emby/System/Info/Public', { headers: kaHeaders(prof) });
+    addStep('连通性探测', r.status === 200, 'GET /emby/System/Info/Public → ' + r.status);
+  } catch (e) { addStep('连通性探测', false, e.message); }
+
+  let token = String(route.ka_token || '').trim();
+  let userId = '';
+  let loginUser = '', loginPass = '';
+  if (!token && route.node_user) {
+    loginUser = String(route.node_user);
+    loginPass = String(route.node_pass || '');
+  }
+  if (!token && loginUser) {
+    try {
+      const r = await kaJson(target + '/emby/Users/AuthenticateByName', {
+        method: 'POST',
+        headers: Object.assign(kaHeaders(prof), { 'Content-Type': 'application/json' }),
+        body: JSON.stringify({ Username: loginUser, Pw: loginPass })
+      });
+      if (r.data && r.data.AccessToken) {
+        token = r.data.AccessToken;
+        userId = (r.data.User && r.data.User.Id) || '';
+        addStep('账号登录', true, '节点账号 ' + loginUser + ' → ' + r.status);
+      } else {
+        addStep('账号登录', false, 'AuthenticateByName → ' + r.status);
+      }
+    } catch (e) { addStep('账号登录', false, e.message); }
+  }
+
+  if (!token) {
+    try {
+      const r = await kaJson(target + '/emby/System/Info', { headers: kaHeaders(prof) });
+      addStep('服务探测（未配置凭据）', r.status === 200 || r.status === 401, 'GET /emby/System/Info → ' + r.status);
+    } catch (e) { addStep('服务探测', false, e.message); }
+    return { ok: true, msg: '该节点未配置 API Key / 账号密码，已执行探测保活（配置凭据后可模拟真实播放）', steps };
+  }
+
+  if (!userId) {
+    try {
+      const r = await kaJson(addApiKey(target + '/emby/Users', token), { headers: kaHeaders(prof) });
+      const arr = r.data || [];
+      const list = Array.isArray(arr) ? arr : [];
+      const u = list.find(x => x && x.Id) || list[0];
+      if (u && u.Id) { userId = u.Id; addStep('获取用户', true, String(u.Name || userId)); }
+    } catch (e) {}
+  }
+
+  let itemId = '', itemName = '';
+  try {
+    const r = await kaJson(addApiKey(target + '/emby/Items?Recursive=true&IncludeItemTypes=Movie,Episode&Limit=1&SortBy=DateCreated&SortOrder=Descending', token), { headers: kaHeaders(prof) });
+    const items = (r.data && r.data.Items) ? r.data.Items : (Array.isArray(r.data) ? r.data : []);
+    if (items[0] && items[0].Id) { itemId = items[0].Id; itemName = items[0].Name || ''; }
+    else if (r.status !== 200) { addStep('获取媒体条目', false, 'Items → ' + r.status + ' ' + String(r.text).slice(0, 100)); return { ok: false, msg: '获取媒体条目失败: Items → ' + r.status, steps }; }
+  } catch (e) { addStep('获取媒体条目', false, 'Items 异常: ' + e.message); return { ok: false, msg: '获取媒体条目失败', steps }; }
+  if (!itemId) { addStep('获取媒体条目', false, '媒体库为空或无权访问'); return { ok: false, msg: '媒体库为空或无权访问', steps }; }
+  liveTitle = itemName || '未知条目';
+  addStep('获取媒体条目', true, (itemName || '未知条目') + ' (' + String(itemId).slice(0, 8) + ')');
+
+  let msId = '', playSessionId = '';
+  try {
+    const r = await kaJson(addApiKey(target + '/emby/Items/' + itemId + '/PlaybackInfo', token), {
+      method: 'POST',
+      headers: Object.assign(kaHeaders(prof), { 'Content-Type': 'application/json' }),
+      body: JSON.stringify({ UserId: userId, DeviceId: 'emby-keepalive', MediaSources: [], AutoOpenLiveStream: false, StartTimeTicks: 0 })
+    });
+    const ms = (r.data && r.data.MediaSources && r.data.MediaSources[0]) || null;
+    if (ms) { msId = ms.Id || ''; }
+    playSessionId = (r.data && r.data.PlaySessionId) || '';
+    if (!msId && !playSessionId) {
+      try {
+        const g = await kaJson(addApiKey(target + '/emby/Items/' + encodeURIComponent(itemId) + '/PlaybackInfo?UserId=' + encodeURIComponent(userId) + '&AutoOpenLiveStream=true', token), { headers: kaHeaders(prof) });
+        const gms = (g.data && g.data.MediaSources && g.data.MediaSources[0]) || null;
+        if (gms) { msId = gms.Id || ''; }
+        if (!playSessionId) playSessionId = (g.data && g.data.PlaySessionId) || '';
+      } catch (e) {}
+    }
+    if (ms && ms.Name) liveTitle = String(ms.Name);   // 过程界面显示完整剧名
+    addStep('拉取播放链接', !!msId || !!playSessionId, ms ? String(ms.Name || 'MediaSource') : ('PlaybackInfo → ' + r.status + (playSessionId ? '（GET 重试成功）' : '')));
+  } catch (e) { addStep('拉取播放链接', false, e.message); }
+
+  const STREAM_BYTES = 40 * 1024 * 1024;
+  if (!msId && !playSessionId) {
+    addStep('模拟拉流', false, '无播放链接，跳过（PlaybackInfo 两次尝试均失败）');
+    return { ok: false, msg: '保活失败：无法获取播放链接（PlaybackInfo POST/GET 均失败）', steps };
+  }
+  if (itemId && (msId || itemId)) {
+    saveLive('模拟拉流中（40MB）…', steps.slice(), 50);
+    try {
+      const streamUrl = (staticFlag) => target + '/emby/Videos/' + encodeURIComponent(itemId) + '/stream?MediaSourceId=' + encodeURIComponent(msId || itemId) + '&Static=' + staticFlag;
+      const hdrs = Object.assign(kaHeaders(prof), { Range: 'bytes=0-' + (STREAM_BYTES - 1) });
+      let res = await kaFetch(addApiKey(streamUrl('false'), token), { headers: hdrs });
+      if (res.status !== 200 && res.status !== 206) {
+        const txt = await res.text().catch(() => '');
+        res = await kaFetch(addApiKey(streamUrl('true'), token), { headers: hdrs });
+        const bytes = await readStreamUpTo(res, STREAM_BYTES, 25000);
+        addStep('模拟拉流', res.status === 200 || res.status === 206, 'Videos/' + String(itemId).slice(0, 8) + '/stream → ' + res.status + '（拉流 ' + (bytes / 1048576).toFixed(1) + 'MB）' + (res.status === 400 ? ' ' + String(txt).slice(0, 120) : ''));
+      } else {
+        const bytes = await readStreamUpTo(res, STREAM_BYTES, 25000);
+        addStep('模拟拉流', true, 'Videos/' + String(itemId).slice(0, 8) + '/stream → ' + res.status + '（拉流 ' + (bytes / 1048576).toFixed(1) + 'MB）');
+      }
+    } catch (e) { addStep('模拟拉流', false, e.message); }
+  } else {
+    addStep('模拟拉流', false, '无播放链接，跳过');
+  }
+
+  // 播放会话：字段 Emby 标准 PositionTicks（兼容旧字段）；CF 墙钟 30s 限制下用快进心跳模拟 90 秒累计播放进度
+  // 模拟真实观看：起始位置随机 1~89 秒（1 分 30 秒前的任意时间点），观看时长随机 60~90 秒，避免每次都从 0 开始固定 90 秒
+  const startSec = 1 + Math.floor(Math.random() * 89);
+  const playSec = 60 + Math.floor(Math.random() * 31);
+  const endSec = startSec + playSec;
+  const startTicks = startSec * 10000000;
+  const endTicks = endSec * 10000000;
+  const CF_HEARTBEATS = Math.max(1, Math.floor(playSec / 10));   // 心跳条数 6~9（每 1.5s 一条，进度每次 +10s）
+  const base = { ItemId: itemId, MediaSourceId: msId || itemId, UserId: userId, DeviceId: 'emby-keepalive', PlayMethod: 'DirectStream', CanSeek: true, IsPaused: false, QueueableMediaTypes: ['Video'] };
+  if (playSessionId) base.PlaySessionId = playSessionId;
+  const kaBody = (posTicks) => JSON.stringify(Object.assign({}, base, { PositionTicks: posTicks, PlaybackPositionTicks: posTicks }));
+  const KA_HEADERS = Object.assign(kaHeaders(prof), { 'Content-Type': 'application/json' });
+
+  if (!playSessionId) {
+    addStep('播放会话开始', false, '无 PlaySessionId，跳过会话上报（仅拉流保活）');
+    addStep('模拟播放时长', false, '无 PlaySessionId，跳过');
+  } else {
+    try {
+      const r = await kaJson(addApiKey(target + '/emby/Sessions/Playing', token), { method: 'POST', headers: KA_HEADERS, body: kaBody(startTicks) });
+      addStep('播放会话开始', r.status === 200 || r.status === 204, 'Sessions/Playing → ' + r.status + (r.status === 400 ? ' ' + String(r.text).slice(0, 120) : ''));
+    } catch (e) { addStep('播放会话开始', false, e.message); }
+
+    // 快进心跳：CF 单次墙钟 30s，无法真实等待 90 秒；用每 1.5s 一条、进度 +10s 的心跳在预算内凑足 90 秒进度
+    let hbOk = 0, hbFail = 0;
+    const tStart = Date.now();
+    for (let i = 1; i <= CF_HEARTBEATS; i++) {
+      if (Date.now() - tStart > 24000) break;   // 心跳段预算 24s，保拉流慢时整体不超墙钟
+      await new Promise(res => setTimeout(res, 1500));
+      const pos = Math.min(startTicks + i * 10 * 10000000, endTicks);
+      saveLive('模拟播放：进度心跳 ' + i + '/' + CF_HEARTBEATS + '（' + fmtPos(pos) + '）', steps.slice(), 66 + (i / CF_HEARTBEATS) * 26);
+      try {
+        const r = await kaJson(addApiKey(target + '/emby/Sessions/Playing/Progress', token), { method: 'POST', headers: KA_HEADERS, body: kaBody(pos) });
+        if (r.status === 200 || r.status === 204) hbOk++; else hbFail++;
+      } catch (e) { hbFail++; }
+    }
+    addStep('模拟播放时长', hbOk > 0, '从 ' + fmtPos(startTicks) + ' 快进 ' + playSec + ' 秒：心跳 ' + hbOk + '/' + CF_HEARTBEATS + ' 条 → ' + fmtPos(endTicks));
+  }
+
+  try {
+    const r = await kaJson(addApiKey(target + '/emby/Sessions/Playing/Stopped', token), { method: 'POST', headers: KA_HEADERS, body: kaBody(endTicks) });
+    addStep('播放会话停止', r.status === 200 || r.status === 204, 'Stopped → ' + r.status + ' (' + fmtPos(endTicks) + ')');
+  } catch (e) { addStep('播放会话停止', false, e.message); }
+
+  // 清除播放记录：重置本次保活播放条目的 PlayCount / 继续观看进度，避免污染真实观看记录
+  if (userId && itemId && token) {
+    await new Promise(res => setTimeout(res, 1000));   // 等 Stopped 异步落库后再清，避免竞态
+    try {
+      const r = await kaJson(addApiKey(target + '/emby/Users/' + encodeURIComponent(userId) + '/Items/' + encodeURIComponent(itemId) + '/UserData', token), {
+        method: 'POST',
+        headers: Object.assign(kaHeaders(prof), { 'Content-Type': 'application/json' }),
+        body: JSON.stringify({ Played: false, PlayCount: 0, ResumePositionTicks: 0, PlaybackPositionTicks: 0, PlayedPercentage: 0 })
+      });
+      addStep('清除播放记录', r.status === 200 || r.status === 204, 'UserData → ' + r.status + '（PlayCount/继续观看进度已重置）');
+      if (r.status === 200 || r.status === 204) saveLive('清除播放记录完成', steps.slice(), 100);
+    } catch (e) { addStep('清除播放记录', false, e.message); }
+  } else {
+    addStep('清除播放记录', false, '缺少 userId/itemId/token，跳过');
+  }
+
+  const failed = steps.filter(x => !x.ok).length;
+  return { ok: failed < steps.length / 2, msg: '保活完成（' + steps.length + ' 步，' + failed + ' 步异常）', steps };
+}
+/** 定时检查：找出最先到期的开启保活节点执行（每 tick 只跑一个，避免并发打爆上游与超时） */
+async function pushKaNotice(env, prefix, ok, detail, remark) {
+  try {
+    if (!env || !env.DB) return;
+    const row = await env.DB.prepare("SELECT value FROM app_config WHERE key = 'ka_notices'").first();
+    let list = [];
+    try { if (row && row.value) list = JSON.parse(row.value); } catch (e) {}
+    list.unshift({ time: Date.now(), prefix: String(prefix || ''), remark: String(remark || ''), result: ok ? '成功' : '失败', detail: String(detail || '').slice(0, 180) });
+    if (list.length > 30) list.length = 30;
+    await env.DB.prepare('INSERT OR REPLACE INTO app_config (key, value) VALUES (?, ?)').bind('ka_notices', JSON.stringify(list)).run();
+  } catch (e) {}
+  // 保活结果通知：Bark（iOS）+ Telegram（配置了环境变量时推送，节点显示备注）
+  const nodeName = remark || ('/' + prefix);
+  const kaText = (ok ? '✅' : '❌') + ' 节点 ' + nodeName + ' 保活' + (ok ? '成功' : '失败') + (detail ? '：' + detail : '');
+  try {
+    if (env.BARK_KEY) {
+      await fetch('https://api.day.app/' + String(env.BARK_KEY).trim(), {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ title: 'Emby 反代面板', body: kaText, level: env.BARK_LEVEL || 'active' })
+      });
+    }
+  } catch (e) {}
+  try {
+    if (env.TG_BOT_TOKEN && env.TG_CHAT_ID) {
+      await fetch('https://api.telegram.org/bot' + env.TG_BOT_TOKEN + '/sendMessage', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ chat_id: String(env.TG_CHAT_ID), text: kaText })
+      });
+    }
+  } catch (e) {}
+}
+
+async function checkKeepAliveSchedule(env) {
+  try {
+    try { await env.DB.exec(`ALTER TABLE routes ADD COLUMN ka_enabled TEXT DEFAULT '0'`); } catch(e) {}
+    try { await env.DB.exec(`ALTER TABLE routes ADD COLUMN ka_days TEXT DEFAULT '3'`); } catch(e) {}
+    try { await env.DB.exec(`ALTER TABLE routes ADD COLUMN ka_token TEXT DEFAULT ''`); } catch(e) {}
+    try { await env.DB.exec(`ALTER TABLE routes ADD COLUMN node_user TEXT DEFAULT ''`); } catch(e) {}
+    try { await env.DB.exec(`ALTER TABLE routes ADD COLUMN node_pass TEXT DEFAULT ''`); } catch(e) {}
+    try { await env.DB.exec(`ALTER TABLE routes ADD COLUMN last_ka_run TEXT DEFAULT ''`); } catch(e) {}
+    try { await env.DB.exec(`ALTER TABLE routes ADD COLUMN last_ka_result TEXT DEFAULT ''`); } catch(e) {}
+    try { await env.DB.exec(`ALTER TABLE routes ADD COLUMN last_ka_detail TEXT DEFAULT ''`); } catch(e) {}
+    const { results: routes } = await env.DB.prepare(`SELECT * FROM routes WHERE ka_enabled = '1'`).all();
+    if (!routes || routes.length === 0) return;
+    const liveRow = await env.DB.prepare("SELECT value FROM app_config WHERE key = ?").bind('ka_live').first();
+    if (liveRow && liveRow.value) {
+        try { const ls = JSON.parse(liveRow.value); if (ls && ls.running) return; } catch(e) {}
+    }
+    const due = routes.filter(r => {
+      const days = Math.max(0.1, parseFloat(r.ka_days) || 3);
+      const last = r.last_ka_run ? new Date(r.last_ka_run).getTime() : 0;
+      return !last || Date.now() - last >= days * 86400000;
+    });
+    if (due.length === 0) return;
+    due.sort((a, b) => {
+      const da = a.last_ka_run ? new Date(a.last_ka_run).getTime() : 0;
+      const db = b.last_ka_run ? new Date(b.last_ka_run).getTime() : 0;
+      return da - db;
+    });
+    const route = due[0];
+    const result = await runKeepAlive(env, route);
+    await env.DB.prepare('UPDATE routes SET last_ka_run = ?, last_ka_result = ?, last_ka_detail = ? WHERE prefix = ?')
+      .bind(new Date().toISOString(), result.ok ? 'success' : 'fail', result.msg || '', route.prefix).run();
+    await pushKaNotice(env, route.prefix, result.ok, result.msg, route.remark);
+  } catch (e) {}
+}
+
+async function sendTgStats(env, chatId) {
+    try {
+        const totalQuery = await env.DB.prepare(`SELECT COUNT(*) as count FROM visitor_logs WHERE date(timestamp, '+8 hours') = date('now', '+8 hours')`).first();
+        const topRegionQuery = await env.DB.prepare(`SELECT country, COUNT(*) as c FROM visitor_logs WHERE date(timestamp, '+8 hours') = date('now', '+8 hours') GROUP BY country ORDER BY c DESC LIMIT 1`).first();
+        const topNodeQuery = await env.DB.prepare(`
+            SELECT r.remark, COUNT(v.id) as c 
+            FROM visitor_logs v 
+            LEFT JOIN routes r ON v.prefix = r.prefix 
+            WHERE date(v.timestamp, '+8 hours') = date('now', '+8 hours') 
+            GROUP BY v.prefix 
+            ORDER BY c DESC LIMIT 1
+        `).first();
+
+        // 获取多时间维度流量
+        const [trafficToday, traffic7d, traffic30d] = await Promise.all([
+            getCFTraffic(env, 'today'),
+            getCFTraffic(env, 7),
+            getCFTraffic(env, 30)
+        ]);
+
+        // ================= 新增：获取今日流量消耗 TOP 1 节点 =================
+        let topNodeMsg = "暂无数据";
+        if (env.CF_API_TOKEN && env.CF_ZONE_ID && env.DB) {
+            try {
+                // 1. 获取所有节点
+                const { results: routes } = await env.DB.prepare(`SELECT prefix, remark FROM routes`).all();
+                if (routes && routes.length > 0) {
+                    const end = new Date();
+                    const beijingTime = new Date(end.getTime() + 8 * 3600000);
+                    beijingTime.setUTCHours(0, 0, 0, 0);
+                    const start = new Date(beijingTime.getTime() - 8 * 3600000);
+
+                    let maxBytes = 0;
+                    let topNodeName = "无";
+
+                    // 2. 并发向 CF 查询每个节点今天的精准流量
+                    await Promise.all(routes.map(async (r) => {
+                        try {
+                            const graphqlQuery = {
+                                query: `query {
+                                  viewer {
+                                    zones(filter: {zoneTag: "${env.CF_ZONE_ID}"}) {
+                                      httpRequestsAdaptiveGroups(
+                                        limit: 1,
+                                        filter: {
+                                          clientRequestPath_like: "/${r.prefix}%",
+                                          datetime_geq: "${start.toISOString()}",
+                                          datetime_leq: "${end.toISOString()}"
+                                        }
+                                      ) {
+                                        sum { edgeResponseBytes }
+                                      }
+                                    }
+                                  }
+                                }`
+                            };
+
+                            const cfRes = await fetch('https://api.cloudflare.com/client/v4/graphql', {
+                                method: 'POST',
+                                headers: { 'Authorization': `Bearer ${env.CF_API_TOKEN}`, 'Content-Type': 'application/json' },
+                                body: JSON.stringify(graphqlQuery)
+                            });
+                            
+                            const cfData = await cfRes.json();
+                            const bytes = cfData?.data?.viewer?.zones?.[0]?.httpRequestsAdaptiveGroups?.[0]?.sum?.edgeResponseBytes || 0;
+                            
+                            // 3. 找出最大值
+                            if (bytes > maxBytes) {
+                                maxBytes = bytes;
+                                topNodeName = r.remark || r.prefix;
+                            }
+                        } catch(e) {}
+                    }));
+
+                    // 4. 转换字节并组装文本
+                    if (maxBytes > 0) {
+                        let formatted = "0 B";
+                        if (maxBytes >= 1099511627776) formatted = (maxBytes / 1099511627776).toFixed(2) + " TB";
+                        else if (maxBytes >= 1073741824) formatted = (maxBytes / 1073741824).toFixed(2) + " GB";
+                        else if (maxBytes >= 1048576) formatted = (maxBytes / 1048576).toFixed(2) + " MB";
+                        else if (maxBytes >= 1024) formatted = (maxBytes / 1024).toFixed(2) + " KB";
+                        else formatted = maxBytes + " B";
+                        
+                        topNodeMsg = `${topNodeName} 跑了 ${formatted}`;
+                    } else {
+                        topNodeMsg = "今日全站零消耗";
+                    }
+                }
+            } catch (e) {
+                topNodeMsg = "获取失败";
+            }
+        }
+        // ====================================================================
+
+        const totalStr = totalQuery ? totalQuery.count : 0;
+        const regionStr = topRegionQuery ? `${topRegionQuery.country === 'CN' ? ' 中国大陆' : topRegionQuery.country} (${topRegionQuery.c} 次)` : '暂无记录';
+        const nodeStr = topNodeQuery ? `${topNodeQuery.remark || '未命名节点'} (${topNodeQuery.c} 次)` : '暂无记录';
+
+        const msg = 
+            `*今日反代播放数据*\n\n` +
+            `今日总播放次数: ${totalStr} 次\n` +
+            `最多访问地区: ${regionStr}\n` +
+            `最喜欢的EMBY: ${nodeStr}\n\n` +
+            `实际流量消耗:\n` +
+            `当天内: ${trafficToday}\n` +
+            `七天内: ${traffic7d}\n` +
+            `30天内: ${traffic30d}\n\n` +
+            `今日流量之王:\n` +
+            `${topNodeMsg}`;
+
+        await fetch(`https://api.telegram.org/bot${env.TG_BOT_TOKEN}/sendMessage`, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ chat_id: chatId, text: msg, parse_mode: 'Markdown' })
+        });
+    } catch (e) {
+        console.error("TG Send Error:", e);
+    }
+}
+
+/** 引号字符串转义：防头注入（引号/反斜杠转义、\r\n 丢弃） */
+function escQuote(v) {
+  return String(v).replace(/\\/g, '\\\\').replace(/"/g, '\\"').replace(/[\r\n]+/g, '');
+}
+
+/** 生成随机 UUID v4（Device ID 用，crypto.randomUUID 兜底自实现） */
+function genUuid() {
+  if (typeof crypto !== 'undefined' && typeof crypto.randomUUID === 'function') return crypto.randomUUID();
+  const b = crypto.getRandomValues(new Uint8Array(16));
+  b[6] = (b[6] & 0x0f) | 0x40; b[8] = (b[8] & 0x3f) | 0x80;
+  const h = Array.from(b).map(x => x.toString(16).padStart(2, '0')).join('');
+  return h.slice(0,8) + '-' + h.slice(8,12) + '-' + h.slice(12,16) + '-' + h.slice(16,20) + '-' + h.slice(20);
+}
+
+/** 下载伪装伴随观看（CF 版）：起播 → 流驱动心跳 → 结束收尾。
+ *  与 VPS 版同款协议：Sessions/Playing 起播 → Playing/Progress 心跳（首次固定 10s、第二次固定 30s、
+ *  之后 15s~3 分钟随机）→ Stopped 结束 → 1.5s 后重置 UserData 清除播放记录。
+ *  CF 运行时限制：不依赖后台定时器，心跳由响应流的读取节奏驱动（每次读到数据块检查是否到点）；
+ *  收尾通过 ctx.waitUntil 保证在响应结束后仍执行完毕。 */
+function spawnDlTrickWatchCF(target, req, itemId, search) {
+    try {
+        const params = new URLSearchParams((search || '').replace(/^\?/, ''));
+        const apiKey = params.get('api_key') || params.get('X-Emby-Token') || '';
+        const authHdr = req.headers.get('x-emby-authorization') || req.headers.get('authorization') || '';
+        if (!apiKey && !authHdr) return null;   // 无凭据无法伪装，直接跳过
+        const msId = params.get('mediaSourceId') || params.get('MediaSourceId') || '';
+        const mClient = String(authHdr).match(/Client="([^"]+)"/i);
+        const mVersion = String(authHdr).match(/Version="([^"]+)"/i);
+        // 独立虚拟设备ID：下载心跳不占用播放器真实设备会话。
+        // 否则下载期间上游认为"播放器设备已在播放"，用户再点播放时同设备并发会话被上游卡住 → 一直缓冲
+        const deviceId = genUuid();
+        const client = (mClient && mClient[1]) || 'Emby';
+        const version = (mVersion && mVersion[1]) || '4.8.0.0';
+        const playSessionId = 'bemby-' + Date.now();
+        let targetOrigin = '';
+        try { targetOrigin = new URL(target).origin; } catch(e) { return null; }
+        const hdrs = { 'Content-Type': 'application/json' };
+        if (authHdr) hdrs['X-Emby-Authorization'] = authHdr.replace(/DeviceId\s*=\s*"[^"]*"/i, `DeviceId="${deviceId}"`);
+        const url = path => addApiKey(targetOrigin + path, apiKey);
+        const base = { ItemId: itemId, MediaSourceId: msId || itemId, PlaySessionId: playSessionId, DeviceId: deviceId, Client: client, Version: version, PlayMethod: 'DirectStream', CanSeek: true, IsPaused: false, QueueableMediaTypes: ['Video'] };
+        const watchBody = pos => JSON.stringify(Object.assign({}, base, { PositionTicks: pos, PlaybackPositionTicks: pos }));
+        let closed = false, posTicks = 0, userId = '';
+        let tickCount = 0, nextWait = 10, nextHeartAt = Date.now() + 10000;   // 首次固定 10s，第二次固定 30s，之后 15~180s 随机
+        const post = (path, body) => kaFetch(url(path), { method: 'POST', headers: hdrs, body }).catch(() => null);
+        // 起播 + 预取用户信息（fire-and-forget，响应流期间事件循环可执行）
+        post('/emby/Sessions/Playing', watchBody(0));
+        kaFetch(url('/emby/Users/Me'), { headers: hdrs }).then(async r => {
+            try { userId = (JSON.parse(await r.text()) || {}).Id || ''; } catch(e){}
+        }).catch(() => {});
+        return {
+            // 响应流驱动心跳：每次读到数据块后调用，到达心跳时间点即上报（不 await，避免拖慢流转发）
+            tick() {
+                if (closed) return;
+                const now = Date.now();
+                if (now < nextHeartAt) return;
+                tickCount += 1;
+                posTicks += nextWait * 10000000;
+                nextHeartAt = now + nextWait * 1000;
+                // 第一次固定 10s（已发出），第二次固定 30s，之后 15~180s 随机
+                nextWait = tickCount === 1 ? 30 : (15 + Math.floor(Math.random() * 166));
+                post('/emby/Sessions/Playing/Progress', watchBody(posTicks));
+            },
+            // 下载结束/断开：上报结束 + 重置 UserData 清除播放记录（调用方须用 ctx.waitUntil 包裹）
+            async finish() {
+                if (closed) return;
+                closed = true;
+                try {
+                    if (!userId) {
+                        const r = await kaFetch(url('/emby/Users/Me'), { headers: hdrs });
+                        try { userId = (JSON.parse(await r.text()) || {}).Id || ''; } catch(e){}
+                    }
+                } catch(e){}
+                await post('/emby/Sessions/Playing/Stopped', watchBody(posTicks));
+                if (userId && itemId) {
+                    await new Promise(r2 => setTimeout(r2, 1500));   // 等 Stopped 落库后再清
+                    await post('/emby/Users/' + encodeURIComponent(userId) + '/Items/' + encodeURIComponent(itemId) + '/UserData',
+                        JSON.stringify({ Played: false, PlayCount: 0, ResumePositionTicks: 0, PlaybackPositionTicks: 0, PlayedPercentage: 0 }));
+                }
+            }
+        };
+    } catch(e) { return null; }
+}
+
+/** 把响应流包一层：转发数据块并在读取间隙驱动心跳，流结束/取消时收尾（收尾走 ctx.waitUntil 保证执行） */
+function wrapStreamWithWatch(stream, watch, ctx) {
+    const reader = stream.getReader();
+    const runFinish = () => {
+        try { const p = watch.finish(); if (p && ctx && ctx.waitUntil) ctx.waitUntil(p); } catch(e){}
+    };
+    return new ReadableStream({
+        async pull(controller) {
+            try {
+                const { done, value } = await reader.read();
+                if (done) {
+                    try { controller.close(); } catch(e){}
+                    runFinish();
+                    return;
+                }
+                controller.enqueue(value);
+                try { watch.tick(); } catch(e){}
+            } catch (err) {
+                try { controller.error(err); } catch(e){}
+                runFinish();
+            }
+        },
+        cancel() {
+            try { reader.cancel(); } catch(e){}
+            runFinish();
+        }
+    });
+}
+
+// ============ 保号通知（Bark / Telegram）============
+async function getNotifyCfg(env) {
+    let cfg = { barkKey: '', barkLevel: 'active', barkServer: 'https://api.day.app', barkNotify: true, tgToken: '', tgChatId: '', tgNotify: true };
+    try {
+        if (env && env.DB) {
+            const row = await env.DB.prepare("SELECT value FROM app_config WHERE key = 'notify_settings'").first();
+            if (row && row.value) Object.assign(cfg, JSON.parse(row.value));
+        }
+    } catch (e) {}
+    return cfg;
+}
+async function sendBarkN(cfg, title, body) {
+    try {
+        if (!cfg.barkKey) return false;
+        const r = await fetch((cfg.barkServer || 'https://api.day.app').replace(/\/+$/, '') + '/' + String(cfg.barkKey).trim(), {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json; charset=utf-8' },
+            body: JSON.stringify({ title: title, body: body, level: cfg.barkLevel || 'active' })
+        });
+        return r.ok;
+    } catch (e) { return false; }
+}
+async function sendTgN(cfg, text) {
+    try {
+        if (!cfg.tgToken || !cfg.tgChatId) return false;
+        const r = await fetch('https://api.telegram.org/bot' + String(cfg.tgToken).trim() + '/sendMessage', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ chat_id: String(cfg.tgChatId).trim(), text: text })
+        });
+        return r.ok;
+    } catch (e) { return false; }
+}
+async function scanOverdueNotify(env, ctx) {
+    try {
+        if (!env.DB) return;
+        const cfg = await getNotifyCfg(env);
+        if (!cfg.barkNotify && !cfg.tgNotify) return;
+        if (!cfg.barkKey && !(cfg.tgToken && cfg.tgChatId)) return;
+        const todayStr = new Date(Date.now() + 8 * 3600000).toISOString().split('T')[0];
+        const lastRow = await env.DB.prepare("SELECT value FROM app_config WHERE key = 'overdue_notify'").first();
+        let last = {};
+        try { if (lastRow && lastRow.value) last = JSON.parse(lastRow.value); } catch (e) {}
+        if (last.date === todayStr) return;
+        try { await env.DB.exec(`ALTER TABLE routes ADD COLUMN watch_limit TEXT DEFAULT '0'`); } catch (e) {}
+        const { results } = await env.DB.prepare('SELECT prefix, remark, target, last_play, watch_limit FROM routes').all();
+        const list = [];
+        for (const r of (results || [])) {
+            const wl = parseFloat(r.watch_limit);
+            if (!wl || wl <= 0 || !r.last_play) continue;
+            const lpUtc = Date.parse(String(r.last_play).replace(' ', 'T') + 'Z') - 8 * 3600000;
+            if (isNaN(lpUtc)) continue;
+            const diffDays = Math.floor((Date.now() - lpUtc) / 86400000);
+            if (diffDays > wl) list.push({ prefix: r.prefix, remark: r.remark || r.prefix, days: diffDays, wl: wl });
+        }
+        await env.DB.prepare('INSERT OR REPLACE INTO app_config (key, value) VALUES (?, ?)').bind('overdue_notify', JSON.stringify({ date: todayStr, list: list })).run();
+        if (!list.length) return;
+        const lines = list.map(n => '· ' + n.remark + '（/' + n.prefix + '）已 ' + n.days + ' 天未观看，超过下限 ' + n.wl + ' 天');
+        const text = '⚠️ 保号提醒：' + list.length + ' 个节点超过观看下限未观看\n' + lines.join('\n');
+        if (cfg.barkNotify && cfg.barkKey) await sendBarkN(cfg, 'Emby 反代面板 · 保号提醒', text);
+        if (cfg.tgNotify && cfg.tgToken && cfg.tgChatId) await sendTgN(cfg, text);
+    } catch (e) { console.error('scanOverdueNotify:', e); }
+}
+async function maybeScanOverdue(env) {
+    try {
+        if (!env.DB) return;
+        const now = Date.now();
+        const row = await env.DB.prepare("SELECT value FROM app_config WHERE key = 'overdue_last_check'").first();
+        let lastCheck = 0;
+        if (row && row.value) lastCheck = parseInt(row.value, 10) || 0;
+        if (now - lastCheck < 6 * 3600000) return;
+        await env.DB.prepare('INSERT OR REPLACE INTO app_config (key, value) VALUES (?, ?)').bind('overdue_last_check', String(now)).run();
+        await scanOverdueNotify(env, {});
+    } catch (e) {}
+}
+
+// ============ 新版本推送通知（Bark / Telegram）============
+function verNum(v) {
+    return String(v || '').replace(/^v/i, '').split('.').map(n => parseInt(n, 10) || 0);
+}
+function isNewerVer(a, b) {
+    const A = verNum(a), B = verNum(b);
+    for (let i = 0; i < Math.max(A.length, B.length); i++) {
+        const x = A[i] || 0, y = B[i] || 0;
+        if (x !== y) return x > y;
+    }
+    return false;
+}
+async function checkUpdateNotify(env) {
+    try {
+        if (!env.DB) return;
+        // 更新提醒开关（与面板弹窗提醒一致）
+        let notifyOn = true;
+        try {
+            const row = await env.DB.prepare("SELECT value FROM app_config WHERE key = 'update_notify'").first();
+            if (row && row.value !== null && row.value !== undefined) notifyOn = String(row.value) !== '0';
+        } catch (e) {}
+        if (!notifyOn) return;
+        // 拉取 changelog 最新版本
+        const res = await fetch(CHANGELOG_URL, { headers: { 'User-Agent': 'cloudflare-worker' } });
+        if (!res.ok) return;
+        const cl = await res.json();
+        const latest = (cl && cl.versions && cl.versions[0]) || null;
+        if (!latest || !latest.version) return;
+        if (!isNewerVer(latest.version, CURRENT_VERSION)) return;
+        // 防重复：每个新版本只推送一次
+        const sentRow = await env.DB.prepare("SELECT value FROM app_config WHERE key = 'update_notify_sent'").first();
+        let sent = {};
+        try { if (sentRow && sentRow.value) sent = JSON.parse(sentRow.value); } catch (e) {}
+        if (sent.version === latest.version) return;
+        const cfg = await getNotifyCfg(env);
+        if (!cfg.barkNotify && !cfg.tgNotify) return;
+        if (!cfg.barkKey && !(cfg.tgToken && cfg.tgChatId)) return;
+        const items = (latest.items || []).slice(0, 6).map(i => '· ' + i).join('\n');
+        const text = '🚀 检测到新版本：v' + latest.version + '（' + (latest.title || '') + '）\n当前版本：v' + CURRENT_VERSION + '\n\n更新内容：\n' + items + '\n\n可在面板「设置 → 版本」中查看更新内容并手动更新。';
+        let ok = false;
+        if (cfg.barkNotify && cfg.barkKey) ok = await sendBarkN(cfg, 'Emby 反代面板 · 新版本可用', text) || ok;
+        if (cfg.tgNotify && cfg.tgToken && cfg.tgChatId) ok = await sendTgN(cfg, text) || ok;
+        if (ok) await env.DB.prepare('INSERT OR REPLACE INTO app_config (key, value) VALUES (?, ?)').bind('update_notify_sent', JSON.stringify({ version: latest.version })).run();
+    } catch (e) { console.error('checkUpdateNotify:', e); }
+}
+async function maybeCheckUpdate(env) {
+    try {
+        if (!env.DB) return;
+        const now = Date.now();
+        const row = await env.DB.prepare("SELECT value FROM app_config WHERE key = 'update_notify_last_check'").first();
+        let lastCheck = 0;
+        if (row && row.value) lastCheck = parseInt(row.value, 10) || 0;
+        if (now - lastCheck < 6 * 3600000) return;
+        await env.DB.prepare('INSERT OR REPLACE INTO app_config (key, value) VALUES (?, ?)').bind('update_notify_last_check', String(now)).run();
+        await checkUpdateNotify(env);
+    } catch (e) {}
+}
+
+export default {
+    async scheduled(event, env, ctx) {
+        // 自动保活：检查所有开启保活的节点，按各自间隔到期执行（每 tick 只跑最先到期的一个）
+        if (env.DB && env.KA_ENABLED !== 'off') {
+            ctx.waitUntil(checkKeepAliveSchedule(env));
+        }
+        // 保号超限每日扫描（配了 Cron 时也走）
+        if (env.DB) {
+            ctx.waitUntil(scanOverdueNotify(env, ctx));
+        }
+        // 新版本推送通知（Bark / Telegram）
+        if (env.DB) {
+            ctx.waitUntil(checkUpdateNotify(env));
+        }
+    },
+
+    async fetch(request, env, ctx) {
+        try {
+        const url = new URL(request.url);
+        // 保号超限检查：请求时低频触发（6 小时节流），无需 Cron 也能每日推送
+        if (env.DB && ctx && ctx.waitUntil && url.pathname !== '/__client_rtt__') {
+            ctx.waitUntil(maybeScanOverdue(env));
+        }
+        // 新版本推送检查：请求时低频触发（6 小时节流）
+        if (env.DB && ctx && ctx.waitUntil && url.pathname !== '/__client_rtt__') {
+            ctx.waitUntil(maybeCheckUpdate(env));
+        }
+
+        // ==========================================
+        //  新增：全云厂商 Worker 放置区域接口
+        // （本块依赖 ROLE 认证，已放置于认证逻辑之后）
+        // ==========================================
+
+        // ==========================================
+        //  新增：CF 节点与落地机房探针接口
+        // ==========================================
+        if (url.pathname === '/api/trace') {
+            const cf = request.cf || {};
+            let egressColo = '探测中...';
+            try {
+                // 请求 CF 官方 trace 接口获取落地机房
+                const traceRes = await fetch('https://1.1.1.1/cdn-cgi/trace', {
+                    headers: { 'User-Agent': 'Mozilla/5.0 (CF-Worker-Trace)' }
+                });
+                const traceText = await traceRes.text();
+                const match = traceText.match(/colo=([A-Z]+)/);
+                if (match) egressColo = match[1];
+            } catch(e) {
+                egressColo = '获取失败';
+            }
+
+            return new Response(JSON.stringify({
+                success: true,
+                entryCountry: cf.country || '未知',
+                entryCity: cf.city || '',
+                entryColo: cf.colo || '未知',
+                egressColo: egressColo
+            }), {
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Access-Control-Allow-Origin': '*'
+                }
+            });
+        }
+
+        // ==========================================
+        //  新增：客户端 RTT 实时极速探针接口
+        // 直接返回 204 无内容，且强制不缓存，确保每次都是真实的物理延迟
+        // ==========================================
+        if (url.pathname === '/__client_rtt__') {
+            return new Response(null, {
+                status: 204,
+                headers: {
+                    "Cache-Control": "no-store, no-cache, must-revalidate, max-age=0",
+                    "Pragma": "no-cache",
+                    "Expires": "0",
+                    "Access-Control-Allow-Origin": "*"
+                }
+            });
+        }
+
+        // ==========================================
+        //  新增：当前域名解析 IP 的下载速度测试
+        //  /speedtest              测速页面（浏览器端，测当前域名解析 IP 的下载速度）
+        //  /speedtest/data?bytes=N 下载负载端点（同源，走的就是当前域名解析到的 CF IP）
+        // ==========================================
+        if (url.pathname === '/speedtest' || url.pathname === '/speedtest/') {
+            const SPEEDTEST_HTML = `<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>下载测速 · 反代面板</title>
+<style>
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Microsoft YaHei",sans-serif;background:#0f1117;color:#e6e8ee;min-height:100vh;display:flex;align-items:center;justify-content:center;padding:20px}
+  .card{background:#161a24;border:1px solid #2a3040;border-radius:18px;padding:28px;width:100%;max-width:560px;box-shadow:0 12px 40px rgba(0,0,0,.4)}
+  h1{font-size:20px;margin-bottom:6px}
+  .sub{color:#8a91a5;font-size:13px;margin-bottom:20px}
+  .row{display:flex;justify-content:space-between;align-items:center;padding:10px 0;border-bottom:1px solid #232938;font-size:14px;gap:16px}
+  .row:last-of-type{border-bottom:none}
+  .k{color:#8a91a5;white-space:nowrap}
+  .v{font-weight:600;word-break:break-all;text-align:right}
+  .ip{color:#5aa2ff}
+  .speed{font-size:42px;font-weight:800;color:#4fd08a;text-align:center;margin:18px 0 6px;line-height:1}
+  .speed small{font-size:14px;color:#8a91a5;font-weight:500}
+  .bar{height:10px;background:#232938;border-radius:6px;overflow:hidden;margin:8px 0 16px}
+  .bar i{display:block;height:100%;width:0;background:linear-gradient(90deg,#4fd08a,#23a6d8);transition:width .4s ease}
+  .opts{display:flex;gap:10px;margin-bottom:12px}
+  select,button.ghost{flex:1;padding:11px;border:1px solid #2a3040;border-radius:10px;background:#161a24;color:#e6e8ee;font-size:13px}
+  button.go{width:100%;padding:13px;border:none;border-radius:10px;cursor:pointer;font-size:15px;font-weight:700;background:#2563eb;color:#fff;transition:.2s}
+  button.go:hover{background:#1d4ed8}
+  button.go:disabled{opacity:.5;cursor:not-allowed}
+  .meta{text-align:center;font-size:12px;color:#8a91a5;margin-top:12px;min-height:16px}
+  .note{font-size:12px;color:#6b7280;margin-top:16px;line-height:1.7;border-top:1px dashed #2a3040;padding-top:12px}
+  a.back{display:inline-flex;align-items:center;gap:6px;padding:7px 15px;border-radius:999px;background:rgba(0,180,255,.1);border:1px solid rgba(0,180,255,.28);color:#5aa2ff;font-size:13px;font-weight:600;text-decoration:none;margin-bottom:14px;transition:.2s}
+  a.back:hover{background:rgba(0,180,255,.2)}
+</style>
+</head>
+<body>
+<div class="card">
+  <a class="back" href="/">&#8592; 返回面板</a>
+  <h1>&#128339; 当前域名下载测速</h1>
+  <div class="sub">浏览器直连当前域名，测其解析到的 CF IP 的下载速度</div>
+  <div class="row"><span class="k">测试域名</span><span class="v" id="host">…</span></div>
+  <div class="row"><span class="k">解析到的 IP</span><span class="v ip" id="ips">查询中…</span></div>
+  <div class="speed"><span id="num">--</span> <small id="unit">Mbps</small></div>
+  <div class="bar"><i id="barfill"></i></div>
+  <div class="opts">
+    <select id="size">
+      <option value="10485760">负载 10 MB</option>
+      <option value="20971520">负载 20 MB</option>
+      <option value="52428800" selected>负载 50 MB</option>
+    </select>
+    <button class="ghost" id="runs">测 3 次取最优</button>
+  </div>
+  <button class="go" id="go">开始测速</button>
+  <div class="meta" id="meta"></div>
+  <div class="note">方式：从本域名直接下载测试负载，即走当前域名解析到的 CF 边缘 IP，多次取最优值。
+若 IP 显示“查询失败”，多为 DoH 被网络环境限制，不影响下载测速结果。</div>
+</div>
+<script>
+(function(){
+  var host=location.host;
+  document.getElementById('host').textContent=host;
+  var ipsEl=document.getElementById('ips');
+  var sizeSel=document.getElementById('size');
+  var goBtn=document.getElementById('go');
+  var numEl=document.getElementById('num');
+  var unitEl=document.getElementById('unit');
+  var barEl=document.getElementById('barfill');
+  var metaEl=document.getElementById('meta');
+  var RUNS=3;
+
+  function resolveIps(){
+    try{
+      fetch('https://cloudflare-dns.com/dns-query?name='+encodeURIComponent(host)+'&type=A',{headers:{accept:'application/dns-json'}})
+        .then(function(r){return r.json();})
+        .then(function(d){
+          var arr=(d&&d.Answer||[]).map(function(a){return a.data;});
+          ipsEl.textContent=arr.length?arr.join('  '):'查询失败';
+        })
+        .catch(function(){ipsEl.textContent='查询失败（DoH 受限）';});
+    }catch(e){ipsEl.textContent='查询失败';}
+  }
+  resolveIps();
+
+  async function runOnce(bytes){
+    var url='/speedtest/data?bytes='+bytes+'&t='+Date.now();
+    var t0=performance.now();
+    await fetch(url,{cache:'no-store'}).then(function(r){return r.arrayBuffer();});
+    var ms=performance.now()-t0;
+    return bytes*8/(ms/1000);
+  }
+
+  goBtn.addEventListener('click',async function(){
+    var bytes=parseInt(sizeSel.value,10);
+    goBtn.disabled=true;goBtn.textContent='测速中…';numEl.textContent='--';barEl.style.width='0';
+    var best=0;
+    for(var i=0;i<RUNS;i++){
+      try{
+        var bps=await runOnce(bytes);
+        if(bps>best)best=bps;
+        metaEl.textContent='第 '+(i+1)+'/'+RUNS+' 次 · 当前 '+(bps/1048576).toFixed(2)+' Mbps';
+      }catch(e){metaEl.textContent='第 '+(i+1)+' 次失败：'+e.message;break;}
+    }
+    if(best>0){
+      numEl.textContent=(best/1048576).toFixed(2);
+      unitEl.textContent='Mbps · '+(best/1048576/8).toFixed(2)+' MB/s';
+      barEl.style.width=Math.min(100,best/1000*100)+'%';
+    }
+    goBtn.disabled=false;goBtn.textContent='重新测速';
+  });
+})();
+</script>
+</body>
+</html>`;
+            return new Response(SPEEDTEST_HTML, { headers: { "Content-Type": "text/html;charset=UTF-8", "Cache-Control": "no-store, no-cache, must-revalidate, max-age=0" } });
+        }
+
+        if (url.pathname === '/speedtest/data') {
+            const bytes = Math.min(parseInt(url.searchParams.get('bytes') || '10485760', 10) || 10485760, 52428800); // 上限 50MB
+            const CHUNK = 1024 * 1024;
+            let sent = 0;
+            const stream = new ReadableStream({
+                pull(controller) {
+                    if (sent * CHUNK >= bytes) { controller.close(); return; }
+                    const n = Math.min(CHUNK, bytes - sent * CHUNK);
+                    controller.enqueue(new Uint8Array(n));
+                    sent++;
+                }
+            });
+            return new Response(stream, {
+                headers: {
+                    "Content-Type": "application/octet-stream",
+                    "Content-Length": String(bytes),
+                    "Cache-Control": "no-store, no-cache, must-revalidate, max-age=0",
+                    "Pragma": "no-cache",
+                    "Expires": "0",
+                    "Access-Control-Allow-Origin": "*"
+                }
+            });
+        }
+
+        // Telegram Webhook 拦截
+        if (url.pathname === '/api/tg-webhook' && request.method === 'POST') {
+            try {
+                const body = await request.json();
+                if (body.message && body.message.text === '/stats') {
+                    if (env.DB && env.TG_BOT_TOKEN) {
+                        ctx.waitUntil(sendTgStats(env, body.message.chat.id));
+                    }
+                }
+                return new Response("OK");
+            } catch(e) { return new Response("OK"); }
+        }
+
+        if (request.method === "OPTIONS") {
+            return new Response(null, { headers: { "Access-Control-Allow-Origin": "*", "Access-Control-Allow-Methods": "GET, POST, PUT, DELETE, OPTIONS", "Access-Control-Allow-Headers": "*", "Access-Control-Max-Age": "86400" } });
+        }
+
+        // ============ 反代 Token 门禁（D1 存储） ============
+        // 配置存 app_config；来访记录存 proxy_hits 表（不占用 KV 免费额度）
+        async function getProxyToken(env) {
+            if (!env.DB) return null;
+            try {
+                await env.DB.prepare('CREATE TABLE IF NOT EXISTS app_config (key TEXT PRIMARY KEY, value TEXT)').run();
+                const row = await env.DB.prepare("SELECT value FROM app_config WHERE key = 'proxy_token'").first();
+                if (!row || !row.value) return null;
+                return JSON.parse(row.value);
+            } catch (e) { return null; }
+        }
+        function proxyTokenPrefix(pt) {
+            return (pt && pt.enabled && pt.key) ? pt.key + '/' : '';
+        }
+        async function recordProxyHit(env, request, path) {
+            if (!env.DB) return;
+            try {
+                const ip = request.headers.get('cf-connecting-ip') || request.headers.get('x-real-ip') || (request.headers.get('x-forwarded-for') || '').split(',')[0].trim() || 'Unknown';
+                const ua = (request.headers.get('User-Agent') || '').slice(0, 200);
+                const ts = Date.now();
+                const p = String(path || '').slice(0, 200);
+                await env.DB.prepare('CREATE TABLE IF NOT EXISTS proxy_hits (id INTEGER PRIMARY KEY AUTOINCREMENT, ip TEXT, path TEXT, ua TEXT, ts INTEGER, times INTEGER)').run();
+                const exist = await env.DB.prepare('SELECT id, times FROM proxy_hits WHERE ip = ? AND path = ? ORDER BY id DESC LIMIT 1').bind(ip, p).first();
+                if (exist) {
+                    await env.DB.prepare('UPDATE proxy_hits SET times = ?, ts = ? WHERE id = ?').bind((exist.times || 1) + 1, ts, exist.id).run();
+                } else {
+                    await env.DB.prepare('INSERT INTO proxy_hits (ip, path, ua, ts, times) VALUES (?, ?, ?, ?, 1)').bind(ip, p, ua, ts).run();
+                }
+            } catch (e) {}
+        }
+        function catchPageHtml(ip, ua) {
+            const esc = s => String(s == null ? '' : s).replace(/[<>&"']/g, c => ({'<':'&lt;','>':'&gt;','&':'&amp;','"':'&quot;',"'":'&#39;'}[c]));
+            return `<!DOCTYPE html><html lang="zh"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Oops</title><style>
+        body{margin:0;min-height:100vh;display:flex;align-items:center;justify-content:center;background:radial-gradient(ellipse at top,#0f0c29,#302b63,#24243e);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC",sans-serif;color:#fff}
+        .box{text-align:center;padding:48px;border:1px solid rgba(255,255,255,.15);border-radius:20px;background:rgba(255,255,255,.05);backdrop-filter:blur(8px);max-width:90vw}
+        h1{font-size:34px;margin:0 0 12px;letter-spacing:2px}
+        .sub{font-size:14px;color:#a8b2d1;margin-bottom:24px}
+        .ip{font-size:18px;font-weight:700;color:#ffd700;word-break:break-all}
+        .meta{font-size:12px;color:#7f8bb3;margin-top:16px;word-break:break-all}
+      </style></head><body><div class="box">
+        <h1>宝贝抓到你了 👋</h1>
+        <div class="sub">你的来访信息已被记录</div>
+        <div class="ip">${esc(ip)}</div>
+        <div class="meta">UA: ${esc(ua).slice(0,120)}</div>
+      </div></body></html>`;
+        }
+        if (url.pathname === '/catch') {
+            const ip = request.headers.get('cf-connecting-ip') || request.headers.get('x-real-ip') || (request.headers.get('x-forwarded-for') || '').split(',')[0].trim() || 'Unknown';
+            return new Response(catchPageHtml(ip, request.headers.get('User-Agent') || ''), { headers: { 'Content-Type': 'text/html;charset=UTF-8', 'Cache-Control': 'no-store' } });
+        }
+
+        const EXPECTED_TOKEN = env.ADMIN_TOKEN;
+        if (!EXPECTED_TOKEN) return new Response("请在 Worker 变量中配置 ADMIN_TOKEN", { status: 500 });
+
+        function getCookie(req, name) {
+            const cookieString = req.headers.get("Cookie");
+            if (!cookieString) return null;
+            const match = cookieString.match(new RegExp('(^| )' + name + '=([^;]+)'));
+            if (match) { try { return decodeURIComponent(match[2]); } catch(e) { return match[2]; } }
+            return null;
+        }
+
+        // 三档认证：env.ADMIN_TOKEN(永不失效) > 网页修改的管理员密码 > 订阅者密码(只读)
+        async function getAuthRole(req) {
+            const token = getCookie(req, 'admin_token');
+            if (!token) return null;
+            if (token === EXPECTED_TOKEN) return 'admin';
+            if (!env.DB) return null;
+            try {
+                await env.DB.prepare('CREATE TABLE IF NOT EXISTS app_config (key TEXT PRIMARY KEY, value TEXT)').run();
+                const adminRow = await env.DB.prepare('SELECT value FROM app_config WHERE key = ?').bind('admin_pass').first();
+                if (adminRow && adminRow.value && token === adminRow.value) return 'admin';
+                const subRow = await env.DB.prepare('SELECT value FROM app_config WHERE key = ?').bind('subscribers').first();
+                if (subRow && subRow.value) {
+                    const list = JSON.parse(subRow.value);
+                    if (Array.isArray(list) && list.includes(token)) return 'sub';
+                }
+            } catch (e) {}
+            return null;
+        }
+
+        const isPanelOrApi = url.pathname === '/' || url.pathname.startsWith('/api/');
+        let ROLE = null;
+        if (isPanelOrApi && url.pathname !== '/api/tg-webhook') {
+            ROLE = await getAuthRole(request);
+            if (!ROLE) {
+                if (url.pathname === '/') return new Response(LOGIN_UI, { headers: { "Content-Type": "text/html;charset=UTF-8" } });
+                else return new Response('Unauthorized', { status: 401 });
+            }
+        }
+
+        if (url.pathname === '/') {
+            return new Response(HTML_UI, { headers: { "Content-Type": "text/html;charset=UTF-8" } });
+        }
+
+        // ==========================================
+        // 2.2 角色 / 账户 / 订阅者管理接口
+        // ==========================================
+        // 全云厂商 Worker 放置区域接口（依赖 ROLE 认证）
+        if (url.pathname === '/api/placement' && request.method === 'POST') {
+            if (ROLE !== 'admin') return new Response('Forbidden', { status: 403 });
+            try {
+                const body = await request.json();
+                const placementData = body.placement;
+
+                if (!env.CF_API_TOKEN || !env.CF_ACCOUNT_ID || !env.CF_WORKER_NAME) {
+                    return new Response(JSON.stringify({ success: false, msg: '后台变量未配置全！请检查 CF_API_TOKEN, CF_ACCOUNT_ID, CF_WORKER_NAME' }), { headers: { 'Content-Type': 'application/json', 'Access-Control-Allow-Origin': '*' }});
+                }
+
+                const formData = new FormData();
+                formData.append('settings', new Blob([JSON.stringify({ placement: placementData })], { type: 'application/json' }));
+
+                const cfUrl = `https://api.cloudflare.com/client/v4/accounts/${env.CF_ACCOUNT_ID}/workers/scripts/${env.CF_WORKER_NAME}/settings`;
+                const cfRes = await fetch(cfUrl, {
+                    method: 'PATCH',
+                    headers: { 'Authorization': `Bearer ${env.CF_API_TOKEN}` },
+                    body: formData
+                });
+
+                const cfData = await cfRes.json();
+                if (cfData.success) {
+                    return new Response(JSON.stringify({ success: true, msg: '部署区域修改成功！' }), { headers: { 'Content-Type': 'application/json', 'Access-Control-Allow-Origin': '*' }});
+                } else {
+                    return new Response(JSON.stringify({ success: false, msg: 'CF报错: ' + (cfData.errors[0]?.message || '未知错误') }), { headers: { 'Content-Type': 'application/json', 'Access-Control-Allow-Origin': '*' }});
+                }
+            } catch(e) {
+                return new Response(JSON.stringify({ success: false, msg: e.message }), { headers: { 'Content-Type': 'application/json', 'Access-Control-Allow-Origin': '*' }});
+            }
+        }
+
+        if (url.pathname === '/api/me' && request.method === 'GET') {
+            return Response.json({ success: true, role: ROLE });
+        }
+
+        // 版本信息（登录可见）：当前版本 + 更新提醒开关
+        if (url.pathname === '/api/version' && request.method === 'GET') {
+            let updateNotify = true;
+            try {
+                if (env.DB) {
+                    const row = await env.DB.prepare("SELECT value FROM app_config WHERE key = 'update_notify'").first();
+                    if (row && row.value !== null && row.value !== undefined) updateNotify = String(row.value) !== '0';
+                }
+            } catch (e) {}
+            return Response.json({ success: true, version: CURRENT_VERSION, updateNotify });
+        }
+
+        // 保号通知设置（登录可见，脱敏返回）
+        if (url.pathname === '/api/account/notify' && request.method === 'GET') {
+            if (ROLE !== 'admin') return new Response('Forbidden', { status: 403 });
+            let cfg = {};
+            try {
+                if (env.DB) {
+                    const row = await env.DB.prepare("SELECT value FROM app_config WHERE key = 'notify_settings'").first();
+                    if (row && row.value) cfg = JSON.parse(row.value);
+                }
+            } catch (e) {}
+            return Response.json({ success: true, barkKey: cfg.barkKey ? '********' : '', barkLevel: cfg.barkLevel || 'active', barkServer: cfg.barkServer || 'https://api.day.app', barkNotify: cfg.barkNotify !== false, tgToken: cfg.tgToken ? '********' : '', tgChatId: cfg.tgChatId || '', tgNotify: cfg.tgNotify !== false });
+        }
+
+        // 测试通知（bark / tg）
+        if (url.pathname === '/api/test-notify' && request.method === 'POST') {
+            if (ROLE !== 'admin') return new Response('Forbidden', { status: 403 });
+            try {
+                const body = await request.json();
+                const type = String(body.type || 'bark');
+                const cfg = await getNotifyCfg(env);
+                if (type === 'bark') {
+                    if (!cfg.barkKey) return Response.json({ success: false, error: '未配置 Bark Key' });
+                    const ok = await sendBarkN(cfg, 'Emby 反代面板', '保号通知测试成功 ✅');
+                    return Response.json({ success: ok, error: ok ? '' : 'Bark 发送失败，请检查 Key/服务地址' });
+                }
+                if (type === 'tg') {
+                    if (!cfg.tgToken || !cfg.tgChatId) return Response.json({ success: false, error: '未配置 TG Bot Token / Chat ID' });
+                    const ok = await sendTgN(cfg, '保号通知测试成功 ✅');
+                    return Response.json({ success: ok, error: ok ? '' : 'TG 发送失败，请检查 Token / Chat ID' });
+                }
+                return Response.json({ success: false, error: '未知类型' });
+            } catch (e) { return Response.json({ success: false, error: e.message }); }
+        }
+
+        if (url.pathname === '/api/account' && request.method === 'POST') {
+            if (ROLE !== 'admin') return new Response('Forbidden', { status: 403 });
+            try {
+                const data = await request.json();
+                if (data.proxyToken !== undefined) {
+                    const pt = data.proxyToken;
+                    const enabled = !!pt.enabled;
+                    const key = String(pt.key || '').trim();
+                    if (enabled && !/^[A-Za-z0-9]{3,32}$/.test(key)) return Response.json({ success: false, error: '密钥需 3-32 位字母数字' });
+                    if (!env.DB) return Response.json({ success: false, error: 'D1 未绑定：请在 Worker 设置里绑定名为 DB 的 D1 数据库' });
+                    await env.DB.prepare('CREATE TABLE IF NOT EXISTS app_config (key TEXT PRIMARY KEY, value TEXT)').run();
+                    await env.DB.prepare('INSERT OR REPLACE INTO app_config (key, value) VALUES (?, ?)').bind('proxy_token', JSON.stringify({ enabled, key })).run();
+                    return Response.json({ success: true });
+                }
+                if (data.notify !== undefined) {
+                    const n = data.notify;
+                    if (!env.DB) return Response.json({ success: false, error: 'D1 未绑定：请在 Worker 设置里绑定名为 DB 的 D1 数据库' });
+                    await env.DB.prepare('CREATE TABLE IF NOT EXISTS app_config (key TEXT PRIMARY KEY, value TEXT)').run();
+                    const oldRow = await env.DB.prepare("SELECT value FROM app_config WHERE key = 'notify_settings'").first();
+                    let old = {};
+                    try { if (oldRow && oldRow.value) old = JSON.parse(oldRow.value); } catch (e) {}
+                    const cfg = {
+                        barkKey: (n.barkKey && n.barkKey !== '********') ? String(n.barkKey).trim() : (old.barkKey || ''),
+                        barkLevel: ['critical', 'active', 'timeSensitive', 'passive'].includes(n.barkLevel) ? n.barkLevel : (old.barkLevel || 'active'),
+                        barkServer: (n.barkServer && n.barkServer !== 'https://api.day.app') ? String(n.barkServer).trim().replace(/\/+$/, '') : (old.barkServer || 'https://api.day.app'),
+                        barkNotify: n.barkNotify !== false,
+                        tgToken: (n.tgToken && n.tgToken !== '********') ? String(n.tgToken).trim() : (old.tgToken || ''),
+                        tgChatId: n.tgChatId ? String(n.tgChatId).trim() : (old.tgChatId || ''),
+                        tgNotify: n.tgNotify !== false
+                    };
+                    await env.DB.prepare('INSERT OR REPLACE INTO app_config (key, value) VALUES (?, ?)').bind('notify_settings', JSON.stringify(cfg)).run();
+                    return Response.json({ success: true });
+                }
+                if (data.updateNotify !== undefined) {
+                    if (!env.DB) return Response.json({ success: false, error: 'D1 未绑定：请在 Worker 设置里绑定名为 DB 的 D1 数据库' });
+                    await env.DB.prepare('CREATE TABLE IF NOT EXISTS app_config (key TEXT PRIMARY KEY, value TEXT)').run();
+                    await env.DB.prepare('INSERT OR REPLACE INTO app_config (key, value) VALUES (?, ?)').bind('update_notify', data.updateNotify ? '1' : '0').run();
+                    return Response.json({ success: true });
+                }
+                const pw = String(data.password || '').trim();
+                if (pw.length < 4) return Response.json({ success: false, error: '密码至少 4 位' });
+                await env.DB.prepare('CREATE TABLE IF NOT EXISTS app_config (key TEXT PRIMARY KEY, value TEXT)').run();
+                await env.DB.prepare('INSERT OR REPLACE INTO app_config (key, value) VALUES (?, ?)').bind('admin_pass', pw).run();
+                return Response.json({ success: true });
+            } catch (e) {
+                return Response.json({ success: false, error: e.message });
+            }
+        }
+
+        // 反代 Token 状态（登录可见；未登录 401）
+        if (url.pathname === '/api/proxytoken' && request.method === 'GET') {
+            const pt = await getProxyToken(env);
+            return Response.json({ success: true, enabled: !!(pt && pt.enabled && pt.key), key: (pt && pt.enabled && pt.key) ? pt.key : '' });
+        }
+        // 来访记录 IP（仅管理员）
+        if (url.pathname === '/api/proxytoken/hits' && request.method === 'GET') {
+            if (ROLE !== 'admin') return new Response('Forbidden', { status: 403 });
+            try {
+                await env.DB.prepare('CREATE TABLE IF NOT EXISTS proxy_hits (id INTEGER PRIMARY KEY AUTOINCREMENT, ip TEXT, path TEXT, ua TEXT, ts INTEGER, times INTEGER)').run();
+                const { results } = await env.DB.prepare('SELECT ip, path, ua, ts, times FROM proxy_hits ORDER BY id DESC LIMIT 200').all();
+                return Response.json({ success: true, hits: results });
+            } catch (e) { return Response.json({ success: true, hits: [] }); }
+        }
+        if (url.pathname === '/api/proxytoken/hits' && request.method === 'POST') {
+            if (ROLE !== 'admin') return new Response('Forbidden', { status: 403 });
+            try {
+                const data = await request.json();
+                if (data && data.clear) {
+                    await env.DB.prepare('CREATE TABLE IF NOT EXISTS proxy_hits (id INTEGER PRIMARY KEY AUTOINCREMENT, ip TEXT, path TEXT, ua TEXT, ts INTEGER, times INTEGER)').run();
+                    await env.DB.prepare('DELETE FROM proxy_hits').run();
+                }
+                return Response.json({ success: true });
+            } catch (e) { return Response.json({ success: false, error: e.message }); }
+        }
+
+        if (url.pathname === '/api/subscribers' && request.method === 'GET') {
+            if (ROLE !== 'admin') return new Response('Forbidden', { status: 403 });
+            try {
+                await env.DB.prepare('CREATE TABLE IF NOT EXISTS app_config (key TEXT PRIMARY KEY, value TEXT)').run();
+                const row = await env.DB.prepare('SELECT value FROM app_config WHERE key = ?').bind('subscribers').first();
+                const list = row && row.value ? JSON.parse(row.value) : [];
+                return Response.json({ success: true, subscribers: Array.isArray(list) ? list : [] });
+            } catch (e) {
+                return Response.json({ success: false, error: e.message, subscribers: [] });
+            }
+        }
+
+        if (url.pathname === '/api/subscribers' && request.method === 'POST') {
+            if (ROLE !== 'admin') return new Response('Forbidden', { status: 403 });
+            try {
+                const data = await request.json();
+                const action = data.action;
+                const pw = String(data.password || '').trim();
+                if (!pw || pw.length < 4) return Response.json({ success: false, error: '密码至少 4 位' });
+                await env.DB.prepare('CREATE TABLE IF NOT EXISTS app_config (key TEXT PRIMARY KEY, value TEXT)').run();
+                const row = await env.DB.prepare('SELECT value FROM app_config WHERE key = ?').bind('subscribers').first();
+                let list = row && row.value ? JSON.parse(row.value) : [];
+                if (!Array.isArray(list)) list = [];
+                if (action === 'add') {
+                    if (list.includes(pw)) return Response.json({ success: false, error: '该密码已存在' });
+                    list.push(pw);
+                } else if (action === 'del') {
+                    list = list.filter(p => p !== pw);
+                } else {
+                    return Response.json({ success: false, error: '未知操作' });
+                }
+                await env.DB.prepare('INSERT OR REPLACE INTO app_config (key, value) VALUES (?, ?)').bind('subscribers', JSON.stringify(list)).run();
+                return Response.json({ success: true, subscribers: list });
+            } catch (e) {
+                return Response.json({ success: false, error: e.message });
+            }
+        }
+
+        // ==========================================
+        // 2.3 数据大屏统计接口 (Analytics)
+        // ==========================================
+        if (url.pathname === '/api/analytics' && request.method === 'GET') {
+            if (!env.DB) return Response.json({ success: false, error: '未绑定 D1 数据库' });
+            try {
+                // 并发获取 24小时、7天、30天流量 (通过全新 GraphQL API 规避限制)
+                const [trafficToday, traffic7d, traffic30d] = await Promise.all([
+                    getCFTraffic(env, 'today'),
+                    getCFTraffic(env, 7),
+                    getCFTraffic(env, 30)
+                ]);
+
+                const trend = await env.DB.prepare(`SELECT date(timestamp, '+8 hours') as date, COUNT(*) as count FROM visitor_logs WHERE timestamp >= datetime('now', '-7 days') GROUP BY date(timestamp, '+8 hours') ORDER BY date ASC`).all();
+                const locations = await env.DB.prepare(`SELECT country, COUNT(*) as count FROM visitor_logs WHERE timestamp >= datetime('now', '-7 days') GROUP BY country ORDER BY count DESC`).all();
+                const recents = await env.DB.prepare(`SELECT prefix, datetime(timestamp, '+8 hours') as timestamp, ip, country, ua FROM visitor_logs ORDER BY timestamp DESC LIMIT 20`).all();
+                
+                return Response.json({ 
+                    success: true, 
+                    trend: trend.results, 
+                    locations: locations.results, 
+                    recents: recents.results, 
+                    trafficToday, traffic7d, traffic30d 
+                });
+            } catch(e) {
+                return Response.json({ success: false, error: e.message });
+            }
+        }
+
+        if (url.pathname === '/api/cfusage' && request.method === 'GET') {
+            if (!env.CF_API_TOKEN || !env.CF_ZONE_ID) return Response.json({ success: false, error: '缺少 CF_API_TOKEN 或 CF_ZONE_ID 变量，无法统计 CF 请求数' });
+            try {
+                const [todayStats, week, month] = await Promise.all([
+                    getCFTodayStats(env),
+                    getCFRequests(env, 7),
+                    getCFRequests(env, 30)
+                ]);
+                const quota = 100000;
+                const todayCount = todayStats.ok ? todayStats.requests : 0;
+                const weekCount = week.ok ? week.count : 0;
+                const monthCount = month.ok ? month.count : 0;
+                return Response.json({ 
+                    success: true, 
+                    today: todayCount, 
+                    week: weekCount, 
+                    month: monthCount, 
+                    quota: quota,
+                    usedPercent: todayStats.ok ? Math.round(todayCount / quota * 1000) / 10 : 0,
+                    remain: Math.max(0, quota - todayCount),
+                    todayError: todayStats.ok ? null : todayStats.error,
+                    weekError: week.ok ? null : week.error,
+                    monthError: month.ok ? null : month.error,
+                    bandwidth: todayStats.ok ? todayStats.bytes : 0,
+                    cacheHitRatio: todayStats.ok && todayStats.bytes > 0 ? Math.round(todayStats.cachedBytes / todayStats.bytes * 1000) / 10 : 0,
+                    statusCodes: todayStats.ok ? todayStats.statusCodes : { '2xx': 0, '3xx': 0, '4xx': 0, '5xx': 0 },
+                    countries: todayStats.ok ? todayStats.countries : [],
+                    hours: todayStats.ok ? todayStats.hours : [],
+                    blocked: todayStats.ok ? todayStats.blocked : 0
+                });
+            } catch(e) {
+                return Response.json({ success: false, error: e.message });
+            }
+        }
+
+        // ==========================================
+        //  后端接口：执行代码覆盖更新 (纯JSON接口无损继承：变量、数据库、兼容性、放置地区)
+        // ==========================================
+        if (url.pathname === '/api/deploy' && request.method === 'POST') {
+if (ROLE !== 'admin') return new Response('Forbidden', { status: 403 });
+                        const cfToken = env.CF_API_TOKEN;
+            const accountId = env.CF_ACCOUNT_ID;
+            const workerName = env.CF_WORKER_NAME;
+            if (!cfToken || !accountId || !workerName) {
+                return Response.json({ success: false, error: '缺少 CF_API_TOKEN, CF_ACCOUNT_ID 或 CF_WORKER_NAME 环境变量' });
+            }
+            try {
+                const body = await request.json();
+                if (!body.newCode) return Response.json({ success: false, error: '代码内容为空。' });
+
+                // 1.  终极修复：调用纯 JSON 的 services 接口获取真实配置，绝对不再崩溃！
+                const serviceRes = await fetch(`https://api.cloudflare.com/client/v4/accounts/${accountId}/workers/services/${workerName}`, {
+                    headers: { 'Authorization': `Bearer ${cfToken}` }
+                });
+                const serviceData = await serviceRes.json();
+                
+                let compDate = "2024-01-01"; // 依然保留兜底，但这次绝不会用到
+                let compFlags = undefined;
+                let placement = undefined;
+
+                if (serviceData.success && serviceData.result) {
+                    // 精准从 JSON 中提取你原本的配置
+                    let scriptInfo = null;
+                    if (serviceData.result.default_environment && serviceData.result.default_environment.script) {
+                        scriptInfo = serviceData.result.default_environment.script;
+                    } else if (serviceData.result.script) {
+                        scriptInfo = serviceData.result.script;
+                    }
+                    
+                    if (scriptInfo) {
+                        if (scriptInfo.compatibility_date) compDate = scriptInfo.compatibility_date;
+                        if (scriptInfo.compatibility_flags) compFlags = scriptInfo.compatibility_flags;
+                        if (scriptInfo.placement) placement = scriptInfo.placement;
+                    }
+                }
+
+                const preservedBindings = [];
+                // 2. 备份普通的字符串变量
+                for (const key in env) {
+                    if (typeof env[key] === 'string') {
+                        preservedBindings.push({ name: key, type: 'plain_text', text: env[key] });
+                    }
+                }
+
+                // 3. 拉取 D1、KV 等高级绑定并无损合并
+                const bindingsRes = await fetch(`https://api.cloudflare.com/client/v4/accounts/${accountId}/workers/scripts/${workerName}/bindings`, {
+                    headers: { 'Authorization': `Bearer ${cfToken}` }
+                });
+                const bindingsData = await bindingsRes.json();
+                if (bindingsData.success && Array.isArray(bindingsData.result)) {
+                    for (const b of bindingsData.result) {
+                        if (b.type !== 'plain_text' && b.type !== 'secret_text' && b.type !== 'inherited') {
+                            preservedBindings.push(b);
+                        }
+                    }
+                }
+
+                // 4. 组装最终的部署请求
+                const formData = new FormData();
+                const metadata = { 
+                    main_module: 'worker.js',
+                    bindings: preservedBindings,
+                    compatibility_date: compDate 
+                };
+                if (compFlags) metadata.compatibility_flags = compFlags;
+                if (placement) metadata.placement = placement; // ${I.target} 完美带上你原始的放置地区！
+
+                formData.append('metadata', new Blob([JSON.stringify(metadata)], { type: 'application/json' }), 'metadata.json');
+                formData.append('worker.js', new Blob([body.newCode], { type: 'application/javascript+module' }), 'worker.js');
+
+                const cfUrl = `https://api.cloudflare.com/client/v4/accounts/${accountId}/workers/scripts/${workerName}`;
+                const res = await fetch(cfUrl, {
+                    method: 'PUT',
+                    headers: { 'Authorization': `Bearer ${cfToken}` },
+                    body: formData
+                });
+                const data = await res.json();
+                if (data.success) {
+                    return Response.json({ success: true, msg: '代码更新成功，并已完美保留原有放置地区和兼容配置！' });
+                } else {
+                    throw new Error(JSON.stringify(data.errors));
+                }
+            } catch (e) {
+                return Response.json({ success: false, error: e.message });
+            }
+        }
+        // ==========================================
+        // 2.4 系统级与提取工具 API 
+        // ==========================================
+        if (url.pathname === '/api/purge-cache' && request.method === 'POST') {
+if (ROLE !== 'admin') return new Response('Forbidden', { status: 403 });
+                        const cfToken = env.CF_API_TOKEN; const zoneId = env.CF_ZONE_ID;
+            if (!cfToken || !zoneId) return Response.json({ success: false, error: '缺少 CF_API_TOKEN 或 CF_ZONE_ID 变量' });
+            try {
+                const res = await fetch(`https://api.cloudflare.com/client/v4/zones/${zoneId}/purge_cache`, { method: 'POST', headers: { 'Authorization': `Bearer ${cfToken}`, 'Content-Type': 'application/json' }, body: JSON.stringify({ purge_everything: true }) });
+                const data = await res.json();
+                if (!data.success) throw new Error(JSON.stringify(data.errors));
+                return Response.json({ success: true });
+            } catch (e) { return Response.json({ success: false, error: e.message }); }
+        }
+
+        if (url.pathname === '/api/ping-node') {
+            if (ROLE !== 'admin') return new Response('Forbidden', { status: 403 });
+            const target = url.searchParams.get('url');
+            if (!target) return Response.json({ ms: -1 });
+            const start = Date.now();
+            try {
+                const controller = new AbortController(); const timeoutId = setTimeout(() => controller.abort(), 2000); 
+                await fetch(target + '/', { method: 'HEAD', signal: controller.signal });
+                clearTimeout(timeoutId); return Response.json({ ms: Date.now() - start });
+            } catch (e) { return Response.json({ ms: -1 }); }
+        }
+
+        if (url.pathname === '/api/get-dns') {
+            const cfToken = env.CF_API_TOKEN; const zoneId = env.CF_ZONE_ID; const domain = env.CF_DOMAIN;
+            if (!cfToken || !zoneId || !domain) return Response.json({ success: false, error: '缺少 DNS 环境变量' });
+            try {
+                const getRes = await fetch(`https://api.cloudflare.com/client/v4/zones/${zoneId}/dns_records?name=${domain}`, { headers: { 'Authorization': `Bearer ${cfToken}` } });
+                const getData = await getRes.json();
+                return Response.json({ success: true, result: getData.result });
+            } catch (error) { return Response.json({ success: false, error: error.message }); }
+        }
+
+        if (url.pathname === '/api/update-dns' && request.method === 'POST') {
+if (ROLE !== 'admin') return new Response('Forbidden', { status: 403 });
+                        const body = await request.json(); const ips = body.ips;
+            const cfToken = env.CF_API_TOKEN; const zoneId = env.CF_ZONE_ID; const domain = env.CF_DOMAIN;
+
+            if (!cfToken || !zoneId || !domain) return Response.json({ success: false, error: '缺少 DNS 环境变量' });
+            try {
+                const getRes = await fetch(`https://api.cloudflare.com/client/v4/zones/${zoneId}/dns_records?name=${domain}`, { headers: { 'Authorization': `Bearer ${cfToken}` } });
+                const getData = await getRes.json();
+                if (!getData.success) throw new Error('获取现有 DNS 记录失败');
+
+                const oldRecords = getData.result.filter(r => r.type === 'A' || r.type === 'AAAA' || r.type === 'CNAME');
+                for (const record of oldRecords) {
+                    await fetch(`https://api.cloudflare.com/client/v4/zones/${zoneId}/dns_records/${record.id}`, { method: 'DELETE', headers: { 'Authorization': `Bearer ${cfToken}` } });
+                }
+
+                for (const ip of ips) {
+                    const cleanItem = ip.replace(/[\[\]]/g, ''); let recordType = 'A';
+                    if (cleanItem.includes(':')) recordType = 'AAAA'; else if (/[a-zA-Z]/.test(cleanItem)) recordType = 'CNAME';
+
+                    const postRes = await fetch(`https://api.cloudflare.com/client/v4/zones/${zoneId}/dns_records`, { method: 'POST', headers: { 'Authorization': `Bearer ${cfToken}`, 'Content-Type': 'application/json' }, body: JSON.stringify({ type: recordType, name: domain, content: cleanItem, ttl: 60, proxied: false }) });
+                    const postData = await postRes.json();
+                    if(!postData.success) throw new Error(`记录提交失败: ` + JSON.stringify(postData.errors));
+                }
+                return Response.json({ success: true, message: `${I.check} 成功！` });
+            } catch (error) { return Response.json({ success: false, error: error.message }); }
+        }
+
+        if (url.pathname === '/api/get-custom-api-ips') {
+            try {
+                const apiUrl = url.searchParams.get('url');
+                if (!apiUrl) throw new Error("缺少 URL");
+                const response = await fetch(apiUrl, { headers: { 'User-Agent': 'Mozilla/5.0' } });
+                const text = await response.text(); let validIPs = new Set();
+                try {
+                    const jsonObj = JSON.parse(text);
+                    if (jsonObj && jsonObj.data && Array.isArray(jsonObj.data)) {
+                        jsonObj.data.forEach(item => { if (item.ip) { let ip = item.ip; if (ip.includes(':') && !ip.startsWith('[')) ip = `[${ip}]`; validIPs.add(ip); } });
+                    }
+                } catch (e) {}
+
+                if (validIPs.size === 0) {
+                    const ipv4Regex = /\b(?:(?:25[0-5]|2[0-4]\d|[01]?\d\d?)\.){3}(?:25[0-5]|2[0-4]\d|[01]?\d\d?)\b/g;
+                    const matchedIPv4 = text.match(ipv4Regex) || [];
+                    matchedIPv4.forEach(ip => { if (!ip.startsWith('10.') && !ip.startsWith('192.168.') && !ip.startsWith('127.')) validIPs.add(ip); });
+
+                    const ipv6Regex = /(?:[A-F0-9]{1,4}:){7}[A-F0-9]{1,4}|(?:[A-F0-9]{1,4}:)*:[A-F0-9]{1,4}(?::[A-F0-9]{1,4})*/gi;
+                    const matchedIPv6 = text.match(ipv6Regex) || [];
+                    matchedIPv6.forEach(ip => { if (ip.length > 7 && ip.includes(':') && !ip.startsWith('::1')) validIPs.add(ip.startsWith('[') ? ip : `[${ip}]`); });
+                }
+                const uniqueIPArray = Array.from(validIPs);
+                for (let i = uniqueIPArray.length - 1; i > 0; i--) { const j = Math.floor(Math.random() * (i + 1)); [uniqueIPArray[i], uniqueIPArray[j]] = [uniqueIPArray[j], uniqueIPArray[i]]; }
+                return Response.json({ success: true, ips: uniqueIPArray.slice(0, 15), totalCount: uniqueIPArray.length });
+            } catch (error) { return Response.json({ success: false, error: error.message }, { status: 500 }); }
+        }
+
+        if (url.pathname === '/api/get-remote-ips') {
+            try {
+                const reqType = (url.searchParams.get('type') || 'all').toLowerCase();
+                const validIPs = new Set();
+
+                if (['all', '电信', '联通', '移动', '多线', 'ipv6'].includes(reqType)) {
+                    try {
+                        const res1 = await fetch('https://api.uouin.com/cloudflare.html', { headers: { 'User-Agent': 'Mozilla/5.0' } });
+                        if(res1.ok) {
+                            const text1 = await res1.text(); const cleanText = text1.replace(/<[^>]+>/g, ' ');
+                            const regex = /(电信|联通|移动|多线|ipv6)\s+((?:(?:25[0-5]|2[0-4]\d|[01]?\d\d?)\.){3}(?:25[0-5]|2[0-4]\d|[01]?\d\d?)|(?:[a-fA-F0-9]{1,4}:)+[a-fA-F0-9]{1,4})/gi;
+                            let match; while ((match = regex.exec(cleanText)) !== null) {
+                                const lineType = match[1].toLowerCase(); let ip = match[2];
+                                if (ip.includes(':') && !ip.startsWith('[')) ip = `[${ip}]`;
+                                if (reqType === 'all' || reqType === lineType) validIPs.add(ip);
+                            }
+                        }
+                    } catch(e) {}
+                }
+
+                if (['all', '优选'].includes(reqType)) {
+                    try {
+                        const res2 = await fetch('https://raw.githubusercontent.com/ZhiXuanWang/cf-speed-dns/refs/heads/main/ipTop10.html', { headers: { 'User-Agent': 'Mozilla/5.0' } });
+                        if(res2.ok) {
+                            const text2 = await res2.text(); const ipv4Regex = /\b(?:(?:25[0-5]|2[0-4]\d|[01]?\d\d?)\.){3}(?:25[0-5]|2[0-4]\d|[01]?\d\d?)\b/g;
+                            const matched = text2.match(ipv4Regex) || []; matched.forEach(ip => { if (!ip.startsWith('10.') && !ip.startsWith('192.168.') && !ip.startsWith('127.')) validIPs.add(ip); });
+                        }
+                    } catch(e) {}
+                }
+                const uniqueIPArray = Array.from(validIPs);
+                for (let i = uniqueIPArray.length - 1; i > 0; i--) { const j = Math.floor(Math.random() * (i + 1)); [uniqueIPArray[i], uniqueIPArray[j]] = [uniqueIPArray[j], uniqueIPArray[i]]; }
+                return Response.json({ success: true, ips: uniqueIPArray.slice(0, 10), totalCount: uniqueIPArray.length });
+            } catch (error) { return Response.json({ success: false, error: error.message }, { status: 500 }); }
+        }
+
+        // ==========================================
+        // 2.5 数据库路由管理 API 
+        // ==========================================
+        if (url.pathname === '/api/routes/reorder' && request.method === 'POST') {
+if (ROLE !== 'admin') return new Response('Forbidden', { status: 403 });
+                        if (!env.DB) return Response.json({ success: false, error: "未绑定 DB" });
+            try {
+                const items = await request.json(); 
+                const stmts = items.map(item => env.DB.prepare('UPDATE routes SET sort_order = ? WHERE prefix = ?').bind(item.sort_order, item.prefix));
+                await env.DB.batch(stmts);
+                return Response.json({ success: true });
+            } catch (e) { return Response.json({ success: false, error: e.message }); }
+        }
+
+        if (url.pathname === '/api/routes/import' && request.method === 'POST') {
+if (ROLE !== 'admin') return new Response('Forbidden', { status: 403 });
+                        if (!env.DB) return Response.json({ success: false, error: "未绑定 DB" });
+            try {
+                const routes = await request.json();
+                for (const r of routes) {
+                    if (r.prefix && r.target) {
+                        await env.DB.prepare('INSERT OR REPLACE INTO routes (prefix, target, mode, remark, last_play, icon, custom_params, cache_img, sort_order, watch_limit, ka_enabled, ka_days, ka_token, node_user, node_pass) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)')
+                            .bind(r.prefix, r.target, r.mode || 'off', r.remark || '', r.last_play || '', r.icon || '', r.custom_params || '', r.cache_img || 'on', r.sort_order || 0, r.watch_limit || '0', r.ka_enabled || '0', r.ka_days || '3', r.ka_token || '', r.node_user || '', r.node_pass || '').run();
+                    }
+                }
+                return Response.json({ success: true });
+            } catch (e) { return Response.json({ success: false, error: e.message }); }
+        }
+
+        // ==========================================
+        //  自动保活：手动执行（节点级，管理员）
+        // ==========================================
+        if (url.pathname === '/api/keepalive/status' && request.method === 'GET') {
+            if (!env.DB) return Response.json({ running: false });
+            try {
+                const row = await env.DB.prepare('SELECT value FROM app_config WHERE key = ?').bind('ka_live').first();
+                if (row && row.value) return Response.json(JSON.parse(row.value));
+                return Response.json({ running: false });
+            } catch (e) { return Response.json({ running: false }); }
+        }
+
+        if (url.pathname === '/api/keepalive/notices' && request.method === 'GET') {
+            if (ROLE !== 'admin') return new Response('Forbidden', { status: 403 });
+            let list = [];
+            try {
+                const row = await env.DB.prepare("SELECT value FROM app_config WHERE key = 'ka_notices'").first();
+                if (row && row.value) list = JSON.parse(row.value);
+            } catch (e) {}
+            return Response.json({ notices: (list || []).slice(0, 20) });
+        }
+
+        if (url.pathname === '/api/keepalive/run' && request.method === 'POST') {
+            if (ROLE !== 'admin') return new Response('Forbidden', { status: 403 });
+            if (!env.DB) return Response.json({ success: false, error: '未绑定 D1 数据库' });
+            try {
+                const body = await request.json();
+                const prefix = String((body && body.prefix) || '').trim();
+                if (!prefix) return Response.json({ success: false, error: '缺少节点前缀' });
+                const curRow = await env.DB.prepare("SELECT value FROM app_config WHERE key = ?").bind('ka_live').first();
+                if (curRow && curRow.value) {
+                    try { const curSt = JSON.parse(curRow.value); if (curSt && curSt.running) return Response.json({ success: false, error: '已有保活任务正在运行，请稍后重试' }); } catch(e) {}
+                }
+                const route = await env.DB.prepare('SELECT * FROM routes WHERE prefix = ?').bind(prefix).first();
+                if (!route) return Response.json({ success: false, error: '节点不存在' });
+                await env.DB.prepare('INSERT OR REPLACE INTO app_config (key, value) VALUES (?, ?)')
+                    .bind('ka_live', JSON.stringify({ running: true, prefix: prefix, current: '初始化保活任务…', steps: [], progress: 3, mediaTitle: '', updatedAt: Date.now() })).run();
+                const result = await runKeepAlive(env, route);
+                await env.DB.prepare('UPDATE routes SET last_ka_run = ?, last_ka_result = ?, last_ka_detail = ? WHERE prefix = ?')
+                    .bind(new Date().toISOString(), result.ok ? 'success' : 'fail', result.msg || '', prefix).run();
+                await pushKaNotice(env, prefix, result.ok, result.msg, route.remark);
+                await env.DB.prepare('INSERT OR REPLACE INTO app_config (key, value) VALUES (?, ?)')
+                    .bind('ka_live', JSON.stringify({ running: false, prefix: prefix, current: '', steps: result.steps || [], msg: result.msg || '', progress: 100, mediaTitle: '', updatedAt: Date.now() })).run();
+                return Response.json(result);
+            } catch (e) {
+                return Response.json({ success: false, error: '保活执行异常: ' + e.message });
+            }
+        }
+
+        if (url.pathname.startsWith('/api/routes')) {
+            if (!env.DB) return Response.json({ error: "由于未绑定 D1 数据库，反代功能不可用。" }, { status: 500 });
+
+            await env.DB.exec(`CREATE TABLE IF NOT EXISTS routes (prefix TEXT PRIMARY KEY, target TEXT NOT NULL)`);
+            await env.DB.exec(`CREATE TABLE IF NOT EXISTS request_stats (prefix TEXT, date TEXT, count INTEGER DEFAULT 0, PRIMARY KEY(prefix, date))`);
+            // 大数据记录核心表：访客日志
+            await env.DB.exec(`CREATE TABLE IF NOT EXISTS visitor_logs (id INTEGER PRIMARY KEY AUTOINCREMENT, prefix TEXT, timestamp DATETIME DEFAULT CURRENT_TIMESTAMP, ip TEXT, country TEXT, ua TEXT)`);
+            
+            try { await env.DB.exec(`ALTER TABLE routes ADD COLUMN mode TEXT DEFAULT 'off'`); } catch(e) {}
+            try { await env.DB.exec(`ALTER TABLE routes ADD COLUMN remark TEXT DEFAULT ''`); } catch(e) {}
+            try { await env.DB.exec(`ALTER TABLE routes ADD COLUMN last_play TEXT DEFAULT ''`); } catch(e) {}
+            try { await env.DB.exec(`ALTER TABLE routes ADD COLUMN icon TEXT DEFAULT ''`); } catch(e) {}
+            try { await env.DB.exec(`ALTER TABLE routes ADD COLUMN cache_img TEXT DEFAULT 'on'`); } catch(e) {} 
+            try { await env.DB.exec(`ALTER TABLE routes ADD COLUMN custom_params TEXT DEFAULT ''`); } catch(e) {} 
+            try { await env.DB.exec(`ALTER TABLE routes ADD COLUMN sort_order INTEGER DEFAULT 0`); } catch(e) {} 
+            try { await env.DB.exec(`ALTER TABLE routes ADD COLUMN ka_enabled TEXT DEFAULT '0'`); } catch(e) {}
+            try { await env.DB.exec(`ALTER TABLE routes ADD COLUMN ka_days TEXT DEFAULT '3'`); } catch(e) {}
+            try { await env.DB.exec(`ALTER TABLE routes ADD COLUMN ka_token TEXT DEFAULT ''`); } catch(e) {}
+            try { await env.DB.exec(`ALTER TABLE routes ADD COLUMN node_user TEXT DEFAULT ''`); } catch(e) {}
+            try { await env.DB.exec(`ALTER TABLE routes ADD COLUMN node_pass TEXT DEFAULT ''`); } catch(e) {}
+            try { await env.DB.exec(`ALTER TABLE routes ADD COLUMN last_ka_run TEXT DEFAULT ''`); } catch(e) {}
+            try { await env.DB.exec(`ALTER TABLE routes ADD COLUMN last_ka_result TEXT DEFAULT ''`); } catch(e) {}
+            try { await env.DB.exec(`ALTER TABLE routes ADD COLUMN last_ka_detail TEXT DEFAULT ''`); } catch(e) {}
+            try { await env.DB.exec(`ALTER TABLE routes ADD COLUMN watch_limit TEXT DEFAULT '0'`); } catch(e) {}
+if (request.method !== 'GET' && ROLE !== 'admin') return new Response('Forbidden', { status: 403 });
+            
+            // 数据防爆清理策略：自动清理过去 7 天的精细日志
+            try { await env.DB.exec(`DELETE FROM visitor_logs WHERE timestamp < datetime('now', '-7 days')`); } catch(e) {}
+
+            //  【方案A修复版】：独立并发查流，完美绕过 CF 免费版复杂度限制！
+            if (request.method === 'GET') {
+                const todayStr = new Date(Date.now() + 8 * 3600000).toISOString().split('T')[0];
+                let { results: routes } = await env.DB.prepare(`
+                    SELECT r.*, 
+                    IFNULL(s.count, 0) as todayReqs,
+                    (SELECT SUM(count) FROM request_stats WHERE prefix = r.prefix) as totalReqs
+                    FROM routes r 
+                    LEFT JOIN request_stats s ON r.prefix = s.prefix AND s.date = ? 
+                    ORDER BY r.sort_order ASC, r.prefix ASC
+                `).bind(todayStr).all();
+
+                if (ROLE === 'admin' && env.CF_API_TOKEN && env.CF_ZONE_ID && routes && routes.length > 0) {
+                    const end = new Date();
+                    const beijingTime = new Date(end.getTime() + 8 * 3600000);
+                    beijingTime.setUTCHours(0, 0, 0, 0);
+                    const start = new Date(beijingTime.getTime() - 8 * 3600000);
+
+                    // 核心修复：将“一条复杂查询”拆解为 Promise.all 并发单体查询，并且 limit 设为严格的 1
+                    await Promise.all(routes.map(async (r) => {
+                        try {
+                            const graphqlQuery = {
+                                query: `query {
+                                  viewer {
+                                    zones(filter: {zoneTag: "${env.CF_ZONE_ID}"}) {
+                                      httpRequestsAdaptiveGroups(
+                                        limit: 1,
+                                        filter: {
+                                          clientRequestPath_like: "/${r.prefix}%",
+                                          datetime_geq: "${start.toISOString()}",
+                                          datetime_leq: "${end.toISOString()}"
+                                        }
+                                      ) {
+                                        sum { edgeResponseBytes }
+                                      }
+                                    }
+                                  }
+                                }`
+                            };
+
+                            const cfRes = await fetch('https://api.cloudflare.com/client/v4/graphql', {
+                                method: 'POST',
+                                headers: { 'Authorization': `Bearer ${env.CF_API_TOKEN}`, 'Content-Type': 'application/json' },
+                                body: JSON.stringify(graphqlQuery)
+                            });
+                            
+                            const cfData = await cfRes.json();
+                            
+                            // 精准提取该节点跑出的流量字节
+                            const bytes = cfData?.data?.viewer?.zones?.[0]?.httpRequestsAdaptiveGroups?.[0]?.sum?.edgeResponseBytes || 0;
+                            
+                            // 自动格式化换算单位
+                            let formatted = "0 B";
+                            if (bytes >= 1099511627776) formatted = (bytes / 1099511627776).toFixed(2) + " TB";
+                            else if (bytes >= 1073741824) formatted = (bytes / 1073741824).toFixed(2) + " GB";
+                            else if (bytes >= 1048576) formatted = (bytes / 1048576).toFixed(2) + " MB";
+                            else if (bytes >= 1024) formatted = (bytes / 1024).toFixed(2) + " KB";
+                            else if (bytes > 0) formatted = bytes + " B";
+                            
+                            r.todayBandwidth = formatted;
+                        } catch(e) { 
+                            r.todayBandwidth = "获取异常"; 
+                        }
+                    }));
+                }
+                
+                // 订阅者不可见源站链接（target 字段剥离，防止直接调 API 查看源站）
+                if (ROLE === 'sub' && Array.isArray(routes)) {
+                    routes = routes.map(r => { const c = { ...r }; delete c.target; return c; });
+                }
+                return Response.json(routes || []);
+            }
+            
+            if (request.method === 'POST') {
+                const data = await request.json(); let currentSortOrder = 0;
+                if (data.oldPrefix && data.oldPrefix !== data.prefix) {
+                    const oldRow = await env.DB.prepare('SELECT sort_order FROM routes WHERE prefix = ?').bind(data.oldPrefix).first();
+                    if(oldRow) currentSortOrder = oldRow.sort_order;
+                    await env.DB.prepare('DELETE FROM routes WHERE prefix = ?').bind(data.oldPrefix).run();
+                } else {
+                    const oldRow = await env.DB.prepare('SELECT sort_order FROM routes WHERE prefix = ?').bind(data.prefix).first();
+                    if(oldRow) currentSortOrder = oldRow.sort_order;
+                }
+                
+                const custom_params = JSON.stringify({
+                    client: data.customClient || '',
+                    version: data.customVersion || '',
+                    device: data.customDevice || '',
+                    deviceId: data.customDeviceId || genUuid(),
+                    ua: data.customUa || '',
+                    dlTrick: data.dlTrick === '1'
+                });
+
+                await env.DB.prepare('INSERT OR REPLACE INTO routes (prefix, target, mode, remark, icon, custom_params, cache_img, sort_order, ka_enabled, ka_days, ka_token, node_user, node_pass, watch_limit) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)')
+                    .bind(data.prefix, data.target, data.mode || 'off', data.remark || '', data.icon || '', custom_params, data.cache_img || 'on', currentSortOrder, data.kaEnabled || '0', data.kaDays || '3', data.kaToken || '', data.nodeUser || '', data.nodePass || '', data.watchLimit || '0').run();
+                return Response.json({ success: true });
+            }
+            
+            if (request.method === 'DELETE') {
+                const prefix = url.searchParams.get('prefix'); await env.DB.prepare('DELETE FROM routes WHERE prefix = ?').bind(prefix).run(); return Response.json({ success: true });
+            }
+            return new Response("Method not allowed", { status: 405 });
+        }
+
+        // ==========================================
+        // 2.6 核心反代与调度引擎（修播放）
+        // ==========================================
+        let targetUrls = []; let currentMode = 'off'; let enableCache = true; let remainingPath = '';
+        let decodedPath = url.pathname; try { decodedPath = decodeURIComponent(url.pathname); } catch (e) { decodedPath = url.pathname; } let matchedPrefix = null; 
+        let proxyOrigin = new URL(request.url).origin;
+        let customParamsObj = {};
+        let dlTrick = false; let dlTrickItemId = '';
+
+        // 反代 Token 门禁：开启后代理路径必须带 /密钥/ 前缀
+        if (!url.pathname.startsWith('/api/') && url.pathname !== '/') {
+            const pt = await getProxyToken(env);
+            if (pt && pt.enabled && pt.key) {
+                const prefixPath = '/' + pt.key + '/';
+                let stripped = null;
+                if (decodedPath === '/' + pt.key) stripped = '/';
+                else if (decodedPath.indexOf(prefixPath) === 0) stripped = decodedPath.slice(prefixPath.length - 1);
+                if (stripped === null) {
+                    await recordProxyHit(env, request, decodedPath);
+                    return Response.redirect(new URL('/catch', proxyOrigin), 302);
+                }
+                decodedPath = stripped;
+            }
+        }
+
+        // 判断哪些请求可以按静态资源处理。
+        // 这里把 Emby/Jellyfin 常见图片目录也纳入判断，是因为 UHD 海报/Backdrop
+        // 不一定总带标准图片后缀；如果只按 .jpg/.webp 等后缀识别，部分图片请求会被当成普通接口，
+        // 后续重定向、缓存和源站防盗链处理策略就可能不匹配，导致高清图加载失败。
+        function isStaticPath(pathname) {
+            return /\.(jpg|jpeg|gif|png|svg|ico|webp|js|css|woff2?|ttf|otf|map|webmanifest|srt|ass|vtt|sub)$/i.test(pathname)
+                || /(\/Images\/|\/Icons\/|\/Branding\/|\/emby\/covers\/|\/img\/)/i.test(pathname);
+        }
+
+        // 判断当前请求是否携带登录态或访问令牌。
+        // 带鉴权信息的图片/API 不能盲目交给 Cloudflare 长缓存，否则不同用户、不同 token
+        // 可能命中同一份缓存，轻则拿到过期图片，重则造成串号风险。UHD 图片经常带 api_key
+        // 或 X-Emby-Token，这里专门识别出来，让这类请求继续按源站实时响应处理。
+        function hasAuthLikeState(headers, targetUrl) {
+            const authQueryKeys = ['api_key', 'x-emby-token', 'x-mediabrowser-token', 'access_token', 'token'];
+            const hasAuthQuery = Array.from(targetUrl.searchParams.keys()).some(key => authQueryKeys.includes(key.toLowerCase()));
+            return headers.has("Authorization")
+                || headers.has("X-Emby-Token")
+                || headers.has("X-MediaBrowser-Token")
+                || headers.has("X-Emby-Authorization")
+                || headers.has("Cookie")
+                || hasAuthQuery;
+        }
+
+        function stripPanelCookie(headers) {
+            const cookie = headers.get("Cookie");
+            if (!cookie) return;
+            const keptCookies = cookie.split(";").map(item => item.trim()).filter(item => item && !item.toLowerCase().startsWith("admin_token="));
+            if (keptCookies.length > 0) headers.set("Cookie", keptCookies.join("; "));
+            else headers.delete("Cookie");
+        }
+
+        function rewriteSetCookieForProxy(headers) {
+            const getSetCookie = headers.getSetCookie ? headers.getSetCookie.bind(headers) : null;
+            const rawSetCookie = headers.get("Set-Cookie");
+            const cookies = getSetCookie ? getSetCookie() : (rawSetCookie ? rawSetCookie.split(/,(?=\s*[^;,]+=)/g) : []);
+            if (cookies.length === 0) return;
+            headers.delete("Set-Cookie");
+            for (const cookie of cookies) headers.append("Set-Cookie", cookie.replace(/;\s*Domain=[^;]*/ig, ""));
+        }
+
+        // 收集所有源站 origin，并同时加入 http/https 的互换版本。
+        // 实际返回的 JSON 里可能混用 http 与 https，例如线路配置是 https，
+        // 但 Emby 返回的图片地址仍是 http。两个 origin 都纳入重写范围，
+        // 才能避免 UHD 图片直连源站而绕过当前 Worker 代理。
+        function getTargetOrigins(targets) {
+            const origins = [];
+            for (const target of targets) {
+                try {
+                    const parsed = new URL(target);
+                    const origin = parsed.origin;
+                    const alternateOrigin = (parsed.protocol === 'https:' ? 'http:' : 'https:') + '//' + parsed.host;
+                    if (!origins.includes(origin)) origins.push(origin);
+                    if (!origins.includes(alternateOrigin)) origins.push(alternateOrigin);
+                } catch (e) {}
+            }
+            return origins;
+        }
+
+        // 把源站返回的图片/媒体 URL 改写成当前 Worker 代理 URL。
+        // 修复 UHD 图片加载失败的核心原因在这里：部分接口返回的是绝对源站地址，
+        // 浏览器会直接去访问源站，导致跨域、鉴权、源站不可达或被防盗链拦截。
+        // 改写后所有图片请求都会重新经过 Worker，由 Worker 带着正确 header 转发到源站。
+        function rewriteSourceUrlString(value, targetOrigins, proxyOrigin, safePrefix) {
+            let rewritten = value;
+            const proxyPrefix = proxyOrigin + safePrefix + '/';
+            for (const origin of targetOrigins) {
+                let result = '';
+                let cursor = 0;
+                let index = rewritten.indexOf(origin);
+                while (index !== -1) {
+                    // 避免重复代理：如果地址已经是 Worker 前缀 + 源站 URL，
+                    // 再追加一次会变成 /proxy/https://worker/proxy/http://origin 这类坏地址。
+                    const alreadyProxied = rewritten.substring(Math.max(0, index - proxyPrefix.length), index) === proxyPrefix;
+                    result += rewritten.substring(cursor, index);
+                    result += alreadyProxied ? origin : proxyPrefix + origin;
+                    cursor = index + origin.length;
+                    index = rewritten.indexOf(origin, cursor);
+                }
+                if (cursor > 0) {
+                    result += rewritten.substring(cursor);
+                    rewritten = result;
+                }
+            }
+            // 部分 UHD 图片接口返回相对路径，例如 /Items/{id}/Images/Primary。
+            // 这类地址没有 origin，前面的绝对 URL 替换匹配不到，所以需要单独补上
+            // Worker origin 和当前线路前缀，保证浏览器不会请求到面板根路径或错误节点。
+            const relativeImagePattern = /(^|["'\s(])((?:\/img\/|\/emby\/Items\/[^"'\s)]+\/Images\/|\/Items\/[^"'\s)]+\/Images\/)[^"'\s)]*)/ig;
+            rewritten = rewritten.replace(relativeImagePattern, (match, prefix, path) => {
+                if (safePrefix && path.startsWith(safePrefix + '/')) return match;
+                return prefix + proxyOrigin + safePrefix + path;
+            });
+            return rewritten;
+        }
+
+        // 递归处理 JSON 里的所有字符串字段。
+        // UHD 图片地址不固定出现在某一个字段，可能藏在 ImageTags、BackdropImageTags、
+        // Artwork、ProviderIds 或插件返回的嵌套对象里；只改顶层字段会漏掉一部分高清图。
+        function rewriteSourceUrlsInJson(value, targetOrigins, proxyOrigin, safePrefix) {
+            if (typeof value === 'string') return rewriteSourceUrlString(value, targetOrigins, proxyOrigin, safePrefix);
+            if (Array.isArray(value)) {
+                let changed = false;
+                const next = value.map(item => {
+                    const rewritten = rewriteSourceUrlsInJson(item, targetOrigins, proxyOrigin, safePrefix);
+                    if (rewritten !== item) changed = true;
+                    return rewritten;
+                });
+                return changed ? next : value;
+            }
+            if (value && typeof value === 'object') {
+                let changed = false;
+                const next = {};
+                for (const key of Object.keys(value)) {
+                    const rewritten = rewriteSourceUrlsInJson(value[key], targetOrigins, proxyOrigin, safePrefix);
+                    if (rewritten !== value[key]) changed = true;
+                    next[key] = rewritten;
+                }
+                return changed ? next : value;
+            }
+            return value;
+        }
+
+        // 响应体被重写后必须移除这些和原始 body 强绑定的头。
+        // 如果继续保留旧的 Content-Length/Content-Encoding/ETag，浏览器或中间缓存可能按旧长度、
+        // 旧压缩格式校验新内容，表现为 JSON 截断、解压失败或缓存了未改写的图片 URL。
+        function dropBodyIntegrityHeaders(headers) {
+            headers.delete("Content-Length");
+            headers.delete("Content-Encoding");
+            headers.delete("ETag");
+        }
+
+        // 只有发现源站 URL 或典型图片相对路径时才解析并重写 JSON。
+        // 这样可以避免每个普通 JSON 响应都做深度遍历，降低 Worker 开销；
+        // 同时也确保包含 UHD 图片地址的响应不会被漏过。
+        function hasJsonRewriteCandidate(text, targetOrigins) {
+            return targetOrigins.some(origin => text.includes(origin))
+                || /(^|["'\s(])(?:\/img\/|\/emby\/Items\/[^"'\s)]+\/Images\/|\/Items\/[^"'\s)]+\/Images\/)/i.test(text);
+        }
+
+        function rewriteRedirectLocation(location, targetUrl, targetOrigins, proxyOrigin, safePrefix) {
+            if (!location) return location;
+            if (location.startsWith('//')) {
+                try {
+                    const protocol = targetUrl ? targetUrl.protocol : new URL(targetOrigins[0]).protocol;
+                    location = protocol + location;
+                } catch (e) {}
+            }
+            if (location.startsWith('/')) {
+                if (safePrefix && location.startsWith(safePrefix + '/')) return proxyOrigin + location;
+                if (!safePrefix && targetUrl) return `${proxyOrigin}/${encodeURIComponent(new URL(location, targetUrl.origin).href)}`;
+                return proxyOrigin + safePrefix + location;
+            }
+            try {
+                const parsed = new URL(location);
+                if (targetOrigins.includes(parsed.origin)) {
+                    if (!safePrefix) return `${proxyOrigin}/${encodeURIComponent(location)}`;
+                    return proxyOrigin + safePrefix + parsed.pathname + parsed.search + parsed.hash;
+                }
+            } catch (e) {}
+            if (/^https?:\/\//i.test(location)) return `${proxyOrigin}${safePrefix}/${encodeURIComponent(location)}`;
+            return location;
+        }
+
+        // 判断当前请求路径是否像 Emby / Jellyfin 体系的 API 或静态资源路径。
+        // 这一步是给 UHD / HUD 这类“服务真实挂在 /emby 子路径下，但线路里只填了裸域名”的场景兜底用的。
+        // 例如客户端请求 /uhd/Items/{id}/PlaybackInfo，当前脚本会先转发到源站的 /Items/{id}/PlaybackInfo。
+        // 如果 HUD 实际服务入口是 /emby/Items/{id}/PlaybackInfo，那么源站通常会直接回 404。
+        //
+        // 普通 Emby 有两种常见部署方式：
+        // 1. 根路径部署，API 就在 /Items /Videos /Sessions 下
+        // 2. 子路径部署，API 在 /emby/Items /emby/Videos /emby/Sessions 下
+        //
+        // 之前脚本完全依赖面板里手动把 target 写成带 /emby 的完整地址；
+        // 只要这一步没填对，普通首页可能还能打开，但播放相关接口会在拿 PlaybackInfo 时 404。
+        // 这里加的是“只在像 Emby API 的路径上才启用”的保守识别，避免把其他完全无关的网站路径误补成 /emby。
+        function isLikelyMediaServerPath(pathname) {
+            return /^\/(?:Items|Videos|Audio|Sessions|Users|System|Library|LiveTv|Shows|Movies|Artists|Albums|Playlists|Channels|Packages|Devices|Socket|socket|web|emby|Images|Branding|Environment|DisplayPreferences|Trailers|Collections|Genres|Persons|Studios|Years)(?:\/|$)/i.test(pathname);
+        }
+
+        // 为单个 target 生成候选上游 URL。
+        // 第一候选始终保持原行为，完全按“target + remainingPath”拼接。
+        // 第二/第三候选只在以下条件满足时追加：
+        // - 线路 target 本身没有子路径（说明面板里大概率填的是裸域名）
+        // - 当前请求像 Emby API/资源路径
+        //
+        // 这里同时兼容两类常见偏差：
+        // 1. 实际服务挂在 /emby 下，但客户端请求的是 /Items /Videos ...
+        //    -> 自动补成 /emby/Items /emby/Videos
+        // 2. 实际服务挂在根路径，但客户端自己固定补了 /emby/Items /emby/Videos
+        //    -> 自动再试一次去掉 /emby 前缀后的 /Items /Videos
+        //
+        // 这样普通 Emby 和 HUD/UHD Emby 都可以在同一节点内完成“加 /emby”或“去 /emby”的双向回退，
+        // 避免某些客户端因为固定拼接 /emby 而只在部分服务器上失效。
+        function buildUpstreamCandidates(targetBase, remainingPath, search) {
+            const candidates = [];
+            const pushUnique = (value) => {
+                if (value && !candidates.includes(value)) candidates.push(value);
+            };
+
+            const primary = targetBase + remainingPath + search;
+            pushUnique(primary);
+
+            try {
+                const parsed = new URL(targetBase);
+                const basePath = (parsed.pathname || '/').replace(/\/+$/, '') || '/';
+                const requestPath = remainingPath || '/';
+
+                // 只有当 target 本身没有配置任何子路径时，才尝试 /emby 回退。
+                // 如果用户已经明确把线路写成了 https://host/emby，再补一次会变成 /emby/emby/...，
+                // 这反而会把原本正确的请求打坏，所以这里必须先判断 basePath 是根路径。
+                const hasNoBasePath = (basePath === '/');
+                const requestAlreadyHasEmbyPrefix = /^\/emby(?:\/|$)/i.test(requestPath);
+
+                if (hasNoBasePath && !requestAlreadyHasEmbyPrefix && isLikelyMediaServerPath(requestPath)) {
+                    pushUnique(`${parsed.origin}/emby${requestPath}${search}`);
+                }
+
+                // 反向回退：
+                // 某些客户端会固定把媒体/接口地址补成 /emby/...，但普通 Emby 真实入口其实在根路径。
+                // 例如 PlaybackInfo 被客户端请求成 /emby/videos/...，源站根路径部署时会 404，
+                // 这时自动再试一次去掉 /emby 前缀后的 /videos/...。
+                if (hasNoBasePath && requestAlreadyHasEmbyPrefix && isLikelyMediaServerPath(requestPath)) {
+                    const strippedRequestPath = requestPath.replace(/^\/emby(?=\/|$)/i, '') || '/';
+                    pushUnique(`${parsed.origin}${strippedRequestPath}${search}`);
+                }
+
+                // 兼容“绝对 URL 透传”场景。
+                // 你这次抓到的请求已经不是 /uhd/Items/...，而是：
+                // /uhd/https://v1.uhdnow.com/Items/{id}/PlaybackInfo?... 
+                //
+                // 这说明客户端拿到的 PlaybackInfo 返回里已经是一个绝对地址，
+                // Worker 也确实按“绝对 URL 反代”逻辑在工作；但问题是这个绝对地址本身少了 /emby，
+                // 所以当前逻辑会老老实实去请求：
+                // https://v1.uhdnow.com/Items/{id}/PlaybackInfo
+                // 然后被源站 nginx 回 404。
+                //
+                // 这里额外补一个候选：
+                // 如果 targetBase 自己已经是完整绝对 URL，且它的 pathname 看起来像 Emby API，
+                // 但 pathname 又不是以 /emby 开头，那么自动再试一次：
+                // https://host/emby + pathname
+                //
+                // 这样不管请求来自“线路前缀模式”还是“绝对 URL 透传模式”，
+                // 只要真实上游挂在 /emby 子路径下，都能在同一节点内完成回退。
+                const targetAlreadyHasEmbyPrefix = /^\/emby(?:\/|$)/i.test(parsed.pathname || '/');
+                if (!targetAlreadyHasEmbyPrefix && isLikelyMediaServerPath(parsed.pathname || '/')) {
+                    const passthroughSearch = parsed.search || search;
+                    pushUnique(`${parsed.origin}/emby${parsed.pathname}${passthroughSearch}${parsed.hash || ''}`);
+                }
+
+                // 对“绝对 URL 透传”同样做一次反向 /emby 去除回退。
+                // 这样如果客户端缓存/拼接出来的是 https://host/emby/videos/...，
+                // 而真实普通 Emby 在根路径 /videos/...，当前节点内也能自动修复。
+                //
+                // 注意这里仍然是“补一个低优先级候选”，不会抢在原始 /emby 路径前面。
+                // 所以 UHD/HUD 如果真实就是 /emby 子路径部署，主候选仍然会先命中；
+                // 只有主候选失败后，才会尝试去掉 /emby，避免把原本正常的 UHD 路径扰乱。
+                if (targetAlreadyHasEmbyPrefix && isLikelyMediaServerPath(parsed.pathname || '/')) {
+                    const passthroughSearch = parsed.search || search;
+                    const strippedPathname = (parsed.pathname || '/').replace(/^\/emby(?=\/|$)/i, '') || '/';
+                    pushUnique(`${parsed.origin}${strippedPathname}${passthroughSearch}${parsed.hash || ''}`);
+                }
+            } catch (e) {}
+
+            return candidates;
+        }
+
+        // 把 PlaybackInfo 里的媒体地址统一规范成“Worker 前缀下的根路径相对地址”。
+        //
+        // 这里不再按某个客户端做特判，而是尽量保留 Emby 原生字段的共同语义：
+        // - 很多客户端期望拿到的是 path，而不是完整绝对 URL
+        // - 但如果 path 里不带当前线路前缀，客户端一旦直接请求 /videos 或 /emby/videos，
+        //   就会绕过 /{prefix}/... 这条代理路由，导致播放失败
+        //
+        // 因此统一输出为：
+        // /{prefix} + 源站原始 path
+        //
+        // 例如：
+        // - 源站是 /videos/...       -> /{prefix}/videos/...
+        // - 源站是 /emby/videos/... -> /{prefix}/emby/videos/...
+        //
+        // 这里特意保留“源站原始 path”而不是强行统一成某一种固定格式，
+        // 是因为你这次抓到的普通 Emby 和 UHD/HUD PlaybackInfo 都表明：
+        // - API 请求常常走 /emby/Items/... /emby/Sessions/...
+        // - 真正媒体直链 DirectStreamUrl 常常却是 /videos/...
+        //
+        // 也就是说，/emby 更像是 API 基路径，而 /videos 才是媒体流路径；
+        // 如果在这里想当然地把媒体地址补成 /emby/videos/...，反而会把原本正确的普通 Emby 直链改坏。
+        //
+        // 这样可以同时兼容三类常见用法：
+        // 1. 直接把字段当请求地址使用：会命中当前线路
+        // 2. 浏览器按 root-relative 解析：仍然会命中当前线路
+        // 3. 客户端拿到 path 后再自行拼 serverUrl：如果拼出了重复 prefix，
+        //    后面的 normalizeRemainingPathForPlayback 会在入口做一次轻量修正
+        function toWorkerPlaybackPath(pathname, search = '', hash = '', safePrefix = '') {
+            const normalizedPath = pathname.startsWith('/') ? pathname : `/${pathname}`;
+            return `${safePrefix}${normalizedPath}${search || ''}${hash || ''}`;
+        }
+
+        function rewritePlaybackMediaUrl(rawValue, targetUrl, proxyOrigin, safePrefix, targetOrigins) {
+            if (typeof rawValue !== 'string') return rawValue;
+            const trimmedValue = rawValue.trim();
+            if (!trimmedValue) return rawValue;
+
+            // 如果字段已经被改成当前 Worker 前缀下的路径，直接复用，避免重复叠加 prefix。
+            if (safePrefix && trimmedValue.startsWith(safePrefix + '/')) return rawValue;
+
+            // 某些客户端会缓存上一次的 PlaybackInfo，拿到的是完整 Worker 绝对地址。
+            // 这里把它还原成 root-relative，继续保持“字段值是 path”的通用语义。
+            if (safePrefix && trimmedValue.startsWith(proxyOrigin + safePrefix + '/')) {
+                return trimmedValue.substring(proxyOrigin.length);
+            }
+
+            // 对绝对地址分两类处理：
+            // 1. 同源绝对地址：保留源站原始 path，只在前面补 /{prefix}
+            // 2. 跨源绝对地址：保留成 Worker 的“绝对 URL 透传代理”形式
+            //
+            // HUD / FWD 一类自研服务有时会在 PlaybackInfo 中返回完整绝对媒体地址，
+            // 甚至媒体 host 与 API host 不同。这里如果只保留 pathname，会把真正的媒体源 host 丢掉，
+            // 最终表现为 PlaybackInfo 成功、实际拉流失败。
+            //
+            // 因此跨源绝对地址必须继续走：
+            // /{prefix}/https://real-media-host/...
+            //
+            // 这样 Worker 仍然能带着现有 header/回退逻辑去请求真实媒体地址，
+            // 同时也不会把 HUD 明确依赖的 /emby 子路径语义抹掉。
+            if (/^https?:\/\//i.test(trimmedValue)) {
+                try {
+                    const parsed = new URL(trimmedValue);
+                    if (Array.isArray(targetOrigins) && !targetOrigins.includes(parsed.origin)) {
+                        return `${proxyOrigin}${safePrefix}/${trimmedValue}`;
+                    }
+                    return toWorkerPlaybackPath(parsed.pathname, parsed.search, parsed.hash, safePrefix);
+                } catch (e) {
+                    return rawValue;
+                }
+            }
+
+            if (trimmedValue.startsWith('//')) {
+                try {
+                    const parsed = new URL(targetUrl.protocol + trimmedValue);
+                    if (Array.isArray(targetOrigins) && !targetOrigins.includes(parsed.origin)) {
+                        return `${proxyOrigin}${safePrefix}/${parsed.href}`;
+                    }
+                    return toWorkerPlaybackPath(parsed.pathname, parsed.search, parsed.hash, safePrefix);
+                } catch (e) {
+                    return rawValue;
+                }
+            }
+
+            if (trimmedValue.startsWith('/')) return toWorkerPlaybackPath(trimmedValue, '', '', safePrefix);
+
+            try {
+                const resolved = new URL(trimmedValue, targetUrl.origin + '/');
+                return toWorkerPlaybackPath(resolved.pathname, resolved.search, resolved.hash, safePrefix);
+            } catch (e) {
+                return rawValue;
+            }
+        }
+
+        // 一些客户端会在拿到 PlaybackInfo 后自己再拼一次 serverUrl。
+        // 如果我们返回的是 /{prefix}/videos/... 或 /{prefix}/emby/videos/...，
+        // 某些客户端再自己拼一次 serverUrl 后，有时会拼出：
+        // - /{prefix}/{prefix}/videos/...
+        // - /{prefix}/emby/{prefix}/videos/...
+        //
+        // 这些其实都还是同一条线路，只是多叠了一层 prefix。
+        // 这里在真正选路前做一次 O(1) 字符串归一化，把常见重复前缀修回标准路径，
+        // 这样既不依赖某个特定客户端，也避免为此引入额外存储或更重的会话跟踪。
+        function normalizeRemainingPathForPlayback(remainingPath, matchedPrefix, tokenPrefix) {
+            if (!remainingPath || !matchedPrefix) return remainingPath;
+
+            const prefixPath = `/${matchedPrefix}`;
+            const embyDuplicatedPrefix = `/emby${prefixPath}`;
+
+            // 开 token 时客户端二次拼接会拼出重复前缀，常见两类：
+            //   /{token}/{节点}/emby/{token}/{节点}/videos/...   （客户端固定补 /emby）
+            //   /{token}/{节点}/videos/{token}/{节点}/videos/... （视频路径本身以 /videos 开头）
+            // 门禁剥掉首个 token 后 remainingPath = /emby/{token}/{节点}/... 或 /videos/{token}/{节点}/...，
+            // 这里做通用剥离：只要前 3 段是 /{段1}/{token}/{节点} 就剥掉 token+节点；
+            // 若 seg1 就是节点（纯节点重复形态 /{节点}/{token}/{节点}/...），剥光后直接保留剩余视频路径；
+            // 否则保留 /{段1}，若剩余部分首段与段1 相同（如 /videos/{token}/{节点}/videos/...）再去重合并，
+            // 兼容 emby / videos / stream 等任意视频 API 前缀，避免带着 /{token}/{节点} 打到源站返回 404。
+            if (tokenPrefix) {
+                const tokenDup = remainingPath.match(/^\/([^/]+)\/([^/]+)\/([^/]+)(?=\/|$)/);
+                if (tokenDup && tokenDup[2] === tokenPrefix && (tokenDup[3] === matchedPrefix || tokenDup[1] === matchedPrefix)) {
+                    const seg1 = tokenDup[1];
+                    const rest = remainingPath.substring(tokenDup[0].length) || '/';
+                    if (seg1 === matchedPrefix) return rest;
+                    if (rest === '/' + seg1 || rest.startsWith('/' + seg1 + '/')) return rest;
+                    return '/' + seg1 + rest;
+                }
+            }
+
+            if (remainingPath === prefixPath || remainingPath.startsWith(prefixPath + '/')) {
+                const stripped = remainingPath.substring(prefixPath.length);
+                return stripped || '/';
+            }
+
+            if (remainingPath === embyDuplicatedPrefix || remainingPath.startsWith(embyDuplicatedPrefix + '/')) {
+                const stripped = remainingPath.substring(embyDuplicatedPrefix.length);
+                // 这里兼容两种客户端二次拼接结果：
+                // 1. /emby/{prefix}/videos/...      -> 还原成 /emby/videos/...
+                // 2. /emby/{prefix}/emby/videos/... -> 还原成 /emby/videos/...
+                //
+                // 第二种常见于“API 习惯性固定补 /emby 的客户端”：
+                // PlaybackInfo 已经返回 /{prefix}/emby/videos/...，
+                // 客户端又按自己的固定规则补了一层 /emby，最终会多出 /emby/{prefix}/emby/...。
+                // 如果这里无脑再拼一次 /emby，会变成 /emby/emby/videos/...，反而把原本可修复的请求打坏。
+                if (!stripped || stripped === '/') return '/emby/';
+                if (/^\/emby(?:\/|$)/i.test(stripped)) return stripped;
+                return `/emby${stripped}`;
+            }
+
+            return remainingPath;
+        }
+
+        if (decodedPath.startsWith('/http://') || decodedPath.startsWith('/https://')) {
+            targetUrls = [decodedPath.substring(1)]; remainingPath = '';
+        } else {
+            const pathParts = decodedPath.split('/'); const prefix = pathParts[1]; 
+            if (!prefix) return new Response(`Not Found`, { status: 404 });
+
+            try {
+                if (!env.DB) return new Response(`404: Node not found (DB not bound)`, { status: 404 });
+                const stmt = env.DB.prepare(`SELECT target, mode, cache_img, custom_params FROM routes WHERE prefix = ?`);
+                const route = await stmt.bind(prefix).first();
+                if (!route) return new Response(`404: Node not found`, { status: 404 });
+
+                currentMode = route.mode || 'off'; enableCache = (route.cache_img !== 'off');
+                matchedPrefix = prefix; remainingPath = '/' + pathParts.slice(2).join('/');
+                let tokenPrefixForNormalize = '';
+                try { const ptN = await getProxyToken(env); if (ptN && ptN.enabled && ptN.key) tokenPrefixForNormalize = ptN.key; } catch(e) {}
+                remainingPath = normalizeRemainingPathForPlayback(remainingPath, matchedPrefix, tokenPrefixForNormalize);
+                targetUrls = route.target.split(',').map(s => s.trim()).filter(Boolean);
+
+                if (route.custom_params) {
+                    try { customParamsObj = JSON.parse(route.custom_params); } catch(e) {}
+                }
+                dlTrick = !!(customParamsObj && customParamsObj.dlTrick);
+                // 下载伪装：把播放器的下载请求（/Items/{id}/Download）改写为同文件直接流请求
+                // （/Videos/{id}/stream?static=true），拿到完整文件，绕过服务端"禁下载"权限限制
+                // （Emby 流接口不校验 EnableContentDownloading，只要播放权限即可）
+                if (dlTrick && /\/Items\/[^/]+\/Download\/?$/i.test(remainingPath)) {
+                    const idm = remainingPath.match(/\/Items\/([^/]+)\/Download\/?$/i);
+                    if (idm) {
+                        dlTrickItemId = idm[1];
+                        // 保留原有前缀（/emby/Items/…/Download → /emby/Videos/…/stream），与 VPS 版一致
+                        remainingPath = remainingPath.replace(/\/Items\/[^/]+\/Download\/?$/i, () => '/Videos/' + encodeURIComponent(idm[1]) + '/stream');
+                        if (!url.searchParams.has('static')) url.searchParams.set('static', 'true');
+                    }
+                }
+                
+                if (remainingPath.startsWith('/http://') || remainingPath.startsWith('/https://')) { targetUrls = [remainingPath.substring(1)]; remainingPath = ''; }
+            } catch (e) { return new Response("DB Error: " + e.message, { status: 500 }); }
+        }
+
+        if (targetUrls.length === 0) return new Response("404: Target empty", { status: 404 });
+
+        // ==========================================
+        // 2.7 真实观看判定（EmbyBOSS 思路改良：不数 PlaybackInfo，改判播放会话心跳链）
+        //   PlaybackInfo（详情页/预加载/点开就会触发）不再计入观看，消除虚高；
+        //   仅「播放开始」与「非暂停的播放进度心跳」才算真实在播 → 更新最近观看时间；
+        //   同一播放会话只计一次有效播放次数（会话级去重，防心跳风暴刷次数）。
+        // ==========================================
+        const isPlayStart = url.pathname.endsWith('/Sessions/Playing');
+        const isPlayProgress = url.pathname.indexOf('/Sessions/Playing/Progress') !== -1;
+
+        if ((isPlayStart || isPlayProgress) && matchedPrefix && env.DB && ctx && ctx.waitUntil) {
+            ctx.waitUntil((async () => {
+                try {
+                    let paused = false, sessionId = '';
+                    try {
+                        const txt = await request.clone().text();
+                        const j = JSON.parse(txt);
+                        paused = !!j.IsPaused;
+                        sessionId = String(j.PlaySessionId || '');
+                    } catch (e) {}
+                    // 暂停心跳不算观看（用户正暂停）；继续播放心跳才算
+                    if (paused) return;
+                    const todayStr = new Date(Date.now() + 8 * 3600000).toISOString().split('T')[0];
+                    const nowTime = new Date(Date.now() + 8 * 3600000).toISOString().replace('T', ' ').split('.')[0];
+
+                    const stmts = [ env.DB.prepare(`UPDATE routes SET last_play = ? WHERE prefix = ?`).bind(nowTime, matchedPrefix) ];
+
+                    if (sessionId) {
+                        const key = 'watch_sessions';
+                        const row = await env.DB.prepare("SELECT value FROM app_config WHERE key = ?").bind(key).first();
+                        let seen = [];
+                        try { if (row && row.value) seen = JSON.parse(row.value); } catch (e) {}
+                        if (!seen.includes(sessionId)) {
+                            seen.unshift(sessionId);
+                            if (seen.length > 500) seen.length = 500;
+                            stmts.push(env.DB.prepare(`INSERT INTO request_stats (prefix, date, count) VALUES (?, ?, 1) ON CONFLICT(prefix, date) DO UPDATE SET count = count + 1`).bind(matchedPrefix, todayStr));
+                            const clientIp = request.headers.get("cf-connecting-ip") || request.headers.get("x-real-ip") || "Unknown";
+                            const clientCountry = request.headers.get("cf-ipcountry") || "Unknown";
+                            const clientUa = request.headers.get("User-Agent") || "Unknown";
+                            stmts.push(env.DB.prepare(`INSERT INTO visitor_logs (prefix, ip, country, ua) VALUES (?, ?, ?, ?)`).bind(matchedPrefix, clientIp, clientCountry, clientUa));
+                            stmts.push(env.DB.prepare('INSERT OR REPLACE INTO app_config (key, value) VALUES (?, ?)').bind(key, JSON.stringify(seen)));
+                        }
+                    }
+                    await env.DB.batch(stmts);
+                } catch (e) {}
+            })());
+        }
+
+        // ==========================================
+        // 2.8 源站反代引擎 (含强力防 403 + 深度伪装 UA 引擎)
+        // ==========================================
+        const isFakeMode = currentMode.includes('fake') || currentMode === 'custom';
+        const isStrictMode = currentMode.includes('strict');
+        const baseIpMode = currentMode.replace('_fake', '').replace('custom', 'dual').replace('strict', 'off'); 
+
+        let bodyBuffer = null;
+        const canHaveRequestBody = request.method !== 'GET' && request.method !== 'HEAD';
+        const needsReplayableBody = canHaveRequestBody && (
+            targetUrls.length > 1
+            || targetUrls.some(target => buildUpstreamCandidates(target, remainingPath, url.search).length > 1)
+            || isFakeMode
+        );
+
+        if (needsReplayableBody) {
+            // 这里只在“请求体会被重复使用”时才预读成 ArrayBuffer。
+            //
+            // 触发条件有两类：
+            // 1. 多节点 failover：同一个 POST 可能发往多个 target
+            // 2. 同节点候选回退：例如 /Items/... 失败后，再试 /emby/Items/...
+            //
+            // 这两种情况都会二次消费 request.body；不先缓存就会出现：
+            // "This ReadableStream is disturbed (has already been read from)"
+            //
+            // 但如果本次请求只会发起一次上游 fetch，就继续保留原本的流式透传，
+            // 尽量减少我这次修复对现有面板和普通反代行为的影响范围。
+            bodyBuffer = await request.clone().arrayBuffer();
+
+            // 伪装模式：针对前端返回的 JSON body 深度替换身份信息 (四层防护)
+            if (isFakeMode && bodyBuffer.byteLength > 0 && bodyBuffer.byteLength < 1024 * 100) {
+                const contentType = request.headers.get("content-type") || "";
+                if (contentType.toLowerCase().includes("application/json")) {
+                    try {
+                        let bodyText = new TextDecoder().decode(bodyBuffer);
+                        if (customParamsObj.client) bodyText = bodyText.replace(/("Client(Name)?"\s*:\s*")[^"]+(")/ig, `$1${customParamsObj.client}$3`);
+                        if (customParamsObj.version) bodyText = bodyText.replace(/("Version"\s*:\s*")[^"]+(")/ig, `$1${customParamsObj.version}$2`);
+                        if (customParamsObj.device) bodyText = bodyText.replace(/("Device(Name)?"\s*:\s*")[^"]+(")/ig, `$1${customParamsObj.device}$3`);
+                        
+                        const newBuffer = new TextEncoder().encode(bodyText).buffer;
+                        if (newBuffer.byteLength !== bodyBuffer.byteLength || bodyText.includes(customParamsObj.client)) {
+                            bodyBuffer = newBuffer;
+                        }
+                    } catch(e) {}
+                }
+            }
+        }
+
+        let finalResponse = null; let lastError = null; let targetOrigins = getTargetOrigins(targetUrls); let finalTargetUrl = null;
+
+        for (let i = 0; i < targetUrls.length; i++) {
+            const candidateUrls = buildUpstreamCandidates(targetUrls[i], remainingPath, url.search);
+
+            for (let j = 0; j < candidateUrls.length; j++) {
+                const targetUrlStr = candidateUrls[j];
+                const targetUrl = new URL(targetUrlStr);
+                const newHeaders = new Headers(request.headers); newHeaders.set("Host", targetUrl.host);
+                stripPanelCookie(newHeaders);
+
+                const realIp = request.headers.get("cf-connecting-ip") || request.headers.get("x-real-ip") || (request.headers.get("x-forwarded-for") || "").split(',')[0].trim();
+                newHeaders.delete("cf-connecting-ip"); newHeaders.delete("cf-ipcountry"); newHeaders.delete("cf-ray");
+                newHeaders.delete("cf-visitor"); newHeaders.delete("x-forwarded-for"); newHeaders.delete("x-real-ip");
+
+                if (isStrictMode) {
+                    newHeaders.delete("X-Forwarded-Proto"); newHeaders.delete("X-Forwarded-Host");
+                } else {
+                    newHeaders.set("X-Forwarded-Proto", url.protocol.replace(':', ''));
+                    newHeaders.set("X-Forwarded-Host", url.host);
+                }
+
+                if (baseIpMode === 'realip_only' && realIp) { newHeaders.set("X-Real-IP", realIp); } 
+                else if ((baseIpMode === 'dual' || isStrictMode) && realIp) { newHeaders.set("X-Real-IP", realIp); newHeaders.set("X-Forwarded-For", realIp); }
+
+                if (isStrictMode) {
+                    newHeaders.set("Origin", targetUrl.origin); newHeaders.set("Referer", targetUrl.origin + "/");
+                } else {
+                    const origin = newHeaders.get("Origin");
+                    if (origin && origin === url.origin) newHeaders.set("Origin", targetUrl.origin);
+                    const referer = newHeaders.get("Referer");
+                    if (referer && referer.startsWith(url.origin)) newHeaders.set("Referer", referer.replace(url.origin, targetUrl.origin));
+                }
+
+                if (isFakeMode) {
+                    // 深度伪装引擎：执行请求头与授权头部伪装（字段缺失用内置 SenPlayer 模板兜底，开启伪装就不泄露任何真实身份）
+                    const fClient = customParamsObj.client || 'SenPlayer';
+                    const fVersion = customParamsObj.version || '6.0.0';
+                    const fDevice = customParamsObj.device || 'iPhone';
+                    const fDeviceId = customParamsObj.deviceId || 'emby-keepalive';
+                    const fUa = customParamsObj.ua || 'SenPlayer/6.0.0';
+                    newHeaders.set("User-Agent", fUa);
+                    
+                    ['X-Emby-Authorization', 'Authorization'].forEach(headerName => {
+                        let authHeader = newHeaders.get(headerName);
+                        if (authHeader) {
+                            if (fClient) authHeader = authHeader.replace(/(Client\s*=\s*)(?:"[^"]*"|'[^']*'|[^,\s]+)/ig, `$1"${escQuote(fClient)}"`);
+                            if (fVersion) authHeader = authHeader.replace(/(Version\s*=\s*)(?:"[^"]*"|'[^']*'|[^,\s]+)/ig, `$1"${escQuote(fVersion)}"`);
+                            if (fDevice) authHeader = authHeader.replace(/(Device\s*=\s*)(?:"[^"]*"|'[^']*'|[^,\s]+)/ig, `$1"${escQuote(fDevice)}"`);
+                            if (fDeviceId) authHeader = authHeader.replace(/(DeviceId\s*=\s*)(?:"[^"]*"|'[^']*'|[^,\s]+)/ig, `$1"${escQuote(fDeviceId)}"`);
+                            newHeaders.set(headerName, authHeader);
+                        }
+                    });
+
+                    // 无条件补全 4 个标准 Emby 身份头（客户端没发也新建，防上游识别缺头/真实身份）
+                    const paramsToReplace = { 'x-emby-client': fClient, 'x-emby-client-version': fVersion, 'x-emby-device-name': fDevice, 'x-emby-device-id': fDeviceId };
+                    for (const key of Object.keys(paramsToReplace)) {
+                        if (paramsToReplace[key]) newHeaders.set(key, paramsToReplace[key]);
+                    }
+                    const currentParams = Array.from(targetUrl.searchParams.keys());
+                    currentParams.forEach(key => {
+                        const lowerKey = key.toLowerCase();
+                        if (paramsToReplace[lowerKey]) targetUrl.searchParams.set(key, paramsToReplace[lowerKey]);
+                    });
+                }
+
+                const isStaticOrImage = isStaticPath(targetUrl.pathname);
+                const authLikeState = hasAuthLikeState(newHeaders, targetUrl);
+
+                let fetchInit = { method: request.method, headers: newHeaders, redirect: isStaticOrImage ? 'follow' : 'manual' };
+
+                // 只缓存不带鉴权态的静态资源。
+                // 之前 UHD 图片加载异常时，容易把所有图片都当成可缓存资源处理；
+                // 但 Emby 的高清图请求常常带 token/api_key，缓存这类响应可能拿到过期或错误权限的内容。
+                // 因此这里保留静态资源加速，但显式排除带鉴权态的请求。
+                if (isStaticOrImage && enableCache && !authLikeState) { fetchInit.cf = { cacheEverything: true, cacheTtl: 86400 }; }
+
+                if (canHaveRequestBody) {
+                    if (bodyBuffer !== null) {
+                        // 只有在需要重试/切线时才使用可复用的二进制 body。
+                        fetchInit.body = bodyBuffer;
+                    } else {
+                        // 单次请求仍然按旧逻辑直接透传原始流，避免扩大兼容性风险。
+                        fetchInit.body = request.body;
+                        fetchInit.duplex = 'half';
+                    }
+                }
+
+                try {
+                    const modifiedRequest = new Request(targetUrl, fetchInit); const response = await fetch(modifiedRequest);
+
+                    // 这里特意允许“同一 target 的下一候选”继续尝试。
+                    // 也就是说：如果裸路径 /Items/... 回了 404，而 /emby/Items/... 是可用的，
+                    // 就不要立刻把这条线路判死，而是优先在当前线路内部完成一次 /emby 回退重试。
+                    if ((response.status === 404 || response.status === 502 || response.status === 503 || response.status === 504) && j < candidateUrls.length - 1) {
+                        lastError = new Error(`Node ${i+1} candidate ${j+1} returned HTTP ${response.status}`);
+                        continue;
+                    }
+
+                    if (response.status === 502 || response.status === 503 || response.status === 504) {
+                        lastError = new Error(`Node ${i+1} returned HTTP ${response.status}`);
+                        continue;
+                    }
+
+                    finalResponse = response; finalTargetUrl = targetUrl; break;
+                } catch (err) {
+                    lastError = err; continue;
+                }
+            }
+
+            if (finalResponse) break;
+        }
+
+        if (!finalResponse) return new Response("Worker Proxy Failover Exhausted. All nodes failed. Last Error: " + (lastError?.message || 'Unknown Error'), { status: 502 });
+
+        const responseHeaders = new Headers(finalResponse.headers);
+        rewriteSetCookieForProxy(responseHeaders);
+        const ptObj = await getProxyToken(env);
+        const safePrefix = matchedPrefix ? `/${proxyTokenPrefix(ptObj)}${matchedPrefix}` : '';
+
+        // 下载伪装伴随观看（CF 版）：命中改写后的下载流时，包装响应流，
+        // 读取间隙驱动心跳、流结束/断开自动上报结束并清除播放记录
+        if (dlTrickItemId && finalResponse.status === 200 && finalResponse.body) {
+            const dlWatch = spawnDlTrickWatchCF(finalTargetUrl, request, dlTrickItemId, url.search);
+            if (dlWatch) {
+                finalResponse = new Response(wrapStreamWithWatch(finalResponse.body, dlWatch, ctx), {
+                    status: finalResponse.status, statusText: finalResponse.statusText, headers: responseHeaders
+                });
+            }
+        }
+
+        // ==========================================
+        //  修复版 302 拦截：恢复 URL 编码
+        // ==========================================
+        if ([301, 302, 303, 307, 308].includes(finalResponse.status)) {
+            const location = responseHeaders.get('Location');
+            const rewrittenLocation = rewriteRedirectLocation(location, finalTargetUrl, targetOrigins, proxyOrigin, safePrefix);
+            if (rewrittenLocation !== location) {
+                responseHeaders.set('Location', rewrittenLocation);
+            }
+        }
+        
+        responseHeaders.set('Access-Control-Allow-Origin', '*');
+
+        // ==========================================
+        // 2.10 响应体重写 (接管 PlaybackInfo 与 M3U8)
+        // ==========================================
+
+        if (finalResponse.status === 200 && responseHeaders.get("content-type")?.includes("json") && url.pathname.toLowerCase().includes("playbackinfo")) {
+            try {
+                let clonedRes = finalResponse.clone(); 
+                let data = await clonedRes.json(); 
+                let modified = false;
+                if (data && data.MediaSources) {
+                    data.MediaSources.forEach(source => {
+                        // Emby / Jellyfin / HUD 的 PlaybackInfo 字段并不完全一致。
+                        // 原脚本只改写 DirectStreamUrl 和 TranscodingUrl 的绝对地址，
+                        // 这对标准 Emby 基本够用，但 HUD 常见的是：
+                        // - DirectStreamUrl 返回 /emby/videos/...
+                        // - TranscodingUrl 返回 /emby/videos/... 或相对路径
+                        // - 字幕 DeliveryUrl 也可能是相对路径
+                        //
+                        // 所以这里把播放期会实际发起请求的几个关键 URL 字段统一走同一个改写函数，
+                        // 保证所有媒体相关请求都还能带着当前线路前缀回到 Worker。
+                        ['DirectStreamUrl', 'TranscodingUrl', 'Url'].forEach(key => {
+                            const rewritten = rewritePlaybackMediaUrl(source[key], finalTargetUrl, proxyOrigin, safePrefix, targetOrigins);
+                            if (rewritten !== source[key]) {
+                                source[key] = rewritten;
+                                modified = true;
+                            }
+                        });
+
+                        // 字幕流的 DeliveryUrl 也会在播放时被客户端直接请求。
+                        // 如果 HUD 给的是 /emby/videos/... 这种相对地址，而这里不改，
+                        // 主视频即使勉强能播，外挂字幕依然会因为丢失前缀而加载失败。
+                        if (Array.isArray(source.MediaStreams)) {
+                            source.MediaStreams.forEach(stream => {
+                                const rewritten = rewritePlaybackMediaUrl(stream?.DeliveryUrl, finalTargetUrl, proxyOrigin, safePrefix, targetOrigins);
+                                if (rewritten !== stream?.DeliveryUrl) {
+                                    stream.DeliveryUrl = rewritten;
+                                    modified = true;
+                                }
+                            });
+                        }
+                    });
+                }
+                if (modified) { 
+                    dropBodyIntegrityHeaders(responseHeaders);
+                    return new Response(JSON.stringify(data), { status: finalResponse.status, statusText: finalResponse.statusText, headers: responseHeaders }); 
+                }
+            } catch (e) {
+                console.log("PlaybackInfo JSON 重写失败:", e.message);
+            }
+        }
+
+        // 通用 JSON URL 重写。
+        // PlaybackInfo 只覆盖播放地址；UHD 图片失败通常发生在其他 JSON 接口里，
+        // 例如详情页、图片列表或插件接口返回了源站绝对地址/相对图片路径。
+        // 这里先用 hasJsonRewriteCandidate 做轻量筛选，再递归改写，避免漏掉嵌套的高清图字段。
+        if (finalResponse.status === 200 && responseHeaders.get("content-type")?.includes("json")) {
+            try {
+                let clonedRes = finalResponse.clone();
+                let text = await clonedRes.text();
+                // 下载伪装：把返回给播放器的用户权限 JSON 中下载相关字段 false→true，
+                // 让播放器直接显示"下载"按钮（EnableMediaPlayback 等播放强校验字段绝不动，改了反而露馅）
+                let dlModified = false;
+                if (dlTrick) {
+                    const t2 = text.replace(/"(EnableContentDownloading|EnableSyncTranscoding|EnableMediaConversion|CanDownload)"\s*:\s*false/gi, '"$1":true');
+                    dlModified = (t2 !== text);
+                    text = t2;
+                }
+                if (hasJsonRewriteCandidate(text, targetOrigins)) {
+                    let data = JSON.parse(text);
+                    let rewritten = rewriteSourceUrlsInJson(data, targetOrigins, proxyOrigin, safePrefix);
+                    if (rewritten !== data) {
+                        dropBodyIntegrityHeaders(responseHeaders);
+                        return new Response(JSON.stringify(rewritten), { status: finalResponse.status, statusText: finalResponse.statusText, headers: responseHeaders });
+                    }
+                }
+                if (dlModified) {
+                    dropBodyIntegrityHeaders(responseHeaders);
+                    return new Response(text, { status: finalResponse.status, statusText: finalResponse.statusText, headers: responseHeaders });
+                }
+            } catch(e) {
+                console.log("JSON 源站 URL 重写失败:", e.message);
+            }
+        }
+
+        if (finalResponse.status === 200 && url.pathname.toLowerCase().endsWith('.m3u8')) {
+            try {
+                let clonedRes = finalResponse.clone(); 
+                let text = await clonedRes.text();
+                if (text.includes('http://') || text.includes('https://') || /^\s*\//m.test(text)) {
+                    // 绝对 URL 分片：代理到 /密钥/节点/源站URL
+                    let modifiedText = text.replace(/(https?:\/\/[^\s]+)/g, proxyOrigin + safePrefix + '/$1');
+                    // 协议相对分片（//host/path）：补 https 协议再代理
+                    modifiedText = modifiedText.replace(/^(?!\s*#)(\s*)\/\/([^\s]+)$/gm, (m, sp, p) => sp + proxyOrigin + safePrefix + '/https://' + p);
+                    // 根相对分片（/path）：浏览器会解析到不带节点前缀的根路径导致 404，补上源站根 + 代理前缀
+                    const firstOrigin = (targetUrls[0] || '').replace(/\/+$/, '');
+                    if (firstOrigin) {
+                        modifiedText = modifiedText.replace(/^(?!\s*#)(\s*)\/([^\s]+)$/gm, (m, sp, p) => sp + proxyOrigin + safePrefix + '/' + firstOrigin + '/' + p);
+                    }
+                    dropBodyIntegrityHeaders(responseHeaders);
+                    return new Response(modifiedText, { status: finalResponse.status, statusText: finalResponse.statusText, headers: responseHeaders });
+                }
+            } catch(e) {
+                console.log("M3U8 重写失败:", e.message);
+            }
+        }
+
+        // 给最终静态资源响应补缓存头。
+        // 这里仍然用当前访问路径判断是否为图片/静态文件，是为了让已经通过 Worker
+        // 正确代理过来的 UHD 图片可以被浏览器/CDN 正常复用；但真正的 Cloudflare
+        // cacheEverything 已在请求发起前排除了带鉴权态的资源，避免缓存污染。
+        const isStaticRes = isStaticPath(url.pathname);
+        const contentType = responseHeaders.get("content-type") || "";
+        const canCacheStaticRes = isStaticRes
+            && enableCache
+            && finalResponse.status === 200
+            && (
+                contentType.startsWith("image/")
+                || contentType.includes("javascript")
+                || contentType.includes("css")
+                || contentType.includes("font")
+                || contentType.includes("manifest")
+            );
+        if (canCacheStaticRes && !responseHeaders.has("Cache-Control")) {
+            responseHeaders.set('Cache-Control', 'public, max-age=86400'); 
+        }
+
+        return new Response(finalResponse.body, { status: finalResponse.status, statusText: finalResponse.statusText, headers: responseHeaders });
+    } catch (e) {
+        console.error('[proxy]', e);
+        return Response.json({ success: false, error: String((e && e.message) || e) }, { status: 500 });
+    }
+}
+};

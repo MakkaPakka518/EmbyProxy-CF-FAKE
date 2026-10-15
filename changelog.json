@@ -1,6 +1,14 @@
 {
   "versions": [
     {
+      "version": "3.4.6（beta）",
+      "date": "2026-10-15",
+      "title": "修复状态码分布空白（edgeResponseStatus 字段）",
+      "items": [
+        "修复今日响应状态码分布空白：adaptive 表状态码维度字段是 edgeResponseStatus（不是 responseStatus，之前被 groupBy 报错掩盖；独立容错后该项单独空白）——改用正确字段后 2xx/3xx/4xx/5xx 统计恢复"
+      ]
+    },
+    {
       "version": "3.4.5（beta）",
       "date": "2026-10-15",
       "title": "修复更新误弹 + CF 统计独立容错",

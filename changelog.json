@@ -1,47 +1,14 @@
 {
   "versions": [
     {
-      "version": "3.4.4（beta）",
+      "version": "3.4.5（beta）",
       "date": "2026-10-15",
-      "title": "修复：CF 统计获取失败（移除 groupBy 参数）",
+      "title": "修复更新误弹 + CF 统计独立容错",
       "items": [
-        "修复：CF 统计显示「获取失败 unknown arg groupBy」——httpRequestsAdaptiveGroups 为聚合表，不支持 groupBy 参数，维度直接在 dimensions 字段请求即可（groupBy 仅旧版 1d/1m 表支持）；移除后状态码分布/来源地区/分时趋势统计恢复",
-        "字节字段采用官方推荐的 edgeResponseBytes；缓存命中率保持独立容错查询（不可用仅该项为 0）"
-      ]
-    },
-    {
-      "version": "3.4.3（beta）",
-      "date": "2026-10-15",
-      "title": "修复：CF 统计获取失败（字节字段改为 edgeResponseBytes）",
-      "items": [
-        "修复：CF 统计显示「获取失败 unknown field bytes / clientRequestBytes」——httpRequestsAdaptiveGroups 的数据传输字节字段为 edgeResponseBytes（官方推荐），修正后今日带宽/缓存命中率/状态码分布/分时趋势/防火墙拦截全部恢复",
-        "缓存命中率改为独立容错查询：该字段不可用或接口异常时仅缓存命中率显示 0，不影响其他 CF 统计"
-      ]
-    },
-    {
-      "version": "3.4.2（beta）",
-      "date": "2026-10-15",
-      "title": "修复：CF 统计获取失败（GraphQL 字段修正）",
-      "items": [
-        "修复：CF 统计显示「获取失败 unknown field bytes」——httpRequestsAdaptiveGroups.sum 无 bytes 字段，正确字段为 clientRequestBytes，修正后今日带宽/缓存命中率/状态码分布/分时趋势/防火墙拦截全部恢复"
-      ]
-    },
-    {
-      "version": "3.4.1（beta）",
-      "date": "2026-10-15",
-      "title": "CF 统计扩展：带宽/缓存/状态码/地区/分时/防火墙拦截",
-      "items": [
-        "新增：数据大屏 CF 区块扩展——今日带宽消耗（GB）、缓存命中率、响应状态码分布环形图（2xx/3xx/4xx/5xx）、今日请求分时趋势折线图（UTC 24h）、Top 来源地区、防火墙拦截次数",
-        "全部复用 CF_API_TOKEN + CF_ZONE_ID（一次 GraphQL 批量查询，不新增配置）；未配置或接口异常时优雅降级，不影响数据大屏其他模块"
-      ]
-    },
-    {
-      "version": "3.4.0-beta",
-      "date": "2026-10-15",
-      "title": "新增 CF Worker 每日请求数统计",
-      "items": [
-        "新增：数据大屏显示 CF 请求数（今天/1周内/1月内）与 CF Worker 每日免费请求额度进度条（基准 100,000 次/天，UTC 00:00 重置，显示已用/百分比/剩余）",
-        "复用 CF_API_TOKEN + CF_ZONE_ID 变量通过 GraphQL 实时统计，无需新增配置；未配置或接口异常时优雅降级，不影响数据大屏其他模块"
+        "修复更新误弹：版本检测正则只提取数字部分导致 -beta/（beta）后缀被丢弃，永远误判有新版本；改为提取完整版本串，格式一致后不再误弹更新提醒",
+        "CF 统计彻底独立容错：今日请求数+带宽、状态码分布、来源国家、分时趋势、防火墙拦截、缓存命中拆分为 6 个独立 GraphQL 查询，任一维度失败只影响该项，不再整组「获取失败」",
+        "httpRequestsAdaptiveGroups 为聚合表，不支持 groupBy 参数，维度直接在 dimensions 字段请求（groupBy 仅旧版 1d/1m 表支持）；字节字段采用官方推荐的 edgeResponseBytes",
+        "缓存命中率独立容错查询（不可用仅该项为 0）"
       ]
     },
     {

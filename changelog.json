@@ -1,6 +1,15 @@
 {
   "versions": [
     {
+      "version": "3.4.4（beta）",
+      "date": "2026-10-15",
+      "title": "修复：CF 统计获取失败（移除 groupBy 参数）",
+      "items": [
+        "修复：CF 统计显示「获取失败 unknown arg groupBy」——httpRequestsAdaptiveGroups 为聚合表，不支持 groupBy 参数，维度直接在 dimensions 字段请求即可（groupBy 仅旧版 1d/1m 表支持）；移除后状态码分布/来源地区/分时趋势统计恢复",
+        "字节字段采用官方推荐的 edgeResponseBytes；缓存命中率保持独立容错查询（不可用仅该项为 0）"
+      ]
+    },
+    {
       "version": "3.4.3（beta）",
       "date": "2026-10-15",
       "title": "修复：CF 统计获取失败（字节字段改为 edgeResponseBytes）",

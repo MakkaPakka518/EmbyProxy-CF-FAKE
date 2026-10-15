@@ -1,6 +1,14 @@
 {
   "versions": [
     {
+      "version": "3.4.2（beta）",
+      "date": "2026-10-15",
+      "title": "修复：CF 统计获取失败（GraphQL 字段修正）",
+      "items": [
+        "修复：CF 统计显示「获取失败 unknown field bytes」——httpRequestsAdaptiveGroups.sum 无 bytes 字段，正确字段为 clientRequestBytes，修正后今日带宽/缓存命中率/状态码分布/分时趋势/防火墙拦截全部恢复"
+      ]
+    },
+    {
       "version": "3.4.1（beta）",
       "date": "2026-10-15",
       "title": "CF 统计扩展：带宽/缓存/状态码/地区/分时/防火墙拦截",

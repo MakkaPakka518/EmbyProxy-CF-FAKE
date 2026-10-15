@@ -1,6 +1,6 @@
-// VERSION: 3.4.5（beta）
+// VERSION: 3.4.6（beta）
 //  更新内容：① 修复更新误弹——版本检测正则只提取数字部分导致 -beta/（beta）后缀被丢弃，永远误判有新版本；改为提取完整版本串，格式一致后不再误弹更新提醒
-const CURRENT_VERSION = "3.4.5（beta）"; 
+const CURRENT_VERSION = "3.4.6（beta）"; 
 const GITHUB_RAW_URL = "https://raw.githubusercontent.com/MakkaPakka518/EmbyProxy-CF-FAKE/refs/heads/main/worker.js";
 const CHANGELOG_URL = "https://raw.githubusercontent.com/MakkaPakka518/EmbyProxy-CF-FAKE/refs/heads/main/changelog.json";
 
@@ -3516,9 +3516,9 @@ async function getCFTodayStats(env) {
     else { const o = main.o?.[0] || {}; requests = o.count || 0; bytes = o.sum?.edgeResponseBytes || 0; }
     // ② 状态码分布（独立容错）
     const codes = { '2xx': 0, '3xx': 0, '4xx': 0, '5xx': 0 };
-    const st = await gql(`query { viewer { zones(filter: {zoneTag: "${zoneTag}"}) { s: httpRequestsAdaptiveGroups(limit: 20, filter: ${baseFilter}) { count dimensions { responseStatus } } } } }`);
+    const st = await gql(`query { viewer { zones(filter: {zoneTag: "${zoneTag}"}) { s: httpRequestsAdaptiveGroups(limit: 20, filter: ${baseFilter}) { count dimensions { edgeResponseStatus } } } } }`);
     if (!st.errors) (st.s || []).forEach(g => {
-        const c = Number(g.dimensions?.responseStatus) || 0;
+        const c = Number(g.dimensions?.edgeResponseStatus) || 0;
         if (c >= 500) codes['5xx'] += g.count;
         else if (c >= 400) codes['4xx'] += g.count;
         else if (c >= 300) codes['3xx'] += g.count;

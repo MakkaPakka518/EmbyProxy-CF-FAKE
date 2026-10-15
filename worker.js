@@ -1,6 +1,6 @@
-// VERSION: 3.4.4（beta）
-//  更新内容：① 修复 CF 统计获取失败——httpRequestsAdaptiveGroups 不支持 groupBy 参数（聚合表直接按 dimensions 字段返回维度组合，groupBy 仅旧版 1d/1m 表支持），去掉三个 groupBy 后状态码/国家/分时统计恢复；字节字段用官方推荐的 edgeResponseBytes；缓存命中率独立容错查询
-const CURRENT_VERSION = "3.4.4（beta）"; 
+// VERSION: 3.4.5（beta）
+//  更新内容：① 修复更新误弹——版本检测正则只提取数字部分导致 -beta/（beta）后缀被丢弃，永远误判有新版本；改为提取完整版本串，格式一致后不再误弹更新提醒
+const CURRENT_VERSION = "3.4.5（beta）"; 
 const GITHUB_RAW_URL = "https://raw.githubusercontent.com/MakkaPakka518/EmbyProxy-CF-FAKE/refs/heads/main/worker.js";
 const CHANGELOG_URL = "https://raw.githubusercontent.com/MakkaPakka518/EmbyProxy-CF-FAKE/refs/heads/main/changelog.json";
 
@@ -3068,8 +3068,8 @@ function toSvg(s){
                 if (!res.ok) { if (manual) alert('检查更新失败：无法访问更新源'); return; }
                 latestCode = await res.text();
                 
-                //  核心修复：加入双重反斜杠，防止正则在 Worker 中变成注释 (//) 导致崩溃
-                const versionMatch = latestCode.match(/\\/\\/\\s*VERSION:\\s*v?([\\d\\.]+)/i);
+                //  核心修复：提取完整版本串（含 beta 后缀），防止 -beta/（beta） 被丢弃导致永远误判有新版本
+                const versionMatch = latestCode.match(/\\/\\/\\s*VERSION:\\s*"?v?([^"\\n]+)"?/i);
                 if (!versionMatch || !versionMatch[1]) { if (manual) alert('未获取到版本信息'); return; }
                 latestVersion = versionMatch[1];
                 if (latestVersion === CURRENT_VERSION) {
@@ -3494,104 +3494,57 @@ async function getCFRequests(env, type) {
 // 今日 CF 全维度统计（一次 GraphQL 批量查询：请求数/带宽/缓存/状态码/国家/分时/防火墙）
 async function getCFTodayStats(env) {
     if (!env.CF_API_TOKEN || !env.CF_ZONE_ID) return { ok: false, error: '缺少变量' };
-    try {
-        const end = new Date();
-        const startUtc = new Date(Date.UTC(end.getUTCFullYear(), end.getUTCMonth(), end.getUTCDate()));
-        const geq = startUtc.toISOString();
-        const leq = end.toISOString();
-        const gql = `query {
-          viewer {
-            zones(filter: {zoneTag: "${env.CF_ZONE_ID}"}) {
-              overview: httpRequestsAdaptiveGroups(limit: 1, filter: {datetime_geq: "${geq}", datetime_leq: "${leq}"}) {
-                count
-                sum { edgeResponseBytes }
-              }
-              byStatus: httpRequestsAdaptiveGroups(limit: 20, filter: {datetime_geq: "${geq}", datetime_leq: "${leq}"}) {
-                count
-                dimensions { responseStatus }
-              }
-              byCountry: httpRequestsAdaptiveGroups(limit: 6, filter: {datetime_geq: "${geq}", datetime_leq: "${leq}"}) {
-                count
-                dimensions { clientCountryName }
-              }
-              byHour: httpRequestsAdaptiveGroups(limit: 1440, filter: {datetime_geq: "${geq}", datetime_leq: "${leq}"}) {
-                count
-                dimensions { datetimeMinute }
-              }
-              blocked: firewallEventsAdaptiveGroups(limit: 1, filter: {datetime_geq: "${geq}", datetime_leq: "${leq}"}) {
-                count
-              }
-            }
-          }
-        }`;
-        const cfRes = await fetch('https://api.cloudflare.com/client/v4/graphql', {
-            method: 'POST',
-            headers: { 
-                'Authorization': `Bearer ${env.CF_API_TOKEN}`,
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify({ query: gql })
-        });
-        const data = await cfRes.json();
-        if (data.errors && data.errors.length > 0) return { ok: false, error: data.errors[0].message };
-        const zones = data?.data?.viewer?.zones?.[0];
-        if (!zones) {
-            return { ok: true, requests: 0, bytes: 0, cachedBytes: 0, statusCodes: { '2xx': 0, '3xx': 0, '4xx': 0, '5xx': 0 }, countries: [], hours: [], blocked: 0 };
-        }
-        const overview = zones.overview?.[0] || {};
-        const codes = { '2xx': 0, '3xx': 0, '4xx': 0, '5xx': 0 };
-        (zones.byStatus || []).forEach(g => {
-            const s = Number(g.dimensions?.responseStatus) || 0;
-            if (s >= 500) codes['5xx'] += g.count;
-            else if (s >= 400) codes['4xx'] += g.count;
-            else if (s >= 300) codes['3xx'] += g.count;
-            else if (s >= 200) codes['2xx'] += g.count;
-        });
-        const hours = new Array(24).fill(0);
-        (zones.byHour || []).forEach(g => {
-            const dt = new Date(g.dimensions?.datetimeMinute);
-            if (!isNaN(dt.getTime())) hours[dt.getUTCHours()] += g.count;
-        });
-        const countries = (zones.byCountry || []).slice(0, 5).map(g => ({ country: g.dimensions?.clientCountryName || '未知', count: g.count }));
-        // 缓存命中率：独立查询（容错——字段不可用或接口异常时仅该项为 0，不影响其他统计）
-        let cachedBytes = 0;
+    const endD = new Date();
+    const startUtc = new Date(Date.UTC(endD.getUTCFullYear(), endD.getUTCMonth(), endD.getUTCDate()));
+    const geq = startUtc.toISOString();
+    const leq = endD.toISOString();
+    const zoneTag = env.CF_ZONE_ID;
+    const baseFilter = `{datetime_geq: "${geq}", datetime_leq: "${leq}"}`;
+    const headers = { 'Authorization': `Bearer ${env.CF_API_TOKEN}`, 'Content-Type': 'application/json' };
+    async function gql(query) {
         try {
-            const gqlC = `query {
-              viewer {
-                zones(filter: {zoneTag: "${env.CF_ZONE_ID}"}) {
-                  c: httpRequestsAdaptiveGroups(limit: 1, filter: {datetime_geq: "${geq}", datetime_leq: "${leq}"}) {
-                    sum { cachedBytes }
-                  }
-                }
-              }
-            }`;
-            const cfRes2 = await fetch('https://api.cloudflare.com/client/v4/graphql', {
-                method: 'POST',
-                headers: { 
-                    'Authorization': `Bearer ${env.CF_API_TOKEN}`,
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify({ query: gqlC })
-            });
-            const data2 = await cfRes2.json();
-            if (!data2.errors) {
-                const cb = data2?.data?.viewer?.zones?.[0]?.c?.[0]?.sum?.cachedBytes;
-                if (typeof cb === 'number') cachedBytes = cb;
-            }
-        } catch (e) {}
-        return {
-            ok: true,
-            requests: overview.count || 0,
-            bytes: overview.sum?.edgeResponseBytes || 0,
-            cachedBytes,
-            statusCodes: codes,
-            countries,
-            hours,
-            blocked: zones.blocked?.[0]?.count || 0
-        };
-    } catch(e) {
-        return { ok: false, error: e.message };
+            const r = await fetch('https://api.cloudflare.com/client/v4/graphql', { method: 'POST', headers, body: JSON.stringify({ query }) });
+            const j = await r.json();
+            if (j.errors && j.errors.length) return { errors: j.errors };
+            return j.data?.viewer?.zones?.[0] || {};
+        } catch (e) { return { errors: [{ message: e.message }] }; }
     }
+    // ① 主查询：今日请求数 + 带宽（核心字段，官方确认）
+    let requests = 0, bytes = 0, mainError = null;
+    const main = await gql(`query { viewer { zones(filter: {zoneTag: "${zoneTag}"}) { o: httpRequestsAdaptiveGroups(limit: 1, filter: ${baseFilter}) { count sum { edgeResponseBytes } } } } }`);
+    if (main.errors) { mainError = main.errors[0].message; }
+    else { const o = main.o?.[0] || {}; requests = o.count || 0; bytes = o.sum?.edgeResponseBytes || 0; }
+    // ② 状态码分布（独立容错）
+    const codes = { '2xx': 0, '3xx': 0, '4xx': 0, '5xx': 0 };
+    const st = await gql(`query { viewer { zones(filter: {zoneTag: "${zoneTag}"}) { s: httpRequestsAdaptiveGroups(limit: 20, filter: ${baseFilter}) { count dimensions { responseStatus } } } } }`);
+    if (!st.errors) (st.s || []).forEach(g => {
+        const c = Number(g.dimensions?.responseStatus) || 0;
+        if (c >= 500) codes['5xx'] += g.count;
+        else if (c >= 400) codes['4xx'] += g.count;
+        else if (c >= 300) codes['3xx'] += g.count;
+        else if (c >= 200) codes['2xx'] += g.count;
+    });
+    // ③ 来源国家（独立容错）
+    let countries = [];
+    const ct = await gql(`query { viewer { zones(filter: {zoneTag: "${zoneTag}"}) { c2: httpRequestsAdaptiveGroups(limit: 6, filter: ${baseFilter}) { count dimensions { clientCountryName } } } } }`);
+    if (!ct.errors) countries = (ct.c2 || []).slice(0, 5).map(g => ({ country: g.dimensions?.clientCountryName || '未知', count: g.count }));
+    // ④ 分时趋势（独立容错）
+    const hours = new Array(24).fill(0);
+    const hr = await gql(`query { viewer { zones(filter: {zoneTag: "${zoneTag}"}) { h: httpRequestsAdaptiveGroups(limit: 1440, filter: ${baseFilter}) { count dimensions { datetimeMinute } } } } }`);
+    if (!hr.errors) (hr.h || []).forEach(g => {
+        const d = new Date(g.dimensions?.datetimeMinute);
+        if (!isNaN(d.getTime())) hours[d.getUTCHours()] += g.count;
+    });
+    // ⑤ 防火墙拦截（独立容错）
+    let blocked = 0;
+    const bl = await gql(`query { viewer { zones(filter: {zoneTag: "${zoneTag}"}) { b: firewallEventsAdaptiveGroups(limit: 1, filter: ${baseFilter}) { count } } } }`);
+    if (!bl.errors) blocked = bl.b?.[0]?.count || 0;
+    // ⑥ 缓存字节（独立容错）
+    let cachedBytes = 0;
+    const cb = await gql(`query { viewer { zones(filter: {zoneTag: "${zoneTag}"}) { c3: httpRequestsAdaptiveGroups(limit: 1, filter: ${baseFilter}) { sum { cachedBytes } } } } }`);
+    if (!cb.errors) { const v = cb.c3?.[0]?.sum?.cachedBytes; if (typeof v === 'number') cachedBytes = v; }
+    if (mainError) return { ok: false, error: mainError };
+    return { ok: true, requests, bytes, cachedBytes, statusCodes: codes, countries, hours, blocked };
 }
 
 function kaClientProfile(route) {

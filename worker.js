@@ -1,6 +1,6 @@
-// VERSION: 3.4.8（beta）
-//  更新内容：自动保活不再依赖 Cron——新增请求驱动检查（有人访问面板/代理时按各节点各自间隔自动执行到期保活，1 小时节流）；配 Cron 仍可作无人访问时的兜底
-const CURRENT_VERSION = "3.4.8（beta）"; 
+// VERSION: 3.4.9（beta）
+//  更新内容：保活模拟播放心跳对齐真实播放器——固定每 10s 一条（原为每 1.5s 快进 6~9 条）；受 CF 单请求墙钟 30s 限制，模拟时长压缩为 20~25 秒、最多 2 条心跳
+const CURRENT_VERSION = "3.4.9（beta）"; 
 const GITHUB_RAW_URL = "https://raw.githubusercontent.com/MakkaPakka518/EmbyProxy-CF-FAKE/refs/heads/main/worker.js";
 const CHANGELOG_URL = "https://raw.githubusercontent.com/MakkaPakka518/EmbyProxy-CF-FAKE/refs/heads/main/changelog.json";
 
@@ -3752,14 +3752,15 @@ async function runKeepAlive(env, route) {
     addStep('模拟拉流', false, '无播放链接，跳过');
   }
 
-  // 播放会话：字段 Emby 标准 PositionTicks（兼容旧字段）；CF 墙钟 30s 限制下用快进心跳模拟 90 秒累计播放进度
-  // 模拟真实观看：起始位置随机 1~89 秒（1 分 30 秒前的任意时间点），观看时长随机 60~90 秒，避免每次都从 0 开始固定 90 秒
+  // 播放会话：字段 Emby 标准 PositionTicks（兼容旧字段）；心跳对齐真实播放器节奏（固定每 10s 一条）
+  // 模拟真实观看：起始位置随机 1~89 秒，观看时长随机 20~25 秒（2 条 10s 心跳），
+  // 避免机械快进与固定条数；CF 单请求墙钟 30s 限制下无法完整等待 60~90 秒，故压缩时长换取真实节奏
   const startSec = 1 + Math.floor(Math.random() * 89);
-  const playSec = 60 + Math.floor(Math.random() * 31);
+  const playSec = 20 + Math.floor(Math.random() * 6);
   const endSec = startSec + playSec;
   const startTicks = startSec * 10000000;
   const endTicks = endSec * 10000000;
-  const CF_HEARTBEATS = Math.max(1, Math.floor(playSec / 10));   // 心跳条数 6~9（每 1.5s 一条，进度每次 +10s）
+  const CF_HEARTBEATS = Math.max(1, Math.min(2, Math.floor(playSec / 10)));   // 每 10s 一条，墙钟内最多 2 条
   const base = { ItemId: itemId, MediaSourceId: msId || itemId, UserId: userId, DeviceId: 'emby-keepalive', PlayMethod: 'DirectStream', CanSeek: true, IsPaused: false, QueueableMediaTypes: ['Video'] };
   if (playSessionId) base.PlaySessionId = playSessionId;
   const kaBody = (posTicks) => JSON.stringify(Object.assign({}, base, { PositionTicks: posTicks, PlaybackPositionTicks: posTicks }));
@@ -3774,12 +3775,12 @@ async function runKeepAlive(env, route) {
       addStep('播放会话开始', r.status === 200 || r.status === 204, 'Sessions/Playing → ' + r.status + (r.status === 400 ? ' ' + String(r.text).slice(0, 120) : ''));
     } catch (e) { addStep('播放会话开始', false, e.message); }
 
-    // 快进心跳：CF 单次墙钟 30s，无法真实等待 90 秒；用每 1.5s 一条、进度 +10s 的心跳在预算内凑足 90 秒进度
+    // 心跳：固定每 10s 一条（对齐真实播放器节奏），进度每次 +10s；CF 墙钟 30s 限制下最多 2 条（10s/20s）
     let hbOk = 0, hbFail = 0;
     const tStart = Date.now();
     for (let i = 1; i <= CF_HEARTBEATS; i++) {
-      if (Date.now() - tStart > 24000) break;   // 心跳段预算 24s，保拉流慢时整体不超墙钟
-      await new Promise(res => setTimeout(res, 1500));
+      if (Date.now() - tStart > 21000) break;   // 心跳段预算 21s，保整体不超墙钟
+      await new Promise(res => setTimeout(res, 10000));
       const pos = Math.min(startTicks + i * 10 * 10000000, endTicks);
       saveLive('模拟播放：进度心跳 ' + i + '/' + CF_HEARTBEATS + '（' + fmtPos(pos) + '）', steps.slice(), 66 + (i / CF_HEARTBEATS) * 26);
       try {

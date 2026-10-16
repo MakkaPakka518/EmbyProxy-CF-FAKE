@@ -1,6 +1,6 @@
-// VERSION: 3.4.9（beta）
-//  更新内容：保活模拟播放心跳对齐真实播放器——固定每 10s 一条（原为每 1.5s 快进 6~9 条）；受 CF 单请求墙钟 30s 限制，模拟时长压缩为 20~25 秒、最多 2 条心跳
-const CURRENT_VERSION = "3.4.9（beta）"; 
+// VERSION: 3.5.0（beta）
+//  更新内容：保活模拟播放升级为 DO 长任务——绑定 Durable Objects(KEEPALIVE_DO/KeepAliveDO) 后,自动/手动保活的模拟播放为完整 90~300s 随机时长、每 10s 真实心跳、起点为片长 2%~10% 随机点,完成后自动 Stopped 并删除播放记录,不受 CF 30s 墙钟限制;未绑定 DO 自动降级为 20~25s 快速版
+const CURRENT_VERSION = "3.5.0（beta）"; 
 const GITHUB_RAW_URL = "https://raw.githubusercontent.com/MakkaPakka518/EmbyProxy-CF-FAKE/refs/heads/main/worker.js";
 const CHANGELOG_URL = "https://raw.githubusercontent.com/MakkaPakka518/EmbyProxy-CF-FAKE/refs/heads/main/changelog.json";
 
@@ -1004,7 +1004,7 @@ function toSvg(s){
                             <input type="text" id="nodeUser" placeholder="节点账号（保活 / Rex导入用）" style="flex:1; min-width: 160px; padding: 10px 14px; border: 1px solid var(--border); border-radius: 8px; background: var(--card);">
                             <input type="password" id="nodePass" placeholder="节点密码" style="flex:1; min-width: 160px; padding: 10px 14px; border: 1px solid var(--border); border-radius: 8px; background: var(--card);">
                         </div>
-                        <div style="font-size:12px; color:var(--text-sec);">自动保活按各节点自己的间隔独立计时（无需统一）。不配 Cron 也能生效：有人访问面板/代理时自动检查并执行到期的节点；配 Cron 触发器（如每天 */5 * * * *）则无人访问时也能按时执行，两者可同时用。也可点节点卡片「保活」手动触发。</div>
+                        <div style="font-size:12px; color:var(--text-sec);">自动保活按各节点自己的间隔独立计时（无需统一）。不配 Cron 也能生效：有人访问面板/代理时自动检查并执行到期的节点；配 Cron 触发器（如每天 */5 * * * *）则无人访问时也能按时执行，两者可同时用。也可点节点卡片「保活」手动触发。绑定 Durable Objects（变量名 KEEPALIVE_DO、类名 KeepAliveDO）后模拟播放为完整 90~300 秒真实心跳；未绑定则降级为 20~25 秒。</div>
                     </div>
                     <input type="number" id="watchLimit" placeholder="观看下限（天，如 7 / 14 / 21；0 = 不限制。超过下限未观看会在卡片红色报警）" step="0.1" min="0" style="padding: 10px 14px; border: 1px solid var(--border); border-radius: 8px; background: var(--card); width: 100%;">
 
@@ -3752,24 +3752,50 @@ async function runKeepAlive(env, route) {
     addStep('模拟拉流', false, '无播放链接，跳过');
   }
 
-  // 播放会话：字段 Emby 标准 PositionTicks（兼容旧字段）；心跳对齐真实播放器节奏（固定每 10s 一条）
-  // 模拟真实观看：起始位置随机 1~89 秒，观看时长随机 20~25 秒（2 条 10s 心跳），
-  // 避免机械快进与固定条数；CF 单请求墙钟 30s 限制下无法完整等待 60~90 秒，故压缩时长换取真实节奏
-  const startSec = 1 + Math.floor(Math.random() * 89);
-  const playSec = 20 + Math.floor(Math.random() * 6);
-  const endSec = startSec + playSec;
-  const startTicks = startSec * 10000000;
-  const endTicks = endSec * 10000000;
-  const CF_HEARTBEATS = Math.max(1, Math.min(2, Math.floor(playSec / 10)));   // 每 10s 一条，墙钟内最多 2 条
-  const base = { ItemId: itemId, MediaSourceId: msId || itemId, UserId: userId, DeviceId: 'emby-keepalive', PlayMethod: 'DirectStream', CanSeek: true, IsPaused: false, QueueableMediaTypes: ['Video'] };
-  if (playSessionId) base.PlaySessionId = playSessionId;
-  const kaBody = (posTicks) => JSON.stringify(Object.assign({}, base, { PositionTicks: posTicks, PlaybackPositionTicks: posTicks }));
-  const KA_HEADERS = Object.assign(kaHeaders(prof), { 'Content-Type': 'application/json' });
-
-  if (!playSessionId) {
+  // ===== 模拟播放 =====
+  // 方式 A（推荐）：已绑定 KEEPALIVE_DO → 交给 DO 长任务（90~300s 随机、每 10s 真实心跳、
+  //   起点为片长 2%~10% 随机点、完成后自动 Stopped + 清除播放记录），不受 CF 30s 墙钟限制；
+  // 方式 B（降级）：未绑定 DO → 请求内快速模拟（20~25s 真实节奏，受墙钟限制）
+  let doScheduled = false;
+  if (env && env.KEEPALIVE_DO && playSessionId && token) {
+    try {
+      const doId = env.KEEPALIVE_DO.idFromName('ka-' + playSessionId);
+      const stub = env.KEEPALIVE_DO.get(doId);
+      const dr = await stub.fetch('https://do.local/ka', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ target, token, authHdr: kaHeaders(prof)['X-Emby-Authorization'], ua: prof.ua, itemId, msId, userId, client: prof.client, version: prof.version, playSessionId, prefix: route.prefix, mediaTitle: liveTitle })
+      });
+      const dj = await dr.json();
+      if (dj && dj.ok) {
+        doScheduled = true;
+        addStep('播放会话开始', true, 'DO 长任务模拟播放已调度（' + (dj.msg || '') + '）');
+      } else {
+        addStep('播放会话开始', false, 'DO 调度失败：' + ((dj && dj.msg) || '未知') + '，降级快速模拟');
+      }
+    } catch (e) {
+      addStep('播放会话开始', false, 'DO 调度异常，降级快速模拟：' + e.message);
+    }
+  } else if (!playSessionId) {
     addStep('播放会话开始', false, '无 PlaySessionId，跳过会话上报（仅拉流保活）');
     addStep('模拟播放时长', false, '无 PlaySessionId，跳过');
-  } else {
+  }
+  if (!doScheduled && playSessionId) {
+    // ===== 降级：请求内快速模拟播放（原逻辑，20~25s 真实节奏）=====
+    // 播放会话：字段 Emby 标准 PositionTicks（兼容旧字段）；心跳对齐真实播放器节奏（固定每 10s 一条）
+    // 模拟真实观看：起始位置随机 1~89 秒，观看时长随机 20~25 秒（2 条 10s 心跳），
+    // 避免机械快进与固定条数；CF 单请求墙钟 30s 限制下无法完整等待 60~90 秒，故压缩时长换取真实节奏
+    const startSec = 1 + Math.floor(Math.random() * 89);
+    const playSec = 20 + Math.floor(Math.random() * 6);
+    const endSec = startSec + playSec;
+    const startTicks = startSec * 10000000;
+    const endTicks = endSec * 10000000;
+    const CF_HEARTBEATS = Math.max(1, Math.min(2, Math.floor(playSec / 10)));   // 每 10s 一条，墙钟内最多 2 条
+    const base = { ItemId: itemId, MediaSourceId: msId || itemId, UserId: userId, DeviceId: 'emby-keepalive', PlayMethod: 'DirectStream', CanSeek: true, IsPaused: false, QueueableMediaTypes: ['Video'] };
+    if (playSessionId) base.PlaySessionId = playSessionId;
+    const kaBody = (posTicks) => JSON.stringify(Object.assign({}, base, { PositionTicks: posTicks, PlaybackPositionTicks: posTicks }));
+    const KA_HEADERS = Object.assign(kaHeaders(prof), { 'Content-Type': 'application/json' });
+
     try {
       const r = await kaJson(addApiKey(target + '/emby/Sessions/Playing', token), { method: 'POST', headers: KA_HEADERS, body: kaBody(startTicks) });
       addStep('播放会话开始', r.status === 200 || r.status === 204, 'Sessions/Playing → ' + r.status + (r.status === 400 ? ' ' + String(r.text).slice(0, 120) : ''));
@@ -3789,30 +3815,33 @@ async function runKeepAlive(env, route) {
       } catch (e) { hbFail++; }
     }
     addStep('模拟播放时长', hbOk > 0, '从 ' + fmtPos(startTicks) + ' 快进 ' + playSec + ' 秒：心跳 ' + hbOk + '/' + CF_HEARTBEATS + ' 条 → ' + fmtPos(endTicks));
-  }
 
-  try {
-    const r = await kaJson(addApiKey(target + '/emby/Sessions/Playing/Stopped', token), { method: 'POST', headers: KA_HEADERS, body: kaBody(endTicks) });
-    addStep('播放会话停止', r.status === 200 || r.status === 204, 'Stopped → ' + r.status + ' (' + fmtPos(endTicks) + ')');
-  } catch (e) { addStep('播放会话停止', false, e.message); }
-
-  // 清除播放记录：重置本次保活播放条目的 PlayCount / 继续观看进度，避免污染真实观看记录
-  if (userId && itemId && token) {
-    await new Promise(res => setTimeout(res, 1000));   // 等 Stopped 异步落库后再清，避免竞态
     try {
-      const r = await kaJson(addApiKey(target + '/emby/Users/' + encodeURIComponent(userId) + '/Items/' + encodeURIComponent(itemId) + '/UserData', token), {
-        method: 'POST',
-        headers: Object.assign(kaHeaders(prof), { 'Content-Type': 'application/json' }),
-        body: JSON.stringify({ Played: false, PlayCount: 0, ResumePositionTicks: 0, PlaybackPositionTicks: 0, PlayedPercentage: 0 })
-      });
-      addStep('清除播放记录', r.status === 200 || r.status === 204, 'UserData → ' + r.status + '（PlayCount/继续观看进度已重置）');
-      if (r.status === 200 || r.status === 204) saveLive('清除播放记录完成', steps.slice(), 100);
-    } catch (e) { addStep('清除播放记录', false, e.message); }
-  } else {
-    addStep('清除播放记录', false, '缺少 userId/itemId/token，跳过');
+      const r = await kaJson(addApiKey(target + '/emby/Sessions/Playing/Stopped', token), { method: 'POST', headers: KA_HEADERS, body: kaBody(endTicks) });
+      addStep('播放会话停止', r.status === 200 || r.status === 204, 'Stopped → ' + r.status + ' (' + fmtPos(endTicks) + ')');
+    } catch (e) { addStep('播放会话停止', false, e.message); }
+
+    // 清除播放记录：重置本次保活播放条目的 PlayCount / 继续观看进度，避免污染真实观看记录
+    if (userId && itemId && token) {
+      await new Promise(res => setTimeout(res, 1000));   // 等 Stopped 异步落库后再清，避免竞态
+      try {
+        const r = await kaJson(addApiKey(target + '/emby/Users/' + encodeURIComponent(userId) + '/Items/' + encodeURIComponent(itemId) + '/UserData', token), {
+          method: 'POST',
+          headers: Object.assign(kaHeaders(prof), { 'Content-Type': 'application/json' }),
+          body: JSON.stringify({ Played: false, PlayCount: 0, ResumePositionTicks: 0, PlaybackPositionTicks: 0, PlayedPercentage: 0 })
+        });
+        addStep('清除播放记录', r.status === 200 || r.status === 204, 'UserData → ' + r.status + '（PlayCount/继续观看进度已重置）');
+        if (r.status === 200 || r.status === 204) saveLive('清除播放记录完成', steps.slice(), 100);
+      } catch (e) { addStep('清除播放记录', false, e.message); }
+    } else {
+      addStep('清除播放记录', false, '缺少 userId/itemId/token，跳过');
+    }
   }
 
   const failed = steps.filter(x => !x.ok).length;
+  if (doScheduled) {
+    return { ok: true, doScheduled: true, msg: '保活前置步骤完成，模拟播放（90~300s 真实心跳）已由 DO 后台执行，面板将实时更新进度', steps };
+  }
   return { ok: failed < steps.length / 2, msg: '保活完成（' + steps.length + ' 步，' + failed + ' 步异常）', steps };
 }
 /** 定时检查：找出最先到期的开启保活节点执行（每 tick 只跑一个，避免并发打爆上游与超时） */
@@ -4274,7 +4303,107 @@ async function maybeCheckUpdate(env) {
     } catch (e) {}
 }
 
+// ============ 自动保活·模拟播放长任务 DO ============
+// 突破 CF 单请求 30s 墙钟限制：用 Durable Objects + Alarm 链驱动真实播放节奏心跳。
+// 流程：PlaybackStart(起点=片长 2%~10% 随机) → 每 10s 一条 Progress(90~300s 随机停止)
+// → Stopped → 1.5s 后重置 UserData(删除播放记录) → 完成。全程写 ka_live 供面板轮询。
+// 部署：CF 面板 → 你的 Worker → 设置 → 绑定 → Durable Objects → 变量名 KEEPALIVE_DO、类名 KeepAliveDO。
+class KeepAliveDO {
+  constructor(state, env) { this.state = state; this.env = env; }
+  async fetch(request) {
+    try {
+      const job = await request.json();
+      const { target, token, authHdr, ua, itemId, msId, userId, client, version, playSessionId, prefix, mediaTitle } = job || {};
+      if (!target || !token || !itemId || !playSessionId) return Response.json({ ok: false, msg: 'DO 参数缺失(target/token/itemId/playSessionId)' });
+      const hdrs = { 'X-Emby-Authorization': authHdr || '', 'User-Agent': ua || '', 'Content-Type': 'application/json' };
+      const url = p => addApiKey(target + p, token);
+      const body = pos => JSON.stringify({ ItemId: itemId, MediaSourceId: msId || itemId, PlaySessionId: playSessionId, DeviceId: 'emby-keepalive', Client: client || 'SenPlayer', Version: version || '6.2.2', PlayMethod: 'DirectStream', CanSeek: true, IsPaused: false, QueueableMediaTypes: ['Video'], PositionTicks: pos, PlaybackPositionTicks: pos });
+      // 取片长
+      let runtimeTicks = 0;
+      try {
+        const r = await kaJson(url('/emby/Items/' + encodeURIComponent(itemId) + '?Fields=RunTimeTicks'), { headers: hdrs });
+        if (r.status === 200 && r.data) runtimeTicks = parseInt(r.data.RunTimeTicks, 10) || 0;
+      } catch (e) {}
+      // 起点 = 片长 2%~10% 随机；片长未知时用 60~300s 兜底
+      const pct = 2 + Math.random() * 8;
+      const startTicks = runtimeTicks > 0 ? Math.floor(runtimeTicks * pct / 100) : (60 + Math.floor(Math.random() * 241)) * 10000000;
+      const playSec = 90 + Math.floor(Math.random() * 211);   // 90~300s 随机
+      const endTicks = startTicks + playSec * 10000000;
+      // PlaybackStart
+      let startOk = false;
+      try {
+        const r = await kaJson(url('/emby/Sessions/Playing'), { method: 'POST', headers: hdrs, body: body(startTicks) });
+        startOk = r.status === 200 || r.status === 204;
+      } catch (e) {}
+      if (!startOk) return Response.json({ ok: false, msg: 'PlaybackStart 失败,跳过 DO 长任务' });
+      const st = { target, token, authHdr: authHdr || '', ua: ua || '', itemId, msId: msId || '', userId: userId || '', client: client || 'SenPlayer', version: version || '6.2.2', playSessionId, prefix: prefix || '', mediaTitle: mediaTitle || '', startTicks, endTicks, playSec, elapsed: 0, done: false };
+      st.steps = [{ name: '播放会话开始', ok: true, detail: '起点 ' + fmtPos(startTicks) + '(片长 ' + (runtimeTicks > 0 ? Math.round(pct) + '%' : '未知') + ') → 播放 ' + playSec + 's' }];
+      await this.state.storage.put('job', st);
+      await this.state.storage.setAlarm(Date.now() + 10000);
+      this.saveLive('模拟播放已启动(约 ' + playSec + 's 真实心跳)', st.steps, 70, st);
+      return Response.json({ ok: true, msg: '已调度 ' + playSec + 's 真实心跳模拟(起点 ' + fmtPos(startTicks) + ')' });
+    } catch (e) {
+      return Response.json({ ok: false, msg: 'DO 异常: ' + e.message });
+    }
+  }
+  async alarm() {
+    try {
+      const st = await this.state.storage.get('job');
+      if (!st || st.done) return;
+      const hdrs = { 'X-Emby-Authorization': st.authHdr, 'User-Agent': st.ua, 'Content-Type': 'application/json' };
+      const url = p => addApiKey(st.target + p, st.token);
+      const body = pos => JSON.stringify({ ItemId: st.itemId, MediaSourceId: st.msId || st.itemId, PlaySessionId: st.playSessionId, DeviceId: 'emby-keepalive', Client: st.client, Version: st.version, PlayMethod: 'DirectStream', CanSeek: true, IsPaused: false, QueueableMediaTypes: ['Video'], PositionTicks: pos, PlaybackPositionTicks: pos });
+      st.elapsed += 10;
+      const pos = Math.min(st.startTicks + st.elapsed * 10000000, st.endTicks);
+      try { await kaJson(url('/emby/Sessions/Playing/Progress'), { method: 'POST', headers: hdrs, body: body(pos) }); } catch (e) {}
+      const n = Math.max(1, Math.round(st.playSec / 10));
+      this.saveLive('模拟播放：进度心跳 ' + Math.min(Math.round(st.elapsed / 10), n) + '/' + n + '（' + fmtPos(pos) + '）', st.steps, 70 + (st.elapsed / st.playSec) * 25, st);
+      if (st.elapsed < st.playSec) {
+        await this.state.storage.put('job', st);
+        await this.state.storage.setAlarm(Date.now() + 10000);
+        return;
+      }
+      // 到期：Stopped
+      let stopOk = false;
+      try {
+        const r = await kaJson(url('/emby/Sessions/Playing/Stopped'), { method: 'POST', headers: hdrs, body: body(st.endTicks) });
+        stopOk = r.status === 200 || r.status === 204;
+      } catch (e) {}
+      st.steps = st.steps || [];
+      st.steps.push({ name: '播放会话停止', ok: stopOk, detail: 'Stopped(' + fmtPos(st.endTicks) + ')' });
+      this.saveLive('播放会话停止(' + fmtPos(st.endTicks) + ')', st.steps, 96, st);
+      // 1.5s 后清 UserData
+      await new Promise(res => setTimeout(res, 1500));
+      let cleanOk = false;
+      try {
+        if (st.userId && st.itemId) {
+          const r = await kaJson(url('/emby/Users/' + encodeURIComponent(st.userId) + '/Items/' + encodeURIComponent(st.itemId) + '/UserData'), {
+            method: 'POST',
+            headers: hdrs,
+            body: JSON.stringify({ Played: false, PlayCount: 0, ResumePositionTicks: 0, PlaybackPositionTicks: 0, PlayedPercentage: 0 })
+          });
+          cleanOk = r.status === 200 || r.status === 204;
+        }
+      } catch (e) {}
+      st.done = true;
+      await this.state.storage.put('job', st);
+      this.saveLive(cleanOk ? '清除播放记录完成' : '清除播放记录失败', st.steps, 100, st, !cleanOk);
+      try { await pushKaNotice(this.env, st.prefix, stopOk && cleanOk, 'DO 模拟播放完成(' + st.playSec + 's,起点 ' + fmtPos(st.startTicks) + ')'); } catch (e) {}
+    } catch (e) {}
+  }
+  saveLive(current, stepsArr, p, st, done) {
+    try {
+      if (!this.env || !this.env.DB) return;
+      this.env.DB.prepare('INSERT OR REPLACE INTO app_config (key, value) VALUES (?, ?)')
+        .bind('ka_live', JSON.stringify({ running: !done, prefix: st.prefix || '', current: current || '', steps: stepsArr || [], progress: Math.max(3, Math.min(100, Math.round(p || 3))), mediaTitle: st.mediaTitle || '', updatedAt: Date.now() }))
+        .run().catch(() => {});
+    } catch (e) {}
+  }
+}
+
 export default {
+    KeepAliveDO,
+
     async scheduled(event, env, ctx) {
         // 自动保活：检查所有开启保活的节点，按各自间隔到期执行（每 tick 只跑最先到期的一个）
         if (env.DB && env.KA_ENABLED !== 'off') {
@@ -5165,6 +5294,10 @@ if (ROLE !== 'admin') return new Response('Forbidden', { status: 403 });
                 await env.DB.prepare('UPDATE routes SET last_ka_run = ?, last_ka_result = ?, last_ka_detail = ? WHERE prefix = ?')
                     .bind(new Date().toISOString(), result.ok ? 'success' : 'fail', result.msg || '', prefix).run();
                 await pushKaNotice(env, prefix, result.ok, result.msg, route.remark);
+                // DO 长任务模式：模拟播放仍在后台执行，保持 ka_live running=true（由 DO 完成时写终态）
+                if (result && result.doScheduled) {
+                    return Response.json(result);
+                }
                 await env.DB.prepare('INSERT OR REPLACE INTO app_config (key, value) VALUES (?, ?)')
                     .bind('ka_live', JSON.stringify({ running: false, prefix: prefix, current: '', steps: result.steps || [], msg: result.msg || '', progress: 100, mediaTitle: '', updatedAt: Date.now() })).run();
                 return Response.json(result);

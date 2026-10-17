@@ -1,6 +1,17 @@
 {
   "versions": [
     {
+      "version": "3.6.19（beta）",
+      "date": "2026-10-17",
+      "title": "新增:逃生入口 /entry + 系统保留后缀校验",
+      "items": [
+        "新增 /entry 管理员逃生入口:被 IP 访问控制拦截时,访问 /entry 输入管理员密码即可进入面板(设置 admin_token cookie 后跳转首页)",
+        "/entry 与 /api/entry 不受 IP 拦截与 token 模式(订阅者/反代 Token)影响,仅认管理员密码(ADMIN_TOKEN / admin_pass),管理员被锁时永远有退路",
+        "新增系统保留后缀校验:节点前缀与反代 Token key 不可使用 entry/api/catch/speedtest/__client_rtt__/favicon.ico,前端输入即时红字提示,提交与后端保存均拒绝",
+        "与 v3.6.18 管理员逃生通道配合:浏览器已登录(admin_token 有效)的请求本身不受 IP 拦截"
+      ]
+    },
+    {
       "version": "3.6.18（beta）",
       "date": "2026-10-17",
       "title": "新增:IP 访问控制管理员逃生通道",

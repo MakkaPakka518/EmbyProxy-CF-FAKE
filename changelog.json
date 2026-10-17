@@ -1,6 +1,28 @@
 {
   "versions": [
     {
+      "version": "3.6.26",
+      "date": "2026-10-17",
+      "title": "新增:保活全局UA/ID设置 + 下载伴随观看身份跟随伪装/透传真实",
+      "items": [
+        "保活身份优先级:节点伪装参数 → 全局保活UA/ID设置 → 内置固定默认;未配置伪装的节点不再每次随机UUID(Emby限制设备登录数,随机ID会刷爆设备数)",
+        "账户设置新增'保活全局UA/ID(保活专用)'卡片:可一键选现有模板(SenPlayer/EplayerX/Forward/Rex/Hills/Yamby)、自定义Client/Device/Version/UA/DeviceId、随机生成DeviceId,存D1",
+        "下载伴随观看身份:节点设置了伪装参数 → 完整跟随伪装模板(Client/Device/Version/DeviceId/UA一起换);未设置 → 透传真实播放器的UA和DeviceId(认证头原样不替换)",
+        "修复:插入保活全局设置卡片时 div 层级错位(已修正并校验配对)"
+      ]
+    },
+    {
+      "version": "3.6.25",
+      "date": "2026-10-17",
+      "title": "修复:保活/伪装设备标识暴露 emby-keepalive",
+      "items": [
+        "保活全链路 DeviceId 不再硬编码 emby-keepalive(此前等于告诉上游这是保活,而非真实播放)",
+        "kaClientProfile 现在读取节点 custom_params.deviceId(保存节点时已自动生成固定值),未配置时兜底随机 UUID",
+        "kaAuthHeader / PlaybackInfo / 播放会话 / DO 长任务(fetch+alarm) 全部改用该 deviceId",
+        "深度伪装引擎兜底 deviceId 由 emby-keepalive 改为随机 UUID(真实播放开启伪装也不再泄露保活标识)"
+      ]
+    },
+    {
       "version": "3.6.24（beta）",
       "date": "2026-10-17",
       "title": "修复:/entry 登录改用 ADMIN_TOKEN 优先",

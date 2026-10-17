@@ -1,6 +1,6 @@
-// VERSION: 3.6.15（beta）
+// VERSION: 3.6.16（beta）
 //  更新内容：保活模拟播放升级为 DO 长任务——绑定 Durable Objects(KEEPALIVE_DO/KeepAliveDO) 后,自动/手动保活的模拟播放为完整 90~300s 随机时长、每 10s 真实心跳、起点为片长 2%~10% 随机点,完成后自动 Stopped 并删除播放记录,不受 CF 30s 墙钟限制;未绑定 DO 自动降级为 20~25s 快速版
-const CURRENT_VERSION = "3.6.15（beta）"; 
+const CURRENT_VERSION = "3.6.16（beta）"; 
 const GITHUB_RAW_URL = "https://raw.githubusercontent.com/MakkaPakka518/EmbyProxy-CF-FAKE/refs/heads/main/worker.js";
 const CHANGELOG_URL = "https://raw.githubusercontent.com/MakkaPakka518/EmbyProxy-CF-FAKE/refs/heads/main/changelog.json";
 
@@ -2216,12 +2216,6 @@ function toSvg(s){
             m.style.display = 'block';
         }
         function closeKaDetail() { const m = document.getElementById('kaDetailModal'); if (m) m.style.display = 'none'; }
-
-                    h += '<div style="color:var(--text-sec);font-size:13px;padding:8px 0;">近 30 天暂无下载记录（下载伪装产生流量后会自动记录）</div>';
-                }
-                box.innerHTML = h;
-            } catch (e) { box.innerHTML = '<div style="color:var(--danger);font-size:13px;">加载失败</div>'; }
-        }
 
         function openKaCenter() {
             document.getElementById('kaCenterModal').style.display = 'block';

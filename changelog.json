@@ -1,6 +1,16 @@
 {
   "versions": [
     {
+      "version": "3.6.15（beta）",
+      "date": "2026-10-17",
+      "title": "修复:v3.6.14 误删保活前端函数(openKaCenter)",
+      "items": [
+        "修复:v3.6.14 移除下载统计时删除区间越界,把保活中心的 openKaCenter/closeKaCenter/kaToast 等函数一并误删,导致顶部保活按钮无反应、手动保活报 Can't find variable: openKaCenter",
+        "重新基于 v3.6.10 生成:仅移除下载统计功能,完整保留保活中心/保活详情/下载伪装/下载优先",
+        "下载行为不变:original 直链纯透传,大文件完整下载"
+      ]
+    },
+    {
       "version": "3.6.14（beta）",
       "date": "2026-10-17",
       "title": "回退:移除下载统计功能(基于 v3.6.10)",

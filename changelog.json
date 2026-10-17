@@ -1,6 +1,15 @@
 {
   "versions": [
     {
+      "version": "3.6.24（beta）",
+      "date": "2026-10-17",
+      "title": "修复:/entry 登录改用 ADMIN_TOKEN 优先",
+      "items": [
+        "修复 /entry 逃生入口登录失败:D1 里存的 admin_pass 会覆盖环境变量 ADMIN_TOKEN,导致 ADMIN_TOKEN 密码无法登录",
+        "现在与面板认证一致:ADMIN_TOKEN 环境变量优先(永不失效),D1 admin_pass 仅在其为空时兜底"
+      ]
+    },
+    {
       "version": "3.6.23（beta）",
       "date": "2026-10-17",
       "title": "新增:最高白名单可管理(设置页与 /entry 均可添加/删除信任 IP)",

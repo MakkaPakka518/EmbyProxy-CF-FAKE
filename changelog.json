@@ -1,6 +1,15 @@
 {
   "versions": [
     {
+      "version": "3.6.7（beta）",
+      "date": "2026-10-17",
+      "title": "修复 v3.6.6 部署失败（可正常部署）",
+      "items": [
+        "修复：v3.6.6 部署时报 Identifier 'dlWatch' has already been declared——下载记录解耦时残留了旧的 const dlWatch 声明和一处多余闭合括号；现已删除并通过 ESM + acorn 双重语法校验，可正常部署",
+        "包含 v3.6.6 的全部修复：下载记录接受 206 状态码、DO 持续拉流加 Range 头并回退 Static=true、下载统计弹窗自动关闭账户设置"
+      ]
+    },
+    {
       "version": "3.6.6（beta）",
       "date": "2026-10-17",
       "title": "下载统计与保活详情修复（版本号随每次更新）",

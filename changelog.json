@@ -1,6 +1,15 @@
 {
   "versions": [
     {
+      "version": "3.6.27",
+      "date": "2026-10-18",
+      "title": "修复:下载伴随观看 PlaySessionId 暴露 bemby- 前缀",
+      "items": [
+        "下载伪装伴随观看的 PlaySessionId 由 'bemby-'+时间戳 改为标准随机 UUID v4(此前固定前缀等于告诉上游这是代理脚本生成的假播放会话)",
+        "全面排查保活/下载/伪装链路身份标识:DeviceId/UA/Client/认证头/PlaySessionId 均无 emby-keepalive、bemby- 等名牌残留"
+      ]
+    },
+    {
       "version": "3.6.26",
       "date": "2026-10-17",
       "title": "新增:保活全局UA/ID设置 + 下载伴随观看身份跟随伪装/透传真实",

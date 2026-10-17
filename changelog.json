@@ -1,6 +1,15 @@
 {
   "versions": [
     {
+      "version": "3.6.11（beta）",
+      "date": "2026-10-17",
+      "title": "下载记录判据修正（基于真实播放会话表）",
+      "items": [
+        "修复：下载记录仍查不到——探针实证下载请求（original.mkv 直链）也带 PlaySessionId（下载前先取 PlaybackInfo），先前“无 PlaySessionId 才算下载”的判据把下载全部排除",
+        "新判据：真实播放必走 /Sessions/Playing 心跳链（系统既有 2.7 真实观看识别，已写入 watch_sessions 会话表）；下载不发心跳链。original 文件直链请求若其 PlaySessionId 不在 watch_sessions 中即记为下载，在表中则视为真实播放不记下载——正常观看不会被误记"
+      ]
+    },
+    {
       "version": "3.6.9（beta）",
       "date": "2026-10-17",
       "title": "下载伪装覆盖原始流直链（下载即记录）",

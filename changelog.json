@@ -1,6 +1,16 @@
 {
   "versions": [
     {
+      "version": "3.6.28",
+      "date": "2026-10-18",
+      "title": "新增:自定义 Logo(网页左上角图标/登录页/favicon)",
+      "items": [
+        "账户设置新增「自定义 Logo」卡片(仅管理员):支持上传图片(自动压缩至 256px 以内、存 base64 至 D1)与图片 URL(http/https)",
+        "保存后左上角顶栏图标、登录页 logo、浏览器标签 favicon 三处同步生效;支持恢复默认",
+        "新增 /api/logo 读取接口;/api/account 新增 logo 字段(D1 app_config['logo'],URL 长度 ≤2000、base64 ≤450KB 校验)"
+      ]
+    },
+    {
       "version": "3.6.27",
       "date": "2026-10-18",
       "title": "修复:下载伴随观看 PlaySessionId 暴露 bemby- 前缀",

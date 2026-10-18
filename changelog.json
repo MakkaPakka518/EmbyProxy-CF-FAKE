@@ -1,6 +1,15 @@
 {
   "versions": [
     {
+      "version": "3.6.29",
+      "date": "2026-10-18",
+      "title": "修复:3.6.28 前端 JS 崩溃(页面卡死/按钮无响应/加载中断)",
+      "items": [
+        "根因:v3.6.28 自定义 Logo 的 readLogoFile/saveLogo 中正则字面量写在 HTML_UI 模板字符串内,\\/ 被模板转义为 /,渲染后 JS 出现语法错误,导致面板整个 <script> 崩溃",
+        "修复:模板内正则反斜杠双写(^image\\\\/、^https?:\\\\/\\\\/),渲染后得到正确的正则字面量;已对渲染前 HTML_UI/LOGIN_UI 内所有 <script> 单独 node --check 全部通过"
+      ]
+    },
+    {
       "version": "3.6.28",
       "date": "2026-10-18",
       "title": "新增:自定义 Logo(网页左上角图标/登录页/favicon)",

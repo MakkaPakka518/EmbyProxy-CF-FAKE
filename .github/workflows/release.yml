@@ -1,60 +1,59 @@
-name: 自动发版（伪装版）
+name: 打包发布 Release
 
 on:
   workflow_dispatch:
     inputs:
       notes:
-        description: '发布说明(留空自动读取 changelog.json 最新版本)'
+        description: '本次 Release 说明(可选,不填则读 changelog 最新条)'
         required: false
-        default: ''
+        type: string
+
+permissions:
+  contents: write
 
 jobs:
   release:
     runs-on: ubuntu-latest
-    permissions:
-      contents: write
     steps:
       - name: 检出代码
         uses: actions/checkout@v4
 
-      - name: 读取版本号与生成发布说明
-        id: meta
-        env:
-          NOTES: ${{ github.event.inputs.notes || '' }}
+      - name: 读取版本号
+        id: version
         run: |
-          set -e
-          VER=$(python3 -c "import json;print(json.load(open('changelog.json'))['versions'][0]['version'])")
-          echo "VER=$VER" >> "$GITHUB_OUTPUT"
-          python3 - <<'EOF'
-          import json, os
-          d = json.load(open('changelog.json'))
-          v = d['versions'][0]
-          notes = os.environ.get('NOTES', '').strip()
-          if notes:
-              body = notes
-          else:
-              body = '## ' + v['version'] + (' ' + v['title'] if v.get('title') else '') + '\n\n'
-              body += '\n'.join('- ' + it for it in v.get('items', []))
-          body += '\n\n> 部署方法：复制 worker.js 全部内容粘贴到 Cloudflare Worker，保存并部署即可。'
-          with open('body.md', 'w') as f:
-              f.write(body)
-          EOF
+          VER=$(grep -oP 'CURRENT_VERSION = "\K[^"]+' worker.js | head -1)
+          echo "version=$VER" >> "$GITHUB_OUTPUT"
+          echo "读取到版本号: $VER"
 
-      - name: 打包发行版 zip
+      - name: 打包 zip
         run: |
-          VER="${{ steps.meta.outputs.VER }}"
+          VER="${{ steps.version.outputs.version }}"
           mkdir -p dist
-          cp worker.js dist/worker.js
-          cp changelog.json dist/changelog.json
-          cp README.md dist/README.md
-          (cd dist && zip -r "../EmbyProxy-CF-FAKE-v${VER}.zip" .)
+          cp worker.js dist/
+          cp changelog.json dist/
+          cp README.md dist/
+          cd dist
+          zip -r "EmbyProxy-CF-FAKE-${VER}.zip" worker.js changelog.json README.md
+          cd ..
+          echo "打包完成: dist/EmbyProxy-CF-FAKE-${VER}.zip"
+
+      - name: 生成 Release 说明
+        id: notes
+        run: |
+          NOTES="${{ github.event.inputs.notes }}"
+          if [ -z "$NOTES" ]; then
+            NOTES=$(node -e "const c=require('./changelog.json');const v=c.versions[0];console.log(v.version+' - '+v.title);(v.items||[]).forEach(i=>console.log('- '+i))")
+          fi
+          echo "notes<<EOF" >> "$GITHUB_OUTPUT"
+          echo "$NOTES" >> "$GITHUB_OUTPUT"
+          echo "EOF" >> "$GITHUB_OUTPUT"
 
       - name: 创建 Release
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
-          VER="${{ steps.meta.outputs.VER }}"
+          VER="${{ steps.version.outputs.version }}"
           gh release create "v${VER}" \
-            --title "v${VER}" \
-            --notes-file body.md \
-            "EmbyProxy-CF-FAKE-v${VER}.zip" worker.js changelog.json
+            "dist/EmbyProxy-CF-FAKE-${VER}.zip" \
+            --title "EmbyProxy-CF-FAKE v${VER}" \
+            --notes "${{ steps.notes.outputs.notes }}"

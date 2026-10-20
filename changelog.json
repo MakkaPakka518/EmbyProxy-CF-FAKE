@@ -1,6 +1,32 @@
 {
   "versions": [
     {
+      "version": "3.6.47",
+      "title": "起播优化+节点列表提速",
+      "items": [
+        "PlaybackInfo 强制禁转码直连,起播更快",
+        "PlaybackInfo 内存缓存(5分钟),同片二次播放免回源",
+        "重定向 Location 路径级映射,非法/无法解析不再下发",
+        "路由表 schema 初始化仅首次执行,节点接口提速",
+        "访客日志清理限频 10 分钟一次",
+        "带宽统计内存缓存 2 分钟+并发受限+8s 超时",
+        "前端设置/节点/申请加载并行化",
+        "不影响伪装、下载、保活功能"
+      ]
+    },
+    {
+      "version": "3.6.48",
+      "title": "新增 EMOS/EMOS+伪装 模式",
+      "items": [
+        "新增 EMOS 模式(专用头):按 emos.dpdns.org/proxy 要求透传真实 IP+携带 EMOS-PROXY-ID/NAME 两枚头",
+        "新增 EMOS+伪装模式:EMOS 头/IP 透传与深度伪装 UA 引擎同时生效",
+        "节点可配置 EMOS-PROXY-ID/NAME(默认内置身份)+开启 EMOS 聚合(SenPlayer 等按 TMDB 编号跨服出源)",
+        "30x Location 指向媒体文件时 Worker 直接跟随取流(200/206),修复 EMOS 308 双跳慢/0KB",
+        "聚合目录抓取 emos_fake 用伪装 UA,emos 用标准浏览器 UA",
+        "不影响伪装、下载、保活功能"
+      ]
+    },
+    {
       "version": "3.6.46",
       "title": "UI 优化",
       "items": [

@@ -1,6 +1,15 @@
 {
   "versions": [
     {
+      "version": "3.6.52",
+      "title": "对齐 Lite 参考实现:跨源 302 Location 改 encodeURIComponent 编码",
+      "items": [
+        "302 Location 跨源恢复为 面板/前缀/encodeURIComponent(完整URL),与 EmbyProxyCF-Lite 一致",
+        "媒体地址保持 面板/前缀/http://推流域名 裸拼接(与 Lite 一致)",
+        "伪装/下载/保活核心逻辑零改动"
+      ]
+    },
+    {
       "version": "3.6.50",
       "title": "恢复直连播放速度",
       "items": [

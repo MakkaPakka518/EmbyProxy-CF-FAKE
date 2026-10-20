@@ -1,7 +1,7 @@
 # EmbyProxy-CF-FAKE
 
 <p align="center">
-  <img src="https://img.shields.io/badge/version-v3.6.52-32ade6" alt="version">
+  <img src="https://img.shields.io/badge/version-v3.6.53-32ade6" alt="version">
   <img src="https://img.shields.io/badge/platform-Cloudflare%20Workers-32ade6" alt="platform">
   <img src="https://img.shields.io/badge/storage-D1%20%2B%20Durable%20Objects-32ade6" alt="storage">
   <img src="https://img.shields.io/badge/panel-SaaS%20UI%20%E4%BC%AA%E8%A3%85%E8%A7%82%E7%9C%8B%E9%9D%A2%E6%9D%BF-32ade6" alt="panel">
@@ -19,7 +19,7 @@ Cloudflare Workers 版 Emby 反向代理 + 伪装观看（保活）一体脚本�
 - **测速页预设优选源 30 源**：分组下拉（云枢全域与三网专线、104/162/172 大段家族、198&108 专线、IPv6 霄汉星轨 12 源、第三方备用），来源详情条显示名字/标识/完整 API 地址，点击一键复制
 - **综合混合源四源并发**：并发聚合 uouin + cf-speed-dns + 164746 + wetest，提取结果提示显示来源名
 
-当前版本：**3.6.52**（新增 **EMOS 模式**：按 emos.dpdns.org/proxy 要求自动透传真实 IP + 携带 EMOS-PROXY-ID/NAME 两枚头，可开启 EMOS 聚合让 SenPlayer 等按 TMDB 编号跨服出源；**EMOS+伪装模式**：EMOS 头/IP 透传与深度伪装 UA 引擎同时生效；**30x 取流单跳**：Location 指向媒体文件由 Worker 直接跟随取流，修复 EMOS 308 双跳慢/0KB；**起播优化**：PlaybackInfo 强制禁转码直连 + 内存缓存；**节点列表提速**：schema 仅首次 + 带宽缓存/限并发/超时 + 前端并行；全部不影响伪装、下载、保活功能；更新日志见 [changelog.json](changelog.json)）
+当前版本：**3.6.53**（**数据大屏统计统一北京时间 UTC+8**：今日请求分时趋势改「北京时间 24h」、分时按北京小时归桶，今日请求数/带宽/来源地区/状态码/防火墙拦截改北京今日 00:00 起算，近 7/30 天流量与请求数按北京时间日期范围查询，与播放记录/热力图口径对齐，CF 额度卡片保留 UTC 重置标注；**新增 EMOS 模式**：按 emos.dpdns.org/proxy 要求自动透传真实 IP + 携带 EMOS-PROXY-ID/NAME 两枚头，可开启 EMOS 聚合让 SenPlayer 等按 TMDB 编号跨服出源；**EMOS+伪装模式**：EMOS 头/IP 透传与深度伪装 UA 引擎同时生效；**30x 取流单跳**：Location 指向媒体文件由 Worker 直接跟随取流，修复 EMOS 308 双跳慢/0KB；**起播优化**：PlaybackInfo 强制禁转码直连 + 内存缓存；**节点列表提速**：schema 仅首次 + 带宽缓存/限并发/超时 + 前端并行；全部不影响伪装、下载、保活功能；更新日志见 [changelog.json](changelog.json)）
 
 ---
 
@@ -124,6 +124,6 @@ Cloudflare Workers 版 Emby 反向代理 + 伪装观看（保活）一体脚本�
 
 ## 六、变量与版本
 
-- 面板「网页端展示当前版本号」：首页会显示 `CURRENT_VERSION`（当前 3.6.52）
+- 面板「网页端展示当前版本号」：首页会显示 `CURRENT_VERSION`（当前 3.6.53）
 - 正式更新日志：本仓库 `changelog.json`（面板可读取展示）
 - 在线更新源：仓库 `worker.js` 的 raw 链接（面板设置里可触发检查更新）

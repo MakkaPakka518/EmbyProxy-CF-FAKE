@@ -1,6 +1,13 @@
 {
   "versions": [
     {
+      "version": "3.6.46",
+      "title": "UI 优化",
+      "items": [
+        "UI 优化"
+      ]
+    },
+    {
       "version": "3.6.45",
       "title": "测速页按钮统排:等宽等高 + 2+3/一排布局",
       "items": [

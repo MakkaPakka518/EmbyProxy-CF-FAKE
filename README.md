@@ -1,8 +1,12 @@
 # EmbyProxy-CF-FAKE
 
-| version | platform | storage | panel |
-| --- | --- | --- | --- |
-| v3.6.48 | Cloudflare Workers | D1 + Durable Objects | SaaS UI 伪装观看面板 |
+<p align="center">
+  <img src="https://img.shields.io/badge/version-v3.6.48-32ade6" alt="version">
+  <img src="https://img.shields.io/badge/platform-Cloudflare%20Workers-32ade6" alt="platform">
+  <img src="https://img.shields.io/badge/storage-D1%20%2B%20Durable%20Objects-32ade6" alt="storage">
+  <img src="https://img.shields.io/badge/panel-SaaS%20UI%20%E4%BC%AA%E8%A3%85%E8%A7%82%E7%9C%8B%E9%9D%A2%E6%9D%BF-32ade6" alt="panel">
+</p>
+
 
 
 Cloudflare Workers 版 Emby 反向代理 + 伪装观看（保活）一体脚本。

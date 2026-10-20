@@ -1,5 +1,10 @@
 # EmbyProxy-CF-FAKE
 
+| version | platform | storage | panel |
+| --- | --- | --- | --- |
+| v3.6.48 | Cloudflare Workers | D1 + Durable Objects | SaaS UI 伪装观看面板 |
+
+
 Cloudflare Workers 版 Emby 反向代理 + 伪装观看（保活）一体脚本。
 
 - 反向代理访问你的 Emby 服务器（隐藏真实地址，面板化管理多节点）

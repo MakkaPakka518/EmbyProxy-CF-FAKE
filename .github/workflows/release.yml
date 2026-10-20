@@ -1,13 +1,6 @@
 name: 自动发版（伪装版）
 
 on:
-  # ① push 到 main 且 worker.js / changelog.json 有变化时自动打包发版
-  push:
-    branches: [main]
-    paths:
-      - worker.js
-      - changelog.json
-  # ② 也可在 Actions 页面手动触发（可自定义发布说明）
   workflow_dispatch:
     inputs:
       notes:

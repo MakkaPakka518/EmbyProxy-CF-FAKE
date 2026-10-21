@@ -1,6 +1,37 @@
 {
   "versions": [
     {
+      "version": "3.6.67",
+      "title": "弹窗截断双保险:全部弹窗移到 body 顶层,不再受 page-view 动画 transform 影响",
+      "items": [
+        "根因补充:DOMContentLoaded 智能重排时只把 4 个弹窗移到 body,其余弹窗(保活中心/更新提醒/节点申请/订阅申请/保活/保活详情/重播码/验证码/占位码)被 sortCard 分进带 dsFadeIn 动画的 page-view 房间,动画 forwards 残留 transform 使 fixed 弹窗退化为相对 page-view 定位——页面矮(节点折叠)时弹窗被压扁截断、滚动失效,节点全部展开后页面变高弹窗又完整(与实测现象完全吻合)",
+        "修复①(3.6.66):dsFadeIn 关键帧结束改 transform:none,动画结束后不再残留 transform",
+        "修复②(3.6.67):DOMContentLoaded 时全部弹窗统一移到 body 顶层(与 nodeModal 等 4 个正常弹窗一致),sortCard 排除列表同步,不再被分进带动画的 page-view 房间",
+        "3.6.65 的安全区 padding 保留"
+      ],
+      "date": "2026-10-21"
+    },
+    {
+      "version": "3.6.66",
+      "title": "修复弹窗截断根因(3.6.65 安全区方案基础上,根治 page-view transform)",
+      "items": [
+        "根因:.page-view.active 的 dsFadeIn 页面切换动画 forwards 结束后残留 transform(translateY(0) 单位矩阵),CSS 规范下任何 transform(含单位矩阵)都会让内部 position:fixed 弹窗退化为相对 page-view 定位——节点折叠时页面矮、弹窗被压扁截断,节点全部展开后页面变高、弹窗又显示完整(与用户实测现象完全吻合)",
+        "修复:dsFadeIn 关键帧结束改为 transform:none(动画结束后不再残留 transform),弹窗恢复相对视口定位,与顶部固定栏此前「移到 body 顶层避免被 transform 动画破坏 fixed」同源问题一并根治",
+        "3.6.65 的安全区 padding 修复保留(顶部状态栏/底部手势条预留)"
+      ],
+      "date": "2026-10-21"
+    },
+    {
+      "version": "3.6.65",
+      "title": "修复移动端弹窗顶部/底部被截断(更新提醒/节点申请/保活中心等)",
+      "items": [
+        "全部弹窗(更新提醒、节点申请审核、保活中心、节点编辑、保活弹窗、重播码/验证码/占位码、申请记录等)外层 padding 补安全区适配 env(safe-area-inset-top/bottom),顶部不再被状态栏/刘海屏遮住、底部不再被 iOS 手势条截断",
+        "补齐缺失的 -webkit-overflow-scrolling:touch,移动端弹窗内容超高时可正常触控滚动,不再滚不动被截断",
+        "普通版 3.4.48 已用 modal-mask 类自带安全区,本次伪装版同步同等修复"
+      ],
+      "date": "2026-10-21"
+    },
+    {
       "version": "3.6.64",
       "title": "热度图各节点显示节点备注(修正 3.6.63 字段)",
       "items": [

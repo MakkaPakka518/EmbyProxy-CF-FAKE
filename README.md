@@ -1,7 +1,7 @@
 # EmbyProxy-CF-FAKE
 
 <p align="center">
-  <img src="https://img.shields.io/badge/version-v3.6.67-32ade6" alt="version">
+  <img src="https://img.shields.io/badge/version-v3.7.1-32ade6" alt="version">
   <img src="https://img.shields.io/badge/platform-Cloudflare%20Workers-32ade6" alt="platform">
   <img src="https://img.shields.io/badge/storage-D1%20%2B%20Durable%20Objects-32ade6" alt="storage">
   <img src="https://img.shields.io/badge/panel-SaaS%20UI%20%E4%BC%AA%E8%A3%85%E8%A7%82%E7%9C%8B%E9%9D%A2%E6%9D%BF-32ade6" alt="panel">

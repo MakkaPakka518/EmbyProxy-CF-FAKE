@@ -1,6 +1,24 @@
 {
   "versions": [
     {
+      "version": "3.7.1",
+      "date": "2026-10-22",
+      "title": "安全加固 + 性能优化 + 代码清理",
+      "items": [
+        "登录改为新接口 /api/login，cookie 不再存储明文密码",
+        "Cookie 使用签名会话，携带 HttpOnly、SameSite=Lax；HTTPS 场景自动开启 Secure，密码校验使用恒定时间比较",
+        "修改管理员密码、删除订阅者时，对应会话自动失效",
+        "登录接口、/api/entry 增加失败限流：同一IP 10分钟内失败8次返回429",
+        "面板所有写请求校验 Origin，拦截跨站请求",
+        "TG webhook 仅向配置好的聊天ID推送统计；配置 TG_WEBHOOK_SECRET 环境变量时校验 Telegram secret 请求头",
+        "/api/get-dns、/api/get-remote-ips、/api/get-custom-api-ips 接口权限调整为仅管理员访问；自定义IP接口拒绝内网地址并增加超时控制",
+        "Logo 地址增加字符白名单，移除 /speedtest/data 的通配 CORS",
+        "配置、IP名单、节点路由等增加内存缓存，热身完成后的反代请求D1查询平均从11.4次降至0次；建表、加列仅执行一次，三项定时检查合并为单条SQL原子抢占",
+        "节点/配置修改后当前实例立即生效，其余实例延迟约10~30秒同步",
+        "移除 EMOS 废弃代码、图标映射重复键；前端HTML模板内的I/toSvg不属于重复代码，保留不变"
+      ]
+    },
+    {
       "version": "3.6.70",
       "date": "2026-10-22",
       "title": "保活优化:自动保活并发(DO 最多 3 并行)+失败重试间隔可配置+保活通知模式开关+热力图保留 30 天+DO job 清理",

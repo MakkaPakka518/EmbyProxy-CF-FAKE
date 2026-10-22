@@ -1,6 +1,14 @@
 {
   "versions": [
     {
+      "version": "3.7.4",
+      "date": "2026-10-22",
+      "title": "新增 STRM 优化开关",
+      "items": [
+        "新增strm优化开关：开启后仅当PlaybackInfo里DirectStreamUrl为空、Path有值时，才会把Path改写成反代前缀地址并填进DirectStreamUrl，不再执行兜底改写，Path保持源站原样"
+      ]
+    },
+    {
       "version": "3.7.3",
       "date": "2026-10-22",
       "title": "重新判定保活任务失败范围",

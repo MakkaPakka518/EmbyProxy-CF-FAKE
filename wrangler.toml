@@ -1,0 +1,32 @@
+name = "myemby"
+main = "worker.js"
+compatibility_date = "2024-09-23"
+compatibility_flags = ["nodejs_compat"]
+
+[[d1_databases]]
+binding = "DB"
+database_name = "myemby"
+database_id = "把 D1 的 UUID 填这里"
+
+[[durable_objects.bindings]]
+name = "KEEPALIVE_DO"
+class_name = "KeepAliveDO"
+
+# 免费版必须用 sqlite 类；tag 首次之后不要改
+[[migrations]]
+tag = "v1"
+new_sqlite_classes = ["KeepAliveDO"]
+
+[triggers]
+crons = ["0 * * * *"]
+
+[vars]
+CF_ACCOUNT_ID = "你的账户ID"
+CF_WORKER_NAME = "myemby"
+# 绑了自定义域再加这两行
+# CF_ZONE_ID = "你的 zone id"
+# CF_DOMAIN  = "emby.example.com"
+
+# 密钥不要写在这个文件里，用：
+#   wrangler secret put ADMIN_TOKEN
+#   wrangler secret put CF_API_TOKEN   （可选，面板清缓存/自更新用）

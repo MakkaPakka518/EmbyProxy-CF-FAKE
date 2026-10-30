@@ -1,4 +1,4 @@
-// VERSION: 3.8.27
+// VERSION: 3.8.28
 //  更新内容:新增 TG 签到——顶部「签到」按钮打开全屏签到面板;多账号×多机器人自动签到、统一时间段内随机执行、失败自动重试;SOCKS5 代理仅作用于 Telegram 签到流量;Bark/钉钉/Server酱/TG 推送汇总;复用 DB 与 KEEPALIVE_DO(类名不变),不新增绑定与变量
 const CURRENT_VERSION = "3.8.27"; 
 
